@@ -40,7 +40,7 @@
     .slick-slide {
         margin: 0 10px;
     }
- /* Card Styling */
+/* Card Styling */
 .card-style {
     background-color: #ffffff; /* White background for the card */
     border-radius: 15px; /* Rounded corners for the card */
@@ -48,8 +48,8 @@
     padding: 20px; /* Padding around the content */
     text-align: left; /* Align text to the left */
     position: relative; /* To allow image positioning */
-    overflow: visible; /* Make sure the image can overflow the card */
-    height: 300px; /* Set a fixed height for consistency */
+    overflow: visible; /* Allow the image to overflow the card */
+    height: 250px; /* Set a fixed height for consistency */
     display: flex; /* Flexbox for vertical alignment */
     flex-direction: column; /* Stack items vertically */
     justify-content: space-between; /* Space content inside card evenly */
@@ -57,15 +57,15 @@
 
 /* Image Styling - Larger and slightly out of the card */
 .styled-avatar {
-    width: 120px; /* Fixed width for the image */
-    height: 120px; /* Fixed height for the image */
+ 
+    height: 200px; /* Set a proportional height */
     border-radius: 15px; /* Slightly rounded corners */
     object-fit: cover; /* Prevent image from stretching */
     border: 2px solid #ddd; /* Optional border */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow around the image */
-    position: absolute; /* Positioning image relative to card */
+    position: absolute; /* Position image relative to card */
     bottom: -30px; /* Moves the image outside the card */
-    left: 10px; /* Adjust position from the left */
+    left: 20px; /* Adjust position from the left */
 }
 
 /* Text Styling */
@@ -86,6 +86,7 @@ p.text-left {
     min-height: 50px; /* Ensure a minimum height for small text */
     line-height: 1.5; /* Better line spacing for readability */
 }
+
 
 
 </style>
@@ -298,23 +299,25 @@ $testimonials = [
                 <h1 style="text-align:left;">What Our <span>Clients</span> Have to Say</h1><br>
             </div>
             <div>
-                <div id="client-testimonials" class="owl-carousel">
+                <div id="client-testimonials" class="owl-carousel ">
                     @foreach (collect($testimonials)->chunk(2) as $testimonialChunk) <!-- Loop through in chunks of 2 -->
                         <div class="item">
                             @foreach ($testimonialChunk as $testimonial)
-                                <div class="testimonial card-style p-3 position-relative">
+                                <div class="testimonial card-style  position-relative ">
                                     <!-- Layout for image on left and content on right -->
                                     <div class="row align-items-center">
                                         <!-- Author's Image on the left -->
                                         <div class="col-md-4 text-center">
-                                            <img src="{{ URL::asset($testimonial['image']) }}" alt="Avatar" class=" styled-avatar position-relative">
+                                            <img src="{{ URL::asset($testimonial['image']) }}" alt="Avatar" class="w-25 styled-avatar">
                                         </div>
 
                                         <!-- Testimonial Text on the right -->
                                         <div class="col-md-8">
-                                            <p class="author text-left font-weight-bold">— {{ $testimonial['author'] }}</p>
-                                            <p class="text-left">{{ $testimonial['text'] }}</p>
-                                            <div class="stars text-left fs-3">{{ $testimonial['stars'] }}</div>
+                                            <p class="text-center">{{ $testimonial['text'] }}</p>
+                                            <p class="author text-center font-weight-bold">— {{ $testimonial['author'] }}</p>
+                                        
+                                            <div class="stars text-center fs-3">{{ $testimonial['stars'] }}</div>
+                                        
                                         </div>
                                     </div>
                                 </div>
@@ -326,6 +329,7 @@ $testimonials = [
         </div>
     </div>
 </section>
+
 
 
 
@@ -358,7 +362,7 @@ $testimonials = [
         padding: 10px;
         background-color: #00798c;
         text-align: center;
-        margin-bottom: 20px; 
+        margin-bottom: 50px; 
         border-radius: 10px;
     }
 
