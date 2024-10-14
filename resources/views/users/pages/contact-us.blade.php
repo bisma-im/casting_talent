@@ -156,6 +156,23 @@ p.text-left {
                         </div>
                     </div>
             </div>
+            {{-- <div class="col-lg-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="innertext">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/YourPostLink/" data-instgrm-version="12">
+                        <a href="https://www.instagram.com/p/YourPostLink/" target="_blank">View this post on Instagram</a>
+                    </blockquote>
+                    <script async src="//www.instagram.com/embed.js"></script>
+                </div>
+            </div> --}}
+            <!-- LightWidget WIDGET -->
+            <div class="col-lg-1">            </div>
+
+            <div class="col-lg-5 col-md-4 col-lg-4 col-xl-4 bg-white p-4">
+                <h4 class="text-center">Follow us on Instagram</h4>
+                <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+            
+            </div>
+            
             <div class="form-step">
                 <div class="row">
                     <div class="col-12">
@@ -270,25 +287,25 @@ p.text-left {
     @php
 $testimonials = [
     [
-        'image' => 'user-assets/images/about_img.png',
+        'image' => 'user-assets/testimonial-images/REMO DSOUZA OPTION 2.jpg',
         'stars' => '★★★★★',
         'text' => 'We were here to shoot street dancer movie, AKS CASTINGS have done a fabulous job, helped us a lot and they are very good and hard working. I wish all the best to ABEERA K SHEIKH May God always bless you and keep up the work.',
         'author' => 'Remo Dsouza | Indian choreographer, actor, and film director'
     ],
     [
-        'image' => 'user-assets/images/about_img.png',
+        'image' => 'user-assets/testimonial-images/arvindr-khaira.webp',
         'stars' => '★★★★★',
         'text' => 'We almost shooted for 4 days which amazingly passed and ABEERA K SEIKH is extremely hard-working amazing work.',
         'author' => 'Arvindr Khaira | Indian Film and Music video director'
     ],
     [
-        'image' => 'user-assets/images/about_img.png',
+        'image' => 'user-assets/testimonial-images/B Praak.jpeg',
         'stars' => '★★★★★',
         'text' => 'I came here for filming a song and Abeera k sheikh provided Models and dancers. She is great at her job.. God bless.',
         'author' => 'B Praak | Indian singer and music director'
     ],
     [
-        'image' => 'user-assets/images/about_img.png',
+        'image' => 'user-assets/testimonial-images/jassie gill.jpeg',
         'stars' => '★★★★★',
         'text' => 'Abeera K Sheikh has helped and supported a lot in our project. All the best God bless.',
         'author' => 'Jassie Gill | Indian Singer and Actor'
