@@ -174,7 +174,8 @@
                                         Riyadh, KSA | ksa@casttalents.com</a><br /> </p>
                                 <!-- <p class="text-left mx-5">                                        <a class="fw_400 text_grey" href="mailto:dxb@casttalents.com"><span class="fw_500 text-dark"> DUBAI: </span> dubai address</a><br/>                                        <a class="fw_400 text_grey" href="mailto:oman@casttalents.com"><span class="fw_500 text-dark"> MUSCAT, OMAN: </span> oman address</a><br/>                                        <a class="fw_400 text_grey" href="mailto:ksa@casttalents.com"><span class="fw_500 text-dark"> RIYADH, KSA: </span> riyadh address</a><br/>                                    </p> -->
                             </div>
-                            <div class="social-icons mx-5 d-flex gap-4"> <a class="text-yellow fs-3" target="_blank"
+                            <div class="social-icons mx-5 d-flex gap-4">
+                                {{-- <a class="text-yellow fs-3" target="_blank"
                                     href="https://www.facebook.com/abeera.k.sheikh"><i
                                         class="fa-brands fa-facebook"></i></a> <a class="text-yellow fs-3"
                                     target="_blank" href="https://www.instagram.com/casttalents.llc/"><i
@@ -183,14 +184,18 @@
                                     href="https://www.linkedin.com/in/abeera-sheikh-uae-based-casting-specialist-actor-and-founder-of-aks-castings-llc-723063147"><i
                                         class="fa-brands fa-linkedin"></i></a> <a class="text-yellow fs-3"
                                     target="_blank" href="https://www.snapchat.com/add/abeeraksheikh"><i
-                                        class="fa-brands fa-snapchat"></i></a> </div>
+                                        class="fa-brands fa-snapchat"></i></a> --}}
+                                        <!-- SnapWidget -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-lg-4 col-xl-4 ">
-                <div class="innertext"> <iframe width="100%" height="440"
-                        src="https://www.instagram.com/casttalents.llc/" frameborder="0"></iframe> </div>
+                <div class="innertext"> 
+                    <iframe width="100%" height="440"
+                        src="https://www.instagram.com/casttalents.llc/" frameborder="0"></iframe> 
+                </div>
             </div>
         </div>
     </div>
@@ -264,7 +269,7 @@
                                     and
                                     dancers. She is great at her job.. God bless "</p>
                                 <p class="author text-left">— B Praak— Indian singer and music director</p> <br />
-                               
+
                             </div>
                             <div class="testimonial">
                                 <img src="{{ URL::asset('user-assets/images/about_img.png') }}" alt="Avatar"
@@ -312,7 +317,7 @@
         padding: 10px;
         background-color: #00798c;
         text-align: center;
-        margin-bottom: 20px; 
+        margin-bottom: 20px;
         border-radius: 10px;
     }
 
