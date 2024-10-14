@@ -195,56 +195,94 @@
         </div>
     </div>
 </section> <!--  Testimonials  -->
-<section class="contactlist" style="background-color: #f3fbff !important;">
-    <div class="container">
-        <div class="row">
-            <div class="innertext text-left">
-                <h1 style="text-align:left;">What Our <span>Clients</span> Have to Say</h1><br>
-            </div>
-            <div class="col-lg-12 col-md-12 col-xl-12">
-                <div id="client-testimonials" class="owl-carousel">
-                    <div class="testimonial">
-                        <div class="stars text-left fs-3">★★★★★</div>
-                        <!-- <h2 style="line-height: 0.75;" class="lateef text-left">Indian choreographer, actor, and film director</h2> -->
-                        <p class="text-left">"We were here to shoot street dancer movie, AKS CASTINGS have done a
-                            fabulous job, helped us a lot and they are very good and hard working. I wish all the best
-                            to ABEERA K SHEIKH May God always bless you and keep up the work."</p>
-                        <p class="author text-left">— Remo Dsouza | Indian choreographer, actor, and film director</p>
-                    </div>
-                    <div class="testimonial">
-                        <div class="stars text-left fs-3">★★★★★</div>
-                        <!-- <h2 style="line-height: 0.75;" class="lateef text-left">VERY LOVELY AND PROFESSIONAL</h2> -->
-                        <p class="text-left">"We almost shooted for 4 days which amazingly passed and ABEERA K SEIKH is
-                            extremely hard-working amazing work" </p>
-                        <p class="author text-left">— Arvindr Khaira | Indian Film and Music video director</p> <br />
-                        <br /> <br /> <br />
-                    </div>
-                    <div class="testimonial">
-                        <div class="stars text-left fs-3">★★★★★</div>
-                        <!-- <h2 style="line-height: 0.75;" class="lateef text-left">VERY THANKFUL, PROFESSIONAL CORPORATIONS</h2> -->
-                        <p class="text-left">"I came here for filming a song and Abeera k sheikh provided Models and
-                            dancers. She is great at her job.. God bless "</p>
-                        <p class="author text-left">— B Praak— Indian singer and music director</p> <br /> <br /> <br />
-                        <br />
-                    </div>
-                    <div class="testimonial">
-                        <div class="stars text-left fs-3">★★★★★</div>
-                        <!-- <h2 style="line-height: 0.75;" class="lateef text-left">HUMAN, VERY AVAILABLE AND RESPONSIVE</h2> -->
-                        <p class="text-left">"Abeera K Sheikh has helped and supported a lot in our project. All the
-                            best God bless."</p>
-                        <p class="author text-left">— Jassie Gill— Indian Singer and Actor</p> <br /> <br /> <br />
-                        <br />
+<div class="row">
+
+    {{---------------------------- google reviews ----------------------}}
+    <section class="contactlist col-lg-6 col-md-6 col-xl-6" style="background-color: #f3fbff !important;">
+        <div class="container">
+            <div class="row">
+                <div class="innertext text-left">
+                    <h1 style="text-align:left;">What <span>People</span> are saying</h1><br>
+                </div>
+                <div class="">
+                    <div id="google-reviews" class="owl-carousel">
+
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+
+    {{---------------------------- client reviews ----------------------}}
+    <section class="contactlist col-lg-6 col-md-6 col-xl-6" style="background-color: #f3fbff !important;">
+        <div class="container">
+            <div class="row">
+                <div class="innertext text-left">
+                    <h1 style="text-align:left;">What Our <span>Clients</span> Have to Say</h1><br>
+                </div>
+                <div>
+                    <div id="client-testimonials" class="owl-carousel">
+                        <div class="testimonial">
+                            <div class="stars text-left fs-3">★★★★★</div>
+                            <!-- <h2 style="line-height: 0.75;" class="lateef text-left">Indian choreographer, actor, and film director</h2> -->
+                            <p class="text-left">"We were here to shoot street dancer movie, AKS CASTINGS have done a
+                                fabulous job, helped us a lot and they are very good and hard working. I wish all the
+                                best
+                                to ABEERA K SHEIKH May God always bless you and keep up the work."</p>
+                            <p class="author text-left">— Remo Dsouza | Indian choreographer, actor, and film director
+                            </p>
+                        </div>
+                        <div class="testimonial">
+                            <div class="stars text-left fs-3">★★★★★</div>
+                            <!-- <h2 style="line-height: 0.75;" class="lateef text-left">VERY LOVELY AND PROFESSIONAL</h2> -->
+                            <p class="text-left">"We almost shooted for 4 days which amazingly passed and ABEERA K SEIKH
+                                is
+                                extremely hard-working amazing work" </p>
+                            <p class="author text-left">— Arvindr Khaira | Indian Film and Music video director</p>
+                            <br />
+                            <br /> <br /> <br />
+                        </div>
+                        <div class="testimonial">
+                            <div class="stars text-left fs-3">★★★★★</div>
+                            <!-- <h2 style="line-height: 0.75;" class="lateef text-left">VERY THANKFUL, PROFESSIONAL CORPORATIONS</h2> -->
+                            <p class="text-left">"I came here for filming a song and Abeera k sheikh provided Models and
+                                dancers. She is great at her job.. God bless "</p>
+                            <p class="author text-left">— B Praak— Indian singer and music director</p> <br /> <br />
+                            <br />
+                            <br />
+                        </div>
+                        <div class="testimonial">
+                            <div class="stars text-left fs-3">★★★★★</div>
+                            <!-- <h2 style="line-height: 0.75;" class="lateef text-left">HUMAN, VERY AVAILABLE AND RESPONSIVE</h2> -->
+                            <p class="text-left">"Abeera K Sheikh has helped and supported a lot in our project. All the
+                                best God bless."</p>
+                            <p class="author text-left">— Jassie Gill— Indian Singer and Actor</p> <br /> <br /> <br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 <script>
-    $(document).ready(function(){            $('#client-testimonials').owlCarousel({                loop: true,                margin: 10,                nav: true,                responsive: {                    0: {                        items: 1                    },                    600: {                        items: 2                    },                    1000: {                        items: 4                    }                }            });        });    
+    $(document).ready(function(){            
+        $('#client-testimonials').owlCarousel({                
+            loop: true,                
+            margin: 10,                
+            nav: true,                
+            responsive: {                    
+                0: {  items: 1},
+                600: {items: 2},
+                1000: {items: 4}               
+                }            
+        });        
+    });    
 </script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {            // Initialize phone inputs            var phoneInputs = document.querySelectorAll(".phone-input");            phoneInputs.forEach(function(input) {                // window.intlTelInput(input, {                //     initialCountry: "us",                //     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"                // });            });            const formSteps = document.querySelectorAll('.form-step');            const progressBar = document.getElementById('progress-bar');            let currentStep = 0;            function showStep(step) {                formSteps.forEach((formStep, index) => {                    formStep.style.display = index === step ? 'block' : 'none'; // Show/hide steps                });                updateProgressBar();            }            function updateProgressBar() {                const progress = ((currentStep + 1) / formSteps.length) * 100; // Updated to start at 25%                progressBar.style.width = progress + '%';                progressBar.innerText = Math.round(progress) + '%'; // Show percentage            }            function validateStep(step) {                const inputs = formSteps[step].querySelectorAll('input, textarea');                for (const input of inputs) {                    if (!input.value) {                        input.classList.add('is-invalid'); // Add invalid class                        return false;                    } else {                        input.classList.remove('is-invalid'); // Remove invalid class if valid                    }                }                return true;            }            document.querySelectorAll('.btn-next').forEach(button => {                button.addEventListener('click', () => {                    if (validateStep(currentStep)) {                        if (currentStep < formSteps.length - 1) {                            currentStep++;                            showStep(currentStep);                        }                    }                });            });            document.querySelectorAll('.btn-prev').forEach(button => {                button.addEventListener('click', () => {                    if (currentStep > 0) {                        currentStep--;                        showStep(currentStep);                    }                });            });            // Initialize the first step and set progress to 25%            showStep(currentStep);            updateProgressBar(); // This will set the initial progress bar to 25%        });    
+    document.addEventListener("DOMContentLoaded", function() {            // Initialize phone inputs            var phoneInputs = document.querySelectorAll(".phone-input");            phoneInputs.forEach(function(input) {                // window.intlTelInput(input, {                //     initialCountry: "us",                //     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"                // });            });            const formSteps = document.querySelectorAll('.form-step');            const progressBar = document.getElementById('progress-bar');            let currentStep = 0;            function showStep(step) {                formSteps.forEach((formStep, index) => {                    formStep.style.display = index === step ? 'block' : 'none'; // Show/hide steps                });                updateProgressBar();            }            function updateProgressBar() {                const progress = ((currentStep + 1) / formSteps.length) * 100; // Updated to start at 25%                progressBar.style.width = progress + '%';                progressBar.innerText = Math.round(progress) + '%'; // Show percentage            }            function validateStep(step) {                const inputs = formSteps[step].querySelectorAll('input, textarea');                for (const input of inputs) {                    if (!input.value) {                        input.classList.add('is-invalid'); // Add invalid class                        return false;                    } else {                        input.classList.remove('is-invalid'); // Remove invalid class if valid                    }                }                return true;            }            document.querySelectorAll('.btn-next').forEach(button => {                button.addEventListener('click', () => {                    if (validateStep(currentStep)) {                        if (currentStep < formSteps.length - 1) {                            currentStep++;                            showStep(currentStep);                        }                    }                });            });            document.querySelectorAll('.btn-prev').forEach(button => {                button.addEventListener('click', () => {                    if (currentStep > 0) {                        currentStep--;                        showStep(currentStep);                    }                });            });            // Initialize the first step and set progress to 25%            showStep(currentStep);            updateProgressBar(); // This will set the initial progress bar to 25%        
+    });    
 </script>
 <style>
     .owl-carousel .testimonial {
