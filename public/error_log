@@ -1,0 +1,1 @@
+[05-Oct-2024 04:34:27 UTC] PHP Fatal error:  Cannot use Illuminate\Support\Facades\Storage as Storage because the name is already in use in /home/h0i8r67itc67/public_html/projects/casting_talents/app/Http/Controllers/User/QueryController.php on line 18
