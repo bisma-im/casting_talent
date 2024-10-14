@@ -40,55 +40,78 @@
     .slick-slide {
         margin: 0 10px;
     }
-/* Card Styling */
-.card-style {
-    background-color: #ffffff; /* White background for the card */
-    border-radius: 15px; /* Rounded corners for the card */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation effect */
-    padding: 20px; /* Padding around the content */
-    text-align: left; /* Align text to the left */
-    position: relative; /* To allow image positioning */
-    overflow: visible; /* Allow the image to overflow the card */
-    height: 250px; /* Set a fixed height for consistency */
-    display: flex; /* Flexbox for vertical alignment */
-    flex-direction: column; /* Stack items vertically */
-    justify-content: space-between; /* Space content inside card evenly */
-}
 
-/* Image Styling - Larger and slightly out of the card */
-.styled-avatar {
- 
-    height: 200px; /* Set a proportional height */
-    border-radius: 15px; /* Slightly rounded corners */
-    object-fit: cover; /* Prevent image from stretching */
-    border: 2px solid #ddd; /* Optional border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow around the image */
-    position: absolute; /* Position image relative to card */
-    bottom: -30px; /* Moves the image outside the card */
-    left: 20px; /* Adjust position from the left */
-}
+    /* Card Styling */
+    .card-style {
+        background-color: #ffffff;
+        /* White background for the card */
+        border-radius: 15px;
+        /* Rounded corners for the card */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        /* Soft shadow for elevation effect */
+        padding: 20px;
+        /* Padding around the content */
+        text-align: left;
+        /* Align text to the left */
+        position: relative;
+        /* To allow image positioning */
+        overflow: visible;
+        /* Allow the image to overflow the card */
+        height: 250px;
+        /* Set a fixed height for consistency */
+        display: flex;
+        /* Flexbox for vertical alignment */
+        flex-direction: column;
+        /* Stack items vertically */
+        justify-content: space-between;
+        /* Space content inside card evenly */
+    }
 
-/* Text Styling */
-.author {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
-}
+    /* Image Styling - Larger and slightly out of the card */
+    .styled-avatar {
 
-.stars {
-    color: #FFD700; /* Gold color for the stars */
-}
+        height: 200px;
+        /* Set a proportional height */
+        border-radius: 15px;
+        /* Slightly rounded corners */
+        object-fit: cover;
+        /* Prevent image from stretching */
+        border: 2px solid #ddd;
+        /* Optional border */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Add a subtle shadow around the image */
+        position: absolute;
+        /* Position image relative to card */
+        bottom: -30px;
+        /* Moves the image outside the card */
+        left: 20px;
+        /* Adjust position from the left */
+    }
 
-p.text-left {
-    font-size: 16px; /* Adjust font size */
-    color: #666; /* Softer color for testimonial text */
-    margin-bottom: 10px; /* Add some space below the text */
-    min-height: 50px; /* Ensure a minimum height for small text */
-    line-height: 1.5; /* Better line spacing for readability */
-}
+    /* Text Styling */
+    .author {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+    }
 
+    .stars {
+        color: #FFD700;
+        /* Gold color for the stars */
+    }
 
-
+    p.text-left {
+        font-size: 16px;
+        /* Adjust font size */
+        color: #666;
+        /* Softer color for testimonial text */
+        margin-bottom: 10px;
+        /* Add some space below the text */
+        min-height: 50px;
+        /* Ensure a minimum height for small text */
+        line-height: 1.5;
+        /* Better line spacing for readability */
+    }
 </style>
 <section class="innerpages">
     <div class="container">
@@ -158,21 +181,26 @@ p.text-left {
             </div>
             {{-- <div class="col-lg-4 col-md-4 col-lg-4 col-xl-4">
                 <div class="innertext">
-                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/YourPostLink/" data-instgrm-version="12">
-                        <a href="https://www.instagram.com/p/YourPostLink/" target="_blank">View this post on Instagram</a>
+                    <blockquote class="instagram-media"
+                        data-instgrm-permalink="https://www.instagram.com/p/YourPostLink/" data-instgrm-version="12">
+                        <a href="https://www.instagram.com/p/YourPostLink/" target="_blank">View this post on
+                            Instagram</a>
                     </blockquote>
                     <script async src="//www.instagram.com/embed.js"></script>
                 </div>
             </div> --}}
             <!-- LightWidget WIDGET -->
-            <div class="col-lg-1">            </div>
+            <div class="col-lg-1"> </div>
 
             <div class="col-lg-5 col-md-4 col-lg-4 col-xl-4 bg-white p-4">
                 <h4 class="text-center">Follow us on Instagram</h4>
-                <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
-            
+                <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe
+                    src="//lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html" scrolling="no"
+                    allowtransparency="true" class="lightwidget-widget"
+                    style="width:100%;border:0;overflow:hidden;"></iframe>
+
             </div>
-            
+
             <div class="form-step">
                 <div class="row">
                     <div class="col-12">
@@ -251,16 +279,16 @@ p.text-left {
                                         class="fa-brands fa-linkedin"></i></a> <a class="text-yellow fs-3"
                                     target="_blank" href="https://www.snapchat.com/add/abeeraksheikh"><i
                                         class="fa-brands fa-snapchat"></i></a> --}}
-                                        <!-- SnapWidget -->
+                                <!-- SnapWidget -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-lg-4 col-xl-4 ">
-                <div class="innertext"> 
-                    <iframe width="100%" height="440"
-                        src="https://www.instagram.com/casttalents.llc/" frameborder="0"></iframe> 
+                <div class="innertext">
+                    <iframe width="100%" height="440" src="https://www.instagram.com/casttalents.llc/"
+                        frameborder="0"></iframe>
                 </div>
             </div>
         </div>
@@ -285,72 +313,79 @@ p.text-left {
     </section>
 
     @php
-$testimonials = [
+    $testimonials = [
     [
-        'image' => 'user-assets/testimonial-images/REMO DSOUZA OPTION 2.jpg',
-        'stars' => '★★★★★',
-        'text' => 'We were here to shoot street dancer movie, AKS CASTINGS have done a fabulous job, helped us a lot and they are very good and hard working. I wish all the best to ABEERA K SHEIKH May God always bless you and keep up the work.',
-        'author' => 'Remo Dsouza | Indian choreographer, actor, and film director'
+    'image' => 'user-assets/testimonial-images/REMO DSOUZA OPTION 2.jpg',
+    'stars' => '★★★★★',
+    'text' => 'We were here to shoot street dancer movie, AKS CASTINGS have done a fabulous job, helped us a lot and
+    they are very good and hard working. I wish all the best to ABEERA K SHEIKH May God always bless you and keep up the
+    work.',
+    'author' => 'Remo Dsouza | Indian choreographer, actor, and film director'
     ],
     [
-        'image' => 'user-assets/testimonial-images/arvindr-khaira.webp',
-        'stars' => '★★★★★',
-        'text' => 'We almost shooted for 4 days which amazingly passed and ABEERA K SEIKH is extremely hard-working amazing work.',
-        'author' => 'Arvindr Khaira | Indian Film and Music video director'
+    'image' => 'user-assets/testimonial-images/arvindr-khaira.webp',
+    'stars' => '★★★★★',
+    'text' => 'We almost shooted for 4 days which amazingly passed and ABEERA K SEIKH is extremely hard-working amazing
+    work.',
+    'author' => 'Arvindr Khaira | Indian Film and Music video director'
     ],
     [
-        'image' => 'user-assets/testimonial-images/B Praak.jpeg',
-        'stars' => '★★★★★',
-        'text' => 'I came here for filming a song and Abeera k sheikh provided Models and dancers. She is great at her job.. God bless.',
-        'author' => 'B Praak | Indian singer and music director'
+    'image' => 'user-assets/testimonial-images/B Praak.jpeg',
+    'stars' => '★★★★★',
+    'text' => 'I came here for filming a song and Abeera k sheikh provided Models and dancers. She is great at her job..
+    God bless.',
+    'author' => 'B Praak | Indian singer and music director'
     ],
     [
-        'image' => 'user-assets/testimonial-images/jassie gill.jpeg',
-        'stars' => '★★★★★',
-        'text' => 'Abeera K Sheikh has helped and supported a lot in our project. All the best God bless.',
-        'author' => 'Jassie Gill | Indian Singer and Actor'
+    'image' => 'user-assets/testimonial-images/jassie gill.jpeg',
+    'stars' => '★★★★★',
+    'text' => 'Abeera K Sheikh has helped and supported a lot in our project. All the best God bless.',
+    'author' => 'Jassie Gill | Indian Singer and Actor'
     ]
-];
-@endphp
+    ];
+    @endphp
 
     {{---------------------------- client reviews ----------------------}}
     <section class="contactlist col-lg-6 col-md-6 col-xl-6" style="background-color: #f3fbff !important;">
-    <div class="container">
-        <div class="row">
-            <div class="innertext text-left">
-                <h1 style="text-align:left;">What Our <span>Clients</span> Have to Say</h1><br>
-            </div>
-            <div>
-                <div id="client-testimonials" class="owl-carousel ">
-                    @foreach (collect($testimonials)->chunk(2) as $testimonialChunk) <!-- Loop through in chunks of 2 -->
+        <div class="container">
+            <div class="row">
+                <div class="innertext text-left">
+                    <h1 style="text-align:left;">What Our <span>Clients</span> Have to Say</h1><br>
+                </div>
+                <div>
+                    <div id="client-testimonials" class="owl-carousel ">
+                        @foreach (collect($testimonials)->chunk(2) as $testimonialChunk)
+                        <!-- Loop through in chunks of 2 -->
                         <div class="item">
                             @foreach ($testimonialChunk as $testimonial)
-                                <div class="testimonial card-style  position-relative ">
-                                    <!-- Layout for image on left and content on right -->
-                                    <div class="row align-items-center">
-                                        <!-- Author's Image on the left -->
-                                        <div class="col-md-4 text-center">
-                                            <img src="{{ URL::asset($testimonial['image']) }}" alt="Avatar" class="w-25 styled-avatar">
-                                        </div>
+                            <div class="testimonial card-style  position-relative ">
+                                <!-- Layout for image on left and content on right -->
+                                <div class="row align-items-center">
+                                    <!-- Author's Image on the left -->
+                                    <div class="col-md-4 text-center">
+                                        <img src="{{ URL::asset($testimonial['image']) }}" alt="Avatar"
+                                            class="w-25 styled-avatar">
+                                    </div>
 
-                                        <!-- Testimonial Text on the right -->
-                                        <div class="col-md-8">
-                                            <p class="text-center">{{ $testimonial['text'] }}</p>
-                                            <p class="author text-center font-weight-bold">— {{ $testimonial['author'] }}</p>
-                                        
-                                            <div class="stars text-center fs-3">{{ $testimonial['stars'] }}</div>
-                                        
-                                        </div>
+                                    <!-- Testimonial Text on the right -->
+                                    <div class="col-md-8">
+                                        <p class="text-center">{{ $testimonial['text'] }}</p>
+                                        <p class="author text-center font-weight-bold">— {{ $testimonial['author'] }}
+                                        </p>
+
+                                        <div class="stars text-center fs-3">{{ $testimonial['stars'] }}</div>
+
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                         </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -372,8 +407,40 @@ $testimonials = [
         touchDrag: true,
         mouseDrag: true
         });
-    });
 
+        // function fetchGoogleReviews() {
+        //     var placeId = 'ChIJ9foObnFpXz4RghjwyLxhQGo';  // Replace PLACE_ID_YOU_OBTAINED with your actual Place ID
+        //     var apiKey = 'AIzaSyAGg8dmcZwgUUpOFsaoW6l7GJQvBbZ-jts'; // Replace YOUR_API_KEY with your actual API Key
+
+        //     var url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=review&key=${apiKey}`;
+
+        //     $.ajax({
+        //         url: url,
+        //         method: 'GET',
+        //         success: function (data) {
+        //             console.log(data)
+        //             displayReviews(data.result.reviews);
+        //         },
+        //         error: function (error) {
+        //             console.error('Error fetching reviews:', error);
+        //         }
+        //     });
+        // }
+
+        // function displayReviews(reviews) {
+        //     reviews.forEach(function(review) {
+        //         var reviewHtml = `
+        //             <div class="review">
+        //                 <p>${review.author_name}</p>
+        //                 <p>Rating: ${review.rating}</p>
+        //                 <p>${review.text}</p>
+        //             </div>
+        //         `;
+        //         $('#google-reviews').append(reviewHtml);
+        //     });
+        // }
+        // fetchGoogleReviews();
+    });
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {            // Initialize phone inputs            var phoneInputs = document.querySelectorAll(".phone-input");            phoneInputs.forEach(function(input) {                // window.intlTelInput(input, {                //     initialCountry: "us",                //     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"                // });            });            const formSteps = document.querySelectorAll('.form-step');            const progressBar = document.getElementById('progress-bar');            let currentStep = 0;            function showStep(step) {                formSteps.forEach((formStep, index) => {                    formStep.style.display = index === step ? 'block' : 'none'; // Show/hide steps                });                updateProgressBar();            }            function updateProgressBar() {                const progress = ((currentStep + 1) / formSteps.length) * 100; // Updated to start at 25%                progressBar.style.width = progress + '%';                progressBar.innerText = Math.round(progress) + '%'; // Show percentage            }            function validateStep(step) {                const inputs = formSteps[step].querySelectorAll('input, textarea');                for (const input of inputs) {                    if (!input.value) {                        input.classList.add('is-invalid'); // Add invalid class                        return false;                    } else {                        input.classList.remove('is-invalid'); // Remove invalid class if valid                    }                }                return true;            }            document.querySelectorAll('.btn-next').forEach(button => {                button.addEventListener('click', () => {                    if (validateStep(currentStep)) {                        if (currentStep < formSteps.length - 1) {                            currentStep++;                            showStep(currentStep);                        }                    }                });            });            document.querySelectorAll('.btn-prev').forEach(button => {                button.addEventListener('click', () => {                    if (currentStep > 0) {                        currentStep--;                        showStep(currentStep);                    }                });            });            // Initialize the first step and set progress to 25%            showStep(currentStep);            updateProgressBar(); // This will set the initial progress bar to 25%        
@@ -385,7 +452,7 @@ $testimonials = [
         background-color: #00798c;
         text-align: center;
         margin-bottom: 20px;
-        margin-bottom: 50px; 
+        margin-bottom: 50px;
         border-radius: 10px;
     }
 
