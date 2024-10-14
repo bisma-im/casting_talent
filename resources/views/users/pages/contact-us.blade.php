@@ -40,78 +40,55 @@
     .slick-slide {
         margin: 0 10px;
     }
+/* Card Styling */
+/* Card Styling */
+.card-style {
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 15px; /* Rounded corners for the card */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation effect */
+    padding: 20px; /* Padding around the content */
+    text-align: left; /* Align text to the left */
+    position: relative; /* To allow image positioning */
+    overflow: visible; /* Allow the image to overflow the card */
+    height: 250px; /* Set a fixed height for consistency */
+    display: flex; /* Flexbox for vertical alignment */
+    justify-content: center; /* Centers content vertically */
+}
 
-    /* Card Styling */
-    .card-style {
-        background-color: #ffffff;
-        /* White background for the card */
-        border-radius: 15px;
-        /* Rounded corners for the card */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        /* Soft shadow for elevation effect */
-        padding: 20px;
-        /* Padding around the content */
-        text-align: left;
-        /* Align text to the left */
-        position: relative;
-        /* To allow image positioning */
-        overflow: visible;
-        /* Allow the image to overflow the card */
-        height: 250px;
-        /* Set a fixed height for consistency */
-        display: flex;
-        /* Flexbox for vertical alignment */
-        flex-direction: column;
-        /* Stack items vertically */
-        justify-content: space-between;
-        /* Space content inside card evenly */
-    }
+/* Image Styling - Larger and slightly out of the card */
+.styled-avatar {
+    width: 150px;
+    height: 200px;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: -30px;
+    left: 20px;
+}
 
-    /* Image Styling - Larger and slightly out of the card */
-    .styled-avatar {
-
-        height: 200px;
-        /* Set a proportional height */
-        border-radius: 15px;
-        /* Slightly rounded corners */
-        object-fit: cover;
-        /* Prevent image from stretching */
-        border: 2px solid #ddd;
-        /* Optional border */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        /* Add a subtle shadow around the image */
-        position: absolute;
-        /* Position image relative to card */
-        bottom: -30px;
-        /* Moves the image outside the card */
-        left: 20px;
-        /* Adjust position from the left */
-    }
-
-    /* Text Styling */
-    .author {
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 5px;
-    }
+/* Text Styling */
+.author {
+    font-weight: bold;
+    color: #D1495B
+    margin-bottom: 5px;
+}
 
     .stars {
         color: #FFD700;
         /* Gold color for the stars */
     }
 
-    p.text-left {
-        font-size: 16px;
-        /* Adjust font size */
-        color: #666;
-        /* Softer color for testimonial text */
-        margin-bottom: 10px;
-        /* Add some space below the text */
-        min-height: 50px;
-        /* Ensure a minimum height for small text */
-        line-height: 1.5;
-        /* Better line spacing for readability */
-    }
+p.text-center {
+    font-size: 16px; /* Adjust font size */
+    color: #666; /* Softer color for testimonial text */
+    margin-bottom: 10px; /* Add some space below the text */
+}
+
+
+
+
 </style>
 <section class="innerpages">
     <div class="container">
@@ -347,45 +324,45 @@
 
     {{---------------------------- client reviews ----------------------}}
     <section class="contactlist col-lg-6 col-md-6 col-xl-6" style="background-color: #f3fbff !important;">
-        <div class="container">
-            <div class="row">
-                <div class="innertext text-left">
-                    <h1 style="text-align:left;">What Our <span>Clients</span> Have to Say</h1><br>
-                </div>
-                <div>
-                    <div id="client-testimonials" class="owl-carousel ">
-                        @foreach (collect($testimonials)->chunk(2) as $testimonialChunk)
-                        <!-- Loop through in chunks of 2 -->
+    <div class="container">
+        <div class="row">
+            <div class="innertext text-left">
+                <h1 style="text-align:left;">What Our <span>Clients</span> Have to Say</h1><br>
+            </div>
+            <div>
+                <div id="client-testimonials" class="owl-carousel">
+                    @foreach (collect($testimonials)->chunk(2) as $testimonialChunk) <!-- Loop through in chunks of 2 -->
                         <div class="item">
                             @foreach ($testimonialChunk as $testimonial)
-                            <div class="testimonial card-style  position-relative ">
-                                <!-- Layout for image on left and content on right -->
-                                <div class="row align-items-center">
-                                    <!-- Author's Image on the left -->
-                                    <div class="col-md-4 text-center">
-                                        <img src="{{ URL::asset($testimonial['image']) }}" alt="Avatar"
-                                            class="w-25 styled-avatar">
-                                    </div>
+                                <div class="testimonial card-style position-relative d-flex align-items-center justify-content-center"> <!-- Added Flexbox for vertical centering -->
+                                    <!-- Layout for image on left and content on right -->
+                                    <div class="row w-100">
+                                        <!-- Author's Image on the left -->
+                                        <div class="col-md-4 text-center">
+                                            <img src="{{ URL::asset($testimonial['image']) }}" alt="Avatar" class="w-25 styled-avatar">
+                                        </div>
 
-                                    <!-- Testimonial Text on the right -->
-                                    <div class="col-md-8">
-                                        <p class="text-center">{{ $testimonial['text'] }}</p>
-                                        <p class="author text-center font-weight-bold">— {{ $testimonial['author'] }}
-                                        </p>
-
-                                        <div class="stars text-center fs-3">{{ $testimonial['stars'] }}</div>
-
+                                        <!-- Testimonial Text on the right -->
+                                        <div class="col-md-8 d-flex flex-column justify-content-center align-items-center">
+                                        <p class="text-center">
+                                                <i class="fas fa-quote-left fs-5"></i> <!-- Opening Quote Icon -->
+                                                {{ $testimonial['text'] }}
+                                                <i class="fas fa-quote-right fs-5"></i> <!-- Closing Quote Icon -->
+</p>
+                                            <h5 class="author fs-6 text-center font-weight-bold">— {{ $testimonial['author'] }}</h5>
+                                            <div class="stars text-center fs-3">{{ $testimonial['stars'] }}</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             @endforeach
                         </div>
-                        @endforeach
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
 
 
@@ -464,6 +441,9 @@
     .owl-carousel .testimonial h3 {
         font-size: 20px;
         margin-bottom: 10px;
+    }
+    .owl-carousel .testimonial h5 {
+        color: #D1495B;
     }
 
     .owl-carousel .testimonial p {
