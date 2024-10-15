@@ -450,7 +450,7 @@
         'stars' => '★★★★★',
         'text' => 'I came here for filming a song and Abeera k sheikh provided Models and dancers. She is great at her job..
         God bless.',
-        'author' => 'Jaani | Indian Songwriter and Musical Composer'
+        'author' => 'Janani | Indian Songwriter and Musical Composer'
         ],
         [
         'image' => 'user-assets/testimonial-images/jassie gill.jpeg',
@@ -738,7 +738,7 @@
     }
 
     .owl-carousel .testimonial h5 {
-        color: #D1495B;
+        color: #edae49;
     }
 
     .owl-carousel .testimonial p {
