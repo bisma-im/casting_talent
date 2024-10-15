@@ -147,8 +147,8 @@
         background-image: url('{{ url('user-assets/images/mobile-mockup.png') }}');
         background-size: cover;
         background-position: center;
-        width: 500px;
-        height: 690px;
+        width: 400px;
+        height: 750px;
         position: relative;
         margin: 0 auto;
         border-radius: 30px;
@@ -163,6 +163,7 @@
         left: 7.5%;
         border: none;
         overflow: hidden;
+        padding: 10px;
         border-radius: 15px;
     }
 </style>
