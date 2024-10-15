@@ -149,12 +149,13 @@
     <div class="container">
         <div class="col-12">
             <div class="innertext">
-                <h1>Contact us</h1>
+                {{-- <h1>Contact us</h1> --}}
             </div>
         </div>
     </div>
 </section>
 
+@include('users.pages.exit-popup')
 
 <section class="contactussec">
     <div class="container">
@@ -385,7 +386,7 @@
         <div class="container">
             <div class="row">
                 <div class="innertext text-left">
-                    <h1 style="text-align:left;">What <span>People</span> are saying</h1><br>
+                    <h1 style="text-align:left;">What Our <span>Clients</span> have to say</h1><br>
                 </div>
                 <div class="">
                     <div id="google-reviews" class="owl-carousel">
@@ -397,67 +398,133 @@
     </section>
 
     @php
-    $testimonials = [
-    [
-    'image' => 'user-assets/testimonial-images/REMO DSOUZA OPTION 2.jpg',
-    'stars' => '★★★★★',
-    'text' => 'We were here to shoot street dancer movie, AKS CASTINGS have done a fabulous job, helped us a lot and
-    they are very good and hard working. I wish all the best to ABEERA K SHEIKH May God always bless you and keep up the
-    work.',
-    'author' => 'Remo Dsouza | Indian choreographer, actor, and film director'
-    ],
-    [
-    'image' => 'user-assets/testimonial-images/arvindr-khaira.webp',
-    'stars' => '★★★★★',
-    'text' => 'We almost shooted for 4 days which amazingly passed and ABEERA K SEIKH is extremely hard-working amazing
-    work.',
-    'author' => 'Arvindr Khaira | Indian Film and Music video director'
-    ],
-    [
-    'image' => 'user-assets/testimonial-images/b-praak.jpeg',
-    'stars' => '★★★★★',
-    'text' => 'I came here for filming a song and Abeera k sheikh provided Models and dancers. She is great at her job..
-    God bless.',
-    'author' => 'B Praak | Indian singer and music director'
-    ],
-    [
-    'image' => 'user-assets/testimonial-images/janani.jpg',
-    'stars' => '★★★★★',
-    'text' => 'I came here for filming a song and Abeera k sheikh provided Models and dancers. She is great at her job..
-    God bless.',
-    'author' => 'Jaani | Indian Songwriter and Musical Composer'
-    ],
-    [
-    'image' => 'user-assets/testimonial-images/jassie gill.jpeg',
-    'stars' => '★★★★★',
-    'text' => 'Abeera K Sheikh has helped and supported a lot in our project. All the best God bless.',
-    'author' => 'Jassie Gill | Indian Singer and Actor'
-    ],
-    [
-    'image' => 'user-assets/testimonial-images/MANJU.jpg',
-    'stars' => '★★★★★',
-    'text' => 'I filmed my movie Ayisha in Ras Al Khaimah, UAE, and it was a truly great experience working with Abeera K. Sheikh as the casting director.',
-    'author' => 'Manju Warrier | Indian Songwriter and Musical Composer'
-    ],
-    [
-    'image' => 'user-assets/testimonial-images/random.jpg',
-    'stars' => '★★★★★',
-    'text' => 'Abeera was the casting director for the movie Street Dancer, and I found her to be very energetic, professional, and cooperative.',
-    'author' => 'Nora Fatehi | Canadian Dancer and Indian Actress'
-    ],
-    [
-    'image' => 'user-assets/testimonial-images/random.jpg',
-    'stars' => '★★★★★',
-    'text' => 'Cast Talents managed the casting for our song Tere Bina and did an excellent job with the casting process.',
-    'author' => 'Bohemia | Pakistani-American Rapper and Singer'
-    ],
-    [
-    'image' => 'user-assets/testimonial-images/suniel-shetty.jpg',
-    'stars' => '★★★★★',
-    'text' => 'I have had the experience of working with Abeera on several events, including the T10 and Kabaddi events, and found her to be highly professional and responsible in her work.',
-    'author' => 'Suniel Shetty | Indian Actor and Film Producer'
-    ]
-    ];
+        $testimonials = [
+        [
+        'image' => 'user-assets/testimonial-images/REMO DSOUZA OPTION 2.jpg',
+        'stars' => '★★★★★',
+        'text' => 'We were here to shoot street dancer movie, AKS CASTINGS have done a fabulous job, helped us a lot and
+        they are very good and hard working. I wish all the best to ABEERA K SHEIKH May God always bless you and keep up the
+        work.',
+        'author' => 'Remo Dsouza | Indian choreographer, actor, and film director'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/arvindr-khaira.webp',
+        'stars' => '★★★★★',
+        'text' => 'We almost shooted for 4 days which amazingly passed and ABEERA K SEIKH is extremely hard-working amazing
+        work.',
+        'author' => 'Arvindr Khaira | Indian Film and Music video director'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/b-praak.jpeg',
+        'stars' => '★★★★★',
+        'text' => 'I came here for filming a song and Abeera k sheikh provided Models and dancers. She is great at her job..
+        God bless.',
+        'author' => 'B Praak | Indian singer and music director'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/janani.jpg',
+        'stars' => '★★★★★',
+        'text' => 'I came here for filming a song and Abeera k sheikh provided Models and dancers. She is great at her job..
+        God bless.',
+        'author' => 'Jaani | Indian Songwriter and Musical Composer'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/jassie gill.jpeg',
+        'stars' => '★★★★★',
+        'text' => 'Abeera K Sheikh has helped and supported a lot in our project. All the best God bless.',
+        'author' => 'Jassie Gill | Indian Singer and Actor'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/MANJU.jpg',
+        'stars' => '★★★★★',
+        'text' => 'I filmed my movie Ayisha in Ras Al Khaimah, UAE, and it was a truly great experience working with Abeera K. Sheikh as the casting director.',
+        'author' => 'Manju Warrier | Indian Songwriter and Musical Composer'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/random.jpg',
+        'stars' => '★★★★★',
+        'text' => 'Abeera was the casting director for the movie Street Dancer, and I found her to be very energetic, professional, and cooperative.',
+        'author' => 'Nora Fatehi | Canadian Dancer and Indian Actress'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/random.jpg',
+        'stars' => '★★★★★',
+        'text' => 'Cast Talents managed the casting for our song Tere Bina and did an excellent job with the casting process.',
+        'author' => 'Bohemia | Pakistani-American Rapper and Singer'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/suniel-shetty.jpg',
+        'stars' => '★★★★★',
+        'text' => 'I have had the experience of working with Abeera on several events, including the T10 and Kabaddi events, and found her to be highly professional and responsible in her work.',
+        'author' => 'Suniel Shetty | Indian Actor and Film Producer'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/shraddha-kapoor.webp',
+        'stars' => '★★★★★',
+        'text' => 'I met Abeera on the set of Street Dancer during our Dubai schedule, where she was handling the casting. She was perfect in her work and truly a hardworking lady.',
+        'author' => 'Shraddha Kapoor | Indian Actress'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/prabhu-deva.jpeg',
+        'stars' => '★★★★★',
+        'text' => 'Abeera was the casting director for our UAE schedule of Street Dancer. It was amazing working with such a hardworking and professional casting director.',
+        'author' => 'Prabhu Deva | Indian Dance Choreographer, Film Director, Producer and Actor'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/random.jpg',
+        'stars' => '★★★★★',
+        'text' => 'I did a promotional event for Indian Idol in the UAE, and Cast Talents handled it. I must say the event was fabulously organized.',
+        'author' => 'Anu Malik | Indian Music Composer'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/random.jpg',
+        'stars' => '★★★★★',
+        'text' => 'We shot for almost a month for Street Dancer in Dubai, and it felt like home as we all became like a family. The movie shoot went perfectly. Abeera, who was head of casting, did her work amazingly. It was fun working with her—she’s truly a gem of a person, a true professional, and a hardworking woman.',
+        'author' => 'Dharmesh Yelande known as D-sir | Indian dancer, choreographe'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/random.jpg',
+        'stars' => '★★★★★',
+        'text' => 'I met the lovely Abeera while shooting for the General Petroleum commercial, where she was managing the casting. It was amazing meeting her there, and we quickly became very good friends. Later, we enjoyed watching PSL matches together at the stadium, cheering for our team. Love you, Abeera!',
+        'author' => 'Zareen Khan | Bollywood Actress'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/varun-dhawan1.webp',
+        'stars' => '★★★★★',
+        'text' => 'During the shooting of Street Dancer, I never saw Abeera sit and relax, no matter how long the day was. Even during an 18-hour shoot, she was constantly on her feet, ensuring everything went perfectly. Keep rocking, girl!',
+        'author' => 'Varun Dhawan | Indian Actor'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/random.jpg',
+        'stars' => '★★★★★',
+        'text' => 'Cast Talents has managed my celebrity engagements for several events, and it’s been amazing working with them. They are always true to their commitments.',
+        'author' => 'Rahat Fateh Ali Khan | Pakistani Sufi Singer'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/random.jpg',
+        'stars' => '★★★★★',
+        'text' => 'Cast Talents handled my celebrity management for a concert at Sharjah Stadium, and their teamwork was truly amazing.',
+        'author' => 'Shankar Mahadevan | Indian Singer and Composer'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/random.jpg',
+        'stars' => '★★★★★',
+        'text' => 'Cast Talents managed my celebrity performance for a private event, and I absolutely loved their hospitality and the comfort they provided.',
+        'author' => 'VAANI KAPOOR | Indian Actress'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/random.jpg',
+        'stars' => '★★★★★',
+        'text' => 'Abeera’s company, Cast Talents, has been managing my celebrity appearances, and I must say she is an incredibly hardworking, ambitious, and brave girl. Keep shining and stay blessed—sky is the limit!',
+        'author' => 'Sidhu Moose Wala | Indian Singer and Rapper'
+        ],
+        [
+        'image' => 'user-assets/testimonial-images/random.jpg',
+        'stars' => '★★★★★',
+        'text' => 'It’s always a great experience working with Abeera, whether it’s for an event or a shoot.',
+        'author' => 'Sohail Khan | Indian Actor, Producer, Writer'
+        ]
+        ];
     @endphp
 
     {{---------------------------- client reviews ----------------------}}
@@ -465,7 +532,7 @@
         <div class="container">
             <div class="row">
                 <div class="innertext text-left">
-                    <h1 style="text-align:left;">What <span>Celebrities Worked With Us</span> Have to Say</h1><br>
+                    <h1 style="text-align:left;">What <span>Celebrities </span>worked with us have to say</h1><br>
                 </div>
                 <div>
                     <div id="client-testimonials" class="owl-carousel">
