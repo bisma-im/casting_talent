@@ -143,6 +143,28 @@
     .slick-slide {
         margin: 0 10px;
     }
+    .mobile-frame {
+        background-image: url('{{ url('user-assets/images/mobile-mockup.png') }}');
+        background-size: cover;
+        background-position: center;
+        width: 500px;
+        height: 690px;
+        position: relative;
+        margin: 0 auto;
+        border-radius: 30px;
+       
+    }
+
+    .instagram-feed {
+        width: 85%;
+        height: 90%;
+        position: absolute;
+        top: 10%;
+        left: 7.5%;
+        border: none;
+        overflow: hidden;
+        border-radius: 15px;
+    }
 </style>
 
 <section class="innerpages">
@@ -275,16 +297,18 @@
                 </form>
             </div>
             <div class="col-lg-1"> </div>
+            <div class="col-lg-5 col-md-5 col-lg-5 col-xl-5  p-4 text-center">
+    <h4 class="text-center">Follow us on Instagram</h4>
 
-            <div class="col-lg-5 col-md-5 col-lg-5 col-xl-5 bg-white p-4">
-                <h4 class="text-center">Follow us on Instagram</h4>
-                <!-- LightWidget WIDGET -->
-                <script src="https://cdn.lightwidget.com/widgets/lightwidget.js">
-                </script>
-                <iframe src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html" scrolling="no"
-                    allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;">
-                </iframe>
-            </div>
+    <!-- Mobile Frame Container -->
+    <div class="mobile-frame">
+        <!-- Instagram Feed Iframe -->
+        <iframe src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html" scrolling="no"
+            allowtransparency="true" class="lightwidget-widget instagram-feed">
+        </iframe>
+    </div>
+</div>
+
         </div>
     </div>
 </section>
