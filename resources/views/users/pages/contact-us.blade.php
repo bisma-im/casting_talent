@@ -875,38 +875,38 @@
         mouseDrag: true
         });
 
-        // function fetchGoogleReviews() {
-        //     var placeId = 'ChIJ9foObnFpXz4RghjwyLxhQGo';  // Replace PLACE_ID_YOU_OBTAINED with your actual Place ID
-        //     var apiKey = 'AIzaSyAGg8dmcZwgUUpOFsaoW6l7GJQvBbZ-jts'; // Replace YOUR_API_KEY with your actual API Key
+        function fetchGoogleReviews() {
+            var placeId = 'ChIJ9foObnFpXz4RghjwyLxhQGo';  // Replace PLACE_ID_YOU_OBTAINED with your actual Place ID
+            var apiKey = 'AIzaSyBGeF-dhi8L3bX8Xq_OsxGitSJU6OnjVjA'; // Replace YOUR_API_KEY with your actual API Key
 
-        //     var url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=review&key=${apiKey}`;
+            var url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=review&key=${apiKey}`;
 
-        //     $.ajax({
-        //         url: url,
-        //         method: 'GET',
-        //         success: function (data) {
-        //             console.log(data)
-        //             displayReviews(data.result.reviews);
-        //         },
-        //         error: function (error) {
-        //             console.error('Error fetching reviews:', error);
-        //         }
-        //     });
-        // }
+            $.ajax({
+                url: url,
+                method: 'GET',
+                success: function (data) {
+                    console.log(data)
+                    displayReviews(data.result.reviews);
+                },
+                error: function (error) {
+                    console.error('Error fetching reviews:', error);
+                }
+            });
+        }
 
-        // function displayReviews(reviews) {
-        //     reviews.forEach(function(review) {
-        //         var reviewHtml = `
-        //             <div class="review">
-        //                 <p>${review.author_name}</p>
-        //                 <p>Rating: ${review.rating}</p>
-        //                 <p>${review.text}</p>
-        //             </div>
-        //         `;
-        //         $('#google-reviews').append(reviewHtml);
-        //     });
-        // }
-        // fetchGoogleReviews();
+        function displayReviews(reviews) {
+            reviews.forEach(function(review) {
+                var reviewHtml = `
+                    <div class="review">
+                        <p>${review.author_name}</p>
+                        <p>Rating: ${review.rating}</p>
+                        <p>${review.text}</p>
+                    </div>
+                `;
+                $('#google-reviews').append(reviewHtml);
+            });
+        }
+        fetchGoogleReviews();
     });
     </script>
 
