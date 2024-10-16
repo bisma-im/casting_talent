@@ -121,6 +121,15 @@
    color: #fff !important;
    font-size: 15px !important;
    }
+   .progress {
+    height: 30px;
+}
+.progress-bar {
+    font-weight: bold;
+    line-height: 30px;
+}
+
+
 /* ----------------------------------------------------- */
 .form-group {
             margin-bottom: 20px;
@@ -159,7 +168,75 @@
         .btn-primary:hover {
             background-color: #007BFF;
         }
+ .text{
+               font-size: 14px;
+               
 
+ }
+ .is-invalid {
+        border-color: #dc3545;
+    }
+
+    .is-invalid::placeholder {
+        color: #dc3545;
+    }
+ /* Initially hide subcategories */
+.sub-category {
+    display: none;
+    list-style: none;
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+/* Main category styling */
+.main-category-item {
+    cursor: pointer;
+    padding: 5px 0;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Show subcategories when hovering over main category */
+.main-category-item:hover .sub-category {
+    display: block;
+}
+
+/* Category Checkbox Styles */
+.category-checkbox,
+.subcategory-checkbox {
+    margin-right: 5px;
+}
+
+/* Subcategory styling */
+.sub-category li {
+    padding: 5px 0;
+}
+
+/* Menu container styles */
+.menu-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none; /* Hidden until dropdown button is clicked */
+}
+
+/* Dropdown Button Styles */
+#dropdown-btn {
+    width: 100%;
+}
+
+/* Display categories on hover or click */
+#dropdown-container:hover .menu-container {
+    display: block;
+}
+
+/* Hover effect for subcategories */
+.sub-category li:hover {
+    background-color: #f0f0f0;
+}
 
 </style>
 @php
@@ -610,77 +687,89 @@
         <div class="serve-pad">
             <div class="row">
                 <div class="col-12">
-                    <form method="post" action="{{ route('job-info.post') }}" enctype="multipart/form-data">
+                    <form id="multiStepForm" method="post" action="{{ route('job-info.post') }}" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="row">
-                            <!-- First Name -->
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>First Name</label>
-                                    <input required type="text" class="form-control" name="first_name" placeholder="First Name">
-                                </div>
-                            </div>
+                        <!-- Progress bar -->
+                        <div class="progress mb-4">
+                            <div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                        </div>
 
-                            <!-- Last Name -->
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Last Name</label>
-                                    <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+                        <!-- Step 1: Basic Info -->
+                        <div class="step" id="step1">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">FIRST NAME</label>
+                                        <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">LAST NAME</label>
+                                        <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">COMPANY / AGENCY NAME</label>
+                                        <input type="text" class="form-control" name="company" placeholder="Company Name" required>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="text-center d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                            </div>
+                        </div>
 
-                            <!-- Company Name -->
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Company / Agency Name</label>
-                                    <input type="text" class="form-control" name="company" placeholder="Company Name">
+                        <!-- Step 2: Contact Info -->
+                        <div class="step d-none" id="step2">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="form-group">
+                                        <label class="fw-bold">CALLING NUMBER</label>
+                                        <input id="callingNumber" type="tel" class="form-control" name="calling_number" placeholder="Calling Number" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">WHATSAPP NUMBER</label>
+                                        <input id="whatsappNumber" type="tel" class="form-control" name="whatsapp_number" placeholder="WhatsApp Number" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">EMAIL</label>
+                                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="text-center d-flex justify-content-between">
+                            <button type="button" class="btn btn-danger  " onclick="prevStep()">Back</button>
+                                <button type="button" class="btn btn-primary " onclick="nextStep()">Next</button>
+                            </div>
+                        </div>
 
-                            <!-- Calling Number with Flag -->
-                            <div class="col-lg-5 col-md-6 ">
-                                <div class="form-group ">
-                                    <label>Calling Number</label>
-                                    <input id="callingNumber" type="tel" class="form-control" name="calling_number" placeholder="Calling Number">
-                                </div>
-                            </div>
-
-                            <!-- WhatsApp Number with Flag -->
-                            <div class="col-lg-6 col-md-6 ">
-                                <div class="form-group">
-                                    <label>WhatsApp Number</label>
-                                    <input id="whatsappNumber" type="tel" class="form-control" name="whatsapp_number" placeholder="WhatsApp Number">
-                                </div>
-                            </div>
-
-                            <!-- Email -->
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" name="email" placeholder="Email">
-                                </div>
-                            </div>
 
                             <!-- Project -->
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Project</label>
-                                    <select class="form-select" name="project">
-                                        <option value="Shoot">Shoot</option>
-                                        <option value="Film">Film</option>
-                                    </select>
+                          <!-- Step 3: Project Info -->
+                        <div class="step d-none" id="step3">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">PROJECT</label>
+                                        <select class="form-select" name="project" required>
+                                            <option value="Shoot">Shoot</option>
+                                            <option value="Film">Film</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <!-- Location of Project -->
-                           <div class="col-lg-6">
-    <div class="form-group">
-        <label>Location of Project</label>
-        <div class="row">
-            <!-- Country Dropdown -->
-            <div class="col-md-4">
-                <select id="countryDropdown" class="form-select" name="country" required>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">LOCATION OF PROJECT</label>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <select id="countryDropdown" class="form-select" name="country" required>
                     <option value="" disabled selected>Country</option>
                     <option value="United Arab Emirates" >United Arab Emirates</option>
                     <option value="Afghanistan">Afghanistan</option>
@@ -742,55 +831,56 @@
                     <option value="Fiji">Fiji</option>
                     <option value="Finland">Finland</option>
                     <option value="France">France</option>
-                </select>
-            </div>
+                    </select>
+                    </div>
 
-            <!-- State/Region Dropdown -->
-            <div class="col-md-4">
-                <select id="stateDropdown" class="form-select" name="state" required>
-                    <option value="" disabled selected>State</option>
+                    <div class="col-md-4">
+                <select  id="stateDropdown" class="form-select" name="state" required>
+                    <option  value="" disabled selected>State</option>
+                    <option  value="" >karachi</option>
+
                     <!-- States will be dynamically populated based on the selected country -->
                 </select>
             </div>
-
-            <!-- City Dropdown -->
             <div class="col-md-4">
                 <select id="cityDropdown" class="form-select" name="city" required>
                     <option value="" disabled selected>City</option>
+                    <option  value="" >karachi</option>
+
                     <!-- Cities will be dynamically populated based on the selected state/region -->
                 </select>
             </div>
-        </div>
-    </div>
-</div>
+                                        </div>
+                                    </div>
+                                </div>
 
 
                             <!-- No of Days & No of Hours -->
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label>No of Days</label>
+                                    <label  class="fw-bold">NO OF DAYS</label>
                                     <input type="number" class="form-control" name="no_of_days" placeholder="Number of Days">
                                 </div>
                             </div>
 
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label>No of Hours</label>
+                                    <label  class="fw-bold">NO OF HOURS</label>
                                     <input type="number" class="form-control" name="no_of_hours" placeholder="Number of Hours">
                                 </div>
                             </div>
 
                           <!-- male and female   -->
                                
-                                    <div class="col-md-3">
+                          <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>No Of Talents(Male)</label>
+                                            <label  class="text fw-bold">NO OF TALENTS(MALE)</label>
                                             <input type="number" class="form-control" name="no_of_talents_male" placeholder="" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label class>No Of Talents(Female)</label>
+                                            <label  class="text fw-bold" class>NO OF TALENTS(FEMALE)</label>
                                             <input required type="number" class="form-control" name="no_of_talents_female" placeholder="" required>
                                         </div>
                                     </div>
@@ -799,40 +889,100 @@
 
                             <!-- Required Talent -->
                             <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Required Talent</label>
-                                    <select required class="form-select" name="required_talent">
-                                        <option value="Model">Tv Shows</option>
+    <div class="form-group">
+        <label class="fw-bold">REQUIRED TALENT</label>
 
-                                        <option value="Actor">Tv Channels, Game Shows</option>
-                                        <option value="Model">Reality Tv</option>
-                                        <option value="Model">Documentaries & Factual</option>
-                                        <option value="Model">Hobbyist</option>
-                                        <option value="Model">Independent Artist</option>
-                                        <option value="Model">Independent Label Artist</option>
-                                        <option value="Model">Major Label Artist</option>
-                                        <option value="Model">Post Label Musician</option>
-                                        <option value="Model">Song Writer</option>
-                                        <option value="Model">Session Musician</option>
-                                        <option value="Model">Producer-Composer</option>
-                                        <option value="Model">Orchestral Musician</option>
-                                        <option value="Model">Teacher, Retired Artist</option>
-                                        <option value="Model">Entrepreneurial Artist</option>
-                                        <option value="Model">Singer</option>
-                                        <option value="Model">Musicianmusic</option>
-                                        <option value="Model">Band Guitarist</option>
-                                        <option value="Model">Violinist</option>
-                                        <option value="Model">Rapper</option>
+        <!-- Main Dropdown Button -->
+        <div class="dropdown" id="dropdown-container">
+            <button class="btn btn-secondary dropdown-toggle" id="dropdown-btn" type="button">
+                Select a Category
+            </button>
 
-                                    </select>
-                                </div>
-                            </div>
+            <!-- Menu container with categories and subcategories (initially hidden) -->
+            <div class="menu-container" id="main-category-container" style="display: none;">
+                <ul class="main-category">
+                    <!-- Actor Category -->
+                    <li class="main-category-item actor">
+                        <label>
+                            <input type="checkbox" class="category-checkbox" value="Actor">
+                            Actor
+                        </label>
+                        <ul class="sub-category">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="subcategory-checkbox" value="Featured">
+                                    Featured
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="subcategory-checkbox" value="Extras">
+                                    Extras
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="subcategory-checkbox" value="Lead Role">
+                                    Lead Role
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="subcategory-checkbox" value="Voice-over Artist">
+                                    Voice-over Artist
+                                </label>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Model Category -->
+                    <li class="main-category-item model">
+                        <label>
+                            <input type="checkbox" class="category-checkbox" value="Model">
+                            Model
+                        </label>
+                    </li>
+
+                    <!-- Dancer Category -->
+                    <li class="main-category-item dancer">
+                        <label>
+                            <input type="checkbox" class="category-checkbox" value="Dancer">
+                            Dancer
+                        </label>
+                        <ul class="sub-category">
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="subcategory-checkbox" value="Choreographer">
+                                    Choreographer
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="subcategory-checkbox" value="Belly Dancer">
+                                    Belly Dancer
+                                </label>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- More categories... -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Paragraph to show selected categories and subcategories -->
+        <p id="selectedCategories" style="margin-top: 10px; font-weight: bold;">
+            Selected Talents: None
+        </p>
+    </div>
+</div>
+
 
 
 
  <div class="col-lg-3">
                             <div class="form-group">
-                                <label>Nationality</label>
+                                <label  class="fw-bold">NATIONALITIES</label>
                                 <select class="form-select" name="nationality" required>
                                     <option value="" disabled selected>Select Nationality</option>
                                     <option value="Afghanistan">Afghanistan</option>
@@ -902,45 +1052,56 @@
 
                          <div class="col-lg-3">
     <div class="form-group">
-        <label>Start Date</label>
+        <label  class="fw-bold">START DATE</label>
         <input type="date" class="form-control" name="start_date" required>
     </div>
 </div>
 
 <div class="col-lg-3">
     <div class="form-group">
-        <label>End Date</label>
+        <label  class="fw-bold">END DATE</label>
         <input type="date" class="form-control" name="end_date" required>
     </div>
 </div>
+</div>
+                            <div class="text-center  d-flex justify-content-between">
+                            <button type="button" class="btn btn-danger" onclick="prevStep()">Back</button>
+                                <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                            </div>
+                        </div>
                             <!-- Budget for Each Talent -->
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Budget for Each Talent</label>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input required type="number" class="form-control" name="starting_amount" placeholder="Starting Amount">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input required type="number" class="form-control" name="maximum_amount" placeholder="Maximum Amount">
+                            <div class="step d-none" id="step4">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">BUDGET FOR EACH TALENT</label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="number" class="form-control" name="starting_amount" placeholder="Starting Amount" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="number" class="form-control" name="maximum_amount" placeholder="Maximum Amount" required>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Detail of the Project -->
-                            <div class="col-12">
+                                <div class="col-12">
                                 <div class="form-group">
-                                    <label>Detail of the Project</label>
-                                    <textarea  class="form-control" name="project_detail" rows="5" placeholder="Write your text here..."></textarea>
+                                    <label  class="fw-bold">DETAIL OF PROJECT</label>
+                                    <textarea required  class="form-control" name="project_detail" rows="5" placeholder="Write your text here..."></textarea>
                                 </div>
                             </div>
-
-                            <!-- Submit Button -->
-                            <div class="col-12 text-center justify-content-end d-flex">
-                                <button type="submit" class="btn btn-primary submit">Submit</button>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="fw-bold">BRIEF (OPTIONAL)</label>
+                                        <input type="file" class="form-control" name="upload_file">
+                                    </div>
+                                </div>
                             </div>
-
+                            <div class="text-center  d-flex justify-content-between">
+                            <button type="button" class="btn btn-danger" onclick="prevStep()">Back</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -953,6 +1114,146 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
 <script>
+   let currentStep = 1;
+    let progress = 0; // Start with 0%
+
+    function nextStep() {
+        const stepElements = document.querySelectorAll('.step');
+        const progressBar = document.getElementById('progressBar');
+        
+        // Get current step form
+        const currentStepElement = document.getElementById(`step${currentStep}`);
+        const inputs = currentStepElement.querySelectorAll('input, select');
+        
+        // Validate the current step's inputs
+        let isValid = true;
+        inputs.forEach(input => {
+            if (!input.checkValidity()) {
+                input.classList.add('is-invalid');  // Highlight invalid fields
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');  // Remove the invalid highlight if corrected
+            }
+        });
+
+        if (!isValid) {
+            // Scroll to the top to focus on the first invalid field
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+       
+            return;
+        }
+
+        // Hide the current step
+        currentStepElement.classList.add('d-none');
+
+        // Increment step
+        currentStep++;
+
+        // Show the next step if it exists
+        const nextStepElement = document.getElementById(`step${currentStep}`);
+        if (nextStepElement) {
+            nextStepElement.classList.remove('d-none');
+        }
+
+        // Increment progress by 25% on each "Next" button press
+        progress += 25;
+        progressBar.style.width = `${progress}%`;
+        progressBar.setAttribute('aria-valuenow', progress);
+        progressBar.textContent = `${progress}%`;
+
+        // Scroll to the top of the form after step change
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function prevStep() {
+        const stepElements = document.querySelectorAll('.step');
+        const progressBar = document.getElementById('progressBar');
+
+        // Hide the current step
+        const currentStepElement = document.getElementById(`step${currentStep}`);
+        currentStepElement.classList.add('d-none');
+
+        // Decrement step
+        currentStep--;
+
+        // Show the previous step
+        const prevStepElement = document.getElementById(`step${currentStep}`);
+        if (prevStepElement) {
+            prevStepElement.classList.remove('d-none');
+        }
+
+        // Decrease progress by 25% on each "Back" button press
+        progress -= 25;
+        progressBar.style.width = `${progress}%`;
+        progressBar.setAttribute('aria-valuenow', progress);
+        progressBar.textContent = `${progress}%`;
+
+        // Scroll to the top of the form after step change
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+// -----------------------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdownBtn = document.getElementById("dropdown-btn");
+    const mainCategoryContainer = document.getElementById("main-category-container");
+    const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
+    const subCategoryCheckboxes = document.querySelectorAll('.subcategory-checkbox');
+    const selectedCategoriesParagraph = document.getElementById("selectedCategories");
+
+    // Toggle the visibility of the main categories on dropdown button click
+    dropdownBtn.addEventListener('click', function () {
+        if (mainCategoryContainer.style.display === "none" || mainCategoryContainer.style.display === "") {
+            mainCategoryContainer.style.display = "block";
+        } else {
+            mainCategoryContainer.style.display = "none";
+        }
+    });
+
+    // Function to handle checkbox selections
+    function handleCheckboxSelection() {
+        let selectedOptions = [];
+
+        // Collect selected main categories
+        categoryCheckboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                selectedOptions.push(checkbox.value);
+            }
+        });
+
+        // Collect selected subcategories
+        subCategoryCheckboxes.forEach(function (subCheckbox) {
+            if (subCheckbox.checked) {
+                selectedOptions.push(subCheckbox.value);
+            }
+        });
+
+        // Update the paragraph with the selected values
+        if (selectedOptions.length > 0) {
+            selectedCategoriesParagraph.textContent = 'Selected Talents: ' + selectedOptions.join(', ');
+        } else {
+            selectedCategoriesParagraph.textContent = 'Selected Talents: None';
+        }
+    }
+
+    // Add event listeners to all checkboxes
+    categoryCheckboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', handleCheckboxSelection);
+    });
+
+    subCategoryCheckboxes.forEach(function (subCheckbox) {
+        subCheckbox.addEventListener('change', handleCheckboxSelection);
+    });
+
+    // Close dropdown if clicked outside
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('#dropdown-container')) {
+            mainCategoryContainer.style.display = "none";
+        }
+    });
+});
+
+
+// // --------------------------xxxxxxxxxxxxxxxxx
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize intl-tel-input for WhatsApp Number
     const whatsappInput = document.querySelector("#whatsappNumber");
@@ -1026,6 +1327,50 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+function nextSection(currentSection) {
+        document.getElementById('section' + currentSection).style.display = 'none';
+        document.getElementById('section' + (currentSection + 1)).style.display = 'block';
+    }
+
+    function previousSection(currentSection) {
+        document.getElementById('section' + currentSection).style.display = 'none';
+        document.getElementById('section' + (currentSection - 1)).style.display = 'block';
+    }
+
+    function updateProgress() {
+        let progress = 0;
+        const totalFields = 17; // Adjust based on actual field count
+
+        // Get filled fields count
+        const filledFields = Array.from(document.querySelectorAll('input, select'))
+            .filter(field => field.value !== '').length;
+
+        // Adjust progress based on filled fields
+        if (filledFields > 0 && filledFields <= 4) {
+            progress = 25;
+        } else if (filledFields > 4 && filledFields <= 8) {
+            progress = 50;
+        } else if (filledFields > 8 && filledFields <= 12) {
+            progress = 75;
+        } else if (filledFields === totalFields) {
+            progress = 100;
+        }
+
+        // Update progress bar
+        const progressBar = document.getElementById('progressBar');
+        progressBar.style.width = progress + '%';
+        progressBar.setAttribute('aria-valuenow', progress);
+        progressBar.textContent = progress + '%';
+    }
+
+
+
+
+
+
+
+
 </script>
 
 
