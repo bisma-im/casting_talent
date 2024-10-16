@@ -957,7 +957,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize intl-tel-input for WhatsApp Number
     const whatsappInput = document.querySelector("#whatsappNumber");
     window.intlTelInput(whatsappInput, {
-        initialCountry: "auto",  // Detect country automatically based on the user's IP
+        initialCountry: "ae",  // Detect country automatically based on the user's IP
         geoIpLookup: function(callback) {
             fetch('https://ipinfo.io/json', { headers: { 'Accept': 'application/json' } })
                 .then((resp) => resp.json())
@@ -972,7 +972,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize intl-tel-input for Calling Number
     const callingInput = document.querySelector("#callingNumber");
     window.intlTelInput(callingInput, {
-        initialCountry: "auto",  // Detect country automatically based on the user's IP
+        initialCountry: "ae",  // Detect country automatically based on the user's IP
         geoIpLookup: function(callback) {
             fetch('https://ipinfo.io/json', { headers: { 'Accept': 'application/json' } })
                 .then((resp) => resp.json())

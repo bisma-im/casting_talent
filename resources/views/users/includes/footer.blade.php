@@ -114,88 +114,90 @@
         <div class="clientbox">
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                    <!--<div class="owl-carousel owl-theme mt-5" id="testimonailSliderff">-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/1.png') }}" class="img-fluid" alt="Image 1" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/2.png') }}" class="img-fluid" alt="Image 2" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/3.png') }}" class="img-fluid" alt="Image 3" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/4.png') }}" class="img-fluid" alt="Image 4" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/5.png') }}" class="img-fluid" alt="Image 5" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/6.png') }}" class="img-fluid" alt="Image 6" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/7.png') }}" class="img-fluid" alt="Image 7" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/8.png') }}" class="img-fluid" alt="Image 8" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/9.png') }}" class="img-fluid" alt="Image 9" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/10.png') }}" class="img-fluid" alt="Image 10" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/11.png') }}" class="img-fluid" alt="Image 11" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/12.png') }}" class="img-fluid" alt="Image 12" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/13.webp') }}" class="img-fluid" alt="Image 13" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/141.png') }}" class="img-fluid" alt="Image 14" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--    <div class="item">-->
-                    <!--        <div class="image-container">-->
-                    <!--            <img src="{{ url('user-assets/loggs/15.png') }}" class="img-fluid" alt="Image 15" style="width: 150px; height: 70px;">-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--</div>-->
+                    {{-- <div>
+                        <!--<div class="owl-carousel owl-theme mt-5" id="testimonailSliderff">-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/1.png') }}" class="img-fluid" alt="Image 1" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/2.png') }}" class="img-fluid" alt="Image 2" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/3.png') }}" class="img-fluid" alt="Image 3" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/4.png') }}" class="img-fluid" alt="Image 4" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/5.png') }}" class="img-fluid" alt="Image 5" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/6.png') }}" class="img-fluid" alt="Image 6" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/7.png') }}" class="img-fluid" alt="Image 7" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/8.png') }}" class="img-fluid" alt="Image 8" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/9.png') }}" class="img-fluid" alt="Image 9" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/10.png') }}" class="img-fluid" alt="Image 10" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/11.png') }}" class="img-fluid" alt="Image 11" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/12.png') }}" class="img-fluid" alt="Image 12" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/13.webp') }}" class="img-fluid" alt="Image 13" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/141.png') }}" class="img-fluid" alt="Image 14" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <div class="item">-->
+                        <!--        <div class="image-container">-->
+                        <!--            <img src="{{ url('user-assets/loggs/15.png') }}" class="img-fluid" alt="Image 15" style="width: 150px; height: 70px;">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--</div>-->
+                    </div> --}}
                     <div class="owl-carousel owl-theme mt-5" id="testimonailSliderff">
                         @for ($i = 1; $i <= 29; $i++)
                             <div class="item">
                                 <div class="image-container">
-                                    <img src="{{ url('user-assets/loggs/' . $i . '.png') }}" class="img-fluid" alt="Image {{ $i }}" style="width: 100%;">
+                                    <img src="{{ url('user-assets/loggs/' . $i . '.png') }}" class="img-fluid" alt="Image {{ $i }}" style="width: 80px; height: 110px;">
                                 </div>
                             </div>
                         @endfor

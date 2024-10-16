@@ -793,8 +793,8 @@ section.testtimonailsec .owl-theme .owl-dot.active span{
     display: table;
 }
 section.ourclientssec {
-    padding: 100px 0 50px;
-    margin: 50px 0 50px;
+    padding: 20px 0 50px;
+    margin: 20px 0 50px;
 }
 .clientbox img{
     filter: grayscale(100%);
