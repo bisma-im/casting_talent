@@ -211,7 +211,7 @@
 
 
 <footer>
-    <div class="container">
+    {{-- <div class="container"> --}}
         <div class="footermain">
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
@@ -250,7 +250,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    {{-- </div> --}}
 
 </footer>
 </div>

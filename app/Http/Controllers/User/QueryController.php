@@ -33,6 +33,8 @@ class QueryController extends Controller
             'message' => 'required|string',
         ]);
 
+        dd($validatedData);
+
         // Create a new contact entry
         Contact::create($validatedData);
         // Send email notification to the owner
