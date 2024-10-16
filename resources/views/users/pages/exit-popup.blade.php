@@ -54,10 +54,10 @@
       background-color: transparent;
       border: none;
    }
-   .blurred {
-        filter: blur(5px);
-        pointer-events: none; /* Prevent interaction with blurred elements */
-    }
+   .modal-open .modal {
+      filter: none; /* Ensure the modal itself is not blurred */
+   }
+
 </style>
 
 
@@ -67,7 +67,7 @@
       <div class="modal-content">
          <div class="modal-header">
             <h2 class="modal-title text-center" id="modalLabel">Let's Start Now!</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body">
             <button id="generalInquiryBtn" class="btn btn-primary">General Inquiry</button>
@@ -80,18 +80,22 @@
 <script>
    document.addEventListener('DOMContentLoaded', function() {
       // Add blur effect to the main content when the modal is shown
-      document.getElementById('pageContent').classList.add('blurred');
       var myModal = new bootstrap.Modal(document.getElementById('inquiryModal'), {
-            keyboard: false
+            keyboard: false,
+            backdrop: 'static'
         });
         $("#inquiryModal").appendTo("body");
         myModal.show();
-    document.getElementById('generalInquiryBtn').addEventListener('click', function() {
-        window.location.href = "{{ route('contact.get') }}";
-    });
-    document.getElementById('clientInquiryBtn').addEventListener('click', function() {
-        window.location.href = "{{ route('dashboard.get') }}";
-    });
+      document.getElementById('generalInquiryBtn').addEventListener('click', function() {
+         document.getElementById('pageContent').classList.remove('blurred');
+         myModal.hide();
+      });
+      document.getElementById('closeModal').addEventListener('click', function() {
+         document.getElementById('pageContent').classList.remove('blurred');
+      });
+      document.getElementById('clientInquiryBtn').addEventListener('click', function() {
+         window.location.href = "{{ route('dashboard.get') }}";
+      });
 });
 
 </script>

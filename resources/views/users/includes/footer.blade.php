@@ -106,13 +106,14 @@
 
 
 <section class="ourclientssec" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
-    <div class="container ">
+    
+    <div class="clientsbox">
+        <h3>Our <span>Clients</span></h3>
+    </div>
+    {{-- <div class="container"> --}}
         <div class="clientbox">
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                    <div class="clientsbox">
-                        <h3>Our <span>Clients</span></h3>
-                    </div>
                     <!--<div class="owl-carousel owl-theme mt-5" id="testimonailSliderff">-->
                     <!--    <div class="item">-->
                     <!--        <div class="image-container">-->
@@ -203,14 +204,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    {{-- </div> --}}
 </section>
 
 
 
 
 <footer>
-    <div class="container">
+    {{-- <div class="container"> --}}
         <div class="footermain">
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
@@ -249,7 +250,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    {{-- </div> --}}
 
 </footer>
 </div>
