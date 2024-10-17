@@ -76,8 +76,61 @@
       </div>
    </div>
 </div>
-
 <script>
+   document.addEventListener('DOMContentLoaded', function() {
+      // Initialize and show the modal
+      var myModal = new bootstrap.Modal(document.getElementById('inquiryModal'), {
+         keyboard: false,
+         backdrop: 'static'
+      });
+
+      $("#inquiryModal").appendTo("body");
+      myModal.show();
+
+      // Function to show the selected form and hide the other one
+      function showForm(formType) {
+         const generalForm = document.getElementById('generalInquiryForm');
+         const clientForm = document.getElementById('clientInquiryForm');
+
+         if (formType === 'general') {
+            generalForm.style.display = 'block';
+            clientForm.style.display = 'none';
+         } else if (formType === 'client') {
+            generalForm.style.display = 'none';
+            clientForm.style.display = 'block';
+         }
+
+         // Remove blur effect from the page content
+         document.getElementById('pageContent').classList.remove('blurred');
+         myModal.hide();
+      }
+
+      // Show the General Inquiry form when the button is clicked
+      document.getElementById('generalInquiryBtn').addEventListener('click', function() {
+         showForm('general');
+      });
+
+      // Show the Client Inquiry form when the button is clicked
+      document.getElementById('clientInquiryBtn').addEventListener('click', function() {
+         showForm('client');
+      });
+
+      // Remove blur effect if the modal is closed without selection
+      document.getElementById('closeModal').addEventListener('click', function() {
+         document.getElementById('pageContent').classList.remove('blurred');
+      });
+   });
+</script>
+
+
+
+
+
+
+
+
+
+<!-- <script>
    document.addEventListener('DOMContentLoaded', function() {
       // Add blur effect to the main content when the modal is shown
       var myModal = new bootstrap.Modal(document.getElementById('inquiryModal'), {
@@ -98,4 +151,4 @@
       });
 });
 
-</script>
+</script> -->

@@ -106,7 +106,7 @@
         }
 
         .mobile-frame {
-            background-image: url('{{ url(' user-assets/images/mobile-mockup.png') }}');
+            background-image: url('{{ url('user-assets/images/mobile-mockup.png') }}');
             background-size: cover;
             background-position: center;
             width: 400px;
@@ -143,6 +143,238 @@
             margin-left: 110px;;
             position: relative;
         }
+        .form-container {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    height: 100vh;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.8); /* Transparent white bg for the form */
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        width: 90%;
+        height: auto; /* Allow height to adjust for smaller screens */
+    }
+
+    .form-step {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .form-step {
+        padding: 5px;
+    }
+}
+
+.background-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.slider-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slider-image.active {
+    opacity: 0.1; /* Set low opacity for the visible image */
+}
+
+/* Additional form styling */
+.form-step {
+    margin-bottom: 20px;
+}
+
+.contactlist {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.btn-next, .btn-prev {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-prev {
+    background-color: #ffc107;
+}
+
+.btn-next:hover, .btn-prev:hover {
+    opacity: 0.9;
+}
+
+/* client form style  */
+.form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control, .form-select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        .form-select {
+            height: auto;
+        }
+
+        .intl-tel-input {
+            width: 100%;
+        }
+
+        .intl-tel-input input {
+            width: 100%;
+            padding-left: 50px; /* Ensure enough padding for the flag inside the input */
+        }
+
+        .btn-primary {
+            background-color: #1C7887;
+            border: none;
+            padding: 10px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #007BFF;
+        }
+ .text{
+               font-size: 14px;
+               
+
+ }
+ .is-invalid {
+        border-color: #dc3545;
+    }
+
+    .is-invalid::placeholder {
+        color: #dc3545;
+    }
+/* Initially hide subcategories */
+/* Initially hide subcategories */
+.sub-category {
+    display: none;
+    list-style-type: none;
+    margin-top: 5px;
+    padding-left: 20px;
+}
+.main-category {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+/* Main category styling */
+.main-category-item {
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+}
+/* Category Checkbox Styles */
+.category-checkbox,
+.subcategory-checkbox {
+    margin-right: 5px;
+}
+/* Subcategory styling */
+.sub-category li {
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+/* Menu container styles */
+.menu-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+    max-height: 350px; /* Increase max height to avoid scrolling too soon */
+    overflow-y: auto;
+    display: none; /* Hidden until the dropdown button is clicked */
+    transition: max-height 0.3s ease-in-out;
+    width: 250px; /* Adjusted width for better readability */
+}
+
+
+/* Dropdown Button Styles */
+#dropdown-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #6c757d; /* Button color */
+    color: white;
+    border-radius: 5px;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Display categories on hover or click */
+#dropdown-container:hover .menu-container {
+    display: block;
+}
+
+/* Hover effect for subcategories */
+.sub-category li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+/* Custom Scrollbar */
+.menu-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.menu-container::-webkit-scrollbar-thumb {
+    background-color: #888; /* Scrollbar thumb color */
+    border-radius: 5px;
+}
+
+/* Expandable height for subcategories */
+.main-category-item:hover .sub-category {
+    display: block;
+}
+
+.main-category-item.expanded .sub-category {
+    display: block;
+}
+
+/* Adjust max-height dynamically when a subcategory is visible */
+.menu-container.expand {
+    max-height: none; /* Remove max height when a subcategory is open */
+}
     </style>
 
     <section class="innerpages">
@@ -158,128 +390,784 @@
     <section class="contactussec">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="card-title innertext">
-                        <h1 style="text-align:left;">General <span>Enquiry</span></h1><br>
-                    </div>
-                    <div class="progress">
-                        <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
-                    </div>
-                    <form id="contact-form" action="{{ route('contact.post') }}" method="post">
-                        @csrf
-                        <div class="form-step form-step-active">
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-6">
-                                    <div class="contactlist">
-                                        <label>First Name</label>
-                                        <input type="text" name="first_name" class="form-control"
-                                            placeholder="First Name" required>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6">
-                                    <div class="contactlist">
-                                        <label>Last Name</label>
-                                        <input type="text" name="last_name" class="form-control" placeholder="Last Name"
-                                            required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-end">
-                                <button type="button" class="btn-next">NEXT</button>
-                            </div>
+           <!-- Form Container -->
+           <div class="col-md-6 form-container">
+                    <!-- General Inquiry Form (initially hidden) -->
+                    <div id="generalInquiryForm" style="display: none;">
+                        <div class="card-title innertext">
+                            <h1 style="text-align:left;">General <span>Enquiry</span></h1><br>
                         </div>
-
-                        <div class="form-step">
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-12">
-                                    <div class="contactlist">
-                                        <label>Email</label>
-                                        <input type="email" name="email" class="form-control" placeholder="Email"
-                                            required>
+                        <!-- Background Image Slider -->
+                        <div class="background-slider">
+                            <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247287.jpeg') }}');"></div>
+                            <div class="slider-image" style="background-image: url('{{ url('user-assets/images/woman-g1553007e5_340.jpg') }}');"></div>
+                            <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247204.jpeg') }}');"></div>
+                            <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247322.webp') }}');"></div>
+                        </div>
+                        <div class="progress">
+                            <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
+                        </div>
+                        <form id="contact-form" action="{{ route('contact.post') }}" method="post">
+                            @csrf
+                            <!-- Form steps go here -->
+                            <!-- Example first step -->
+                            <div class="form-step form-step-active">
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="contactlist">
+                                            <label>First Name</label>
+                                            <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="button-container">
-                                <div class="text-start">
-                                    <button type="button" class="btn btn-warning btn-prev">BACK</button>
+                                    <div class="col-12 col-md-6">
+                                        <div class="contactlist">
+                                            <label>Last Name</label>
+                                            <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="text-end">
                                     <button type="button" class="btn-next">NEXT</button>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="form-step">
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-6">
-                                    <div class="contactlist">
-                                        <label>Calling Number</label>
-                                        <input type="tel" name="calling_number" id="calling_number"
-                                            placeholder="calling number" class="form-control phone-input" required>
-                                        <input type="hidden" name="calling_country_code" id="calling_country_code"
-                                            value="ae">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6">
-                                    <div class="contactlist">
-                                        <label>Whatsapp Number</label>
-                                        <input type="tel" name="whatsapp_number" id="whatsapp_number"
-                                            placeholder="whatsapp number" class="form-control phone-input" required>
-                                        <input type="hidden" name="whatsapp_country_code" id="whatsapp_country_code"
-                                            value="ae">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="button-container">
-                                <div class="text-start">
-                                    <button type="button" class="btn btn-warning btn-prev">BACK</button>
-                                </div>
-                                <div class="text-end">
-                                    <button type="button" class="btn-next">NEXT</button>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-step">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="contactlist">
-                                        <label>Subject</label>
-                                        <input type="text" name="subject" placeholder="subject" class="form-control"
-                                            required>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="contactlist">
-                                        <label>Message</label>
-                                        <textarea name="message" placeholder="message" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                                <!--div class="col-12 button-container">
-                        <div class="contactlist mt-5 text-start">
-                                <button type="submit">SUBMIT</button>
-                            </div>
-                        <div class="text-end">
-                            <button type="button" class="btn-prev">BACK</button>
-                         </div>
-                        </div-->
-                                <div class="button-container">
-                                    <div class="text-start">
-                                        <button type="button" class="btn btn-warning btn-prev">BACK</button>
-                                    </div>
-                                    <div class="text-end">
-                                        <button type="submit" class="btn-next">SUBMIT</button>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </form>
+                         <!-- Second step -->
+        <div class="form-step">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contactlist">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email" required>
+                    </div>
                 </div>
+            </div>
+            <div class="button-container">
+                <div class="text-start">
+                    <button type="button" class="btn btn-warning btn-prev">BACK</button>
+                </div>
+                <div class="text-end">
+                    <button type="button" class="btn-next">NEXT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Third step -->
+        <div class="form-step">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6">
+                    <div class="contactlist">
+                        <label>Calling Number</label>
+                        <input type="tel" name="calling_number" id="calling_number" placeholder="Calling Number"
+                            class="form-control phone-input" required>
+                        <input type="hidden" name="calling_country_code" id="calling_country_code" value="ae">
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6">
+                    <div class="contactlist">
+                        <label>Whatsapp Number</label>
+                        <input type="tel" name="whatsapp_number" id="whatsapp_number" placeholder="Whatsapp Number"
+                            class="form-control phone-input" required>
+                        <input type="hidden" name="whatsapp_country_code" id="whatsapp_country_code" value="ae">
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <div class="text-start">
+                    <button type="button" class="btn btn-warning btn-prev">BACK</button>
+                </div>
+                <div class="text-end">
+                    <button type="button" class="btn-next">NEXT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fourth step -->
+        <div class="form-step">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contactlist">
+                        <label>Subject</label>
+                        <input type="text" name="subject" placeholder="Subject" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="contactlist">
+                        <label>Message</label>
+                        <textarea name="message" placeholder="Message" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <div class="text-start">
+                    <button type="button" class="btn btn-warning btn-prev">BACK</button>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn-next">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+                        </form>
+                    </div>
+
+                    <!-- Client Inquiry Form (initially hidden) -->
+                    <div id="clientInquiryForm" style="display: none;" class="col-md-12">
+                        <div class="card-title innertext">
+                            <h1 style="text-align:left;">Client <span>Enquiry</span></h1><br>
+                        </div>
+                        <!-- Progress Bar for Client Inquiry Form -->
+                        <div class="progress mb-4">
+                            <div id="clientProgressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                        </div>
+                        <form id="client-form" method="post" action="{{ route('job-info.post') }}">
+                            @csrf
+                            <!-- Step 1: Basic Info -->
+                            <div class="step" id="step1">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="fw-bold">FIRST NAME</label>
+                                            <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="fw-bold">LAST NAME</label>
+                                            <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">COMPANY / AGENCY NAME</label>
+                                        <input type="text" class="form-control" name="company" placeholder="Company Name" required>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="text-end">
+                                    <button type="button" class="btn-next">NEXT</button>
+                                </div>
+                            </div>
+                            <!-- Other steps go here -->  <!-- Step 2: Contact Info -->
+                        <div class="step d-none" id="step2">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="form-group">
+                                        <label class="fw-bold">CALLING NUMBER</label>
+                                        <input id="callingNumber" type="tel" class="form-control" name="calling_number" placeholder="Calling Number" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">WHATSAPP NUMBER</label>
+                                        <input id="whatsappNumber" type="tel" class="form-control" name="whatsapp_number" placeholder="WhatsApp Number" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">EMAIL</label>
+                                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center d-flex justify-content-between">
+                            <button type="button" class="btn btn-danger  " onclick="prevStep()">Back</button>
+                                <button type="button" class="btn btn-primary " onclick="nextStep()">Next</button>
+                            </div>
+                        </div>
+
+
+                            <!-- Project -->
+                          <!-- Step 3: Project Info -->
+                        <div class="step d-none" id="step3">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">PROJECT</label>
+                                        <select class="form-select" name="project" required>
+                                            <option value="Shoot">Shoot</option>
+                                            <option value="Film">Film</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">LOCATION OF PROJECT</label>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <select id="countryDropdown" class="form-select" name="country" required>
+                    <option value="" disabled selected>Country</option>
+                    <option value="United Arab Emirates" >United Arab Emirates</option>
+                    <option value="Afghanistan">Afghanistan</option>
+                    <option value="Albania">Albania</option>
+                    <option value="Algeria">Algeria</option>
+                    <option value="Andorra">Andorra</option>
+                    <option value="Angola">Angola</option>
+                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Armenia">Armenia</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Austria">Austria</option>
+                    <option value="Azerbaijan">Azerbaijan</option>
+                    <option value="Bahamas">Bahamas</option>
+                    <option value="Bahrain">Bahrain</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Barbados">Barbados</option>
+                    <option value="Belarus">Belarus</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="Belize">Belize</option>
+                    <option value="Benin">Benin</option>
+                    <option value="Bhutan">Bhutan</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                    <option value="Botswana">Botswana</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="Brunei">Brunei</option>
+                    <option value="Bulgaria">Bulgaria</option>
+                    <option value="Burkina Faso">Burkina Faso</option>
+                    <option value="Burundi">Burundi</option>
+                    <option value="Cabo Verde">Cabo Verde</option>
+                    <option value="Cambodia">Cambodia</option>
+                    <option value="Cameroon">Cameroon</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Central African Republic">Central African Republic</option>
+                    <option value="Chad">Chad</option>
+                    <option value="Chile">Chile</option>
+                    <option value="China">China</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Comoros">Comoros</option>
+                    <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Croatia">Croatia</option>
+                    <option value="Cuba">Cuba</option>
+                    <option value="Cyprus">Cyprus</option>
+                    <option value="Czech Republic">Czech Republic</option>
+                    <option value="Denmark">Denmark</option>
+                    <option value="Djibouti">Djibouti</option>
+                    <option value="Dominica">Dominica</option>
+                    <option value="Dominican Republic">Dominican Republic</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="Egypt">Egypt</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Equatorial Guinea">Equatorial Guinea</option>
+                    <option value="Eritrea">Eritrea</option>
+                    <option value="Estonia">Estonia</option>
+                    <option value="Eswatini">Eswatini (fmr. "Swaziland")</option>
+                    <option value="Ethiopia">Ethiopia</option>
+                    <option value="Fiji">Fiji</option>
+                    <option value="Finland">Finland</option>
+                    <option value="France">France</option>
+                    </select>
+                    </div>
+
+                    <div class="col-md-4">
+                <select  id="stateDropdown" class="form-select" name="state" required>
+                    <option  value="" disabled selected>State</option>
+                    <option  value="" >karachi</option>
+
+                    <!-- States will be dynamically populated based on the selected country -->
+                </select>
+            </div>
+            <div class="col-md-4">
+                <select id="cityDropdown" class="form-select" name="city" required>
+                    <option value="" disabled selected>City</option>
+                    <option  value="" >karachi</option>
+
+                    <!-- Cities will be dynamically populated based on the selected state/region -->
+                </select>
+            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            <!-- No of Days & No of Hours -->
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label  class="fw-bold">NO OF DAYS</label>
+                                    <input type="number" class="form-control" name="no_of_days" placeholder="Number of Days" required>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label  class="fw-bold">NO OF HOURS</label>
+                                    <input type="number" class="form-control" name="no_of_hours" placeholder="Number of Hours"  required>
+                                </div>
+                            </div>
+
+                          <!-- male and female   -->
+                               
+                          <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label  class="text fw-bold">NO OF TALENTS(MALE)</label>
+                                            <input type="number" class="form-control" name="no_of_talents_male" placeholder="" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label  class="text fw-bold" class>NO OF TALENTS(FEMALE)</label>
+                                            <input required type="number" class="form-control" name="no_of_talents_female" placeholder="" required>
+                                        </div>
+                                    </div>
+                               
+
+
+                            <!-- Required Talent -->
+ <div class="col-lg-3">
+    <div class="form-group">
+        <label class="fw-bold">REQUIRED TALENT</label>
+
+        <!-- Main Dropdown Button -->
+        <div class="dropdown" id="dropdown-container">
+            <button style="background-color: #1C7887" class="btn btn-secondary  dropdown-toggle" id="dropdown-btn" type="button">
+                Select a Category
+            </button>
+
+            <!-- Menu container with categories and subcategories (initially hidden) -->
+            <div class="menu-container" id="main-category-container" style="display: none;"></div>
+        </div>
+
+        <!-- Paragraph to show selected categories and subcategories -->
+        <p id="selectedCategories" style="margin-top: 10px; font-weight: bold;">
+            Selected Talents: None
+        </p>
+    </div>
+</div>
+
+
+
+
+ <div class="col-lg-3">
+                            <div class="form-group">
+                                <label  class="fw-bold">NATIONALITIES</label>
+                                <select class="form-select" name="nationality" required>
+                                    <option value="" disabled selected>Select Nationality</option>
+                                    <option value="Afghanistan">Afghanistan</option>
+                                    <option value="Albania">Albania</option>
+                                    <option value="Algeria">Algeria</option>
+                                    <option value="Andorra">Andorra</option>
+                                    <option value="Angola">Angola</option>
+                                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                    <option value="Argentina">Argentina</option>
+                                    <option value="Armenia">Armenia</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Austria">Austria</option>
+                                    <option value="Azerbaijan">Azerbaijan</option>
+                                    <option value="Bahamas">Bahamas</option>
+                                    <option value="Bahrain">Bahrain</option>
+                                    <option value="Bangladesh">Bangladesh</option>
+                                    <option value="Barbados">Barbados</option>
+                                    <option value="Belarus">Belarus</option>
+                                    <option value="Belgium">Belgium</option>
+                                    <option value="Belize">Belize</option>
+                                    <option value="Benin">Benin</option>
+                                    <option value="Bhutan">Bhutan</option>
+                                    <option value="Bolivia">Bolivia</option>
+                                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                    <option value="Botswana">Botswana</option>
+                                    <option value="Brazil">Brazil</option>
+                                    <option value="Brunei">Brunei</option>
+                                    <option value="Bulgaria">Bulgaria</option>
+                                    <option value="Burkina Faso">Burkina Faso</option>
+                                    <option value="Burundi">Burundi</option>
+                                    <option value="Cabo Verde">Cabo Verde</option>
+                                    <option value="Cambodia">Cambodia</option>
+                                    <option value="Cameroon">Cameroon</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="Central African Republic">Central African Republic</option>
+                                    <option value="Chad">Chad</option>
+                                    <option value="Chile">Chile</option>
+                                    <option value="China">China</option>
+                                    <option value="Colombia">Colombia</option>
+                                    <option value="Comoros">Comoros</option>
+                                    <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
+                                    <option value="Costa Rica">Costa Rica</option>
+                                    <option value="Croatia">Croatia</option>
+                                    <option value="Cuba">Cuba</option>
+                                    <option value="Cyprus">Cyprus</option>
+                                    <option value="Czech Republic">Czech Republic</option>
+                                    <option value="Denmark">Denmark</option>
+                                    <option value="Djibouti">Djibouti</option>
+                                    <option value="Dominica">Dominica</option>
+                                    <option value="Dominican Republic">Dominican Republic</option>
+                                    <option value="Ecuador">Ecuador</option>
+                                    <option value="Egypt">Egypt</option>
+                                    <option value="El Salvador">El Salvador</option>
+                                    <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                    <option value="Eritrea">Eritrea</option>
+                                    <option value="Estonia">Estonia</option>
+                                    <option value="Eswatini">Eswatini (fmr. "Swaziland")</option>
+                                    <option value="Ethiopia">Ethiopia</option>
+                                    <option value="Fiji">Fiji</option>
+                                    <option value="Finland">Finland</option>
+                                    <option value="France">France</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- start and end date  -->
+
+                         <div class="col-lg-3">
+    <div class="form-group">
+        <label  class="fw-bold">START DATE</label>
+        <input type="date" class="form-control" name="start_date" required>
+    </div>
+</div>
+
+<div class="col-lg-3">
+    <div class="form-group">
+        <label  class="fw-bold">END DATE</label>
+        <input type="date" class="form-control" name="end_date" required>
+    </div>
+</div>
+</div>
+                            <div class="text-center  d-flex justify-content-between">
+                            <button type="button" class="btn btn-danger" onclick="prevStep()">Back</button>
+                                <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                            </div>
+                        </div>
+                            <!-- Budget for Each Talent -->
+                            <div class="step d-none" id="step4">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="fw-bold">BUDGET FOR EACH TALENT</label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="number" class="form-control" name="starting_amount" placeholder="Starting Amount" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="number" class="form-control" name="maximum_amount" placeholder="Maximum Amount" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                <div class="form-group">
+                                    <label  class="fw-bold">DETAIL OF PROJECT</label>
+                                    <textarea required  class="form-control" name="project_detail" rows="5" placeholder="Write your text here..."></textarea>
+                                </div>
+                            </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="fw-bold">BRIEF (OPTIONAL)</label>
+                                        <input type="file" class="form-control" name="upload_file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center  d-flex justify-content-between">
+                            <button type="button" class="btn btn-danger" onclick="prevStep()">Back</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+<!-- script of client form  -->
+<!-- intl-tel-input JS for phone inputs with flags -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+<script>
+
+
+   // Progress and step navigation for client form
+   let currentStep = 1;
+    let progress = 0; // Start with 0%
+
+    function nextStep() {
+        const stepElements = document.querySelectorAll('.step');
+        const progressBar = document.getElementById('clientProgressBar');
+        
+        // Get current step form
+        const currentStepElement = document.getElementById(`step${currentStep}`);
+        const inputs = currentStepElement.querySelectorAll('input, select');
+        
+        // Validate the current step's inputs
+        let isValid = true;
+        inputs.forEach(input => {
+            if (!input.checkValidity()) {
+                input.classList.add('is-invalid');  // Highlight invalid fields
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');  // Remove the invalid highlight if corrected
+            }
+        });
+
+        if (!isValid) {
+            // Scroll to the top to focus on the first invalid field
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+
+        // Hide the current step
+        currentStepElement.classList.add('d-none');
+
+        // Increment step
+        currentStep++;
+
+        // Show the next step if it exists
+        const nextStepElement = document.getElementById(`step${currentStep}`);
+        if (nextStepElement) {
+            nextStepElement.classList.remove('d-none');
+        }
+
+        // Increment progress by 25% on each "Next" button press
+        progress += 25;
+        progressBar.style.width = `${progress}%`;
+        progressBar.setAttribute('aria-valuenow', progress);
+        progressBar.textContent = `${progress}%`;
+
+        // Scroll to the top of the form after step change
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function prevStep() {
+        const stepElements = document.querySelectorAll('.step');
+        const progressBar = document.getElementById('clientProgressBar');
+
+        // Hide the current step
+        const currentStepElement = document.getElementById(`step${currentStep}`);
+        currentStepElement.classList.add('d-none');
+
+        // Decrement step
+        currentStep--;
+
+        // Show the previous step
+        const prevStepElement = document.getElementById(`step${currentStep}`);
+        if (prevStepElement) {
+            prevStepElement.classList.remove('d-none');
+        }
+
+        // Decrease progress by 25% on each "Back" button press
+        progress -= 25;
+        progressBar.style.width = `${progress}%`;
+        progressBar.setAttribute('aria-valuenow', progress);
+        progressBar.textContent = `${progress}%`;
+
+        // Scroll to the top of the form after step change
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Event listeners for next and previous buttons
+    document.querySelectorAll('.btn-next').forEach(button => {
+        button.addEventListener('click', nextStep);
+    });
+
+    document.querySelectorAll('.btn-prev').forEach(button => {
+        button.addEventListener('click', prevStep);
+    });
+// -----------------------------------------------
+//  talent list js 
+document.addEventListener("DOMContentLoaded", function () {
+    const talents = [
+        {
+            name: 'Actor',
+            subcategories: ['Featured', 'Extras', 'Lead Role', 'Voice-over Artist']
+        },
+        {
+            name: 'Model',
+            subcategories: []
+        },
+        {
+            name: 'Dancer',
+            subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'Be Boyz', 'Dance Groups', 'Tabrey Dancer']
+        },
+        {
+            name: 'Film Crew',
+            subcategories: ['Filmmaker', 'DOP', 'Assistant Director', 'Script Writer', 'Dialog Writer', 'Art Director', 'Production Manager', 'Production Designer', 'Line Producer', 'Focus Puller', 'Camera Operator', 'Lights & Gaffer', 'Crane Operator', 'Sound Engineer', 'Spot Boy']
+        },
+        {
+            name: 'Influencers',
+            subcategories: []
+        },
+        {
+            name: 'Makeup and Hair',
+            subcategories: []
+        },
+        {
+            name: 'Musicians',
+            subcategories: ['Singers', 'Music Band', 'Guitarist', 'Violinist', 'Drummers', 'Bassist', 'Rapper']
+        },
+        {
+            name: 'Event Staff and Ushers',
+            subcategories: ['Hostess', 'Promoter', 'EmCee', 'Stunt Person']
+        },
+        {
+            name: 'Entertainer / Performers',
+            subcategories: ['Standup Artist', 'VJ', 'RJ', 'Public Speaker', 'Magician', 'Body Double', 'Bottle Twister']
+        }
+    ];
+
+    const dropdownBtn = document.getElementById("dropdown-btn");
+    const mainCategoryContainer = document.getElementById("main-category-container");
+    const selectedCategoriesParagraph = document.getElementById("selectedCategories");
+
+    // Function to create and populate categories and subcategories
+    function generateCategories() {
+        let html = '<ul class="main-category">';
+        talents.forEach(talent => {
+            html += `
+                <li class="main-category-item">
+                    <label>
+                        <input  type="checkbox" class="category-checkbox" value="${talent.name}">
+                        ${talent.name}
+                    </label>`;
+            if (talent.subcategories.length > 0) {
+                html += `<ul class="sub-category">`;
+                talent.subcategories.forEach(sub => {
+                    html += `
+                        <li>
+                            <label>
+                                <input type="checkbox" class="subcategory-checkbox" value="${sub}">
+                                ${sub}
+                            </label>
+                        </li>`;
+                });
+                html += `</ul>`;
+            }
+            html += `</li>`;
+        });
+        html += '</ul>';
+        mainCategoryContainer.innerHTML = html;
+    }
+
+    // Generate the categories on page load
+    generateCategories();
+
+    // Toggle the visibility of the main categories on dropdown button click
+    dropdownBtn.addEventListener('click', function () {
+        if (mainCategoryContainer.style.display === "none" || mainCategoryContainer.style.display === "") {
+            mainCategoryContainer.style.display = "block";
+        } else {
+            mainCategoryContainer.style.display = "none";
+        }
+    });
+
+    // Function to handle checkbox selections
+    function handleCheckboxSelection() {
+        const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
+        const subCategoryCheckboxes = document.querySelectorAll('.subcategory-checkbox');
+
+        let selectedOptions = [];
+
+        // Collect selected main categories
+        categoryCheckboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                selectedOptions.push(checkbox.value);
+            }
+        });
+
+        // Collect selected subcategories
+        subCategoryCheckboxes.forEach(function (subCheckbox) {
+            if (subCheckbox.checked) {
+                selectedOptions.push(subCheckbox.value);
+            }
+        });
+
+        // Update the paragraph with the selected values
+        if (selectedOptions.length > 0) {
+            selectedCategoriesParagraph.textContent = 'Selected Talents: ' + selectedOptions.join(', ');
+        } else {
+            selectedCategoriesParagraph.textContent = 'Selected Talents: None';
+        }
+    }
+
+    // Event delegation for dynamically added checkboxes
+    mainCategoryContainer.addEventListener('change', handleCheckboxSelection);
+
+    // Close dropdown if clicked outside
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('#dropdown-container')) {
+            mainCategoryContainer.style.display = "none";
+        }
+    });
+});
+
+
+
+// // --------------------------xxxxxxxxxxxxxxxxx
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize intl-tel-input for WhatsApp Number
+    const whatsappInput = document.querySelector("#whatsappNumber");
+    window.intlTelInput(whatsappInput, {
+        initialCountry: "ae",  // Detect country automatically based on the user's IP
+        geoIpLookup: function(callback) {
+            fetch('https://ipinfo.io/json', { headers: { 'Accept': 'application/json' } })
+                .then((resp) => resp.json())
+                .then((resp) => {
+                    const countryCode = (resp && resp.country) ? resp.country : "US";
+                    callback(countryCode);
+                });
+        },
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",  // Load utility script for formatting
+    });
+
+    // Initialize intl-tel-input for Calling Number
+    const callingInput = document.querySelector("#callingNumber");
+    window.intlTelInput(callingInput, {
+        initialCountry: "ae",  // Detect country automatically based on the user's IP
+        geoIpLookup: function(callback) {
+            fetch('https://ipinfo.io/json', { headers: { 'Accept': 'application/json' } })
+                .then((resp) => resp.json())
+                .then((resp) => {
+                    const countryCode = (resp && resp.country) ? resp.country : "US";
+                    callback(countryCode);
+                });
+        },
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",  // Load utility script for formatting
+    });
+});
+document.addEventListener('DOMContentLoaded', function () {
+    // When country is selected
+    $('#countryDropdown').on('change', function () {
+        const country = $(this).val();
+
+        // Fetch states/regions based on the selected country
+        $.ajax({
+            url: '/get-states', // Route to fetch states
+            type: 'GET',
+            data: { country: country },
+            success: function (states) {
+                $('#stateDropdown').empty().append('<option value="" disabled selected>Select State/Region</option>');
+                $('#cityDropdown').empty().append('<option value="" disabled selected>Select City</option>');
+
+                // Populate states dropdown
+                $.each(states, function (index, state) {
+                    $('#stateDropdown').append('<option value="' + state + '">' + state + '</option>');
+                });
+            }
+        });
+    });
+
+    // When state is selected
+    $('#stateDropdown').on('change', function () {
+        const state = $(this).val();
+
+        // Fetch cities based on the selected state
+        $.ajax({
+            url: '/get-cities', // Route to fetch cities
+            type: 'GET',
+            data: { state: state },
+            success: function (cities) {
+                $('#cityDropdown').empty().append('<option value="" disabled selected>Select City</option>');
+
+                // Populate cities dropdown
+                $.each(cities, function (index, city) {
+                    $('#cityDropdown').append('<option value="' + city + '">' + city + '</option>');
+                });
+            }
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+</script>
+
                 <div class="col-lg-1"> </div>
 
                 <div class="col-lg-5 col-md-5 col-lg-5 col-xl-5  p-4 text-center">
@@ -298,6 +1186,45 @@
         </div>
     </section>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show modal when page loads
+            var inquiryModal = new bootstrap.Modal(document.getElementById('inquiryModal'), {
+                keyboard: false,
+                backdrop: 'static'
+            });
+            inquiryModal.show();
+
+            // Show General Inquiry form by default
+            document.getElementById('generalInquiryBtn').addEventListener('click', function() {
+                showForm('general');
+                inquiryModal.hide();
+            });
+
+            // Show Client Inquiry form when clicked
+            document.getElementById('clientInquiryBtn').addEventListener('click', function() {
+                showForm('client');
+                inquiryModal.hide();
+            });
+
+            // Function to toggle forms
+            function showForm(formType) {
+                const generalForm = document.getElementById('generalInquiryForm');
+                const clientForm = document.getElementById('clientInquiryForm');
+
+                if (formType === 'general') {
+                    generalForm.style.display = 'block';
+                    clientForm.style.display = 'none';
+                } else if (formType === 'client') {
+                    generalForm.style.display = 'none';
+                    clientForm.style.display = 'block';
+                }
+            }
+
+            // Initialize with the General Inquiry form visible
+            showForm('general');
+        });
+    </script>
 
     <section class="contactlist">
         <div class="container">
@@ -880,6 +1807,59 @@
 
 
     <script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slider-image');
+const totalSlides = slides.length;
+const nextButtons = document.querySelectorAll('.btn-next');
+const prevButtons = document.querySelectorAll('.btn-prev');
+const autoSlideInterval = 5000; // Time in milliseconds (5 seconds)
+
+// Function to show the current slide
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active'); // Hide all slides
+        if (i === index) {
+            slide.classList.add('active'); // Show only the current slide
+        }
+    });
+}
+
+// Function to handle the next slide
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides; // Loop to the next slide
+    showSlide(currentSlide);
+}
+
+// Function to handle the previous slide
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; // Loop to the previous slide
+    showSlide(currentSlide);
+}
+
+// Function to start auto sliding
+function startAutoSlide() {
+    setInterval(nextSlide, autoSlideInterval); // Automatically go to the next slide every 5 seconds
+}
+
+// Attach click event to all NEXT buttons
+nextButtons.forEach(button => {
+    button.addEventListener('click', nextSlide);
+});
+
+// Attach click event to all BACK buttons
+prevButtons.forEach(button => {
+    button.addEventListener('click', prevSlide);
+});
+
+// Show the first slide initially
+showSlide(currentSlide);
+
+// Start auto-sliding
+startAutoSlide();
+
+
+
+        // --------------------------------------------
         var input = document.querySelector("#calling_number");
         var input1 = document.querySelector("#whatsapp_number");
         window.intlTelInput(input, {
@@ -1139,5 +2119,10 @@
 
     @endsection
 </div>
+
+
+
+
+
 
 @include('users.pages.exit-popup')
