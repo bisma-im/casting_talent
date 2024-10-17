@@ -106,7 +106,7 @@
         }
 
         .mobile-frame {
-            background-image: url('{{ url('user-assets/images/mobile-mockup.png') }}');
+            background-image: url('{{ url(' user-assets/images/mobile-mockup.png') }}');
             background-size: cover;
             background-position: center;
             width: 400px;
@@ -131,6 +131,17 @@
 
         .innertext h3 span {
             color: rgba(216, 31, 38, 1);
+        }
+
+        #map {
+            height: 450px;
+            width: 100%;
+        }
+
+        .marker-position {
+            bottom: 8px;
+            margin-left: 110px;;
+            position: relative;
         }
     </style>
 
@@ -368,12 +379,13 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <div class="mapimg" style="text-align:end;">
+                    {{-- <div class="mapimg" style="text-align:end;">
                         <iframe class="position-relative w-100 h-100"
                             src="https://www.google.com/maps?q=25.1837, 55.2666&output=embed" frameborder="0"
                             style="min-height: 450px;width: 70%; border:0;" allowfullscreen="" aria-hidden="false"
                             tabindex="0"></iframe>
-                    </div>
+                    </div> --}}
+                    <div id="map"></div>
                 </div>
             </div>
         </div>
@@ -774,10 +786,8 @@
                                             </div>
                                 </div>
                             </div>
-
-
                         </div>
-                        <div class="">
+                        <div>
                             <div id="google-reviews" class="owl-carousel">
                                 @foreach (collect($reviews)->chunk(2) as $reviewChunk)
                                 <!-- Loop through in chunks of 2 -->
@@ -886,19 +896,17 @@
 
             $("#google-reviews, #client-testimonials").owlCarousel({
                 items: 1,
-            loop: true,
-            margin: 10,
-            nav: false, // Navigation arrows can be disabled if you prefer swipe only
-            dots: true, // Dots navigation
-            autoplay: true,
-            autoplayTimeout: 3000,
-            autoplayHoverPause: true,
-            autoHeight: true,
-            touchDrag: true,
-            mouseDrag: true
+                loop: true,
+                margin: 10,
+                nav: false, // Navigation arrows can be disabled if you prefer swipe only
+                dots: true, // Dots navigation
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                // autoHeight: true,
+                touchDrag: true,
+                mouseDrag: true
             });
-
-    
         });
     </script>
 
@@ -972,6 +980,51 @@
             showStep(currentStep);
             updateProgressBar(); // This will set the initial progress bar to 0%
         });
+    </script>
+
+    <script>
+        function initMap() {
+            // Initialize the map with a temporary center point
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 25.1837, lng: 55.2666},
+                zoom: 15
+            });
+
+            var request = {
+                placeId: '{{ config('services.googlemaps.place_id') }}',
+                fields: ['name', 'formatted_address', 'geometry']
+            };
+
+            var infowindow = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(map);
+
+            service.getDetails(request, function(place, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location,
+                        label: {
+                            text: 'Cast Talents', // The text of the label
+                            color: '#EA4335', // Text color
+                            fontSize: '14px', // Text size
+                            fontWeight: 'bold', // Text weight
+                            className: 'marker-position',
+                        }
+                    });
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                                              'Address: ' + place.formatted_address + '</div>');
+                        infowindow.open(map, this);
+                    });
+                    // Automatically center the map on the marker
+                    map.setCenter(place.geometry.location);
+                }
+            });
+        }
+
+        // $(document).ready(function(){
+        //     initMap();
+        // })
     </script>
 
     <style>

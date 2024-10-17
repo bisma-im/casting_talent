@@ -24,8 +24,8 @@ class PagesController extends Controller
     {
         $client = new Client();
 
-        $placeId = 'ChIJ9foObnFpXz4RghjwyLxhQGo'; // Replace with your actual Place ID
-        $apiKey = 'AIzaSyAMPIEuKU0O3ceSOznpxz4K3RWL0-8j0Sg';   // Replace with your actual API Key
+        $placeId = config('services.googlemaps.place_id'); // Replace with your actual Place ID
+        $apiKey = config('services.googlemaps.api_key');   // Replace with your actual API Key
         $url = "https://maps.googleapis.com/maps/api/place/details/json?place_id={$placeId}&fields=review,user_ratings_total,rating&key={$apiKey}";
         $reviews = null;
         $reviewsCount = 0;  // To hold the count of reviews in the array
@@ -39,12 +39,16 @@ class PagesController extends Controller
             // Get reviews if they exist
             $reviews = isset($data['result']['reviews']) ? $data['result']['reviews'] : [];
 
-            $filteredReviews = [];
-            foreach ($reviews as $index => $review) {
-                if ($index % 3 == 0) {
-                    $filteredReviews[] = $review; // Add only even-indexed reviews
-                }
-            }
+            $customReview = [
+                'author_name' => 'Laiba Azhar',
+                'text' => 'Amazing agency with top-notch services! The team is professional, friendly, and incredibly supportive. The management always ensure a positive experience for all. Highly recommend for anyone looking for talent management or casting services! ⭐⭐⭐⭐⭐',
+                'rating' => 5,
+                'profile_photo_url' => null, // You can add an image URL if needed, or leave null
+                'relative_time_description' => 'just now' // This can be customized
+            ];
+        
+            // Append the custom review to the existing reviews array
+            $reviews[] = $customReview;
 
             // Count the number of reviews
             $reviewsCount = isset($data['result']['user_ratings_total']) ? $data['result']['user_ratings_total'] : 0;
@@ -56,7 +60,7 @@ class PagesController extends Controller
         }
 
         return view('users.pages.contact-us', [
-            'reviews' => $filteredReviews,
+            'reviews' => $reviews,
             'reviewsCount' => $reviewsCount,
             'averageRating' => $averageRating,
             'businessReviewUrl' => $businessReviewUrl

@@ -1,4 +1,5 @@
 <!-- plugins:css -->
+<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.googlemaps.api_key') }}&callback=initMap&libraries=places&v=weekly" defer></script>
 <link rel="stylesheet" href="{{ url('admin-assets') }}/assets/vendors/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="{{ url('admin-assets') }}/assets/vendors/flag-icon-css/css/flag-icon.min.css">
 <link rel="stylesheet" href="{{ url('admin-assets') }}/assets/vendors/css/vendor.bundle.base.css">
