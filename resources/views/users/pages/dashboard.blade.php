@@ -896,14 +896,14 @@
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label  class="fw-bold">NO OF DAYS</label>
-                                    <input type="number" class="form-control" name="no_of_days" placeholder="Number of Days">
+                                    <input type="number" class="form-control" name="no_of_days" placeholder="Number of Days" required>
                                 </div>
                             </div>
 
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label  class="fw-bold">NO OF HOURS</label>
-                                    <input type="number" class="form-control" name="no_of_hours" placeholder="Number of Hours">
+                                    <input type="number" class="form-control" name="no_of_hours" placeholder="Number of Hours"  required>
                                 </div>
                             </div>
 
@@ -1216,7 +1216,7 @@ document.addEventListener("DOMContentLoaded", function () {
             html += `
                 <li class="main-category-item">
                     <label>
-                        <input type="checkbox" class="category-checkbox" value="${talent.name}">
+                        <input  type="checkbox" class="category-checkbox" value="${talent.name}">
                         ${talent.name}
                     </label>`;
             if (talent.subcategories.length > 0) {
