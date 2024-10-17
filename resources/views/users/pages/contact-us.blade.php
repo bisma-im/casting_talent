@@ -929,58 +929,64 @@
             });
 
             const formSteps = document.querySelectorAll('.form-step');
-            const progressBar = document.getElementById('progress-bar');
-            let currentStep = 0;
+const progressBar = document.getElementById('progress-bar');
+let currentStep = 0;
+let progress = 0; // Initialize progress at 0%
 
-            function showStep(step) {
-                formSteps.forEach((formStep, index) => {
-                    formStep.style.display = index === step ? 'block' : 'none'; // Show/hide steps
-            });
-                updateProgressBar();
-            }
+function showStep(step) {
+    formSteps.forEach((formStep, index) => {
+        formStep.style.display = index === step ? 'block' : 'none'; // Show/hide steps
+    });
+}
 
-            function updateProgressBar() {
-                const progress = ((currentStep + 1) / formSteps.length) * 100; // Updated to start at 25%
-                progressBar.style.width = progress + '%';
-                progressBar.innerText = Math.round(progress) + '%'; // Show percentage
-            }
+function updateProgressBar() {
+    progressBar.style.width = `${progress}%`;
+    progressBar.setAttribute('aria-valuenow', progress);
+    progressBar.textContent = `${progress}%`; // Update progress bar text
+}
 
-            function validateStep(step) {
-                const inputs = formSteps[step].querySelectorAll('input, textarea');
-                for (const input of inputs) {
-                    if (!input.value) {
-                        input.classList.add('is-invalid'); // Add invalid class
-                        return false;
-                    } else {
-                        input.classList.remove('is-invalid'); // Remove invalid class if valid
-                    }
-                }
-                return true;
-            }
+function validateStep(step) {
+    const inputs = formSteps[step].querySelectorAll('input, textarea');
+    for (const input of inputs) {
+        if (!input.value) {
+            input.classList.add('is-invalid'); // Add invalid class
+            return false;
+        } else {
+            input.classList.remove('is-invalid'); // Remove invalid class if valid
+        }
+    }
+    return true;
+}
 
-            document.querySelectorAll('.btn-next').forEach(button => {
-                button.addEventListener('click', () => {
-                if (validateStep(currentStep)) {
-                if (currentStep < formSteps.length - 1) {
-                    currentStep++;
-                    showStep(currentStep);
-                }
-            }
-        });
-        });
-
-            document.querySelectorAll('.btn-prev').forEach(button => {
-                button.addEventListener('click', () => {
-                if (currentStep > 0) {
-                currentStep--;
+document.querySelectorAll('.btn-next').forEach(button => {
+    button.addEventListener('click', () => {
+        if (validateStep(currentStep)) {
+            if (currentStep < formSteps.length - 1) {
+                currentStep++;
+                progress += 25; // Increase progress by 25%
                 showStep(currentStep);
+                updateProgressBar(); // Update the progress bar
             }
-        });
-        });
+        }
+    });
+});
 
-            // Initialize the first step and set progress to 25%
+document.querySelectorAll('.btn-prev').forEach(button => {
+    button.addEventListener('click', () => {
+        if (currentStep > 0) {
+            currentStep--;
+            progress -= 25; // Decrease progress by 25%
             showStep(currentStep);
-            updateProgressBar(); // This will set the initial progress bar to 25%
+            updateProgressBar(); // Update the progress bar
+        }
+    });
+});
+
+// Initialize the first step and set progress to 0%
+showStep(currentStep);
+updateProgressBar(); // This will set the initial progress bar to 0%
+
+
         });
     </script>
 
