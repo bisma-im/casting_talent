@@ -106,7 +106,7 @@
         }
 
         .mobile-frame {
-            background-image: url('{{ url(' user-assets/images/mobile-mockup.png') }}');
+            background-image: url('{{ url('user-assets/images/mobile-mockup.png') }}');
             background-size: cover;
             background-position: center;
             width: 400px;
@@ -746,70 +746,83 @@
                         $fullStars = floor($averageRating); // Number of full stars
                         $halfStar = ($averageRating - $fullStars) >= 0.5 ? 1 : 0; // Whether to show a half star
                         $emptyStars = 5 - $fullStars - $halfStar; // Remaining empty stars
-                    @endphp
-                        <p class="text-left" style="width: 100%;">{{ $averageRating . '/5'}}
-                            <span class="stars">
-                                @for ($i = 0; $i < $fullStars; $i++)
-                                    ★
-                                @endfor
-                                @if ($halfStar)
-                                    ☆
-                                @endif
-                                @for ($i = 0; $i < $emptyStars; $i++)
-                                    <span>★</span>
-                                @endfor
-                            </span>
-                            <a href="{{ $businessReviewUrl }}" target="_blank">{{ '(' . $reviewsCount . ' reviews on
-                                Google)' }}</a>
-                        </p>
+                        @endphp
 
-                    </div>
-                    <div class="">
-                        <div id="google-reviews" class="owl-carousel">
-                            @foreach (collect($reviews)->chunk(2) as $reviewChunk)
-                            <!-- Loop through in chunks of 2 -->
-                            <div class="item">
-                                @foreach ($reviewChunk as $review)
-                                <div
-                                    class="testimonial card-style position-relative d-flex align-items-center justify-content-center">
-                                    <!-- Added Flexbox for vertical centering -->
-                                    <!-- Layout for image on left and content on right -->
-                                    <div class="row ">
-                                        <!-- Author's Image on the left -->
-                                        {{-- <div class="col-md-3 text-center">
-                                            <img src="{{ $review['profile_photo_url'] }}" alt="Avatar"
-                                                class="w-25 styled-avatar">
-                                        </div> --}}
+                        <div style="display: flex; align-items: flex-start; gap: 10px;">
+                            <!-- Flexbox to create two columns -->
+                            <!-- Column 1: Numeric Rating -->
+                            <div style="font-size: 3rem; font-weight: bold;">
+                                {{ number_format($averageRating, 1) }}
+                                <!-- Example: 4.9 -->
+                            </div>
 
-                                        <!-- Testimonial Text on the right -->
-                                        <div
-                                            class="col-md-12 d-flex flex-column justify-content-center align-items-center">
-                                            <p class="text-center">
-                                                <i class="fas fa-quote-left fs-5"></i> <!-- Opening Quote Icon -->
-                                                {{ $review['text'] }}
-                                                <i class="fas fa-quote-right fs-5"></i> <!-- Closing Quote Icon -->
-                                            </p>
-                                            <h5 class="author fs-6 text-center font-weight-bold">— {{
-                                                $review['author_name']
-                                                }}</h5>
-                                            <div class="stars text-center fs-3">★★★★★</div>
+                            <!-- Column 2: Stars and Reviews -->
+                            <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                                <!-- Stars Row -->
+                                <div style="font-size: 1.5rem; color: #FFD700;">
+                                    <!-- Gold stars -->
+                                    @for ($i = 0; $i < $fullStars; $i++) ★ @endfor @if ($halfStar) ☆ @endif <!-- Half
+                                        star if needed -->
+                                        @for ($i = 0; $i < $emptyStars; $i++) ★ @endfor </div>
+
+                                            <!-- Reviews Count Row (below stars) -->
+                                            <div style="color: #666;">
+                                                <!-- Reviews count -->
+                                                <a href="{{ $businessReviewUrl }}" target="_blank">
+                                                    {{ $reviewsCount }} Reviews
+                                                </a>
+                                            </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="">
+                            <div id="google-reviews" class="owl-carousel">
+                                @foreach (collect($reviews)->chunk(2) as $reviewChunk)
+                                <!-- Loop through in chunks of 2 -->
+                                <div class="item">
+                                    @foreach ($reviewChunk as $review)
+                                    <div
+                                        class="testimonial card-style position-relative d-flex align-items-center justify-content-center">
+                                        <!-- Added Flexbox for vertical centering -->
+                                        <!-- Layout for image on left and content on right -->
+                                        <div class="row ">
+                                            <!-- Author's Image on the left -->
+                                            {{-- <div class="col-md-3 text-center">
+                                                <img src="{{ $review['profile_photo_url'] }}" alt="Avatar"
+                                                    class="w-25 styled-avatar">
+                                            </div> --}}
+
+                                            <!-- Testimonial Text on the right -->
+                                            <div
+                                                class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+                                                <p class="text-center">
+                                                    <i class="fas fa-quote-left fs-5"></i> <!-- Opening Quote Icon -->
+                                                    {{ $review['text'] }}
+                                                    <i class="fas fa-quote-right fs-5"></i> <!-- Closing Quote Icon -->
+                                                </p>
+                                                <h5 class="author fs-6 text-center font-weight-bold">— {{
+                                                    $review['author_name']
+                                                    }}</h5>
+                                                <div class="stars text-center fs-3">★★★★★</div>
+                                            </div>
                                         </div>
                                     </div>
+                                    @endforeach
                                 </div>
                                 @endforeach
                             </div>
-                            @endforeach
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
 
         {{---------------------------- client reviews ----------------------}}
         <section class="contactlist col-lg-6 col-md-6 col-xl-6" style="background-color: #f3fbff !important;">
             <div class="container">
                 <div class="row">
-                    <div class="innertext text-left">
+                    <div class="innertext text-left" style="margin-bottom: 48px;">
                         <h3 style="text-align:left; font-weight:bold">What <span>Celebrities </span>worked with us have
                             to say</h3><br>
                     </div>
@@ -858,63 +871,35 @@
 
     <script>
         var input = document.querySelector("#calling_number");
-    var input1 = document.querySelector("#whatsapp_number");
-    window.intlTelInput(input, {
-        initialCountry: "ae",
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // for formatting/validation
-    });
-
-    window.intlTelInput(input1, {
-        initialCountry: "ae",
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // for formatting/validation
-    });
-
-    $(document).ready(function(){
-
-        $("#google-reviews, #client-testimonials").owlCarousel({
-            items: 1,
-        loop: true,
-        margin: 10,
-        nav: false, // Navigation arrows can be disabled if you prefer swipe only
-        dots: true, // Dots navigation
-        autoplay: true,
-        autoplayTimeout: 3000,
-        autoplayHoverPause: true,
-        autoHeight: true,
-        touchDrag: true,
-        mouseDrag: true
+        var input1 = document.querySelector("#whatsapp_number");
+        window.intlTelInput(input, {
+            initialCountry: "ae",
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // for formatting/validation
         });
 
-    //     function loadReviews() {
-    //     $.ajax({
-    //         url: '/google-reviews',
-    //         type: 'GET',
-    //         success: function(reviews) {
-    //             console.log(reviews); // Process and display reviews as needed
-    //             displayReviews(reviews); // Process and display reviews as needed
-    //         },
-    //         error: function(error) {
-    //             console.error('Error fetching reviews:', error);
-    //         }
-    //     });
-    // }
+        window.intlTelInput(input1, {
+            initialCountry: "ae",
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // for formatting/validation
+        });
 
-    // loadReviews();
+        $(document).ready(function(){
 
-    //     function displayReviews(reviews) {
-    //         reviews.forEach(function(review) {
-    //             var reviewHtml = `
-    //                 <div class="review">
-    //                     <p>${review.author_name}</p>
-    //                     <p>Rating: ${review.rating}</p>
-    //                     <p>${review.text}</p>
-    //                     <img src="${review.profile_photo_url}">
-    //                 </div>
-    //             `;
-    //             $('#google-reviews').append(reviewHtml);
-    //         });
-    //     }
-    });
+            $("#google-reviews, #client-testimonials").owlCarousel({
+                items: 1,
+            loop: true,
+            margin: 10,
+            nav: false, // Navigation arrows can be disabled if you prefer swipe only
+            dots: true, // Dots navigation
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            autoHeight: true,
+            touchDrag: true,
+            mouseDrag: true
+            });
+
+    
+        });
     </script>
 
     <script>
@@ -929,64 +914,63 @@
             });
 
             const formSteps = document.querySelectorAll('.form-step');
-const progressBar = document.getElementById('progress-bar');
-let currentStep = 0;
-let progress = 0; // Initialize progress at 0%
+            const progressBar = document.getElementById('progress-bar');
+            let currentStep = 0;
+            let progress = 0; // Initialize progress at 0%
 
-function showStep(step) {
-    formSteps.forEach((formStep, index) => {
-        formStep.style.display = index === step ? 'block' : 'none'; // Show/hide steps
-    });
-}
-
-function updateProgressBar() {
-    progressBar.style.width = `${progress}%`;
-    progressBar.setAttribute('aria-valuenow', progress);
-    progressBar.textContent = `${progress}%`; // Update progress bar text
-}
-
-function validateStep(step) {
-    const inputs = formSteps[step].querySelectorAll('input, textarea');
-    for (const input of inputs) {
-        if (!input.value) {
-            input.classList.add('is-invalid'); // Add invalid class
-            return false;
-        } else {
-            input.classList.remove('is-invalid'); // Remove invalid class if valid
-        }
-    }
-    return true;
-}
-
-document.querySelectorAll('.btn-next').forEach(button => {
-    button.addEventListener('click', () => {
-        if (validateStep(currentStep)) {
-            if (currentStep < formSteps.length - 1) {
-                currentStep++;
-                progress += 25; // Increase progress by 25%
-                showStep(currentStep);
-                updateProgressBar(); // Update the progress bar
+            function showStep(step) {
+                formSteps.forEach((formStep, index) => {
+                    formStep.style.display = index === step ? 'block' : 'none'; // Show/hide steps
+                });
             }
-        }
-    });
-});
 
-document.querySelectorAll('.btn-prev').forEach(button => {
-    button.addEventListener('click', () => {
-        if (currentStep > 0) {
-            currentStep--;
-            progress -= 25; // Decrease progress by 25%
+            function updateProgressBar() {
+                progressBar.style.width = `${progress}%`;
+                progressBar.setAttribute('aria-valuenow', progress);
+                progressBar.textContent = `${progress}%`; // Update progress bar text
+            }
+
+            function validateStep(step) {
+                const inputs = formSteps[step].querySelectorAll('input, textarea');
+                for (const input of inputs) {
+                    if (!input.value) {
+                        input.classList.add('is-invalid'); // Add invalid class
+                        return false;
+                    } else {
+                        input.classList.remove('is-invalid'); // Remove invalid class if valid
+                    }
+                }
+
+            return true;
+            }
+
+            document.querySelectorAll('.btn-next').forEach(button => {
+                button.addEventListener('click', () => {
+                    if (validateStep(currentStep)) {
+                        if (currentStep < formSteps.length - 1) {
+                            currentStep++;
+                            progress += 25; // Increase progress by 25%
+                            showStep(currentStep);
+                            updateProgressBar(); // Update the progress bar
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('.btn-prev').forEach(button => {
+                button.addEventListener('click', () => {
+                    if (currentStep > 0) {
+                        currentStep--;
+                        progress -= 25; // Decrease progress by 25%
+                        showStep(currentStep);
+                        updateProgressBar(); // Update the progress bar
+                    }
+                });
+            });
+
+            // Initialize the first step and set progress to 0%
             showStep(currentStep);
-            updateProgressBar(); // Update the progress bar
-        }
-    });
-});
-
-// Initialize the first step and set progress to 0%
-showStep(currentStep);
-updateProgressBar(); // This will set the initial progress bar to 0%
-
-
+            updateProgressBar(); // This will set the initial progress bar to 0%
         });
     </script>
 

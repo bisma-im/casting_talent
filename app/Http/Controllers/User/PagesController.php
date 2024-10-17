@@ -39,6 +39,13 @@ class PagesController extends Controller
             // Get reviews if they exist
             $reviews = isset($data['result']['reviews']) ? $data['result']['reviews'] : [];
 
+            $filteredReviews = [];
+            foreach ($reviews as $index => $review) {
+                if ($index % 3 == 0) {
+                    $filteredReviews[] = $review; // Add only even-indexed reviews
+                }
+            }
+
             // Count the number of reviews
             $reviewsCount = isset($data['result']['user_ratings_total']) ? $data['result']['user_ratings_total'] : 0;
 
@@ -49,7 +56,7 @@ class PagesController extends Controller
         }
 
         return view('users.pages.contact-us', [
-            'reviews' => $reviews,
+            'reviews' => $filteredReviews,
             'reviewsCount' => $reviewsCount,
             'averageRating' => $averageRating,
             'businessReviewUrl' => $businessReviewUrl
