@@ -106,7 +106,7 @@
         }
 
         .mobile-frame {
-            background-image: url('{{ url(' user-assets/images/mobile-mockup.png') }}');
+            background-image: url('{{ url('user-assets/images/mobile-mockup.png') }}');
             background-size: cover;
             background-position: center;
             width: 400px;
