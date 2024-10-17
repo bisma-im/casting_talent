@@ -5,10 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\ModelDetail;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class PagesController extends Controller
 {
-
 
     public function modelDataPage()
     {
@@ -22,7 +22,38 @@ class PagesController extends Controller
 
     public function contactPage()
     {
-        return view('users.pages.contact-us');
+        $client = new Client();
+
+        $placeId = 'ChIJ9foObnFpXz4RghjwyLxhQGo'; // Replace with your actual Place ID
+        $apiKey = 'AIzaSyAMPIEuKU0O3ceSOznpxz4K3RWL0-8j0Sg';   // Replace with your actual API Key
+        $url = "https://maps.googleapis.com/maps/api/place/details/json?place_id={$placeId}&fields=review,user_ratings_total,rating&key={$apiKey}";
+        $reviews = null;
+        $reviewsCount = 0;  // To hold the count of reviews in the array
+        $averageRating = 0; // To hold the average rating
+        $businessReviewUrl = "https://www.google.com/maps/place/?q=place_id:{$placeId}";
+
+        try {
+            $response = $client->request('GET', $url);
+            $data = json_decode($response->getBody()->getContents(), true);
+
+            // Get reviews if they exist
+            $reviews = isset($data['result']['reviews']) ? $data['result']['reviews'] : [];
+
+            // Count the number of reviews
+            $reviewsCount = isset($data['result']['user_ratings_total']) ? $data['result']['user_ratings_total'] : 0;
+
+            // Get the average rating
+            $averageRating = isset($data['result']['rating']) ? $data['result']['rating'] : 0;
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to fetch reviews: ' . $e->getMessage()], 500);
+        }
+
+        return view('users.pages.contact-us', [
+            'reviews' => $reviews,
+            'reviewsCount' => $reviewsCount,
+            'averageRating' => $averageRating,
+            'businessReviewUrl' => $businessReviewUrl
+        ]);
     }
 
     public function jobsPage()
@@ -119,12 +150,12 @@ class PagesController extends Controller
     {
         return view('users.pages.celeberity-management', ['section' => $section]);
     }
-    
+
     public function hospitalityPage($section = '')
     {
         return view('users.pages.hospitality', ['section' => $section]);
     }
-    
+
     public function locationScoutingPage($section = '')
     {
         return view('users.pages.location-scounting', ['section' => $section]);
