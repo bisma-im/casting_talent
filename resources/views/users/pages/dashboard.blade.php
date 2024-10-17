@@ -180,36 +180,37 @@
     .is-invalid::placeholder {
         color: #dc3545;
     }
- /* Initially hide subcategories */
+/* Initially hide subcategories */
+/* Initially hide subcategories */
 .sub-category {
     display: none;
-    list-style: none;
+    list-style-type: none;
     margin-top: 5px;
     padding-left: 20px;
 }
-
+.main-category {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 /* Main category styling */
 .main-category-item {
     cursor: pointer;
-    padding: 5px 0;
-    position: relative;
+    padding: 10px 0;
     border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
 }
-
-/* Show subcategories when hovering over main category */
-.main-category-item:hover .sub-category {
-    display: block;
-}
-
 /* Category Checkbox Styles */
 .category-checkbox,
 .subcategory-checkbox {
     margin-right: 5px;
 }
-
 /* Subcategory styling */
 .sub-category li {
     padding: 5px 0;
+    font-size: 14px;
 }
 
 /* Menu container styles */
@@ -218,14 +219,26 @@
     border-radius: 5px;
     padding: 10px;
     background-color: #fff;
-    max-height: 300px;
+    max-height: 350px; /* Increase max height to avoid scrolling too soon */
     overflow-y: auto;
-    display: none; /* Hidden until dropdown button is clicked */
+    display: none; /* Hidden until the dropdown button is clicked */
+    transition: max-height 0.3s ease-in-out;
+    width: 250px; /* Adjusted width for better readability */
 }
+
 
 /* Dropdown Button Styles */
 #dropdown-btn {
     width: 100%;
+    padding: 10px;
+    background-color: #6c757d; /* Button color */
+    color: white;
+    border-radius: 5px;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 5px;
 }
 
 /* Display categories on hover or click */
@@ -236,6 +249,30 @@
 /* Hover effect for subcategories */
 .sub-category li:hover {
     background-color: #f0f0f0;
+    cursor: pointer;
+}
+/* Custom Scrollbar */
+.menu-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.menu-container::-webkit-scrollbar-thumb {
+    background-color: #888; /* Scrollbar thumb color */
+    border-radius: 5px;
+}
+
+/* Expandable height for subcategories */
+.main-category-item:hover .sub-category {
+    display: block;
+}
+
+.main-category-item.expanded .sub-category {
+    display: block;
+}
+
+/* Adjust max-height dynamically when a subcategory is visible */
+.menu-container.expand {
+    max-height: none; /* Remove max height when a subcategory is open */
 }
 
 </style>
@@ -888,86 +925,18 @@
 
 
                             <!-- Required Talent -->
-                            <div class="col-lg-3">
+ <div class="col-lg-3">
     <div class="form-group">
         <label class="fw-bold">REQUIRED TALENT</label>
 
         <!-- Main Dropdown Button -->
         <div class="dropdown" id="dropdown-container">
-            <button class="btn btn-secondary dropdown-toggle" id="dropdown-btn" type="button">
+            <button style="background-color: #1C7887" class="btn btn-secondary  dropdown-toggle" id="dropdown-btn" type="button">
                 Select a Category
             </button>
 
             <!-- Menu container with categories and subcategories (initially hidden) -->
-            <div class="menu-container" id="main-category-container" style="display: none;">
-                <ul class="main-category">
-                    <!-- Actor Category -->
-                    <li class="main-category-item actor">
-                        <label>
-                            <input type="checkbox" class="category-checkbox" value="Actor">
-                            Actor
-                        </label>
-                        <ul class="sub-category">
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="subcategory-checkbox" value="Featured">
-                                    Featured
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="subcategory-checkbox" value="Extras">
-                                    Extras
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="subcategory-checkbox" value="Lead Role">
-                                    Lead Role
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="subcategory-checkbox" value="Voice-over Artist">
-                                    Voice-over Artist
-                                </label>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- Model Category -->
-                    <li class="main-category-item model">
-                        <label>
-                            <input type="checkbox" class="category-checkbox" value="Model">
-                            Model
-                        </label>
-                    </li>
-
-                    <!-- Dancer Category -->
-                    <li class="main-category-item dancer">
-                        <label>
-                            <input type="checkbox" class="category-checkbox" value="Dancer">
-                            Dancer
-                        </label>
-                        <ul class="sub-category">
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="subcategory-checkbox" value="Choreographer">
-                                    Choreographer
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="subcategory-checkbox" value="Belly Dancer">
-                                    Belly Dancer
-                                </label>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- More categories... -->
-                </ul>
-            </div>
+            <div class="menu-container" id="main-category-container" style="display: none;"></div>
         </div>
 
         <!-- Paragraph to show selected categories and subcategories -->
@@ -1114,6 +1083,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
 <script>
+
+
+   // progress bar js 
    let currentStep = 1;
     let progress = 0; // Start with 0%
 
@@ -1192,13 +1164,82 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 // -----------------------------------------------
-
+//  talent list js 
 document.addEventListener("DOMContentLoaded", function () {
+    const talents = [
+        {
+            name: 'Actor',
+            subcategories: ['Featured', 'Extras', 'Lead Role', 'Voice-over Artist']
+        },
+        {
+            name: 'Model',
+            subcategories: []
+        },
+        {
+            name: 'Dancer',
+            subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'Be Boyz', 'Dance Groups', 'Tabrey Dancer']
+        },
+        {
+            name: 'Film Crew',
+            subcategories: ['Filmmaker', 'DOP', 'Assistant Director', 'Script Writer', 'Dialog Writer', 'Art Director', 'Production Manager', 'Production Designer', 'Line Producer', 'Focus Puller', 'Camera Operator', 'Lights & Gaffer', 'Crane Operator', 'Sound Engineer', 'Spot Boy']
+        },
+        {
+            name: 'Influencers',
+            subcategories: []
+        },
+        {
+            name: 'Makeup and Hair',
+            subcategories: []
+        },
+        {
+            name: 'Musicians',
+            subcategories: ['Singers', 'Music Band', 'Guitarist', 'Violinist', 'Drummers', 'Bassist', 'Rapper']
+        },
+        {
+            name: 'Event Staff and Ushers',
+            subcategories: ['Hostess', 'Promoter', 'EmCee', 'Stunt Person']
+        },
+        {
+            name: 'Entertainer / Performers',
+            subcategories: ['Standup Artist', 'VJ', 'RJ', 'Public Speaker', 'Magician', 'Body Double', 'Bottle Twister']
+        }
+    ];
+
     const dropdownBtn = document.getElementById("dropdown-btn");
     const mainCategoryContainer = document.getElementById("main-category-container");
-    const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
-    const subCategoryCheckboxes = document.querySelectorAll('.subcategory-checkbox');
     const selectedCategoriesParagraph = document.getElementById("selectedCategories");
+
+    // Function to create and populate categories and subcategories
+    function generateCategories() {
+        let html = '<ul class="main-category">';
+        talents.forEach(talent => {
+            html += `
+                <li class="main-category-item">
+                    <label>
+                        <input type="checkbox" class="category-checkbox" value="${talent.name}">
+                        ${talent.name}
+                    </label>`;
+            if (talent.subcategories.length > 0) {
+                html += `<ul class="sub-category">`;
+                talent.subcategories.forEach(sub => {
+                    html += `
+                        <li>
+                            <label>
+                                <input type="checkbox" class="subcategory-checkbox" value="${sub}">
+                                ${sub}
+                            </label>
+                        </li>`;
+                });
+                html += `</ul>`;
+            }
+            html += `</li>`;
+        });
+        html += '</ul>';
+        mainCategoryContainer.innerHTML = html;
+    }
+
+    // Generate the categories on page load
+    generateCategories();
 
     // Toggle the visibility of the main categories on dropdown button click
     dropdownBtn.addEventListener('click', function () {
@@ -1211,6 +1252,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to handle checkbox selections
     function handleCheckboxSelection() {
+        const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
+        const subCategoryCheckboxes = document.querySelectorAll('.subcategory-checkbox');
+
         let selectedOptions = [];
 
         // Collect selected main categories
@@ -1235,14 +1279,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Add event listeners to all checkboxes
-    categoryCheckboxes.forEach(function (checkbox) {
-        checkbox.addEventListener('change', handleCheckboxSelection);
-    });
-
-    subCategoryCheckboxes.forEach(function (subCheckbox) {
-        subCheckbox.addEventListener('change', handleCheckboxSelection);
-    });
+    // Event delegation for dynamically added checkboxes
+    mainCategoryContainer.addEventListener('change', handleCheckboxSelection);
 
     // Close dropdown if clicked outside
     document.addEventListener('click', function (e) {
@@ -1251,6 +1289,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 
 
 // // --------------------------xxxxxxxxxxxxxxxxx
@@ -1328,41 +1367,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function nextSection(currentSection) {
-        document.getElementById('section' + currentSection).style.display = 'none';
-        document.getElementById('section' + (currentSection + 1)).style.display = 'block';
-    }
-
-    function previousSection(currentSection) {
-        document.getElementById('section' + currentSection).style.display = 'none';
-        document.getElementById('section' + (currentSection - 1)).style.display = 'block';
-    }
-
-    function updateProgress() {
-        let progress = 0;
-        const totalFields = 17; // Adjust based on actual field count
-
-        // Get filled fields count
-        const filledFields = Array.from(document.querySelectorAll('input, select'))
-            .filter(field => field.value !== '').length;
-
-        // Adjust progress based on filled fields
-        if (filledFields > 0 && filledFields <= 4) {
-            progress = 25;
-        } else if (filledFields > 4 && filledFields <= 8) {
-            progress = 50;
-        } else if (filledFields > 8 && filledFields <= 12) {
-            progress = 75;
-        } else if (filledFields === totalFields) {
-            progress = 100;
-        }
-
-        // Update progress bar
-        const progressBar = document.getElementById('progressBar');
-        progressBar.style.width = progress + '%';
-        progressBar.setAttribute('aria-valuenow', progress);
-        progressBar.textContent = progress + '%';
-    }
 
 
 
