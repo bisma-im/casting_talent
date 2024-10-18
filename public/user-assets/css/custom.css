@@ -252,7 +252,7 @@ section.featuremodalsec {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 50px 0 150px;
+    padding: 10px 0 10px;
     position: relative;
 }
 
@@ -310,49 +310,84 @@ a.contactbtn1:hover{
     /* padding: 10px; */
     /* border-radius: 20px; */
     box-shadow: 4px 2px 9px #ccc;
-}
-/* .castimg img {
-    border-radius: 20px;
-} */
-.bodytheading {
-    color: rgba(0, 0, 0, 1);
-    font-size: 22px;
-    line-height: 27px;
-    font-weight: 500;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
 }
 .castbody {
     display: flex;
-    /* padding: 15px 0;
-    gap: 10px; */
+    height: 60px;
+    border-bottom-left-radius: 10px; 
+    border-bottom-right-radius: 10px;
 }
+
 .castbox-code {
     flex: 0.7;
-    background-color: #f1e423;
-    padding: 5px;
-    justify-content: center;  /* Centers content horizontally */
-    align-items: center;
+    background-color: #f2c67f;
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    height: 100%; /* Ensure it takes full height of the parent */
+    border-bottom-left-radius: 10px; 
 }
 
 .castbox-info {
-    flex: 1; 
-    padding: 5px;
-    background-color: #66e2e2; 
-    justify-content: center;  /* Centers content horizontally */
-    align-items: center;
+    flex: 1;
+    background-color: #4ca1ae;
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    height: 100%; 
+    border-bottom-right-radius: 10px;
+}
+
+.custom-col {
+    flex: 0 0 20%;
+    max-width: 20%;
+    padding: 0 7px;
+}
+
+@media (max-width: 768px) {
+    .custom-col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-col {
+        flex: 0 0 100%;
+        max-width: 90%;
+    }
+    .castimg img {
+        min-height: 65vh;
+    }
 }
 .bodytheading {
     color: rgba(0, 0, 0, 1);
-    font-size: 22px;
-    /* line-height: 27px; */
+    font-size: 16px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding: 5px;
     /* font-weight: 500; */
-    /* border-bottom: 1px solid #000; */
-    padding-bottom: 10px;
+    border: 1px solid #ccc;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
 }
+
 .castimg img {
     width: 100%;
     object-fit: cover;
     object-position: top;
-    height: 50vh;
+    height: 53vh;
 }
 .firstitem {
     display: flex;
@@ -379,6 +414,8 @@ a.contactbtn1:hover{
 }
 .castimg {
     overflow: hidden;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
 }
 .startedbtn {
     padding: 50px 0 50px;
@@ -815,7 +852,7 @@ section.ourclientssec {
 }
 .clientbox img{
     filter: grayscale(100%);
-    width: 75% !important;
+    width: 80% !important;
     transition: filter 0.5s ease;
 }
 /* client box css end */
@@ -1175,7 +1212,7 @@ a.contactbtn1 {
 /* featured modal css start */
 
 section.featruredmodalsec {
-    padding: 50px 0 50px;
+    padding: 20px;
 }
 .jopbody h4 {
     color: rgba(0, 0, 0, 1);
