@@ -379,12 +379,6 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    {{-- <div class="mapimg" style="text-align:end;">
-                        <iframe class="position-relative w-100 h-100"
-                            src="https://www.google.com/maps?q=25.1837, 55.2666&output=embed" frameborder="0"
-                            style="min-height: 450px;width: 70%; border:0;" allowfullscreen="" aria-hidden="false"
-                            tabindex="0"></iframe>
-                    </div> --}}
                     <div id="map"></div>
                 </div>
             </div>
@@ -1021,10 +1015,6 @@
                 }
             });
         }
-
-        // $(document).ready(function(){
-        //     initMap();
-        // })
     </script>
 
     <style>
