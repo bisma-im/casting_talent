@@ -118,6 +118,7 @@
       // Remove blur effect if the modal is closed without selection
       document.getElementById('closeModal').addEventListener('click', function() {
          document.getElementById('pageContent').classList.remove('blurred');
+         myModal.hide();
       });
    });
 </script>

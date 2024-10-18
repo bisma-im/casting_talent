@@ -45,6 +45,25 @@
 
 </style>
 
+<style>
+    .sideBar{
+        padding: 10px;
+        border: 1px solid red;
+    }
+    .headText h3{
+        color: rgba(232, 175, 85, 1) !important;
+        font-weight: bold !important;
+        padding: 10px !important;
+        background: beige !important;
+     }
+     .featurelist ul li {
+        list-style: none !important;
+        margin: 0 24px !important;
+        display: flex !important;
+        line-height: 50px !important;
+     }
+    </style>
+
     <section class="innerpages">
         <div class="container">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
@@ -101,9 +120,9 @@
     </style>
 
     <section class="featruredmodalsec">
-        <div class="container">
+        {{-- <div class="container"> --}}
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="row">
                     @if (!empty($qModels))
                         @if ($qModels->count() > 0)
@@ -120,7 +139,7 @@
                                     $height = $modelDetail->height . ' ' . 'cm';
                                     $weight = $modelDetail->weight . ' ' . 'kg';
                                 @endphp
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                <div class="col-12 col-md-2 m-2">
                                     <a href="{{ route('model-info.get', $modelDetail->id) }}" class="text-dark">
                                         <div class="castbox mb-3">
                                             <div class="castimg">
@@ -128,24 +147,19 @@
                                                     alt="Model Image">
                                             </div>
                                             <div class="castbody">
-                                                <h5 class="bodytheading">{{ $modelDetail->first_name }}
-                                                    {{ $modelDetail->last_name }}</h5>
-                                                <div class="castbodylist firstitem">
-                                                    <h5><strong>AGE:</strong> {{ $age }}</h5>
-                                                    <h5><strong>Nationality:</strong>
-                                                        {{ $modelDetail->nationality }}
-                                                    </h5>
-                                                </div>
-                                                <div class="castbodylist">
-                                                    <h5><strong>HEIGHT:</strong> {{ $height }}</h5>
-                                                </div>
-                                                <div class="castbodylist">
-                                                    <h5><strong>WEIGHT:</strong> {{ $weight }}</h5>
-                                                </div>
+                                                <div class="castbox-code fs-6">
+                                                        <!-- Insert code related content here -->
+                                                        CTF - 0001
+                                                    </div>
+                                                    <div class="castbox-info fs-6">
+                                                        {{ $age . ', ' . $modelDetail->nationality }}
+                                                        <!-- Insert age, nationality, etc., here -->
+                                                        </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
+                                
                             @endforeach
                         @else
                             <div class="alert alert-info">
@@ -167,7 +181,7 @@
                                     $height = $modelDetail->height . ' ' . 'cm';
                                     $weight = $modelDetail->weight . ' ' . 'kg';
                                 @endphp
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                {{-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                     <a href="{{ route('model-info.get', $modelDetail->id) }}" class="text-dark">
                                         <div class="castbox">
                                             <div class="castimg">
@@ -192,7 +206,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                </div>
+                                </div> --}}
                             @endforeach
                         @else
                             <div class="alert alert-info">
@@ -202,25 +216,8 @@
                     @endif
                 </div>
                 </div>
-                <style>
-                    .sideBar{
-                        padding: 10px;
-                        border: 1px solid red;
-                    }
-                    .headText h3{
-                        color: rgba(232, 175, 85, 1) !important;
-                        font-weight: bold !important;
-                        padding: 10px !important;
-                        background: beige !important;
-                    }
-                    .featurelist ul li {
-                        list-style: none !important;
-                        margin: 0 24px !important;
-                        display: flex !important;
-                        line-height: 50px !important;
-                    }
-                </style>
-                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                
+                {{-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                     <div class="sideBar">
                         <div class="headText"><h3>Categories</h3></div>
                         <div class="featurelist myCstmList">
@@ -230,25 +227,25 @@
                                         <i class="fa-solid fa-circle"></i>ACTORS</a>
                                     <div class="popup" id="popup-actors">
                                         <ul class="mb-5">
-                                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'main-lead']) }}">Main
-                                        Lead</a></li>
-                                <li><a class="text-dark"
-                                        href="{{ route('featured-models.get', ['role' => 'featured_actors']) }}">Featured
-                                        Actors</a>
-                                </li>
-                                <li><a class="text-dark"
-                                        href="{{ route('featured-models.get', ['role' => 'body_double']) }}">Body
-                                        Double</a></li>
-                                <li><a class="text-dark"
-                                        href="{{ route('featured-models.get', ['role' => 'mime_artist']) }}">Mime
-                                        Artist</a></li>
-                                <li><a class="text-dark"
-                                        href="{{ route('featured-models.get', ['role' => 'stunt_person']) }}">Stunt Person</a>
-                                </li>
-                                <li><a class="text-dark"
-                                        href="{{ route('featured-models.get', ['role' => 'extras']) }}">Extras</a>
-                                </li>
-                            </ul>
+                                                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'main-lead']) }}">Main
+                                                        Lead</a></li>
+                                                <li><a class="text-dark"
+                                                        href="{{ route('featured-models.get', ['role' => 'featured_actors']) }}">Featured
+                                                        Actors</a>
+                                                </li>
+                                                <li><a class="text-dark"
+                                                        href="{{ route('featured-models.get', ['role' => 'body_double']) }}">Body
+                                                        Double</a></li>
+                                                <li><a class="text-dark"
+                                                        href="{{ route('featured-models.get', ['role' => 'mime_artist']) }}">Mime
+                                                        Artist</a></li>
+                                                <li><a class="text-dark"
+                                                        href="{{ route('featured-models.get', ['role' => 'stunt_person']) }}">Stunt Person</a>
+                                                </li>
+                                                <li><a class="text-dark"
+                                                        href="{{ route('featured-models.get', ['role' => 'extras']) }}">Extras</a>
+                                                </li>
+                                        </ul>
                                     </div>
                                 </li>
                                 <li>
@@ -269,7 +266,7 @@
                                                 <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'child_models']) }}">Child Models</a></li>
                                             </ul>
                                         </div>
-                                    </li>
+                                </li>
                                 <li>
                                         <a href="#" class="category-link" data-category="dancers_performers">
                                             <i class="fa-solid fa-circle"></i>DANCERS & PERFORMERS</a>
@@ -311,28 +308,28 @@
                                                     Dancers</a></li>
                                         </ul>
                                         </div>
-                                    </li>
+                                </li>
                                 <li>
                                         <a href="#" class="category-link" data-category="film_crew">
                                             <i class="fa-solid fa-circle"></i>FILM CREW</a>
                                         <div class="popup" id="popup-film-crew">
-            <ul class="mb-5">
-                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'sound_crew']) }}">Sound Crew</a></li>
-                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'lighting_crew']) }}">Lighting Crew</a></li>
-                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'editor_post_production_staff']) }}">Editor & Post Production Staff</a></li>
-                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'art_costume_department_crew']) }}">Art Or Costume Department Crew</a></li>
-                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'writers_directors']) }}">Writers / Directors</a></li>
-                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'runners_assistants']) }}">Runners / Assistants</a></li>
-                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'film_producers_managers']) }}">Film Producers / Managers</a></li>
-                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'camera_crew']) }}">Camera Crew</a></li>
-                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'other_film_stage_crew']) }}">Other Film & Stage Crew</a></li>
-                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'film_maker']) }}">Film Maker</a></li>
-                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'dop']) }}">Dop</a></li>
-                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'assistant_director']) }}">Assistant Director</a></li>
-            </ul>
-        </div>
+                                                <ul class="mb-5">
+                                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'sound_crew']) }}">Sound Crew</a></li>
+                                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'lighting_crew']) }}">Lighting Crew</a></li>
+                                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'editor_post_production_staff']) }}">Editor & Post Production Staff</a></li>
+                                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'art_costume_department_crew']) }}">Art Or Costume Department Crew</a></li>
+                                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'writers_directors']) }}">Writers / Directors</a></li>
+                                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'runners_assistants']) }}">Runners / Assistants</a></li>
+                                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'film_producers_managers']) }}">Film Producers / Managers</a></li>
+                                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'camera_crew']) }}">Camera Crew</a></li>
+                                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'other_film_stage_crew']) }}">Other Film & Stage Crew</a></li>
+                                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'film_maker']) }}">Film Maker</a></li>
+                                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'dop']) }}">Dop</a></li>
+                                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'assistant_director']) }}">Assistant Director</a></li>
+                                                </ul>
+                                        </div>
         
-                                    </li>
+                                </li>
                                 <li>
                                         <a href="#" class="category-link" data-category="musicians">
                                             <i class="fa-solid fa-circle"></i>MUSICIANS</a>
@@ -378,7 +375,7 @@
                                                     </ul>
                                             </div>
                                         </div>
-                                    </li>
+                                </li>
                                 <li>
                                         <a href="#" class="category-link" data-category="influencers">
                                             <i class="fa-solid fa-circle"></i>INFLUENCERS</a>
@@ -421,7 +418,7 @@
                                                     Performer</a></li>
                                         </ul>
                                         </div>
-                                    </li>
+                                </li>
                                 <li>
                                         <a href="#" class="category-link" data-category="presenters_emcees">
                                             <i class="fa-solid fa-circle"></i>PRESENTERS & EMCEES</a>
@@ -464,7 +461,7 @@
                                                     Performer</a></li>
                                         </ul>
                                         </div>
-                                    </li>
+                                </li>
                                 <li>
                                         <a href="#" class="category-link" data-category="event_staff_ushers">
                                             <i class="fa-solid fa-circle"></i>EVENT STAFF & USHERS</a>
@@ -528,7 +525,7 @@
                                                     Manager</a></li>
                                         </ul>
                                         </div>
-                                    </li>
+                                </li>
                                 <li>
                                         <a href="#" class="category-link" data-category="photographers_videographers">
                                             <i class="fa-solid fa-circle"></i>PHOTOGRAPHERS / VIDEOGRAPHERS</a>
@@ -575,7 +572,7 @@
                                                     Photographer</a></li>
                                         </ul>
                                         </div>
-                                    </li>
+                                </li>
                                 <li>
                                         <a href="#" class="category-link" data-category="makeup_hair_stylist">
                                             <i class="fa-solid fa-circle"></i>MAKEUP, HAIR, PAINTER & FASHION STYLIST</a>
@@ -595,43 +592,43 @@
                                                     Stylists</a></li>
                                         </ul>
                                         </div>
-                                    </li>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
-        </div>
+        {{-- </div> --}}
     </section>
     
-    <script>
+    {{-- <script>
         document.querySelectorAll('.category-link').forEach(link => {
-    link.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default link behavior
+                link.addEventListener('click', function(event) {
+                        event.preventDefault(); // Prevent the default link behavior
 
-        // Close any open pop-ups
-        document.querySelectorAll('.popup').forEach(popup => {
-            if (popup !== this.nextElementSibling) {
+                        // Close any open pop-ups
+                        document.querySelectorAll('.popup').forEach(popup => {
+                        if (popup !== this.nextElementSibling) {
+                                popup.style.display = 'none';
+                        }
+                        });
+
+                        // Toggle the current pop-up
+                        const popup = this.nextElementSibling;
+                        popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+                });
+        });
+
+        // Close popups when clicking outside
+        document.addEventListener('click', function(event) {
+        if (!event.target.closest('.category-list')) {
+                document.querySelectorAll('.popup').forEach(popup => {
                 popup.style.display = 'none';
-            }
+                });
+        }
         });
 
-        // Toggle the current pop-up
-        const popup = this.nextElementSibling;
-        popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
-    });
-});
-
-// Close popups when clicking outside
-document.addEventListener('click', function(event) {
-    if (!event.target.closest('.category-list')) {
-        document.querySelectorAll('.popup').forEach(popup => {
-            popup.style.display = 'none';
-        });
-    }
-});
-
-    </script>
+    </script> --}}
 
 
 

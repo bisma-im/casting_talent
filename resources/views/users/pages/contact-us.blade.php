@@ -118,18 +118,15 @@
         }
 
         .instagram-feed {
-            width: 85%;
-            height: 90%;
+            width: 380px;
+            height: 710px;
             position: absolute;
-            top: 10%;
+            /* top: 10%; */
             left: 7.5%;
             border: none;
             overflow: hidden;
             padding: 10px;
             border-radius: 15px;
-    
-            
-
         }
 
         .innertext h3 span {
@@ -1225,7 +1222,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="mobile-frame">
                         <!-- Instagram Feed Iframe -->
                         <iframe  src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html"
-                            scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed ">
+                            scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed" style="background: white;">
                         </iframe>
                     </div>
                 </div>
