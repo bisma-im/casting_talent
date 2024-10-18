@@ -110,24 +110,25 @@
             background-size: cover;
             background-position: center;
             width: 400px;
-            height: 750px;
+            height: 800px;
             position: relative;
             margin: 0 auto;
             border-radius: 30px;
 
         }
-
         .instagram-feed {
-            width: 380px;
-            height: 710px;
+            width: 350px;
+            height: 550px;
             position: absolute;
-            /* top: 10%; */
+             top: 10%; 
             left: 7.5%;
             border: none;
             overflow: hidden;
             padding: 10px;
             border-radius: 15px;
         }
+
+
 
         .innertext h3 span {
             color: rgba(216, 31, 38, 1);
@@ -1216,13 +1217,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="col-lg-1"> </div>
 
                 <div class="col-lg-5 col-md-5 col-lg-5 col-xl-5 p-4 text-center" >
-                    <h4 class="text-center">Follow us on Instagram</h4>
+                <div class="card-title innertext">
+                            <h1 style="text-align:center;"> <span> Follow us on Instagram</span></h1><br>
+                        </div>
 
                     <!-- Mobile Frame Container -->
                     <div class="mobile-frame">
                         <!-- Instagram Feed Iframe -->
                         <iframe  src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html"
-                            scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed" style="background: white;">
+                            scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed">
                         </iframe>
                     </div>
                 </div>
