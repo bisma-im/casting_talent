@@ -426,13 +426,13 @@
         <div class="slider-image" style="background-image: url('{{ url('user-assets/images/woman-g1553007e5_340.jpg') }}');"></div>
         <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247204.jpeg') }}');"></div>
         <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247322.webp') }}');"></div>
-        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/IMG_3551.jpg') }}');"></div>
+        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/woman-g21b0b6abe_340.jpg') }}');"></div>
         <!-- Duplicate slides to ensure smooth looping -->
         <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247287.jpeg') }}');"></div>
         <div class="slider-image" style="background-image: url('{{ url('user-assets/images/woman-g1553007e5_340.jpg') }}');"></div>
         <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247204.jpeg') }}');"></div>
         <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247322.webp') }}');"></div>
-        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/IMG_3551.jpg') }}');"></div>
+        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/woman-g21b0b6abe_340.jpg') }}');"></div>
     </div>
 </div>
 
@@ -1849,56 +1849,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     <script>
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slider-image');
-const totalSlides = slides.length;
-const nextButtons = document.querySelectorAll('.btn-next');
-const prevButtons = document.querySelectorAll('.btn-prev');
-const autoSlideInterval = 5000; // Time in milliseconds (5 seconds)
-
-// Function to show the current slide
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.remove('active'); // Hide all slides
-        if (i === index) {
-            slide.classList.add('active'); // Show only the current slide
-        }
-    });
-}
-
-// Function to handle the next slide
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides; // Loop to the next slide
-    showSlide(currentSlide);
-}
-
-// Function to handle the previous slide
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; // Loop to the previous slide
-    showSlide(currentSlide);
-}
-
-// Function to start auto sliding
-function startAutoSlide() {
-    setInterval(nextSlide, autoSlideInterval); // Automatically go to the next slide every 5 seconds
-}
-
-// Attach click event to all NEXT buttons
-nextButtons.forEach(button => {
-    button.addEventListener('click', nextSlide);
-});
-
-// Attach click event to all BACK buttons
-prevButtons.forEach(button => {
-    button.addEventListener('click', prevSlide);
-});
-
-// Show the first slide initially
-showSlide(currentSlide);
-
-// Start auto-sliding
-startAutoSlide();
-
 
 
         // --------------------------------------------
