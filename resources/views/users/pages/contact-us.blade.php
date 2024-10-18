@@ -270,7 +270,7 @@
             background-color: #007BFF;
         }
  .text{
-               font-size: 14px;
+               font-size: 13px;
                
 
  }
@@ -509,7 +509,7 @@
                     </div>
 
                     <!-- Client Inquiry Form (initially hidden) -->
-                    <div id="clientInquiryForm" style="display: none;" class="col-md-12">
+                    <div id="clientInquiryForm" style="display: none;">
                         <div class="card-title innertext">
                             <h1 style="text-align:left;">Client <span>Enquiry</span></h1><br>
                         </div>
@@ -524,20 +524,20 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="fw-bold">FIRST NAME</label>
-                                            <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
+                                            <label class=" text fw-bold">FIRST NAME</label>
+                                            <input type="text" class=" form-control" name="first_name" placeholder="First Name" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="fw-bold">LAST NAME</label>
-                                            <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
+                                            <label class=" text fw-bold">LAST NAME</label>
+                                            <input type="" class=" text form-control" name="last_name" placeholder="Last Name" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="fw-bold">COMPANY / AGENCY NAME</label>
-                                        <input type="text" class="form-control" name="company" placeholder="Company Name" required>
+                                        <label class=" text  fw-bold">COMPANY / AGENCY NAME</label>
+                                        <input type="text" class=" form-control" name="company" placeholder="Company Name" required>
                                     </div>
                                 </div>
                                 </div>
@@ -550,19 +550,19 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div class="form-group">
-                                        <label class="fw-bold">CALLING NUMBER</label>
+                                        <label class=" text fw-bold">CALLING NUMBER</label>
                                         <input id="callingNumber" type="tel" class="form-control" name="calling_number" placeholder="Calling Number" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="fw-bold">WHATSAPP NUMBER</label>
+                                        <label class=" text fw-bold">WHATSAPP NUMBER</label>
                                         <input id="whatsappNumber" type="tel" class="form-control" name="whatsapp_number" placeholder="WhatsApp Number" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="fw-bold">EMAIL</label>
+                                        <label class=" text fw-bold">EMAIL</label>
                                         <input type="email" class="form-control" name="email" placeholder="Email" required>
                                     </div>
                                 </div>
@@ -578,18 +578,18 @@
                           <!-- Step 3: Project Info -->
                         <div class="step d-none" id="step3">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-3">
                                     <div class="form-group">
-                                        <label class="fw-bold">PROJECT</label>
+                                        <label class="text fw-bold">PROJECT</label>
                                         <select class="form-select" name="project" required>
                                             <option value="Shoot">Shoot</option>
                                             <option value="Film">Film</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-9">
                                     <div class="form-group">
-                                        <label class="fw-bold">LOCATION OF PROJECT</label>
+                                        <label class="  text fw-bold">LOCATION OF PROJECT</label>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <select id="countryDropdown" class="form-select" name="country" required>
@@ -681,63 +681,50 @@
                             <!-- No of Days & No of Hours -->
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label  class="fw-bold">NO OF DAYS</label>
-                                    <input type="number" class="form-control" name="no_of_days" placeholder="Number of Days" required>
+                                    <label  class=" text fw-bold">NO OF DAYS</label>
+                                    <input type="number" class="form-control" name="no_of_days"  required>
                                 </div>
                             </div>
 
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label  class="fw-bold">NO OF HOURS</label>
-                                    <input type="number" class="form-control" name="no_of_hours" placeholder="Number of Hours"  required>
+                                    <label  class=" text fw-bold">NO OF HOURS</label>
+                                    <input type="number" class="form-control" name="no_of_hours"  required  max="24" min="1">
                                 </div>
                             </div>
+               <!-- start and end date  -->
 
+               <div class="col-lg-3">
+    <div class="form-group">
+        <label  class=" text fw-bold">START DATE</label>
+        <input type="date" class="form-control" name="start_date" required>
+    </div>
+</div>
+
+<div class="col-lg-3">
+    <div class="form-group">
+        <label  class=" text fw-bold">END DATE</label>
+        <input type="date" class="form-control" name="end_date" required>
+    </div>
+</div>
                           <!-- male and female   -->
                                
-                          <div class="col-md-3">
+                          <div class="col-md-4">
                                         <div class="form-group">
-                                            <label  class="text fw-bold">NO OF TALENTS(MALE)</label>
+                                            <label  class=" text fw-bold">NO OF TALENTS(MALE)</label>
                                             <input type="number" class="form-control" name="no_of_talents_male" placeholder="" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label  class="text fw-bold" class>NO OF TALENTS(FEMALE)</label>
+                                            <label  class=" text fw-bold" class>NO OF TALENTS(FEMALE)</label>
                                             <input required type="number" class="form-control" name="no_of_talents_female" placeholder="" required>
                                         </div>
                                     </div>
                                
-
-
-                            <!-- Required Talent -->
- <div class="col-lg-3">
-    <div class="form-group">
-        <label class="fw-bold">REQUIRED TALENT</label>
-
-        <!-- Main Dropdown Button -->
-        <div class="dropdown" id="dropdown-container">
-            <button style="background-color: #1C7887" class="btn btn-secondary  dropdown-toggle" id="dropdown-btn" type="button">
-                Select a Category
-            </button>
-
-            <!-- Menu container with categories and subcategories (initially hidden) -->
-            <div class="menu-container" id="main-category-container" style="display: none;"></div>
-        </div>
-
-        <!-- Paragraph to show selected categories and subcategories -->
-        <p id="selectedCategories" style="margin-top: 10px; font-weight: bold;">
-            Selected Talents: None
-        </p>
-    </div>
-</div>
-
-
-
-
- <div class="col-lg-3">
+                                    <div class="col-lg-4">
                             <div class="form-group">
-                                <label  class="fw-bold">NATIONALITIES</label>
+                                <label  class=" text fw-bold">NATIONALITIES</label>
                                 <select class="form-select" name="nationality" required>
                                     <option value="" disabled selected>Select Nationality</option>
                                     <option value="Afghanistan">Afghanistan</option>
@@ -803,21 +790,34 @@
                             </div>
                         </div>
 
-                        <!-- start and end date  -->
 
-                         <div class="col-lg-3">
-    <div class="form-group">
-        <label  class="fw-bold">START DATE</label>
-        <input type="date" class="form-control" name="start_date" required>
+                            <!-- Required Talent -->
+ <div class="col-lg-12">
+    <div class="form-group w-100">
+        <label class=" text fw-bold">REQUIRED TALENT</label>
+
+        <!-- Main Dropdown Button -->
+        <div class="dropdown" id="dropdown-container">
+            <button style="background-color: #1C7887" class="btn btn-secondary  dropdown-toggle" id="dropdown-btn" type="button">
+                Select a Category
+            </button>
+
+            <!-- Menu container with categories and subcategories (initially hidden) -->
+            <div class="menu-container" id="main-category-container" style="display: none;"></div>
+        </div>
+
+        <!-- Paragraph to show selected categories and subcategories -->
+        <p id="selectedCategories" style="margin-top: 10px; font-weight: bold;">
+            Selected Talents: None
+        </p>
     </div>
 </div>
 
-<div class="col-lg-3">
-    <div class="form-group">
-        <label  class="fw-bold">END DATE</label>
-        <input type="date" class="form-control" name="end_date" required>
-    </div>
-</div>
+
+
+
+ 
+         
 </div>
                             <div class="text-center  d-flex justify-content-between">
                             <button type="button" class="btn btn-danger" onclick="prevStep()">Back</button>
