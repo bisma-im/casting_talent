@@ -184,48 +184,44 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Send it behind all other content */
-    overflow: hidden; /* Hide any overflow */
+    z-index: -1; /* Place behind other content */
+    overflow: hidden; /* Hide overflow of images */
 }
 
-/* Make the slider images fit the full section */
 .slider-track {
     display: flex;
-    width: calc(100% * 4); /* Adjust the width based on the number of images */
-    animation: scroll 25s linear infinite; /* Adjust the speed as per your liking */
+    width: calc(100% * 10); /* 10 slides in total (5 original + 5 duplicates) */
+    animation: scroll 30s linear infinite; /* Adjust the duration to control speed */
 }
 
 .slider-image {
-    width: 100vw; /* Full width of the viewport */
+    width: 100vw; /* Full width of the viewport for each slide */
     height: 100vw; /* Full height of the viewport */
-    background-size: cover;
-    background-position: center;
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-position: center; /* Center the background image */
     background-repeat: no-repeat;
-    opacity: 1; /* Lower opacity for background images */
+    flex-shrink: 0; /* Prevent the slide from shrinking */
 }
 
 @keyframes scroll {
     0% {
-        transform: translateX(0);
+        transform: translateX(0); /* Start at the first slide */
     }
     100% {
-        transform: translateX(-100%); /* Move the images out of view */
+        transform: translateX(-500vw); /* Move across 10 slides (5 original + 5 duplicates) */
     }
 }
 
-/* Adjust the layout of your section */
 .contactussec {
     position: relative;
-    z-index: 2; /* Place it above the slider */
-
+    z-index: 2; /* Place above the slider */
     padding: 50px 0;
-    background-color: transparent;
+    background-color: transparent; /* Transparent background */
 }
 
 .form-container {
-    z-index: 3;
+    z-index: 3; /* Ensure form stays on top */
 }
-
 
 
 
