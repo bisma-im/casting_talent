@@ -127,6 +127,9 @@
             overflow: hidden;
             padding: 10px;
             border-radius: 15px;
+    
+            
+
         }
 
         .innertext h3 span {
@@ -174,29 +177,58 @@
     }
 }
 
+/* Position the slider behind the section */
 .background-slider {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    overflow: hidden;
+    z-index: -1; /* Send it behind all other content */
+    overflow: hidden; /* Hide any overflow */
+}
+
+/* Make the slider images fit the full section */
+.slider-track {
+    display: flex;
+    width: calc(100% * 4); /* Adjust the width based on the number of images */
+    animation: scroll 25s linear infinite; /* Adjust the speed as per your liking */
 }
 
 .slider-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100vw; /* Full width of the viewport */
+    height: 100vw; /* Full height of the viewport */
     background-size: cover;
     background-position: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+    background-repeat: no-repeat;
+    opacity: 1; /* Lower opacity for background images */
 }
 
-.slider-image.active {
-    opacity: 0.1; /* Set low opacity for the visible image */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%); /* Move the images out of view */
+    }
 }
+
+/* Adjust the layout of your section */
+.contactussec {
+    position: relative;
+    z-index: 2; /* Place it above the slider */
+
+    padding: 50px 0;
+    background-color: transparent;
+}
+
+.form-container {
+    z-index: 3;
+}
+
+
+
+
 
 /* Additional form styling */
 .form-step {
@@ -378,6 +410,7 @@
     </style>
 
     <section class="innerpages">
+        
         <div class="container">
             <div class="col-12">
                 <div class="innertext">
@@ -386,11 +419,29 @@
             </div>
         </div>
     </section>
-
+ 
     <section class="contactussec">
+   
         <div class="container">
+             <!-- Background Image Slider -->
             <div class="row align-items-center">
            <!-- Form Container -->
+           <div class="background-slider">
+    <div class="slider-track">
+        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247287.jpeg') }}');"></div>
+        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/woman-g1553007e5_340.jpg') }}');"></div>
+        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247204.jpeg') }}');"></div>
+        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247322.webp') }}');"></div>
+        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/IMG_3551.jpg') }}');"></div>
+        <!-- Duplicate slides to ensure smooth looping -->
+        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247287.jpeg') }}');"></div>
+        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/woman-g1553007e5_340.jpg') }}');"></div>
+        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247204.jpeg') }}');"></div>
+        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247322.webp') }}');"></div>
+        <div class="slider-image" style="background-image: url('{{ url('user-assets/images/IMG_3551.jpg') }}');"></div>
+    </div>
+</div>
+
            <div class="col-md-6 form-container">
                     <!-- General Inquiry Form (initially hidden) -->
                     <div id="generalInquiryForm" style="display: none;">
@@ -398,12 +449,9 @@
                             <h1 style="text-align:left;">General <span>Enquiry</span></h1><br>
                         </div>
                         <!-- Background Image Slider -->
-                        <div class="background-slider">
-                            <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247287.jpeg') }}');"></div>
-                            <div class="slider-image" style="background-image: url('{{ url('user-assets/images/woman-g1553007e5_340.jpg') }}');"></div>
-                            <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247204.jpeg') }}');"></div>
-                            <div class="slider-image" style="background-image: url('{{ url('user-assets/images/pexels-photo-247322.webp') }}');"></div>
-                        </div>
+                     
+
+
                         <div class="progress">
                             <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
                         </div>
@@ -827,9 +875,9 @@
                             <!-- Budget for Each Talent -->
                             <div class="step d-none" id="step4">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="fw-bold">BUDGET FOR EACH TALENT</label>
+                                        <label class=" text fw-bold">BUDGET FOR EACH TALENT</label>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <input type="number" class="form-control" name="starting_amount" placeholder="Starting Amount" required>
@@ -842,13 +890,13 @@
                                 </div>
                                 <div class="col-12">
                                 <div class="form-group">
-                                    <label  class="fw-bold">DETAIL OF PROJECT</label>
+                                    <label  class=" text fw-bold">DETAIL OF PROJECT</label>
                                     <textarea required  class="form-control" name="project_detail" rows="5" placeholder="Write your text here..."></textarea>
                                 </div>
                             </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="fw-bold">BRIEF (OPTIONAL)</label>
+                                        <label class=" text fw-bold">BRIEF (OPTIONAL)</label>
                                         <input type="file" class="form-control" name="upload_file">
                                     </div>
                                 </div>
@@ -960,7 +1008,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const talents = [
         {
             name: 'Actor',
-            subcategories: ['Featured', 'Extras', 'Lead Role', 'Voice-over Artist']
+            subcategories: ['Lead role','Featured', 'Extras',  'Voice-over Artist','Body double','Stunt person']
         },
         {
             name: 'Model',
@@ -968,7 +1016,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             name: 'Dancer',
-            subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'Be Boyz', 'Dance Groups', 'Tabrey Dancer']
+            subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'B Boyz', 'Dance Groups', 'Tabrey Dancer']
         },
         {
             name: 'Film Crew',
@@ -988,12 +1036,16 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             name: 'Event Staff and Ushers',
-            subcategories: ['Hostess', 'Promoter', 'EmCee', 'Stunt Person']
+            subcategories: ['Hostess', 'Promoter', 'EmCee',]
         },
         {
             name: 'Entertainer / Performers',
-            subcategories: ['Standup Artist', 'VJ', 'RJ', 'Public Speaker', 'Magician', 'Body Double', 'Bottle Twister']
-        }
+            subcategories: ['Standup Artist', 'VJ', 'RJ', 'Public Speaker', 'Magician', 'Bottle Twister']
+        },
+        {
+            name: 'Celebrity',
+            subcategories: []
+        },
     ];
 
     const dropdownBtn = document.getElementById("dropdown-btn");
@@ -1170,14 +1222,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 <div class="col-lg-1"> </div>
 
-                <div class="col-lg-5 col-md-5 col-lg-5 col-xl-5  p-4 text-center">
+                <div class="col-lg-5 col-md-5 col-lg-5 col-xl-5 p-4 text-center" >
                     <h4 class="text-center">Follow us on Instagram</h4>
 
                     <!-- Mobile Frame Container -->
                     <div class="mobile-frame">
                         <!-- Instagram Feed Iframe -->
-                        <iframe src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html"
-                            scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed">
+                        <iframe  src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html"
+                            scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed ">
                         </iframe>
                     </div>
                 </div>
