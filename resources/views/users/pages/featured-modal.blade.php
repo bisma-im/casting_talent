@@ -113,6 +113,9 @@
         width: 100%;
         padding-right: 10px;  
         padding-left: 10px;
+        position: relative;  /* Keeps relative positioning for the dropdown */
+        width: 100%;  /* Ensures the container spans the full width of its parent */
+        padding-right: 10px;  /* Adds some padding on the right if needed */
      }
 
 /* Adjust the .filter-form class for absolute positioning */
@@ -144,6 +147,15 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 33.33%;
+.inputs-row select, .inputs-row input, .flex-spacer {
+    flex: 1; /* This makes each element grow equally to fill the container */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.flex-spacer {
+    background: transparent;
+    border: none;
 }
 
 .inputs-row button {
@@ -556,7 +568,7 @@ select option[value=""] {
 
     <section class="featruredmodalsec">
         {{-- <div class="container"> --}}
-            <div class="row">
+            <div class="row p-3">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="row">
 
