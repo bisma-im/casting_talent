@@ -91,6 +91,12 @@
     padding: 5px 10px;
     position: relative;    /* For positioning the divider */
 }
+.gender-filter a.active {
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
      .filter-button {
         padding: 8px 16px;
         background-color: transparent;
@@ -142,25 +148,51 @@
     width: 100%;
 }
 
-.inputs-row select, .inputs-row input{
-    padding: 8px;
+.inputs-row select, .inputs-row input, .inputs-row .dropdown {
+    /* padding: 8px; */
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 33.33%;
-.inputs-row select, .inputs-row input, .flex-spacer {
-    flex: 1; /* This makes each element grow equally to fill the container */
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
-.flex-spacer {
-    background: transparent;
-    border: none;
+.inputs-row select, .inputs-row input {
+    padding: 8px;
 }
 
 .inputs-row button {
     width: 100%; /* Ensures the button stretches to fill its container */
 }
+
+     .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        /* min-width: 200px; */
+        max-height: 250px;
+        overflow-y: auto;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+        /* padding: 12px; */
+        z-index: 1;
+        border: 1px solid #ccc;
+    }
+    .dropdown-content label {
+        display: block;
+        /* margin-bottom: 5px; */
+    }
+    .dropdown-btn {
+        background-color: #fff;
+        color: #75758B;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+    .dropdown-btn:focus {
+        outline: none;
+    }
 button[type="submit"] {
     padding: 8px 16px;
     background-color: #00798c;
@@ -190,6 +222,8 @@ select option[value=""] {
     color: #75758B; /* Grey color for placeholder options */
 }
 
+
+
     </style>
 
     <section class="innerpages">
@@ -203,10 +237,11 @@ select option[value=""] {
     </section>
     <div class="container-for-dropdown">
         <div class="gender-filter">
-                <a>Men</a>
-                <a>Women</a>
-                <a>Boys</a>
-                <a>Girls</a>
+                <a href="{{ route('featured-models.get', ['role' => request()->route('role'), 'gender' => 'female']) }}" class="{{ request('gender') == 'female' ? 'active' : '' }}">Female</a>
+                <a href="{{ route('featured-models.get', ['role' => request()->route('role'), 'gender' => 'male']) }}" class="{{ request('gender') == 'male' ? 'active' : '' }}">Male</a>
+                <a href="{{ route('featured-models.get', ['role' => request()->route('role'), 'gender' => 'girl']) }}" class="{{ request('gender') == 'girl' ? 'active' : '' }}">Girl</a>
+                <a href="{{ route('featured-models.get', ['role' => request()->route('role'), 'gender' => 'boy']) }}" class="{{ request('gender') == 'boy' ? 'active' : '' }}">Boy</a>
+                
         </div>
         <button id="filterBtn" class="filter-button"><i class="fas fa-sliders-v m-1"></i> Filter</button>
         <div id="filterForm" class="filter-form" style="display:none;">
@@ -426,10 +461,12 @@ select option[value=""] {
                                         <option value="Zambia">Zambia</option>
                                         <option value="Zimbabwe">Zimbabwe</option>
                                 </select>
-                                <select name="category">
-                                        <option value="" disabled selected>Select Category</option>
-                                        <!-- Add height options here -->
-                                </select>
+                                <div class="dropdown">
+                                        <button onclick="toggleDropdown(event)" class="dropdown-btn text-left">Select Categories</button>
+                                        <div id="dropdownContent" class="dropdown-content">
+                                            <!-- Checkboxes will be populated here -->
+                                        </div>
+                                </div>
                         </div>
                         <div class="inputs-row">
                                 <select name="age">
@@ -1125,6 +1162,109 @@ select option[value=""] {
         button.classList.remove("active");
     }
 });
+/// Define the talents array
+const talents = [
+    {
+        name: 'Actor',
+        subcategories: ['Lead role', 'Featured', 'Extras', 'Voice-over Artist', 'Body double', 'Stunt person']
+    },
+    {
+        name: 'Model',
+        subcategories: []
+    },
+    {
+        name: 'Dancer',
+        subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'B Boyz', 'Dance Groups', 'Tabrey Dancer']
+    },
+    {
+        name: 'Film Crew',
+        subcategories: ['Filmmaker', 'DOP', 'Assistant Director', 'Script Writer', 'Dialog Writer', 'Art Director', 'Production Manager', 'Production Designer', 'Line Producer', 'Focus Puller', 'Camera Operator', 'Lights & Gaffer', 'Crane Operator', 'Sound Engineer', 'Spot Boy']
+    },
+    {
+        name: 'Influencers',
+        subcategories: []
+    },
+    {
+        name: 'Makeup and Hair',
+        subcategories: []
+    },
+    {
+        name: 'Musicians',
+        subcategories: ['Singers', 'Music Band', 'Guitarist', 'Violinist', 'Drummers', 'Bassist', 'Rapper']
+    },
+    {
+        name: 'Event Staff and Ushers',
+        subcategories: ['Hostess', 'Promoter', 'EmCee']
+    },
+    {
+        name: 'Entertainer / Performers',
+        subcategories: ['Standup Artist', 'VJ', 'RJ', 'Public Speaker', 'Magician', 'Bottle Twister']
+    },
+    {
+        name: 'Celebrity',
+        subcategories: []
+    }
+];
 
+// Get the container for the dropdown content
+const dropdownContent = document.getElementById('dropdownContent');
+
+// Populate the checkboxes for categories and subcategories
+talents.forEach(talent => {
+    // Create a label and checkbox for the main category
+    const categoryLabel = document.createElement('label');
+    const categoryCheckbox = document.createElement('input');
+    categoryCheckbox.type = 'checkbox';
+    categoryCheckbox.value = talent.name;
+    categoryCheckbox.addEventListener('change', updateSelectedOptions); // Listen for changes
+    categoryLabel.appendChild(categoryCheckbox);
+    categoryLabel.appendChild(document.createTextNode(talent.name));
+    
+    // Add the category checkbox to the container
+    dropdownContent.appendChild(categoryLabel);
+
+    // Add subcategories as checkboxes
+    if (talent.subcategories.length > 0) {
+        talent.subcategories.forEach(subcategory => {
+            const subcategoryLabel = document.createElement('label');
+            const subcategoryCheckbox = document.createElement('input');
+            subcategoryCheckbox.type = 'checkbox';
+            subcategoryCheckbox.value = subcategory;
+            subcategoryCheckbox.addEventListener('change', updateSelectedOptions); // Listen for changes
+            subcategoryLabel.appendChild(subcategoryCheckbox);
+            subcategoryLabel.appendChild(document.createTextNode('— ' + subcategory));
+            
+            // Indent subcategories
+            subcategoryLabel.style.marginLeft = '20px';
+            dropdownContent.appendChild(subcategoryLabel);
+        });
+    }
+
+    dropdownContent.appendChild(document.createElement('br')); // Line break between categories
+});
+
+// Function to update the paragraph with selected categories and subcategories
+function updateSelectedOptions() {
+    const selectedCheckboxes = Array.from(document.querySelectorAll('#dropdownContent input[type="checkbox"]:checked'));
+    const selectedValues = selectedCheckboxes.map(checkbox => checkbox.value);
+    document.getElementById('selectedOptions').textContent = "You have selected: " + selectedValues.join(', ');
+}
+
+// Function to toggle dropdown visibility
+function toggleDropdown(event) {
+    event.preventDefault(); // Prevent the page from reloading
+    const dropdown = document.getElementById('dropdownContent');
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+// Close the dropdown if clicked outside
+window.onclick = function(event) {
+    if (!event.target.matches('.dropdown-btn')) {
+        const dropdown = document.getElementById('dropdownContent');
+        if (dropdown.style.display === 'block') {
+            dropdown.style.display = 'none';
+        }
+    }
+}
 </script>
 @endsection

@@ -47,7 +47,7 @@ class PagesController extends Controller
                 'profile_photo_url' => null, // You can add an image URL if needed, or leave null
                 'relative_time_description' => 'just now' // This can be customized
             ];
-        
+
             // Append the custom review to the existing reviews array
             $reviews[] = $customReview;
 
@@ -95,25 +95,29 @@ class PagesController extends Controller
         return view('users.pages.model-details', compact('details'));
     }
 
-    public function featuredmodelsPage($role = '')
+    public function featuredmodelsPage($role = '', $gender = '')
     {
         // Initialize $models to ensure it's always defined
         $models = collect();
         $languages = json_decode(File::get(public_path('user-assets/languages.json')), true);
-        // dd($role);
+
+        $query = ModelDetail::query();
+
+        // If a role is provided, apply the role filter
         if ($role) {
-            $qModels = ModelDetail::whereJsonContains('musician_categories', $role)->get();
-        } else {
-            // Fetch all models if no role is specified
-            $models = ModelDetail::all();
+            $query->whereJsonContains('musician_categories', $role);
         }
-        // If you want to debug and see the query result
-        // dd($models);
-        // Pass both variables to the view
+
+        // Filter by gender if provided as a query parameter
+        if ($gender = request('gender')) {
+            $query->where('gender', $gender);
+        }
+
+        $models = $query->get();
 
         return view('users.pages.featured-modal', [
             'models' => $models,
-            'qModels' => $role ? $qModels : $models, // Use $qModels if $role is provided, otherwise use $models
+            'qModels' => $models, // Use $qModels if $role is provided, otherwise use $models
             'languages' => $languages
         ]);
     }
