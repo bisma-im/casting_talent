@@ -109,7 +109,7 @@
         }
 
         .mobile-frame {
-            background-image: url('{{ url(' user-assets/images/mobile-mockup.png') }}');
+            background-image: url('{{ url('user-assets/images/mobile-mockup.png') }}');
             background-size: cover;
             background-position: center;
             width: 400px;
@@ -154,7 +154,7 @@
             position: relative;
             z-index: 1;
             padding: 20px;
-            height: 100vh;
+            height: 125vh;
             width: 50%;
             background-color: rgba(255, 255, 255, 0.8);
             /* Transparent white bg for the form */
@@ -234,7 +234,7 @@
             position: relative;
             z-index: 2;
             /* Place above the slider */
-            padding: 50px 0;
+            padding:  0;
             background-color: transparent;
             /* Transparent background */
         }
@@ -455,11 +455,11 @@
         </div>
     </section>
 
-    <section class="contactussec">
+    <div class="contactussec">
 
         <div class="container">
             <!-- Background Image Slider -->
-            <div class="row align-items-center">
+            <div class="row ">
                 <!-- Form Container -->
                 <div class="background-slider">
                     <div class="slider-track">
@@ -497,14 +497,13 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 form-container">
+                <div class="col-md-6 form-container mt-5">
                     <!-- General Inquiry Form (initially hidden) -->
                     <div id="generalInquiryForm" style="display: none;">
                         <div class="card-title innertext">
                             <h1 style="text-align:left;">General <span>Enquiry</span></h1><br>
                         </div>
                         <!-- Background Image Slider -->
-
 
 
                         <div class="progress">
@@ -1587,10 +1586,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 <div class="col-lg-1"> </div>
 
-                <div class="col-lg-5 col-md-5 col-lg-5 col-xl-5 p-4 text-center">
-                    <<div class="card-title innertext">
+                <div class="col-md-5 p-4 pt-0 text-center mt-5">
+                    <!-- <<div class="card-title innertext">
                         <h1 style="text-align:center; color: white !important;"> Follow us on Instagram</h1><br>
-                </div>
+                </div> -->
 
 
                 <!-- Mobile Frame Container -->
@@ -1604,7 +1603,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         </div>
 </div>
-</section>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
