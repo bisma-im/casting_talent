@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ModelDetail;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\File;
 
 class PagesController extends Controller
 {
@@ -98,6 +99,7 @@ class PagesController extends Controller
     {
         // Initialize $models to ensure it's always defined
         $models = collect();
+        $languages = json_decode(File::get(public_path('user-assets/languages.json')), true);
         // dd($role);
         if ($role) {
             $qModels = ModelDetail::whereJsonContains('musician_categories', $role)->get();
@@ -108,9 +110,11 @@ class PagesController extends Controller
         // If you want to debug and see the query result
         // dd($models);
         // Pass both variables to the view
+
         return view('users.pages.featured-modal', [
             'models' => $models,
-            'qModels' => $role ? $qModels : $models // Use $qModels if $role is provided, otherwise use $models
+            'qModels' => $role ? $qModels : $models, // Use $qModels if $role is provided, otherwise use $models
+            'languages' => $languages
         ]);
     }
 

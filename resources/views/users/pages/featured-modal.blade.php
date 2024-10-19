@@ -62,6 +62,35 @@
         display: flex !important;
         line-height: 50px !important;
      }
+     .gender-filter{
+        padding: 8px 16px;
+        background-color: transparent;
+        color: #ccc;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 17px;
+        margin-right: 10px;
+        margin-top: 10px;
+        display: flex;       /* Use flexbox to place elements on the same line */
+        gap: 15px;
+     }
+     .gender-filter a:not(:last-child)::after {
+    content: '';              /* Empty content to create the divider */
+    position: absolute;
+    right: -8px;              /* Position the divider slightly to the right */
+    top: 0;
+    height: 100%;             /* Full height of the anchor tag */
+    width: 1px;               /* Thin vertical line */
+    background-color: #afacac;    /* Divider color */
+    color: black;
+}
+.gender-filter a {
+    text-decoration: none; /* Remove underline */
+    color: #ccc;          /* Set link color */
+    padding: 5px 10px;
+    position: relative;    /* For positioning the divider */
+}
      .filter-button {
         padding: 8px 16px;
         background-color: transparent;
@@ -78,7 +107,12 @@
 }
     .container-for-dropdown {
         display: flex;
-        justify-content: flex-end;  /* Aligns children (the button) to the right */
+        justify-content: space-between;  /* Aligns heading to the left and button to the right */
+        align-items: center;  /* Vertically centers the heading and button */
+        position: relative;  
+        width: 100%;
+        padding-right: 10px;  
+        padding-left: 10px;
         position: relative;  /* Keeps relative positioning for the dropdown */
         width: 100%;  /* Ensures the container spans the full width of its parent */
         padding-right: 10px;  /* Adds some padding on the right if needed */
@@ -108,6 +142,11 @@
     width: 100%;
 }
 
+.inputs-row select, .inputs-row input{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 33.33%;
 .inputs-row select, .inputs-row input, .flex-spacer {
     flex: 1; /* This makes each element grow equally to fill the container */
     padding: 8px;
@@ -124,7 +163,7 @@
 }
 button[type="submit"] {
     padding: 8px 16px;
-    background-color: black;
+    background-color: #00798c;
     color: white;
     border: none;
     border-radius: 4px;
@@ -136,6 +175,15 @@ select {
 
 select option {
     color: black; /* Normal color for options */
+}
+select:hover {
+    border: 2px solid #00798C; /* Changes border on hover */
+}
+
+/* Styling for focus state */
+select:focus {
+    border: 2px solid #00798C; /* Changes border when the select is active or focused */
+    outline: none; /* Optional: Removes the default focus outline */
 }
 
 select option[value=""] {
@@ -154,6 +202,12 @@ select option[value=""] {
         </div>
     </section>
     <div class="container-for-dropdown">
+        <div class="gender-filter">
+                <a>Men</a>
+                <a>Women</a>
+                <a>Boys</a>
+                <a>Girls</a>
+        </div>
         <button id="filterBtn" class="filter-button"><i class="fas fa-sliders-v m-1"></i> Filter</button>
         <div id="filterForm" class="filter-form" style="display:none;">
                 {{-- <form action="{{ route('your.route') }}" method="GET"> --}}
@@ -450,7 +504,13 @@ select option[value=""] {
                                         <option value="Blue">Blue</option>
                                         <!-- Add eye color options here -->
                                 </select>
-                                 <div class="flex-spacer"></div> <!-- Spacer -->
+                                <select name="language">
+                                        <option value="" disabled selected>Select Language</option>
+                                        @foreach ($languages as $language)
+                                                <option value="{{ $language['value'] }}">{{ $language['label'] }}</option>
+                                        @endforeach
+                                        <!-- Add eye color options here -->
+                                </select>
                         </div>
                         <div class="inputs-row">
                                 <button type="submit">Filter</button>
@@ -530,6 +590,7 @@ select option[value=""] {
                                 <div class="col custom-col">
                                     <a href="{{ route('model-info.get', $modelDetail->id) }}" class="text-dark">
                                         <div class="castbox mb-3">
+                                                {{-- <span class="bodytheading">{{ $modelDetail->gender }}</span> --}}
                                             <div class="castimg">
                                                 <img src="{{ url('/uploads/models/profiles/' . $firstImage) }}" class="img-fluid"
                                                     alt="Model Image">
@@ -537,7 +598,7 @@ select option[value=""] {
                                             <div class="castbody">
                                                 <div class="castbox-code text-center">
                                                         <!-- Insert code related content here -->
-                                                        CTF - 0001
+                                                        CTF - 00001
                                                     </div>
                                                     <div class="castbox-info text-center">
                                                         {{ $age . ', ' . $modelDetail->nationality }}
@@ -564,6 +625,7 @@ select option[value=""] {
                                 <div class="col custom-col">
                                     <a href="{{ route('model-info.get', $modelDetail->id) }}" class="text-dark">
                                         <div class="castbox mb-3">
+                                                {{-- <span class="bodytheading">{{ $modelDetail->gender }}</span> --}}
                                             <div class="castimg">
                                                 <img src="{{ url('/uploads/models/profiles/' . $firstImage) }}" class="img-fluid"
                                                     alt="Model Image">
@@ -571,7 +633,7 @@ select option[value=""] {
                                             <div class="castbody">
                                                 <div class="castbox-code text-center">
                                                         <!-- Insert code related content here -->
-                                                        CTF - 0001
+                                                        CTF - 00001
                                                     </div>
                                                     <div class="castbox-info text-center">
                                                         {{ $age . ', ' . $modelDetail->nationality }}
