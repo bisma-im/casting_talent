@@ -646,7 +646,7 @@
                                                 placeholder="Last Name" required>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class=" text  fw-bold">COMPANY / AGENCY NAME</label>
                                             <input type="text" class=" form-control" name="company"
@@ -676,7 +676,7 @@
                                                 name="whatsapp_number" placeholder="WhatsApp Number" required>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class=" text fw-bold">EMAIL</label>
                                             <input type="email" class="form-control" name="email" placeholder="Email"
@@ -700,7 +700,7 @@
                                         <label class="text fw-bold">PROJECT</label>
                                         <select class="form-select" name="project" required>
                                             <option value="Shoot">Shoot</option>
-                                            <option value="Film">Film</option>
+                                            <option value="Film">Event</option>
                                         </select>
                                     </div>
                                 </div>
@@ -2139,13 +2139,49 @@ her hard work.',
                             className: 'marker-position',
                         }
                     });
-                    google.maps.event.addListener(marker, 'click', function() {
+                    // Add a mouseover event to show the InfoWindow when hovering over the marker
+                    google.maps.event.addListener(marker, 'mouseover', function() {
                         infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                                              'Address: ' + place.formatted_address + '</div>');
+                                            'Address: ' + place.formatted_address + '</div>');
                         infowindow.open(map, this);
+                    });
+
+                    // Add a mouseout event to close the InfoWindow when the mouse leaves the marker
+                    google.maps.event.addListener(marker, 'mouseout', function() {
+                        infowindow.close();
+                    });
+
+                    // Add a click event to open Google Maps in a new tab
+                  // Add a mouseover event to show the InfoWindow when hovering over the marker
+                    google.maps.event.addListener(marker, 'mouseover', function() {
+                        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                                            'Address: ' + place.formatted_address + '</div>');
+                        infowindow.open(map, this);
+                    });
+
+                    // Add a mouseout event to close the InfoWindow when the mouse leaves the marker
+                    google.maps.event.addListener(marker, 'mouseout', function() {
+                        infowindow.close();
+                    });
+
+                    // Add a click event to open Google Maps in a new tab
+                  // Add a mouseover event to show the InfoWindow when hovering over the marker
+                  google.maps.event.addListener(marker, 'mouseover', function() {
+                        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                                            'Address: ' + place.formatted_address + '</div>');
+                        infowindow.open(map, this);
+                    });
+
+                    // Add a mouseout event to close the InfoWindow when the mouse leaves the marker
+                    google.maps.event.addListener(marker, 'mouseout', function() {
+                        infowindow.close();
+                    });
+
+                    // Add a click event to open Google Maps in a new tab
+                    google.maps.event.addListener(marker, 'click', function() {
                         var googleMapsUrl = "https://www.google.com/maps/place/?q=place_id:{{ config('services.googlemaps.place_id') }}";
                         window.open(googleMapsUrl, '_blank');
-                    });
+                    });
                     // Automatically center the map on the marker
                     map.setCenter(place.geometry.location);
                 }
