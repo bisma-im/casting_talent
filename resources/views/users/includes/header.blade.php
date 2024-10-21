@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    
+
     <style>
         header .navbar-light .navbar-nav .nav-link {
             font-size: 14px;
@@ -36,74 +36,72 @@
         <div id="smooth-content">
             <header>
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="container topheader">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="row w-100 align-items-center">
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                <div class="">
-                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page"
-                                                    href="{{ route('index.get') }}">HOME</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('about.get') }}">ABOUT US</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('services.get') }}">SERVICES</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('talents.get') }}">TALENTS</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 text-center">
-                                <div class="navbarlogo">
-                                    <a href="{{ route('index.get') }}">
-                                        <img src="{{ url('user-assets') }}/images/Logo.png" class="img-fluid"
-                                            alt="Logo">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5 text-end">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="row w-100 align-items-center">
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                            <div class="">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('featured-models.get') }}">FEATURED TALENTS</a>
+                                            <a class="nav-link active" aria-current="page"
+                                                href="{{ route('index.get') }}">HOME</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('jobs.get') }}">JOBS</a>
+                                            <a class="nav-link" href="{{ route('about.get') }}">ABOUT US</a>
                                         </li>
                                         <li class="nav-item">
-                                            @if (Auth::check() && Auth::user()->role == 'business')
-                                                <a class="nav-link" href="{{ route('dashboard.get') }}"><i
-                                                        class="fa fa-dashboard" style="color: #062646;"></i></a>
-                                                        <a class="nav-link" href="{{ route('logout.get') }}"><i
-                                                            class="fa fa-sign-out" style="color: #062646;"></i></a>
-                                            @elseif(Auth::check() && Auth::user()->role == 'model')
-                                                <a class="nav-link" href="{{ route('model-dashboard.get') }}"><i
-                                                        class="fa fa-dashboard" style="color: #062646;"></i></a>
-                                                <a class="nav-link" href="{{ route('logout.get') }}"><i
-                                                        class="fa fa-sign-out" style="color: #062646;"></i></a>
-                                            @else
-                                                <a class="nav-link" href="{{ route('login.get') }}"><i
-                                                        class="fa fa-user" style="color: #062646;"></i></a>
-                                            @endif
+                                            <a class="nav-link" href="{{ route('services.get') }}">SERVICES</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link contactbtn" href="{{ route('contact.get') }}">CONTACT
-                                                US</a>
+                                            <a class="nav-link" href="{{ route('talents.get') }}">TALENTS</a>
                                         </li>
                                     </ul>
-
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 text-center">
+                            <div class="navbarlogo">
+                                <a href="{{ route('index.get') }}">
+                                    <img src="{{ url('user-assets') }}/images/Logo.png" class="img-fluid" alt="Logo">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5 text-end">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('featured-models.get') }}">FEATURED
+                                            TALENTS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('jobs.get') }}">JOBS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        @if (Auth::check() && Auth::user()->role == 'business')
+                                        <a class="nav-link" href="{{ route('dashboard.get') }}"><i
+                                                class="fa fa-dashboard" style="color: #062646;"></i></a>
+                                        <a class="nav-link" href="{{ route('logout.get') }}"><i class="fa fa-sign-out"
+                                                style="color: #062646;"></i></a>
+                                        @elseif(Auth::check() && Auth::user()->role == 'model')
+                                        <a class="nav-link" href="{{ route('model-dashboard.get') }}"><i
+                                                class="fa fa-dashboard" style="color: #062646;"></i></a>
+                                        <a class="nav-link" href="{{ route('logout.get') }}"><i class="fa fa-sign-out"
+                                                style="color: #062646;"></i></a>
+                                        @else
+                                        <a class="nav-link" href="{{ route('login.get') }}"><i class="fa fa-user"
+                                                style="color: #062646;"></i></a>
+                                        @endif
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link contactbtn" href="{{ route('contact.get') }}">CONTACT
+                                            US</a>
+                                    </li>
+                                </ul>
+
                             </div>
                         </div>
                     </div>
