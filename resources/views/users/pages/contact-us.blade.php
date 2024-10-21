@@ -2344,12 +2344,14 @@ her hard work.',
                         infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
                                               'Address: ' + place.formatted_address + '</div>');
                         infowindow.open(map, this);
+                        var googleMapsUrl = "https://www.google.com/maps/place/?q=place_id:{{ config('services.googlemaps.place_id') }}";
+                        window.open(googleMapsUrl, '_blank');
                     });
                     // Automatically center the map on the marker
                     map.setCenter(place.geometry.location);
                 }
             });
-        }
+    }
 </script>
 
 <style>

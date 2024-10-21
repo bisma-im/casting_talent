@@ -205,7 +205,7 @@
                                     aria-controls="jobs" aria-selected="false">Applied Jobs</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a 
+                                {{-- <a 
                                     class="nav-link {{ $existingSubscription ? '' : 'disabled' }}" 
                                     id="add-pets-tab" 
                                     data-bs-toggle="{{ $existingSubscription ? 'pill' : '' }}" 
@@ -216,6 +216,20 @@
                                     tabindex="{{ $existingSubscription ? '0' : '-1' }}"
                                     aria-disabled="{{ $existingSubscription ? 'false' : 'true' }}"
                                     onclick="{{ $existingSubscription ? '' : 'showDisabledAlert(event)' }}"
+                                >
+                                    Profile Details
+                                </a> --}}
+                                <a 
+                                    class="nav-link" 
+                                    id="add-pets-tab" 
+                                    data-bs-toggle="pill" 
+                                    href="#add-pets" 
+                                    role="tab" 
+                                    aria-controls="add-pets" 
+                                    aria-selected="true"
+                                    tabindex="0"
+                                    {{-- aria-disabled="{{ $existingSubscription ? 'false' : 'true' }}" --}}
+                                    {{-- onclick="{{ $existingSubscription ? '' : 'showDisabledAlert(event)' }}" --}}
                                 >
                                     Profile Details
                                 </a>
