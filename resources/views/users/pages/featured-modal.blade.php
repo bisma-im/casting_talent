@@ -161,38 +161,65 @@
 .inputs-row button {
     width: 100%; /* Ensures the button stretches to fill its container */
 }
-
-     .dropdown {
-        position: relative;
-        display: inline-block;
-    }
+.dropdown-btn {
+    width: 100%; /* Make it stretch to full width */
+    padding: 10px; /* Add padding to match select dropdowns */
+    background-color: white; /* Set the background color to white */
+    border: 1px solid #ced4da; /* Match the border style of the select dropdown */
+    border-radius: 4px; /* Add border-radius to match select box */
+    font-size: 1rem; /* Font size matching the select dropdown */
+    color: #75758B; /* Placeholder text color matching the select dropdown */
+    cursor: pointer; /* Pointer cursor to indicate it's clickable */
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* Adjust to fit your layout */
+}
     .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        /* min-width: 200px; */
-        max-height: 250px;
-        overflow-y: auto;
-        box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-        /* padding: 12px; */
-        z-index: 1;
-        border: 1px solid #ccc;
-    }
-    .dropdown-content label {
-        display: block;
-        /* margin-bottom: 5px; */
-    }
-    .dropdown-btn {
-        background-color: #fff;
-        color: #75758B;
-        padding: 10px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-    }
-    .dropdown-btn:focus {
-        outline: none;
-    }
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    
+    z-index: 1;
+    width: 80%;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    font-weight:bolder;
+
+}
+.dropdown-btn:focus {
+    outline: none; /* Remove focus outline */
+    border: 2px solid #00798C; /* Add focus border to match select dropdown behavior */
+}
+/* Show dropdown when button is clicked */
+.show {
+    display: block;
+}
+
+/* Subcategories will be hidden by default */
+.subcategory {
+    display: none;
+    margin-left: 20px;
+    font-weight:bold;
+}
+
+/* Show subcategories when hovering over the main category */
+.main-category:hover .subcategory {
+    display: block;
+}
+
+/* Style the labels */
+label {
+    display: block;
+    
+}
+
+.dropdown-btn {
+    width: 100%; /* Adjust as needed */
+}
 button[type="submit"] {
     padding: 8px 16px;
     background-color: #00798c;
@@ -463,12 +490,17 @@ select option[value=""] {
                                         <option value="Zimbabwe">Zimbabwe</option>
                                 </select>
                                 <div class="dropdown">
-                                        <button onclick="toggleDropdown(event)" class="dropdown-btn text-left">Select Categories</button>
-                                        <div id="dropdownContent" class="dropdown-content">
-                                            <!-- Checkboxes will be populated here -->
-                                        </div>
-                                </div>
+    <button onclick="toggleDropdown(event)" class="dropdown-btn text-left">Select Categories</button>
+    <div id="dropdownContent" class="dropdown-content" >
+        <!-- Checkboxes will be populated here by JavaScript -->
+    </div>
+</div>
+
                         </div>
+                        <p id="selectedCategories" style="margin-top: 10px; font-weight: bold; display: none;">
+    Selected Categories: None
+</p>
+
                         <div class="inputs-row">
                                 <select name="age">
                                         <option value="" disabled selected>Select Age</option>
@@ -747,7 +779,7 @@ select option[value=""] {
         button.classList.remove("active");
     }
 });
-/// Define the talents array
+// Define the talents array
 const talents = [
     {
         name: 'Actor',
@@ -796,6 +828,10 @@ const dropdownContent = document.getElementById('dropdownContent');
 
 // Populate the checkboxes for categories and subcategories
 talents.forEach(talent => {
+    // Create a div for the main category and its subcategories
+    const mainCategoryDiv = document.createElement('div');
+    mainCategoryDiv.classList.add('main-category');
+
     // Create a label and checkbox for the main category
     const categoryLabel = document.createElement('label');
     const categoryCheckbox = document.createElement('input');
@@ -804,12 +840,15 @@ talents.forEach(talent => {
     categoryCheckbox.addEventListener('change', updateSelectedOptions); // Listen for changes
     categoryLabel.appendChild(categoryCheckbox);
     categoryLabel.appendChild(document.createTextNode(talent.name));
-    
-    // Add the category checkbox to the container
-    dropdownContent.appendChild(categoryLabel);
 
-    // Add subcategories as checkboxes
+    // Add the main category to the container
+    mainCategoryDiv.appendChild(categoryLabel);
+
+    // Add subcategories as checkboxes inside the main category div
     if (talent.subcategories.length > 0) {
+        const subcategoryDiv = document.createElement('div');
+        subcategoryDiv.classList.add('subcategory'); // Hidden by default
+
         talent.subcategories.forEach(subcategory => {
             const subcategoryLabel = document.createElement('label');
             const subcategoryCheckbox = document.createElement('input');
@@ -818,31 +857,42 @@ talents.forEach(talent => {
             subcategoryCheckbox.addEventListener('change', updateSelectedOptions); // Listen for changes
             subcategoryLabel.appendChild(subcategoryCheckbox);
             subcategoryLabel.appendChild(document.createTextNode(subcategory));
-            
-            // Indent subcategories
-            subcategoryLabel.style.marginLeft = '20px';
-            dropdownContent.appendChild(subcategoryLabel);
+
+            // Add subcategory to the subcategory div
+            subcategoryDiv.appendChild(subcategoryLabel);
         });
+
+        // Add the subcategory div to the main category div
+        mainCategoryDiv.appendChild(subcategoryDiv);
     }
 
-    dropdownContent.appendChild(document.createElement('br')); // Line break between categories
+    // Add the main category div to the dropdown content
+    dropdownContent.appendChild(mainCategoryDiv);
 });
 
-// Function to update the paragraph with selected categories and subcategories
+// Function to update the paragraph with selected categories
 function updateSelectedOptions() {
     const selectedCheckboxes = Array.from(document.querySelectorAll('#dropdownContent input[type="checkbox"]:checked'));
     const selectedValues = selectedCheckboxes.map(checkbox => checkbox.value);
-    document.getElementById('selectedOptions').textContent = "You have selected: " + selectedValues.join(', ');
+    const selectedCategoriesParagraph = document.getElementById('selectedCategories');
+    
+    if (selectedValues.length > 0) {
+        selectedCategoriesParagraph.style.display = 'block'; // Show paragraph
+        selectedCategoriesParagraph.textContent = "Selected Categories: " + selectedValues.join(', ');
+    } else {
+        selectedCategoriesParagraph.style.display = 'none'; // Hide paragraph if no categories selected
+    }
 }
 
 // Function to toggle dropdown visibility
 function toggleDropdown(event) {
-    event.preventDefault(); // Prevent the page from reloading
+    event.preventDefault();
     const dropdown = document.getElementById('dropdownContent');
     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
 }
 
 // Close the dropdown if clicked outside
+
 window.onclick = function(event) {
     if (!event.target.matches('.dropdown-btn')) {
         const dropdown = document.getElementById('dropdownContent');
@@ -851,5 +901,7 @@ window.onclick = function(event) {
         }
     }
 }
+
+
 </script>
 @endsection
