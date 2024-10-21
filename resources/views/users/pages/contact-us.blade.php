@@ -2143,118 +2143,14 @@ her hard work.',
                         infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
                                               'Address: ' + place.formatted_address + '</div>');
                         infowindow.open(map, this);
+                        var googleMapsUrl = "https://www.google.com/maps/place/?q=place_id:{{ config('services.googlemaps.place_id') }}";
+                        window.open(googleMapsUrl, '_blank');
                     });
                     // Automatically center the map on the marker
                     map.setCenter(place.geometry.location);
                 }
             });
-        }
-
-        // JSON data for GCC countries, states/regions, and cities
-        const gccData = {
-            "Bahrain": {
-                "Capital Governorate": ["Manama"],
-                "Muharraq Governorate": ["Muharraq", "Arad"],
-                "Northern Governorate": ["Al Budaiya", "Diraz"],
-                "Southern Governorate": ["Riffa", "Zallaq"]
-            },
-            "Kuwait": {
-                "Al Ahmadi": ["Ahmadi", "Sabah Al-Ahmad", "Fahaheel"],
-                "Al Farwaniyah": ["Farwaniyah", "Jleeb Al-Shuyoukh"],
-                "Hawalli": ["Salmiya", "Jabriya", "Hawalli"],
-                "Capital": ["Kuwait City", "Dasma"],
-                "Al Jahra": ["Jahra"]
-            },
-            "Oman": {
-                "Muscat": ["Muscat", "Muttrah", "Seeb", "Bawshar"],
-                "Dhofar": ["Salalah", "Taqah", "Mirbat"],
-                "Al Batinah South": ["Sohar", "Rustaq"],
-                "Ad Dakhiliyah": ["Nizwa", "Bahla", "Samail"]
-            },
-            "Qatar": {
-                "Ad Dawhah": ["Doha", "Al Wakrah"],
-                "Al Rayyan": ["Al Rayyan", "Umm Salal", "Al Shahaniya"],
-                "Al Daayen": ["Lusail"],
-                "Al Khor": ["Al Khor"]
-            },
-            "Saudi Arabia": {
-                "Riyadh Region": ["Riyadh", "Al Kharj", "Diriyah"],
-                "Makkah Region": ["Jeddah", "Mecca", "Taif"],
-                "Eastern Province": ["Dammam", "Al Khobar", "Dhahran"],
-                "Madinah Region": ["Medina", "Yanbu"],
-                "Asir Region": ["Abha", "Khamis Mushait"]
-            },
-            "United Arab Emirates": {
-                "Abu Dhabi": ["Abu Dhabi", "Al Ain", "Al Dhafra"],
-                "Dubai": ["Dubai"],
-                "Sharjah": ["Sharjah", "Khor Fakkan", "Dibba Al Hisn"],
-                "Ajman": ["Ajman"],
-                "Ras Al Khaimah": ["Ras Al Khaimah"],
-                "Fujairah": ["Fujairah"],
-                "Umm Al Quwain": ["Umm Al Quwain"]
-            }
-        };
-
-        // Initialize dropdown elements
-        const countryDropdown = document.getElementById("countryDropdown");
-        const stateDropdown = document.getElementById("stateDropdown");
-        const cityDropdown = document.getElementById("cityDropdown");
-
-        // Populate country dropdown with GCC countries
-        function populateCountryDropdown() {
-            for (let country in gccData) {
-                let option = document.createElement("option");
-                option.value = country;
-                option.text = country;
-                countryDropdown.appendChild(option);
-            }
-        }
-
-        // Populate state dropdown based on selected country
-        function populateStateDropdown(selectedCountry) {
-            stateDropdown.innerHTML = '<option value="" disabled selected>Select a state/region</option>'; // Reset states
-            cityDropdown.innerHTML = '<option value="" disabled selected>Select a city</option>'; // Reset cities
-            stateDropdown.disabled = false;
-            cityDropdown.disabled = true;
-
-            let states = gccData[selectedCountry];
-            for (let state in states) {
-                let option = document.createElement("option");
-                option.value = state;
-                option.text = state;
-                stateDropdown.appendChild(option);
-            }
-        }
-
-        // Populate city dropdown based on selected state
-        function populateCityDropdown(selectedCountry, selectedState) {
-            cityDropdown.innerHTML = '<option value="" disabled selected>Select a city</option>'; // Reset cities
-            cityDropdown.disabled = false;
-
-            let cities = gccData[selectedCountry][selectedState];
-            cities.forEach(city => {
-                let option = document.createElement("option");
-                option.value = city;
-                option.text = city;
-                cityDropdown.appendChild(option);
-            });
-        }
-
-        // Event listener for country dropdown
-        countryDropdown.addEventListener("change", function() {
-            const selectedCountry = this.value;
-            populateStateDropdown(selectedCountry);
-        });
-
-        // Event listener for state dropdown
-        stateDropdown.addEventListener("change", function() {
-            const selectedCountry = countryDropdown.value;
-            const selectedState = this.value;
-            populateCityDropdown(selectedCountry, selectedState);
-        });
-
-        // Initialize the country dropdown on page load
-        populateCountryDropdown();
+    }
 </script>
 
 <style>
