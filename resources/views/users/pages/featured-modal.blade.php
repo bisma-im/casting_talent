@@ -228,13 +228,14 @@ select option[value=""] {
 
     <section class="innerpages">
         <div class="container">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+           
+        </div>
+    </section>
+    <div class="col-12 col-sm-12 mt-3 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 <div class="innertext">
                     <h1>Featured <span>Talents</span></h1>
                 </div>
             </div>
-        </div>
-    </section>
     <div class="container-for-dropdown">
         <div class="gender-filter">
                 <a href="{{ route('featured-models.get', ['role' => request()->route('role'), 'gender' => 'female']) }}" class="{{ request('gender') == 'female' ? 'active' : '' }}">Female</a>
