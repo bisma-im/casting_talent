@@ -2396,13 +2396,12 @@ stateDropdown.addEventListener("change", function() {
 });
 
 // Initialize the country dropdown on page load
-populateCountryDropdown();
-
-// Automatically select UAE and populate its states on page load
-window.onload = function() {
+window.addEventListener("DOMContentLoaded", function() {
+    // Your existing code to populate country and state
+    populateCountryDropdown();
     const defaultCountry = "United Arab Emirates";
-    populateStateDropdown(defaultCountry); // Populate states of UAE by default
-};
+    populateStateDropdown(defaultCountry);
+});
 </script>
 
 <style>
