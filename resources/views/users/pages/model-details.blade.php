@@ -324,7 +324,7 @@ $timestamp = time();
                         <span class="info"></span>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center flex-column">
+                <div class=" ms-md-4 ">
                     <div class="row pt-3 ps-3 pe-3 mt-2 h-user-info">
                         <div class="col-md-4">
                             <p><strong>Nationality: </strong> {{ $details['nationality'] }}
