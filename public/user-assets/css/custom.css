@@ -389,6 +389,12 @@ a.contactbtn1:hover{
     object-position: top;
     height: 53vh;
 }
+.model-cover img {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    height: 100vh;
+}
 .firstitem {
     display: flex;
 }
