@@ -547,7 +547,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 form-container mt-3">
+                <div class="col-md-6 col-xs-12 form-container mt-3">
                     <!-- General Inquiry Form (initially hidden) -->
                     <div id="generalInquiryForm" style="display: none;">
                         <div class="card-title innertext">
@@ -1421,7 +1421,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 <div class="col-lg-1"> </div>
 
-                <div class="col-md-5 p-4 pt-0 text-center mt-2">
+                <div class="col-md-5 col-sm-12 p-4 pt-0 text-center mt-2">
                     <!-- <<div class="card-title innertext">
                         <h1 style="text-align:center; color: white !important;"> Follow us on Instagram</h1><br>
                 </div> -->
