@@ -88,12 +88,47 @@ class PagesController extends Controller
         return view('users.pages.event-services', ['section' => $section]);
     }
 
+    public function convertToTitleCaseWithPunctuation($items) {
+        // Array to hold the converted strings
+        $convertedItems = [];
+    
+        // Loop through each item in the input array
+        foreach ($items as $item) {
+            // Split the string by underscores
+            $words = explode('_', $item);
+    
+            // Capitalize the first letter of each word
+            $capitalizedWords = array_map('ucwords', $words);
+    
+            // Join the words with a space
+            $convertedItems[] = implode(' ', $capitalizedWords);
+        }
+    
+        // Add comma to all except the last item and add a period at the end of the last item
+        $lastIndex = count($convertedItems) - 1;
+        foreach ($convertedItems as $index => $convertedItem) {
+            if ($index === $lastIndex) {
+                // Last item, add period
+                $convertedItems[$index] = $convertedItem . '.';
+            } else {
+                // Add comma to all other items
+                $convertedItems[$index] = $convertedItem . ',';
+            }
+        }
+    
+        // Return the array as a string with each item separated by a space
+        return implode(' ', $convertedItems);
+    }
+
     public function modelInfoPage($id)
     {
         $details = ModelDetail::find($id);
+        // $details = $this->convertToTitleCaseWithPunctuation($items);
+        
         // dd($details);
         return view('users.pages.model-details', compact('details'));
     }
+
 
     public function featuredmodelsPage($role = '', $gender = '')
     {
