@@ -8,7 +8,7 @@
 <style>
     /* Header styling */
     .header {
-        padding: 1em;
+        /* padding: 1em; */
         color: #d9480f;
         /* border-bottom: 2px solid rgb(233, 171, 88); */
     }
@@ -97,23 +97,6 @@
         transform: scale(1.02);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
-/* 
-    .user-info p {
-        font-size: 17px;
-        line-height: 1.8;
-        color: #333;
-        margin-bottom: 10px;
-    }
-
-    .user-info p strong {
-        font-weight: 700;
-        color: #007bff;
-    }
-
-    .user-info i {
-        margin-right: 8px;
-        color: #007bff;
-    } */
 
     .profile-divider {
         margin-top: 25px;
@@ -156,46 +139,52 @@
     .user-info {
         background-color: #DAD7B1;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh; /* Full height of the viewport */
-    width: 100%; /* Full width of the parent container or viewport */
-    font-family: Arial, sans-serif;
-    box-sizing: border-box;
-    padding: 30px;
-}
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+        /* Full height of the viewport */
+        width: 100%;
+        /* Full width of the parent container or viewport */
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+        padding: 20px;
+    }
 
-.user-info-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 7px;
-    width: 100%; /* Make each row span the full width of the parent */
-    box-sizing: border-box; /* Ensure padding is included in the width */
-    font-size: 14px;
-}
+    .user-info-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 7px;
+        width: 100%;
+        /* Make each row span the full width of the parent */
+        box-sizing: border-box;
+        /* Ensure padding is included in the width */
+        font-size: 14px;
+    }
 
-.user-info-row:nth-child(odd) {
-    background-color: #DAD7B1; /* Base color */
-}
+    .user-info-row:nth-child(odd) {
+        background-color: #DAD7B1;
+        /* Base color */
+    }
 
-.user-info-row:nth-child(even) {
-    background-color: #CFCBA1; /* Slightly darker shade for alternate row */
-}
+    .user-info-row:nth-child(even) {
+        background-color: #CFCBA1;
+        /* Slightly darker shade for alternate row */
+    }
 
-.label {
-    font-weight: bold;
-    color: #333;
-}
+    .label {
+        font-weight: bold;
+        color: #333;
+    }
 
-.info {
-    text-align: right;
-    color: #555;
-}
+    .info {
+        text-align: right;
+        color: #555;
+    }
 
-.user-info-row i {
-    margin-right: 5px;
-}
+    .user-info-row i {
+        margin-right: 5px;
+    }
 </style>
 
 <section class="innerpages">
@@ -225,153 +214,112 @@ $filmography = 'No filmography available.';
 $userId = $details['user_id']; // e.g., 1
 $timestamp = time();
 @endphp
+
+{{-- ----------------------------------- SECTION 1 ----------------------------------------- --}}
 <div class="container my-4">
 
-<div class="row d-flex align-items-center" id="getSS">
-    <div class="col-md-6 p-0">
-        <!-- Display the first image -->
-        <div class="castbox" style="max-height: 100%;">
-            <a href="{{ url('uploads/models/profiles/' . $firstImage) }}" data-fancybox="gallery"
-                data-caption="Model Image">
-                <div class="model-cover">
-                    <img src="{{ url('uploads/models/profiles/' . $firstImage) }}" class="img-fluid" alt="Model Image">
-                </div>
-            </a>
+    <div class="row d-flex align-items-center" id="getSS">
+
+        {{-- ------------- cover image --------------- --}}
+        <div class="col-md-6 p-0">
+            <!-- Display the first image -->
+            <div class="castbox" style="max-height: 100%;">
+                <a href="{{ url('uploads/models/profiles/' . $firstImage) }}" data-fancybox="gallery"
+                    data-caption="Model Image">
+                    <div class="model-cover">
+                        <img src="{{ url('uploads/models/profiles/' . $firstImage) }}" class="img-fluid"
+                            alt="Model Image">
+                    </div>
+                </a>
+            </div>
         </div>
-    </div>
-    <!-- Add the rest of the images to FancyBox gallery -->
-    @foreach(array_slice($profileImages, 1) as $image)
-    <a href="{{ url('uploads/models/profiles/' . $image) }}" data-fancybox="gallery" data-caption="Model Image"
-        style="display: none;">
-        <img src="{{ url('uploads/models/profiles/' . $image) }}" alt="Gallery Image">
-    </a>
-    @endforeach
-    <div class="col-md-6 p-0">
-        {{-- <div class="row"> --}}
-            {{-- <div class="col-md-12 py-2">
-                <div class="header py-3">
+
+        <!-- Add the rest of the images to FancyBox gallery -->
+        @foreach(array_slice($profileImages, 1) as $image)
+        <a href="{{ url('uploads/models/profiles/' . $image) }}" data-fancybox="gallery" data-caption="Model Image"
+            style="display: none;">
+            <img src="{{ url('uploads/models/profiles/' . $image) }}" alt="Gallery Image">
+        </a>
+        @endforeach
+
+        {{-- ------------------ model details -------------------- --}}
+        <div class="col-md-6 p-0">
+            <div class="col-md-6 user-info">
+                <div class="header p-3">
                     <div class="name">
                         <!--{{ $details['first_name'] }} {{ $details['last_name'] }} => -->
-                        <span>{{ $uniqueId }}</span>
+                        <span>CTF-00001</span>
                         <!--{{ route('download.model.details', $details['id']) }} {{ url('/download-all-model-images/' . $details['id']) }}  id="captureButton" -->
                         <button id="captureButton" class="btn btn-success">Download</button>
                     </div>
                 </div>
-            </div> --}}
-            <!-- Second Row: Other Information -->
-            {{-- <div class="row user-profile-section"> --}}
-                {{-- <div class="col-md-12 user-details-card"> --}}
-                    {{-- <div class="row"> --}}
-                        
-                        <div class="col-md-6 user-info">
-                            <div class="header p-3">
-                                <div class="name">
-                                    <!--{{ $details['first_name'] }} {{ $details['last_name'] }} => -->
-                                    <span>CTF-00001</span>
-                                    <!--{{ route('download.model.details', $details['id']) }} {{ url('/download-all-model-images/' . $details['id']) }}  id="captureButton" -->
-                                    <button id="captureButton" class="btn btn-success">Download</button>
-                                </div>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-flag"></i>Nationality</span>
-                                <span class="info">{{ $details['nationality'] }}</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-language"></i>Languages Spoken</span>
-                                <span class="info">{{ implode(', ', json_decode($details['languages_spoken'], true)) }}</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-map-marker-alt"></i>Location</span>
-                                <span class="info">{{ $details['location'] }}</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-map-marker-alt"></i>Visa Status</span>
-                                <span class="info">{{ $details['location'] }}</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-id-card"></i>Driving License</span>
-                                <span class="info">{{ $details['driving_license'] }}</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-pen"></i>Tattoos</span>
-                                <span class="info">{{ $details['have_tattos'] }}</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-eye"></i>Eye Color</span>
-                                <span class="info">{{ $details['eye_color'] }}</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-tint"></i>Hair Color</span>
-                                <span class="info">{{ $details['hair_color'] }}</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-cut"></i>Hair Length</span>
-                                <span class="info">{{ $details['hair_length'] }}</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-arrows-alt-v"></i>Height</span>
-                                <span class="info">{{ $details['height'] }} cm</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-ruler-vertical"></i>Bust</span>
-                                <span class="info">{{ $details['bust'] }} cm</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-ruler-horizontal"></i>Hip</span>
-                                <span class="info">{{ $details['hip'] }} cm</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-tshirt"></i>Dress Size</span>
-                                <span class="info">{{ $details['dress_size'] }} cm</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-ruler-combined"></i> Waist:</span>
-                                <span class="info">{{ $details['waist'] }} cm</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-shoe-prints"></i>Shoe Size</span>
-                                <span class="info">{{ $details['shoe_size'] }}</span>
-                            </div>
-                            <div class="user-info-row">
-                                <span class="label"><i class="fas fa-tape"></i>Pants Size</span>
-                                <span class="info"></span>
-                            </div>
-                        </div>
-                        
-
-                        {{-- <div class="col-md-6 user-info">
-                            <p><i class="fas fa-weight"></i> <strong>Weight:</strong> {{ $details['weight'] }} kg
-                            </p>
-                            <p><i class="fas fa-eye"></i> <strong>Eye Color:</strong> {{ $details['eye_color'] }}
-                            </p>
-                            <p><i class="fas fa-tint"></i> <strong>Hair Color:</strong> {{ $details['hair_color'] }}
-                            </p>
-                            <p><i class="fas fa-cut"></i> <strong>Hair Length:</strong> {{ $details['hair_length']
-                                }}</p>
-                            <p><i class="fas fa-shoe-prints"></i> <strong>Shoe Size:</strong> {{
-                                $details['shoe_size'] }}</p>
-                            <p><i class="fas fa-tshirt"></i> <strong>Dress Size:</strong> {{ $details['dress_size']
-                                }}</p>
-                            <p><i class="fas fa-dollar-sign"></i> <strong>Hourly Rate:</strong> ${{
-                                $details['hourly_rate'] }}</p>
-                            <p><i class="fas fa-briefcase"></i> <strong>Categories:</strong> {{
-                                convertToTitleCaseWithPunctuation($musicianCategories) }}</p>
-                        </div> --}}
-                    {{-- </div> --}}
-                    {{-- <hr class="profile-divider"> --}}
-
-                    <!-- Biography Section -->
-                    {{-- <div class="user-biography">
-                        <h5><i class="fas fa-pen-alt"></i> <strong>Description</strong></h5>
-                        <p>{{ $details['biography'] }}</p>
-                    </div> --}}
-                {{-- </div> --}}
-            {{-- </div> --}}
-
-
-        {{-- </div> --}}
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-flag"></i>Nationality</span>
+                    <span class="info">{{ $details['nationality'] }}</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-language"></i>Languages Spoken</span>
+                    <span class="info">{{ implode(', ', json_decode($details['languages_spoken'], true)) }}</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-map-marker-alt"></i>Location</span>
+                    <span class="info">{{ $details['location'] }}</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-passport"></i>Visa Status</span>
+                    <span class="info"></span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-id-card"></i>Driving License</span>
+                    <span class="info">{{ $details['driving_license'] }}</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-pen"></i>Tattoos</span>
+                    <span class="info">{{ $details['have_tattos'] }}</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-eye"></i>Eye Color</span>
+                    <span class="info">{{ $details['eye_color'] }}</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-tint"></i>Hair Color</span>
+                    <span class="info">{{ $details['hair_color'] }}</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-cut"></i>Hair Length</span>
+                    <span class="info">{{ $details['hair_length'] }}</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-arrows-alt-v"></i>Height</span>
+                    <span class="info">{{ $details['height'] }} cm</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-ruler-vertical"></i>Bust</span>
+                    <span class="info">{{ $details['bust'] }} cm</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-ruler-horizontal"></i>Hip</span>
+                    <span class="info">{{ $details['hip'] }} cm</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-tshirt"></i>Dress Size</span>
+                    <span class="info">{{ $details['dress_size'] }} cm</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-ruler-combined"></i> Waist:</span>
+                    <span class="info">{{ $details['waist'] }} cm</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-shoe-prints"></i>Shoe Size</span>
+                    <span class="info">{{ $details['shoe_size'] }}</span>
+                </div>
+                <div class="user-info-row">
+                    <span class="label"><i class="fas fa-tape"></i>Pants Size</span>
+                    <span class="info"></span>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
 </div>
 
