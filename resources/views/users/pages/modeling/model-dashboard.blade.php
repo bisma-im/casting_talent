@@ -175,6 +175,56 @@
             border-radius: 0px 0 10px 10px;
             width: 100%;
         }
+        /* Unique Dropdown button styling */
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .language-dropdown-button {
+            width: 110%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: white;
+            cursor: pointer;
+            border-radius:  4px;
+            
+           
+        }
+
+        /* Dropdown content (hidden by default) */
+        .language-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 100%;
+            border: 1px solid #ccc;
+            max-height: 200px;
+            overflow-y: scroll;
+            z-index: 1;
+        }
+
+        /* Checkbox options styling */
+        .language-dropdown-content label {
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .language-dropdown-content label:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Show the dropdown when clicked */
+        .language-dropdown-open {
+            display: block;
+        }
+
+        /* Selected options styling */
+        .language-selected {
+            background-color: #e0ffe0;
+        }
     </style>
     
     <section class="about-sec about-margin">
@@ -982,33 +1032,33 @@
                                                                     <div class="contactlist">
                                                                         <label>Biography</label>
                                                                         <input type="text" class="form-control"
-                                                      name="first_name" placeholder="lorem epsum">
+                                                      name="biography" placeholder="lorem epsum">
                                                 </div>
                                                                 </div>
-                                                                <div
-                                                                    class="col-sm-12 col-md-4">
-                                                                    <div class="contactlist">
-                                                                        <label>Languages Spoken</label>
-                                                                        <select class="form-control"
-                                                                            name="languages_spoken[]" multiple required>
-                                                                            <option selected>-- Select Languages --</option>
-                                                                            <option value="English">English</option>
-                                                                            <option value="Hindi">Hindi</option>
-                                                                            <option value="Arabic">Arabic</option>
-                                                                            <option value="French">French</option>
-                                                                            <option value="Spanish">Spanish</option>
-                                                                            <option value="Chinese">Chinese</option>
-                                                                            <option value="Russian">Russian</option>
-                                                                            <option value="Portuguese">Portuguese</option>
-                                                                            <option value="German">German</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
+                                                                <div class="col-sm-12  col-md-4 mt-3">
+    <div class="contact-list-language">
+        <label>Languages Spoken</label>
+        <div class="language-dropdown" id="languageDropdown">
+            <div class="language-dropdown-button" id="languageDropdownButton">-- Select Languages --</div>
+            <div class="language-dropdown-content" id="languageDropdownContent">
+                <label><input type="checkbox" value="English"> English</label>
+                <label><input type="checkbox" value="Hindi"> Hindi</label>
+                <label><input type="checkbox" value="Arabic"> Arabic</label>
+                <label><input type="checkbox" value="French"> French</label>
+                <label><input type="checkbox" value="Spanish"> Spanish</label>
+                <label><input type="checkbox" value="Chinese"> Chinese</label>
+                <label><input type="checkbox" value="Russian"> Russian</label>
+                <label><input type="checkbox" value="Portuguese"> Portuguese</label>
+                <label><input type="checkbox" value="German"> German</label>
+            </div>
+        </div>
+    </div>
+</div>
                                                    
                                                                     </div>
                                                                 </div>
                                                                
-                                                                <div>
+                                                                <div class="row">
                                                                    <div class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <div class="form-group">
@@ -1651,11 +1701,74 @@
             // Initialize intl-tel-input for each phone input field
             phoneInputs.forEach(function(input) {
                 window.intlTelInput(input, {
-                    initialCountry: "us", // Set the default country if needed
+                    initialCountry: "ae", // Set the default country if needed
                     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // Optional
                 });
             });
         });
+
+
+        // -------------------Languages ----------------------
+         // Get elements
+    const languageDropdownButton = document.getElementById('languageDropdownButton');
+    const languageDropdownContent = document.getElementById('languageDropdownContent');
+
+    // Dropdown toggle functionality
+    languageDropdownButton.addEventListener('click', function () {
+        languageDropdownContent.classList.toggle('language-dropdown-open');
+    });
+
+    // Function to move selected checkboxes to the top
+    function moveSelectedLanguagesToTop() {
+        const labels = languageDropdownContent.querySelectorAll('label');
+        const selectedLabels = [];
+        const unselectedLabels = [];
+
+        // Separate selected and unselected checkboxes
+        labels.forEach(label => {
+            const checkbox = label.querySelector('input[type="checkbox"]');
+            if (checkbox.checked) {
+                selectedLabels.push(label);
+                label.classList.add('language-selected');  // Add selected class for styling
+            } else {
+                unselectedLabels.push(label);
+                label.classList.remove('language-selected');
+            }
+        });
+
+        // Clear the dropdown content
+        languageDropdownContent.innerHTML = '';
+
+        // Append selected labels to the top
+        selectedLabels.forEach(label => {
+            languageDropdownContent.appendChild(label);
+        });
+
+        // Append unselected labels after the selected ones
+        unselectedLabels.forEach(label => {
+            languageDropdownContent.appendChild(label);
+        });
+    }
+
+    // Event listener for checkbox changes
+    languageDropdownContent.addEventListener('change', function (e) {
+        if (e.target.type === 'checkbox') {
+            moveSelectedLanguagesToTop();
+        }
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('#languageDropdownButton')) {
+            const dropdowns = document.getElementsByClassName("language-dropdown-content");
+            for (let i = 0; i < dropdowns.length; i++) {
+                const openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('language-dropdown-open')) {
+                    openDropdown.classList.remove('language-dropdown-open');
+                }
+            }
+        }
+    }
     </script>
 
 @endsection
