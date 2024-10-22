@@ -559,7 +559,7 @@
                                                         <div class="tab active_tab_" data-step="1">
                                                             <div class="row">
                                                                 <div
-                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                    class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>First Name</label>
                                                                         <input type="text" class="form-control"
@@ -567,7 +567,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                    class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Last Name</label>
                                                                         <input type="text" class="form-control"
@@ -575,7 +575,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                    class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Date Of Birth</label>
                                                                         <input type="date" class="form-control"
@@ -583,7 +583,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                    class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Gender</label>
                                                                         <select class="form-select" name="gender"
@@ -594,7 +594,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                    class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Nationality</label>
                                                                         <select class="form-select" name="nationality"
@@ -836,14 +836,14 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                <div class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Calling Number</label>
                                                                         <input id="" type="tel" class="form-control phone-input" name="calling_number" placeholder="(000) *** ***">
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                    class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Whatsapp Number</label>
                                                                         <input id="phoneNumber" type="tel" class="form-control phone-input"
@@ -852,7 +852,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                    class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Marital Status</label>
                                                                         <label>Marital Status</label>
@@ -864,7 +864,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                    class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <div class="form-group">
                                                                             <label for="ethnicity">Ethnicity</label>
@@ -895,8 +895,9 @@
 
                                                                     </div>
                                                                 </div>
+                                                                <div class="row">
                                                                 <div
-                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                    class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Lives in</label>
                                                                         <select class="form-select" name="lives_in"
@@ -977,14 +978,15 @@
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                                                    class="col-md-4 col-sm-12">
                                                                     <div class="contactlist">
                                                                         <label>Biography</label>
-                                                                        <textarea type="text" rows="10" class="form-control" name="biography" placeholder="Enter your biography.."></textarea>
-                                                                    </div>
+                                                                        <input type="text" class="form-control"
+                                                      name="first_name" placeholder="lorem epsum">
+                                                </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                    class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Languages Spoken</label>
                                                                         <select class="form-control"
@@ -1002,8 +1004,12 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <div
-                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                   
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                                <div>
+                                                                   <div class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <div class="form-group">
                                                                             <label>Driving License</label>
