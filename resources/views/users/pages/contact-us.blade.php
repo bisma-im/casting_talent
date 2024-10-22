@@ -109,28 +109,31 @@
         }
 
         .mobile-frame {
-            background-image: url('{{ url('user-assets/images/mobile-mockup.png') }}');
-            background-size: cover;
-            background-position: center;
-            width: 400px;
-            height: 800px;
-            position: relative;
-            margin: 0 auto;
-            border-radius: 30px;
+    background-image: url('{{ url('user-assets/images/mobile-mockup.png') }}');
+    background-size: cover;
+    background-position: center;
+    width: 50vh;
+    height: 49vw;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 30px;
+    overflow: hidden; /* Ensure no overflow */
+}
 
-        }
+.instagram-feed {
+    width: 83%; /* Adjusted to fit inside the frame */
+    height: 100%; /* Fills the height */
+    position: absolute;
+    top: 4vw;
+    left: 24px;
+    border: none;
+    overflow: hidden;
+    padding: 0; /* Remove padding for a snug fit */
+    border-radius: 15px;
+}
 
-        .instagram-feed {
-            width: 350px;
-            height: 600px;
-            position: absolute;
-            top: 10%;
-            left: 7.5%;
-            border: none;
-            overflow: hidden;
-            padding: 10px;
-            border-radius: 15px;
-        }
+
+
 
 
 
@@ -207,7 +210,7 @@
         .slider-image {
             width: 100vw;
             /* Full width of the viewport for each slide */
-            height: 100vw;
+            height: 60vw;
             /* Full height of the viewport */
             background-size: cover;
             /* Ensure the image covers the entire container */
@@ -236,12 +239,16 @@
             /* Place above the slider */
             padding:  0;
             background-color: transparent;
+            height: 50vw;
+
             /* Transparent background */
         }
 
         .form-container {
             z-index: 3;
-            /* Ensure form stays on top */
+            height:48vw;
+            
+           
         }
 
 
@@ -540,7 +547,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 form-container mt-5">
+                <div class="col-md-6 form-container mt-3">
                     <!-- General Inquiry Form (initially hidden) -->
                     <div id="generalInquiryForm" style="display: none;">
                         <div class="card-title innertext">
@@ -1414,7 +1421,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 <div class="col-lg-1"> </div>
 
-                <div class="col-md-5 p-4 pt-0 text-center mt-5">
+                <div class="col-md-5 p-4 pt-0 text-center mt-2">
                     <!-- <<div class="card-title innertext">
                         <h1 style="text-align:center; color: white !important;"> Follow us on Instagram</h1><br>
                 </div> -->
