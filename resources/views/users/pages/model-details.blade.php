@@ -544,6 +544,115 @@ $timestamp = time();
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
+{{-- ----------------------------------- SECTION 3 ----------------------------------------- --}}
+@php
+    // Simulated related profiles data (hardcoded or fetched from DB)
+    $profiles = collect([
+        (object)['name' => 'Ivan', 'id' => '8032', 'image' => url('user-assets/images/pexels-photo-247287.jpeg')],
+        (object)['name' => 'Adam', 'id' => '89723', 'image' => url('user-assets/images/pexels-photo-247287.jpeg')],
+        (object)['name' => 'Spartacus', 'id' => '53724', 'image' => url('user-assets/images/pexels-photo-247287.jpeg')],
+        (object)['name' => 'Karim', 'id' => '29816', 'image' => url('user-assets/images/pexels-photo-247287.jpeg')],
+    ]);
+@endphp
+
+<div class="container my-4">
+    <div class="col-sm-12 col-md-12 mt-2">
+        <div class="innertext">
+            <h1>Related <span>Profiles</span></h1>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0">
+    <div id="profileCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Carousel Inner -->
+        <div class="carousel-inner">
+            @foreach ($profiles->chunk(4) as $profileChunk)
+                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                    <div class="row no-gutters justify-content-center">
+                        @foreach ($profileChunk as $profile)
+                            <div class="col-md-3">
+                                <div class="card text-center">
+                                    <!-- Profile Image -->
+                                    <img src="{{ url($profile->image) }}" class="card-img-top custom-img" alt="Profile Image">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $profile->name }}</h5>
+                                        <p class="card-text">No: {{ $profile->id }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <!-- Carousel controls -->
+        <a class="carousel-control-prev" href="#profileCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#profileCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<!-- Custom CSS -->
+<style>
+    .container-fluid {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .carousel-inner {
+        width: 100%;
+    }
+
+    .carousel-item {
+        padding: 0;
+        margin: 0;
+    }
+
+    .row.no-gutters {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .col-md-3 {
+        padding: 0;
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-img-top {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: black;
+        border-radius: 50%;
+    }
+
+    .card-body h5 {
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .card-body p {
+        font-size: 0.9rem;
+    }
+</style>
+
 <!-- Fancybox JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
