@@ -274,6 +274,66 @@
         /* Removes any default margin */
         padding: 8px 0;
     }
+
+    /* section 2 styling */
+    .full-height {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2; /* Adjust opacity to make text more readable */
+        }
+        #portfolio { background-image: url('/user-assets/model-images/model1.jpg'); }
+        #video { background-image: url('/user-assets/model-images/model2.jpg'); }
+        #audio { background-image: url('/user-assets/model-images/model3.jpg'); }
+        
+        .nav-tabs {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border: none;
+            z-index: 1050;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            /* border-color: #000; */
+            margin-bottom: 90px;
+            border-radius: 10px;
+        }
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #fff;
+            background-color: #000;
+            border: none;
+            font-weight: bold;
+            text-decoration: underline
+        }
+        .nav-link {
+            color: #fff;
+            border-radius: 0;
+            border: none;
+        }
+        .tab-content > .tab-pane {
+            height: 90vh;
+            /* overflow-y: auto; */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .tab-pane {
+            padding: 50px;
+            color: white; 
+        }
 </style>
 
 <section class="innerpages">
@@ -344,8 +404,7 @@ $timestamp = time();
                             <button id="captureButton" class="btn btn-success">Download</button> --}}
                             <div>
                                 <button id="captureButton" class="btn icon-btn"><i class="fas fa-share"></i></button>
-                                <button id="captureButton1" class="btn icon-btn"><i
-                                        class="fad fa-print"></i></button>
+                                <button id="captureButton1" class="btn icon-btn"><i class="fad fa-print"></i></button>
                             </div>
                         </div>
                     </div>
@@ -449,8 +508,41 @@ $timestamp = time();
             </div>
         </div>
     </div>
-
 </div>
+
+{{-- ------------------------------section 2------------------------ --}}
+<div class="container-fluid full-height m-0 p-0">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="portfolio-tab" data-bs-toggle="tab" data-bs-target="#portfolio" type="button" role="tab" aria-controls="portfolio" aria-selected="true">Portfolio</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="video-tab" data-bs-toggle="tab" data-bs-target="#video" type="button" role="tab" aria-controls="video" aria-selected="false">Video</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="audio-tab" data-bs-toggle="tab" data-bs-target="#audio" type="button" role="tab" aria-controls="audio" aria-selected="false">Audio</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
+            <div class="background-image"></div>
+            <p>Portfolio content goes here...</p>
+        </div>
+        <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
+            <div class="background-image">
+                <img src="{{ url('/user-assets/model-images/model5.jpg') }}" class="img-fluid"
+                                        alt="Model Image">
+            </div>
+            {{-- <img> --}}
+        </div>
+        <div class="tab-pane fade" id="audio" role="tabpanel" aria-labelledby="audio-tab">
+            <div class="background-image"></div>
+            <p>Audio content goes here...</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Fancybox JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
