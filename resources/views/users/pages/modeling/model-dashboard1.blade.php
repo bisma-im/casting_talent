@@ -612,7 +612,7 @@
                                                                     class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>First Name</label>
-                                                                        <input type="text" class="form-control" value="{{ $profileInfo->first_name ?? '' }}"
+                                                                        <input type="text" class="form-control"
                                                                             name="first_name" placeholder="First name..">
                                                                     </div>
                                                                 </div>
@@ -620,7 +620,7 @@
                                                                     class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Last Name</label>
-                                                                        <input type="text" class="form-control" value="{{ $profileInfo->last_name ?? '' }}"
+                                                                        <input type="text" class="form-control"
                                                                             name="last_name" placeholder="Last name...">
                                                                     </div>
                                                                 </div>
@@ -628,7 +628,7 @@
                                                                     class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Date Of Birth</label>
-                                                                        <input type="date" class="form-control" value="{{ $profileInfo->date_of_birth ?? '' }}"
+                                                                        <input type="date" class="form-control"
                                                                             name="date_of_birth">
                                                                     </div>
                                                                 </div>
@@ -638,8 +638,8 @@
                                                                         <label>Gender</label>
                                                                         <select class="form-select" name="gender"
                                                                             aria-label="Default select example">
-                                                                            <option value="female" {{ (isset($profileInfo) && $profileInfo->gender === 'female') ? 'selected' : '' }}>Female</option>
-                                                                            <option value="male" {{ (isset($profileInfo) && $profileInfo->gender === 'male') ? 'selected' : '' }}>Male</option>
+                                                                            <option value="female" selected>Female</option>
+                                                                            <option value="male">Male</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -889,8 +889,7 @@
                                                                 <div class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Calling Number</label>
-                                                                        <input id="" type="tel" class="form-control phone-input"  value="{{ $profileInfo->calling_number ?? '' }}"
-                                                                        name="calling_number" placeholder="(000) *** ***">
+                                                                        <input id="" type="tel" class="form-control phone-input" name="calling_number" placeholder="(000) *** ***">
                                                                     </div>
                                                                 </div>
                                                                 <div
@@ -898,7 +897,7 @@
                                                                     <div class="contactlist">
                                                                         <label>Whatsapp Number</label>
                                                                         <input id="phoneNumber" type="tel" class="form-control phone-input"
-                                                                            name="whatsapp_number" value="{{ $profileInfo->whatsapp_number ?? '' }}"
+                                                                            name="whatsapp_number"
                                                                             placeholder="(000) *** ***">
                                                                     </div>
                                                                 </div>
@@ -906,11 +905,11 @@
                                                                     class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Marital Status</label>
-                                                                       
+                                                                        <label>Marital Status</label>
                                                                         <select class="form-control"
                                                                             name="marital_status">
-                                                                            <option value="single"  {{ (isset($profileInfo) && $profileInfo->marital_status === 'single') ? 'selected' : '' }}>Single</option>
-                                                                            <option value="married" {{ (isset($profileInfo) && $profileInfo->marital_status === 'married') ? 'selected' : '' }}>Married</option>
+                                                                            <option value="single" selected>Single</option>
+                                                                            <option value="married">Married</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -921,28 +920,26 @@
                                                                             <label for="ethnicity">Ethnicity</label>
                                                                             <select name="ethnicity" id="ethnicity"
                                                                                 class="form-control">
-                                                                                <option value="">Select Ethnicity</option>
-                                                                                @php
-                                                                                    $ethnicities = [
-                                                                                        'african' => 'African',
-                                                                                        'african_american' => 'African American',
-                                                                                        'asian' => 'Asian',
-                                                                                        'caucasian' => 'Caucasian',
-                                                                                        'hispanic' => 'Hispanic',
-                                                                                        'middle_eastern' => 'Middle Eastern',
-                                                                                        'native_american' => 'Native American',
-                                                                                        'pacific_islander' => 'Pacific Islander',
-                                                                                        'south_asian' => 'South Asian',
-                                                                                        'mixed_race' => 'Mixed Race',
-                                                                                        'other' => 'Other'
-                                                                                    ];
-                                                                                @endphp
-
-                                                                                @foreach ($ethnicities as $key => $label)
-                                                                                    <option value="{{ $key }}" {{ (isset($profileInfo) && $profileInfo->ethnicity === $key) ? 'selected' : '' }}>
-                                                                                        {{ $label }}
-                                                                                    </option>
-                                                                                @endforeach
+                                                                                <option value="">Select Ethnicity
+                                                                                </option>
+                                                                                <option value="african">African</option>
+                                                                                <option value="african_american">African
+                                                                                    American</option>
+                                                                                <option value="asian">Asian</option>
+                                                                                <option value="caucasian">Caucasian
+                                                                                </option>
+                                                                                <option value="hispanic">Hispanic</option>
+                                                                                <option value="middle_eastern">Middle
+                                                                                    Eastern</option>
+                                                                                <option value="native_american">Native
+                                                                                    American</option>
+                                                                                <option value="pacific_islander">Pacific
+                                                                                    Islander</option>
+                                                                                <option value="south_asian">South Asian
+                                                                                </option>
+                                                                                <option value="mixed_race">Mixed Race
+                                                                                </option>
+                                                                                <option value="other">Other</option>
                                                                             </select>
                                                                         </div>
 
@@ -955,75 +952,110 @@
                                                                         <label>Lives in</label>
                                                                         <select class="form-select" name="lives_in"
                                                                             aria-label="Default select example">
-                                                                            @php
-                                                                                $countries = [
-                                                                                    'United Arab Emirates', 'Afghanistan', 'Albania', 'Algeria', 'Andorra',
-                                                                                    'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia',
-                                                                                    'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados',
-                                                                                    'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia',
-                                                                                    'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria',
-                                                                                    'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada',
-                                                                                    'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia',
-                                                                                    'Comoros', 'Congo (Congo-Brazzaville)', 'Costa Rica', 'Croatia', 'Cuba',
-                                                                                    'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica',
-                                                                                    'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea',
-                                                                                    'Eritrea', 'Estonia', 'Eswatini (fmr. "Swaziland")', 'Ethiopia', 'Fiji',
-                                                                                    'Finland', 'France'
-                                                                                ];
-                                                                            @endphp
-
-                                                                            @foreach ($countries as $country)
-                                                                                <option value="{{ $country }}" 
-                                                                                    {{ (isset($profileInfo) && $profileInfo->location === $country) || (!isset($profileInfo) && $country === 'United Arab Emirates') ? 'selected' : '' }}>
-                                                                                    {{ $country }}
-                                                                                </option>
-                                                                            @endforeach
+                                                                            <option value="United Arab Emirates" selected>
+                                                                                United Arab Emirates</option>
+                                                                            <option value="Afghanistan">Afghanistan
+                                                                            </option>
+                                                                            <option value="Albania">Albania</option>
+                                                                            <option value="Algeria">Algeria</option>
+                                                                            <option value="Andorra">Andorra</option>
+                                                                            <option value="Angola">Angola</option>
+                                                                            <option value="Antigua and Barbuda">Antigua and
+                                                                                Barbuda</option>
+                                                                            <option value="Argentina">Argentina</option>
+                                                                            <option value="Armenia">Armenia</option>
+                                                                            <option value="Australia">Australia</option>
+                                                                            <option value="Austria">Austria</option>
+                                                                            <option value="Azerbaijan">Azerbaijan</option>
+                                                                            <option value="Bahamas">Bahamas</option>
+                                                                            <option value="Bahrain">Bahrain</option>
+                                                                            <option value="Bangladesh">Bangladesh</option>
+                                                                            <option value="Barbados">Barbados</option>
+                                                                            <option value="Belarus">Belarus</option>
+                                                                            <option value="Belgium">Belgium</option>
+                                                                            <option value="Belize">Belize</option>
+                                                                            <option value="Benin">Benin</option>
+                                                                            <option value="Bhutan">Bhutan</option>
+                                                                            <option value="Bolivia">Bolivia</option>
+                                                                            <option value="Bosnia and Herzegovina">Bosnia
+                                                                                and Herzegovina</option>
+                                                                            <option value="Botswana">Botswana</option>
+                                                                            <option value="Brazil">Brazil</option>
+                                                                            <option value="Brunei">Brunei</option>
+                                                                            <option value="Bulgaria">Bulgaria</option>
+                                                                            <option value="Burkina Faso">Burkina Faso
+                                                                            </option>
+                                                                            <option value="Burundi">Burundi</option>
+                                                                            <option value="Cabo Verde">Cabo Verde</option>
+                                                                            <option value="Cambodia">Cambodia</option>
+                                                                            <option value="Cameroon">Cameroon</option>
+                                                                            <option value="Canada">Canada</option>
+                                                                            <option value="Central African Republic">
+                                                                                Central African Republic</option>
+                                                                            <option value="Chad">Chad</option>
+                                                                            <option value="Chile">Chile</option>
+                                                                            <option value="China">China</option>
+                                                                            <option value="Colombia">Colombia</option>
+                                                                            <option value="Comoros">Comoros</option>
+                                                                            <option value="Congo (Congo-Brazzaville)">Congo
+                                                                                (Congo-Brazzaville)</option>
+                                                                            <option value="Costa Rica">Costa Rica</option>
+                                                                            <option value="Croatia">Croatia</option>
+                                                                            <option value="Cuba">Cuba</option>
+                                                                            <option value="Cyprus">Cyprus</option>
+                                                                            <option value="Czech Republic">Czech Republic
+                                                                            </option>
+                                                                            <option value="Denmark">Denmark</option>
+                                                                            <option value="Djibouti">Djibouti</option>
+                                                                            <option value="Dominica">Dominica</option>
+                                                                            <option value="Dominican Republic">Dominican
+                                                                                Republic</option>
+                                                                            <option value="Ecuador">Ecuador</option>
+                                                                            <option value="Egypt">Egypt</option>
+                                                                            <option value="El Salvador">El Salvador
+                                                                            </option>
+                                                                            <option value="Equatorial Guinea">Equatorial
+                                                                                Guinea</option>
+                                                                            <option value="Eritrea">Eritrea</option>
+                                                                            <option value="Estonia">Estonia</option>
+                                                                            <option value="Eswatini (fmr. "Swaziland")">
+                                                                                Eswatini (fmr. "Swaziland")</option>
+                                                                            <option value="Ethiopia">Ethiopia</option>
+                                                                            <option value="Fiji">Fiji</option>
+                                                                            <option value="Finland">Finland</option>
+                                                                            <option value="France">France</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                    class="col-md-4 col-sm-12">
                                                                     <div class="contactlist">
-                                                                        <label>Visa Status</label>
-                                                                        <select class="form-select" name="hair_length"
-                                                                            aria-label="Default select example">
-                                                                            <option value="visit visa" selected>visit visa</option>
-                                                                            <option value="residence visa">residence visa</option>
-                                                                            <option value="golden visa">golden visa</option>
-                                                                          
-                                                                            {{-- <option value="visit"  {{ (isset($profileInfo) && $profileInfo->visa_status === 'visit') ? 'selected' : '' }}>Visit Visa</option>
-                                                                            <option value="residence" {{ (isset($profileInfo) && $profileInfo->visa_status === 'residence') ? 'selected' : '' }}>Residence Visa</option>
-                                                                            <option value="golden" {{ (isset($profileInfo) && $profileInfo->visa_status === 'golden') ? 'selected' : '' }}>Golden Visa</option> --}}
-                                                                        </select>
-                                                                    </div>
+                                                                        <label>Biography</label>
+                                                                        <input type="text" class="form-control"
+                                                      name="biography" placeholder="lorem epsum">
+                                                </div>
                                                                 </div>
-                                                               
                                                                 <div class="col-sm-12  col-md-4 mt-3">
-                                                                    <div class="contact-list-language">
-                                                                        <label>Languages Spoken</label>
-                                                                        <div class="language-dropdown" id="languageDropdown">
-                                                                            <div class="language-dropdown-button" id="languageDropdownButton">-- Select Languages --</div>
-                                                                            <div class="language-dropdown-content" id="languageDropdownContent">
-                                                                                @php
-                                                                                    $languages = [
-                                                                                        'English', 'Hindi', 'Arabic', 'French', 'Spanish',
-                                                                                        'Chinese', 'Russian', 'Portuguese', 'German'
-                                                                                    ];
-                                                                                    $selectedLanguages = $profileInfo ? json_decode($profileInfo->languages_spoken, true) : [];
-                                                                                @endphp
-                                                                                @foreach ($languages as $language)
-                                                                                    <label>
-                                                                                        <input type="checkbox" name="languages_spoken[]" value="{{ $language }}"
-                                                                                            {{ in_array($language, $selectedLanguages) ? 'checked' : '' }}>
-                                                                                        {{ $language }}
-                                                                                    </label>
-                                                                                @endforeach
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+    <div class="contact-list-language">
+        <label>Languages Spoken</label>
+        <div class="language-dropdown" id="languageDropdown">
+            <div class="language-dropdown-button" id="languageDropdownButton">-- Select Languages --</div>
+            <div class="language-dropdown-content" id="languageDropdownContent">
+                <label><input type="checkbox" value="English"> English</label>
+                <label><input type="checkbox" value="Hindi"> Hindi</label>
+                <label><input type="checkbox" value="Arabic"> Arabic</label>
+                <label><input type="checkbox" value="French"> French</label>
+                <label><input type="checkbox" value="Spanish"> Spanish</label>
+                <label><input type="checkbox" value="Chinese"> Chinese</label>
+                <label><input type="checkbox" value="Russian"> Russian</label>
+                <label><input type="checkbox" value="Portuguese"> Portuguese</label>
+                <label><input type="checkbox" value="German"> German</label>
+            </div>
+        </div>
+    </div>
+</div>
                                                    
-                                                            </div>
+                                                                    </div>
                                                                 </div>
                                                                
                                                                 <div class="row">
@@ -1035,8 +1067,8 @@
                                                                                 id="driving_license" class="form-control">
                                                                                 <option value="">-- Select --
                                                                                 </option>
-                                                                                <option value="yes" {{ (isset($profileInfo) && $profileInfo->driving_license === 'yes') ? 'selected' : '' }}>Yes</option>
-                                                                                <option value="no" {{ (isset($profileInfo) && $profileInfo->driving_license === 'no') ? 'selected' : '' }}>No</option>
+                                                                                <option value="yes">Yes</option>
+                                                                                <option value="no">No</option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -1046,7 +1078,7 @@
                                                                     <div class="contactlist">
                                                                         <label>Email</label>
                                                                         <input type="email" class="form-control"
-                                                                            name="email" value="{{ $profileInfo->email ?? '' }}"
+                                                                            name="email"
                                                                             placeholder="Dummy321@gmail.com">
                                                                     </div>
                                                                 </div>
@@ -1055,7 +1087,7 @@
                                                                     <div class="contactlist">
                                                                         <label>Instagram Username</label>
                                                                         <input type="text" class="form-control"
-                                                                            name="instagram_username" value="{{ $profileInfo->instagram_username ?? '' }}"
+                                                                            name="instagram_username"
                                                                             placeholder="Instagram handle..">
                                                                     </div>
                                                                 </div>
@@ -1063,7 +1095,7 @@
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Height (CM)</label>
-                                                                        <input type="text" class="form-control" value="{{ $profileInfo->height ?? '' }}"
+                                                                        <input type="text" class="form-control"
                                                                             name="height_cm" placeholder="e.g., 170">
                                                                     </div>
                                                                 </div>
@@ -1071,7 +1103,7 @@
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Bust (CM)</label>
-                                                                        <input type="text" class="form-control" value="{{ $profileInfo->bust ?? '' }}"
+                                                                        <input type="text" class="form-control"
                                                                             name="bust_cm" placeholder="e.g., 90">
                                                                     </div>
                                                                 </div>
@@ -1079,7 +1111,7 @@
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Waist (CM)</label>
-                                                                        <input type="text" class="form-control" value="{{ $profileInfo->waist ?? '' }}"
+                                                                        <input type="text" class="form-control"
                                                                             name="waist_cm" placeholder="e.g., 60">
                                                                     </div>
                                                                 </div>
@@ -1087,7 +1119,7 @@
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Hip (CM)</label>
-                                                                        <input type="text" class="form-control" value="{{ $profileInfo->hip ?? '' }}"
+                                                                        <input type="text" class="form-control"
                                                                             name="hip_cm" placeholder="e.g., 90">
                                                                     </div>
                                                                 </div>
@@ -1095,7 +1127,7 @@
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Weight (KG)</label>
-                                                                        <input type="text" class="form-control" value="{{ $profileInfo->weight ?? '' }}"
+                                                                        <input type="text" class="form-control"
                                                                             name="weight_kg" placeholder="e.g., 70">
                                                                     </div>
                                                                 </div>
@@ -1103,7 +1135,7 @@
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Eye Color</label>
-                                                                        <input type="text" class="form-control" value="{{ $profileInfo->eye_color ?? '' }}"
+                                                                        <input type="text" class="form-control"
                                                                             name="eyes_color" placeholder="e.g., Brown">
                                                                     </div>
                                                                 </div>
@@ -1113,31 +1145,24 @@
                                                                         <label>Hair Color</label>
                                                                         <select class="form-select" name="hair_color"
                                                                             aria-label="Default select example">
-                                                                            @php
-                                                                                $options = [
-                                                                                    'Brown' => 'Brown',
-                                                                                    'Black' => 'Black',
-                                                                                    'Blonde' => 'Blonde',
-                                                                                    'Red' => 'Red',
-                                                                                    'Gray' => 'Gray',
-                                                                                    'White' => 'White',
-                                                                                    'Auburn' => 'Auburn',
-                                                                                    'chestnut' => 'Chestnut',
-                                                                                    'Platinum Blonde' => 'Platinum Blonde',
-                                                                                    'Strawberry Blonde' => 'Strawberry Blonde',
-                                                                                    'Blue' => 'Blue',
-                                                                                    'Green' => 'Green',
-                                                                                    'Pink' => 'Pink',
-                                                                                    'Purple' => 'Purple',
-                                                                                    'Silver' => 'Silver'
-                                                                                ];
-                                                                            @endphp
-
-                                                                            @foreach ($options as $value => $label)
-                                                                                <option value="{{ $value }}" {{ (isset($profileInfo) && $profileInfo->hair_color === $value) ? 'selected' : '' }}>
-                                                                                    {{ $label }}
-                                                                                </option>
-                                                                            @endforeach
+                                                                            <option value="brown" selected>Brown</option>
+                                                                            <option value="black">Black</option>
+                                                                            <option value="blonde">Blonde</option>
+                                                                            <option value="red">Red</option>
+                                                                            <option value="gray">Gray</option>
+                                                                            <option value="white">White</option>
+                                                                            <option value="auburn">Auburn</option>
+                                                                            <option value="chestnut">Chestnut</option>
+                                                                            <option value="platinum_blonde">Platinum Blonde
+                                                                            </option>
+                                                                            <option value="strawberry_blonde">Strawberry
+                                                                                Blonde</option>
+                                                                            <option value="blue">Blue</option>
+                                                                            <option value="green">Green</option>
+                                                                            <option value="pink">Pink</option>
+                                                                            <option value="purple">Purple</option>
+                                                                            <option value="silver">Silver</option>
+                                                                            <option value="other">Other</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -1147,9 +1172,9 @@
                                                                         <label>Hair Length</label>
                                                                         <select class="form-select" name="hair_length"
                                                                             aria-label="Default select example">
-                                                                            <option value="long"  {{ (isset($profileInfo) && $profileInfo->hair_length === 'long') ? 'selected' : '' }}>Long</option>
-                                                                            <option value="medium" {{ (isset($profileInfo) && $profileInfo->hair_length === 'medium') ? 'selected' : '' }}>Medium</option>
-                                                                            <option value="short" {{ (isset($profileInfo) && $profileInfo->hair_length === 'short') ? 'selected' : '' }}>Short</option>
+                                                                            <option value="long" selected>Long</option>
+                                                                            <option value="medium">Medium</option>
+                                                                            <option value="short">Short</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -1157,7 +1182,7 @@
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Shoe Size (EURO)</label>
-                                                                        <input type="text" class="form-control" value="{{ $profileInfo->shoe_size ?? '' }}"
+                                                                        <input type="text" class="form-control"
                                                                             name="shoe_size_euro" placeholder="e.g. 12">
                                                                     </div>
                                                                 </div>
@@ -1165,7 +1190,7 @@
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Dress Size (EURO)</label>
-                                                                        <input type="text" class="form-control" value="{{ $profileInfo->dress_size ?? '' }}"
+                                                                        <input type="text" class="form-control"
                                                                             name="dress_size_euro" placeholder="e.g. 12">
                                                                     </div>
                                                                 </div>
@@ -1173,7 +1198,7 @@
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Your Hourly/ Session Rate</label>
-                                                                        <input type="text" class="form-control" value="{{ $profileInfo->hourly_rate ?? '' }}"
+                                                                        <input type="text" class="form-control"
                                                                             name="hourly_rate" placeholder="e.g. 120">
                                                                     </div>
                                                                 </div>
@@ -1185,15 +1210,16 @@
                                                                             id="have_tattoos"
                                                                             aria-label="Default select example"
                                                                             onchange="toggleTattoosInput()">
-                                                                            <option value="yes" {{ (isset($profileInfo) && $profileInfo->have_tattos === 'yes' || isset($profileInfo) && $profileInfo->have_tattos === 'Yes') ? 'selected' : '' }}>Yes</option>
-                                                                            <option value="no" {{ (isset($profileInfo) && $profileInfo->have_tattos === 'no' || isset($profileInfo) && $profileInfo->have_tattos === 'No') ? 'selected' : '' }}>No</option>
-                                                                            
+                                                                            <option value="yes">Yes</option>
+                                                                            <option value="no">No</option>
+                                                                            <option value="other">Other</option>
                                                                         </select>
                                                                         <input type="text" class="form-control mt-2"
                                                                             id="tattoos_other_input" name="tattoos_other"
                                                                             placeholder="Please specify"
                                                                             style="display: none;">
                                                                     </div>
+
                                                                     <script>
                                                                         function toggleTattoosInput() {
                                                                             var select = document.getElementById('have_tattoos');
@@ -1207,16 +1233,6 @@
                                                                         }
                                                                     </script>
                                                                 </div>
-                                                                <div class="col-md-12">
-                                                                    <div class="contactlist">
-                                                                        <label for="Biography">Biography</label>
-                                                                        <textarea class="form-control" id="biography" name="biography" rows="4" 
-                                                                                placeholder="Biography..." aria-label="Biography"
-                                                                            >{{ $profileInfo->biography ?? '' }}
-                                                                        </textarea>
-                                                                    </div>
-                                                                </div>
-                                                                    
                                                             </div>
                                                         </div>
 
@@ -1228,46 +1244,122 @@
                                                                         <h5>Select A Category</h5>
                                                                     </div>
                                                                     <div class="row row-cols-5 row-cols-md-5 row-cols-lg-5 row-cols-xl-5 row-cols-xxl-5">
-                                                                        @php
-                                                                            // Decode the JSON into an array
-                                                                            $selectedCategories = isset($profileInfo) ? json_decode($profileInfo->category, true) : [];
-                                                                            // Define the categories and their respective images and labels
-                                                                            $categories = [
-                                                                                'actors' => 'category_1.png',
-                                                                                'models' => 'category_2.png',
-                                                                                'dancers_performers' => 'category_3.png',
-                                                                                'film_crew' => 'category_4.png',
-                                                                                'musicians' => 'category_5.png',
-                                                                                'influencers' => 'category_6.png',
-                                                                                'presenters_emcees' => 'category_7.png',
-                                                                                'event_staff_ushers' => 'category_8.png',
-                                                                                'photographers_videographers' => 'category_9.png',
-                                                                                'makeup_hair_painter_fashion_stylists' => 'category_10.png'
-                                                                            ];
-                                                                        @endphp
-                                                                        @foreach ($categories as $key => $image)
-                                                                            <div class="col">
-                                                                                <div class="selectbox">
-                                                                                    <input type="checkbox" name="category[]" value="{{ $key }}" id="category_{{ $key }}"
-                                                                                        {{ in_array($key, $selectedCategories) ? 'checked' : '' }}>
-                                                                                    <label class="customselect" for="category_{{ $key }}">
-                                                                                        <div class="catogerybox">
-                                                                                            <img src="{{ url('user-assets/images/' . $image) }}" class="img-fluid" alt="img">
-                                                                                            <h5>{{ ucfirst(str_replace('_', ' ', $key)) }}</h5>
-                                                                                        </div>
-                                                                                    </label>
-                                                                                </div>
+                                                                        <div class="col">
+                                                                            <div class="selectbox">
+                                                                                <input type="checkbox" name="category[]" value="actors" id="category_actors">
+                                                                                <label class="customselect" for="category_actors">
+                                                                                    <div class="catogerybox">
+                                                                                        <img src="{{ url('user-assets') }}/images/category_1.png" class="img-fluid" alt="img">
+                                                                                        <h5>Actors</h5>
+                                                                                    </div>
+                                                                                </label>
                                                                             </div>
-                                                                        @endforeach
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="selectbox">
+                                                                                <input type="checkbox" name="category[]" value="models" id="category_models">
+                                                                                <label class="customselect" for="category_models">
+                                                                                    <div class="catogerybox">
+                                                                                        <img src="{{ url('user-assets') }}/images/category_2.png" class="img-fluid" alt="img">
+                                                                                        <h5>Models</h5>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="selectbox">
+                                                                                <input type="checkbox" name="category[]" value="dancers_performers" id="category_dancers_performers">
+                                                                                <label class="customselect" for="category_dancers_performers">
+                                                                                    <div class="catogerybox">
+                                                                                        <img src="{{ url('user-assets') }}/images/category_3.png" class="img-fluid" alt="img">
+                                                                                        <h5>Dancers & Performers</h5>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="selectbox">
+                                                                                <input type="checkbox" name="category[]" value="film_crew" id="category_film_crew">
+                                                                                <label class="customselect" for="category_film_crew">
+                                                                                    <div class="catogerybox">
+                                                                                        <img src="{{ url('user-assets') }}/images/category_4.png" class="img-fluid" alt="img">
+                                                                                        <h5>Film Crew</h5>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="selectbox">
+                                                                                <input type="checkbox" name="category[]" value="musicians" id="category_musicians">
+                                                                                <label class="customselect" for="category_musicians">
+                                                                                    <div class="catogerybox">
+                                                                                        <img src="{{ url('user-assets') }}/images/category_5.png" class="img-fluid" alt="img">
+                                                                                        <h5>Musicians</h5>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="selectbox">
+                                                                                <input type="checkbox" name="category[]" value="influencers" id="category_influencers">
+                                                                                <label class="customselect" for="category_influencers">
+                                                                                    <div class="catogerybox">
+                                                                                        <img src="{{ url('user-assets') }}/images/category_6.png" class="img-fluid" alt="img">
+                                                                                        <h5>Influencers</h5>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="selectbox">
+                                                                                <input type="checkbox" name="category[]" value="presenters_emcees" id="category_presenters_emcees">
+                                                                                <label class="customselect" for="category_presenters_emcees">
+                                                                                    <div class="catogerybox">
+                                                                                        <img src="{{ url('user-assets') }}/images/category_7.png" class="img-fluid" alt="img">
+                                                                                        <h5>Presenters & Emcees</h5>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="selectbox">
+                                                                                <input type="checkbox" name="category[]" value="event_staff_ushers" id="category_event_staff_ushers">
+                                                                                <label class="customselect" for="category_event_staff_ushers">
+                                                                                    <div class="catogerybox">
+                                                                                        <img src="{{ url('user-assets') }}/images/category_8.png" class="img-fluid" alt="img">
+                                                                                        <h5>Event Staff & Ushers</h5>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="selectbox">
+                                                                                <input type="checkbox" name="category[]" value="photographers_videographers" id="category_photographers_videographers">
+                                                                                <label class="customselect" for="category_photographers_videographers">
+                                                                                    <div class="catogerybox">
+                                                                                        <img src="{{ url('user-assets') }}/images/category_9.png" class="img-fluid" alt="img">
+                                                                                        <h5>Photographers / Videographers</h5>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="selectbox">
+                                                                                <input type="checkbox" name="category[]" value="makeup_hair_painter_fashion_stylists" id="category_makeup_hair_painter_fashion_stylists">
+                                                                                <label class="customselect" for="category_makeup_hair_painter_fashion_stylists">
+                                                                                    <div class="catogerybox">
+                                                                                        <img src="{{ url('user-assets') }}/images/category_10.png" class="img-fluid" alt="img">
+                                                                                        <h5>Makeup, Hair, Painter & Fashion Stylists</h5>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <div class="tab" data-step="2">
-                                                            @php
-                                                                $selectedSubcategories = $profileInfo ? json_decode($profileInfo->musician_categories ?? '[]', true) : [];
-                                                            @endphp
-                                                        
                                                             <!-- Subcategories for Actors -->
                                                             <div id="actors_subcategories" class="subcategory-section" style="display: none;">
                                                                 <div class="row">
@@ -1277,21 +1369,17 @@
                                                                         </div>
                                                                         <div class="musicainlist">
                                                                             <ul>
-                                                                                @foreach (['main_lead', 'featured_actors', 'body_double', 'mime_artist', 'stunt_person', 'extras'] as $actorCategory)
-                                                                                <li>
-                                                                                    <label>
-                                                                                        <input type="checkbox" name="category_type[]" value="{{ $actorCategory }}" id="actor_{{ $actorCategory }}"
-                                                                                            {{ in_array($actorCategory, $selectedSubcategories) ? 'checked' : '' }}>
-                                                                                        <label for="actor_{{ $actorCategory }}">{{ ucwords(str_replace('_', ' ', $actorCategory)) }}</label>
-                                                                                    </label>
-                                                                                </li>
-                                                                                @endforeach
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="main_lead" id="actor_main_lead"><label for="actor_main_lead">Main Lead</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="featured_actors" id="actor_featured_actors"><label for="actor_featured_actors">Featured Actors</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="body_double" id="actor_body_double"><label for="actor_body_double">Body Double</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="mime_artist" id="actor_mime_artist"><label for="actor_mime_artist">Mime Artist</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="stunt_person" id="actor_stunt_person"><label for="actor_stunt_person">Stunt Person</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="extras" id="actor_extras"><label for="actor_extras">EXTRAS</label></label></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        
                                                             <!-- Subcategories for Models -->
                                                             <div id="models_subcategories" class="subcategory-section" style="display: none;">
                                                                 <div class="row">
@@ -1301,21 +1389,16 @@
                                                                         </div>
                                                                         <div class="musicainlist">
                                                                             <ul>
-                                                                                @foreach (['high_fashion_editorial', 'fashion_catalogue', 'commercial_models', 'mature_models', 'promotional_models'] as $modelCategory)
-                                                                                <li>
-                                                                                    <label>
-                                                                                        <input type="checkbox" name="category_type[]" value="{{ $modelCategory }}" id="model_{{ $modelCategory }}"
-                                                                                            {{ in_array($modelCategory, $selectedSubcategories) ? 'checked' : '' }}>
-                                                                                        <label for="model_{{ $modelCategory }}">{{ ucwords(str_replace('_', ' ', $modelCategory)) }}</label>
-                                                                                    </label>
-                                                                                </li>
-                                                                                @endforeach
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="high_fashion_editorial" id="model_high_fashion_editorial"><label for="model_high_fashion_editorial">High Fashion (Editorial) Models</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="fashion_catalogue" id="model_fashion_catalogue"><label for="model_fashion_catalogue">Fashion (Catalogue) Models</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="commercial_models" id="model_commercial_models"><label for="model_commercial_models">Commercial Models</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="mature_models" id="model_mature_models"><label for="model_mature_models">Mature Models</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="promotional_models" id="model_promotional_models"><label for="model_promotional_models">Promotional Models</label></label></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        
                                                             <!-- Subcategories for Dancers & Performers -->
                                                             <div id="dancers_performers_subcategories" class="subcategory-section" style="display: none;">
                                                                 <div class="row">
@@ -1325,21 +1408,14 @@
                                                                         </div>
                                                                         <div class="musicainlist">
                                                                             <ul>
-                                                                                @foreach (['ballet_dancers', 'ballroom_dancers', 'baroque_dancers'] as $dancerCategory)
-                                                                                <li>
-                                                                                    <label>
-                                                                                        <input type="checkbox" name="category_type[]" value="{{ $dancerCategory }}" id="dancer_{{ $dancerCategory }}"
-                                                                                            {{ in_array($dancerCategory, $selectedSubcategories) ? 'checked' : '' }}>
-                                                                                        <label for="dancer_{{ $dancerCategory }}">{{ ucwords(str_replace('_', ' ', $dancerCategory)) }}</label>
-                                                                                    </label>
-                                                                                </li>
-                                                                                @endforeach
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="ballet_dancers" id="dancer_ballet_dancers"><label for="dancer_ballet_dancers">Ballet Dancers</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="ballroom_dancers" id="dancer_ballroom_dancers"><label for="dancer_ballroom_dancers">Ballroom Dancers</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="baroque_dancers" id="dancer_baroque_dancers"><label for="dancer_baroque_dancers">Baroque Dancers</label></label></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        
                                                             <!-- Subcategories for Makeup, Hair, Painter & Fashion Stylists -->
                                                             <div id="makeup_hair_painter_fashion_stylists_subcategories" class="subcategory-section" style="display: none;">
                                                                 <div class="row">
@@ -1349,21 +1425,14 @@
                                                                         </div>
                                                                         <div class="musicainlist">
                                                                             <ul>
-                                                                                @foreach (['makeup_artists', 'fashion_stylists', 'hair_stylists', 'body_painters'] as $stylistCategory)
-                                                                                <li>
-                                                                                    <label>
-                                                                                        <input type="checkbox" name="category_type[]" value="{{ $stylistCategory }}" id="stylist_{{ $stylistCategory }}"
-                                                                                            {{ in_array($stylistCategory, $selectedSubcategories) ? 'checked' : '' }}>
-                                                                                        <label for="stylist_{{ $stylistCategory }}">{{ ucwords(str_replace('_', ' ', $stylistCategory)) }}</label>
-                                                                                    </label>
-                                                                                </li>
-                                                                                @endforeach
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="makeup_artists" id="stylist_makeup_artists"><label for="stylist_makeup_artists">Makeup Artists</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="fashion_stylists" id="stylist_fashion_stylists"><label for="stylist_fashion_stylists">Fashion Stylists</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="hair_stylists" id="stylist_hair_stylists"><label for="stylist_hair_stylists">Hair Stylists</label></label></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-
                                                             <!-- Subcategories for Photographers / Videographers -->
                                                             <div id="photographers_videographers_subcategories" class="subcategory-section" style="display: none;">
                                                                 <div class="row">
@@ -1373,23 +1442,18 @@
                                                                         </div>
                                                                         <div class="musicainlist">
                                                                             <ul>
-                                                                                @foreach (['fashion_photographer', 'portrait_photographer', 'landscape_photographer', 'event_videographer', 'wedding_videographer'] as $photographerCategory)
-                                                                                <li>
-                                                                                    <label>
-                                                                                        <input type="checkbox" name="category_type[]" value="{{ $photographerCategory }}" id="photographer_{{ $photographerCategory }}"
-                                                                                            {{ in_array($photographerCategory, $selectedSubcategories) ? 'checked' : '' }}>
-                                                                                        <label for="photographer_{{ $photographerCategory }}">{{ ucwords(str_replace('_', ' ', $photographerCategory)) }}</label>
-                                                                                    </label>
-                                                                                </li>
-                                                                                @endforeach
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="fashion_photographer" id="photographer_fashion_photographer"><label for="photographer_fashion_photographer">Fashion Photographer</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="portrait_photographer" id="photographer_portrait_photographer"><label for="photographer_portrait_photographer">Portrait Photographer</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="landscape_photographer" id="photographer_landscape_photographer"><label for="photographer_landscape_photographer">Landscape Photographer</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="event_videographer" id="videographer_event_videographer"><label for="videographer_event_videographer">Event Videographer</label></label></li>
+                                                                                <li><label><input type="checkbox" name="category_type[]" value="wedding_videographer" id="videographer_wedding_videographer"><label for="videographer_wedding_videographer">Wedding Videographer</label></label></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </div>
 
-                                                        
-                                                        </div>     
                                                         <div class="tab" data-step="2">
                                                             <div class="row">
                                                                 <!-- Profile Picture Upload -->
@@ -1436,53 +1500,67 @@
                                                                 </div>
 
                                                                 <!-- Audio Upload -->
-                                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
-                                                                    <div class="uploadimg">
-                                                                        <h5>Upload Your Voice *</h5>
-                                                                        <input type="text" id="audioFileName" name="audio_file_name" class="form-control" readonly>
-                                                                        <div class="uploadbox">
-                                                                            <input type="file" name="audio_file" id="upload-audio" hidden onchange="updateFileName('upload-audio', 'audioFileName')" />
-                                                                            <label class="uploadmain" for="upload-audio">
-                                                                                <img src="{{ url('user-assets') }}/images/audio-icn.png" class="img-fluid" alt="img">
-                                                                                <h6 style="font-size: 14px;">Drag and Drop your audio</h6>
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                
+                                                                <!--<div-->
+                                                                <!--    class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">-->
+                                                                <!--    <div class="uploadimg">-->
+                                                                <!--        <h5>Upload Your Voice *</h5>-->
+                                                                <!--        <input type="text" id="audioFileName"-->
+                                                                <!--            name="audio_file_name" class="form-control"-->
+                                                                <!--            readonly>-->
+                                                                <!--        <div class="uploadbox">-->
+                                                                <!--            <input type="file" name="audio_file"-->
+                                                                <!--                id="upload-audio" hidden-->
+                                                                <!--                onchange="updateFileName('upload-audio', 'audioFileName')" />-->
+                                                                <!--            <label class="uploadmain" for="upload-audio">-->
+                                                                <!--                <img src="{{ url('user-assets') }}/images/audio-icn.png"-->
+                                                                <!--                    class="img-fluid" alt="img">-->
+                                                                <!--                <h6  style="font-size: 14px;">Drag and Drop your audio</h6>-->
+                                                                <!--            </label>-->
+                                                                <!--        </div>-->
+                                                                <!--    </div>-->
+                                                                <!--</div>-->
 
                                                                 <!-- Video Upload -->
-                                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
-                                                                    <div class="uploadimg">
-                                                                        <h5>Upload Your Video *</h5>
-                                                                        <input type="text" id="videoFileName" name="video_file_name" class="form-control" readonly>
-                                                                        <div class="uploadbox">
-                                                                            <input type="file" name="video_file" id="upload-video" hidden onchange="updateFileName('upload-video', 'videoFileName')" required />
-                                                                            <label class="uploadmain" for="upload-video">
-                                                                                <img src="{{ url('user-assets') }}/images/video-icn.png" class="img-fluid" alt="img">
-                                                                                <h6 style="font-size: 14px;">Drag and Drop your video</h6>
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                
+                                                                <!--<div-->
+                                                                <!--    class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">-->
+                                                                <!--    <div class="uploadimg">-->
+                                                                <!--        <h5>Upload Your Video *</h5>-->
+                                                                <!--        <input type="text" id="videoFileName"-->
+                                                                <!--            name="video_file_name" class="form-control"-->
+                                                                <!--            readonly>-->
+                                                                <!--        <div class="uploadbox">-->
+                                                                <!--            <input type="file" name="video_file"-->
+                                                                <!--                id="upload-video" hidden-->
+                                                                <!--                onchange="updateFileName('upload-video', 'videoFileName')"-->
+                                                                <!--                required />-->
+                                                                <!--            <label class="uploadmain" for="upload-video">-->
+                                                                <!--                <img src="{{ url('user-assets') }}/images/video-icn.png"-->
+                                                                <!--                    class="img-fluid" alt="img">-->
+                                                                <!--                <h6 style="font-size: 14px;">Drag and Drop your video</h6>-->
+                                                                <!--            </label>-->
+                                                                <!--        </div>-->
+                                                                <!--    </div>-->
+                                                                <!--</div>-->
                                                             </div>
-                                                        </div>
-                                                        <script>
-                                                            function updateFileName(inputId, textId) {
-                                                                const input = document.getElementById(inputId);
-                                                                const text = document.getElementById(textId);
-                                                                const fileName = input.files.length > 0 ? input.files[0].name : '';
-                                                                text.value = fileName;
-                                                            }
 
-                                                            function updateFileNames(inputId, textId) {
-                                                                const input = document.getElementById(inputId);
-                                                                const text = document.getElementById(textId);
-                                                                const fileNames = Array.from(input.files).map(file => file.name).join(', ');
-                                                                text.value = fileNames ? `${input.files.length} file(s) selected: ${fileNames}` : '';
-                                                            }
-                                                        </script>
+                                                            <script>
+                                                                function updateFileName(inputId, textId) {
+                                                                    const input = document.getElementById(inputId);
+                                                                    const text = document.getElementById(textId);
+                                                                    const fileName = input.files.length > 0 ? input.files[0].name : '';
+                                                                    text.value = fileName;
+                                                                }
+
+                                                                function updateFileNames(inputId, textId) {
+                                                                    const input = document.getElementById(inputId);
+                                                                    const text = document.getElementById(textId);
+                                                                    const fileNames = Array.from(input.files).map(file => file.name).join(', ');
+                                                                    text.value = fileNames ? `${input.files.length} file(s) selected: ${fileNames}` : '';
+                                                                }
+                                                            </script>
+
+                                                        </div>
+
                                                     </div>
                                                     <hr>
                                                     <div class="contactlist text-center btnlist mt-5">
@@ -1535,33 +1613,6 @@
         });
     </script>
 
-    <script>
-        $(document).ready(function() {
-            // Function to show or hide subcategory sections based on the parent category selection
-            function toggleSubcategories() {
-                // Iterate over each checkbox for parent categories
-                $('input[name="category[]"]').each(function() {
-                    // Determine the ID of the subcategory section based on the checkbox value
-                    let subcategoryId = '#' + $(this).val() + '_subcategories';
-                    // Check if the checkbox is checked
-                    if ($(this).is(':checked')) {
-                        $(subcategoryId).show(); // Show the subcategory section
-                    } else {
-                        $(subcategoryId).hide(); // Hide the subcategory section
-                    }
-                });
-            }
-
-            // Call the function on page load to handle pre-selected categories
-            toggleSubcategories();
-
-            // Attach a change event listener to the parent category checkboxes
-            $('input[name="category[]"]').on('change', function() {
-                // Call the function to show or hide subcategories when a checkbox changes state
-                toggleSubcategories();
-            });
-        });
-    </script>  
     <script>
         $("#nextStepBtn").click(function(e) {
             // debugger

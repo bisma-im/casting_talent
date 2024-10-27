@@ -168,151 +168,6 @@
         margin-left: 10px;
     }
 
-        /* Unique Dropdown styling */
-    .hair-dropdown {
-        position: relative;
-        display: inline-block;
-        width: 100%;
-    }
-
-    .hair-dropdown-button {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        background-color: white;
-        cursor: pointer;
-        border-radius: 4px;
-    }
-
-    .hair-dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: white;
-        min-width: 100%;
-        border: 1px solid #ccc;
-        max-height: 200px;
-        overflow-y: scroll;
-        z-index: 1;
-    }
-
-    /* Styling for options */
-    .hair-dropdown-content label {
-        display: block;
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    .hair-dropdown-content label:hover {
-        background-color: #f1f1f1;
-    }
-
-    /* Show dropdown on open */
-    .hair-dropdown-open {
-        display: block;
-    }
-
-    /* Selected option styling */
-    .hair-selected {
-        background-color: #ffe0e0;
-    }
-
-
-    /* Unique Dropdown styling */
-    .eye-dropdown {
-        position: relative;
-        display: inline-block;
-        width: 100%;
-    }
-
-    .eye-dropdown-button {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        background-color: white;
-        cursor: pointer;
-        border-radius: 4px;
-    }
-
-    .eye-dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: white;
-        min-width: 100%;
-        border: 1px solid #ccc;
-        max-height: 200px;
-        overflow-y: scroll;
-        z-index: 1;
-    }
-
-    /* Styling for options */
-    .eye-dropdown-content label {
-        display: block;
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    .eye-dropdown-content label:hover {
-        background-color: #f1f1f1;
-    }
-
-    /* Show dropdown on open */
-    .eye-dropdown-open {
-        display: block;
-    }
-
-    /* Selected option styling */
-    .eye-selected {
-        background-color: #e0f7ff;
-    }
-
-    /* Unique Dropdown styling */
-    .custom-language-dropdown {
-        position: relative;
-        display: inline-block;
-        width: 100%;
-    }
-
-    .custom-language-dropdown-button {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        background-color: white;
-        cursor: pointer;
-        border-radius: 4px;
-    }
-
-    .custom-language-dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: white;
-        min-width: 100%;
-        border: 1px solid #ccc;
-        max-height: 200px;
-        overflow-y: scroll;
-        z-index: 1;
-    }
-
-    /* Styling for options */
-    .custom-language-dropdown-content label {
-        display: block;
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    .custom-language-dropdown-content label:hover {
-        background-color: #f1f1f1;
-    }
-
-    /* Show dropdown on open */
-    .custom-language-dropdown-open {
-        display: block;
-    }
-
-    /* Selected option styling */
-    .language-selected {
-        background-color: #e0ffe0;
-    }
-
     .inputs-row {
         display: flex;
         gap: 10px;
@@ -322,10 +177,7 @@
 
     .inputs-row select,
     .inputs-row input,
-    .inputs-row .dropdown,
-    .inputs-row .contact-list-hair, 
-    .inputs-row .contact-list-eye, 
-    .inputs-row .contact-list-language {
+    .inputs-row .dropdown {
         /* padding: 8px; */
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -458,194 +310,159 @@
     }
 
     .inputs-row .multi-select {
-        display: flex;
-        box-sizing: border-box;
-        flex-direction: column;
-        position: relative;
-        max-width: 100%;
-        user-select: none;
-        border: 1px solid #ccc;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  position: relative;
+  max-width: 100%;
+  user-select: none;
+  border: 1px solid #ccc;
         border-radius: 4px;
-        background-color: #fff;
+  background-color: #fff;
 
-    }
-
-    .multi-select .multi-select-header {
-        border: 1px solid #dee2e6;
-        padding: 7px 30px 7px 12px;
-        overflow: hidden;
-        gap: 7px;
-        min-height: 45px;
-    }
-
-    .multi-select .multi-select-header::after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        right: 15px;
-        transform: translateY(-50%);
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23949ba3' viewBox='0 0 16 16'%3E%3Cpath d='M8 13.1l-8-8 2.1-2.2 5.9 5.9 5.9-5.9 2.1 2.2z'/%3E%3C/svg%3E");
-        height: 12px;
-        width: 12px;
-    }
-
-    .multi-select .multi-select-header.multi-select-header-active {
-        border-color: #c1c9d0;
-    }
-
-    .multi-select .multi-select-header.multi-select-header-active::after {
-        transform: translateY(-50%) rotate(180deg);
-    }
-
-    .multi-select .multi-select-header.multi-select-header-active+.multi-select-options {
-        display: flex;
-    }
-
-    .multi-select .multi-select-header .multi-select-header-placeholder {
-        color: #65727e;
-    }
-
-    .multi-select .multi-select-header .multi-select-header-option {
-        display: inline-flex;
-        align-items: center;
-        background-color: #fff;
-        font-size: 14px;
-        padding: 3px 8px;
-        border-radius: 5px;
-    }
-
-    .multi-select .multi-select-header .multi-select-header-max {
-        font-size: 14px;
-        color: #65727e;
-    }
-
-    .multi-select .multi-select-options {
-        display: none;
-        box-sizing: border-box;
-        flex-flow: wrap;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        z-index: 999;
-        margin-top: 5px;
-        padding: 5px;
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        max-height: 200px;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
-    .multi-select .multi-select-options::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    .multi-select .multi-select-options::-webkit-scrollbar-track {
-        background: #f0f1f3;
-    }
-
-    .multi-select .multi-select-options::-webkit-scrollbar-thumb {
-        background: #cdcfd1;
-    }
-
-    .multi-select .multi-select-options::-webkit-scrollbar-thumb:hover {
-        background: #b2b6b9;
-    }
-
-    .multi-select .multi-select-options .multi-select-option,
-    .multi-select .multi-select-options .multi-select-all {
-        padding: 4px 12px;
-        height: 42px;
-    }
-
-    .multi-select .multi-select-options .multi-select-option .multi-select-option-radio,
-    .multi-select .multi-select-options .multi-select-all .multi-select-option-radio {
-        margin-right: 14px;
-        height: 16px;
-        width: 16px;
-        border: 1px solid #ced4da;
-        border-radius: 4px;
-    }
-
-    .multi-select .multi-select-options .multi-select-option .multi-select-option-text,
-    .multi-select .multi-select-options .multi-select-all .multi-select-option-text {
-        box-sizing: border-box;
-        flex: 1;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        color: inherit;
-        font-size: 16px;
-        line-height: 20px;
-    }
-
-    .multi-select .multi-select-options .multi-select-option.multi-select-selected .multi-select-option-radio,
-    .multi-select .multi-select-options .multi-select-all.multi-select-selected .multi-select-option-radio {
-        border-color: #00789c;
-        background-color: #00789c;
-    }
-
-    .multi-select .multi-select-options .multi-select-option.multi-select-selected .multi-select-option-radio::after,
-    .multi-select .multi-select-options .multi-select-all.multi-select-selected .multi-select-option-radio::after {
-        content: "";
-        display: block;
-        width: 3px;
-        height: 7px;
-        margin: 0.12em 0 0 0.27em;
-        border: solid #fff;
-        border-width: 0 0.15em 0.15em 0;
-        transform: rotate(45deg);
-    }
-
-    .multi-select .multi-select-options .multi-select-option.multi-select-selected .multi-select-option-text,
-    .multi-select .multi-select-options .multi-select-all.multi-select-selected .multi-select-option-text {
-        color: #00789c;
-    }
-
-    .multi-select .multi-select-options .multi-select-option:hover,
-    .multi-select .multi-select-options .multi-select-option:active,
-    .multi-select .multi-select-options .multi-select-all:hover,
-    .multi-select .multi-select-options .multi-select-all:active {
-        background-color: #fff;
-    }
-
-    .multi-select .multi-select-options .multi-select-all {
-        border-bottom: 1px solid #f1f3f5;
-        border-radius: 0;
-    }
-
-    .multi-select .multi-select-options .multi-select-search {
-        padding: 7px 10px;
-        border: 1px solid #dee2e6;
-        border-radius: 5px;
-        margin: 10px 10px 5px 10px;
-        width: 100%;
-        outline: none;
-        font-size: 16px;
-    }
-
-    .multi-select .multi-select-options .multi-select-search::placeholder {
-        color: #b2b5b9;
-    }
-
-    .multi-select .multi-select-header,
-    .multi-select .multi-select-option,
-    .multi-select .multi-select-all {
-        display: flex;
-        flex-wrap: wrap;
-        box-sizing: border-box;
-        align-items: center;
-        border-radius: 5px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        font-size: 16px;
-        color: #212529;
-    }
+}
+.multi-select .multi-select-header {
+  border: 1px solid #dee2e6;
+  padding: 7px 30px 7px 12px;
+  overflow: hidden;
+  gap: 7px;
+  min-height: 45px;
+}
+.multi-select .multi-select-header::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23949ba3' viewBox='0 0 16 16'%3E%3Cpath d='M8 13.1l-8-8 2.1-2.2 5.9 5.9 5.9-5.9 2.1 2.2z'/%3E%3C/svg%3E");
+  height: 12px;
+  width: 12px;
+}
+.multi-select .multi-select-header.multi-select-header-active {
+  border-color: #c1c9d0;
+}
+.multi-select .multi-select-header.multi-select-header-active::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+.multi-select .multi-select-header.multi-select-header-active + .multi-select-options {
+  display: flex;
+}
+.multi-select .multi-select-header .multi-select-header-placeholder {
+  color: #65727e;
+}
+.multi-select .multi-select-header .multi-select-header-option {
+  display: inline-flex;
+  align-items: center;
+  background-color: #fff;
+  font-size: 14px;
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+.multi-select .multi-select-header .multi-select-header-max {
+  font-size: 14px;
+  color: #65727e;
+}
+.multi-select .multi-select-options {
+  display: none;
+  box-sizing: border-box;
+  flex-flow: wrap;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  margin-top: 5px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.multi-select .multi-select-options::-webkit-scrollbar {
+  width: 5px;
+}
+.multi-select .multi-select-options::-webkit-scrollbar-track {
+  background: #f0f1f3;
+}
+.multi-select .multi-select-options::-webkit-scrollbar-thumb {
+  background: #cdcfd1;
+}
+.multi-select .multi-select-options::-webkit-scrollbar-thumb:hover {
+  background: #b2b6b9;
+}
+.multi-select .multi-select-options .multi-select-option, .multi-select .multi-select-options .multi-select-all {
+  padding: 4px 12px;
+  height: 42px;
+}
+.multi-select .multi-select-options .multi-select-option .multi-select-option-radio, .multi-select .multi-select-options .multi-select-all .multi-select-option-radio {
+  margin-right: 14px;
+  height: 16px;
+  width: 16px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+.multi-select .multi-select-options .multi-select-option .multi-select-option-text, .multi-select .multi-select-options .multi-select-all .multi-select-option-text {
+  box-sizing: border-box;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: inherit;
+  font-size: 16px;
+  line-height: 20px;
+}
+.multi-select .multi-select-options .multi-select-option.multi-select-selected .multi-select-option-radio, .multi-select .multi-select-options .multi-select-all.multi-select-selected .multi-select-option-radio {
+  border-color: #00789c;
+  background-color: #00789c;
+}
+.multi-select .multi-select-options .multi-select-option.multi-select-selected .multi-select-option-radio::after, .multi-select .multi-select-options .multi-select-all.multi-select-selected .multi-select-option-radio::after {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 7px;
+  margin: 0.12em 0 0 0.27em;
+  border: solid #fff;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+}
+.multi-select .multi-select-options .multi-select-option.multi-select-selected .multi-select-option-text, .multi-select .multi-select-options .multi-select-all.multi-select-selected .multi-select-option-text {
+  color: #00789c;
+}
+.multi-select .multi-select-options .multi-select-option:hover, .multi-select .multi-select-options .multi-select-option:active, .multi-select .multi-select-options .multi-select-all:hover, .multi-select .multi-select-options .multi-select-all:active {
+  background-color: #fff;
+}
+.multi-select .multi-select-options .multi-select-all {
+  border-bottom: 1px solid #f1f3f5;
+  border-radius: 0;
+}
+.multi-select .multi-select-options .multi-select-search {
+  padding: 7px 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  margin: 10px 10px 5px 10px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+}
+.multi-select .multi-select-options .multi-select-search::placeholder {
+  color: #b2b5b9;
+}
+.multi-select .multi-select-header, .multi-select .multi-select-option, .multi-select .multi-select-all {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  color: #212529;
+}
 </style>
 
 <section class="innerpages">
@@ -930,8 +747,7 @@
                         <option value="200+">200 and above</option>
                         <!-- Add height options here -->
                     </select>
-                    <select name="dress_size[]" data-placeholder="Select fruits" multiple data-multi-select
-                        style="width: ">
+                    <select name="dress_size[]" data-placeholder="Select fruits" multiple data-multi-select style="width: ">
                         <option value="" disabled selected>Select Dress Size</option>
                         <option value="XXS">XXS</option>
                         <option value="XS">XS</option>
@@ -945,59 +761,43 @@
                         <option value="5XL">5XL</option>
                     </select>
                 </div>
-
                 <div class="inputs-row">
-                    {{-- <div class="row w-100"> --}}
-                        <div class="contact-list-hair col-md-4" style="flex: none;">
-                            <div class="hair-dropdown" id="hairDropdown">
-                                <div class="hair-dropdown-button" id="hairDropdownButton">-- Select Hair Colors --</div>
-                                <div class="hair-dropdown-content" id="hairDropdownContent">
-                                    <label><input type="checkbox" value="Auburn"> Auburn</label>
-                                    <label><input type="checkbox" value="Black"> Black</label>
-                                    <label><input type="checkbox" value="Blonde"> Blonde</label>
-                                    <label><input type="checkbox" value="Brown"> Brown</label>
-                                    <label><input type="checkbox" value="Brown with Blonde Streaks"> Brown with Blonde
-                                        Streaks</label>
-                                    <label><input type="checkbox" value="Dark Blonde"> Dark Blonde</label>
-                                    <label><input type="checkbox" value="Dark Brown"> Dark Brown</label>
-                                    <label><input type="checkbox" value="Light Brown"> Light Brown</label>
-                                    <label><input type="checkbox" value="Red"> Red</label>
-                                    <label><input type="checkbox" value="Red/Orange/Brown"> Red/Orange/Brown</label>
-                                    <label><input type="checkbox" value="Silver"> Silver</label>
-                                    <label><input type="checkbox" value="Green"> Green</label>
-                                    <label><input type="checkbox" value="Strawberry Blonde"> Strawberry Blonde</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-list-eye col-md-4" style="flex: none;">
-                            <div class="eye-dropdown" id="eyeDropdown">
-                                <div class="eye-dropdown-button" id="eyeDropdownButton">-- Select Eye Colors --</div>
-                                <div class="eye-dropdown-content" id="eyeDropdownContent">
-                                    <label><input type="checkbox" value="Blue/Grey"> Blue/Grey</label>
-                                    <label><input type="checkbox" value="Brown"> Brown</label>
-                                    <label><input type="checkbox" value="Dark Brown"> Dark Brown</label>
-                                    <label><input type="checkbox" value="Green"> Green</label>
-                                    <label><input type="checkbox" value="Green/Grey"> Green/Grey</label>
-                                    <label><input type="checkbox" value="Green/Hazel"> Green/Hazel</label>
-                                    <label><input type="checkbox" value="Hazel"> Hazel</label>
-                                    <label><input type="checkbox" value="Blue"> Blue</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-list-language col-md-4" style="flex: none;">
-                            <div class="custom-language-dropdown" id="customLanguageDropdown">
-                                <div class="custom-language-dropdown-button" id="customLanguageDropdownButton">-- Select
-                                    Languages --</div>
-                                <div class="custom-language-dropdown-content" id="customLanguageDropdownContent">
-                                    <!-- Dynamically generate language options with PHP or Blade -->
-                                    @foreach ($languages as $language)
-                                    <label><input type="checkbox" value="{{ $language['value'] }}"> {{
-                                        $language['label'] }}</label>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    {{-- </div> --}}
+                    <select name="hair_color[]" multiple>
+                        <option value="" disabled selected>Select Hair Color</option>
+                        <option value="Auburn">Auburn</option>
+                        <option value="Black">Black</option>
+                        <option value="Blonde">Blonde</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Brown with Blonde Streaks">Brown with Blonde Streaks</option>
+                        <option value="Dark Blonde">Dark Blonde</option>
+                        <option value="Dark Brown">Dark Brown</option>
+                        <option value="Light Brown">Light Brown</option>
+                        <option value="Red">Red</option>
+                        <option value="Red/Orange/Brown">Red/Orange/Brown</option>
+                        <option value="Silver">Silver</option>
+                        <option value="Green">Green</option>
+                        <option value="Strawberry Blonde">Strawberry Blonde</option>
+                        <!-- Add hair color options here -->
+                    </select>
+                    <select name="eye_color[]" multiple>
+                        <option value="" disabled selected>Select Eye Color</option>
+                        <option value="Blue/Grey">Blue/Grey</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Dark Brown">Dark Brown</option>
+                        <option value="Green">Green</option>
+                        <option value="Green/Grey">Green/Grey</option>
+                        <option value="Green/Hazel">Green/Hazel</option>
+                        <option value="Hazel">Hazel</option>
+                        <option value="Blue">Blue</option>
+                        <!-- Add eye color options here -->
+                    </select>
+                    <select name="language[]" multiple>
+                        <option value="" disabled selected>Select Language</option>
+                        @foreach ($languages as $language)
+                        <option value="{{ $language['value'] }}">{{ $language['label'] }}</option>
+                        @endforeach
+                        <!-- Add eye color options here -->
+                    </select>
                 </div>
                 <div class="inputs-row">
                     <button type="submit">Filter</button>
@@ -1347,162 +1147,6 @@ $(document).ready(function(){
     }
 });
 
-</script>
-<script>
-    // Get elements for hair color dropdown
-    const hairDropdownButton = document.getElementById('hairDropdownButton');
-    const hairDropdownContent = document.getElementById('hairDropdownContent');
-
-    // Toggle dropdown open/close
-    hairDropdownButton.addEventListener('click', function () {
-        hairDropdownContent.classList.toggle('hair-dropdown-open');
-    });
-
-    // Move selected hair colors to top
-    function moveSelectedHairColorsToTop() {
-        const labels = hairDropdownContent.querySelectorAll('label');
-        const selectedLabels = [];
-        const unselectedLabels = [];
-
-        labels.forEach(label => {
-            const checkbox = label.querySelector('input[type="checkbox"]');
-            if (checkbox.checked) {
-                selectedLabels.push(label);
-                label.classList.add('hair-selected');  // Add selected styling class
-            } else {
-                unselectedLabels.push(label);
-                label.classList.remove('hair-selected');
-            }
-        });
-
-        hairDropdownContent.innerHTML = '';
-        selectedLabels.forEach(label => hairDropdownContent.appendChild(label));
-        unselectedLabels.forEach(label => hairDropdownContent.appendChild(label));
-    }
-
-    // Update dropdown on checkbox change
-    hairDropdownContent.addEventListener('change', function (e) {
-        if (e.target.type === 'checkbox') {
-            moveSelectedHairColorsToTop();
-        }
-    });
-
-    // Close dropdown if clicked outside
-    window.onclick = function (event) {
-        if (!event.target.matches('#hairDropdownButton')) {
-            const dropdowns = document.getElementsByClassName("hair-dropdown-content");
-            for (let i = 0; i < dropdowns.length; i++) {
-                const openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('hair-dropdown-open')) {
-                    openDropdown.classList.remove('hair-dropdown-open');
-                }
-            }
-        }
-    }
-
-
-      // Get elements for eye color dropdown
-      const eyeDropdownButton = document.getElementById('eyeDropdownButton');
-    const eyeDropdownContent = document.getElementById('eyeDropdownContent');
-
-    // Toggle dropdown open/close
-    eyeDropdownButton.addEventListener('click', function () {
-        eyeDropdownContent.classList.toggle('eye-dropdown-open');
-    });
-
-    // Move selected eye colors to top
-    function moveSelectedEyeColorsToTop() {
-        const labels = eyeDropdownContent.querySelectorAll('label');
-        const selectedLabels = [];
-        const unselectedLabels = [];
-
-        labels.forEach(label => {
-            const checkbox = label.querySelector('input[type="checkbox"]');
-            if (checkbox.checked) {
-                selectedLabels.push(label);
-                label.classList.add('eye-selected');  // Add selected styling class
-            } else {
-                unselectedLabels.push(label);
-                label.classList.remove('eye-selected');
-            }
-        });
-
-        eyeDropdownContent.innerHTML = '';
-        selectedLabels.forEach(label => eyeDropdownContent.appendChild(label));
-        unselectedLabels.forEach(label => eyeDropdownContent.appendChild(label));
-    }
-
-    // Update dropdown on checkbox change
-    eyeDropdownContent.addEventListener('change', function (e) {
-        if (e.target.type === 'checkbox') {
-            moveSelectedEyeColorsToTop();
-        }
-    });
-
-    // Close dropdown if clicked outside
-    window.onclick = function (event) {
-        if (!event.target.matches('#eyeDropdownButton')) {
-            const dropdowns = document.getElementsByClassName("eye-dropdown-content");
-            for (let i = 0; i < dropdowns.length; i++) {
-                const openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('eye-dropdown-open')) {
-                    openDropdown.classList.remove('eye-dropdown-open');
-                }
-            }
-        }
-    }
-
-
-     // Get elements for language dropdown
-     const customLanguageDropdownButton = document.getElementById('customLanguageDropdownButton');
-    const customLanguageDropdownContent = document.getElementById('customLanguageDropdownContent');
-
-    // Toggle dropdown open/close
-    customLanguageDropdownButton.addEventListener('click', function () {
-        customLanguageDropdownContent.classList.toggle('custom-language-dropdown-open');
-    });
-
-    // Move selected languages to top
-    function moveSelectedLanguagesToTop() {
-        const labels = customLanguageDropdownContent.querySelectorAll('label');
-        const selectedLabels = [];
-        const unselectedLabels = [];
-
-        labels.forEach(label => {
-            const checkbox = label.querySelector('input[type="checkbox"]');
-            if (checkbox.checked) {
-                selectedLabels.push(label);
-                label.classList.add('language-selected');  // Add selected styling class
-            } else {
-                unselectedLabels.push(label);
-                label.classList.remove('language-selected');
-            }
-        });
-
-        customLanguageDropdownContent.innerHTML = '';
-        selectedLabels.forEach(label => customLanguageDropdownContent.appendChild(label));
-        unselectedLabels.forEach(label => customLanguageDropdownContent.appendChild(label));
-    }
-
-    // Update dropdown on checkbox change
-    customLanguageDropdownContent.addEventListener('change', function (e) {
-        if (e.target.type === 'checkbox') {
-            moveSelectedLanguagesToTop();
-        }
-    });
-
-    // Close dropdown if clicked outside
-    window.onclick = function (event) {
-        if (!event.target.matches('#customLanguageDropdownButton')) {
-            const dropdowns = document.getElementsByClassName("custom-language-dropdown-content");
-            for (let i = 0; i < dropdowns.length; i++) {
-                const openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('custom-language-dropdown-open')) {
-                    openDropdown.classList.remove('custom-language-dropdown-open');
-                }
-            }
-        }
-    }
 </script>
 <script src="{{ asset('user-assets/js/multi-select.js') }}"></script>
 @endsection

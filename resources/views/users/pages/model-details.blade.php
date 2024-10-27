@@ -143,8 +143,9 @@
         flex-direction: column;
         justify-content: center;
         height: 80vh;
-        /* Full height of the viewport */
         width: 100%;
+        /* Full height of the viewport */
+        width: 65vw;
         /* Full width of the parent container or viewport */
         font-family: Arial, sans-serif;
         box-sizing: border-box;
@@ -277,65 +278,226 @@
 
     /* section 2 styling */
     .full-height {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.5; /* Adjust opacity to make text more readable */
-        }
-        #portfolio { background-image: url('/user-assets/model-images/model1.jpg'); }
-        #video { background-image: url('/user-assets/model-images/model5.jpg'); }
-        #audio { background-image: url('/user-assets/model-images/model3.jpg'); }
-        
-        .nav-tabs {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border: none;
-            z-index: 1050;
-            background-color: #000;
-            color: #fff;
-            border: none;
-            /* border-color: #000; */
-            margin-bottom: 90px;
-            border-radius: 10px;
-        }
-        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-            color: #fff;
-            background-color: #000;
-            border: none;
-            font-weight: bold;
-            text-decoration: underline
-        }
-        .nav-link {
-            color: #fff;
-            border-radius: 0;
-            border: none;
-        }
-        .tab-content > .tab-pane {
-            display: none;
-            height: 90vh;
-            position: relative;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        .tab-pane.active {
-            display: flex; /* Ensures only the active tab is displayed */
-        }
-        .tab-pane {
-            padding: 50px;
-            color: white; 
-        }
+        height: 100vh;
+
+        position: relative;
+        overflow: hidden;
+    }
+
+    .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        /* Adjust opacity as needed */
+    }
+
+    .carousel-inner {
+        width: 300%;
+    }
+
+    .carousel-item {
+        height: 100vh;
+        /* Ensures the carousel takes full height */
+
+    }
+
+    .my-section .nav-tabs {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border: none;
+        z-index: 1050;
+        background-color: #000;
+        color: #fff;
+        margin-bottom: 90px;
+    }
+
+    .my-section .nav-tabs .nav-item.show .nav-link,
+    .my-section .nav-tabs .nav-link.active {
+        color: #fff;
+        background-color: #000;
+        border: none;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .my-section .nav-link {
+        color: #fff;
+        border-radius: 0;
+        border: none;
+    }
+
+    .my-section .nav-link:focus,
+    .my-section .nav-link:hover {
+        text-decoration: underline;
+        border: none;
+        font-weight: bold;
+        background-color: #000;
+        color: #fff;
+    }
+
+    .tab-content>.tab-pane {
+        display: none;
+        height: 90vh;
+        position: relative;
+        align-items: center;
+
+        /* text-align: center; */
+    }
+
+    .tab-pane.active {
+        display: flex;
+        /* Ensures only the active tab is displayed */
+    }
+
+    .tab-pane {
+        /* padding: 50px; */
+        color: white;
+    }
+
+    .slider-image {
+        width: 25vw; /* Width can be adjusted via JavaScript if needed */
+    height: 60vw; /* Fixed height for all images */
+    background-size: 100% 100%; /* Image will stretch to fill the container */
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    /* border: 1px solid red */
+    }
+
+    .background-slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+    }
+
+    .slider-track {
+        display: flex;
+        transition: transform 0.5s ease;
+        border: 1px solid rgb(0, 255, 13);
+        /* Smooth slide transition */
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        border: none;
+        z-index: 1000;
+        padding: 20px;
+        cursor: pointer;
+    }
+
+    .carousel-control-prev {
+        left: 10px;
+    }
+
+    .carousel-control-next {
+        right: 10px;
+    }
+
+    .profile-card {
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 15px;
+        height: 60vh;
+        margin: 15px;
+    }
+
+    .profile-card img {
+        width: 100%;
+        height: 85%;
+        border-radius: 5px;
+    }
+
+    .profile-card p {
+        margin: 10px 0 5px;
+        font-size: 18px;
+        color: #333;
+        text-align: left;
+    }
+
+    .profile-card span {
+        display: block;
+        font-size: 14px;
+        text-align: left;
+        color: #666;
+    }
+
+    .carousel-container {
+        width: 100%;
+        padding-top: 20px;
+        background-color: #DAD7B1;
+        margin: auto;
+        position: relative;
+        height: 80vh;
+    }
+
+    .carousel-heading {
+        text-align: center;
+        font-size: 24px;
+        color: #333;
+    }
+
+    .custom-carousel {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .custom-carousel-inner {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        justify-content: start;
+        transition: transform 0.8s ease;
+        /* Transition for smooth sliding */
+        will-change: transform;
+    }
+
+    .custom-carousel-item {
+        flex: 0 0 25%;
+        scroll-snap-align: start;
+    }
+
+    .custom-carousel-control-prev,
+    .custom-carousel-control-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .custom-carousel-control-prev {
+        left: 10px;
+    }
+
+    .custom-carousel-control-next {
+        right: 10px;
+    }
 </style>
 
 <section class="innerpages">
@@ -367,12 +529,12 @@ $timestamp = time();
 @endphp
 
 {{-- ----------------------------------- SECTION 1 ----------------------------------------- --}}
-<div class="container my-4">
 
-    <div class="row d-flex align-items-center" id="getSS">
+<div class="container my-4 mx-0 px-0">
 
+    <div class="row d-flex align-items-center mx-0 px-0" id="getSS">
         {{-- ------------- cover image --------------- --}}
-        <div class="col-md-5 p-0">
+        <div class="col-5 p-0">
             <!-- Display the first image -->
             <div class="castbox" style="max-height: 100%;">
                 <a href="{{ url('uploads/models/profiles/' . $firstImage) }}" data-fancybox="gallery"
@@ -394,7 +556,7 @@ $timestamp = time();
         @endforeach
 
         {{-- ------------------ model details -------------------- --}}
-        <div class="col-md-7 p-0">
+        <div class="col-7 p-0 m-0">
             <div class="col-md-6 user-info">
                 <div class="row ps-4">
                     <div class="header pe-5 py-3">
@@ -440,7 +602,7 @@ $timestamp = time();
                     </div>
                     <div class="container">
                         <div class="user-info-row">
-                            <span class="label"><i class="fas fa-ruler-combined"></i> Waist:</span>
+                            <span class="label"><i class="fas fa-ruler-combined"></i> Waist</span>
                             <span class="info">{{ $details['waist'] }}</span>
                         </div>
                         <p>CM</p>
@@ -461,48 +623,48 @@ $timestamp = time();
                     </div>
                 </div>
                 <div class="mt-md-2 ms-md-3 me-md-3 mb-md-3">
-                    <div class="row pt-3 ps-3 pe-3 mt-2 h-user-info">
+                    <div class="row pt-3  pe-3 mt-2 h-user-info">
                         <div class="col-md-4 bg-cfcba1 bottom-p">
-                            <p class="m-0"><strong>Nationality: </strong><br />{{ $details['nationality'] }}
+                            <p class="m-0"><strong>Nationality</strong><br />{{ ucfirst($details['nationality']) }}
                             </p>
                         </div>
                         <div class="col-md-4 bottom-p">
-                            <p><strong>Languages: </strong><br />{{ implode(', ',
+                            <p><strong>Languages</strong><br />{{ implode(', ',
                                 json_decode($details['languages_spoken'],
                                 true))
                                 }}
                             </p>
                         </div>
                         <div class="col-md-4 bg-cfcba1 bottom-p">
-                            <p><strong>Location: </strong><br />{{ $details['location'] }}
+                            <p><strong>Location</strong><br />{{ ucfirst($details['location']) }}
                             </p>
                         </div>
                     </div>
-                    <div class="row ps-3 pe-3 text-center h-user-info">
+                    <div class="row  pe-3 text-center h-user-info">
                         <div class="col-md-4 bottom-p">
-                            <p><strong>Visa Status: </strong><br />Golden
+                            <p><strong>Visa Status</strong><br />Golden
                             </p>
                         </div>
                         <div class="col-md-4 bg-cfcba1 bottom-p">
-                            <p><strong>Driving License: </strong><br />{{ $details['driving_license'] }}
+                            <p><strong>Driving License</strong><br />{{ ucfirst($details['driving_license']) }}
                             </p>
                         </div>
                         <div class="col-md-4 bottom-p">
-                            <p><strong>Tattoos: </strong><br />{{ $details['have_tattos'] }}
+                            <p><strong>Tattoos</strong><br />{{ ucfirst($details['have_tattos']) }}
                             </p>
                         </div>
                     </div>
-                    <div class="row ps-3 pe-3 text-center h-user-info">
+                    <div class="row  pe-3 text-center h-user-info">
                         <div class="col-md-4 bg-cfcba1 bottom-p">
-                            <p><strong>Eye Color: </strong><br />{{ $details['eye_color'] }}
+                            <p><strong>Eye Color</strong><br />{{ ucfirst($details['eye_color']) }}
                             </p>
                         </div>
                         <div class="col-md-4 bottom-p">
-                            <p><strong>Hair Color: </strong><br />{{ $details['hair_color'] }}
+                            <p><strong>Hair Color</strong><br />{{ ucfirst($details['hair_color']) }}
                             </p>
                         </div>
                         <div class="col-md-4 bg-cfcba1 bottom-p">
-                            <p><strong>Hair Length: </strong><br />{{ $details['hair_length'] }}
+                            <p><strong>Hair Length</strong><br />{{ ucfirst($details['hair_length']) }}
                             </p>
                         </div>
                     </div>
@@ -513,108 +675,123 @@ $timestamp = time();
 </div>
 
 {{-- ------------------------------section 2------------------------ --}}
-<div class="container-fluid full-height m-0 p-0">
+<div class="container-fluid full-height m-0 p-0 my-section">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="portfolio-tab" data-bs-toggle="tab" data-bs-target="#portfolio" type="button" role="tab" aria-controls="portfolio" aria-selected="true">Portfolio</button>
+            <button class="nav-link active" id="portfolio-tab" data-bs-toggle="tab" data-bs-target="#portfolio"
+                type="button" role="tab" aria-controls="portfolio" aria-selected="true">Portfolio</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="video-tab" data-bs-toggle="tab" data-bs-target="#video" type="button" role="tab" aria-controls="video" aria-selected="false">Video</button>
+            <button class="nav-link" id="video-tab" data-bs-toggle="tab" data-bs-target="#video" type="button"
+                role="tab" aria-controls="video" aria-selected="false">Video</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="audio-tab" data-bs-toggle="tab" data-bs-target="#audio" type="button" role="tab" aria-controls="audio" aria-selected="false">Audio</button>
+            <button class="nav-link" id="audio-tab" data-bs-toggle="tab" data-bs-target="#audio" type="button"
+                role="tab" aria-controls="audio" aria-selected="false">Audio</button>
         </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
-            <div class="background-image"></div>
-            <p>Portfolio content goes here...</p>
-        </div>
-        <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
-            <div class="background-image">
-                {{-- <img src="{{ url('/user-assets/model-images/model5.jpg') }}" class="img-fluid"
-                                        alt="Model Image"> --}}
+
+    <div class="tab-content container-fluid m-0 p-0" id="myTabContent">
+        <!-- Portfolio Tab -->
+        <div class="tab-pane fade show active m-0 p-0" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
+            <!-- Background slider -->
+            <div class="background-slider m-0 p-0">
+                <div class="slider-track m-0 p-0" id="sliderTrack">
+                    <div class="slider-image m-0 p-0"
+                        style="background-image: url('{{ url('/user-assets/model-images/1.jpeg') }}');"></div>
+                    <div class="slider-image m-0 p-0"
+                        style="background-image: url('{{ url('/user-assets/model-images/2.jpeg') }}');"></div>
+                    <div class="slider-image m-0 p-0"
+                        style="background-image: url('{{ url('/user-assets/model-images/3.jpeg') }}');"></div>
+                    <div class="slider-image m-0 p-0"
+                        style="background-image: url('{{ url('/user-assets/model-images/4.jpeg') }}');"></div>
+                    <div class="slider-image m-0 p-0"
+                        style="background-image: url('{{ url('/user-assets/model-images/5.jpeg') }}');"></div>
+                    <!-- Duplicate slides for smooth looping -->
+                    <div class="slider-image m-0 p-0"
+                        style="background-image: url('{{ url('/user-assets/model-images/6.jpeg') }}');"></div>
+                    <div class="slider-image m-0 p-0"
+                        style="background-image: url('{{ url('/user-assets/model-images/7.jpeg') }}');"></div>
+                    <div class="slider-image m-0 p-0"
+                        style="background-image: url('{{ url('/user-assets/model-images/8.jpeg') }}');"></div>
+                    <div class="slider-image m-0 p-0"
+                        style="background-image: url('{{ url('/user-assets/model-images/9.jpeg') }}');"></div>
+                    {{-- <div class="slider-image"
+                        style="background-image: url('{{ url('/user-assets/model-images/model4.jpg') }}');"></div> --}}
+                </div>
             </div>
-            <p>Video content goes here...</p>
+
+            <!-- Left and right navigation buttons -->
+            <button class="carousel-control-prev portfolio-btn" id="prevBtn" type="button">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next portfolio-btn" id="nextBtn" type="button">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+
         </div>
+
+        <!-- Video Tab -->
+        <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
+            <div class="background-image text-left" style="background-image: url('https://img.youtube.com/vi/TivAwezqug4/maxresdefault.jpg'); display: flex; align-items: center; height: 100%;">
+                <iframe width="374" height="280" src="https://www.youtube.com/embed/TivAwezqug4?si=kjPwdPcBlTFJDNRh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+
+        <!-- Audio Tab -->
         <div class="tab-pane fade" id="audio" role="tabpanel" aria-labelledby="audio-tab">
-            <div class="background-image"></div>
-            <p>Audio content goes here...</p>
+            <div class="background-image"
+                style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
         </div>
+    </div>
+</div>
+
+{{-- -------------------------------section 3-------------------------------- --}}
+@php
+$profiles = [
+['img' => 'model1.jpg', 'name' => 'Ivan', 'number' => 'CTM-00132'],
+['img' => 'model2.jpg', 'name' => 'Adam', 'number' => 'CTM-80733'],
+['img' => 'model3.jpg', 'name' => 'Spartacus', 'number' => 'CTM-53734'],
+['img' => 'model4.jpg', 'name' => 'Karim', 'number' => 'CTM-38085'],
+['img' => 'model1.jpg', 'name' => 'Liam', 'number' => 'CTM-11234'],
+['img' => 'model2.jpg', 'name' => 'Noah', 'number' => 'CTM-22345']
+];
+@endphp
+<div class="carousel-container">
+    <h2 class="carousel-heading">Related Profiles</h2>
+    <div class="custom-carousel" id="customCarousel">
+        <div class="custom-carousel-inner" id="customCarouselInner">
+            @foreach ($profiles as $profile)
+            <div class="custom-carousel-item {{ $loop->first ? 'active' : '' }}">
+                <div class="profile-card">
+                    <img src="{{ url('/user-assets/model-images/' . $profile['img']) }}" class="img-fluid"
+                        alt="{{ $profile['name'] }}">
+                    <p>{{ $profile['name'] }}</p>
+                    <span>No: {{ $profile['number'] }}</span>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        <a class="custom-carousel-control-prev" id="customCarouselPrev" href="#!" role="button"
+            data-slide="prev">&#10094;</a>
+        <a class="custom-carousel-control-next" id="customCarouselNext" href="#!" role="button"
+            data-slide="next">&#10095;</a>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-{{-- ----------------------------------- SECTION 3 ----------------------------------------- --}}
-@php
-    // Simulated related profiles data (hardcoded or fetched from DB)
-    $profiles = collect([
-        (object)['name' => 'Ivan', 'id' => '8032', 'image' => url('user-assets/images/pexels-photo-247287.jpeg')],
-        (object)['name' => 'Adam', 'id' => '89723', 'image' => url('user-assets/images/pexels-photo-247287.jpeg')],
-        (object)['name' => 'Spartacus', 'id' => '53724', 'image' => url('user-assets/images/pexels-photo-247287.jpeg')],
-        (object)['name' => 'Karim', 'id' => '29816', 'image' => url('user-assets/images/pexels-photo-247287.jpeg')],
-    ]);
-@endphp
-
-<div class="container my-4">
-    <div class="col-sm-12 col-md-12 mt-2">
-        <div class="innertext">
-            <h1>Related <span>Profiles</span></h1>
-        </div>
-    </div>
-
-    <div class="container-fluid px-0">
-    <div id="profileCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Carousel Inner -->
-        <div class="carousel-inner">
-            @foreach ($profiles->chunk(4) as $profileChunk)
-                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                    <div class="row no-gutters justify-content-center">
-                        @foreach ($profileChunk as $profile)
-                            <div class="col-md-3">
-                                <div class="card text-center">
-                                    <!-- Profile Image -->
-                                    <img src="{{ url($profile->image) }}" class="card-img-top custom-img" alt="Profile Image">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $profile->name }}</h5>
-                                        <p class="card-text">No: {{ $profile->id }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            @endforeach
-        </div>
-
-        <!-- Carousel controls -->
-        <a class="carousel-control-prev" href="#profileCarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#profileCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</div>
-
 <!-- Custom CSS -->
 <style>
     .container-fluid {
-        max-width: 100%;
-        padding: 0;
-    }
-
-    .carousel-inner {
         width: 100%;
+        padding: 0;
     }
 
-    .carousel-item {
-        padding: 0;
-        margin: 0;
-    }
 
     .row.no-gutters {
         margin-right: 0;
@@ -639,11 +816,7 @@ $timestamp = time();
         object-fit: cover;
     }
 
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: black;
-        border-radius: 50%;
-    }
+
 
     .card-body h5 {
         font-weight: bold;
@@ -665,6 +838,59 @@ $timestamp = time();
                 // Optional: Customize Fancybox options here
                 loop: true,
                 buttons: ['zoom', 'close'],
+            });
+
+
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const imageContainers = document.querySelectorAll('.slider-image');
+
+            imageContainers.forEach(container => {
+                const img = new Image();
+                img.onload = () => {
+                    const containerWidth = container.clientHeight * (img.naturalWidth / img.naturalHeight);
+                    container.style.width = `${containerWidth}px`; // Set width based on image ratio and container height
+                };
+                img.src = container.style.backgroundImage.slice(5, -2); // Extract the URL from the background-image style
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselInner = document.getElementById('customCarouselInner');
+            const prevButton = document.getElementById('customCarouselPrev');
+            const nextButton = document.getElementById('customCarouselNext');
+            
+            const itemWidth = 22; // The width percentage of each item in the carousel
+            const gapWidth = 3; // The percentage of gap based on CSS
+            const totalMoveWidth = itemWidth + gapWidth; // Total shift per click
+
+            let currentIndex = 0; // Tracks the current index position
+            carouselInner.style.transform = `translateX(0%)`; // Ensure initial position is set correctly
+
+            const totalProfiles = carouselInner.children.length;
+            const visibleProfiles = 4;
+            const maxIndex = totalProfiles - visibleProfiles;
+
+            // Event listener for the "next" button
+            nextButton.addEventListener('click', function() {
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0; // Loop back to the start
+                }
+                carouselInner.style.transform = `translateX(-${currentIndex * totalMoveWidth}%)`;
+            });
+
+            // Event listener for the "previous" button
+            prevButton.addEventListener('click', function() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = maxIndex; // Loop back to the end
+                }
+                carouselInner.style.transform = `translateX(-${currentIndex * totalMoveWidth}%)`;
             });
         });
 </script>
@@ -693,6 +919,82 @@ $timestamp = time();
             captureButton.style.display = 'block';
         });
     });
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const sliderTrack = document.getElementById('sliderTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        const slides = document.querySelectorAll('.slider-image');
+        const totalSlides = slides.length;
+
+        // Function to calculate the total offset to the current slide
+        function calculateOffset(slideIndex) {
+            let offset = 0;
+            for (let i = 0; i < slideIndex; i++) {
+                offset += slides[i].offsetWidth; // Accumulate widths of all previous slides
+                console.log(`Width of slide ${i}: ${slides[i].offsetWidth}`);  // Debugging log
+            }
+            return offset;
+        }
+
+        // Function to move to a specific slide
+        function moveToSlide(slideIndex) {
+            let offset = calculateOffset(slideIndex);
+            sliderTrack.style.transform = `translateX(-${offset}px)`;
+            console.log(`Moved to slide ${slideIndex}, Transform: translateX(-${offset}px)`);  // Debugging log
+        }
+
+        // Next button functionality
+        nextBtn.addEventListener('click', function() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+            } else {
+                currentSlide = 0; // Reset to the first slide for looping
+                sliderTrack.style.transition = 'none'; // Remove transition for instant reset
+                moveToSlide(currentSlide);
+                requestAnimationFrame(() => { // Re-enable transition after painting
+                    sliderTrack.style.transition = '';
+                });
+                return;
+            }
+            moveToSlide(currentSlide);
+        });
+
+        // Previous button functionality
+        prevBtn.addEventListener('click', function() {
+            if (currentSlide > 0) {
+                currentSlide--;
+            } else {
+                currentSlide = totalSlides - 1;
+                moveToSlide(currentSlide); // Move directly to last slide
+                return;
+            }
+            moveToSlide(currentSlide);
+        });
+
+        let currentSlide = 0; // Initialize currentSlide after defining functions to avoid hoisting issues
+
+        // Ensure the portfolio tab is displayed and slider works correctly on initial page load
+        function initializeSlider() {
+            if (document.getElementById('portfolio').classList.contains('active')) {
+                moveToSlide(currentSlide); // Move to the current slide if the tab is active
+            }
+        }
+
+        // Trigger initialization on page load and tab switch events
+        initializeSlider();
+        document.getElementById('portfolio-tab').addEventListener('shown.bs.tab', function() {
+            initializeSlider();
+        });
+
+        // Adjust slide width dynamically on window resize (optional for responsive behavior)
+        window.addEventListener('resize', function() {
+            moveToSlide(currentSlide); // Adjust the slide position based on new sizes
+        });
+    });
+
 </script>
 
 @endsection

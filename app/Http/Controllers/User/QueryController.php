@@ -133,10 +133,10 @@ class QueryController extends Controller
         $userD = User::where('id', Auth::id())->where('role', 'model')->first();
         if (!empty($userD)) {
             // dd($userD);
-            $member = Membership::where('user_id', $userD->id)->where('payment_id', '!=', '')->first();
-            if (empty($member)) {
-                return back()->with('error', 'Please make subscription first to create Profile !');
-            }
+            // $member = Membership::where('user_id', $userD->id)->where('payment_id', '!=', '')->first();
+            // if (empty($member)) {
+            //     return back()->with('error', 'Please make subscription first to create Profile !');
+            // }
             $existModel = ModelDetail::where('user_id', Auth::id())->first();
             if (!empty($existModel)) {
                 return back()->with('error', 'You have already model profile!');
@@ -171,7 +171,9 @@ class QueryController extends Controller
             $modelDetail->dress_size = $request->dress_size_euro;
             $modelDetail->hourly_rate = $request->hourly_rate;
             $modelDetail->session_rate = $request->session_rate;
+            // $modelDetail->visa_status = $request->visa_status;
             $modelDetail->category = json_encode($request->category);
+            
             // Handle "have_tattoos" condition
             if ($request->have_tattoos == 'other') {
                 $modelDetail->have_tattos = $request->tattoos_other;
