@@ -417,18 +417,50 @@
 
     .profile-card {
         background: white;
-        border-radius: 5px;
+        /* border-radius: 5px; */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         text-align: center;
-        padding: 15px;
+        /* padding: 15px; */
         height: 60vh;
         margin: 15px;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+    }
+    .profile-card .img-div{
+        height: 90%;
+    }
+    .cardbody {
+        display: flex;
+        height: 10%;
+    }
+    .card-code {
+        flex: 1;
+        background-color: #f2c67f;
+        display: flex; /* Enable flexbox */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        height: 100%; 
     }
 
+    .card-info {
+        flex: 1;
+        background-color: #4ca1ae;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        height: 100%; 
+    }
     .profile-card img {
-        width: 100%;
-        height: 85%;
-        border-radius: 5px;
+        width: 100%; 
+        height: 100%; 
+        object-fit: fill;
     }
 
     .profile-card p {
@@ -452,6 +484,28 @@
         margin: auto;
         position: relative;
         height: 80vh;
+    }
+
+    .carousel-container h2 {
+        font-size: 66px;
+        line-height: 55px;
+        font-weight: 500;
+        font-family: "Lateef", serif;
+        text-shadow: 0 0 black;
+        text-align: center;
+        text-transform: capitalize;
+        position: relative;
+    }
+
+    .carousel-container h2 span{
+        color: rgba(216, 31, 38, 1);
+    }
+
+    .carousel-container h2:before {
+        content: "";
+        position: absolute;
+        width: 248px;
+        bottom: -12px;
     }
 
     .carousel-heading {
@@ -817,25 +871,36 @@ $timestamp = time();
 {{-- -------------------------------section 3-------------------------------- --}}
 @php
 $profiles = [
-['img' => 'model1.jpg', 'name' => 'Ivan', 'number' => 'CTM-00132'],
-['img' => 'model2.jpg', 'name' => 'Adam', 'number' => 'CTM-80733'],
-['img' => 'model3.jpg', 'name' => 'Spartacus', 'number' => 'CTM-53734'],
-['img' => 'model4.jpg', 'name' => 'Karim', 'number' => 'CTM-38085'],
-['img' => 'model1.jpg', 'name' => 'Liam', 'number' => 'CTM-11234'],
-['img' => 'model2.jpg', 'name' => 'Noah', 'number' => 'CTM-22345']
+['img' => 'model1.jpg', 'name' => 'Ivan Reynolds', 'number' => 'CTM-00132'],
+['img' => 'model2.jpg', 'name' => 'Adam Sandler', 'number' => 'CTM-80733'],
+['img' => 'model3.jpg', 'name' => 'Spartacus Bridget', 'number' => 'CTM-53734'],
+['img' => 'model4.jpg', 'name' => 'Karim Bashir', 'number' => 'CTM-38085'],
+['img' => 'model1.jpg', 'name' => 'Liam Kroos', 'number' => 'CTM-11234'],
+['img' => 'model2.jpg', 'name' => 'Noah Carter', 'number' => 'CTM-22345']
 ];
 @endphp
 <div class="carousel-container">
-    <h2 class="carousel-heading">Related Profiles</h2>
+    <h2 class="carousel-heading">Related <span>Profiles</span></h2>
     <div class="custom-carousel" id="customCarousel">
         <div class="custom-carousel-inner" id="customCarouselInner">
             @foreach ($profiles as $profile)
             <div class="custom-carousel-item {{ $loop->first ? 'active' : '' }}">
+            
                 <div class="profile-card">
+                    <div class="img-div">
                     <img src="{{ url('/user-assets/model-images/' . $profile['img']) }}" class="img-fluid"
                         alt="{{ $profile['name'] }}">
-                    <p>{{ $profile['name'] }}</p>
-                    <span>No: {{ $profile['number'] }}</span>
+                            </div>
+                            <div class="cardbody">
+                            <div class="card-code text-center">
+                                <!-- Insert code related content here -->
+                                {{ $profile['number'] }}
+                            </div>
+                            <div class="card-info text-center">
+                                {{ $profile['name'] }}
+                                <!-- Insert age, nationality, etc., here -->
+                            </div>
+                        </div>
                 </div>
             </div>
             @endforeach
