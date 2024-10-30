@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Validator;
 
 
 use Barryvdh\DomPDF\Facade\Pdf;
-
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class QueryController extends Controller
@@ -125,25 +125,142 @@ class QueryController extends Controller
         return back()->with('success', 'Profile details saved successfully.');
     }
 
+    // public function modelInfoStore(Request $request)
+    // {
+    //     if (!Auth::user()) {
+    //         return back()->with('error', 'Please login or create an account first!');
+    //     }
+    //     $userD = User::where('id', Auth::id())->where('role', 'model')->first();
+    //     if (!empty($userD)) {
+    //         // dd($userD);
+    //         // $member = Membership::where('user_id', $userD->id)->where('payment_id', '!=', '')->first();
+    //         // if (empty($member)) {
+    //         //     return back()->with('error', 'Please make subscription first to create Profile !');
+    //         // }
+    //         $existModel = ModelDetail::where('user_id', Auth::id())->first();
+    //         if (!empty($existModel)) {
+    //             return back()->with('error', 'You have already model profile!');
+    //         }
+    //         // Create a new instance of ModelDetail
+    //         $modelDetail = new ModelDetail();
+    //         // Assign each field from the request
+    //         $modelDetail->first_name = $request->first_name;
+    //         $modelDetail->last_name = $request->last_name;
+    //         $modelDetail->date_of_birth = $request->date_of_birth;
+    //         $modelDetail->gender = $request->gender;
+    //         $modelDetail->nationality = $request->nationality;
+    //         $modelDetail->calling_number = $request->calling_number;
+    //         $modelDetail->whatsapp_number = $request->whatsapp_number;
+    //         $modelDetail->marital_status = $request->marital_status;
+    //         $modelDetail->ethnicity = $request->ethnicity;
+    //         $modelDetail->location = $request->lives_in;
+    //         $modelDetail->biography = $request->biography;
+    //         $modelDetail->languages_spoken = json_encode($request->languages_spoken);
+    //         $modelDetail->driving_license = $request->driving_license;
+    //         $modelDetail->email = $request->email;
+    //         $modelDetail->instagram_username = $request->instagram_username;
+    //         $modelDetail->height = $request->height_cm;
+    //         $modelDetail->bust = $request->bust_cm;
+    //         $modelDetail->waist = $request->waist_cm;
+    //         $modelDetail->hip = $request->hip_cm;
+    //         $modelDetail->weight = $request->weight_kg;
+    //         $modelDetail->eye_color = $request->eyes_color;
+    //         $modelDetail->hair_color = $request->hair_color;
+    //         $modelDetail->hair_length = $request->hair_length;
+    //         $modelDetail->shoe_size = $request->shoe_size_euro;
+    //         $modelDetail->dress_size = $request->dress_size_euro;
+    //         $modelDetail->hourly_rate = $request->hourly_rate;
+    //         $modelDetail->session_rate = $request->session_rate;
+    //         // $modelDetail->visa_status = $request->visa_status;
+    //         $modelDetail->category = json_encode($request->category);
+            
+    //         // Handle "have_tattoos" condition
+    //         if ($request->have_tattoos == 'other') {
+    //             $modelDetail->have_tattos = $request->tattoos_other;
+    //         } else {
+    //             $modelDetail->have_tattos = $request->have_tattoos;
+    
+    //         }
+    //         // JSON encode the musician_categories field
+    //         $modelDetail->musician_categories = json_encode($request->category_type);
+    //         // Assign the authenticated user's ID
+    //         $modelDetail->user_id = Auth::id();
+    //         // Handle multiple photo uploads
+    //         if ($request->hasFile('profiles')) {
+    //             $filePaths = [];
+    //             foreach ($request->file('profiles') as $file) {
+    //                 $fileName = time() . '_' . $file->getClientOriginalName();
+    //                 $file->move(public_path('uploads/models/profiles/'), $fileName);
+    //                 $filePaths[] = $fileName;
+    //             }
+    //             // JSON encode the file paths
+    //             $modelDetail->profile_images = json_encode($filePaths);
+    //         }
+    //         // Handle profile picture upload
+    //         if ($request->hasFile('profile_pic')) {
+    //             $profilePicture = $request->file('profile_pic');
+    //             $profilePictureName = time() . '_' . $profilePicture->getClientOriginalName();
+    //             $profilePicture->move(public_path('uploads/models/profile-pics/'), $profilePictureName);
+    //             $modelDetail->profile = $profilePictureName;
+    //         }
+    //         // Handle audio file upload
+    //         if ($request->hasFile('audio_file')) {
+    //             $audioFile = $request->file('audio_file');
+    //             $audioFileName = time() . '_' . $audioFile->getClientOriginalName();
+    //             $audioFile->move(public_path('uploads/models/audios/'), $audioFileName);
+    //             $modelDetail->audio_file = $audioFileName;
+    //         }
+    //         // Handle video file upload
+    //         if ($request->hasFile('video_file')) {
+    //             $videoFile = $request->file('video_file');
+    //             $videoFileName = time() . '_' . $videoFile->getClientOriginalName();
+    //             $videoFile->move(public_path('uploads/models/videos/'), $videoFileName);
+    //             $modelDetail->video_file = $videoFileName;
+    //         }
+    //         // dd($modelDetail);
+    //         // Save the model detail to the database
+    //         // Mail::send('emails.model-account-notify', ['userInfo' => $modelDetail], function ($message) use ($modelDetail) {
+    //         //     $message->to('info_dev@aimaxdigital.com');
+    //         //     $message->subject('Model Register Notification');
+    //         // });
+    //         $modelDetail->save();
+    //         return redirect()->back()->with('success', 'Details saved successfully.');
+    //         // Send email notification to the user
+    //     }
+    //     return back()->with('error', 'Please create account first to explore!');
+    // }
     public function modelInfoStore(Request $request)
     {
-        if (!Auth::user()) {
+        if (!Auth::check()) {
             return back()->with('error', 'Please login or create an account first!');
         }
-        $userD = User::where('id', Auth::id())->where('role', 'model')->first();
-        if (!empty($userD)) {
-            // dd($userD);
-            // $member = Membership::where('user_id', $userD->id)->where('payment_id', '!=', '')->first();
-            // if (empty($member)) {
-            //     return back()->with('error', 'Please make subscription first to create Profile !');
-            // }
-            $existModel = ModelDetail::where('user_id', Auth::id())->first();
-            if (!empty($existModel)) {
-                return back()->with('error', 'You have already model profile!');
-            }
-            // Create a new instance of ModelDetail
+    
+        $userD = User::where('id', Auth::id())->where('role', 'model')->firstOrFail();
+        
+        if (ModelDetail::where('user_id', Auth::id())->exists()) {
+            return back()->with('error', 'You already have a model profile!');
+        }
+    
+        DB::beginTransaction();
+        try {
             $modelDetail = new ModelDetail();
-            // Assign each field from the request
+            $this->assignModelDetails($modelDetail, $request);
+            $this->handleFileUploads($modelDetail, $request);
+            $modelDetail->save();
+    
+            DB::commit();
+            return response()->json(['success' => 'Details saved successfully.'], 200);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error("Error while creating model profile: " . $e->getMessage());
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+    
+    private function assignModelDetails($modelDetail, $request)
+    {
+        
+            $modelDetail->user_id = Auth::id();
             $modelDetail->first_name = $request->first_name;
             $modelDetail->last_name = $request->last_name;
             $modelDetail->date_of_birth = $request->date_of_birth;
@@ -155,7 +272,6 @@ class QueryController extends Controller
             $modelDetail->ethnicity = $request->ethnicity;
             $modelDetail->location = $request->lives_in;
             $modelDetail->biography = $request->biography;
-            $modelDetail->languages_spoken = json_encode($request->languages_spoken);
             $modelDetail->driving_license = $request->driving_license;
             $modelDetail->email = $request->email;
             $modelDetail->instagram_username = $request->instagram_username;
@@ -171,65 +287,40 @@ class QueryController extends Controller
             $modelDetail->dress_size = $request->dress_size_euro;
             $modelDetail->hourly_rate = $request->hourly_rate;
             $modelDetail->session_rate = $request->session_rate;
-            // $modelDetail->visa_status = $request->visa_status;
-            $modelDetail->category = json_encode($request->category);
-            
-            // Handle "have_tattoos" condition
-            if ($request->have_tattoos == 'other') {
-                $modelDetail->have_tattos = $request->tattoos_other;
-            } else {
-                $modelDetail->have_tattos = $request->have_tattoos;
+            $modelDetail->visa_status = $request->visa_status;
     
-            }
-            // JSON encode the musician_categories field
-            $modelDetail->musician_categories = json_encode($request->category_type);
-            // Assign the authenticated user's ID
-            $modelDetail->user_id = Auth::id();
-            // Handle multiple photo uploads
-            if ($request->hasFile('profiles')) {
-                $filePaths = [];
-                foreach ($request->file('profiles') as $file) {
-                    $fileName = time() . '_' . $file->getClientOriginalName();
-                    $file->move(public_path('uploads/models/profiles/'), $fileName);
-                    $filePaths[] = $fileName;
-                }
-                // JSON encode the file paths
-                $modelDetail->profile_images = json_encode($filePaths);
-            }
-            // Handle profile picture upload
-            if ($request->hasFile('profile_pic')) {
-                $profilePicture = $request->file('profile_pic');
-                $profilePictureName = time() . '_' . $profilePicture->getClientOriginalName();
-                $profilePicture->move(public_path('uploads/models/profile-pics/'), $profilePictureName);
-                $modelDetail->profile = $profilePictureName;
-            }
-            // Handle audio file upload
-            if ($request->hasFile('audio_file')) {
-                $audioFile = $request->file('audio_file');
-                $audioFileName = time() . '_' . $audioFile->getClientOriginalName();
-                $audioFile->move(public_path('uploads/models/audios/'), $audioFileName);
-                $modelDetail->audio_file = $audioFileName;
-            }
-            // Handle video file upload
-            if ($request->hasFile('video_file')) {
-                $videoFile = $request->file('video_file');
-                $videoFileName = time() . '_' . $videoFile->getClientOriginalName();
-                $videoFile->move(public_path('uploads/models/videos/'), $videoFileName);
-                $modelDetail->video_file = $videoFileName;
-            }
-            // dd($modelDetail);
-            // Save the model detail to the database
-            // Mail::send('emails.model-account-notify', ['userInfo' => $modelDetail], function ($message) use ($modelDetail) {
-            //     $message->to('info_dev@aimaxdigital.com');
-            //     $message->subject('Model Register Notification');
-            // });
-            $modelDetail->save();
-            return redirect()->back()->with('success', 'Details saved successfully.');
-            // Send email notification to the user
+        $modelDetail->languages_spoken = json_encode($request->input('languages_spoken', []));
+        $modelDetail->category = json_encode($request->input('category', []));
+        $modelDetail->musician_categories = json_encode($request->input('category_type', []));
+    
+        if ($request->input('have_tattoos') == 'other') {
+            $modelDetail->have_tattoos = $request->input('tattoos_other');
+        } else {
+            $modelDetail->have_tattoos = $request->input('have_tattoos');
         }
-        return back()->with('error', 'Please create account first to explore!');
     }
-
+    
+    private function handleFileUploads($modelDetail, $request)
+    {
+        if ($request->hasFile('profiles')) {
+            $filePaths = array_map(function ($file) {
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('uploads/models/profiles/'), $fileName);
+                return $fileName;
+            }, $request->file('profiles'));
+    
+            $modelDetail->profile_images = json_encode($filePaths);
+        }
+    
+        if ($request->hasFile('profile_pic')) {
+            $profilePicture = $request->file('profile_pic');
+            $profilePictureName = time() . '_' . $profilePicture->getClientOriginalName();
+            $profilePicture->move(public_path('uploads/models/profile-pics/'), $profilePictureName);
+            $modelDetail->profile = $profilePictureName;
+        }
+    
+        // Additional uploads such as audio or video can be handled here in the same way
+    }
 
  public function downloadModelDetails($id)
 {
@@ -250,7 +341,7 @@ class QueryController extends Controller
 
     // Try to create the ZIP file
     if ($zip->open($zipPath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) !== true) {
-        \Log::error("Could not create ZIP file: " . $zip->getStatusString());
+        Log::error("Could not create ZIP file: " . $zip->getStatusString());
         return back()->with('error', 'Could not create ZIP file: ' . $zip->getStatusString());
     }
 
@@ -261,7 +352,7 @@ class QueryController extends Controller
         if (file_exists($imagePath)) {
             $zip->addFile($imagePath, $image); // Add the image file to the ZIP
         } else {
-            \Log::warning("Image file not found: " . $imagePath);
+            Log::warning("Image file not found: " . $imagePath);
         }
     }
 

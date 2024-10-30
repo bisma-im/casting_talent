@@ -677,7 +677,7 @@
                             <div id="clientProgressBar" class="progress-bar bg-success" role="progressbar"
                                 style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
                         </div>
-                        <form id="client-form" method="post" ">
+                        <form id="client-form" method="post" action="{{ route('job-info.post') }}">
                             @csrf
                             <!-- Step 1: Basic Info -->
                             <div class="step" id="step1">

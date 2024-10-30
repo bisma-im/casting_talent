@@ -292,17 +292,21 @@
         height: 100%;
         background-size: cover;
         background-position: center;
-        /* Adjust opacity as needed */
     }
 
-    .carousel-inner {
-        width: 300%;
-    }
 
+    .carousel-item .background-image-carousel {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
     .carousel-item {
-        height: 100vh;
-        /* Ensures the carousel takes full height */
-
+        height: 90vh;
     }
 
     .my-section .nav-tabs {
@@ -346,7 +350,7 @@
         height: 90vh;
         position: relative;
         align-items: center;
-
+        width: 100%;
         /* text-align: center; */
     }
 
@@ -358,15 +362,20 @@
     .tab-pane {
         /* padding: 50px; */
         color: white;
+        width: 100%;  /* Ensures tab pane takes full available width */
+        overflow: hidden;
     }
-
+    .video-tab {
+        width: 100%; /* Forces each item div to take full width */
+    }
     .slider-image {
-        width: 25vw; /* Width can be adjusted via JavaScript if needed */
-    height: 60vw; /* Fixed height for all images */
-    background-size: 100% 100%; /* Image will stretch to fill the container */
+        width: 30vw; /* Width can be adjusted via JavaScript if needed */
+    height: 90vh; /* Fixed height for all images */
+    background-size: 100%; /* Image will stretch to fill the container */
     background-position: center;
     background-repeat: no-repeat;
     flex-shrink: 0;
+    
     /* border: 1px solid red */
     }
 
@@ -392,7 +401,6 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-
         border: none;
         z-index: 1000;
         padding: 20px;
@@ -466,7 +474,6 @@
         margin: 0;
         justify-content: start;
         transition: transform 0.8s ease;
-        /* Transition for smooth sliding */
         will-change: transform;
     }
 
@@ -498,13 +505,45 @@
     .custom-carousel-control-next {
         right: 10px;
     }
+    #videoCarousel {
+        width: 100%;
+        position: relative;
+    }
+    #videoCarousel .carousel-control-prev, 
+    #videoCarousel .carousel-control-next {
+        position: absolute;
+        top: 50%; 
+        transform: translateY(-50%); 
+        width: auto;
+        height: 8%;
+        border-radius: 50%;
+    }
+
+    #videoCarousel .carousel-control-prev {
+        left: 10px; /* Place at the extreme left */
+    }
+
+    #videoCarousel .carousel-control-next {
+        right: 10px; /* Place at the extreme right */
+    }
+
+    #videoCarousel .carousel-control-prev span,
+    #videoCarousel .carousel-control-next span {
+        font-size: 30px; 
+        color: #000;   
+    }
+
+    #videoCarousel .carousel-control-prev span:hover,
+    #videoCarousel .carousel-control-next span:hover {
+        color: rgb(167, 162, 162);  // Change to your preferred hover color
+    }
 </style>
 
 <section class="innerpages">
     <div class="container">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
             <div class="innertext">
-                <h1>MODEL <span>DETAILS</span></h1>
+                <!-- <h1>MODEL <span>DETAILS</span></h1> -->
             </div>
         </div>
     </div>
@@ -530,7 +569,7 @@ $timestamp = time();
 
 {{-- ----------------------------------- SECTION 1 ----------------------------------------- --}}
 
-<div class="container my-4 mx-0 px-0">
+<div class="container  mx-0 px-0">
 
     <div class="row d-flex align-items-center mx-0 px-0" id="getSS">
         {{-- ------------- cover image --------------- --}}
@@ -675,7 +714,7 @@ $timestamp = time();
 </div>
 
 {{-- ------------------------------section 2------------------------ --}}
-<div class="container-fluid full-height m-0 p-0 my-section">
+<div class="container-fluid full-height m-0 pt-3 my-section">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="portfolio-tab" data-bs-toggle="tab" data-bs-target="#portfolio"
@@ -736,9 +775,34 @@ $timestamp = time();
 
         <!-- Video Tab -->
         <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
-            <div class="background-image text-left" style="background-image: url('https://img.youtube.com/vi/TivAwezqug4/maxresdefault.jpg'); display: flex; align-items: center; height: 100%;">
-                <iframe width="374" height="280" src="https://www.youtube.com/embed/TivAwezqug4?si=kjPwdPcBlTFJDNRh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div id="videoCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    @php
+                        $videos = [
+                            'TivAwezqug4', // Video ID 1
+                            'ZPhlSqHN4yg', // Video ID 2
+                            'psnAGlcVbcY', // Video ID 3
+                        ];
+                    @endphp
+                    @foreach ($videos as $index => $video)
+                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="background-image: url('https://img.youtube.com/vi/{{ $video }}/maxresdefault.jpg'); background-size: cover; background-position: center center; height: 100vh; width: 100%">
+                        <!-- Content of the slide -->
+                        <div class="container h-100 w-100 d-flex align-items-center">
+                            <iframe width="374" height="280" src="https://www.youtube.com/embed/{{ $video }}?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+                <a class="carousel-control-prev text-dark" href="#videoCarousel" role="button" data-slide="prev">
+                    <span class="fas fa-chevrons-left"></span> <!-- Replacing the default icon with Font Awesome -->
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="text-dark carousel-control-next" href="#videoCarousel" role="button" data-slide="next">
+                    <span class="fas fa-chevrons-right"></span> <!-- Replacing the default icon with Font Awesome -->
+                    <span class="sr-only">Next</span>
+                </a>                
             </div>
+            
         </div>
         
 
@@ -996,5 +1060,24 @@ $profiles = [
     });
 
 </script>
+<script>
+    $(document).ready(function(){
+        $('#videoCarousel').carousel();
+
+        // Event listener for the previous button
+        $('.carousel-control-prev').click(function() {
+            $('#videoCarousel').carousel('prev');
+        });
+
+        // Event listener for the next button
+        $('.carousel-control-next').click(function() {
+            $('#videoCarousel').carousel('next');
+        });
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
 
 @endsection

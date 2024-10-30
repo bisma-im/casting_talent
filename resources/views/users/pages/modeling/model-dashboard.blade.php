@@ -601,8 +601,10 @@
                                 <div class="serve-pad">
                                     <div class="row">
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                            <form method="post" action="{{ route('model-info.post') }}"
+                                            <form method="post" id="profileDetails"
                                                 enctype="multipart/form-data">
+                                                {{-- <form method="post" id="profileDetails" action="{{ route('model-info.post') }}"
+                                                enctype="multipart/form-data"> --}}
                                                 @csrf
                                                 <div class="multiple_steps_container">
                                                     <div class="maintab">
@@ -1185,8 +1187,8 @@
                                                                             id="have_tattoos"
                                                                             aria-label="Default select example"
                                                                             onchange="toggleTattoosInput()">
-                                                                            <option value="yes" {{ (isset($profileInfo) && $profileInfo->have_tattos === 'yes' || isset($profileInfo) && $profileInfo->have_tattos === 'Yes') ? 'selected' : '' }}>Yes</option>
-                                                                            <option value="no" {{ (isset($profileInfo) && $profileInfo->have_tattos === 'no' || isset($profileInfo) && $profileInfo->have_tattos === 'No') ? 'selected' : '' }}>No</option>
+                                                                            <option value="yes" {{ (isset($profileInfo) && $profileInfo->have_tattoos === 'yes' || isset($profileInfo) && $profileInfo->have_tattoos === 'Yes') ? 'selected' : '' }}>Yes</option>
+                                                                            <option value="no" {{ (isset($profileInfo) && $profileInfo->have_tattoos === 'no' || isset($profileInfo) && $profileInfo->have_tattoos === 'No') ? 'selected' : '' }}>No</option>
                                                                             
                                                                         </select>
                                                                         <input type="text" class="form-control mt-2"
@@ -1417,7 +1419,7 @@
                                                                 <!-- Photo Upload -->
                                                                 <div
                                                                     class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
-                                                                    <div class="uploadimg">
+                                                                    {{-- <div class="uploadimg">
                                                                         <h5>Upload Your Photos *</h5>
                                                                         <input type="text" id="profileValues"
                                                                             name="profile_photo_names"
@@ -1432,11 +1434,17 @@
                                                                                 <h6 style="font-size: 14px;">Drag and Drop your images</h6>
                                                                             </label>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> --}}
+                                                                    <div class="uploadimg">
+                                                                        <h5>Upload Your Photos *</h5>
+                                                                        <div class="dropzone" id="photo-dropzone"></div>
+                                                                        <!-- Hidden input to store the photo names for server-side processing -->
+                                                                        <input type="hidden" name="profile_photo_names" id="profileValues" class="form-control" readonly>
+                                                                    </div>                                                               
                                                                 </div>
 
                                                                 <!-- Audio Upload -->
-                                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
+                                                                {{-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
                                                                     <div class="uploadimg">
                                                                         <h5>Upload Your Voice *</h5>
                                                                         <input type="text" id="audioFileName" name="audio_file_name" class="form-control" readonly>
@@ -1448,11 +1456,11 @@
                                                                             </label>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </div> --}}
                                                                 
 
                                                                 <!-- Video Upload -->
-                                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
+                                                                {{-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
                                                                     <div class="uploadimg">
                                                                         <h5>Upload Your Video *</h5>
                                                                         <input type="text" id="videoFileName" name="video_file_name" class="form-control" readonly>
@@ -1464,7 +1472,7 @@
                                                                             </label>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </div> --}}
                                                                 
                                                             </div>
                                                         </div>
@@ -1475,14 +1483,14 @@
                                                                 const fileName = input.files.length > 0 ? input.files[0].name : '';
                                                                 text.value = fileName;
                                                             }
-
-                                                            function updateFileNames(inputId, textId) {
+                                                        </script>
+                                                            {{-- function updateFileNames(inputId, textId) {
                                                                 const input = document.getElementById(inputId);
                                                                 const text = document.getElementById(textId);
                                                                 const fileNames = Array.from(input.files).map(file => file.name).join(', ');
                                                                 text.value = fileNames ? `${input.files.length} file(s) selected: ${fileNames}` : '';
-                                                            }
-                                                        </script>
+                                                            } --}}
+                                                        
                                                     </div>
                                                     <hr>
                                                     <div class="contactlist text-center btnlist mt-5">
@@ -1718,6 +1726,31 @@
             }
         }
     }
+    
+    $(document).ready(function() {
+    $('#profileDetails').submit(function(event) {
+        event.preventDefault(); // Prevent the default form submit
+        $.ajax({
+            url: '{{ route("model-info.post") }}',
+            type: 'POST',
+            data: $(this).serialize(), // Serializes the form's elements.
+            dataType: 'json', // Expecting JSON response
+            success: function(data) {
+                if(data.success) {
+                    $('#result').html('<div class="alert alert-success">' + data.success + '</div>');
+                    location.reload();
+                } else if(data.error) {
+                    $('#result').html('<div class="alert alert-danger">' + data.error + '</div>');
+                }
+            },
+            error: function(xhr, status, error) {
+                // Generic error message, but you might want to handle HTTP status codes differently
+                $('#result').html('<div class="alert alert-danger">Request failed: ' + xhr.responseText + '</div>');
+            }
+        });
+    });
+});
+
     </script>
 
 @endsection

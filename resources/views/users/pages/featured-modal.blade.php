@@ -313,34 +313,7 @@
         background-color: #e0ffe0;
     }
 
-    .inputs-row {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 10px;
-        width: 100%;
-    }
-
-    .inputs-row select,
-    .inputs-row input,
-    .inputs-row .dropdown,
-    .inputs-row .contact-list-hair, 
-    .inputs-row .contact-list-eye, 
-    .inputs-row .contact-list-language {
-        /* padding: 8px; */
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        width: 33.33%;
-    }
-
-    .inputs-row select,
-    .inputs-row input {
-        padding: 8px;
-    }
-
-    .inputs-row button {
-        width: 100%;
-        /* Ensures the button stretches to fill its container */
-    }
+    
 
     button[type="submit"] {
         padding: 8px 16px;
@@ -646,6 +619,53 @@
         font-size: 16px;
         color: #212529;
     }
+  /* Unique Dropdown styling */
+  .dress-dropdown {
+        position: relative;
+        display: inline-block;
+        width: 92%;
+    }
+
+    .dress-dropdown-button {
+        width: 110%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: white;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .dress-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 100%;
+        border: 1px solid #ccc;
+        max-height: 200px;
+        overflow-y: scroll;
+        z-index: 1;
+    }
+
+    /* Styling for options */
+    .dress-dropdown-content label {
+        display: block;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .dress-dropdown-content label:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* Show dropdown on open */
+    .dress-dropdown-open {
+        display: block;
+    }
+
+    /* Selected option styling */
+    .dress-selected {
+        background-color: #e0e0ff;
+    }
 </style>
 
 <section class="innerpages">
@@ -674,8 +694,9 @@
     <div id="filterForm" class="filter-form" style="display:none;">
         {{-- <form action="{{ route('your.route') }}" method="GET"> --}}
             <form method="GET">
-                <div class="inputs-row">
-                    <select name="ethnicity">
+                <div class="row mb-3 ">
+                    <div class="col-md-4 mb-2">
+                    <select name="ethnicity" class="h-100 w-100">
                         <option value="" disabled selected>Select Ethnicity</option>
                         <option value="Arab">Arab</option>
                         <option value="Asian">Asian</option>
@@ -686,7 +707,10 @@
                         <option value="White">White</option>
                         <!-- Add ethnicity options here -->
                     </select>
-                    <select name="nationality">
+                    </div>
+                    <div class="col-md-4 mb-2">
+    
+                    <select name="nationality" class="h-100 w-100">
                         <option value="" disabled selected>Select Nationality</option>
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Albania">Albania</option>
@@ -888,6 +912,8 @@
                         <option value="Zambia">Zambia</option>
                         <option value="Zimbabwe">Zimbabwe</option>
                     </select>
+                    </div>
+                    <div class="col-md-4 mb-2" class="h-100 w-100">
                     <div class="dropdown">
                         <button onclick="toggleDropdown(event)" class="dropdown-btn text-left">Select
                             Categories</button>
@@ -900,9 +926,13 @@
                 <p id="selectedCategories" style="margin-top: 10px; font-weight: bold; display: none;">
                     Selected Categories: None
                 </p>
+                    </div>
+               
+                   
 
-                <div class="inputs-row">
-                    <select name="age">
+                <div class="row mb-3">
+                    <div class="col-md-4 mb-2">
+                    <select name="age " class="h-100 w-100">
                         <option value="" disabled selected>Select Age</option>
                         <option value="newborn">New Born</option>
                         <option value="1-3">1-3</option>
@@ -919,7 +949,9 @@
                         <option value="50+">50+</option>
                         <!-- Add age options here -->
                     </select>
-                    <select name="height">
+                    </div>
+                    <div class="col-md-4 mb-2" >
+                    <select name="height " class="h-100 w-100">
                         <option value="" disabled selected>Select Height (cm)</option>
                         <option value="140-149">140 - 149</option>
                         <option value="150-159">150 - 159</option>
@@ -930,76 +962,96 @@
                         <option value="200+">200 and above</option>
                         <!-- Add height options here -->
                     </select>
-                    <select name="dress_size[]" data-placeholder="Select fruits" multiple data-multi-select
-                        style="width: ">
-                        <option value="" disabled selected>Select Dress Size</option>
-                        <option value="XXS">XXS</option>
-                        <option value="XS">XS</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                        <option value="XXL">XXL</option>
-                        <option value="3XL">3XL</option>
-                        <option value="4XL">4XL</option>
-                        <option value="5XL">5XL</option>
-                    </select>
-                </div>
+                    </div>
+                    <div class="col-md-4 mb-2" >
+                    <div class="contact-list-dress-size">
+    <div class="dress-dropdown" id="dressDropdown">
+        <div class="dress-dropdown-button" id="dressDropdownButton">-- Select Dress Sizes --</div>
+        <div class="dress-dropdown-content" id="dressDropdownContent">
+            <label><input type="checkbox" value="XXS"> XXS</label>
+            <label><input type="checkbox" value="XS"> XS</label>
+            <label><input type="checkbox" value="S"> S</label>
+            <label><input type="checkbox" value="M"> M</label>
+            <label><input type="checkbox" value="L"> L</label>
+            <label><input type="checkbox" value="XL"> XL</label>
+            <label><input type="checkbox" value="XXL"> XXL</label>
+            <label><input type="checkbox" value="3XL"> 3XL</label>
+            <label><input type="checkbox" value="4XL"> 4XL</label>
+            <label><input type="checkbox" value="5XL"> 5XL</label>
+        </div>
+    </div>
+</div>
+                    </div>
 
-                <div class="inputs-row">
-                    {{-- <div class="row w-100"> --}}
-                        <div class="contact-list-hair col-md-4" style="flex: none;">
-                            <div class="hair-dropdown" id="hairDropdown">
-                                <div class="hair-dropdown-button" id="hairDropdownButton">-- Select Hair Colors --</div>
-                                <div class="hair-dropdown-content" id="hairDropdownContent">
-                                    <label><input type="checkbox" value="Auburn"> Auburn</label>
-                                    <label><input type="checkbox" value="Black"> Black</label>
-                                    <label><input type="checkbox" value="Blonde"> Blonde</label>
-                                    <label><input type="checkbox" value="Brown"> Brown</label>
-                                    <label><input type="checkbox" value="Brown with Blonde Streaks"> Brown with Blonde
-                                        Streaks</label>
-                                    <label><input type="checkbox" value="Dark Blonde"> Dark Blonde</label>
-                                    <label><input type="checkbox" value="Dark Brown"> Dark Brown</label>
-                                    <label><input type="checkbox" value="Light Brown"> Light Brown</label>
-                                    <label><input type="checkbox" value="Red"> Red</label>
-                                    <label><input type="checkbox" value="Red/Orange/Brown"> Red/Orange/Brown</label>
-                                    <label><input type="checkbox" value="Silver"> Silver</label>
-                                    <label><input type="checkbox" value="Green"> Green</label>
-                                    <label><input type="checkbox" value="Strawberry Blonde"> Strawberry Blonde</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-list-eye col-md-4" style="flex: none;">
-                            <div class="eye-dropdown" id="eyeDropdown">
-                                <div class="eye-dropdown-button" id="eyeDropdownButton">-- Select Eye Colors --</div>
-                                <div class="eye-dropdown-content" id="eyeDropdownContent">
-                                    <label><input type="checkbox" value="Blue/Grey"> Blue/Grey</label>
-                                    <label><input type="checkbox" value="Brown"> Brown</label>
-                                    <label><input type="checkbox" value="Dark Brown"> Dark Brown</label>
-                                    <label><input type="checkbox" value="Green"> Green</label>
-                                    <label><input type="checkbox" value="Green/Grey"> Green/Grey</label>
-                                    <label><input type="checkbox" value="Green/Hazel"> Green/Hazel</label>
-                                    <label><input type="checkbox" value="Hazel"> Hazel</label>
-                                    <label><input type="checkbox" value="Blue"> Blue</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-list-language col-md-4" style="flex: none;">
-                            <div class="custom-language-dropdown" id="customLanguageDropdown">
-                                <div class="custom-language-dropdown-button" id="customLanguageDropdownButton">-- Select
-                                    Languages --</div>
-                                <div class="custom-language-dropdown-content" id="customLanguageDropdownContent">
-                                    <!-- Dynamically generate language options with PHP or Blade -->
-                                    @foreach ($languages as $language)
-                                    <label><input type="checkbox" value="{{ $language['value'] }}"> {{
-                                        $language['label'] }}</label>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    {{-- </div> --}}
+                  
+                  
+                   
                 </div>
-                <div class="inputs-row">
+                <div class="row">
+    <!-- Hair Colors Dropdown -->
+    <div class="col-md-4 mb-2">
+        <div class="contact-list-hair h-100 w-100">
+            <div class="hair-dropdown" id="hairDropdown">
+                <div class="hair-dropdown-button" id="hairDropdownButton">-- Select Hair Colors --</div>
+                <div class="hair-dropdown-content" id="hairDropdownContent">
+                    <label><input type="checkbox" value="Auburn"> Auburn</label>
+                    <label><input type="checkbox" value="Black"> Black</label>
+                    <label><input type="checkbox" value="Blonde"> Blonde</label>
+                    <label><input type="checkbox" value="Brown"> Brown</label>
+                    <label><input type="checkbox" value="Brown with Blonde Streaks"> Brown with Blonde Streaks</label>
+                    <label><input type="checkbox" value="Dark Blonde"> Dark Blonde</label>
+                    <label><input type="checkbox" value="Dark Brown"> Dark Brown</label>
+                    <label><input type="checkbox" value="Light Brown"> Light Brown</label>
+                    <label><input type="checkbox" value="Red"> Red</label>
+                    <label><input type="checkbox" value="Red/Orange/Brown"> Red/Orange/Brown</label>
+                    <label><input type="checkbox" value="Silver"> Silver</label>
+                    <label><input type="checkbox" value="Green"> Green</label>
+                    <label><input type="checkbox" value="Strawberry Blonde"> Strawberry Blonde</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Eye Colors Dropdown -->
+    <div class="col-md-4 mb-2">
+        <div class="contact-list-eye h-100 w-100">
+            <div class="eye-dropdown" id="eyeDropdown">
+                <div class="eye-dropdown-button" id="eyeDropdownButton">-- Select Eye Colors --</div>
+                <div class="eye-dropdown-content" id="eyeDropdownContent">
+                    <label><input type="checkbox" value="Blue/Grey"> Blue/Grey</label>
+                    <label><input type="checkbox" value="Brown"> Brown</label>
+                    <label><input type="checkbox" value="Dark Brown"> Dark Brown</label>
+                    <label><input type="checkbox" value="Green"> Green</label>
+                    <label><input type="checkbox" value="Green/Grey"> Green/Grey</label>
+                    <label><input type="checkbox" value="Green/Hazel"> Green/Hazel</label>
+                    <label><input type="checkbox" value="Hazel"> Hazel</label>
+                    <label><input type="checkbox" value="Blue"> Blue</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Languages Dropdown -->
+    <div class="col-md-4 mb-2">
+        <div class="contact-list-language h-100 w-100">
+            <div class="custom-language-dropdown" id="customLanguageDropdown">
+                <div class="custom-language-dropdown-button" id="customLanguageDropdownButton">-- Select Languages --</div>
+                <div class="custom-language-dropdown-content" id="customLanguageDropdownContent">
+                    <!-- Dynamically generate language options -->
+                    @foreach ($languages as $language)
+                        <label><input type="checkbox" value="{{ $language['value'] }}"> {{ $language['label'] }}</label>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                  
+                    
+                  
+            
+                <div class="row">
                     <button type="submit">Filter</button>
                 </div>
             </form>
@@ -1499,6 +1551,58 @@ $(document).ready(function(){
                 const openDropdown = dropdowns[i];
                 if (openDropdown.classList.contains('custom-language-dropdown-open')) {
                     openDropdown.classList.remove('custom-language-dropdown-open');
+                }
+            }
+        }
+    }
+
+
+    // Get elements for dress size dropdown
+    const dressDropdownButton = document.getElementById('dressDropdownButton');
+    const dressDropdownContent = document.getElementById('dressDropdownContent');
+
+    // Toggle dropdown open/close
+    dressDropdownButton.addEventListener('click', function () {
+        dressDropdownContent.classList.toggle('dress-dropdown-open');
+    });
+
+    // Move selected dress sizes to top
+    function moveSelectedDressSizesToTop() {
+        const labels = dressDropdownContent.querySelectorAll('label');
+        const selectedLabels = [];
+        const unselectedLabels = [];
+
+        labels.forEach(label => {
+            const checkbox = label.querySelector('input[type="checkbox"]');
+            if (checkbox.checked) {
+                selectedLabels.push(label);
+                label.classList.add('dress-selected');  // Add selected styling class
+            } else {
+                unselectedLabels.push(label);
+                label.classList.remove('dress-selected');
+            }
+        });
+
+        dressDropdownContent.innerHTML = '';
+        selectedLabels.forEach(label => dressDropdownContent.appendChild(label));
+        unselectedLabels.forEach(label => dressDropdownContent.appendChild(label));
+    }
+
+    // Update dropdown on checkbox change
+    dressDropdownContent.addEventListener('change', function (e) {
+        if (e.target.type === 'checkbox') {
+            moveSelectedDressSizesToTop();
+        }
+    });
+
+    // Close dropdown if clicked outside
+    window.onclick = function (event) {
+        if (!event.target.matches('#dressDropdownButton')) {
+            const dropdowns = document.getElementsByClassName("dress-dropdown-content");
+            for (let i = 0; i < dropdowns.length; i++) {
+                const openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('dress-dropdown-open')) {
+                    openDropdown.classList.remove('dress-dropdown-open');
                 }
             }
         }

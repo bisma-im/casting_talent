@@ -17,6 +17,11 @@
     <!-- FontAwesome -->
     <link href="https://site-assets.fontawesome.com/releases/v6.0.0/css/all.css" rel="stylesheet">
 
+    <!-- Include Dropzone CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/dropzone@5.7.1/dist/dropzone.css" rel="stylesheet">
+    <!-- Include Dropzone JS -->
+    <script src="https://cdn.jsdelivr.net/npm/dropzone@5.7.1/dist/dropzone.js"></script>
+
     <!-- Animation and Carousel Libraries -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
