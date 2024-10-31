@@ -889,7 +889,7 @@ $profiles = [
                 <div class="profile-card">
                     <div class="img-div">
                     <img src="{{ url('/user-assets/model-images/' . $profile['img']) }}" class="img-fluid"
-                        alt="{{ $profile['name'] }}">
+                        alt="model-image">
                             </div>
                             <div class="cardbody">
                             <div class="card-code text-center">
