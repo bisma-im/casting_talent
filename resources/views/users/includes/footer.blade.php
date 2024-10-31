@@ -248,10 +248,10 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                    <div class="copytext">
-                        <p>© casttalents.com 2024. All rights reserved</p>
+            <div class="row mb-0 pb-0">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-0 pb-0">
+                    <div class="copytext d-flex justify-content-center align-items-center mb-0 pb-0">
+                        <p class="m-0 p-0">© casttalents.com 2024. All rights reserved</p>
                     </div>
                 </div>
             </div>

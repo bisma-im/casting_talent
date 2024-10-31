@@ -871,12 +871,12 @@ $timestamp = time();
 {{-- -------------------------------section 3-------------------------------- --}}
 @php
 $profiles = [
-['img' => 'model1.jpg', 'name' => 'Ivan Reynolds', 'number' => 'CTM-00132'],
-['img' => 'model2.jpg', 'name' => 'Adam Sandler', 'number' => 'CTM-80733'],
-['img' => 'model3.jpg', 'name' => 'Spartacus Bridget', 'number' => 'CTM-53734'],
-['img' => 'model4.jpg', 'name' => 'Karim Bashir', 'number' => 'CTM-38085'],
-['img' => 'model1.jpg', 'name' => 'Liam Kroos', 'number' => 'CTM-11234'],
-['img' => 'model2.jpg', 'name' => 'Noah Carter', 'number' => 'CTM-22345']
+['img' => 'model1.jpg', 'age' => '25', 'number' => 'CTM-00132', 'nationality' => 'Brazilian'],
+['img' => 'model2.jpg', 'age' => '30', 'number' => 'CTM-80733', 'nationality' => 'Finnish'],
+['img' => 'model3.jpg', 'age' => '27', 'number' => 'CTM-53734', 'nationality' => 'Egyptian'],
+['img' => 'model4.jpg', 'age' => '24', 'number' => 'CTM-38085', 'nationality' => 'Thai'],
+['img' => 'model1.jpg', 'age' => '22', 'number' => 'CTM-11234', 'nationality' => 'Brazilian'],
+['img' => 'model2.jpg', 'age' => '31', 'number' => 'CTM-22345', 'nationality' => 'Portuguese']
 ];
 @endphp
 <div class="carousel-container">
@@ -897,7 +897,7 @@ $profiles = [
                                 {{ $profile['number'] }}
                             </div>
                             <div class="card-info text-center">
-                                {{ $profile['name'] }}
+                                {{ $profile['age'] . ', ' . $profile['nationality']}}
                                 <!-- Insert age, nationality, etc., here -->
                             </div>
                         </div>
