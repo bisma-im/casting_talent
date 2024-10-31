@@ -13,6 +13,80 @@
 @endphp
 
     <style>
+        /* Thumbnail container */
+        #portfolioDropzone {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around; /* Adjusts the spacing around items */
+            align-items: flex-start; /* Aligns items to the start of the flex line */
+        }
+
+        /* Style for each preview thumbnail */
+        .dz-preview {
+            width: calc(33.333% - 10px); /* Adjusts the width to be a third minus margins */
+            margin: 5px;
+            height: 50px;
+            box-sizing: border-box;
+            position: relative;  /* Ensure positioning context for the absolute elements */
+            width: calc(33.333% - 10px);  /* As previously defined */
+            margin: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;  /* Optional, adds definition to previews */
+            overflow: hidden;
+        }
+
+        .dz-image img {
+            width: 100%; /* Ensures the image fills the thumbnail */
+            height: 100%; /* Maintains aspect ratio */
+            display: block;
+        }
+
+        /* Additional styling to ensure proper alignment and responsiveness */
+        @media (max-width: 800px) {
+            .dz-preview {
+                width: calc(50% - 10px); /* Two images per row on smaller screens */
+            }
+        }
+
+        @media (max-width: 500px) {
+            .dz-preview {
+                width: 100%; /* One image per row on very small screens */
+            }
+        }
+
+        /* Cross for deletion */
+        .dz-remove {
+            position: absolute;
+            top: 4px;  /* Adjust top position to make it visible */
+            right: 4px;  /* Adjust right position to place it in the corner */
+            z-index: 1000;  /* Ensure it is above other elements */
+            font-size: 16px;  /* Adjust the size of the text or icon */
+            cursor: pointer;
+            background-color: #FFFFFF;  /* Background to make it stand out */
+            border-radius: 50%;  /* Circular background */
+            padding: 2px 6px;
+        }
+
+        /* Progress bar */
+        .dz-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            height: 5px;
+        }
+
+        .dz-upload {
+            background-color: green;
+            background: green;
+            height: 100%;
+            width: 0%; /* Initial state, no progress */
+        }
+        .dz-success .dz-upload {
+            background-color: green;  // Change to green when upload is successful
+        }
+
         .jopfooter a {
             background: rgba(28, 120, 135, 1);
             padding: 12px 29px;
@@ -987,15 +1061,11 @@
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Visa Status</label>
-                                                                        <select class="form-select" name="hair_length"
-                                                                            aria-label="Default select example">
-                                                                            <option value="visit visa" selected>visit visa</option>
-                                                                            <option value="residence visa">residence visa</option>
-                                                                            <option value="golden visa">golden visa</option>
-                                                                          
-                                                                            {{-- <option value="visit"  {{ (isset($profileInfo) && $profileInfo->visa_status === 'visit') ? 'selected' : '' }}>Visit Visa</option>
+                                                                        <select class="form-select" name="visa_status"
+                                                                            aria-label="Default select example">                                                                          
+                                                                            <option value="visit"  {{ (isset($profileInfo) && $profileInfo->visa_status === 'visit') ? 'selected' : '' }}>Visit Visa</option>
                                                                             <option value="residence" {{ (isset($profileInfo) && $profileInfo->visa_status === 'residence') ? 'selected' : '' }}>Residence Visa</option>
-                                                                            <option value="golden" {{ (isset($profileInfo) && $profileInfo->visa_status === 'golden') ? 'selected' : '' }}>Golden Visa</option> --}}
+                                                                            <option value="golden" {{ (isset($profileInfo) && $profileInfo->visa_status === 'golden') ? 'selected' : '' }}>Golden Visa</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -1406,10 +1476,9 @@
                                                                             <input type="file" name="profile_pic"
                                                                                 id="upload-profile-picture" hidden
                                                                                 onchange="updateFileName('upload-profile-picture', 'profilePictureName')" />
-                                                                            <label class="uploadmain"
+                                                                            <label class="uploadmain text-center"
                                                                                 for="upload-profile-picture">
-                                                                                <img src="{{ url('user-assets') }}/images/upload_img_4.png"
-                                                                                    class="img-fluid" alt="img">
+                                                                                <i class="fa-light fa-image fa-4x m-2" style="color: #E8AF55;" aria-hidden="true"></i>
                                                                                 <h6 style="font-size: 14px;">Drag and Drop your profile</h6>
                                                                             </label>
                                                                         </div>
@@ -1417,30 +1486,19 @@
                                                                 </div>
 
                                                                 <!-- Photo Upload -->
-                                                                <div
-                                                                    class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
-                                                                    {{-- <div class="uploadimg">
+                                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
+                                                                    <div class="uploadimg">
                                                                         <h5>Upload Your Photos *</h5>
                                                                         <input type="text" id="profileValues"
                                                                             name="profile_photo_names"
                                                                             class="form-control" readonly>
                                                                         <div class="uploadbox">
-                                                                            <input type="file" name="profiles[]"
-                                                                                id="upload-file-1" hidden multiple
-                                                                                onchange="updateFileNames('upload-file-1', 'profileValues')" />
-                                                                            <label class="uploadmain" for="upload-file-1">
-                                                                                <img src="{{ url('user-assets') }}/images/upload_img_4.png"
-                                                                                    class="img-fluid" alt="img">
+                                                                            <div class="uploadmain text-center" for="upload-file-1" id="portfolioDropzone">
+                                                                                <i class="fa-light fa-images fa-4x m-2" style="color: #E8AF55;" aria-hidden="true"></i>
                                                                                 <h6 style="font-size: 14px;">Drag and Drop your images</h6>
-                                                                            </label>
+                                                                            </div>
                                                                         </div>
-                                                                    </div> --}}
-                                                                    <div class="uploadimg">
-                                                                        <h5>Upload Your Photos *</h5>
-                                                                        <div class="dropzone" id="photo-dropzone"></div>
-                                                                        <!-- Hidden input to store the photo names for server-side processing -->
-                                                                        <input type="hidden" name="profile_photo_names" id="profileValues" class="form-control" readonly>
-                                                                    </div>                                                               
+                                                                    </div>                                                     
                                                                 </div>
 
                                                                 <!-- Audio Upload -->
@@ -1511,16 +1569,45 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    </section>    
+    {{-- <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script> --}}
     <script type="text/javascript">
         $(document).ready(function() {
-            $('.ckeditor').ckeditor();
+            var existingSubscription = @json($existingSubscription);
+            let numFiles = 5;
+            // set number of files as per subscription
+            if(existingSubscription !== null){
+                numFiles= 20;
+            }
+
+            Dropzone.autoDiscover = false;
+            new Dropzone("#portfolioDropzone", {
+                url: "#",
+                autoProcessQueue: false, // Do not process files automatically
+                paramName: "portfolio", // The name that will be used to transfer the file
+                maxFiles: numFiles,
+                maxFilesize: 10, // MB
+                clickable: ['#portfolioDropzone .fa-images', '#portfolioDropzone h6', '#portfolioDropzone'],dictRemoveFile: 'Remove', // Customizing the text for remove link
+                dictRemoveFile: '×', 
+                previewTemplate: `
+                    <div class="dz-preview dz-file-preview">
+                        <div class="dz-image"><img data-dz-thumbnail /></div>
+                        <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+                        <a class="dz-remove" data-dz-remove>&times;</a>
+                    </div>`,
+                init: function() {
+                    this.on("addedfile", function(file) {
+                        if (this.files.length > this.options.maxFiles) {
+                            this.removeFile(file);
+                        }
+                    });
+                }
+            });
+            // $('.ckeditor').ckeditor();
         });
-        document.getElementById('uploadTrigger').addEventListener('click', function() {
-            document.getElementById('upload-file').click();
-        });
+        // document.getElementById('uploadTrigger').addEventListener('click', function() {
+        //     document.getElementById('upload-file').click();
+        // });
     </script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -1531,7 +1618,6 @@
                 var isChecked = $(this).prop('checked');
                 var serviceId = $(this).attr('id');
                 var servicePeriodId = serviceId + 'ServicePeriod';
-                console.log(isChecked, serviceId, servicePeriodId);
                 if (isChecked) {
                     $(this).parent().css('background-color', 'rgb(0 114 0 / 72%)');
                     $('#' + servicePeriodId).show();
@@ -1728,28 +1814,38 @@
     }
     
     $(document).ready(function() {
-    $('#profileDetails').submit(function(event) {
-        event.preventDefault(); // Prevent the default form submit
-        $.ajax({
-            url: '{{ route("model-info.post") }}',
-            type: 'POST',
-            data: $(this).serialize(), // Serializes the form's elements.
-            dataType: 'json', // Expecting JSON response
-            success: function(data) {
-                if(data.success) {
-                    $('#result').html('<div class="alert alert-success">' + data.success + '</div>');
-                    location.reload();
-                } else if(data.error) {
-                    $('#result').html('<div class="alert alert-danger">' + data.error + '</div>');
-                }
-            },
-            error: function(xhr, status, error) {
-                // Generic error message, but you might want to handle HTTP status codes differently
-                $('#result').html('<div class="alert alert-danger">Request failed: ' + xhr.responseText + '</div>');
+        $('#profileDetails').submit(function(event) {
+            event.preventDefault(); // Prevent the default form submit
+            var formData = new FormData(this);
+            const dropzoneElement = document.querySelector('#portfolioDropzone');
+            if (dropzoneElement.dropzone) {
+                const files = dropzoneElement.dropzone.files;
+                files.forEach((file) => {
+                    formData.append('portfolio[]', file, file.name);
+                });
             }
+            $.ajax({
+                url: '{{ route("model-info.post") }}',
+                type: 'POST',
+                data: formData, // Serializes the form's elements.
+                processData: false,  // Important: don't process data into a query string
+                contentType: false, 
+                dataType: 'json', // Expecting JSON response
+                success: function(data) {
+                    if(data.success) {
+                        $('#result').html('<div class="alert alert-success">' + data.success + '</div>');
+                        location.reload();
+                    } else if(data.error) {
+                        $('#result').html('<div class="alert alert-danger">' + data.error + '</div>');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Generic error message, but you might want to handle HTTP status codes differently
+                    $('#result').html('<div class="alert alert-danger">Request failed: ' + xhr.responseText + '</div>');
+                }
+            });
         });
     });
-});
 
     </script>
 

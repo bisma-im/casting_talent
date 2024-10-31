@@ -302,12 +302,12 @@ class QueryController extends Controller
     
     private function handleFileUploads($modelDetail, $request)
     {
-        if ($request->hasFile('profiles')) {
+        if ($request->hasFile('portfolio')) {
             $filePaths = array_map(function ($file) {
                 $fileName = time() . '_' . $file->getClientOriginalName();
                 $file->move(public_path('uploads/models/profiles/'), $fileName);
                 return $fileName;
-            }, $request->file('profiles'));
+            }, $request->file('portfolio'));
     
             $modelDetail->profile_images = json_encode($filePaths);
         }

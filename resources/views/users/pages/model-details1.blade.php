@@ -339,12 +339,10 @@
     }
 
     .tab-pane {
-        position: relative;
-    height: 100%;
-    overflow: hidden;
+        /* padding: 50px; */
         color: white;
         width: 100%;  /* Ensures tab pane takes full available width */
-        
+        overflow: hidden;
     }
     .video-tab {
         width: 100%; /* Forces each item div to take full width */
@@ -373,7 +371,6 @@
     .slider-track {
         display: flex;
         transition: transform 0.5s ease;
-        /* Smooth slide transition */
     }
 
     .carousel-control-prev,
@@ -394,6 +391,7 @@
     .carousel-control-next {
         right: 10px;
     }
+
     .profile-card {
         background: white;
         /* border-radius: 5px; */
@@ -570,87 +568,6 @@
     #videoCarousel .carousel-control-next span:hover {
         color: rgb(167, 162, 162);  // Change to your preferred hover color
     }
-/* Carousel container should occupy full width and height of the viewport */
-#audioCarousel {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden; /* Prevents overflow issues */
-}
-
-/* Carousel inner styling to occupy full width and height */
-.audio-carousel-inner {
-    width: 100%;
-    height: 100%;
-}
-
-/* Each carousel item for the audio slides */
-.audio-carousel-item {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-}
-
-/* Blurred background styling */
-.audio-blurred-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    filter: blur(10px);
-    z-index: -1;
-}
-
-/* Container to center the audio player */
-.audio-player-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding: 300px;
-}
-
-/* Style for the navigation buttons */
-.audio-carousel-control-prev,
-.audio-carousel-control-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    cursor: pointer;
-}
-
-/* Position specifically on the far left and far right */
-.audio-carousel-control-prev {
-    left: 10px; /* Adjust to move closer or further from the edge */
-}
-
-.audio-carousel-control-next {
-    right: 10px; /* Adjust to move closer or further from the edge */
-}
-
-/* Custom styling for the icons inside the buttons */
-.audio-carousel-control-prev-icon,
-.audio-carousel-control-next-icon {
-    background-color: transparent;
-    width: 20px;
-    height: 20px;
-    background-size: contain;
-}
-
-
 </style>
 
 <section class="innerpages">
@@ -828,7 +745,7 @@ $timestamp = time();
 </div>
 
 {{-- ------------------------------section 2------------------------ --}}
-<div class="container-fluid full-height mt-3 pt-3 my-section">
+<div class="container-fluid full-height m-0 pt-3 my-section">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="portfolio-tab" data-bs-toggle="tab" data-bs-target="#portfolio"
@@ -869,8 +786,8 @@ $timestamp = time();
                         style="background-image: url('{{ url('/user-assets/model-images/8.jpeg') }}');"></div>
                     <div class="slider-image m-0 p-0"
                         style="background-image: url('{{ url('/user-assets/model-images/9.jpeg') }}');"></div>
-                     <div class="slider-image m-0 p-0"
-                        style="background-image: url('{{ url('/user-assets/model-images/model4.jpg') }}');"></div> 
+                    {{-- <div class="slider-image"
+                        style="background-image: url('{{ url('/user-assets/model-images/model4.jpg') }}');"></div> --}}
                 </div>
             </div>
 
@@ -920,67 +837,11 @@ $timestamp = time();
         </div>
         
 
-<!-- Audio Tab -->
-<div class="tab-pane fade pt-3" id="audio" role="tabpanel" aria-labelledby="audio-tab">
-    <!-- Bootstrap Carousel for Audio Slides (manual navigation only) -->
-    <div id="audioCarousel" class="carousel slide">
-        <div class="carousel-inner audio-carousel-inner">
-
-            <!-- Slide 1 -->
-            <div class="carousel-item audio-carousel-item active">
-                <div class="audio-slide">
-                    <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
-                    <div class="audio-player-wrapper">
-                        <audio controls class="audio-player" style="width: 60%; max-width: 400px;">
-                            <source src="{{ url('/user-assets/model-images/xyz.mp3') }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="carousel-item audio-carousel-item">
-                <div class="audio-slide">
-                    <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
-                    <div class="audio-player-wrapper">
-                        <audio controls class="audio-player" style="width: 60%; max-width: 400px;">
-                            <source src="{{ url('/user-assets/model-images/xyz.mp3') }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="carousel-item audio-carousel-item">
-                <div class="audio-slide">
-                    <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
-                    <div class="audio-player-wrapper">
-                        <audio controls class="audio-player" style="width: 60%; max-width: 400px;">
-                            <source src="{{ url('/user-assets/model-images/xyz.mp3') }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                </div>
-            </div>
+        <!-- Audio Tab -->
+        <div class="tab-pane fade" id="audio" role="tabpanel" aria-labelledby="audio-tab">
+            <div class="background-image"
+                style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
         </div>
-
-        <!-- Carousel Controls -->
-        <a class="carousel-control-prev audio-carousel-control-prev" href="#audioCarousel" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next audio-carousel-control-next" href="#audioCarousel" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </a>
-    </div>
-</div>
-
-
-
-
     </div>
 </div>
 
@@ -1166,69 +1027,79 @@ $profiles = [
     });
 
 
-    document.addEventListener("DOMContentLoaded", function () {
-    const sliderTrack = document.getElementById("sliderTrack");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const slides = document.querySelectorAll(".slider-image");
+    document.addEventListener("DOMContentLoaded", function() {
+        const sliderTrack = document.getElementById('sliderTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        const slides = document.querySelectorAll('.slider-image');
+        const totalSlides = slides.length;
 
-    // Set up variables for slides and duplication for seamless looping
-    const totalSlides = slides.length;
-    const slideWidth = slides[0].clientWidth;
-    let currentSlide = 0;
-    let isTransitioning = false;
-
-    // Clone the first and last slide for seamless transition
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone = slides[totalSlides - 1].cloneNode(true);
-    sliderTrack.appendChild(firstClone); // Append first clone at end
-    sliderTrack.insertBefore(lastClone, slides[0]); // Insert last clone at start
-
-    // Adjust track's transform to make initial slide appear correctly
-    sliderTrack.style.transform = `translateX(-${slideWidth}px)`;
-
-    // Function to move to a specific slide index
-    function moveToSlide(index) {
-        sliderTrack.style.transition = "transform 0.3s ease"; // Smooth transition
-        sliderTrack.style.transform = `translateX(-${(index + 1) * slideWidth}px)`;
-        currentSlide = index;
-    }
-
-    // Next button functionality
-    nextBtn.addEventListener("click", function () {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentSlide++;
-        moveToSlide(currentSlide);
-    });
-
-    // Previous button functionality
-    prevBtn.addEventListener("click", function () {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentSlide--;
-        moveToSlide(currentSlide);
-    });
-
-    // Handle seamless transition on transition end
-    sliderTrack.addEventListener("transitionend", function () {
-        isTransitioning = false;
-        // Loop back to the first slide (without transition) when reaching the last clone
-        if (currentSlide === totalSlides) {
-            sliderTrack.style.transition = "none";
-            sliderTrack.style.transform = `translateX(-${slideWidth}px)`;
-            currentSlide = 0;
+        // Function to calculate the total offset to the current slide
+        function calculateOffset(slideIndex) {
+            let offset = 0;
+            for (let i = 0; i < slideIndex; i++) {
+                offset += slides[i].offsetWidth; // Accumulate widths of all previous slides
+                console.log(`Width of slide ${i}: ${slides[i].offsetWidth}`);  // Debugging log
+            }
+            return offset;
         }
-        // Loop to the last slide if reaching the first clone
-        if (currentSlide === -1) {
-            sliderTrack.style.transition = "none";
-            sliderTrack.style.transform = `translateX(-${totalSlides * slideWidth}px)`;
-            currentSlide = totalSlides - 1;
+
+        // Function to move to a specific slide
+        function moveToSlide(slideIndex) {
+            let offset = calculateOffset(slideIndex);
+            sliderTrack.style.transform = `translateX(-${offset}px)`;
+            console.log(`Moved to slide ${slideIndex}, Transform: translateX(-${offset}px)`);  // Debugging log
         }
+
+        // Next button functionality
+        nextBtn.addEventListener('click', function() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+            } else {
+                currentSlide = 0; // Reset to the first slide for looping
+                sliderTrack.style.transition = 'none'; // Remove transition for instant reset
+                moveToSlide(currentSlide);
+                requestAnimationFrame(() => { // Re-enable transition after painting
+                    sliderTrack.style.transition = '';
+                });
+                return;
+            }
+            moveToSlide(currentSlide);
+        });
+
+        // Previous button functionality
+        prevBtn.addEventListener('click', function() {
+            if (currentSlide > 0) {
+                currentSlide--;
+            } else {
+                currentSlide = totalSlides - 1;
+                moveToSlide(currentSlide); // Move directly to last slide
+                return;
+            }
+            moveToSlide(currentSlide);
+        });
+
+        let currentSlide = 0; // Initialize currentSlide after defining functions to avoid hoisting issues
+
+        // Ensure the portfolio tab is displayed and slider works correctly on initial page load
+        function initializeSlider() {
+            if (document.getElementById('portfolio').classList.contains('active')) {
+                moveToSlide(currentSlide); // Move to the current slide if the tab is active
+            }
+        }
+
+        // Trigger initialization on page load and tab switch events
+        initializeSlider();
+        document.getElementById('portfolio-tab').addEventListener('shown.bs.tab', function() {
+            initializeSlider();
+        });
+
+        // Adjust slide width dynamically on window resize (optional for responsive behavior)
+        window.addEventListener('resize', function() {
+            moveToSlide(currentSlide); // Adjust the slide position based on new sizes
+        });
     });
-});
-
-
 
 </script>
 <script>
