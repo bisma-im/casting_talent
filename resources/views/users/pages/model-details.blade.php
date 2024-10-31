@@ -428,11 +428,11 @@
         align-items: center;
     }
     .profile-card .img-div{
-        height: 90%;
+        height: 87%;
     }
     .cardbody {
         display: flex;
-        height: 10%;
+        height: 13%;
     }
     .card-code {
         flex: 1;

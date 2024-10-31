@@ -10,6 +10,7 @@ use App\Models\ModelDetail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\JobApplied;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -217,5 +218,24 @@ class ModelController extends Controller
         $membership->status = 1; // Set status (active/inactive etc. based on your logic)
         $membership->save(); // Save the data to the database
         return redirect()->back()->with('success', 'Payment successful.');
+    }
+
+    public function downloadImagesPdf(Request $request)
+    {
+        // Get the images array from the request or fetch from the backend as needed.
+        $images = [
+            '/user-assets/model-images/model1.jpg',
+            '/user-assets/model-images/model2.jpg',
+            '/user-assets/model-images/model3.jpg',
+            '/user-assets/model-images/model5.jpg'
+        ]; 
+
+        // Generate the PDF with the view and pass the images array to it.
+        $pdf = Pdf::loadView('users.pages.modeling.portfolio-pdf', compact('images'));
+
+        // Set high quality rendering options if available (depends on DomPDF settings).
+        $pdf->setPaper('a4');
+
+        return $pdf->download('portfolio.pdf');
     }
 }

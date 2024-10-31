@@ -85,6 +85,12 @@ Route::post('/reset-password', [AuthController::class, 'reset'])->name('reset.po
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout.get');
 
 
+Route::get('/pdf', [ModelController::class, 'downloadImagesPdf']);
+
+// Route::get('/pdf', function () {
+//     return view('users.pages.modeling.portfolio-pdf');
+// });
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     //admin auth
     Route::get('/login', [AdminAuthController::class, 'adminLoginPage'])->name('admin.login.get');
