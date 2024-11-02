@@ -227,15 +227,14 @@ class ModelController extends Controller
             '/user-assets/model-images/model1.jpg',
             '/user-assets/model-images/model2.jpg',
             '/user-assets/model-images/model3.jpg',
-            '/user-assets/model-images/model5.jpg'
+            '/user-assets/model-images/model4.jpg',
+            '/user-assets/model-images/model4.jpg'
         ]; 
 
         // Generate the PDF with the view and pass the images array to it.
-        $pdf = Pdf::loadView('users.pages.modeling.portfolio-pdf', compact('images'));
+        $pdf = PDF::loadView('users.pages.modeling.portfolio-pdf', compact('images'));
+        return $pdf->setPaper('a4', 'landscape')->download('portfolio.pdf');
 
-        // Set high quality rendering options if available (depends on DomPDF settings).
-        $pdf->setPaper('a4');
-
-        return $pdf->download('portfolio.pdf');
+        // return $pdf->download('portfolio.pdf');
     }
 }
