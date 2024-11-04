@@ -74,11 +74,11 @@
         /* Logo cell style */
         .logo-cell {
             width: 50px;
-            height: 50px;
+            /* height: 50px; */
         }
 
         .logo-cell img {
-            height: 70px;
+            height: 50px;
             display: block;
         }
 
