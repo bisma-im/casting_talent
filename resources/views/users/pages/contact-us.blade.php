@@ -760,20 +760,20 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                             <select id="countryDropdown" class="form-select" name="country" required>
-            <option value="" disabled selected>Country</option>
-        </select>
+                                                <option value="" disabled selected>Country</option>
+                                            </select>
 
-                    </div>
+                                            </div>
 
                                                 <div class="col-md-4">
                                                 <select id="stateDropdown" class="form-select" name="state" required disabled>
-            <option value="" disabled selected>State</option>
-        </select>
+                                                    <option value="" disabled selected>State</option>
+                                                </select>
                                                 </div>
                                                 <div class="col-md-4">
                                                 <select id="cityDropdown" class="form-select" name="city" required disabled>
-            <option value="" disabled selected>City</option>
-        </select>
+                                                    <option value="" disabled selected>City</option>
+                                                </select>
                                                 </div>
                                             </div>
                                         </div>

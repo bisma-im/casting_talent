@@ -1310,6 +1310,14 @@ section.contactussec:before {
     font-weight: 500;
     margin: 10px 0 10px;
 }
+.contact-list-language label {
+    font-family: "Poppins", sans-serif;
+    color: #000;
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: 500;
+    margin: 10px 0 10px;
+}
 .contactlist input {
     height: 40px !important;
     border: 1px solid #0000007a !important;

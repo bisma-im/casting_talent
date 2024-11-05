@@ -178,10 +178,11 @@
     .hair-dropdown-button {
         width: 100%;
         padding: 8px;
-        border: 1px solid #ccc;
+        border: 1px solid light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
         background-color: white;
         cursor: pointer;
         border-radius: 4px;
+        color: #75758B;
     }
 
     .hair-dropdown-content {
@@ -227,10 +228,11 @@
     .eye-dropdown-button {
         width: 100%;
         padding: 8px;
-        border: 1px solid #ccc;
+        border: 1px solid light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
         background-color: white;
         cursor: pointer;
         border-radius: 4px;
+        color: #75758B;
     }
 
     .eye-dropdown-content {
@@ -275,10 +277,11 @@
     .custom-language-dropdown-button {
         width: 100%;
         padding: 8px;
-        border: 1px solid #ccc;
+        border: 1px solid light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
         background-color: white;
         cursor: pointer;
         border-radius: 4px;
+        color: #75758B;
     }
 
     .custom-language-dropdown-content {
@@ -361,7 +364,7 @@
         /* Add padding to match select dropdowns */
         background-color: white;
         /* Set the background color to white */
-        border: 1px solid #ced4da;
+        border: 1px solid light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
         /* Match the border style of the select dropdown */
         border-radius: 4px;
         /* Add border-radius to match select box */
@@ -385,14 +388,16 @@
         position: absolute;
         background-color: white;
         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-
         z-index: 1;
-        width: 80%;
+        width: 100%;
         max-height: 300px;
         overflow-y: auto;
         border: 1px solid #ccc;
-        font-weight: bolder;
+        padding: 5px;
+    }
 
+    .dropdown-content.visible {
+        display: block;     /* Show dropdown */
     }
 
     .dropdown-btn:focus {
@@ -411,14 +416,15 @@
     .subcategory {
         display: none;
         margin-left: 20px;
-        font-weight: bold;
     }
 
-    /* Show subcategories when hovering over the main category */
-    .main-category:hover .subcategory {
-        display: block;
+    .category-checkbox {
+        margin-right: 8px; /* Add margin to the right of checkboxes */
     }
 
+    .subcategory.visible {
+        display: block;     /* Show subcategory */
+    }
     /* Style the labels */
     label {
         display: block;
@@ -442,197 +448,21 @@
         background-color: #fff;
 
     }
-
-    .multi-select .multi-select-header {
-        border: 1px solid #dee2e6;
-        padding: 7px 30px 7px 12px;
-        overflow: hidden;
-        gap: 7px;
-        min-height: 45px;
-    }
-
-    .multi-select .multi-select-header::after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        right: 15px;
-        transform: translateY(-50%);
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23949ba3' viewBox='0 0 16 16'%3E%3Cpath d='M8 13.1l-8-8 2.1-2.2 5.9 5.9 5.9-5.9 2.1 2.2z'/%3E%3C/svg%3E");
-        height: 12px;
-        width: 12px;
-    }
-
-    .multi-select .multi-select-header.multi-select-header-active {
-        border-color: #c1c9d0;
-    }
-
-    .multi-select .multi-select-header.multi-select-header-active::after {
-        transform: translateY(-50%) rotate(180deg);
-    }
-
-    .multi-select .multi-select-header.multi-select-header-active+.multi-select-options {
-        display: flex;
-    }
-
-    .multi-select .multi-select-header .multi-select-header-placeholder {
-        color: #65727e;
-    }
-
-    .multi-select .multi-select-header .multi-select-header-option {
-        display: inline-flex;
-        align-items: center;
-        background-color: #fff;
-        font-size: 14px;
-        padding: 3px 8px;
-        border-radius: 5px;
-    }
-
-    .multi-select .multi-select-header .multi-select-header-max {
-        font-size: 14px;
-        color: #65727e;
-    }
-
-    .multi-select .multi-select-options {
-        display: none;
-        box-sizing: border-box;
-        flex-flow: wrap;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        z-index: 999;
-        margin-top: 5px;
-        padding: 5px;
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        max-height: 200px;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
-    .multi-select .multi-select-options::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    .multi-select .multi-select-options::-webkit-scrollbar-track {
-        background: #f0f1f3;
-    }
-
-    .multi-select .multi-select-options::-webkit-scrollbar-thumb {
-        background: #cdcfd1;
-    }
-
-    .multi-select .multi-select-options::-webkit-scrollbar-thumb:hover {
-        background: #b2b6b9;
-    }
-
-    .multi-select .multi-select-options .multi-select-option,
-    .multi-select .multi-select-options .multi-select-all {
-        padding: 4px 12px;
-        height: 42px;
-    }
-
-    .multi-select .multi-select-options .multi-select-option .multi-select-option-radio,
-    .multi-select .multi-select-options .multi-select-all .multi-select-option-radio {
-        margin-right: 14px;
-        height: 16px;
-        width: 16px;
-        border: 1px solid #ced4da;
-        border-radius: 4px;
-    }
-
-    .multi-select .multi-select-options .multi-select-option .multi-select-option-text,
-    .multi-select .multi-select-options .multi-select-all .multi-select-option-text {
-        box-sizing: border-box;
-        flex: 1;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        color: inherit;
-        font-size: 16px;
-        line-height: 20px;
-    }
-
-    .multi-select .multi-select-options .multi-select-option.multi-select-selected .multi-select-option-radio,
-    .multi-select .multi-select-options .multi-select-all.multi-select-selected .multi-select-option-radio {
-        border-color: #00789c;
-        background-color: #00789c;
-    }
-
-    .multi-select .multi-select-options .multi-select-option.multi-select-selected .multi-select-option-radio::after,
-    .multi-select .multi-select-options .multi-select-all.multi-select-selected .multi-select-option-radio::after {
-        content: "";
-        display: block;
-        width: 3px;
-        height: 7px;
-        margin: 0.12em 0 0 0.27em;
-        border: solid #fff;
-        border-width: 0 0.15em 0.15em 0;
-        transform: rotate(45deg);
-    }
-
-    .multi-select .multi-select-options .multi-select-option.multi-select-selected .multi-select-option-text,
-    .multi-select .multi-select-options .multi-select-all.multi-select-selected .multi-select-option-text {
-        color: #00789c;
-    }
-
-    .multi-select .multi-select-options .multi-select-option:hover,
-    .multi-select .multi-select-options .multi-select-option:active,
-    .multi-select .multi-select-options .multi-select-all:hover,
-    .multi-select .multi-select-options .multi-select-all:active {
-        background-color: #fff;
-    }
-
-    .multi-select .multi-select-options .multi-select-all {
-        border-bottom: 1px solid #f1f3f5;
-        border-radius: 0;
-    }
-
-    .multi-select .multi-select-options .multi-select-search {
-        padding: 7px 10px;
-        border: 1px solid #dee2e6;
-        border-radius: 5px;
-        margin: 10px 10px 5px 10px;
-        width: 100%;
-        outline: none;
-        font-size: 16px;
-    }
-
-    .multi-select .multi-select-options .multi-select-search::placeholder {
-        color: #b2b5b9;
-    }
-
-    .multi-select .multi-select-header,
-    .multi-select .multi-select-option,
-    .multi-select .multi-select-all {
-        display: flex;
-        flex-wrap: wrap;
-        box-sizing: border-box;
-        align-items: center;
-        border-radius: 5px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        font-size: 16px;
-        color: #212529;
-    }
   /* Unique Dropdown styling */
   .dress-dropdown {
         position: relative;
         display: inline-block;
-        width: 92%;
+        width: 100%;
     }
 
     .dress-dropdown-button {
-        width: 110%;
+        width: 100%;
         padding: 10px;
-        border: 1px solid #ccc;
+        border: 1px solid light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
         background-color: white;
         cursor: pointer;
         border-radius: 4px;
+        color: #75758B;
     }
 
     .dress-dropdown-content {
@@ -696,409 +526,353 @@
             <form method="GET">
                 <div class="row mb-3 ">
                     <div class="col-md-4 mb-2">
-                    <select name="ethnicity" class="h-100 w-100">
-                        <option value="" disabled selected>Select Ethnicity</option>
-                        <option value="Arab">Arab</option>
-                        <option value="Asian">Asian</option>
-                        <option value="Black">Black</option>
-                        <option value="Mediterranean">Mediterranean</option>
-                        <option value="Multi-ethnic">Multi-ethnic</option>
-                        <option value="Other">Other</option>
-                        <option value="White">White</option>
-                        <!-- Add ethnicity options here -->
-                    </select>
+                        <select name="ethnicity" class="h-100 w-100">
+                            <option value="" disabled selected>Select Ethnicity</option>
+                            <option value="Arab">Arab</option>
+                            <option value="Asian">Asian</option>
+                            <option value="Black">Black</option>
+                            <option value="Mediterranean">Mediterranean</option>
+                            <option value="Multi-ethnic">Multi-ethnic</option>
+                            <option value="Other">Other</option>
+                            <option value="White">White</option>
+                            <!-- Add ethnicity options here -->
+                        </select>
                     </div>
                     <div class="col-md-4 mb-2">
-    
-                    <select name="nationality" class="h-100 w-100">
-                        <option value="" disabled selected>Select Nationality</option>
-                        <option value="Afghanistan">Afghanistan</option>
-                        <option value="Albania">Albania</option>
-                        <option value="Algeria">Algeria</option>
-                        <option value="Andorra">Andorra</option>
-                        <option value="Angola">Angola</option>
-                        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Armenia">Armenia</option>
-                        <option value="Australia">Australia</option>
-                        <option value="Austria">Austria</option>
-                        <option value="Azerbaijan">Azerbaijan</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Bahrain">Bahrain</option>
-                        <option value="Bangladesh">Bangladesh</option>
-                        <option value="Barbados">Barbados</option>
-                        <option value="Belarus">Belarus</option>
-                        <option value="Belgium">Belgium</option>
-                        <option value="Belize">Belize</option>
-                        <option value="Benin">Benin</option>
-                        <option value="Bhutan">Bhutan</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                        <option value="Botswana">Botswana</option>
-                        <option value="Brazil">Brazil</option>
-                        <option value="Brunei">Brunei</option>
-                        <option value="Bulgaria">Bulgaria</option>
-                        <option value="Burkina Faso">Burkina Faso</option>
-                        <option value="Burundi">Burundi</option>
-                        <option value="Cabo Verde">Cabo Verde</option>
-                        <option value="Cambodia">Cambodia</option>
-                        <option value="Cameroon">Cameroon</option>
-                        <option value="Canada">Canada</option>
-                        <option value="Central African Republic">Central African Republic
-                        </option>
-                        <option value="Chad">Chad</option>
-                        <option value="Chile">Chile</option>
-                        <option value="China">China</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Comoros">Comoros</option>
-                        <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)
-                        </option>
-                        <option value="Congo (Congo-Kinshasa)">Congo (Congo-Kinshasa)</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="Croatia">Croatia</option>
-                        <option value="Cuba">Cuba</option>
-                        <option value="Cyprus">Cyprus</option>
-                        <option value="Czech Republic">Czech Republic</option>
-                        <option value="Denmark">Denmark</option>
-                        <option value="Djibouti">Djibouti</option>
-                        <option value="Dominica">Dominica</option>
-                        <option value="Dominican Republic">Dominican Republic</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="Egypt">Egypt</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Equatorial Guinea">Equatorial Guinea</option>
-                        <option value="Eritrea">Eritrea</option>
-                        <option value="Estonia">Estonia</option>
-                        <option value="Eswatini (formerly Swaziland)">Eswatini (formerly
-                            Swaziland)</option>
-                        <option value="Ethiopia">Ethiopia</option>
-                        <option value="Fiji">Fiji</option>
-                        <option value="Finland">Finland</option>
-                        <option value="France">France</option>
-                        <option value="Gabon">Gabon</option>
-                        <option value="Gambia">Gambia</option>
-                        <option value="Georgia">Georgia</option>
-                        <option value="Germany">Germany</option>
-                        <option value="Ghana">Ghana</option>
-                        <option value="Greece">Greece</option>
-                        <option value="Grenada">Grenada</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Guinea">Guinea</option>
-                        <option value="Guinea-Bissau">Guinea-Bissau</option>
-                        <option value="Guyana">Guyana</option>
-                        <option value="Haiti">Haiti</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="Hungary">Hungary</option>
-                        <option value="Iceland">Iceland</option>
-                        <option value="India">India</option>
-                        <option value="Indonesia">Indonesia</option>
-                        <option value="Iran">Iran</option>
-                        <option value="Iraq">Iraq</option>
-                        <option value="Ireland">Ireland</option>
-                        <option value="Israel">Israel</option>
-                        <option value="Italy">Italy</option>
-                        <option value="Jamaica">Jamaica</option>
-                        <option value="Japan">Japan</option>
-                        <option value="Jordan">Jordan</option>
-                        <option value="Kazakhstan">Kazakhstan</option>
-                        <option value="Kenya">Kenya</option>
-                        <option value="Kiribati">Kiribati</option>
-                        <option value="Kuwait">Kuwait</option>
-                        <option value="Kyrgyzstan">Kyrgyzstan</option>
-                        <option value="Laos">Laos</option>
-                        <option value="Latvia">Latvia</option>
-                        <option value="Lebanon">Lebanon</option>
-                        <option value="Lesotho">Lesotho</option>
-                        <option value="Liberia">Liberia</option>
-                        <option value="Libya">Libya</option>
-                        <option value="Liechtenstein">Liechtenstein</option>
-                        <option value="Lithuania">Lithuania</option>
-                        <option value="Luxembourg">Luxembourg</option>
-                        <option value="Madagascar">Madagascar</option>
-                        <option value="Malawi">Malawi</option>
-                        <option value="Malaysia">Malaysia</option>
-                        <option value="Maldives">Maldives</option>
-                        <option value="Mali">Mali</option>
-                        <option value="Malta">Malta</option>
-                        <option value="Marshall Islands">Marshall Islands</option>
-                        <option value="Mauritania">Mauritania</option>
-                        <option value="Mauritius">Mauritius</option>
-                        <option value="Mexico">Mexico</option>
-                        <option value="Micronesia">Micronesia</option>
-                        <option value="Moldova">Moldova</option>
-                        <option value="Monaco">Monaco</option>
-                        <option value="Mongolia">Mongolia</option>
-                        <option value="Montenegro">Montenegro</option>
-                        <option value="Morocco">Morocco</option>
-                        <option value="Mozambique">Mozambique</option>
-                        <option value="Myanmar (formerly Burma)">Myanmar (formerly Burma)
-                        </option>
-                        <option value="Namibia">Namibia</option>
-                        <option value="Nauru">Nauru</option>
-                        <option value="Nepal">Nepal</option>
-                        <option value="Netherlands">Netherlands</option>
-                        <option value="New Zealand">New Zealand</option>
-                        <option value="Nicaragua">Nicaragua</option>
-                        <option value="Niger">Niger</option>
-                        <option value="Nigeria">Nigeria</option>
-                        <option value="North Korea">North Korea</option>
-                        <option value="North Macedonia">North Macedonia</option>
-                        <option value="Norway">Norway</option>
-                        <option value="Oman">Oman</option>
-                        <option value="Pakistan">Pakistan</option>
-                        <option value="Palau">Palau</option>
-                        <option value="Panama">Panama</option>
-                        <option value="Papua New Guinea">Papua New Guinea</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Peru">Peru</option>
-                        <option value="Philippines">Philippines</option>
-                        <option value="Poland">Poland</option>
-                        <option value="Portugal">Portugal</option>
-                        <option value="Qatar">Qatar</option>
-                        <option value="Romania">Romania</option>
-                        <option value="Russia">Russia</option>
-                        <option value="Rwanda">Rwanda</option>
-                        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-                        <option value="Saint Lucia">Saint Lucia</option>
-                        <option value="Saint Vincent and the Grenadines">Saint Vincent and the
-                            Grenadines</option>
-                        <option value="Samoa">Samoa</option>
-                        <option value="San Marino">San Marino</option>
-                        <option value="Sao Tome and Principe">Sao Tome and Principe</option>
-                        <option value="Saudi Arabia">Saudi Arabia</option>
-                        <option value="Senegal">Senegal</option>
-                        <option value="Serbia">Serbia</option>
-                        <option value="Seychelles">Seychelles</option>
-                        <option value="Sierra Leone">Sierra Leone</option>
-                        <option value="Singapore">Singapore</option>
-                        <option value="Slovakia">Slovakia</option>
-                        <option value="Slovenia">Slovenia</option>
-                        <option value="Solomon Islands">Solomon Islands</option>
-                        <option value="Somalia">Somalia</option>
-                        <option value="South Africa">South Africa</option>
-                        <option value="South Korea">South Korea</option>
-                        <option value="South Sudan">South Sudan</option>
-                        <option value="Spain">Spain</option>
-                        <option value="Sri Lanka">Sri Lanka</option>
-                        <option value="Sudan">Sudan</option>
-                        <option value="Suriname">Suriname</option>
-                        <option value="Sweden">Sweden</option>
-                        <option value="Switzerland">Switzerland</option>
-                        <option value="Syria">Syria</option>
-                        <option value="Taiwan">Taiwan</option>
-                        <option value="Tajikistan">Tajikistan</option>
-                        <option value="Tanzania">Tanzania</option>
-                        <option value="Thailand">Thailand</option>
-                        <option value="Timor-Leste">Timor-Leste</option>
-                        <option value="Togo">Togo</option>
-                        <option value="Tonga">Tonga</option>
-                        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                        <option value="Tunisia">Tunisia</option>
-                        <option value="Turkey">Turkey</option>
-                        <option value="Turkmenistan">Turkmenistan</option>
-                        <option value="Tuvalu">Tuvalu</option>
-                        <option value="Uganda">Uganda</option>
-                        <option value="Ukraine">Ukraine</option>
-                        <option value="United Arab Emirates">United Arab Emirates</option>
-                        <option value="United Kingdom">United Kingdom</option>
-                        <option value="United States">United States</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Uzbekistan">Uzbekistan</option>
-                        <option value="Vanuatu">Vanuatu</option>
-                        <option value="Vatican City">Vatican City</option>
-                        <option value="Venezuela">Venezuela</option>
-                        <option value="Vietnam">Vietnam</option>
-                        <option value="Yemen">Yemen</option>
-                        <option value="Zambia">Zambia</option>
-                        <option value="Zimbabwe">Zimbabwe</option>
-                    </select>
+                        <select name="nationality" class="h-100 w-100">
+                            <option value="" disabled selected>Select Nationality</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Belize">Belize</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Bhutan">Bhutan</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                            <option value="Botswana">Botswana</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Brunei">Brunei</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Burundi">Burundi</option>
+                            <option value="Cabo Verde">Cabo Verde</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Cameroon">Cameroon</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Central African Republic">Central African Republic
+                            </option>
+                            <option value="Chad">Chad</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Comoros">Comoros</option>
+                            <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)
+                            </option>
+                            <option value="Congo (Congo-Kinshasa)">Congo (Congo-Kinshasa)</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Djibouti">Djibouti</option>
+                            <option value="Dominica">Dominica</option>
+                            <option value="Dominican Republic">Dominican Republic</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Equatorial Guinea">Equatorial Guinea</option>
+                            <option value="Eritrea">Eritrea</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Eswatini (formerly Swaziland)">Eswatini (formerly
+                                Swaziland)</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="Fiji">Fiji</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="Gabon">Gabon</option>
+                            <option value="Gambia">Gambia</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Grenada">Grenada</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Guinea">Guinea</option>
+                            <option value="Guinea-Bissau">Guinea-Bissau</option>
+                            <option value="Guyana">Guyana</option>
+                            <option value="Haiti">Haiti</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Iran">Iran</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Kiribati">Kiribati</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Kyrgyzstan">Kyrgyzstan</option>
+                            <option value="Laos">Laos</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Lebanon">Lebanon</option>
+                            <option value="Lesotho">Lesotho</option>
+                            <option value="Liberia">Liberia</option>
+                            <option value="Libya">Libya</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Madagascar">Madagascar</option>
+                            <option value="Malawi">Malawi</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Maldives">Maldives</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Marshall Islands">Marshall Islands</option>
+                            <option value="Mauritania">Mauritania</option>
+                            <option value="Mauritius">Mauritius</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Micronesia">Micronesia</option>
+                            <option value="Moldova">Moldova</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Mongolia">Mongolia</option>
+                            <option value="Montenegro">Montenegro</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Mozambique">Mozambique</option>
+                            <option value="Myanmar (formerly Burma)">Myanmar (formerly Burma)
+                            </option>
+                            <option value="Namibia">Namibia</option>
+                            <option value="Nauru">Nauru</option>
+                            <option value="Nepal">Nepal</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Nicaragua">Nicaragua</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="North Korea">North Korea</option>
+                            <option value="North Macedonia">North Macedonia</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Oman">Oman</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Palau">Palau</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Papua New Guinea">Papua New Guinea</option>
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Philippines">Philippines</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Rwanda">Rwanda</option>
+                            <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                            <option value="Saint Lucia">Saint Lucia</option>
+                            <option value="Saint Vincent and the Grenadines">Saint Vincent and the
+                                Grenadines</option>
+                            <option value="Samoa">Samoa</option>
+                            <option value="San Marino">San Marino</option>
+                            <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Serbia">Serbia</option>
+                            <option value="Seychelles">Seychelles</option>
+                            <option value="Sierra Leone">Sierra Leone</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Solomon Islands">Solomon Islands</option>
+                            <option value="Somalia">Somalia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="South Korea">South Korea</option>
+                            <option value="South Sudan">South Sudan</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="Sudan">Sudan</option>
+                            <option value="Suriname">Suriname</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Syria">Syria</option>
+                            <option value="Taiwan">Taiwan</option>
+                            <option value="Tajikistan">Tajikistan</option>
+                            <option value="Tanzania">Tanzania</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Timor-Leste">Timor-Leste</option>
+                            <option value="Togo">Togo</option>
+                            <option value="Tonga">Tonga</option>
+                            <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                            <option value="Tunisia">Tunisia</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Turkmenistan">Turkmenistan</option>
+                            <option value="Tuvalu">Tuvalu</option>
+                            <option value="Uganda">Uganda</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="Uruguay">Uruguay</option>
+                            <option value="Uzbekistan">Uzbekistan</option>
+                            <option value="Vanuatu">Vanuatu</option>
+                            <option value="Vatican City">Vatican City</option>
+                            <option value="Venezuela">Venezuela</option>
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Yemen">Yemen</option>
+                            <option value="Zambia">Zambia</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
+                        </select>
                     </div>
                     <div class="col-md-4 mb-2" class="h-100 w-100">
-                    <div class="dropdown">
-                        <button onclick="toggleDropdown(event)" class="dropdown-btn text-left">Select
-                            Categories</button>
-                        <div id="dropdownContent" class="dropdown-content">
-                            <!-- Checkboxes will be populated here by JavaScript -->
+                        <div class="dropdown">
+                            <button onclick="toggleDropdown(event)" class="dropdown-btn text-left" id="categoryButton">Select
+                                Categories</button>
+                            <div id="dropdownContent" class="dropdown-content">
+                                <!-- Checkboxes will be populated here by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    <p id="selectedCategories" style="margin-top: 10px; font-weight: bold; display: none;">
+                        Selected Categories: None
+                    </p>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4 mb-2">
+                        <select name="age " class="h-100 w-100">
+                            <option value="" disabled selected>Select Age</option>
+                            <option value="newborn">New Born</option>
+                            <option value="1-3">1-3</option>
+                            <option value="4-6">4-6</option>
+                            <option value="7-10">7-10</option>
+                            <option value="11-15">11-15</option>
+                            <option value="16-19">16-19</option>
+                            <option value="20-25">20-25</option>
+                            <option value="26-30">26-30</option>
+                            <option value="31-35">31-35</option>
+                            <option value="36-40">36-40</option>
+                            <option value="41-46">41-46</option>
+                            <option value="47-50">47-50</option>
+                            <option value="50+">50+</option>
+                            <!-- Add age options here -->
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-2" >
+                        <select name="height " class="h-100 w-100">
+                            <option value="" disabled selected>Select Height (cm)</option>
+                            <option value="140-149">140 - 149</option>
+                            <option value="150-159">150 - 159</option>
+                            <option value="160-169">160 - 169</option>
+                            <option value="170-179">170 - 179</option>
+                            <option value="180-189">180 - 189</option>
+                            <option value="190-199">190 - 199</option>
+                            <option value="200+">200 and above</option>
+                            <!-- Add height options here -->
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-2" >
+                        <div class="contact-list-dress-size">
+                            <div class="dress-dropdown" id="dressDropdown">
+                                <div class="dress-dropdown-button" id="dressDropdownButton">-- Select Dress Sizes --</div>
+                                    <div class="dress-dropdown-content" id="dressDropdownContent">
+                                        <label><input type="checkbox" value="XXS"> XXS</label>
+                                        <label><input type="checkbox" value="XS"> XS</label>
+                                        <label><input type="checkbox" value="S"> S</label>
+                                        <label><input type="checkbox" value="M"> M</label>
+                                        <label><input type="checkbox" value="L"> L</label>
+                                        <label><input type="checkbox" value="XL"> XL</label>
+                                        <label><input type="checkbox" value="XXL"> XXL</label>
+                                        <label><input type="checkbox" value="3XL"> 3XL</label>
+                                        <label><input type="checkbox" value="4XL"> 4XL</label>
+                                        <label><input type="checkbox" value="5XL"> 5XL</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                <div class="row">
+                    <!-- Hair Colors Dropdown -->
+                    <div class="col-md-4 mb-2">
+                        <div class="contact-list-hair h-100 w-100">
+                            <div class="hair-dropdown" id="hairDropdown">
+                                <div class="hair-dropdown-button" id="hairDropdownButton">-- Select Hair Colors --</div>
+                                <div class="hair-dropdown-content" id="hairDropdownContent">
+                                    <label><input type="checkbox" value="Auburn"> Auburn</label>
+                                    <label><input type="checkbox" value="Black"> Black</label>
+                                    <label><input type="checkbox" value="Blonde"> Blonde</label>
+                                    <label><input type="checkbox" value="Brown"> Brown</label>
+                                    <label><input type="checkbox" value="Brown with Blonde Streaks"> Brown with Blonde Streaks</label>
+                                    <label><input type="checkbox" value="Dark Blonde"> Dark Blonde</label>
+                                    <label><input type="checkbox" value="Dark Brown"> Dark Brown</label>
+                                    <label><input type="checkbox" value="Light Brown"> Light Brown</label>
+                                    <label><input type="checkbox" value="Red"> Red</label>
+                                    <label><input type="checkbox" value="Red/Orange/Brown"> Red/Orange/Brown</label>
+                                    <label><input type="checkbox" value="Silver"> Silver</label>
+                                    <label><input type="checkbox" value="Green"> Green</label>
+                                    <label><input type="checkbox" value="Strawberry Blonde"> Strawberry Blonde</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                </div>
-                <p id="selectedCategories" style="margin-top: 10px; font-weight: bold; display: none;">
-                    Selected Categories: None
-                </p>
-                    </div>
-               
-                   
-
-                <div class="row mb-3">
+                    <!-- Eye Colors Dropdown -->
                     <div class="col-md-4 mb-2">
-                    <select name="age " class="h-100 w-100">
-                        <option value="" disabled selected>Select Age</option>
-                        <option value="newborn">New Born</option>
-                        <option value="1-3">1-3</option>
-                        <option value="4-6">4-6</option>
-                        <option value="7-10">7-10</option>
-                        <option value="11-15">11-15</option>
-                        <option value="16-19">16-19</option>
-                        <option value="20-25">20-25</option>
-                        <option value="26-30">26-30</option>
-                        <option value="31-35">31-35</option>
-                        <option value="36-40">36-40</option>
-                        <option value="41-46">41-46</option>
-                        <option value="47-50">47-50</option>
-                        <option value="50+">50+</option>
-                        <!-- Add age options here -->
-                    </select>
-                    </div>
-                    <div class="col-md-4 mb-2" >
-                    <select name="height " class="h-100 w-100">
-                        <option value="" disabled selected>Select Height (cm)</option>
-                        <option value="140-149">140 - 149</option>
-                        <option value="150-159">150 - 159</option>
-                        <option value="160-169">160 - 169</option>
-                        <option value="170-179">170 - 179</option>
-                        <option value="180-189">180 - 189</option>
-                        <option value="190-199">190 - 199</option>
-                        <option value="200+">200 and above</option>
-                        <!-- Add height options here -->
-                    </select>
-                    </div>
-                    <div class="col-md-4 mb-2" >
-                    <div class="contact-list-dress-size">
-    <div class="dress-dropdown" id="dressDropdown">
-        <div class="dress-dropdown-button" id="dressDropdownButton">-- Select Dress Sizes --</div>
-        <div class="dress-dropdown-content" id="dressDropdownContent">
-            <label><input type="checkbox" value="XXS"> XXS</label>
-            <label><input type="checkbox" value="XS"> XS</label>
-            <label><input type="checkbox" value="S"> S</label>
-            <label><input type="checkbox" value="M"> M</label>
-            <label><input type="checkbox" value="L"> L</label>
-            <label><input type="checkbox" value="XL"> XL</label>
-            <label><input type="checkbox" value="XXL"> XXL</label>
-            <label><input type="checkbox" value="3XL"> 3XL</label>
-            <label><input type="checkbox" value="4XL"> 4XL</label>
-            <label><input type="checkbox" value="5XL"> 5XL</label>
-        </div>
-    </div>
-</div>
+                        <div class="contact-list-eye h-100 w-100">
+                            <div class="eye-dropdown" id="eyeDropdown">
+                                <div class="eye-dropdown-button" id="eyeDropdownButton">-- Select Eye Colors --</div>
+                                <div class="eye-dropdown-content" id="eyeDropdownContent">
+                                    <label><input type="checkbox" value="Blue/Grey"> Blue/Grey</label>
+                                    <label><input type="checkbox" value="Brown"> Brown</label>
+                                    <label><input type="checkbox" value="Dark Brown"> Dark Brown</label>
+                                    <label><input type="checkbox" value="Green"> Green</label>
+                                    <label><input type="checkbox" value="Green/Grey"> Green/Grey</label>
+                                    <label><input type="checkbox" value="Green/Hazel"> Green/Hazel</label>
+                                    <label><input type="checkbox" value="Hazel"> Hazel</label>
+                                    <label><input type="checkbox" value="Blue"> Blue</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                  
-                  
-                   
+                    <!-- Languages Dropdown -->
+                    <div class="col-md-4 mb-2">
+                        <div class="h-100 w-100">
+                            <div class="custom-language-dropdown" id="customLanguageDropdown">
+                                <div class="custom-language-dropdown-button" id="customLanguageDropdownButton">-- Select Languages --</div>
+                                <div class="custom-language-dropdown-content" id="customLanguageDropdownContent">
+                                    <!-- Dynamically generate language options -->
+                                    @foreach ($languages as $language)
+                                        <label><input type="checkbox" value="{{ $language['value'] }}"> {{ $language['label'] }}</label>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-    <!-- Hair Colors Dropdown -->
-    <div class="col-md-4 mb-2">
-        <div class="contact-list-hair h-100 w-100">
-            <div class="hair-dropdown" id="hairDropdown">
-                <div class="hair-dropdown-button" id="hairDropdownButton">-- Select Hair Colors --</div>
-                <div class="hair-dropdown-content" id="hairDropdownContent">
-                    <label><input type="checkbox" value="Auburn"> Auburn</label>
-                    <label><input type="checkbox" value="Black"> Black</label>
-                    <label><input type="checkbox" value="Blonde"> Blonde</label>
-                    <label><input type="checkbox" value="Brown"> Brown</label>
-                    <label><input type="checkbox" value="Brown with Blonde Streaks"> Brown with Blonde Streaks</label>
-                    <label><input type="checkbox" value="Dark Blonde"> Dark Blonde</label>
-                    <label><input type="checkbox" value="Dark Brown"> Dark Brown</label>
-                    <label><input type="checkbox" value="Light Brown"> Light Brown</label>
-                    <label><input type="checkbox" value="Red"> Red</label>
-                    <label><input type="checkbox" value="Red/Orange/Brown"> Red/Orange/Brown</label>
-                    <label><input type="checkbox" value="Silver"> Silver</label>
-                    <label><input type="checkbox" value="Green"> Green</label>
-                    <label><input type="checkbox" value="Strawberry Blonde"> Strawberry Blonde</label>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Eye Colors Dropdown -->
-    <div class="col-md-4 mb-2">
-        <div class="contact-list-eye h-100 w-100">
-            <div class="eye-dropdown" id="eyeDropdown">
-                <div class="eye-dropdown-button" id="eyeDropdownButton">-- Select Eye Colors --</div>
-                <div class="eye-dropdown-content" id="eyeDropdownContent">
-                    <label><input type="checkbox" value="Blue/Grey"> Blue/Grey</label>
-                    <label><input type="checkbox" value="Brown"> Brown</label>
-                    <label><input type="checkbox" value="Dark Brown"> Dark Brown</label>
-                    <label><input type="checkbox" value="Green"> Green</label>
-                    <label><input type="checkbox" value="Green/Grey"> Green/Grey</label>
-                    <label><input type="checkbox" value="Green/Hazel"> Green/Hazel</label>
-                    <label><input type="checkbox" value="Hazel"> Hazel</label>
-                    <label><input type="checkbox" value="Blue"> Blue</label>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Languages Dropdown -->
-    <div class="col-md-4 mb-2">
-        <div class="contact-list-language h-100 w-100">
-            <div class="custom-language-dropdown" id="customLanguageDropdown">
-                <div class="custom-language-dropdown-button" id="customLanguageDropdownButton">-- Select Languages --</div>
-                <div class="custom-language-dropdown-content" id="customLanguageDropdownContent">
-                    <!-- Dynamically generate language options -->
-                    @foreach ($languages as $language)
-                        <label><input type="checkbox" value="{{ $language['value'] }}"> {{ $language['label'] }}</label>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-                  
-                    
-                  
-            
                 <div class="row">
                     <button type="submit">Filter</button>
                 </div>
             </form>
     </div>
 </div>
-
-
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">-->
-<!--            <div class="featurelist">-->
-<!--                    <ul>-->
-<!--                        <li><a href="{{ route('featured-models.get', ['role' => 'actors']) }}" class="active" data-target="tab1">-->
-<!--                            <i class="fa-solid fa-circle"></i>ACTORS</a>-->
-<!--                        </li>-->
-<!--                        <li><a href="{{ route('featured-models.get', ['role' => 'models']) }}" data-target="tab2">-->
-<!--                            <i class="fa-solid fa-circle"></i>MODELS</a>-->
-<!--                        </li>-->
-<!--                        <li><a href="{{ route('featured-models.get', ['role' => 'dancers_performers']) }}" data-target="tab3">-->
-<!--                            <i class="fa-solid fa-circle"></i>DANCERS & PERFORMERS</a>-->
-<!--                        </li>-->
-<!--                        <li><a href="{{ route('featured-models.get', ['role' => 'film_crew']) }}" data-target="tab4">-->
-<!--                            <i class="fa-solid fa-circle"></i>FILM CREW</a>-->
-<!--                        </li>-->
-<!--                        <li><a href="{{ route('featured-models.get', ['role' => 'musicians']) }}" data-target="tab5">-->
-<!--                            <i class="fa-solid fa-circle"></i>MUSICIANS</a>-->
-<!--                        </li>-->
-<!--                        <li><a href="{{ route('featured-models.get', ['role' => 'influencers']) }}" data-target="tab6">-->
-<!--                            <i class="fa-solid fa-circle"></i>INFLUENCERS</a>-->
-<!--                        </li>-->
-<!--                        <li><a href="{{ route('featured-models.get', ['role' => 'presenters_emcees']) }}" data-target="tab7">-->
-<!--                            <i class="fa-solid fa-circle"></i>PRESENTERS & EMCEES</a>-->
-<!--                        </li>-->
-<!--                        <li><a href="{{ route('featured-models.get', ['role' => 'event_staff_ushers']) }}" data-target="tab8">-->
-<!--                            <i class="fa-solid fa-circle"></i>EVENT STAFF & USHERS</a>-->
-<!--                        </li>-->
-<!--                        <li><a href="{{ route('featured-models.get', ['role' => 'photographers_videographers']) }}" data-target="tab9">-->
-<!--                            <i class="fa-solid fa-circle"></i>PHOTOGRAPHERS / VIDEOGRAPHERS</a>-->
-<!--                        </li>-->
-<!--                        <li><a href="{{ route('featured-models.get', ['role' => 'makeup_hair_stylist']) }}" data-target="tab10">-->
-<!--                            <i class="fa-solid fa-circle"></i>MAKEUP, HAIR, PAINTER & FASHION STYLIST</a>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
 <style>
     .featurelist ul li a:hover {
         color: rgb(235, 13, 13) !important;
@@ -1261,7 +1035,7 @@ const talents = [
     },
     {
         name: 'Dancer',
-        subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'B Boyz', 'Dance Groups', 'Tabrey Dancer']
+        subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'B Boy', 'Dance Groups', 'Tabrey Dancer']
     },
     {
         name: 'Film Crew',
@@ -1295,6 +1069,18 @@ const talents = [
 
 // Get the container for the dropdown content
 const dropdownContent = document.getElementById('dropdownContent');
+const dropdownButton = document.getElementById('categoryButton');
+// Update dropdown button text function
+function updateCategoryDropdownButtonText() {
+    const checkboxes = dropdownContent.querySelectorAll('input[type="checkbox"]:checked');
+    const selectedValues = Array.from(checkboxes).map(checkbox => checkbox.value);
+
+    if (selectedValues.length > 0) {
+        dropdownButton.textContent = selectedValues.join(', '); // Join selected categories with comma
+    } else {
+        dropdownButton.textContent = 'Select Categories'; // Default text if no selection
+    }
+}
 
 // Populate the checkboxes for categories and subcategories
 talents.forEach(talent => {
@@ -1307,7 +1093,8 @@ talents.forEach(talent => {
     const categoryCheckbox = document.createElement('input');
     categoryCheckbox.type = 'checkbox';
     categoryCheckbox.value = talent.name;
-    categoryCheckbox.addEventListener('change', updateSelectedOptions); // Listen for changes
+    categoryCheckbox.classList.add('category-checkbox');
+    // categoryCheckbox.addEventListener('change', updateSelectedOptions); 
     categoryLabel.appendChild(categoryCheckbox);
     categoryLabel.appendChild(document.createTextNode(talent.name));
 
@@ -1324,13 +1111,28 @@ talents.forEach(talent => {
             const subcategoryCheckbox = document.createElement('input');
             subcategoryCheckbox.type = 'checkbox';
             subcategoryCheckbox.value = subcategory;
-            subcategoryCheckbox.addEventListener('change', updateSelectedOptions); // Listen for changes
+            subcategoryCheckbox.classList.add('category-checkbox');
+            // subcategoryCheckbox.addEventListener('change', updateSelectedOptions);
             subcategoryLabel.appendChild(subcategoryCheckbox);
             subcategoryLabel.appendChild(document.createTextNode(subcategory));
 
             // Add subcategory to the subcategory div
             subcategoryDiv.appendChild(subcategoryLabel);
         });
+
+        // Toggle visibility on main category click
+        categoryCheckbox.addEventListener('change', function () {
+            if (categoryCheckbox.checked) {
+                subcategoryDiv.style.display = 'block';
+            } else {
+                subcategoryDiv.style.display = 'none';
+            }
+        });
+
+        // Prevent the subcategory div from closing when a subcategory is clicked
+        subcategoryDiv.onclick = function (event) {
+            event.stopPropagation();
+        };
 
         // Add the subcategory div to the main category div
         mainCategoryDiv.appendChild(subcategoryDiv);
@@ -1340,64 +1142,64 @@ talents.forEach(talent => {
     dropdownContent.appendChild(mainCategoryDiv);
 });
 
-// Function to update the paragraph with selected categories
-function updateSelectedOptions() {
-    const selectedCheckboxes = Array.from(document.querySelectorAll('#dropdownContent input[type="checkbox"]:checked'));
-    const selectedValues = selectedCheckboxes.map(checkbox => checkbox.value);
-    const selectedCategoriesParagraph = document.getElementById('selectedCategories');
-    
-    if (selectedValues.length > 0) {
-        selectedCategoriesParagraph.style.display = 'block'; // Show paragraph
-        selectedCategoriesParagraph.textContent = "Selected Categories: " + selectedValues.join(', ');
-    } else {
-        selectedCategoriesParagraph.style.display = 'none'; // Hide paragraph if no categories selected
+// Listen to checkbox changes and update button text
+dropdownContent.addEventListener('change', function (e) {
+    if (e.target.type === 'checkbox') {
+        updateCategoryDropdownButtonText();
     }
-}
+});
 
 // Function to toggle dropdown visibility
 function toggleDropdown(event) {
     event.preventDefault();
-    const dropdown = document.getElementById('dropdownContent');
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    event.stopPropagation();  // Stop click event from reaching the window
+    dropdownContent.classList.toggle('visible');
 }
+// Function to close dropdown if clicked outside of it
+function closeDropdown(event) {
+    // Check if the click was outside the dropdown
+    if (!dropdownContent.contains(event.target) && !dropdownButton.contains(event.target)) {
+        dropdownContent.classList.remove('visible');
+    }
+}
+
+// Attach this event listener to the document
+document.addEventListener('click', closeDropdown);
 
 // Close the dropdown if clicked outside
 
 window.onclick = function(event) {
     if (!event.target.matches('.dropdown-btn')) {
-        const dropdown = document.getElementById('dropdownContent');
-        if (dropdown.style.display === 'block') {
-            dropdown.style.display = 'none';
-        }
+        dropdownContent.classList.remove('visible');
     }
 }
-$(document).ready(function(){
-    $(".js-select2").select2({
-        closeOnSelect : false,
-        placeholder : "Placeholder",
-        allowHtml: true,
-        allowClear: true,
-        tags: true // создает новые опции на лету
-    });
-    $('.icons_select2').select2({
-        width: "100%",
-        templateSelection: iformat,
-        templateResult: iformat,
-        allowHtml: true,
-        placeholder: "Placeholder",
-        dropdownParent: $('.select-icon' ),//обавили класс
-        allowClear: true,
-        multiple: false
-    });
+// $(document).ready(function(){
+//     $(".js-select2").select2({
+//         closeOnSelect : false,
+//         placeholder : "Placeholder",
+//         allowHtml: true,
+//         allowClear: true,
+//         tags: true // создает новые опции на лету
+//     });
+//     $('.icons_select2').select2({
+//         width: "100%",
+//         templateSelection: iformat,
+//         templateResult: iformat,
+//         allowHtml: true,
+//         placeholder: "Placeholder",
+//         dropdownParent: $('.select-icon' ),//обавили класс
+//         allowClear: true,
+//         multiple: false
+//     });
         
 
-    function iformat(icon, badge,) {
-        var originalOption = icon.element;
-        var originalOptionBadge = $(originalOption).data('badge');
+//     function iformat(icon, badge,) {
+//         var originalOption = icon.element;
+//         var originalOptionBadge = $(originalOption).data('badge');
                     
-        return $('<span><i class="fa ' + $(originalOption).data('icon') + '"></i> ' + icon.text + '<span class="badge">' + originalOptionBadge + '</span></span>');
-    }
-});
+//         return $('<span><i class="fa ' + $(originalOption).data('icon') + '"></i> ' + icon.text + '<span class="badge">' + originalOptionBadge + '</span></span>');
+//     }
+// });
 
 </script>
 <script>
@@ -1409,6 +1211,18 @@ $(document).ready(function(){
     hairDropdownButton.addEventListener('click', function () {
         hairDropdownContent.classList.toggle('hair-dropdown-open');
     });
+
+    // Function to update the dropdown button text with selected hair colors
+    function updateHairDropdownButtonText() {
+        const checkboxes = hairDropdownContent.querySelectorAll('input[type="checkbox"]:checked');
+        const selectedHairColors = Array.from(checkboxes).map(checkbox => checkbox.nextSibling.textContent.trim());
+
+        if (selectedHairColors.length > 0) {
+            hairDropdownButton.textContent = selectedHairColors.join(', '); // Join selected hair colors with comma
+        } else {
+            hairDropdownButton.textContent = 'Select Hair Colors'; // Default text if no selection
+        }
+    }
 
     // Move selected hair colors to top
     function moveSelectedHairColorsToTop() {
@@ -1430,6 +1244,7 @@ $(document).ready(function(){
         hairDropdownContent.innerHTML = '';
         selectedLabels.forEach(label => hairDropdownContent.appendChild(label));
         unselectedLabels.forEach(label => hairDropdownContent.appendChild(label));
+        updateHairDropdownButtonText();
     }
 
     // Update dropdown on checkbox change
@@ -1462,6 +1277,18 @@ $(document).ready(function(){
         eyeDropdownContent.classList.toggle('eye-dropdown-open');
     });
 
+    // Function to update the dropdown button text with selected eye colors
+    function updateEyeDropdownButtonText() {
+        const checkboxes = eyeDropdownContent.querySelectorAll('input[type="checkbox"]:checked');
+        const selectedEyeColors = Array.from(checkboxes).map(checkbox => checkbox.nextSibling.textContent.trim());
+
+        if (selectedEyeColors.length > 0) {
+            eyeDropdownButton.textContent = selectedEyeColors.join(', '); // Join selected eye colors with comma
+        } else {
+            eyeDropdownButton.textContent = 'Select Eye Colors'; // Default text if no selection
+        }
+    }
+
     // Move selected eye colors to top
     function moveSelectedEyeColorsToTop() {
         const labels = eyeDropdownContent.querySelectorAll('label');
@@ -1482,6 +1309,7 @@ $(document).ready(function(){
         eyeDropdownContent.innerHTML = '';
         selectedLabels.forEach(label => eyeDropdownContent.appendChild(label));
         unselectedLabels.forEach(label => eyeDropdownContent.appendChild(label));
+        updateEyeDropdownButtonText();
     }
 
     // Update dropdown on checkbox change
@@ -1514,6 +1342,17 @@ $(document).ready(function(){
         customLanguageDropdownContent.classList.toggle('custom-language-dropdown-open');
     });
 
+    function updateLangDropdownButtonText() {
+        const checkboxes = customLanguageDropdownContent.querySelectorAll('input[type="checkbox"]:checked');
+        const selectedLanguages = Array.from(checkboxes).map(checkbox => checkbox.nextSibling.textContent.trim()); // Assuming label text is the next sibling
+
+        if (selectedLanguages.length > 0) {
+            customLanguageDropdownButton.textContent = selectedLanguages.join(', '); // Join selected languages with comma
+        } else {
+            customLanguageDropdownButton.textContent = 'Select Languages'; // Default text if no selection
+        }
+    }
+
     // Move selected languages to top
     function moveSelectedLanguagesToTop() {
         const labels = customLanguageDropdownContent.querySelectorAll('label');
@@ -1534,6 +1373,7 @@ $(document).ready(function(){
         customLanguageDropdownContent.innerHTML = '';
         selectedLabels.forEach(label => customLanguageDropdownContent.appendChild(label));
         unselectedLabels.forEach(label => customLanguageDropdownContent.appendChild(label));
+        updateLangDropdownButtonText();
     }
 
     // Update dropdown on checkbox change
@@ -1566,6 +1406,18 @@ $(document).ready(function(){
         dressDropdownContent.classList.toggle('dress-dropdown-open');
     });
 
+    // Function to update the dropdown button text with selected sizes
+    function updateDropdownButtonText() {
+        const checkboxes = dressDropdownContent.querySelectorAll('input[type="checkbox"]:checked');
+        const selectedSizes = Array.from(checkboxes).map(checkbox => checkbox.value);
+
+        if (selectedSizes.length > 0) {
+            dressDropdownButton.textContent = selectedSizes.join(', '); // Join selected sizes with comma
+        } else {
+            dressDropdownButton.textContent = '-- Select Dress Sizes --'; // Default text if no selection
+        }
+    }
+
     // Move selected dress sizes to top
     function moveSelectedDressSizesToTop() {
         const labels = dressDropdownContent.querySelectorAll('label');
@@ -1586,6 +1438,7 @@ $(document).ready(function(){
         dressDropdownContent.innerHTML = '';
         selectedLabels.forEach(label => dressDropdownContent.appendChild(label));
         unselectedLabels.forEach(label => dressDropdownContent.appendChild(label));
+        updateDropdownButtonText();
     }
 
     // Update dropdown on checkbox change

@@ -257,14 +257,12 @@
         }
 
         .language-dropdown-button {
-            width: 110%;
-            padding: 10px;
-            border: 1px solid #ccc;
+            width: 100%;
+            padding: 7px;
+            border: 1px solid #0000007a;
             background-color: white;
             cursor: pointer;
             border-radius:  4px;
-            
-           
         }
 
         /* Dropdown content (hidden by default) */
@@ -964,35 +962,6 @@
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
-                                                                        <label>Calling Number</label>
-                                                                        <input id="" type="tel" class="form-control phone-input"  value="{{ $profileInfo->calling_number ?? '' }}"
-                                                                        name="calling_number" placeholder="(000) *** ***">
-                                                                    </div>
-                                                                </div>
-                                                                <div
-                                                                    class="col-sm-12 col-md-4">
-                                                                    <div class="contactlist">
-                                                                        <label>Whatsapp Number</label>
-                                                                        <input id="phoneNumber" type="tel" class="form-control phone-input"
-                                                                            name="whatsapp_number" value="{{ $profileInfo->whatsapp_number ?? '' }}"
-                                                                            placeholder="(000) *** ***">
-                                                                    </div>
-                                                                </div>
-                                                                <div
-                                                                    class="col-sm-12 col-md-4">
-                                                                    <div class="contactlist">
-                                                                        <label>Marital Status</label>
-                                                                       
-                                                                        <select class="form-control"
-                                                                            name="marital_status">
-                                                                            <option value="single"  {{ (isset($profileInfo) && $profileInfo->marital_status === 'single') ? 'selected' : '' }}>Single</option>
-                                                                            <option value="married" {{ (isset($profileInfo) && $profileInfo->marital_status === 'married') ? 'selected' : '' }}>Married</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div
-                                                                    class="col-sm-12 col-md-4">
-                                                                    <div class="contactlist">
                                                                         <div class="form-group">
                                                                             <label for="ethnicity">Ethnicity</label>
                                                                             <select name="ethnicity" id="ethnicity"
@@ -1024,9 +993,34 @@
 
                                                                     </div>
                                                                 </div>
-                                                                <div class="row">
+                                                                <div class="col-sm-12 col-md-4">
+                                                                    <div class="contactlist">
+                                                                        <label>Calling Number</label>
+                                                                        <input id="" type="tel" class="form-control phone-input"  value="{{ $profileInfo->calling_number ?? '' }}"
+                                                                        name="calling_number" placeholder="(000) *** ***">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 col-md-4">
+                                                                    <div class="contactlist">
+                                                                        <label>Whatsapp Number</label>
+                                                                        <input id="phoneNumber" type="tel" class="form-control phone-input"
+                                                                            name="whatsapp_number" value="{{ $profileInfo->whatsapp_number ?? '' }}"
+                                                                            placeholder="(000) *** ***">
+                                                                    </div>
+                                                                </div>
                                                                 <div
                                                                     class="col-sm-12 col-md-4">
+                                                                    <div class="contactlist">
+                                                                        <label>Marital Status</label>
+                                                                       
+                                                                        <select class="form-control"
+                                                                            name="marital_status">
+                                                                            <option value="single"  {{ (isset($profileInfo) && $profileInfo->marital_status === 'single') ? 'selected' : '' }}>Single</option>
+                                                                            <option value="married" {{ (isset($profileInfo) && $profileInfo->marital_status === 'married') ? 'selected' : '' }}>Married</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <label>Lives in</label>
                                                                         <select class="form-select" name="lives_in"
@@ -1070,7 +1064,7 @@
                                                                     </div>
                                                                 </div>
                                                                
-                                                                <div class="col-sm-12  col-md-4 mt-3">
+                                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contact-list-language">
                                                                         <label>Languages Spoken</label>
                                                                         <div class="language-dropdown" id="languageDropdown">
@@ -1095,7 +1089,6 @@
                                                                     </div>
                                                                 </div>
                                                    
-                                                            </div>
                                                                 </div>
                                                                
                                                                 <div class="row">
