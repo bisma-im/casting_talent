@@ -778,6 +778,17 @@
                     <div class="col-md-4 mb-2" >
                         <select name="height " class="h-100 w-100">
                             <option value="" disabled selected>Select Height (cm)</option>
+                            <option value="30-39">30 - 39</option>
+                            <option value="40-49">40 - 49</option>
+                            <option value="50-59">50 - 59</option>
+                            <option value="60-69">60 - 69</option>
+                            <option value="70-79">70 - 79</option>
+                            <option value="80-89">80 - 89</option>
+                            <option value="90-99">90 - 99</option>
+                            <option value="100-109">100 - 109</option>
+                            <option value="110-119">110 - 119</option>
+                            <option value="120-129">120 - 129</option>
+                            <option value="130-139">130 - 139</option>
                             <option value="140-149">140 - 149</option>
                             <option value="150-159">150 - 159</option>
                             <option value="160-169">160 - 169</option>
@@ -847,6 +858,7 @@
                                     <label><input type="checkbox" value="Green/Hazel"> Green/Hazel</label>
                                     <label><input type="checkbox" value="Hazel"> Hazel</label>
                                     <label><input type="checkbox" value="Blue"> Blue</label>
+                                    <label><input type="checkbox" value="Black"> Black</label>
                                 </div>
                             </div>
                         </div>
