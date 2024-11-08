@@ -33,18 +33,15 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="missionimg" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                        <img src="{{ url('user-assets') }}/images/mission_img.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/our-mission.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="missiontext" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
                         data-aos-duration="2000">
                         <h2>Our <span>Mission</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et.</p>
+                        <p>At Cast Talents LLC, our mission is to lead with excellence in the UAE’s entertainment and modeling world. We focus on nurturing talent, managing celebrity and event experiences, delivering outstanding hospitality, and finding the perfect locations to make creative dreams a reality.</p>
+                        <p>Our goal is to create a positive, inspiring space where our talents thrive, unforgettable experiences are made, and the future of film and production is crafted with integrity, professionalism, and passion.</p>
                         <a href="{{ route('contact.get') }}" class="contactbtn">CONTACT US</a>
                     </div>
                 </div>
@@ -58,9 +55,13 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="ourteam">
                         <h2>Our <span>Team</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut.</p>
+                        <h3><span>Modeling Agency: </span>Scouts and supports diverse talent.</h3>
+                        <h3><span>Celebrity Management: </span>Tailors artist support, handling endorsements and media.</h3>
+                        <h3><span>Event Management: </span>Designs memorable events with precision.</h3>
+                        <h3><span>Hospitality: </span>Ensures a welcoming, professional environment.</h3>
+                        <h3><span>Location Scouting: </span>Finds ideal UAE settings for every project.</h3>
+                        <h3><span>Film Production: </span>Brings concepts to life on screen.</h3>
+                        <h3>Together, we create exceptional experiences.</h3>
                     </div>
 
                     <div class="row pt-5">
@@ -70,7 +71,7 @@
                                     <img src="{{ url('user-assets') }}/images/team_1.png" class="img-fluid" alt="img">
                                 </div>
                                 <div class="teambody">
-                                    <h3>Abeera K sheikh</h3>
+                                    <h3>Abeera K Sheikh</h3>
                                     <h4>CEO - FOUNDER</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
@@ -83,9 +84,6 @@
                                             <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
                                             <li><a href="#"><i class="fa-brands fa-snapchat"></i></a></li>
                                             <li><a href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
-
-
-
                                         </ul>
                                     </div>
                                 </div>
