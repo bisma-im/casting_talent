@@ -446,7 +446,21 @@ a.contactbtn1:hover{
     
 }
 .teamimg{
-    overflow:hidden;
+    width: 100%;
+    height: 200px; /* Set the desired fixed height */
+    overflow: hidden;
+    border-radius: 10px;
+}
+.my-teamimg {
+    overflow: hidden;
+    border-radius: 10px;
+    height: 90%;
+}
+.teamimg img, .my-teamimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the area while maintaining aspect ratio */
+    transition: transform 1s ease;
 }
 .startedbtn ul li:nth-child(1) a {
     background: rgba(28, 120, 135, 1);
@@ -478,7 +492,7 @@ a.contactbtn1:hover{
 /* feature modal css start */
 /* talent sec start */
 section.rightsec {
-    padding: 100px 0 140px;
+    padding: 50px 0 140px;
 }
 .rightsec h3 {
     font-size: 66px;
@@ -1013,17 +1027,24 @@ section.ourmissionsec::before {
     font-size: 20px;
     line-height: 25px;
 }
-.teambox .socaillisnk ul {
+/* .teambox .socaillisnk ul {
     padding: 0;
-}
+} */
 .teambody {
     padding: 15px;
+    text-align: center;
+    flex-grow: 1;
 }
 
 .teambox {
     box-shadow: -1px 0px 7px 2px #ccc;
     background-color: #fff;
     padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .teambody p {
     font-size: 13px;
@@ -1044,7 +1065,7 @@ section.ourmissionsec::before {
     font-size: 25px;
 }
 .teambox .socaillisnk ul {
-    padding: 16px 0;
+    padding: 16px 0 0 0;
 }
 .ourteam h2 {
     font-size: 66px;
@@ -1147,7 +1168,7 @@ section.servicessec {
     margin-bottom: 50px;
 }
 section.modalagencysec {
-    padding: 0px 0 100px;
+    padding: 0px 0 50px;
 }
 .modaltext h2 {
     font-size: 66px;

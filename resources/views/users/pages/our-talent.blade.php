@@ -1,4 +1,4 @@
-@extends('users.layouts.layout-1')
+@extends('users.layouts.layout')
 
 @section('title', 'Casting Talent | Talents')
 
@@ -7,10 +7,6 @@
     <section class="innerpages">
         <div class="container">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                <div class="innertext">
-                    <h1>Our <span>Talents</span></h1>
-
-                </div>
             </div>
         </div>
     </section>
@@ -25,55 +21,191 @@
             font-size: 16px; 
             font-weight: 500;
         }
+        .my-container {
+                position: relative; /* Ensures the pseudo-element is positioned relative to this container */
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                height: 100vh;
+                width: 100%;
+                overflow: hidden; /* Prevents any pseudo-element from overflowing the container */
+        }
+
+        .my-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('{{ url('/user-assets/images/actors.jpg') }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* opacity: 0.8;  */
+        height:'900px'
+        }
+
+        .my-container .actors-section {
+        position: relative; 
+        z-index: 1; 
+        }
+
+        .my-container .actors-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #DAD7B1; 
+        opacity: 0.8; 
+        z-index: -1000;  
+        }
+/* -------------------------------------------------------- */
+        .my-container2 {
+                position: relative; /* Ensures the pseudo-element is positioned relative to this container */
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                height: 120vh;
+                width: 100%;
+                overflow: hidden; /* Prevents any pseudo-element from overflowing the container */
+        }
+
+        .my-container2::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('{{ url('/user-assets/images/MODELS.jpg') }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* opacity: 0.5;  */
+        }
+
+        .my-container2 .actors-section {
+        position: relative; 
+        z-index: 1; 
+        }
+
+        .my-container2 .actors-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #DAD7B1; 
+        opacity: 0.8; 
+        z-index: -1000;  
+        }
+
     </style>
 
     <section class="modalagencysec">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="my-container">
+                <div class="row actors-section d-flex align-items-center justify-content-center">
                     <div class="modaltext">
-                        <h2>Actors</h2>
-                        <div class="row">
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                            <ul class="mb-5">
-                                <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'main-lead']) }}">Main
-                                        Lead</a></li>
-                                <li><a class="text-dark"
-                                        href="{{ route('featured-models.get', ['role' => 'featured_actors']) }}">Featured
-                                        Actors</a>
-                                </li>
-                                <li><a class="text-dark"
-                                        href="{{ route('featured-models.get', ['role' => 'body_double']) }}">Body
-                                        Double</a></li>
-                               
-                            </ul>
+                        <h2 class="text-center m-0 p-0" style="color: rgb(235, 13, 13)">Actors</h2>
+                        <div class="row ms-5 pb-0">
+                            <div class="col-md-6 d-flex flex-row justify-content-md-start">
+                                <ul class="">
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'main-lead']) }}">Main Lead</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'featured_actors']) }}">Featured Actors</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'body_double']) }}">Body Double</a></li>
+                                </ul>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                            <ul class="mb-5">
-                                <li><a class="text-dark"
-                                        href="{{ route('featured-models.get', ['role' => 'mime_artist']) }}">Mime
-                                        Artist</a></li>
-                                <li><a class="text-dark"
-                                        href="{{ route('featured-models.get', ['role' => 'stunt_person']) }}">Stunt Person</a>
-                                </li>
-                                <li><a class="text-dark"
-                                        href="{{ route('featured-models.get', ['role' => 'extras']) }}">Extras</a>
-                                </li>
-                            </ul>
+                            <div class="col-md-6 d-flex flex-row  justify-content-end pe-5">
+                                <ul class="">
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'mime_artist']) }}">Mime Artist</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'stunt_person']) }}">Stunt Person</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'extras']) }}">Extras</a></li>
+                                </ul>
                             </div>
                         </div>
-                        <a href="{{ route('featured-models.get') }}" class="contactbtn">VIEW ALL</a>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="https://i.pinimg.com/originals/72/f5/83/72f583989ba8c78ad3fada74d1abf8fd.jpg" class="img-fluid" alt="img">
+                        <div class="text-center mb-4">
+                            <a href="{{ route('featured-models.get') }}" class="contactbtn">VIEW ALL</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            
     </section>
+    <!-- ------------------------------models section ---------------------- -->
+    <section class="modalagencysec">
+        <div class="my-container2">
+                <div class="row actors-section d-flex justify-content-center">
+                    <div class="modaltext">
+                        <h2 class="text-center" style="color: rgb(235, 13, 13)">Models</h2>
+                        <div class="row">
+                                <div class="row ">
+                                <div class=" col-md-3 d-flex align-items-center justify-content-center">
+                                        <ul class="mb-3 ms-5">
+                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'art_models']) }}">Art Models</a></li>
+                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'body_parts_models']) }}">Body Parts Models</a></li>
+                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'child_models']) }}">Child Models</a></li>
+                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'commercial_models']) }}">Commercial Models</a></li>
+                                        <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'expecting_models']) }}">Pregnant Models</a></li>
+                                        
+                                        </ul>
+                                </div>
+                            <div class="col-md-3 d-flex  align-items-center justify-content-center">
+                                <ul class="mb-3">
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'erotic_photography_model']) }}">Erotic Photography Model</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'fashion_models']) }}">Fashion (Catalogue) Models</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'fitness_models']) }}">Fitness Models</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'freelance_models']) }}">Freelance Models</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'glamour_models']) }}">Glamour Models</a></li>
+                                
+                                </ul>
+                            </div>
+                            <div class="col-md-3 d-flex  ps-5 align-items-center justify-content-center">
+                                <ul class="mb-3 ms-5">
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'hair_model']) }}">Hair Model</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'high_fashion_models']) }}">High Fashion (Editorial) Models</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'party_model']) }}">Image / Party Model</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'mature_models']) }}">Mature Models</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'petite_models']) }}">Petite Models</a></li>
+                                
+                                </ul>
+                            </div>
+                            <div class="col-md-3 d-flex  align-items-center justify-content-center">
+                                <ul class="mb-3">
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'plus_size_models']) }}">Plus-Size Models</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'promotional_models']) }}">Promotional Models</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'runway_models']) }}">Runway Models / Catwalk Models</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'stock_photography_model']) }}">Stock Photography Model</a></li>
+                                    <li><a class="text-dark" href="{{ route('featured-models.get', ['role' => 'swimsuit_lingerie_models']) }}">Swimsuit & Lingerie Models</a></li>
+                                
+                                </ul>
+                            </div>
+                                </div>
+                          
 
+
+
+
+
+
+
+
+
+
+
+                             
+                        </div>
+                        <div class="text-center pb-4">
+                            <a href="{{ route('featured-models.get') }}" class="contactbtn">VIEW ALL</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+    </section>
     <section class="modalagencysec2">
         <div class="container">
             <div class="row align-items-center">
@@ -151,8 +283,8 @@
                                             href="{{ route('featured-models.get', ['role' => 'hair_model']) }}">Hair
                                             Model</a></li>
                                     <li><a class="text-white"
-                                            href="{{ route('featured-models.get', ['role' => 'art_models']) }}">Art
-                                            Models</a></li>
+                                            href="
+                                            Models</a></li>{{ route('featured-models.get', ['role' => 'art_models']) }}">Art
                                     <li><a class="text-white"
                                             href="{{ route('featured-models.get', ['role' => 'erotic_photography_model']) }}">Erotic
                                             Photography Model</a></li>
@@ -942,7 +1074,4 @@
             </div>
         </div>
     </section>
-
-
-
 @endsection
