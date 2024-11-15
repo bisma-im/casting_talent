@@ -29,6 +29,8 @@ Route::get('/contact', [PagesController::class, 'contactPage'])->name('contact.g
 Route::get('/jobs', [PagesController::class, 'jobsPage'])->name('jobs.get');
 Route::get('/talents', [PagesController::class, 'talentsPage'])->name('talents.get');
 Route::get('/featured-models/{role?}', [PagesController::class, 'featuredmodelsPage'])->name('featured-models.get');
+Route::get('/all-talent/{role?}', [PagesController::class, 'allmodelsPage'])->name('all-models.get');
+Route::get('/all-talent/subcategory/{subcategory}', [PagesController::class, 'allmodelsBySubcategory'])->name('all-models.subcategory');
 Route::get('/membership', [PagesController::class, 'membershipPage'])->name('membership.get');
 Route::get('/services', [PagesController::class, 'servicesPage'])->name('services.get');
 Route::get('/event-services/{section?}/', [PagesController::class, 'eventservicesPage'])->name('event-services.get');

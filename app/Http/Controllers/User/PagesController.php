@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ModelDetail;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class PagesController extends Controller
@@ -23,49 +24,7 @@ class PagesController extends Controller
 
     public function contactPage()
     {
-        $client = new Client();
-
-        $placeId = config('services.googlemaps.place_id'); // Replace with your actual Place ID
-        $apiKey = config('services.googlemaps.api_key');   // Replace with your actual API Key
-        $url = "https://maps.googleapis.com/maps/api/place/details/json?place_id={$placeId}&fields=review,user_ratings_total,rating&key={$apiKey}";
-        $reviews = null;
-        $reviewsCount = 0;  // To hold the count of reviews in the array
-        $averageRating = 0; // To hold the average rating
-        $businessReviewUrl = "https://www.google.com/maps/place/?q=place_id:{$placeId}";
-
-        try {
-            $response = $client->request('GET', $url);
-            $data = json_decode($response->getBody()->getContents(), true);
-
-            // Get reviews if they exist
-            $reviews = isset($data['result']['reviews']) ? $data['result']['reviews'] : [];
-
-            $customReview = [
-                'author_name' => 'Laiba Azhar',
-                'text' => 'Amazing agency with top-notch services! The team is professional, friendly, and incredibly supportive. The management always ensure a positive experience for all. Highly recommend for anyone looking for talent management or casting services! ⭐⭐⭐⭐⭐',
-                'rating' => 5,
-                'profile_photo_url' => null, // You can add an image URL if needed, or leave null
-                'relative_time_description' => 'just now' // This can be customized
-            ];
-
-            // Append the custom review to the existing reviews array
-            $reviews[] = $customReview;
-
-            // Count the number of reviews
-            $reviewsCount = isset($data['result']['user_ratings_total']) ? $data['result']['user_ratings_total'] : 0;
-
-            // Get the average rating
-            $averageRating = isset($data['result']['rating']) ? $data['result']['rating'] : 0;
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to fetch reviews: ' . $e->getMessage()], 500);
-        }
-
-        return view('users.pages.contact-us', [
-            'reviews' => $reviews,
-            'reviewsCount' => $reviewsCount,
-            'averageRating' => $averageRating,
-            'businessReviewUrl' => $businessReviewUrl
-        ]);
+        return view('users.pages.contact-us');
     }
 
     public function jobsPage()
@@ -129,7 +88,6 @@ class PagesController extends Controller
         return view('users.pages.model-details', compact('details'));
     }
 
-
     public function featuredmodelsPage($role = '', $gender = '')
     {
         // Initialize $models to ensure it's always defined
@@ -148,6 +106,13 @@ class PagesController extends Controller
             $query->where('gender', $gender);
         }
 
+        // Join with memberships table to filter models with active subscriptions
+        $query->whereExists(function ($query) {
+            $query->select(DB::raw(1))
+                ->from('memberships')
+                ->whereColumn('memberships.user_id', 'model_details.user_id');
+        });
+
         $models = $query->get();
 
         return view('users.pages.featured-modal', [
@@ -157,32 +122,88 @@ class PagesController extends Controller
         ]);
     }
 
-    // public function featuredmodelsPage($role = '')
-    // {
-    //     // Initialize $models to ensure it's always defined
-    //     $models = collect();
 
-    //     // Split the role into components based on underscores
-    //     $roleComponents = explode('_', $role);
-    //     if (!empty($roleComponents)) {
-    //         // Filter the models based on any of the role components
-    //         $qModels = ModelDetail::where(function($query) use ($roleComponents) {
-    //             foreach ($roleComponents as $component) {
-    //                 $query->orWhereJsonContains('category', $component);
-    //             }
-    //         })->get();
-    //     } else {
-    //         // Fetch all models if no role is specified
-    //         $models = ModelDetail::all();
-    //     }
+    public function allmodelsPage($role = '', $gender = '')
+    {
+        // Initialize $models to ensure it's always defined
+        $models = collect();
+        $languages = json_decode(File::get(public_path('user-assets/languages.json')), true);
 
-    //     // dd($roleComponents,$models,$qModels);
-    //     // Pass both variables to the view
-    //     return view('users.pages.featured-modal', [
-    //         'models' => $models,
-    //         'qModels' => !empty($roleComponents) ? $qModels : $models // Use $qModels if there are role components, otherwise use $models
-    //     ]);
-    // }
+        $query = ModelDetail::query();
+
+        // Define subcategories for each main category
+        $subcategories = [
+            'actors' => ['main_lead', 'featured_actors', 'body_double', 'mime_artist', 'stunt_person', 'extras'],
+            'models' => ['high_fashion_editorial', 'fashion_catalogue', 'commercial_models', 'mature_models', 'promotional_models'],
+            'dancers_performers' => ['ballet_dancers', 'ballroom_dancers', 'baroque_dancers'],
+            'makeup_hair_painter_fashion_stylists' => ['makeup_artists', 'fashion_stylists', 'hair_stylists', 'body_painters'],
+            'photographers_videographers' => ['fashion_photographer', 'portrait_photographer', 'landscape_photographer', 'event_videographer', 'wedding_videographer']
+        ];
+
+        // If a role is provided, apply the role filter
+        if ($role) {
+            $query->whereJsonContains('category', $role);
+
+            // Check if musician_categories contains any of the subcategories for the given role
+            if (isset($subcategories[$role])) {
+                $query->where(function ($query) use ($subcategories, $role) {
+                    foreach ($subcategories[$role] as $subcategory) {
+                        $query->orWhereJsonContains('musician_categories', $subcategory);
+                    }
+                });
+            }
+        }
+
+        // Filter by gender if provided as a query parameter
+        if ($gender = request('gender')) {
+            $query->where('gender', $gender);
+        }
+
+        // Use a left join with memberships to prioritize records with a subscription
+        $query->leftJoin('memberships', 'memberships.user_id', '=', 'model_details.user_id')
+        ->select('model_details.*')
+        ->orderByRaw('memberships.user_id IS NULL, model_details.id');
+
+        $models = $query->get();
+
+        return view('users.pages.all-modal', [
+            'models' => $models,
+            'qModels' => $models, // Use $qModels if $role is provided, otherwise use $models
+            'languages' => $languages
+        ]);
+    }
+
+    public function allmodelsBySubcategory($subcategory = '', $gender = '')
+    {
+        // Initialize $models to ensure it's always defined
+        $models = collect();
+        $languages = json_decode(File::get(public_path('user-assets/languages.json')), true);
+
+        $query = ModelDetail::query();
+
+        // If a specific subcategory is provided, filter directly by it in musician_categories
+        if ($subcategory) {
+            $query->whereJsonContains('musician_categories', $subcategory);
+        }
+
+        // Filter by gender if provided as a query parameter
+        if ($gender = request('gender')) {
+            $query->where('gender', $gender);
+        }
+
+        // Use a left join with memberships to prioritize records with a subscription
+        $query->leftJoin('memberships', 'memberships.user_id', '=', 'model_details.user_id')
+            ->select('model_details.*')
+            ->orderByRaw('memberships.user_id IS NULL, model_details.id');
+
+        $models = $query->get();
+
+        return view('users.pages.all-modal', [
+            'models' => $models,
+            'qModels' => $models,
+            'languages' => $languages
+        ]);
+    }
 
 
     public function filmingservicesPage($section = '')
