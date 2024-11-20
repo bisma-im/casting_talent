@@ -201,7 +201,7 @@
     }
 
     .user-info-row i {
-        margin-right: 5px;
+        /* margin-right: 5px; */
     }
 
     .btn.icon-btn {
@@ -373,6 +373,7 @@
     .slider-track {
         display: flex;
         transition: transform 0.5s ease;
+        border: 1px solid rgb(0, 255, 13);
         /* Smooth slide transition */
     }
 
@@ -394,6 +395,14 @@
     .carousel-control-next {
         right: 10px;
     }
+
+
+
+
+
+
+
+
     .profile-card {
         background: white;
         /* border-radius: 5px; */
@@ -687,7 +696,7 @@ $timestamp = time();
 
     <div class="row d-flex align-items-center mx-0 px-0" id="getSS">
         {{-- ------------- cover image --------------- --}}
-        <div class="col-5 p-0">
+        <div class="col-5 p-0 pt-3 mt-3">
             <!-- Display the first image -->
             <div class="castbox" style="max-height: 100%;">
                 <a href="{{ url('uploads/models/profiles/' . $firstImage) }}" data-fancybox="gallery"
@@ -709,9 +718,9 @@ $timestamp = time();
         @endforeach
 
         {{-- ------------------ model details -------------------- --}}
-        <div class="col-7 p-0 m-0">
-            <div class="col-md-6 user-info">
-                <div class="row ps-4">
+        <div class="col-7 p-0 m-0 mt-3 pt-3 ">
+            <div class="col-md-6 user-info ">
+                <div class="row ps-4 ms-3 me-5">
                     <div class="header pe-5 py-3">
                         <div class="name">
                             <!--{{ $details['first_name'] }} {{ $details['last_name'] }} => -->
@@ -727,96 +736,96 @@ $timestamp = time();
                     </div>
                     <div class="container">
                         <div class="user-info-row">
-                            <span class="label"><i class="fas fa-arrows-alt-v"></i>Height</span>
-                            <span class="info">{{ $details['height'] }}</span>
+                            <span class="label"><i class="fas fa-arrows-alt-v me-2"></i>Height</span>
+                            <span class="info " >{{ $details['height'] }}</span>
                         </div>
                         <p>CM</p>
                     </div>
                     <div class="container">
                         <div class="user-info-row">
-                            <span class="label"><i class="fas fa-ruler-vertical"></i>Bust</span>
+                            <span class="label"><i class="fas fa-ruler-vertical me-2"></i>Bust / Chest</span>
                             <span class="info">{{ $details['bust'] }}</span>
                         </div>
                         <p>CM</p>
                     </div>
                     <div class="container">
                         <div class="user-info-row">
-                            <span class="label"><i class="fas fa-ruler-horizontal"></i>Hip</span>
+                            <span class="label"><i class="fas fa-ruler-horizontal me-2"></i>Hip</span>
                             <span class="info">{{ $details['hip'] }}</span>
                         </div>
                         <p>CM</p>
                     </div>
                     <div class="container">
                         <div class="user-info-row">
-                            <span class="label"><i class="fas fa-tshirt"></i>Dress Size</span>
+                            <span class="label"><i class="fas fa-tshirt me-2"></i>Dress Size</span>
                             <span class="info">{{ $details['dress_size'] }}</span>
                         </div>
                         <p>EURO</p>
                     </div>
                     <div class="container">
                         <div class="user-info-row">
-                            <span class="label"><i class="fas fa-ruler-combined"></i> Waist</span>
+                            <span class="label"><i class="fas fa-ruler-combined me-2"></i> Waist</span>
                             <span class="info">{{ $details['waist'] }}</span>
                         </div>
                         <p>CM</p>
                     </div>
                     <div class="container">
                         <div class="user-info-row">
-                            <span class="label"><i class="fas fa-shoe-prints"></i>Shoe Size</span>
+                            <span class="label"><i class="fas fa-shoe-prints me-2"></i>Shoe Size</span>
                             <span class="info">{{ $details['shoe_size'] }}</span>
                         </div>
                         <p>EURO</p>
                     </div>
                     <div class="container">
                         <div class="user-info-row">
-                            <span class="label"><i class="fas fa-tape"></i>Pants Size</span>
+                            <span class="label"><i class="fas fa-tape me-2"></i>Pants Size</span>
                             <span class="info"></span>
                         </div>
                         <p>EURO</p>
                     </div>
                 </div>
-                <div class="mt-md-2 ms-md-3 me-md-3 mb-md-3">
-                    <div class="row pt-3  pe-3 mt-2 h-user-info">
-                        <div class="col-md-4 bg-cfcba1 bottom-p">
+                <div class="mt-md-2  me-md-3 mb-md-3">
+                    <div class="row pt-3 d-flex justify-content-center  pe-5 mt-2 h-user-info">
+                        <div class="col-md-4 w-25 bg-cfcba1 bottom-p">
                             <p class="m-0"><strong>Nationality</strong><br />{{ ucfirst($details['nationality']) }}
                             </p>
                         </div>
-                        <div class="col-md-4 bottom-p">
+                        <div class="col-md-4 w-25 bottom-p">
                             <p><strong>Languages</strong><br />{{ implode(', ',
                                 json_decode($details['languages_spoken'],
                                 true))
                                 }}
                             </p>
                         </div>
-                        <div class="col-md-4 bg-cfcba1 bottom-p">
+                        <div class="col-md-4 w-25 bg-cfcba1 bottom-p">
                             <p><strong>Location</strong><br />{{ ucfirst($details['location']) }}
                             </p>
                         </div>
                     </div>
-                    <div class="row  pe-3 text-center h-user-info">
-                        <div class="col-md-4 bottom-p">
+                    <div class="row pe-5  d-flex justify-content-center text-center h-user-info">
+                        <div class="col-md-4  w-25  bottom-p">
                             <p><strong>Visa Status</strong><br />Golden
                             </p>
                         </div>
-                        <div class="col-md-4 bg-cfcba1 bottom-p">
+                        <div class="col-md-4  w-25  bg-cfcba1 bottom-p">
                             <p><strong>Driving License</strong><br />{{ ucfirst($details['driving_license']) }}
                             </p>
                         </div>
-                        <div class="col-md-4 bottom-p">
+                        <div class="col-md-4   w-25  bottom-p">
                             <p><strong>Tattoos</strong><br />{{ ucfirst($details['have_tattos']) }}
                             </p>
                         </div>
                     </div>
-                    <div class="row  pe-3 text-center h-user-info">
-                        <div class="col-md-4 bg-cfcba1 bottom-p">
+                    <div class="row pe-5  d-flex justify-content-center text-center h-user-info">
+                        <div class="col-md-4 w-25 bg-cfcba1 bottom-p">
                             <p><strong>Eye Color</strong><br />{{ ucfirst($details['eye_color']) }}
                             </p>
                         </div>
-                        <div class="col-md-4 bottom-p">
+                        <div class="col-md-4 w-25 bottom-p">
                             <p><strong>Hair Color</strong><br />{{ ucfirst($details['hair_color']) }}
                             </p>
                         </div>
-                        <div class="col-md-4 bg-cfcba1 bottom-p">
+                        <div class="col-md-4 w-25 bg-cfcba1 bottom-p">
                             <p><strong>Hair Length</strong><br />{{ ucfirst($details['hair_length']) }}
                             </p>
                         </div>

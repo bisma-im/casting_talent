@@ -68,7 +68,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                height: 120vh;
+                height: 100vh;
                 width: 100%;
                 overflow: hidden; /* Prevents any pseudo-element from overflowing the container */
         }
@@ -109,7 +109,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                height: 120vh;
+                height: 100vh;
                 width: 100%;
                 overflow: hidden; /* Prevents any pseudo-element from overflowing the container */
         }
@@ -150,7 +150,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                height: 120vh;
+                height: 100vh;
                 width: 100%;
                 overflow: hidden; /* Prevents any pseudo-element from overflowing the container */
         }
@@ -191,7 +191,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                height: 120vh;
+                height: 100vh;
                 width: 100%;
                 overflow: hidden; /* Prevents any pseudo-element from overflowing the container */
         }
@@ -234,7 +234,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                height: 120vh;
+                height: 100vh;
                 width: 100%;
                 overflow: hidden; /* Prevents any pseudo-element from overflowing the container */
         }
@@ -277,7 +277,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                height: 120vh;
+                height: 100vh;
                 width: 100%;
                 overflow: hidden; /* Prevents any pseudo-element from overflowing the container */
         }
@@ -322,7 +322,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                height: 120vh;
+                height: 100vh;
                 width: 100%;
                 overflow: hidden; /* Prevents any pseudo-element from overflowing the container */
         }
@@ -366,7 +366,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                height: 120vh;
+                height: 100vh;
                 width: 100%;
                 overflow: hidden; /* Prevents any pseudo-element from overflowing the container */
         }
@@ -410,7 +410,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                height: 120vh;
+                height: 100vh;
                 width: 100%;
                 overflow: hidden; /* Prevents any pseudo-element from overflowing the container */
         }
@@ -605,7 +605,7 @@
         <div class="my-container4">
                 <div class="row actors-section d-flex justify-content-center">
                 <div class="modaltext">
-                        <h2 class="text-center" style="color: rgb(235, 13, 13)"> Makeup|Hair|Painter|Fashion Stylists </h2>
+                        <h2 class="text-center" style="color: rgb(235, 13, 13)"> Makeup | Hair | Painter |Fashion Stylists </h2>
                         <div class="row">
                         <div class="col-md-3 d-flex align-items-center justify-content-center">
                                 <ul class="mb-3 ms-5">
@@ -644,7 +644,7 @@
         <div class="my-container5">
             <div class="row actors-section d-flex justify-content-center">
                 <div class="modaltext">
-                    <h2 class="text-center" style="color: rgb(235, 13, 13)">Photographers | Videographers</h2>
+                    <h2 class="text-center" style="color: rgb(235, 13, 13)">Photo | Video</h2>
                     <div class="row">
                         <div class="col-md-3 d-flex align-items-center justify-content-center">
                             <ul class="mb-3 ms-5">

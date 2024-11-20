@@ -163,6 +163,12 @@
     .featurelist ul li a:hover {
         color: rgb(235, 13, 13) !important;
     }
+    /* Add a transition effect for smooth color change */
+a:hover .hover-text {
+    color: #D81F26; /* Choose your desired color */
+    transition: color 0.3s ease;
+}
+
 </style>
 
     <section class="featuremodalsec">
@@ -172,8 +178,8 @@
                 <div class="featuremodal">
                     <h3>Featured <span>Talents</span></h3>
                 </div>
-                <div class="featurelist" style="border-bottom: 0px !important;">
-                <ul>
+                <div class="featurelist row d-flex  mt-5">
+    <ul>
         <li class="col-md-1">
             <a href="{{ route('modeling-agency.get', ['section' => 'actors']) }}" class="active" data-target="tab1">
                 <img  src="{{ url('user-assets/icons/actor.png') }}"alt="Actors Icon" class="icon w-75">
@@ -207,27 +213,17 @@
                     </a>
                 </li>
     </ul>
-                </div>
+</div>
                 <style>
                     .featurelist ul {
                         margin: 0px 0 30px;
                         text-align: center; 
-                        border-bottom: 1px solid #00000061; 
-                        padding-bottom: 40px;
+                      
+                        
                     }
-                    .featurelist ul,
-.featuremodal,
-.casting,
-div, ul, li {
-    border: none; /* Remove any border */
-    background: none; /* Remove background color */
-    margin: 0; /* Reset margin */
-    padding: 0; /* Reset padding */
-}
-
                 </style>
-                <div class="featurelist">
-                <ul class="d-flex flex-wrap justify-content-center align-items-center w-100 list-unstyled">
+               <div class="featurelist row d-flex mt-5">
+            <ul class="d-flex flex-wrap justify-content-center align-items-center w-100 list-unstyled">
             <li class="col-md-1">
             <a href="{{ route('modeling-agency.get', ['section' => 'dancers_performers']) }}" class="d-flex flex-column align-items-center" data-target="tab3">
             <img src="{{ url('user-assets/icons/dancer.png') }}" alt="Dancers Icon" class="icon w-75">
@@ -264,7 +260,8 @@ div, ul, li {
               
                 
             </ul>
-                </div>
+        </div>
+    </div>
                 @php
                     $models = DB::table('model_details')
                         ->orderBy('created_at', 'desc') // Replace 'created_at' with the appropriate column if needed
@@ -363,7 +360,7 @@ div, ul, li {
                         <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
                             <div class="castingport">
                                 <h3>Cast <span>Talents</span> Portfolio</h3>
-                                <p>Our portfolio highlights the diverse projects and talents that define who we are, demonstrating our expertise in modeling, celebrity management, event production, and film-making</p>
+                                <p>Our portfolio highlights the diverse projects and talents that define who we are, demonstrating our expertise in modeling, celebrity management, event production, and film-making</p>
                                 <div class="btnlist">
                                     <a href="{{ route('register.get') }}">WANT TO BECOME A MODEL?<span
                                             class="spanlist"><i class="fa-solid fa-angle-right"></i></span></a>
