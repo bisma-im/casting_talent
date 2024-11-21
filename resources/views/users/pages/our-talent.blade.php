@@ -38,7 +38,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('{{ url('/user-assets/images/actors.webp') }}');
+        background-image: url('{{ url('/user-assets/images/actors.jpg') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -80,7 +80,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('{{ url('/user-assets/images/MODELS.jpeg') }}');
+        background-image: url('{{ url('/user-assets/images/MODELS.jpg') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -605,7 +605,7 @@
         <div class="my-container4">
                 <div class="row actors-section d-flex justify-content-center">
                 <div class="modaltext">
-                        <h2 class="text-center" style="color: rgb(235, 13, 13)"> Makeup | Hair | Painter |Fashion Stylists </h2>
+                        <h2 class="text-center" style="color: rgb(235, 13, 13)"> Makeup | Hair | Painter | Fashion Stylists </h2>
                         <div class="row">
                         <div class="col-md-3 d-flex align-items-center justify-content-center">
                                 <ul class="mb-3 ms-5">
