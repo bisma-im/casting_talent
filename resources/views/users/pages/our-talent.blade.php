@@ -80,7 +80,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('{{ url('/user-assets/images/MODELS.jpg') }}');
+        background-image: url('{{ url('/user-assets/images/MODELS.webp') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -289,7 +289,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('{{ url('/user-assets/images/Presenters.jpg') }}');
+        background-image: url('{{ url('/user-assets/images/presenter.jpg') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -446,14 +446,16 @@
         z-index: -1000;  
         }
 
-        
+        ul{
+            list-style: none; /* Removes bullets */
+        }
     </style>
 
 <section class="modalagencysec">
     <div class="my-container">
             <div class="row actors-section d-flex align-items-center justify-content-center">
                 <div class="modaltext">
-                    <h2 class="text-center m-0 p-0" style="color: rgb(235, 13, 13)">Actors</h2>
+                    <h2 class="text-center m-0 p-0" style="color: black">Actors</h2>
                     <div class="row pb-0">
                         <div class="col-md-6 d-flex flex-row justify-content-center">
                             <ul class="">
@@ -483,7 +485,7 @@
         <div class="my-container2">
                 <div class="row actors-section d-flex justify-content-center">
                     <div class="modaltext">
-                        <h2 class="text-center" style="color: rgb(235, 13, 13)">Models</h2>
+                        <h2 class="text-center" style="color: black">Models</h2>
                         <div class="row">
                                 <div class="row ">
                                 <div class=" col-md-3 d-flex align-items-center justify-content-center">
@@ -544,7 +546,7 @@
         <div class="my-container3">
                 <div class="row actors-section d-flex justify-content-center">
                     <div class="modaltext">
-                        <h2 class="text-center" style="color: rgb(235, 13, 13)"> Dancers & Performers                                </h2>
+                        <h2 class="text-center" style="color: black"> Dancers & Performers                                </h2>
                         <div class="row">
                                 <div class="row">
                                         <div class="col-md-3 d-flex align-items-center justify-content-center">
@@ -605,7 +607,7 @@
         <div class="my-container4">
                 <div class="row actors-section d-flex justify-content-center">
                 <div class="modaltext">
-                        <h2 class="text-center" style="color: rgb(235, 13, 13)"> Makeup | Hair | Painter | Fashion Stylists </h2>
+                        <h2 class="text-center" style="color: black"> Makeup | Hair | Painter | Fashion Stylists </h2>
                         <div class="row">
                         <div class="col-md-3 d-flex align-items-center justify-content-center">
                                 <ul class="mb-3 ms-5">
@@ -644,7 +646,7 @@
         <div class="my-container5">
             <div class="row actors-section d-flex justify-content-center">
                 <div class="modaltext">
-                    <h2 class="text-center" style="color: rgb(235, 13, 13)">Photo | Video</h2>
+                    <h2 class="text-center" style="color: black">Photo | Video</h2>
                     <div class="row">
                         <div class="col-md-3 d-flex align-items-center justify-content-center">
                             <ul class="mb-3 ms-5">
@@ -695,7 +697,7 @@
         <div class="my-container6">
             <div class="row actors-section d-flex justify-content-center">
                 <div class="modaltext">
-                    <h2 class="text-center" style="color: rgb(235, 13, 13)">Film Crew</h2>
+                    <h2 class="text-center" style="color: black">Film Crew</h2>
                     <div class="row">
                         <!-- Column 1 -->
                         <div class="col-md-3 d-flex align-items-center justify-content-center">
@@ -756,7 +758,7 @@
     <div class="my-container7">
         <div class="row actors-section d-flex justify-content-center">
             <div class="modaltext">
-                <h2 class="text-center" style="color: rgb(235, 13, 13)">Presenter & Emcee</h2>
+                <h2 class="text-center" style="color: black">Presenter & Emcee</h2>
                 <div class="row">
                     <!-- Column 1 -->
                     <div class="col-md-3 d-flex align-items-center justify-content-center">
@@ -816,7 +818,7 @@
     <div class="my-container8">
         <div class="row actors-section d-flex justify-content-center">
             <div class="modaltext">
-                <h2 class="text-center" style="color: rgb(235, 13, 13)"> Musician </h2>
+                <h2 class="text-center" style="color: black"> Musician </h2>
                 <div class="row">
                     <!-- Column 1 -->
                     <div class="col-md-3 d-flex align-items-center justify-content-center">
@@ -868,7 +870,7 @@
     <div class="my-container9">
         <div class="row actors-section d-flex justify-content-center">
             <div class="modaltext">
-                <h2 class="text-center" style="color: rgb(235, 13, 13)">EVENT STAFF & USHERS</h2>
+                <h2 class="text-center" style="color: black">EVENT STAFF & USHERS</h2>
                 <div class="row">
                     <!-- Column 1 -->
                     <div class="col-md-3 d-flex align-items-center justify-content-center">
@@ -915,7 +917,7 @@
     <div class="my-container10">
         <div class="row actors-section d-flex justify-content-center">
             <div class="modaltext">
-                <h2 class="text-center" style="color: rgb(235, 13, 13)">Influencers</h2>
+                <h2 class="text-center" style="color: black">Influencers</h2>
                 <div class="row">
                     <!-- Column 1 -->
                     <div class="col-md-3 d-flex align-items-center justify-content-center">
