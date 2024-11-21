@@ -38,7 +38,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('{{ url('/user-assets/images/actors.jpg') }}');
+        background-image: url('{{ url('/user-assets/images/actors.webp') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -80,7 +80,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('{{ url('/user-assets/images/MODELS.jpg') }}');
+        background-image: url('{{ url('/user-assets/images/MODELS.jpeg') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -203,7 +203,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('{{ url('/user-assets/images/videophoto.jpg') }}');
+        background-image: url('{{ url('/user-assets/images/videophoto.webp') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -246,7 +246,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('{{ url('/user-assets/images/filmcrew.jpg') }}');
+        background-image: url('{{ url('/user-assets/images/filmcrew.jpeg') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -334,7 +334,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('{{ url('/user-assets/images/musician.jpg') }}');
+        background-image: url('{{ url('/user-assets/images/musician.webp') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -422,7 +422,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('{{ url('/user-assets/images/Influencers.jpg') }}');
+        background-image: url('{{ url('/user-assets/images/Influencers.webp') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
