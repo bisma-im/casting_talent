@@ -450,8 +450,9 @@
             list-style: none; /* Removes bullets */
         }
     </style>
+<div  id="scrollable-sections">
 
-<section class="modalagencysec">
+<section class="modalagencysec" id="section-actors">
     <div class="my-container">
             <div class="row actors-section d-flex align-items-center justify-content-center">
                 <div class="modaltext">
@@ -481,7 +482,7 @@
         
 </section>
     <!-- ------------------------------models section ---------------------- -->
-    <section class="modalagencysec">
+    <section id="section-models" class="modalagencysec">
         <div class="my-container2">
                 <div class="row actors-section d-flex justify-content-center">
                     <div class="modaltext">
@@ -542,7 +543,7 @@
             
     </section>
     <!-- ------------------------------Dancers & Performers---------------------- -->
-    <section class="modalagencysec">
+    <section  id="section-dancers"  class="modalagencysec">
         <div class="my-container3">
                 <div class="row actors-section d-flex justify-content-center">
                     <div class="modaltext">
@@ -603,7 +604,7 @@
   
     <!-- ------------------------------Makeup | Hair | Painter | Fashion Stylists---------------------- -->
 
-    <section class="modalagencysec">
+    <section id="section-makeup"  class="modalagencysec">
         <div class="my-container4">
                 <div class="row actors-section d-flex justify-content-center">
                 <div class="modaltext">
@@ -642,7 +643,7 @@
         </div>
 </section>
     <!-- ------------------------------ Photographers | Videographers---------------------- -->
-    <section class="modalagencysec">
+    <section id="section-photo-video" class="modalagencysec">
         <div class="my-container5">
             <div class="row actors-section d-flex justify-content-center">
                 <div class="modaltext">
@@ -693,7 +694,7 @@
         </div>
     </section>
     <!-- ------------------------------ Film Crew---------------------- -->
-    <section class="modalagencysec">
+    <section id="section-film-crew" class="modalagencysec">
         <div class="my-container6">
             <div class="row actors-section d-flex justify-content-center">
                 <div class="modaltext">
@@ -754,7 +755,7 @@
     </section>
 
  <!-- ------------------------------ Presenter & Emcee---------------------- -->
- <section class="modalagencysec">
+ <section  id="section-presenter" class="modalagencysec">
     <div class="my-container7">
         <div class="row actors-section d-flex justify-content-center">
             <div class="modaltext">
@@ -814,7 +815,7 @@
 </section>
 
     <!-- ------------------------------ Presenter & Emcee---------------------- -->
-    <section class="modalagencysec">
+    <section  id="section-musicians" class="modalagencysec">
     <div class="my-container8">
         <div class="row actors-section d-flex justify-content-center">
             <div class="modaltext">
@@ -866,7 +867,7 @@
 </section>
     <!-- ------------------------------ EVENT STAFF & USHERS---------------------- -->
 
-<section class="modalagencysec">
+<section  id="section-event-staff" class="modalagencysec">
     <div class="my-container9">
         <div class="row actors-section d-flex justify-content-center">
             <div class="modaltext">
@@ -913,7 +914,7 @@
     </div>
 </section>
     <!-- ------------------------------ influencers--------------------- -->
-    <section class="modalagencysec">
+    <section  id="section-influencers" class="modalagencysec">
     <div class="my-container10">
         <div class="row actors-section d-flex justify-content-center">
             <div class="modaltext">
@@ -959,6 +960,87 @@
         </div>
     </div>
 </section>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll(".modalagencysec");
+        let currentSectionIndex = 0; // Index to track the current section
+
+        // Function to scroll to a specific section by index
+        function scrollToSection(index) {
+            if (index >= 0 && index < sections.length) {
+                currentSectionIndex = index;
+                sections[currentSectionIndex].scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        }
+
+        // Handle mouse wheel scrolling
+        let isScrolling = false;
+        window.addEventListener("wheel", function (event) {
+            if (isScrolling) return;
+
+            isScrolling = true;
+
+            // Determine scroll direction
+            if (event.deltaY > 0) {
+                // Scroll down
+                if (currentSectionIndex < sections.length - 1) {
+                    currentSectionIndex++;
+                }
+            } else {
+                // Scroll up
+                if (currentSectionIndex > 0) {
+                    currentSectionIndex--;
+                }
+            }
+
+            // Scroll to the determined section
+            scrollToSection(currentSectionIndex);
+
+            // Reset scrolling state
+            setTimeout(() => {
+                isScrolling = false;
+            }, 800);
+        });
+
+        // Handle keyboard arrow keys
+        window.addEventListener("keydown", function (event) {
+            if (isScrolling) return;
+
+            // Check if the pressed key is the up or down arrow
+            if (event.key === "ArrowDown") {
+                // Scroll down
+                if (currentSectionIndex < sections.length - 1) {
+                    currentSectionIndex++;
+                    scrollToSection(currentSectionIndex);
+                }
+            } else if (event.key === "ArrowUp") {
+                // Scroll up
+                if (currentSectionIndex > 0) {
+                    currentSectionIndex--;
+                    scrollToSection(currentSectionIndex);
+                }
+            }
+
+            // Prevent default scrolling behavior
+            if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+                event.preventDefault();
+            }
+
+            // Reset scrolling state
+            isScrolling = true;
+            setTimeout(() => {
+                isScrolling = false;
+            }, 800);
+        });
+    });
+</script>
+
+
+
 
 
 @endsection
