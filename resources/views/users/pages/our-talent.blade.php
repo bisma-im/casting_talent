@@ -12,6 +12,7 @@
     </section>
 
     <style>
+        
         .modaltext ul li a {
             font-size: 16px; 
             font-weight: 500;
@@ -962,81 +963,62 @@
 </section>
 </div>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const sections = document.querySelectorAll(".modalagencysec");
-        let currentSectionIndex = 0; // Index to track the current section
+   window.addEventListener("load", function () {
+    const sections = document.querySelectorAll(".modalagencysec");
+    let currentSectionIndex = 0;
 
-        // Function to scroll to a specific section by index
-        function scrollToSection(index) {
-            if (index >= 0 && index < sections.length) {
-                currentSectionIndex = index;
-                sections[currentSectionIndex].scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
+    // Scroll to the first section on page load
+    sections[currentSectionIndex].scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+    let isScrolling = false;
+    window.addEventListener("wheel", function (event) {
+        if (isScrolling) return;
+
+        isScrolling = true;
+        if (event.deltaY > 0 && currentSectionIndex < sections.length - 1) {
+            currentSectionIndex++;
+        } else if (event.deltaY < 0 && currentSectionIndex > 0) {
+            currentSectionIndex--;
         }
 
-        // Handle mouse wheel scrolling
-        let isScrolling = false;
-        window.addEventListener("wheel", function (event) {
-            if (isScrolling) return;
-
-            isScrolling = true;
-
-            // Determine scroll direction
-            if (event.deltaY > 0) {
-                // Scroll down
-                if (currentSectionIndex < sections.length - 1) {
-                    currentSectionIndex++;
-                }
-            } else {
-                // Scroll up
-                if (currentSectionIndex > 0) {
-                    currentSectionIndex--;
-                }
-            }
-
-            // Scroll to the determined section
-            scrollToSection(currentSectionIndex);
-
-            // Reset scrolling state
-            setTimeout(() => {
-                isScrolling = false;
-            }, 800);
+        sections[currentSectionIndex].scrollIntoView({
+            behavior: "smooth",
+            block: "start"
         });
 
-        // Handle keyboard arrow keys
-        window.addEventListener("keydown", function (event) {
-            if (isScrolling) return;
-
-            // Check if the pressed key is the up or down arrow
-            if (event.key === "ArrowDown") {
-                // Scroll down
-                if (currentSectionIndex < sections.length - 1) {
-                    currentSectionIndex++;
-                    scrollToSection(currentSectionIndex);
-                }
-            } else if (event.key === "ArrowUp") {
-                // Scroll up
-                if (currentSectionIndex > 0) {
-                    currentSectionIndex--;
-                    scrollToSection(currentSectionIndex);
-                }
-            }
-
-            // Prevent default scrolling behavior
-            if (event.key === "ArrowDown" || event.key === "ArrowUp") {
-                event.preventDefault();
-            }
-
-            // Reset scrolling state
-            isScrolling = true;
-            setTimeout(() => {
-                isScrolling = false;
-            }, 800);
-        });
+        setTimeout(() => {
+            isScrolling = false;
+        }, 800);
     });
+
+    window.addEventListener("keydown", function (event) {
+        if (isScrolling) return;
+
+        if (event.key === "ArrowDown" && currentSectionIndex < sections.length - 1) {
+            currentSectionIndex++;
+        } else if (event.key === "ArrowUp" && currentSectionIndex > 0) {
+            currentSectionIndex--;
+        }
+
+        sections[currentSectionIndex].scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+        if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+            event.preventDefault();
+        }
+
+        isScrolling = true;
+        setTimeout(() => {
+            isScrolling = false;
+        }, 800);
+    });
+});
+
 </script>
 
 
