@@ -244,6 +244,7 @@
                             justify-content: space-between;
                             padding: 10px;
                             margin-top: 30px;
+                            width: 70%;
                         }
 
                         .socialLinks .social-icon {
@@ -262,16 +263,19 @@
                         }
                     </style>
                     <div class="socialLinks">
-                        <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                        <a href="https://www.facebook.com/abeera.k.sheikh" target="_blank" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.twitter.com" target="_blank" class="social-icon">
-                            <i class="fab fa-twitter"></i>
+                        <a href="https://www.snapchat.com/add/abeeraksheikh" target="_blank" class="social-icon">
+                            <i class="fab fa-snapchat"></i>
                         </a>
-                        <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                        <a href="https://wa.me/971501234796" target="_blank" class="social-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/itsabeeraksheikh/" target="_blank" class="social-icon">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.linkedin.com" target="_blank" class="social-icon">
+                        <a href="https://www.linkedin.com/in/abeera-sheikh-uae-based-casting-specialist-actor-and-founder-of-aks-castings-llc-723063147" target="_blank" class="social-icon">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="https://www.youtube.com" target="_blank" class="social-icon">
@@ -329,15 +333,7 @@
 
                     <li class="col-md-1 ">
                         <a href="{{ route('modeling-agency.get', ['section' => 'influencers']) }}">
-                            <img src="{{ url('user-assets/icons/influencer.png') }}" alt="Influencers Icon"
-                                class="icon w-75 ">
-                            <p class="hover-text">INFLUENCERS</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <style>
-                  .hover-text:hover {
+                             .hover-text:hover {
             color: #D81F26; /* Change text color on hover */
          
         }
@@ -380,6 +376,11 @@
                             <img src="{{ url('user-assets/icons/presenter.png') }}" alt="Presenters Icon"
                                 class="icon w-75 pt-1">
                             <p class="hover-text">PRESENTERS &  EMCEES</p>
+e('modeling-agency.get', ['section' => 'presenters_emcees']) }}"
+                            class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/eventstaff.png') }}" alt="Presenters Icon"
+                                class="icon w-75 ">
+                            <p class="hover-text">PRESENTERS & EMCEES</p>
                         </a>
                     </li>
                     <li class="col-md-1 text-center">

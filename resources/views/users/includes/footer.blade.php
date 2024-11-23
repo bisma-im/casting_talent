@@ -881,7 +881,7 @@
                                     <i class="fa-brands fa-linkedin-in"></i>
                                 </a>
                             </li>
-                            <li><a href="https://www.snapchat.com/add/abeeraksheikh" target="_blank"><i class="fa-brands fa-snapchat"></i></a></li>
+                            <li><a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
                         </ul>
                     </div>
                 </div>

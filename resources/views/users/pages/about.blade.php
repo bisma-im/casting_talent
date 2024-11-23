@@ -75,6 +75,7 @@
                                             <li><a href="https://www.facebook.com/abeera.k.sheikh" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
                                             <li><a href="https://www.linkedin.com/in/abeera-sheikh-uae-based-casting-specialist-actor-and-founder-of-aks-castings-llc-723063147" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
                                             <li><a href="https://www.snapchat.com/add/abeeraksheikh" target="_blank"><i class="fa-brands fa-snapchat"></i></a></li>
+                                            <li><a href="https://www.snapchat.com/add/abeeraksheikh" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
