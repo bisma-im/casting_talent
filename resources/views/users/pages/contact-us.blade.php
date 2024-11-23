@@ -1472,7 +1472,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         class="fa-brands fa-linkedin"></i></a>
                                 <a class="text-yellow fs-3" target="_blank"
                                     href="https://www.snapchat.com/add/abeeraksheikh"><i
-                                        class="fa-brands fa-snapchat"></i></a>
+                                        class="fa-brands fa-youtube"></i></a>
                             </div>
                         </div>
                     </div>

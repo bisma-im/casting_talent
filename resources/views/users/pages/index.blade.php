@@ -465,19 +465,19 @@
             </div> --}}
             @php
             $profiles = [
-            ['img' => 'model1.jpg', 'age' => '25', 'number' => 'CTM-00132', 'nationality' => 'Brazilian'],
-            ['img' => 'model2.jpg', 'age' => '30', 'number' => 'CTM-80733', 'nationality' => 'Finnish'],
-            ['img' => 'model3.jpg', 'age' => '27', 'number' => 'CTM-53734', 'nationality' => 'Egyptian'],
-            ['img' => 'model4.jpg', 'age' => '24', 'number' => 'CTM-38085', 'nationality' => 'Thai'],
-            ['img' => 'model1.jpg', 'age' => '22', 'number' => 'CTM-11234', 'nationality' => 'Brazilian'],
-            ['img' => 'model2.jpg', 'age' => '31', 'number' => 'CTM-22345', 'nationality' => 'Portuguese'],
-            ['img' => 'model1.jpg', 'age' => '25', 'number' => 'CTM-00132', 'nationality' => 'Brazilian'],
-            ['img' => 'model2.jpg', 'age' => '30', 'number' => 'CTM-80733', 'nationality' => 'Finnish'],
-            ['img' => 'model3.jpg', 'age' => '27', 'number' => 'CTM-53734', 'nationality' => 'Egyptian'],
-            ['img' => 'model4.jpg', 'age' => '24', 'number' => 'CTM-38085', 'nationality' => 'Thai'],
-            ['img' => 'model1.jpg', 'age' => '22', 'number' => 'CTM-11234', 'nationality' => 'Brazilian'],
-            ['img' => 'model2.jpg', 'age' => '31', 'number' => 'CTM-22345', 'nationality' => 'Portuguese']
-            ];
+                ['img' => 'model1.jpg', 'age' => '25', 'number' => 'CTM-00132', 'nationality' => 'Brazilian'],
+                ['img' => 'model2.jpg', 'age' => '30', 'number' => 'CTM-80733', 'nationality' => 'Finnish'],
+                ['img' => 'model3.jpg', 'age' => '27', 'number' => 'CTM-53734', 'nationality' => 'Egyptian'],
+                ['img' => 'model4.jpg', 'age' => '24', 'number' => 'CTM-38085', 'nationality' => 'Thai'],
+                ['img' => 'model1.jpg', 'age' => '22', 'number' => 'CTM-11234', 'nationality' => 'Brazilian'],
+                ['img' => 'model2.jpg', 'age' => '31', 'number' => 'CTM-22345', 'nationality' => 'Portuguese'],
+                ['img' => 'model1.jpg', 'age' => '25', 'number' => 'CTM-00132', 'nationality' => 'Brazilian'],
+                ['img' => 'model2.jpg', 'age' => '30', 'number' => 'CTM-80733', 'nationality' => 'Finnish'],
+                ['img' => 'model3.jpg', 'age' => '27', 'number' => 'CTM-53734', 'nationality' => 'Egyptian'],
+                ['img' => 'model4.jpg', 'age' => '24', 'number' => 'CTM-38085', 'nationality' => 'Thai'],
+                ['img' => 'model1.jpg', 'age' => '22', 'number' => 'CTM-11234', 'nationality' => 'Brazilian'],
+                ['img' => 'model2.jpg', 'age' => '31', 'number' => 'CTM-22345', 'nationality' => 'Portuguese']
+                ];
             @endphp
             <div class="carousel-container">
                 {{-- <h2 class="carousel-heading">Related <span>Profiles</span></h2> --}}
