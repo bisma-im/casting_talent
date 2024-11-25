@@ -760,7 +760,7 @@
     <div class="my-container7">
         <div class="row actors-section d-flex justify-content-center">
             <div class="modaltext">
-                <h2 class="text-center" style="color: black">Presenter & Emcee</h2>
+                <h2 class="text-center" style="color: black; font-size: 50px !important;">Presenter & Emcee</h2>
                 <div class="row">
                     <!-- Column 1 -->
                     <div class="col-md-3 d-flex align-items-center justify-content-center">
