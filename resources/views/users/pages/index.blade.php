@@ -181,7 +181,7 @@
                     </div>
                 </div>
 
-                <div class="bannerbottom">
+                <div class="bannerbottom "  data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
                     <img src="{{ url('user-assets') }}/images/banner_img_4.jpg" class="img-fluid" alt="img">
                 </div>
 
@@ -189,17 +189,17 @@
             <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                        <div class="bannerlistimg1">
-                            <img src="{{ url('user-assets') }}/images/banner_img_2.jpg" class="img-fluid" alt="img">
+                        <div class="bannerlistimg1 ">
+                            <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_2.jpg" class="img-fluid" alt="img">
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
                         <div class="rightbanner">
                             <div class="bannerlistimg">
-                                <img src="{{ url('user-assets') }}/images/banner_img_1.jpg" class="img-fluid" alt="img">
+                                <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_1.jpg" class="img-fluid" alt="img">
                             </div>
                             <div class="bannerlistimg">
-                                <img src="{{ url('user-assets') }}/images/banner_img_3.jpg" class="img-fluid" alt="img">
+                                <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_3.jpg" class="img-fluid" alt="img">
                             </div>
                         </div>
                     </div>
@@ -213,16 +213,16 @@
 
 <section class="casting">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                <div class="casting-img" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                    <img src="{{ url('user-assets') }}/images/casting.png" alt="Casting Image" class="img-fluid">
+        <div class="row ">
+            <div class="col-sm-6 col-md-12 w-100">
+                <div  data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+                    <img src="{{ url('user-assets') }}/images/casting.jpg" alt="Casting Image" class="img-fluid">
                 </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="col-12 col-sm-12 col-md-12 ">
                 <div class="casting-text" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
                     data-aos-duration="2000">
-                    <h5>ABEERA K SHEIKH</h5>
+                    <h5 class="pt-2">ABEERA K SHEIKH</h5>
                     <h2>Casting <sapn style="color: rgba(216, 31, 38, 1);">Director</sapn> & <sapn
                             style="color: rgba(216, 31, 38, 1);">Founder</sapn> Of Cast Talents.</h2>
                     <p>Abeera K Sheikh's journey into entertainment began with a profound love for the arts. Relocating
@@ -244,14 +244,14 @@
                             justify-content: space-between;
                             padding: 10px;
                             margin-top: 30px;
-                            width: 70%;
+                            width: 35%;
                         }
 
                         .socialLinks .social-icon {
                             text-decoration: none;
                             color: #000;
                             /* Change to desired color */
-                            font-size: 16px;
+                            font-size: 20px;
                             /* Adjust size as needed */
                             width: 50px;
                             height: 50px;
@@ -262,7 +262,7 @@
                             color: #0073e6;
                         }
                     </style>
-                    <div class="socialLinks">
+                    <div class="socialLinks ">
                         <a href="https://www.facebook.com/abeera.k.sheikh" target="_blank" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
                         </a>
@@ -292,233 +292,131 @@
     .featurelist ul li a:hover {
         color: rgb(235, 13, 13) !important;
     }
+    .featurelist ul {
+    border: none !important; /* Remove any borders on the list */
+    box-shadow: none !important; /* Remove shadows */
+    margin: 0; /* Ensure no unintended spacing */
+    padding: 0; /* Reset padding */
+}
+.hover-text:hover {
+    color: #D81F26;
+
+}
+
 </style>
 
 <section class="featuremodalsec">
-
     <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="col-12">
             <div class="featuremodal">
                 <h3>Featured <span>Talents</span></h3>
             </div>
-            <div class="featurelist" style="border-bottom: 0px !important;">
-                <ul>
-                    <li class="col-md-1">
-                        <a href="{{ route('modeling-agency.get', ['section' => 'actors']) }}" class="active"
-                            data-target="tab1">
-                            <img src="{{ url('user-assets/icons/actor.png') }}" alt="Actors Icon" class="icon w-75">
-                            <p class="hover-text"> ACTORS</p>
-                        </a>
-                    </li>
-                    <li class="col-md-1">
-                        <a href="{{ route('modeling-agency.get', ['section' => 'models']) }}" data-target="tab2">
-                            <img src="{{ url('user-assets/icons/model.png') }}" alt="Models Icon" class="icon w-75">
-                            <p class="hover-text"> MODELS</p>
-                        </a>
-                    </li>
-                    <li class="col-md-1">
-                        <a href="{{ route('modeling-agency.get', ['section' => 'musicians']) }}">
-                            <img src="{{ url('user-assets/icons/musician.png') }}" alt="Musicians Icon"
-                                class="icon w-75">
-                            <p class="hover-text">MUSICIANS</p>
-                        </a>
-                    </li>
-                    <li class="col-md-1">
-                        <a href="{{ route('modeling-agency.get', ['section' => 'film_crew']) }}" data-target="tab4">
-                            <img src="{{ url('user-assets/icons/film.png') }}" alt="Film Crew Icon" class="icon w-75">
-                            <p class="hover-text"> FILM CREW</p>
-
-                        </a>
-                    </li>
-
-                    <li class="col-md-1 ">
-                        <a href="{{ route('modeling-agency.get', ['section' => 'influencers']) }}">
-                             .hover-text:hover {
-            color: #D81F26; /* Change text color on hover */
-         
-        }
-                .featurelist ul {
-                    margin: 0px 0 30px;
-                    text-align: center;
-                    border-bottom: 1px solid #00000061;
-                    padding-bottom: 40px;
-                }
-
-                .featurelist ul,
-                .featuremodal,
-                .casting,
-                div,
-                ul,
-                li {
-                    border: none;
-                    /* Remove any border */
-                    background: none;
-                    /* Remove background color */
-                    margin: 0;
-                    /* Reset margin */
-                    padding: 0;
-                    /* Reset padding */
-                }
-            </style>
-            <div class="featurelist">
-                <ul class="d-flex flex-wrap justify-content-center align-items-center w-100 list-unstyled">
-                    <li class="col-md-1">
-                        <a href="{{ route('modeling-agency.get', ['section' => 'dancers_performers']) }}"
-                            class="d-flex flex-column align-items-center" data-target="tab3">
-                            <img src="{{ url('user-assets/icons/dancer.png') }}" alt="Dancers Icon" class="icon w-75">
-                            <p class="hover-text"> DANCERS & PERFORMERS</p>
-
-                        </a>
-                    </li>
+            <div class="featurelist" style="border-bottom: 0 !important;">
+            <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled mt-4">
                     <li class="col-md-1 text-center">
-                        <a href="{{ route('modeling-agency.get', ['section' => 'presenters_emcees']) }}"
-                            class="d-flex flex-column align-items-center">
-                            <img src="{{ url('user-assets/icons/presenter.png') }}" alt="Presenters Icon"
-                                class="icon w-75 pt-1">
-                            <p class="hover-text">PRESENTERS &  EMCEES</p>
-e('modeling-agency.get', ['section' => 'presenters_emcees']) }}"
-                            class="d-flex flex-column align-items-center">
-                            <img src="{{ url('user-assets/icons/eventstaff.png') }}" alt="Presenters Icon"
-                                class="icon w-75 ">
+                        <a href="{{ route('modeling-agency.get', ['section' => 'presenters_emcees']) }}" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/presenter.png') }}" alt="Presenters Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
                             <p class="hover-text">PRESENTERS & EMCEES</p>
                         </a>
                     </li>
-                    <li class="col-md-1 text-center">
-                        <a href="{{ route('modeling-agency.get', ['section' => 'event_staff_ushers']) }}"
-                            class="d-flex flex-column align-items-center">
-                            <img src="{{ url('user-assets/icons/eventstaff.png') }}" alt="Event Staff Icon"
-                                class="icon w-75 ">
-                            <p class="hover-text">EVENT STAFF & USHERS</p>
+                    <li class="col-md-2 text-center">
+                        <a href="{{ route('modeling-agency.get', ['section' => 'event_staff_ushers']) }}" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/eventstaff.png') }}" alt="Event Staff Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text ">EVENT STAFF & <br/> USHERS</p>
                         </a>
                     </li>
-
-                    <li class="col-md-1 ">
-                        <a href="{{ route('modeling-agency.get', ['section' => 'makeup_hair_stylist']) }}"
-                            class="d-flex flex-column align-items-center">
-                            <img src="{{ url('user-assets/icons/makeup.png') }}" alt="Makeup Icon" class="icon w-75 ">
-                            <p class="hover-text pt-2">MAKEUP,HAIR& FASHION</p>
+                    <li class="col-md-2 text-center">
+                        <a href="{{ route('modeling-agency.get', ['section' => 'makeup_hair_stylist']) }}" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/makeup.png') }}" alt="Makeup Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">MAKEUP, HAIR & <br/> FASHION</p>
                         </a>
                     </li>
-                    <li class="col-md-1">
-                        <a href="{{ route('modeling-agency.get', ['section' => 'photographers_videographers']) }}"
-                            class="d-flex flex-column align-items-center" data-target="tab9">
-                            <img src="{{ url('user-assets/icons/photo.png') }}" alt="Photographers Icon"
-                                class="icon w-75 ">
-                            <p class="hover-text">PHOTOGRAPHY& VIDEOGRAPHY</p>
-
+                    <li class="col-md-2 text-center">
+                        <a href="{{ route('modeling-agency.get', ['section' => 'photographers_videographers']) }}" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/photo.png') }}" alt="Photographers Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">PHOTOGRAPHY & VIDEOGRAPHY</p>
                         </a>
                     </li>
-
-
+                    <li class="col-md-2 text-center">
+                        <a href="{{ route('modeling-agency.get', ['section' => 'dancers_performers']) }}" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/dancer.png') }}" alt="Dancers Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">DANCERS &  <br/> PERFORMERS</p>
+                        </a>
+                    </li>
+                  
                 </ul>
-            </div>
-            {{-- @php
-            $models = DB::table('model_details')
-            ->orderBy('created_at', 'desc') // Replace 'created_at' with the appropriate column if needed
-            ->limit(9)
-            ->get();
-            @endphp
-            <div class="container">
-                <div class="row">
-                    @if ($models->count() > 0)
-                    @foreach ($models as $modelDetail)
-                    @php
-                    // Parse the profile images string into an array
-                    $profileImages = json_decode($modelDetail->profile_images);
-                    $firstImage = $profileImages[0] ?? 'default.png'; // Default image if no profile image is available
-                    // Calculate the age from the date of birth
-                    $birthDate = new DateTime($modelDetail->date_of_birth);
-                    $currentDate = new DateTime();
-                    $age = $currentDate->diff($birthDate)->y;
-                    // Example conversion for height and weight if needed
-                    $height = $modelDetail->height . ' ' . 'cm';
-                    $weight = $modelDetail->weight . ' ' . 'kg';
-                    @endphp
-                    <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mb-3">
-                        <a href="{{ route('model-info.get', $modelDetail->id) }}" class="text-dark">
-                            <div class="castbox">
-                                <div class="castimg">
-                                    <img src="{{ url('/uploads/models/profiles/' . $firstImage) }}" class="img-fluid"
-                                        alt="Model Image">
-                                </div>
-                                <div class="castbody">
-                                    <h5 class="bodytheading">{{ $modelDetail->first_name }}
-                                        {{ $modelDetail->last_name }}</h5>
-                                    <div class="castbodylist firstitem">
-                                        <h5><strong>AGE:</strong> {{ $age }}</h5>
-                                        <h5><strong>Nationality:</strong>
-                                            {{ $modelDetail->nationality }}
-                                        </h5>
-                                    </div>
-                                    <div class="castbodylist">
-                                        <h5><strong>HEIGHT:</strong> {{ $height }}</h5>
-                                    </div>
-                                    <div class="castbodylist">
-                                        <h5><strong>WEIGHT:</strong> {{ $weight }}</h5>
-                                    </div>
-                                </div>
-                            </div>
+              <!-- Row 1 -->
+              <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled">
+                    <li class="col-md-1 text-center">
+                        <a href="{{ route('modeling-agency.get', ['section' => 'actors']) }}" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/actor.png') }}" alt="Actors Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">ACTORS</p>
                         </a>
-                    </div>
-                    @endforeach
-                    @else
-                    <div class="alert alert-info">
-                        <h6>There is no data present yet...</h6>
-                    </div>
-                    @endif
-                </div>
-            </div> --}}
+                    </li>
+                    <li class="col-md-2 text-center">
+                        <a href="{{ route('modeling-agency.get', ['section' => 'models']) }}" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/model.png') }}" alt="Models Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">MODELS</p>
+                        </a>
+                    </li>
+                    <li class="col-md-2 text-center">
+                        <a href="{{ route('modeling-agency.get', ['section' => 'musicians']) }}" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/musician.png') }}" alt="Musicians Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">MUSICIANS</p>
+                        </a>
+                    </li>
+                    <li class="col-md-2 text-center">
+                        <a href="{{ route('modeling-agency.get', ['section' => 'film_crew']) }}" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/film.png') }}" alt="Film Crew Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">FILM CREW</p>
+                        </a>
+                    </li>
+                    <li class="col-md-2 text-center">
+                        <a href="{{ route('modeling-agency.get', ['section' => 'influencers']) }}" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/influencer.png') }}" alt="Influencers Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">INFLUENCERS</p>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Row 2 -->
+               
+            </div>
+
+            <!-- Profile Cards Section -->
             @php
-            $profiles = [
-                ['img' => 'model1.jpg', 'age' => '25', 'number' => 'CTM-00132', 'nationality' => 'Brazilian'],
-                ['img' => 'model2.jpg', 'age' => '30', 'number' => 'CTM-80733', 'nationality' => 'Finnish'],
-                ['img' => 'model3.jpg', 'age' => '27', 'number' => 'CTM-53734', 'nationality' => 'Egyptian'],
-                ['img' => 'model4.jpg', 'age' => '24', 'number' => 'CTM-38085', 'nationality' => 'Thai'],
-                ['img' => 'model1.jpg', 'age' => '22', 'number' => 'CTM-11234', 'nationality' => 'Brazilian'],
-                ['img' => 'model2.jpg', 'age' => '31', 'number' => 'CTM-22345', 'nationality' => 'Portuguese'],
-                ['img' => 'model1.jpg', 'age' => '25', 'number' => 'CTM-00132', 'nationality' => 'Brazilian'],
-                ['img' => 'model2.jpg', 'age' => '30', 'number' => 'CTM-80733', 'nationality' => 'Finnish'],
-                ['img' => 'model3.jpg', 'age' => '27', 'number' => 'CTM-53734', 'nationality' => 'Egyptian'],
-                ['img' => 'model4.jpg', 'age' => '24', 'number' => 'CTM-38085', 'nationality' => 'Thai'],
-                ['img' => 'model1.jpg', 'age' => '22', 'number' => 'CTM-11234', 'nationality' => 'Brazilian'],
-                ['img' => 'model2.jpg', 'age' => '31', 'number' => 'CTM-22345', 'nationality' => 'Portuguese']
+                $profiles = [
+                    ['img' => 'model1.jpg', 'age' => '25', 'number' => 'CTM-00132', 'nationality' => 'Brazilian'],
+                    ['img' => 'model2.jpg', 'age' => '30', 'number' => 'CTM-80733', 'nationality' => 'Finnish'],
+                    ['img' => 'model3.jpg', 'age' => '27', 'number' => 'CTM-53734', 'nationality' => 'Egyptian'],
+                    ['img' => 'model4.jpg', 'age' => '24', 'number' => 'CTM-38085', 'nationality' => 'Thai'],
                 ];
             @endphp
             <div class="carousel-container">
-                {{-- <h2 class="carousel-heading">Related <span>Profiles</span></h2> --}}
                 <div class="custom-carousel" id="customCarousel">
                     <div class="custom-carousel-inner" id="customCarouselInner">
                         @foreach ($profiles as $profile)
-                        <div class="custom-carousel-item {{ $loop->first ? 'active' : '' }}">
-
-                            <div class="profile-card">
-                                <div class="img-div">
-                                    <img src="{{ url('/user-assets/model-images/' . $profile['img']) }}"
-                                        class="img-fluid" alt="model-image">
-                                </div>
-                                <div class="cardbody">
-                                    <div class="card-code text-center">
-                                        <!-- Insert code related content here -->
-                                        {{ $profile['number'] }}
+                            <div class="custom-carousel-item {{ $loop->first ? 'active' : '' }}">
+                                <div class="profile-card">
+                                    <div class="img-div">
+                                        <img src="{{ url('/user-assets/model-images/' . $profile['img']) }}" class="img-fluid" alt="model-image">
                                     </div>
-                                    <div class="card-info text-center">
-                                        {{ $profile['age'] . ', ' . $profile['nationality']}}
-                                        <!-- Insert age, nationality, etc., here -->
+                                    <div class="cardbody text-center">
+                                        <div class="card-code">{{ $profile['number'] }}</div>
+                                        <div class="card-info">{{ $profile['age'] }}, {{ $profile['nationality'] }}</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
-                    <a class="custom-carousel-control-prev" id="customCarouselPrev" href="#!" role="button"
-                        data-slide="prev">&#10094;</a>
-                    <a class="custom-carousel-control-next" id="customCarouselNext" href="#!" role="button"
-                        data-slide="next">&#10095;</a>
+                    <a class="custom-carousel-control-prev" id="customCarouselPrev" href="#!" role="button" data-slide="prev">&#10094;</a>
+                    <a class="custom-carousel-control-next" id="customCarouselNext" href="#!" role="button" data-slide="next">&#10095;</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
 
 <div class="startedbtn">
     <ul>

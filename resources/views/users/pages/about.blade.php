@@ -62,7 +62,7 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="teambox">
                                 <div class="my-teamimg">
-                                    <img src="{{ url('user-assets') }}/team-images/abeera.jpg" class="img-fluid" alt="img">
+                                    <img  data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/team-images/abeera.jpg" class="img-fluid" alt="img">
                                 </div>
                                 <div class="teambody">
                                     <h3>Abeera K Sheikh</h3>
