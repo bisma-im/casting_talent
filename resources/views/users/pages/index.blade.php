@@ -333,10 +333,18 @@
 
                     <li class="col-md-1 ">
                         <a href="{{ route('modeling-agency.get', ['section' => 'influencers']) }}">
-                             .hover-text:hover {
-            color: #D81F26; /* Change text color on hover */
-         
-        }
+                            <img src="{{ url('user-assets/icons/influencer.png') }}" alt="Influencers Icon"
+                                class="icon w-75 ">
+                            <p class="hover-text">INFLUENCERS</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <style>
+                .hover-text:hover {
+                    color: #D81F26; /* Change text color on hover */
+                
+                }
                 .featurelist ul {
                     margin: 0px 0 30px;
                     text-align: center;
@@ -375,11 +383,6 @@
                             class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/presenter.png') }}" alt="Presenters Icon"
                                 class="icon w-75 pt-1">
-                            <p class="hover-text">PRESENTERS &  EMCEES</p>
-e('modeling-agency.get', ['section' => 'presenters_emcees']) }}"
-                            class="d-flex flex-column align-items-center">
-                            <img src="{{ url('user-assets/icons/eventstaff.png') }}" alt="Presenters Icon"
-                                class="icon w-75 ">
                             <p class="hover-text">PRESENTERS & EMCEES</p>
                         </a>
                     </li>
