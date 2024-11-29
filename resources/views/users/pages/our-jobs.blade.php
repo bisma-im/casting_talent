@@ -23,10 +23,11 @@
     </section>
 
 <style>
-    .featurelist ul li a:hover {
-        color: rgb(235, 13, 13) !important;
-        cursor: pointer;
-    }
+.hover-text:hover {
+    color: #D81F26;
+
+}
+
     .jopbody ul li {
         float: left;
         width: 50%;
@@ -43,51 +44,86 @@
                 <div class="featurelist">
                     <div class="container-fluid jobList">
                         <div class="featurelist" style="border-bottom: 0px !important;">
-                    <ul>
-                        <li><a href="{{ route('featured-models.get', ['section' => 'actors']) }}" class="active" data-target="tab1">
-                            <i class="fa-solid fa-circle"></i>ACTORS</a>
-                        </li>
-                        <li><a href="{{ route('featured-models.get', ['section' => 'models']) }}" data-target="tab2">
-                            <i class="fa-solid fa-circle"></i>MODELS</a>
-                        </li>
-                        <li><a href="{{ route('featured-models.get', ['section' => 'dancers_performers']) }}" data-target="tab3">
-                            <i class="fa-solid fa-circle"></i>DANCERS & PERFORMERS</a>
-                        </li>
-                        <li><a href="{{ route('featured-models.get', ['section' => 'film_crew']) }}" data-target="tab4">
-                            <i class="fa-solid fa-circle"></i>FILM CREW</a>
-                        </li>
-                        <li><a href="{{ route('featured-models.get', ['section' => 'photographers_videographers']) }}" data-target="tab9">
-                            <i class="fa-solid fa-circle"></i>PHOTOGRAPHERS / VIDEOGRAPHERS</a>
-                        </li>
-                    </ul>
+                
                 </div>
                 <style>
-                    .featurelist ul {
-                        margin: 0px 0 30px;
-                        text-align: center; 
-                        border-bottom: 1px solid #00000061; 
-                        padding-bottom: 40px;
-                    }
+                     .featurelist ul {
+    border: none !important; /* Remove any borders on the list */
+    box-shadow: none !important; /* Remove shadows */
+    margin: 0; /* Ensure no unintended spacing */
+    padding: 0; /* Reset padding */
+}
                 </style>
-                <div class="featurelist">
-                    <ul>
-                        <li><a href="{{ route('featured-models.get', ['section' => 'influencers']) }}" data-target="tab6">
-                            <i class="fa-solid fa-circle"></i>INFLUENCERS</a>
-                        </li>
-                        <li><a href="{{ route('featured-models.get', ['section' => 'presenters_emcees']) }}" data-target="tab7">
-                            <i class="fa-solid fa-circle"></i>PRESENTERS & EMCEES</a>
-                        </li>
-                        <li><a href="{{ route('featured-models.get', ['section' => 'event_staff_ushers']) }}" data-target="tab8">
-                            <i class="fa-solid fa-circle"></i>EVENT STAFF & USHERS</a>
-                        </li>
-                        <li><a href="{{ route('featured-models.get', ['section' => 'musicians']) }}" data-target="tab5">
-                            <i class="fa-solid fa-circle"></i>MUSICIANS</a>
-                        </li>
-                        <li><a href="{{ route('featured-models.get', ['section' => 'makeup_hair_stylist']) }}" data-target="tab10">
-                            <i class="fa-solid fa-circle"></i>MAKEUP, HAIR, PAINTER & FASHION STYLIST</a>
-                        </li>
-                    </ul>
-                </div>
+               <div class="featurelist" style="border-bottom: 0 !important;">
+            <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled mt-4">
+                    <li class="col-md-1 col-sm-2 text-center">
+                        <a href="{{ route('featured-models.get', ['section' => 'presenters_emcees']) }}" data-target="tab7" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/presenter.png') }}" alt="Presenters Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">PRESENTERS & EMCEES</p>
+                        </a>
+                    </li>
+                    <li class="col-md-2  col-sm-1 text-center">
+                        <a href="{{ route('featured-models.get', ['section' => 'event_staff_ushers']) }}" data-target="tab8" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/eventstaff.png') }}" alt="Event Staff Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text ">EVENT STAFF & <br/> USHERS</p>
+                        </a>
+                    </li>
+                    <li class="col-md-2  col-sm-1 text-center">
+                        <a href="{{ route('featured-models.get', ['section' => 'makeup_hair_stylist']) }}" data-target="tab10" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/makeup.png') }}" alt="Makeup Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">MAKEUP, HAIR & <br/> FASHION</p>
+                        </a>
+                    </li>
+                    <li class="col-md-2 col-sm-1 text-center">
+                        <a href="{{ route('featured-models.get', ['section' => 'photographers_videographers']) }}" data-target="tab9" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/photo.png') }}" alt="Photographers Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">PHOTOGRAPHY & VIDEOGRAPHY</p>
+                        </a>
+                    </li>
+                    <li class="col-md-2 col-sm-1 text-center">
+                        <a href="{{ route('featured-models.get', ['section' => 'dancers_performers']) }}" data-target="tab3" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/dancer.png') }}" alt="Dancers Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">DANCERS &  <br/> PERFORMERS</p>
+                        </a>
+                    </li>
+                  
+                </ul>
+              <!-- Row 1 -->
+              <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled">
+                    <li class="col-md-1 col-sm-1 text-center">
+                        <a href="{{ route('featured-models.get', ['section' => 'actors']) }}" class="active" data-target="tab1" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/actor.png') }}" alt="Actors Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">ACTORS</p>
+                        </a>
+                    </li>
+                    <li class="col-md-2  col-sm-1 text-center">
+                        <a href="{{ route('featured-models.get', ['section' => 'models']) }}" data-target="tab2" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/model.png') }}" alt="Models Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">MODELS</p>
+                        </a>
+                    </li>
+                    <li class="col-md-2 col-sm-1 text-center">
+                        <a href="{{ route('featured-models.get', ['section' => 'musicians']) }}" data-target="tab5" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/musician.png') }}" alt="Musicians Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">MUSICIANS</p>
+                        </a>
+                    </li>
+                    <li class="col-md-2 col-sm-1 text-center">
+                        <a href="{{ route('featured-models.get', ['section' => 'film_crew']) }}" data-target="tab4" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/film.png') }}" alt="Film Crew Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">FILM CREW</p>
+                        </a>
+                    </li>
+                    <li class="col-md-2 col-sm-1 text-center">
+                        <a href="{{ route('featured-models.get', ['section' => 'influencers']) }}" class="d-flex flex-column align-items-center">
+                            <img src="{{ url('user-assets/icons/influencer.png') }}" alt="Influencers Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
+                            <p class="hover-text">INFLUENCERS</p>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Row 2 -->
+               
+            </div>
                     </div>
                 </div>
                 @php
