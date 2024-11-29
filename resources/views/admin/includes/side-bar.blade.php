@@ -32,5 +32,11 @@
                 </ul>
             </div>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.create-job.get') }}">
+                <span class="icon-bg"><i class="mdi mdi-message menu-icon"></i></span>
+                <span class="menu-title">Create Job</span>
+            </a>
+        </li>
     </ul>
 </nav>
