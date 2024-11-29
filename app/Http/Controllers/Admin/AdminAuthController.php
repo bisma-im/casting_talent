@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Job;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -16,6 +17,55 @@ class AdminAuthController extends Controller
     public function adminLoginPage()
     {
         return view('admin.pages.auth.login');
+    }
+    public function createJobPage()
+    {
+        return view('admin.pages.create-job');
+    }
+    public function storeJob(Request $request)
+    {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'project' => 'required|string|max:255',
+            'required' => 'required|string|max:255',
+            'date' => 'required|date',
+            'timings' => 'required|in:Half Day,Full Day',
+            'days' => 'required|integer',
+            'payment' => 'nullable|numeric',
+            'payment_status' => 'required|in:TBD,Paid,Unpaid',
+            'country' => 'required|in:UAE,KSA,Oman',
+            'city' => 'required|string|max:255',
+            'area' => 'required|string|max:255',
+            'transportation' => 'required|in:YES,NO',
+            'food' => 'required|in:YES,NO',
+            'payment_mode' => 'required|in:CASH,BANK TRANSFER',
+            'paid_status' => 'nullable|string|max:255',
+        ]);
+
+        // Create the job record in the database
+        $job = Job::create([
+            'project' => $validatedData['project'],
+            'required' => $validatedData['required'],
+            'date' => $validatedData['date'],
+            'timings' => $validatedData['timings'],
+            'days' => $validatedData['days'],
+            'payment' => $validatedData['payment'] ?? null,
+            'payment_status' => $validatedData['payment_status'],
+            'country' => $validatedData['country'],
+            'city' => $validatedData['city'],
+            'area' => $validatedData['area'],
+            'transportation' => $validatedData['transportation'],
+            'food' => $validatedData['food'],
+            'payment_mode' => $validatedData['payment_mode'],
+            'paid_status' => $validatedData['paid_status'],
+        ]);
+
+        // Return success response
+        return response()->json([
+            'success' => true,
+            'message' => 'Job created successfully!',
+            'job' => $job,
+        ]);
     }
     public function adminForgotPage()
     {
