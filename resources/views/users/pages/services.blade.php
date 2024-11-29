@@ -44,7 +44,7 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalbox">
                         <div class="modalimg">
-                            <img src="{{ url('user-assets') }}/images/services_1.png" class="img-fluid" alt="img">
+                            <img src="{{ url('user-assets') }}/images/modeling.png" class="img-fluid" alt="img">
                         </div>
                         <div class="modalbody">
                             <h4>MODELING AGENCY</h4>
@@ -67,11 +67,11 @@
                                             <li><a href="{{ route('modeling-agency.get', ['section' => 'fashion-show']) }}">FASHION
                                                     SHOW</a></li>
                                             <li><a
-                                                    href="{{ route('modeling-agency.get', ['section' => 'locations-permit']) }}">LOCATIONS
-                                                    / PERMIT</a></li>
+                                                    href="{{ route('modeling-agency.get', ['section' => 'locations-permit']) }}">
+                                                    <p></p>
+                                                    LOCATIONS/ PERMIT</a></li>
                                             <li><a
-                                                    href="{{ route('modeling-agency.get', ['section' => 'tv-commercials']) }}">TV
-                                                    COMMERCIAL / MUSIC VIDEOS / FILMING</a></li>
+                                                    href="{{ route('modeling-agency.get', ['section' => 'tv-commercials']) }}">TV COMMERCIAL/MUSIC VIDEOS/FILMING</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalbox">
                         <div class="modalimg">
-                            <img src="{{ url('user-assets') }}/images/services_2.png" class="img-fluid" alt="img">
+                            <img src="{{ url('user-assets') }}/images/Celebmanagement.jpg " class="img-fluid" alt="img">
                         </div>
                         <div class="modalbody">
                             <h4>CELEBRITY MANAGEMENT</h4>
@@ -132,7 +132,7 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalbox">
                         <div class="modalimg">
-                            <img src="{{ url('user-assets') }}/images/services_3.png" class="img-fluid" alt="img">
+                            <img src="{{ url('user-assets') }}/images/filmmaking.jpg" class="img-fluid" alt="img">
                         </div>
                         <div class="modalbody">
                             <h4>FILMING</h4>
@@ -183,7 +183,7 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalbox">
                         <div class="modalimg">
-                            <img src="{{ url('user-assets') }}/images/services_4.png" class="img-fluid" alt="img">
+                            <img src="{{ url('user-assets') }}/images/event.webp" class="img-fluid" alt="img">
                         </div>
                         <div class="modalbody">
                             <h4>EVENTS</h4>
@@ -232,13 +232,13 @@
                 <style>
                     .modalimg {
                         width: 100%;
-                        height: 180px;
+                        height: 100vh;
                     }
                 </style>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalbox">
                         <div class="modalimg">
-                            <img src="https://i.pinimg.com/736x/7f/5a/ab/7f5aabb22215e472902269f157a2f4a4.jpg" class="img-fluid" alt="img">
+                            <img src="{{ url('user-assets') }}/images/hospitality.jpg" class="img-fluid" alt="img">
                         </div>
                         <div class="modalbody">
                             <h4>HOSPITALITY</h4>
@@ -264,7 +264,7 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalbox">
                         <div class="modalimg">
-                            <img src="https://avatars.mds.yandex.net/i?id=dd02250fa7f087a0d6e72f0e8b0f7208_l-5511764-images-thumbs&ref=rim&n=13&w=2000&h=1334" class="img-fluid" alt="img">
+                            <img src="{{ url('user-assets') }}/images/location.jpg" class="img-fluid" alt="img">
                         </div>
                         <div class="modalbody">
                             <h4>LOCATION SCOUTING</h4>

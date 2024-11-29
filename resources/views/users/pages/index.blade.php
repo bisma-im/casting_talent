@@ -429,17 +429,79 @@
         <div class="row justify-content-center">
             <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-xxl-10">
                 <div class="rightsec">
-                    <h3>Finding The <span>Right Talent</span> For Your <span>Next Screen</span> Production, <span>Made
-                            Easy.</span></h3>
+                    <h3>Finding The <span>Right Talent</span> For Your <span>Next Screen</span> Production, <span>Made Easy.</span></h3>
                 </div>
                 <div class="talentimg">
-                    <img src="{{ url('user-assets') }}/images/talentbanner.png" class="img-fluid">
-                    <a href="#"><i class="fa-regular fa-circle-play"></i></a>
+                    <!-- Thumbnail Image -->
+                    <img id="imageThumbnailRight" src="{{ url('user-assets') }}/images/talentbanner.png" class="img-fluid" alt="Talent Banner">
+
+                    <!-- Play button (click to show video) -->
+                    <a href="javascript:void(0);" id="playButtonRight">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </a>
+
+                    <!-- Hidden Video container (will be shown when play button is clicked) -->
+                    <div id="videoContainerRight" class="video-container" style="display: none;">
+                        <iframe id="videoIframeRight" class="embed-responsive-item" 
+                            src="https://youtu.be/VXZgS20jvvA?si=XbsKd8Sq0p50zsVJ?autoplay=1" 
+                            frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<style>
+.talentimg {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto;
+}
+
+.talentimg img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: opacity 0.3s ease; /* Smooth fade effect */
+}
+
+#playButtonRight {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    z-index: 10;
+}
+
+#playButtonRight:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.video-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background-color: black; /* Background color for the video container */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+</style>
 
 
 <section class="casttelentsec">
@@ -608,5 +670,21 @@
                 carouselInner.style.transform = `translateX(-${currentIndex * totalMoveWidth}%)`;
             });
         });
+
+        // --------------------------youtube video 
+
+        document.getElementById("playButtonRight").addEventListener("click", function() {
+    var imageThumbnailRight = document.getElementById("imageThumbnailRight");
+    var videoContainerRight = document.getElementById("videoContainerRight");
+    var playButtonRight = document.getElementById("playButtonRight");
+
+    // Hide the thumbnail and play button
+    imageThumbnailRight.style.display = "none";
+    playButtonRight.style.display = "none";
+
+    // Show the video container
+    videoContainerRight.style.display = "block";
+});
+
 </script>
 @endsection

@@ -18,12 +18,88 @@
     <section class="rightsec" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-xxl-10">
-                    <div class="talentimg">
-                        <img src="{{ url('user-assets') }}/images/about_img.png" class="img-fluid">
-                        <a href="javascript:void(0);"><i class="fa-regular fa-circle-play"></i></a>
-                    </div>
-                </div>
+            <div class="talentimg">
+    <!-- Thumbnail Image -->
+    <img id="imageThumbnail" src="{{ url('user-assets') }}/images/about_img.png" class="img-fluid" alt="Thumbnail">
+
+    <!-- Play button (click to show video) -->
+    <a href="javascript:void(0);" id="playButton">
+        <i class="fa-regular fa-circle-play"></i>
+    </a>
+
+    <!-- Hidden Video container (will be shown when play button is clicked) -->
+    <div id="videoContainer" class="video-container" style="display: none;">
+        <iframe id="videoIframe" class="embed-responsive-item" 
+            src="https://www.youtube.com/embed/qmpkCshcRlY?autoplay=1" 
+            frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+</div>
+<style>
+.talentimg {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 600px; /* Adjust the max width as needed */
+    margin: 0 auto;
+}
+
+.talentimg img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: opacity 0.3s ease; /* Smooth fade effect */
+}
+
+#playButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    z-index: 10;
+}
+
+#playButton:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.video-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (16:9) */
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background-color: black; /* Background color for the video container */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+    </style>
+
+    <script>
+document.getElementById("playButton").addEventListener("click", function() {
+    var imageThumbnail = document.getElementById("imageThumbnail");
+    var videoContainer = document.getElementById("videoContainer");
+    var playButton = document.getElementById("playButton");
+
+    // Hide the thumbnail and play button
+    imageThumbnail.style.display = "none";
+    playButton.style.display = "none";
+
+    // Show the video container
+    videoContainer.style.display = "block";
+});
+
+        </script>
             </div>
         </div>
     </section>
