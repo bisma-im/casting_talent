@@ -96,8 +96,6 @@ Route::get('/pdf', [ModelController::class, 'downloadImagesPdf']);
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     //admin auth
     Route::get('/login', [AdminAuthController::class, 'adminLoginPage'])->name('admin.login.get');
-    Route::get('/create-job', [AdminAuthController::class, 'createJobPage'])->name('admin.create-job.get');
-    Route::post('/store-job', [AdminAuthController::class, 'storeJob'])->name('admin.job.store');
     Route::post('/login', [AdminAuthController::class, 'adminLoginPost'])->name('admin.login.post');
     Route::get('/forgot-password', [AdminAuthController::class, 'adminForgotPage'])->name('admin.forgot.get');
     Route::get('/reset/{token?}/password', [AdminAuthController::class, 'adminResetPage'])->name('admin.reset.get');
@@ -114,5 +112,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
         //queries
         Route::get('/queries', [ViewsController::class, 'adminQueries'])->name('admin.queries.get');
+
+        // job
+        Route::get('/create-job', [AdminAuthController::class, 'createJobPage'])->name('admin.create-job.get');
+        Route::post('/store-job', [AdminAuthController::class, 'storeJob'])->name('admin.job.store');
     });
 });

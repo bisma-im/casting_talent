@@ -24,49 +24,68 @@ class AdminAuthController extends Controller
     }
     public function storeJob(Request $request)
     {
-        // Validate the incoming request data
-        $validatedData = $request->validate([
-            'project' => 'required|string|max:255',
-            'required' => 'required|string|max:255',
-            'date' => 'required|date',
-            'timings' => 'required|in:Half Day,Full Day',
-            'days' => 'required|integer',
-            'payment' => 'nullable|numeric',
-            'payment_status' => 'required|in:TBD,Paid,Unpaid',
-            'country' => 'required|in:UAE,KSA,Oman',
-            'city' => 'required|string|max:255',
-            'area' => 'required|string|max:255',
-            'transportation' => 'required|in:YES,NO',
-            'food' => 'required|in:YES,NO',
-            'payment_mode' => 'required|in:CASH,BANK TRANSFER',
-            'paid_status' => 'nullable|string|max:255',
-        ]);
+        try {
+            // dd($request->all());
+            // Validate the incoming request data
+            $validatedData = $request->validate([
+                'project' => 'required|string|max:255',
+                'requiredCategories' => 'required|string',
+                'date' => 'required|date',
+                'timings' => 'required',
+                'days' => 'required|integer',
+                'payment' => 'required',
+                'payment_status' => 'required|string',
+                'country' => 'required',
+                'city' => 'required|string|max:255',
+                'area' => 'required|string|max:255',
+                'transportation' => 'required',
+                'food' => 'required',
+                'payment_mode' => 'required',
+            ]);
 
-        // Create the job record in the database
-        $job = Job::create([
-            'project' => $validatedData['project'],
-            'required' => $validatedData['required'],
-            'date' => $validatedData['date'],
-            'timings' => $validatedData['timings'],
-            'days' => $validatedData['days'],
-            'payment' => $validatedData['payment'] ?? null,
-            'payment_status' => $validatedData['payment_status'],
-            'country' => $validatedData['country'],
-            'city' => $validatedData['city'],
-            'area' => $validatedData['area'],
-            'transportation' => $validatedData['transportation'],
-            'food' => $validatedData['food'],
-            'payment_mode' => $validatedData['payment_mode'],
-            'paid_status' => $validatedData['paid_status'],
-        ]);
+            // If validation fails, Laravel will automatically return a 422 response
+            // so there's no need to manually check if validation passes.
 
-        // Return success response
-        return response()->json([
-            'success' => true,
-            'message' => 'Job created successfully!',
-            'job' => $job,
-        ]);
+            // Create the job record in the database
+            $job = Job::create([
+                'project' => $validatedData['project'],
+                'required' => $validatedData['requiredCategories'], // Store the categories
+                'date' => $validatedData['date'],
+                'timings' => $validatedData['timings'],
+                'days' => $validatedData['days'],
+                'payment' => $validatedData['payment'] ?? null,
+                'payment_status' => $validatedData['payment_status'],
+                'country' => $validatedData['country'],
+                'city' => $validatedData['city'],
+                'area' => $validatedData['area'],
+                'transportation' => $validatedData['transportation'],
+                'food' => $validatedData['food'],
+                'payment_mode' => $validatedData['payment_mode'],
+            ]);
+
+            // Return success response
+            return response()->json([
+                'success' => true,
+                'message' => 'Job created successfully!',
+                'job' => $job,
+            ], 200);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // If validation fails manually, we catch the exception and return a detailed error response
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation failed.',
+                'errors' => $e->errors(), // Will return an array of validation errors
+            ], 422);
+        } catch (\Exception $e) {
+            // Catch any other exceptions that might occur (like database errors)
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while creating the job.',
+                'error' => $e->getMessage(), // Display the error message
+            ], 500);
+        }
     }
+
     public function adminForgotPage()
     {
         return view('admin.pages.auth.forgot');

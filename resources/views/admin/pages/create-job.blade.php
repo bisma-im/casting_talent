@@ -25,6 +25,86 @@
         color: #666666;
         /* Darker grey for focus */
     }
+
+    .dropdown-btn {
+        width: 100%;
+        /* Make it stretch to full width */
+        padding: 10px;
+        /* Add padding to match select dropdowns */
+        background-color: white;
+        /* Set the background color to white */
+        border: 1px solid light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+        /* Match the border style of the select dropdown */
+        border-radius: 4px;
+        /* Add border-radius to match select box */
+        font-size: 1rem;
+        /* Font size matching the select dropdown */
+        color: #75758B;
+        /* Placeholder text color matching the select dropdown */
+        cursor: pointer;
+        /* Pointer cursor to indicate it's clickable */
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        /* Adjust to fit your layout */
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        width: 100%;
+        max-height: 300px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 5px;
+    }
+
+    .dropdown-content.visible {
+        display: block;
+        /* Show dropdown */
+    }
+
+    .dropdown-btn:focus {
+        outline: none;
+    }
+
+    /* Show dropdown when button is clicked */
+    .show {
+        display: block;
+    }
+
+    /* Subcategories will be hidden by default */
+    .subcategory {
+        display: none;
+        margin-left: 20px;
+    }
+
+    .category-checkbox {
+        margin-right: 8px;
+        /* Add margin to the right of checkboxes */
+    }
+
+    .subcategory.visible {
+        display: block;
+        /* Show subcategory */
+    }
+
+    /* Style the labels */
+    label {
+        display: block;
+
+    }
+
+    .dropdown-btn {
+        width: 100%;
+        /* Adjust as needed */
+    }
 </style>
 <div class="container-fluid">
     <div class="row">
@@ -44,26 +124,22 @@
                     <label for="project">PROJECT</label>
                     <select name="project" id="project" class="form-control">
                         <option value="">Select Project</option>
-                        <option value="shoot">Shoot</option>
-                        <option value="event">Event</option>
+                        <option value="Shoot">Shoot</option>
+                        <option value="Event">Event</option>
                     </select>
                 </div>
 
                 <!-- Required Field -->
                 <div class="col-md-6 mb-3">
                     <label for="required">REQUIRED</label>
-                    <select name="required" id="required" class="form-control">
-                        <option value="category1">Category 1</option>
-                        <option value="category2">Category 2</option>
-                        <option value="category3">Category 3</option>
-                        <option value="category4">Category 4</option>
-                        <option value="category5">Category 5</option>
-                        <option value="category6">Category 6</option>
-                        <option value="category7">Category 7</option>
-                        <option value="category8">Category 8</option>
-                        <option value="category9">Category 9</option>
-                        <option value="category10">Category 10</option>
-                    </select>
+                    <div class="dropdown">
+                        <button onclick="toggleDropdown(event)" class="dropdown-btn text-left" id="categoryButton"
+                            type="button">Select
+                            Categories</button>
+                        <div id="dropdownContent" class="dropdown-content">
+                            <!-- Checkboxes will be populated here by JavaScript -->
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -79,8 +155,8 @@
                     <label for="timings">TIMINGS</label>
                     <select name="timings" id="timings" class="form-control">
                         <option value="">Select Timings</option>
-                        <option value="half_day">Half Day</option>
-                        <option value="full_day">Full Day</option>
+                        <option value="Half Day">Half Day</option>
+                        <option value="Full Day">Full Day</option>
                     </select>
                 </div>
             </div>
@@ -105,9 +181,9 @@
                     <label for="country">COUNTRY</label>
                     <select name="country" id="country" class="form-control">
                         <option value="">Select Country</option>
-                        <option value="uae">UAE</option>
-                        <option value="ksa">KSA</option>
-                        <option value="oman">Oman</option>
+                        <option value="UAE">UAE</option>
+                        <option value="KSA">KSA</option>
+                        <option value="Oman">Oman</option>
                     </select>
                 </div>
 
@@ -125,10 +201,7 @@
                 <!-- Area Dropdown -->
                 <div class="col-md-6 mb-3">
                     <label for="area">AREA</label>
-                    <select name="area" id="area" class="form-control">
-                        <option value="">Select Area</option>
-                        <!-- Dynamic area options based on city will be populated here -->
-                    </select>
+                    <input type="text" name="area" id="area" class="form-control" placeholder="Area/Town">
                 </div>
 
                 <!-- Transportation Dropdown -->
@@ -136,8 +209,8 @@
                     <label for="transportation">TRANSPORTATION</label>
                     <select name="transportation" id="transportation" class="form-control">
                         <option value="">Select Transportation</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                     </select>
                 </div>
             </div>
@@ -148,8 +221,8 @@
                     <label for="food">FOOD</label>
                     <select name="food" id="food" class="form-control">
                         <option value="">Select</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                     </select>
                 </div>
 
@@ -158,8 +231,8 @@
                     <label for="payment_mode">PAYMENT MODE</label>
                     <select name="payment_mode" id="payment_mode" class="form-control">
                         <option value="">Select payment mode</option>
-                        <option value="cash">Cash</option>
-                        <option value="bank_transfer">Bank Transfer</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
                     </select>
                 </div>
             </div>
@@ -167,8 +240,8 @@
             <div class="row">
                 <!-- Paid Input -->
                 <div class="col-md-12 mb-3">
-                    <label for="paid">PAID</label>
-                    <input name="paid" id="paid" class="form-control"
+                    <label for="payment_status">PAID</label>
+                    <input name="payment_status" id="paid" class="form-control"
                         placeholder="e.g. Cash on the spot, Paid after 10 days, or if Bank Transfer, Same day" />
                 </div>
             </div>
@@ -181,30 +254,322 @@
 </div>
 
 <script>
+    // Function to toggle dropdown visibility
+    function toggleDropdown(event) {
+        event.preventDefault();
+        event.stopPropagation();  // Stop click event from reaching the window
+        dropdownContent.classList.toggle('visible');
+    }
     $(document).ready(function() {
         // Data for cities and areas based on the selected country
         const countryData = {
-            uae: {
-                cities: {
-                    'Dubai': ['Downtown', 'Jumeirah', 'Al Barsha'],
-                    'Abu Dhabi': ['Corniche', 'Khalifa City', 'Al Ain'],
-                    'Sharjah': ['Al Majaz', 'Al Qasimia', 'Al Wahda'],
-                }
+            UAE: {
+                cities: [
+                    "Dubai",
+                    "Abu Dhabi",
+                    "Sharjah",
+                    "Al ‘Ayn"
+                    ,
+                    "‘Ajmān"
+                    ,
+                    "Ra’s al Khaymah"
+                    ,
+                    "Al Fujayrah"
+                    ,
+                    "Umm al Qaywayn"
+                    ,
+                    "Kalbā"
+                    ,
+                    "Khawr Fakkān"
+                    ,
+                    "Madīnat Zāyid"
+                    ,
+                    "Al Jazīrah al Ḩamrā’"
+                    ,
+                    "Masāfī"
+                    ,
+                    "Badīyah"
+                    ,
+                    "Zubārah"
+                    ,
+                    "Al Faq‘"
+                    ,
+                    "Ash Sha‘m"
+                    ,
+                    "Huwaylāt"
+                    ,
+                    "Naḩwah"
+                    ,
+                    "Sharīyah"
+                    ,
+                    "Ḩaşat al Bidīyah"
+                    ,
+                    "Maşfūţ"
+                    ,
+                    "Qarayţaysah"
+                    ,
+                    "Margham"
+                    ,
+                    "Qimah"
+                    ,
+                    "‘Ūd al Bayḑā’"
+                    ,
+                    "Ferij al Muhadham"
+                    ,
+                    "Hunaywah"
+                    ,
+                    "Şufayrī"
+                    ,
+                    "‘Urqūb Juwayza"
+                    ,
+                    "Ḩattā"
+                    ,
+                    "Al Lusaylī"
+                    ,
+                    "Ḩayl"
+                    ,
+                    "Warīsān"
+                    ,
+                    "Muḑayfī"
+                    ,
+                    "Rafā‘"
+                    ,
+                    "Lūlayyah"
+                    ,
+                    "Wādī Shī"
+                    ,
+                    "Ash Shu‘ayb"
+                    ,
+                    "Ḩiyāwah"
+                    ,
+                    "Ar Rufayşah"
+                    ,
+                    "Shīs"
+                    ,
+                    "Al Jazīrah"
+                    ,
+                    "Al Ḩamrīyah"
+                    ,
+                    "Adh Dhayd"
+                    ,
+                    "Al ‘Awdah"
+                    ,
+                    "Qidfa"
+                    ,
+                    "Ţayyibah"
+                    ,
+                    "Biţnah"
+                    ,
+                    "Mu‘tariḑah"
+                    ,
+                    "Theeb"
+                    ,
+                    "Wa‘bayn"
+                    ,
+                    "Al Qurayyah"
+                    ,
+                    "Al Manāmah"
+                    ,
+                    "‘Abādilah"
+                    ,
+                    "Ghurfah"
+                    ,
+                    "Ḩayl"
+                    ,
+                    "Ghayl"
+                    ,
+                    "Sā’if"
+                    ,
+                    "Far‘ah"
+                    ,
+                    "Mukhtaraqah"
+                    ,
+                    "Yalah"
+                    ,
+                    "Rughaylāt"
+                    ,
+                    "Tawian"
+                    ,
+                    "Ḩafarah"
+                    ,
+                    "Ḩārat Zuţūţ"
+                    ,
+                    "Khawr Kalbā"
+                    ,
+                    "Al ‘Uyaynah"
+                    ,
+                    "Rūl Ḑadnā"
+                    ,
+                    "‘Uqayr"
+                    ,
+                    "Al Fuqait"
+                    ,
+                    "Shawīyah"
+                    ,
+                    "Ḩarrah"
+                    ,
+                    "Dibā"
+                    ,
+                    "Sinnah"
+                    ,
+                    "Dūb"
+                    ,
+                    "Sram"
+                    ,
+                    "‘Asamah"
+                    ,
+                    "Al ‘Ayn al Ghumūr"
+                    ,
+                    "Şūr"
+                    ,
+                    "Waḩlah"
+                    ,
+                    "Thoban"
+                    ,
+                    "Al Gissemari"
+                    ,
+                    "Murbaḩ"
+                    ,
+                    "Ḩayāt"
+                    ,
+                    "Khulaybīyah"
+                    ,
+                    "Z̧anḩah"
+                    ,
+                    "Saqamqam"
+                    ,
+                    "Ḑāhir"
+                    ,
+                    "Jareef"
+                    ,
+                    "Girath"
+                    ,
+                    "Riyāmah",
+                    "Al Kubūs",
+                    "‘Ashashah",
+                    "Ḑadnā"
+                    ,
+                    "‘Aqqah"
+                    ,
+                    "Ras Dibba"
+                    ,
+                    "Nuhayy"
+                    ,
+                    "Ḑab‘ah"
+                    ,
+                    "Murbaḑ"
+                    ,
+                    "Şafad"
+                    ,
+                    "Ţarīqat Ja‘d"
+                ]
             },
-            ksa: {
-                cities: {
-                    'Riyadh': ['Al Olaya', 'Al Malaz', 'Diriyah'],
-                    'Jeddah': ['Al Balad', 'Corniche', 'Al Hamra'],
-                    'Makkah': ['Al Haram', 'Azzizia', 'Al Taneem'],
-                }
+            KSA: {
+                cities: [
+                    "Riyadh",
+                    "Jeddah", 
+                    "Mecca", 
+                    "Medina",
+                    "Ad Dammām",
+                    "Tabūk"
+                    ,
+                    "Al Hufūf"
+                    ,
+                    "Al Qaţīf"
+                    ,
+                    "Al Ḩillah"
+                    ,
+                    "Aţ Ţā’if"
+                    ,
+                    "Al Jubayl"
+                    ,
+                    "Buraydah"
+                    ,
+                    "Ḩafr al Bāţin"
+                    ,
+                    "Yanbu"
+                    ,
+                    "Ḩā’il"
+                    ,
+                    "Abhā"
+                    ,
+                    "Sakākā"
+                    ,
+                    "Al Qurayyāt"
+                    ,
+                    "Jāzān"
+                    ,
+                    "Najrān"
+                    ,
+                    "Al Wajh"
+                    ,
+                    "Arar"
+                    ,
+                    "Al Bāḩah"
+                    ,
+                    "Tathlīth"
+                ]
             },
-            oman: {
-                cities: {
-                    'Muscat': ['Muttrah', 'Ruwi', 'Qurum'],
-                    'Salalah': ['Haffa', 'Dawkah', 'Al Wadi'],
-                    'Nizwa': ['Al Aqar', 'Al Manah', 'Al Jabal'],
-                }
+            Oman: {
+                cities: [
+                    "Masqaţ"
+                    ,
+                    "Muscat"
+                    ,
+                    "Bawshar"
+                    ,
+                    "Şalālah"
+                    ,
+                    "As Sīb"
+                    ,
+                    "Maţraḩ"
+                    ,
+                    "As Suwayq"
+                    ,
+                    "Aş Şuwayḩirah as Sāḩil"
+                    ,
+                    "Ar Rustāq"
+                    ,
+                    "Al Muḑaybī"
+                    ,
+                    "‘Ibrī"
+                    ,
+                    "Bahlā’"
+                    ,
+                    "Nizwá"
+                    ,
+                    "Samā’il"
+                    ,
+                    "Al ‘Āmirāt"
+                    ,
+                    "Al Buraymī"
+                    ,
+                    "Qurayyāt"
+                    ,
+                    "Al Madrah Samā’il"
+                    ,
+                    "Shināş"
+                    ,
+                    "Izkī"
+                    ,
+                    "Ibrā’"
+                    ,
+                    "Nakhal"
+                    ,
+                    "Ḑank"
+                    ,
+                    "Khaşab"
+                    ,
+                    "Al Mazyūnah"
+                    ,
+                    "Şuḩār"
+                    ,
+                    "Şūr"
+                    ,
+                    "Haymā’"
+                ]
             }
+
         };
 
         // Handle country change
@@ -214,34 +579,19 @@
 
             // Populate City dropdown based on selected country
             $('#city').empty().append('<option value="">Select City</option>');
-            $.each(cities, function(city, areas) {
+            $.each(cities, function(i, city) {
                 $('#city').append('<option value="' + city + '">' + city + '</option>');
-            });
-
-            // Empty the Area dropdown
-            $('#area').empty().append('<option value="">Select Area</option>');
-        });
-
-        // Handle city change
-        $('#city').change(function() {
-            var country = $('#country').val();
-            var city = $(this).val();
-            var areas = countryData[country] && countryData[country].cities[city] ? countryData[country].cities[city] : [];
-
-            // Populate Area dropdown based on selected city
-            $('#area').empty().append('<option value="">Select Area</option>');
-            $.each(areas, function(index, area) {
-                $('#area').append('<option value="' + area + '">' + area + '</option>');
             });
         });
 
         // Handle form submission via AJAX
         $('#createJobForm').submit(function (event) {
             event.preventDefault();  // Prevent the default form submission
-
+            const dropdownButton = document.getElementById('categoryButton');
+            const requiredCategories = dropdownButton.textContent;
             // Collect form data
             var formData = $(this).serialize();  // Serialize form data to send as a URL-encoded string
-
+            formData += `&requiredCategories=${encodeURIComponent(requiredCategories)}`;
             // Send data to the server via AJAX POST
             $.ajax({
                 url: "{{ route('admin.job.store') }}",  // Laravel route for form submission
@@ -258,10 +608,160 @@
                 },
                 error: function (xhr, status, error) {
                     // Handle error response
-                    alert('An error occurred while submitting the form. Please try again.');
+                    const response = JSON.parse(xhr.responseText);
+                    console.log('Validation errors:', response.errors);
+                    alert('Validation failed: ' + JSON.stringify(response.errors));
                 }
             });
         });
+
+        // Define the talents array
+        const talents = [
+            {
+                name: 'Actor',
+                subcategories: ['Lead role', 'Featured', 'Extras', 'Voice-over Artist', 'Body double', 'Stunt person']
+            },
+            {
+                name: 'Model',
+                subcategories: []
+            },
+            {
+                name: 'Dancer',
+                subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'B Boy', 'Dance Groups', 'Tabrey Dancer']
+            },
+            {
+                name: 'Film Crew',
+                subcategories: ['Filmmaker', 'DOP', 'Assistant Director', 'Script Writer', 'Dialog Writer', 'Art Director', 'Production Manager', 'Production Designer', 'Line Producer', 'Focus Puller', 'Camera Operator', 'Lights & Gaffer', 'Crane Operator', 'Sound Engineer', 'Spot Boy']
+            },
+            {
+                name: 'Influencers',
+                subcategories: []
+            },
+            {
+                name: 'Makeup and Hair',
+                subcategories: []
+            },
+            {
+                name: 'Musicians',
+                subcategories: ['Singers', 'Music Band', 'Guitarist', 'Violinist', 'Drummers', 'Bassist', 'Rapper']
+            },
+            {
+                name: 'Event Staff and Ushers',
+                subcategories: ['Hostess', 'Promoter', 'EmCee']
+            },
+            {
+                name: 'Entertainer / Performers',
+                subcategories: ['Standup Artist', 'VJ', 'RJ', 'Public Speaker', 'Magician', 'Bottle Twister']
+            },
+            {
+                name: 'Celebrity',
+                subcategories: []
+            }
+        ];
+
+        // Get the container for the dropdown content
+        const dropdownContent = document.getElementById('dropdownContent');
+        const dropdownButton = document.getElementById('categoryButton');
+        // Update dropdown button text function
+        function updateCategoryDropdownButtonText() {
+            const checkboxes = dropdownContent.querySelectorAll('input[type="checkbox"]:checked');
+            const selectedValues = Array.from(checkboxes).map(checkbox => checkbox.value);
+
+            if (selectedValues.length > 0) {
+                dropdownButton.textContent = selectedValues.join(', '); // Join selected categories with comma
+            } else {
+                dropdownButton.textContent = 'Select Categories'; // Default text if no selection
+            }
+        }
+
+        // Populate the checkboxes for categories and subcategories
+        talents.forEach(talent => {
+            // Create a div for the main category and its subcategories
+            const mainCategoryDiv = document.createElement('div');
+            mainCategoryDiv.classList.add('main-category');
+
+            // Create a label and checkbox for the main category
+            const categoryLabel = document.createElement('label');
+            const categoryCheckbox = document.createElement('input');
+            categoryCheckbox.type = 'checkbox';
+            categoryCheckbox.value = talent.name;
+            categoryCheckbox.classList.add('category-checkbox');
+            // categoryCheckbox.addEventListener('change', updateSelectedOptions); 
+            categoryLabel.appendChild(categoryCheckbox);
+            categoryLabel.appendChild(document.createTextNode(talent.name));
+
+            // Add the main category to the container
+            mainCategoryDiv.appendChild(categoryLabel);
+
+            // Add subcategories as checkboxes inside the main category div
+            if (talent.subcategories.length > 0) {
+                const subcategoryDiv = document.createElement('div');
+                subcategoryDiv.classList.add('subcategory'); // Hidden by default
+
+                talent.subcategories.forEach(subcategory => {
+                    const subcategoryLabel = document.createElement('label');
+                    const subcategoryCheckbox = document.createElement('input');
+                    subcategoryCheckbox.type = 'checkbox';
+                    subcategoryCheckbox.value = subcategory;
+                    subcategoryCheckbox.classList.add('category-checkbox');
+                    // subcategoryCheckbox.addEventListener('change', updateSelectedOptions);
+                    subcategoryLabel.appendChild(subcategoryCheckbox);
+                    subcategoryLabel.appendChild(document.createTextNode(subcategory));
+
+                    // Add subcategory to the subcategory div
+                    subcategoryDiv.appendChild(subcategoryLabel);
+                });
+
+                // Toggle visibility on main category click
+                categoryCheckbox.addEventListener('change', function () {
+                    if (categoryCheckbox.checked) {
+                        subcategoryDiv.style.display = 'block';
+                    } else {
+                        subcategoryDiv.style.display = 'none';
+                    }
+                });
+
+                // Prevent the subcategory div from closing when a subcategory is clicked
+                subcategoryDiv.onclick = function (event) {
+                    event.stopPropagation();
+                };
+                mainCategoryDiv.onclick = function (event) {
+                    event.stopPropagation();
+                };
+                // Add the subcategory div to the main category div
+                mainCategoryDiv.appendChild(subcategoryDiv);
+            }
+
+            // Add the main category div to the dropdown content
+            dropdownContent.appendChild(mainCategoryDiv);
+        });
+
+        // Listen to checkbox changes and update button text
+        dropdownContent.addEventListener('change', function (e) {
+            if (e.target.type === 'checkbox') {
+                updateCategoryDropdownButtonText();
+            }
+        });
+
+        
+        // Function to close dropdown if clicked outside of it
+        function closeDropdown(event) {
+            // Check if the click was outside the dropdown
+            if (!dropdownContent.contains(event.target) && !dropdownButton.contains(event.target)) {
+                dropdownContent.classList.remove('visible');
+            }
+        }
+
+        // Attach this event listener to the document
+        document.addEventListener('click', closeDropdown);
+
+        // Close the dropdown if clicked outside
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-btn')) {
+                dropdownContent.classList.remove('visible');
+            }
+        }
     });
 </script>
 
