@@ -147,6 +147,64 @@
     .custom-carousel-control-next {
         right: 10px;
     }
+
+
+
+
+
+
+    /* -------------------------------------------------------- */
+    .my-container2 {
+                position: relative; /* Ensures the pseudo-element is positioned relative to this container */
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                width: 100%;
+                height: 100vh; /* Full viewport height */
+                overflow: hidden; /* Prevents any pseudo-element from overflowing the container */
+        }
+        .casting1{
+    margin-top: 250px;
+ 
+    width: 100%;
+   
+}
+        .my-container2::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('{{ url('/user-assets/images/casting.jpg') }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* opacity: 0.5;  */
+        }
+
+        .my-container2 .actors-section {
+        position: relative; 
+        z-index: 1; 
+        }
+
+        .my-container2 .actors-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff; 
+        opacity: 0.2;
+       
+        z-index: -1000;  
+        }
+        .actors-section {
+    margin: 0;
+    padding: 0;
+    height:70vh;
+}
 </style>
 
 <section class="homebanner">
@@ -211,9 +269,100 @@
 </section>
 
 
-<section class="casting">
-    <div class="container">
-        <div class="row ">
+<section class="casting1 ">
+    <div class="">
+    <section id="section-models" class="modalagencysec">
+        <div class="my-container2">
+                <div class="row actors-section">
+                    <div class="modaltext">
+                          <div>
+                          <div>
+                <div class="casting-text" >
+                    <h5 class="pt-2">ABEERA K SHEIKH</h5>
+                    <h2>Casting <sapn style="color: rgba(216, 31, 38, 1);">Director</sapn> & <sapn
+                            style="color: rgba(216, 31, 38, 1);">Founder</sapn> Of Cast Talents.</h2>
+                    <p class="">Abeera K Sheikh's journey into entertainment began with a profound love for the arts. Relocating
+                        to the UAE over a decade ago, she swiftly emerged as a prominent figure in casting, acting, and
+                        modeling. Abeera Sheikh is renowned for her warmth, professionalism, and exceptional talent,
+                        leaving an enduring impact on the industry. Her career highlights include significant milestones
+                        in both acting and casting direction, contributing to the success of numerous films, songs, and
+                        brand campaigns. With over a decade of experience, Abeera Sheikh has credits in over 20 movies
+                        and 50 songs, including acclaimed works like “Ride On,” “Street Dancer 3D,” and “6 Underground.”
+                        As founder of Cast Talents LLC, she continues to shape entertainment with passion and
+                        excellence.</p>
+                    <a href="{{ route('register.get') }}" >WANT TO BECOME A MODEL? <span class="aboutbtn "><i
+                                class="fa-solid fa-angle-right"></i></span></a>
+                    <style>
+                        .socialLinks {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            padding: 10px;
+                            margin-top: 30px;
+                            width: 35%;
+                        }
+
+                        .socialLinks .social-icon {
+                            text-decoration: none;
+                            color: #000;
+                            /* Change to desired color */
+                            font-size: 20px;
+                            /* Adjust size as needed */
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                        }
+
+                        .socialLinks .social-icon:hover {
+                            color: #0073e6;
+                        }
+                    </style>
+                    <div class="socialLinks ">
+                        <a href="https://www.facebook.com/abeera.k.sheikh" target="_blank" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.snapchat.com/add/abeeraksheikh" target="_blank" class="social-icon">
+                            <i class="fab fa-snapchat"></i>
+                        </a>
+                        <a href="https://wa.me/971501234796" target="_blank" class="social-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/itsabeeraksheikh/" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/abeera-sheikh-uae-based-casting-specialist-actor-and-founder-of-aks-castings-llc-723063147" target="_blank" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com" target="_blank" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                          
+                          <div>
+
+                        
+                       
+                    </div>
+                </div>
+            </div>
+            
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ---------------------------------------------------------------------------------------- -->
+        <!-- <div class="row ">
             <div class="col-sm-6 col-md-12 w-100">
                 <div  data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
                     <img src="{{ url('user-assets') }}/images/casting.jpg" alt="Casting Image" class="img-fluid">
@@ -284,7 +433,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 
@@ -305,7 +454,7 @@
 
 </style>
 
-<section class="featuremodalsec">
+<section class="featuremodalsec mt-5">
     <div class="row">
         <div class="col-12">
             <div class="featuremodal">
