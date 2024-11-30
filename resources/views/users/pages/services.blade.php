@@ -9,7 +9,10 @@
         .modallist ul li a:hover {
             color: rgb(235, 13, 13) !important;
         }
-        
+        .modalbox
+{
+    height: 100vh !important;
+}
         .modalbox .modallist ul li a {
     color: #000 !important;
     font-size: 13px !important;
@@ -17,13 +20,17 @@
     font-family: "Poppins", sans-serif;
     /* float: left; */
     /* width: 49%; */
-    line-height: 30px;
+
     text-transform: uppercase;
     background-color: transparent;
     border: 0;
     text-align: left;
     padding: 0px 0;
 }
+.modalimg {
+                        width: 100%;
+                        height: 450px;
+                    }
     </style>
 
     <section class="innerpages">
@@ -36,16 +43,15 @@
         </div>
     </section>
 
-
-
     <section class="servicessec">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalbox">
                         <div class="modalimg">
-                            <img src="{{ url('user-assets') }}/images/modeling.png" class="img-fluid" alt="img">
+                            <img src="{{ url('user-assets') }}/images/modeling.png" class="img-fluid " alt="img">
                         </div>
+                        
                         <div class="modalbody">
                             <h4>MODELING AGENCY</h4>
                             <div class="modallist">
@@ -53,40 +59,32 @@
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                         <ul>
                                             <li><a
-                                                    href="{{ route('modeling-agency.get', ['section' => 'actors-models']) }}">ACTORS
-                                                    / MODELS</a></li>
-                                            <li><a href="{{ route('modeling-agency.get', ['section' => 'hair-makeup']) }}">HAIR
-                                                    AND MAKE UP ARTIST</a></li>
+                                                    href="{{ route('modeling-agency.get', ['section' => 'actors-models']) }}">ACTORS/MODELS</a></li>
+                                            <li><a href="{{ route('modeling-agency.get', ['section' => 'hair-makeup']) }}">HAIR AND MAKE UP ARTIST</a></li>
                                             <li><a
-                                                    href="{{ route('modeling-agency.get', ['section' => 'videography-photography']) }}">VIDEOGRAPHY
-                                                    / PHOTOGRAPHY</a></li>
+                                                    href="{{ route('modeling-agency.get', ['section' => 'videography-photography']) }}">VIDEOGRAPHY / PHOTOGRAPHY</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                         <ul>
-                                            <li><a href="{{ route('modeling-agency.get', ['section' => 'fashion-show']) }}">FASHION
-                                                    SHOW</a></li>
+                                            <li><a href="{{ route('modeling-agency.get', ['section' => 'fashion-show']) }}">FASHION   SHOW</a></li>
                                             <li><a
-                                                    href="{{ route('modeling-agency.get', ['section' => 'locations-permit']) }}">
-                                                    <p></p>
-                                                    LOCATIONS/ PERMIT</a></li>
+    href="{{ route('modeling-agency.get', ['section' => 'locations-permit']) }}">             
+                            LOCATIONS/ PERMIT</a></li>
                                             <li><a
                                                     href="{{ route('modeling-agency.get', ['section' => 'tv-commercials']) }}">TV COMMERCIAL/MUSIC VIDEOS/FILMING</a></li>
                                         </ul>
                                     </div>
                                 </div>
-
                             </div>
-                            <div class="clearfix"></div>
-
                         </div>
-                        <a href="{{ route('modeling-agency.get') }}">READ MORE</a>
+                        <a href="{{ route('modeling-agency.get') }} " class="m-0">READ MORE</a>
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalbox">
                         <div class="modalimg">
-                            <img src="{{ url('user-assets') }}/images/Celebmanagement.jpg " class="img-fluid" alt="img">
+                            <img src="{{ url('user-assets') }}/images/Celebmanagement.jpg " class="img-fluid " alt="img">
                         </div>
                         <div class="modalbody">
                             <h4>CELEBRITY MANAGEMENT</h4>
@@ -229,12 +227,7 @@
                         <a href="{{ route('event-services.get') }}">READ MORE</a>
                     </div>
                 </div>
-                <style>
-                    .modalimg {
-                        width: 100%;
-                        height: 100vh;
-                    }
-                </style>
+               
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalbox">
                         <div class="modalimg">

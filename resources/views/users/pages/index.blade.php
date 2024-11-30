@@ -207,8 +207,8 @@
 }
 </style>
 
-<section class="homebanner">
-    <div class="container">
+<section class="homebanner" >
+    <div class="container" >
         <div class="row">
             <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 col-xxl-7">
                 <div class="bannertext" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
@@ -224,7 +224,7 @@
                     <div class="btnlist">
                         <a href="{{ route('register.get') }}">GET STARTED <span class="spanlist"><i
                                     class="fa-solid fa-angle-right"></i></span></a>
-                        <div class="list">
+                        <div class="list"  data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
                             <ul>
                                 <li><img src="{{ url('user-assets') }}/images/icon_1.png" class="img-fluid" alt="img">
                                 </li>
@@ -574,21 +574,19 @@
     </ul>
 </div>
 <section class="rightsec">
-    <div class="container">
+    <div class="">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-xxl-10">
                 <div class="rightsec">
                     <h3>Finding The <span>Right Talent</span> For Your <span>Next Screen</span> Production, <span>Made Easy.</span></h3>
                 </div>
-                <div class="talentimg d-flex justify-content-center">
+                <div class=" d-flex justify-content-center">
                     <!-- Thumbnail Image -->
                     <img id="imageThumbnailRight" src="{{ url('user-assets') }}/images/talentbanner.png" class="img-fluid" alt="Talent Banner">
-
                     <!-- Play button (click to show video) -->
                     <a href="javascript:void(0);" id="playButtonRight">
                         <i class="fa-regular fa-circle-play"></i>
                     </a>
-
                     <!-- Hidden Video container (will be shown when play button is clicked) -->
                     <div id="videoContainerRight" class="video-container" style="display: none;">
                         <iframe id="videoIframeRight" class="embed-responsive-item" 
