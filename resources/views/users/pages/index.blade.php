@@ -431,7 +431,7 @@
                 <div class="rightsec">
                     <h3>Finding The <span>Right Talent</span> For Your <span>Next Screen</span> Production, <span>Made Easy.</span></h3>
                 </div>
-                <div class="talentimg">
+                <div class="talentimg d-flex justify-content-center">
                     <!-- Thumbnail Image -->
                     <img id="imageThumbnailRight" src="{{ url('user-assets') }}/images/talentbanner.png" class="img-fluid" alt="Talent Banner">
 
@@ -443,7 +443,7 @@
                     <!-- Hidden Video container (will be shown when play button is clicked) -->
                     <div id="videoContainerRight" class="video-container" style="display: none;">
                         <iframe id="videoIframeRight" class="embed-responsive-item" 
-                            src="https://youtu.be/VXZgS20jvvA?si=XbsKd8Sq0p50zsVJ?autoplay=1" 
+                            src="https://www.youtube.com/embed/VXZgS20jvvA?si=v2IYrl9eK_eXPPCh?autoplay=1" 
                             frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                     </div>
                 </div>
