@@ -196,7 +196,7 @@
         right: 0;
         bottom: 0;
         background-color: #fff; 
-        opacity: 0.2;
+        opacity: 0.1;
        
         z-index: -1000;  
         }
@@ -205,6 +205,18 @@
     padding: 0;
     height:70vh;
 }
+@media (max-width: 768px) {
+  .getstartedbtn {
+   
+    width: 60% !important;
+  }
+  .section1images{
+    height: 100vh !important;
+   
+   
+  }
+}
+
 </style>
 
 <section class="homebanner" >
@@ -221,18 +233,18 @@
                         development through dedicated support and collaboration with industry professionals. </p>
                     <p>Join us to showcase your unique skills, build portfolios, and pursue extraordinary opportunities
                         in a vibrant entertainment landscape.</p>
-                    <div class="btnlist">
-                        <a href="{{ route('register.get') }}">GET STARTED <span class="spanlist"><i
-                                    class="fa-solid fa-angle-right"></i></span></a>
+                    <div class="btnlist ">
+                        <a href="{{ route('register.get') }} " class="getstartedbtn" >GET STARTED <span class="spanlist  "><i
+                                    class="fa-solid fa-angle-right "></i></span></a>
                         <div class="list"  data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
                             <ul>
-                                <li><img src="{{ url('user-assets') }}/images/icon_1.png" class="img-fluid" alt="img">
+                                <li><img src="{{ url('user-assets') }}/images/icon_1.png" class="img-fluid " alt="img">
                                 </li>
-                                <li><img src="{{ url('user-assets') }}/images/icon_2.png" class="img-fluid" alt="img">
+                                <li><img src="{{ url('user-assets') }}/images/icon_2.png" class="img-fluid " alt="img">
                                 </li>
-                                <li><img src="{{ url('user-assets') }}/images/icon_3.png" class="img-fluid" alt="img">
+                                <li><img src="{{ url('user-assets') }}/images/icon_3.png" class="img-fluid " alt="img">
                                 </li>
-                                <li><img src="{{ url('user-assets') }}/images/icon_4.png" class="img-fluid" alt="img">
+                                <li><img src="{{ url('user-assets') }}/images/icon_4.png" class="img-fluid " alt="img">
                                 </li>
                             </ul>
                         </div>
@@ -240,24 +252,24 @@
                 </div>
 
                 <div class="bannerbottom "  data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
-                    <img src="{{ url('user-assets') }}/images/banner_img_4.jpg" class="img-fluid" alt="img">
+                    <img src="{{ url('user-assets') }}/images/banner_img_4.jpg" class="img-fluid " alt="img">
                 </div>
 
             </div>
             <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                        <div class="bannerlistimg1 ">
-                            <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_2.jpg" class="img-fluid" alt="img">
+                    <div class="col-12 col-sm-8 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                        <div class="bannerlistimg1 "> 
+                            <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_2.jpg " class="img-fluid section1images" alt="img">
                         </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+                    <div class="col-md-8">
                         <div class="rightbanner">
                             <div class="bannerlistimg">
-                                <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_1.jpg" class="img-fluid" alt="img">
+                                <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_1.jpg" class="img-fluid " alt="img">
                             </div>
                             <div class="bannerlistimg">
-                                <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_3.jpg" class="img-fluid" alt="img">
+                                <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_3.jpg" class="img-fluid " alt="img">
                             </div>
                         </div>
                     </div>
