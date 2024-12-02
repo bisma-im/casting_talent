@@ -260,13 +260,13 @@
                 <div class="row">
                     <div class="col-12 col-sm-8 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                         <div class="bannerlistimg1 "> 
-                            <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_2.jpg " class="img-fluid section1images" alt="img">
+                            <!-- <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_2.jpg " class="img-fluid section1images" alt="img"> -->
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="rightbanner">
                             <div class="bannerlistimg">
-                                <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_1.jpg" class="img-fluid " alt="img">
+                                <!-- <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_1.jpg" class="img-fluid " alt="img"> -->
                             </div>
                             <div class="bannerlistimg">
                                 <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_3.jpg" class="img-fluid " alt="img">

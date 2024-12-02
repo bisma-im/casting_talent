@@ -73,7 +73,7 @@ ul.navbar-nav.ms-auto.mb-2.mb-lg-0 {
 
 /* bannmer sec css start */
 section.homebanner {
-    background-image: url(../images/banner.png);
+    /* background-image: url(../images/banner.png); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -83,7 +83,8 @@ section.homebanner {
 section.homebanner:before {
     content: "";
     position: absolute;
-    background-image: url(../images/bannerinner.png);
+    background-image: url(../images/Influencers.jpeg);
+     
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -150,10 +151,12 @@ span.spanlist {
     object-fit: cover;
     left: 79px;
 }
+
 .bannerlistimg img {
     height: 445px;
     width: 100%;
     object-fit: cover;
+    margin-top: 450px;
 }
 .bannerlistimg1 img {
     height: 287px;
