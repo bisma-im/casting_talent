@@ -219,8 +219,8 @@
 
 </style>
 
-<section class="homebanner" >
-    <div class="container" >
+<section class="homebanner " >
+    <div class="container mt-5" >
         <div class="row">
             <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 col-xxl-7">
                 <div class="bannertext" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">

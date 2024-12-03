@@ -37,6 +37,7 @@
     text-align: center;
     z-index: 2; /* Above the image */
     box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
+    opacity: 0.5;
 }
 
 /* Title Styling */
@@ -65,7 +66,6 @@
 .modallist ul li a {
     text-decoration: none;
     color: #007bff;
-    font-size: 16px;
     font-weight: 500;
     transition: color 0.3s;
 }
@@ -147,19 +147,19 @@
     <div class="modalbody">
         <h4>MODELING AGENCY</h4>
         <div class="modallist">
-            <div class="row">
+            <div class="row ">
                 <div class="col-6">
-                    <ul>
-                        <li><a href="{{ route('modeling-agency.get', ['section' => 'actors-models']) }}">ACTORS / MODELS</a></li>
+                    <ul class>
+                        <li class="mt-3"><a href="{{ route('modeling-agency.get', ['section' => 'actors-models']) }}">ACTORS / MODELS</a></li>
                         <li><a href="{{ route('modeling-agency.get', ['section' => 'hair-makeup']) }}">HAIR AND MAKE UP ARTIST</a></li>
                         <li><a href="{{ route('modeling-agency.get', ['section' => 'videography-photography']) }}">VIDEOGRAPHY / PHOTOGRAPHY</a></li>
                     </ul>
                 </div>
                 <div class="col-6">
                     <ul>
-                        <li><a href="{{ route('modeling-agency.get', ['section' => 'fashion-show']) }}">FASHION SHOW</a></li>
+                        <li class="mt-3"><a href="{{ route('modeling-agency.get', ['section' => 'fashion-show']) }}">FASHION SHOW</a></li>
                         <li><a href="{{ route('modeling-agency.get', ['section' => 'locations-permit']) }}">LOCATIONS / PERMIT</a></li>
-                        <li><a href="{{ route('modeling-agency.get', ['section' => 'tv-commercials']) }}">TV COMMERCIAL / MUSIC VIDEOS / FILMING</a></li>
+                        <li><a href="{{ route('modeling-agency.get', ['section' => 'tv-commercials']) }}">TV COMMERCIAL/MUSIC VIDEOS/FILMING</a></li>
                     </ul>
                 </div>
             </div>
@@ -194,17 +194,17 @@
             <div class="row">
                 <div class="col-6">
                     <ul>
-                        <li><a href="{{ route('celeberity-management.get', ['section' => 'celebrity-management']) }}">CELEBRITY MANAGEMENT SERVICES</a></li>
+                        <li class="mt-3"><a href="{{ route('celeberity-management.get', ['section' => 'celebrity-management']) }}">CELEBRITY MANAGEMENT SERVICES</a></li>
                         <li><a href="{{ route('celeberity-management.get', ['section' => 'hair-makeup']) }}">HAIR AND MAKE UP ARTIST</a></li>
-                        <li><a href="{{ route('celeberity-management.get', ['section' => 'videography-photography']) }}">VIDEOGRAPHY</a></li>
+                        <li><a href="{{ route('celeberity-management.get', ['section' => 'videography-photography']) }}">VIDEOGRAPHY/PHOTOGRAPHY</a></li>
                     </ul>
                 </div>
-                <div class="col-6">
+                <div class="col-6 ">
                     <ul>
-                        <li><a href="{{ route('celeberity-management.get', ['section' => 'security-bouncer']) }}">SECURITY / BOUNCER</a></li>
+                        <li class="mt-3"><a href="{{ route('celeberity-management.get', ['section' => 'security-bouncer']) }}">SECURITY / BOUNCER</a></li>
                         <li><a href="{{ route('celeberity-management.get', ['section' => 'locations-permit']) }}">LOCATIONS / PERMIT</a></li>
                         <li><a href="{{ route('celeberity-management.get', ['section' => 'transportation']) }}">TRANSPORTATION</a></li>
-                        <li><a href="{{ route('celeberity-management.get', ['section' => 'videography-photography']) }}">PHOTOGRAPHY</a></li>
+  
                     </ul>
                 </div>
             </div>
@@ -228,7 +228,7 @@
             <div class="row">
                 <div class="col-6">
                     <ul>
-                        <li><a href="{{ route('filming-services.get', ['section' => 'filmmaking']) }}">FILMMAKING</a></li>
+                        <li class="mt-3"><a href="{{ route('filming-services.get', ['section' => 'filmmaking']) }}">FILMMAKING</a></li>
                         <li><a href="{{ route('filming-services.get', ['section' => 'filmmaking-equipment']) }}">FILMMAKING EQUIPMENT</a></li>
                         <li><a href="{{ route('filming-services.get', ['section' => 'production']) }}">PRODUCTION</a></li>
                         <li><a href="{{ route('filming-services.get', ['section' => 'locations-permit']) }}">LOCATIONS / PERMIT</a></li>
@@ -236,7 +236,7 @@
                 </div>
                 <div class="col-6">
                     <ul>
-                        <li><a href="{{ route('filming-services.get', ['section' => 'tv-commercial-music-videos']) }}">TV COMMERCIAL / MUSIC VIDEOS</a></li>
+                        <li class="mt-3"><a href="{{ route('filming-services.get', ['section' => 'tv-commercial-music-videos']) }}">TV COMMERCIAL / MUSIC VIDEOS</a></li>
                         <li><a href="{{ route('filming-services.get', ['section' => 'locations-permit']) }}">VIDEO / PHOTOGRAPHY</a></li>
                         <li><a href="{{ route('filming-services.get', ['section' => 'transportation']) }}">TRANSPORTATION</a></li>
                         <li><a href="{{ route('filming-services.get', ['section' => 'catering']) }}">CATERING</a></li>

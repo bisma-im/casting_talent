@@ -83,12 +83,13 @@ section.homebanner {
 section.homebanner:before {
     content: "";
     position: absolute;
-    background-image: url(../images/Influencers.jpeg);
+    background-image: url(../images/infi.png);
      
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
+    width: 100vw;
     height: 100%;
+
     z-index: -1;
     top: 0;
 }
@@ -1119,23 +1120,26 @@ section.servicessec {
 }
 .modalbox .modalbody h4 {
     color: rgba(0, 0, 0, 1);
-    font-size: 22px;
+    font-size: 20px;
     line-height: 27px;
     font-weight: 600;
 }
 .modalbox .modallist ul li a {
     color: #000 !important;
-    font-size: 14px !important;
+    font-size: 12px !important;
     font-weight: 600;
     font-family: "Poppins", sans-serif;
     /* float: left; */
     /* width: 49%; */
     line-height: 30px;
+  
     text-transform: uppercase;
     background-color: transparent;
     border: 0;
     text-align: left;
     padding: 0px 0;
+    display: flex;
+    justify-content: center;
 }
 .modalbox .modallist ul li a:hover{
     transform: inherit;
