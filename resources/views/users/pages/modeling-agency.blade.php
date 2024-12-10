@@ -6,22 +6,22 @@
 
 
 
-
-    <section class="innerpages">
-        <div class="container">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                <div class="innertext">
-                    <h1>Modeling <span>Agency</span></h1>
-
-                </div>
-            </div>
-        </div>
-    </section>
+  
+   
+  
 
 
     <section class="modalagencysec" id="actors-models">
+        
         <div class="container">
-            <div class="row align-items-center">
+            
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5 mb-0 pb-0">
+        <div class="innertext pt-3">
+        <h1>Modeling <span>Agency</span></h1>
+
+        </div>
+    </div>
+            <div class="row align-items-center pt-2">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modaltext">
                         <h2>Actors / <span>Models</span></h2>

@@ -16,7 +16,7 @@
         </div>
     </div>
     <section class="rightsec" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
-        <div class="container">
+        <div class="">
             <div class="row justify-content-center">
             <div class="talentimg">
     <!-- Thumbnail Image -->
@@ -38,8 +38,8 @@
 .talentimg {
     position: relative;
     display: inline-block;
-    width: 100%;
-    max-width: 600px; /* Adjust the max width as needed */
+    width: 80vw;
+   
     margin: 0 auto;
 }
 

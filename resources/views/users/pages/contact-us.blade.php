@@ -85,12 +85,16 @@
         @media (max-width: 768px) {
             .form-container {
                 width: 90%;
-                height: auto;
+              
+                height:10vh !important;
+
                 /* Allow height to adjust for smaller screens */
             }
 
             .form-step {
                 padding: 10px;
+                height:2vh !important;
+
             }
         }
 
@@ -98,9 +102,13 @@
             .form-container {
                 width: 100%;
                 padding: 15px;
+                height:1vh !important;
+
             }
 
             .form-step {
+                height:10vh !important;
+
                 padding: 5px;
             }
         }
@@ -411,6 +419,57 @@
         .dropdown-open {
             display: block;
         }
+        /* Custom height adjustments for different screen sizes */
+
+/* Extra Small Screens (≤576px) */
+@media (max-width: 576px) {
+    .custom-height-sm {
+        height: 40vh; /* Example: Set height as 50% of the viewport height */
+    }
+}
+
+/* Small Screens (≥576px) */
+@media (min-width: 576px) and (max-width: 768px) {
+    .custom-height-sm {
+        height: 60vh;
+    }
+}
+
+/* Medium Screens (≥768px) */
+@media (min-width: 768px) and (max-width: 992px) {
+    .custom-height-md {
+        height: 70vh;
+    }
+}
+
+/* Large Screens (≥992px) */
+@media (min-width: 992px) {
+    .custom-height-lg {
+        height: 100vh;
+    }
+}
+@media (max-width: 768px) {
+    .contactussec {
+        height: auto; /* Adjust the height for smaller screens */
+    }
+
+    .form-container {
+        width: 90%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .mobile-frame {
+        width: 60vw; 
+        height: 120vw; 
+    }
+
+    .instagram-feed {
+        width: 100%;
+        height: 100%;
+    }
+}
+
     </style>
 
     <section class="innerpages">
@@ -466,9 +525,9 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-xs-12 form-container mt-3">
+                <div class="col-md-6 col-sm-2 form-container custom-height-sm mt-3">
                     <!-- General Inquiry Form (initially hidden) -->
-                    <div id="generalInquiryForm" style="display: none;">
+                    <div id="generalInquiryForm" style="display: none; " class="custom-height-sm">
                         <div class="card-title innertext">
                             <h1 style="text-align:left;">General <span>Enquiry</span></h1><br>
                         </div>
@@ -484,14 +543,14 @@
                             <!-- Example first step -->
                             <div class="form-step form-step-active">
                                 <div class="row">
-                                    <div class="col-12 col-md-6">
+                                    <div class="col-6 col-md-6">
                                         <div class="contactlist">
                                             <label>First Name</label>
                                             <input type="text" name="first_name" class="form-control"
                                                 placeholder="First Name" required>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-6">
+                                    <div class="col-6 col-md-6">
                                         <div class="contactlist">
                                             <label>Last Name</label>
                                             <input type="text" name="last_name" class="form-control"
@@ -506,7 +565,7 @@
                             <!-- Second step -->
                             <div class="form-step">
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-md-12 col-6">
                                         <div class="contactlist">
                                             <label>Email</label>
                                             <input type="email" name="email" class="form-control" placeholder="Email"
@@ -527,7 +586,7 @@
                             <!-- Third step -->
                             <div class="form-step">
                                 <div class="row">
-                                    <div class="col-12 col-sm-12 col-md-6">
+                                    <div class="col-6 col-md-6">
                                         <div class="contactlist">
                                             <label>Calling Number</label>
                                             <input type="tel" name="calling_number" id="calling_number"
@@ -536,7 +595,7 @@
                                                 value="ae">
                                         </div>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6">
+                                    <div class="col-6 col-md-6">
                                         <div class="contactlist">
                                             <label>Whatsapp Number</label>
                                             <input type="tel" name="whatsapp_number" id="whatsapp_number"

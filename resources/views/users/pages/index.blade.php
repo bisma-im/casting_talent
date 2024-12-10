@@ -308,15 +308,17 @@
                         .socialLinks {
                             display: flex;
                             align-items: center;
-                            justify-content: space-between;
-                            padding: 10px;
+                            justify-content: flex-end;
+                            padding: 50px;
                             margin-top: 30px;
-                            width: 35%;
+                            width: 100%;
                         }
 
                         .socialLinks .social-icon {
                             text-decoration: none;
                             color: #000;
+                            margin: 2px;
+
                             /* Change to desired color */
                             font-size: 20px;
                             /* Adjust size as needed */

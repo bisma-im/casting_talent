@@ -1120,17 +1120,17 @@ section.servicessec {
 }
 .modalbox .modalbody h4 {
     color: rgba(0, 0, 0, 1);
-    font-size: 20px;
+
     line-height: 27px;
-    font-weight: 600;
+  
+    font-size: 30px !important;
+
 }
 .modalbox .modallist ul li a {
     color: #000 !important;
     font-size: 12px !important;
-    font-weight: 600;
+    font-weight: bolder;
     font-family: "Poppins", sans-serif;
-    /* float: left; */
-    /* width: 49%; */
     line-height: 30px;
   
     text-transform: uppercase;
