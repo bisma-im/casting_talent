@@ -450,13 +450,7 @@
         ul{
             list-style: none; /* Removes bullets */
         }
-        .modalagencysec {
-    height: 107vh; /* Each section takes the full viewport height */
-    overflow: hidden; /* Prevent overflow issues within sections */
-    display: flex;
-    align-items: center; /* Center align content vertically */
-    justify-content: center; /* Center align content horizontally */
-}
+        
 
     </style>
 <div  id="scrollable-sections">
@@ -971,14 +965,13 @@
 </section>
 </div>
 <script>
- window.addEventListener("load", function () {
+   window.addEventListener("load", function () {
     const sections = document.querySelectorAll(".modalagencysec");
     let currentSectionIndex = 0; // Start at the topmost section
-    let isScrolling = false; // Prevent rapid-fire scrolling
+    let isScrolling = false; // Prevent rapid scroll triggers
 
-    // Helper function to scroll to the current section
+    // Helper function to scroll to the current section and fit it into the screen
     const scrollToSection = (index) => {
-        if (index < 0 || index >= sections.length) return; // Prevent out-of-bound index
         sections[index].scrollIntoView({
             behavior: "smooth",
             block: "start"
@@ -1004,7 +997,7 @@
         // Allow scrolling again after smooth scroll completes
         setTimeout(() => {
             isScrolling = false;
-        }, 500); // Reduced timeout for faster scroll
+        }, 800); // Match this with the CSS `scroll-behavior` duration if needed
     };
 
     // Mouse Wheel Scrolling
@@ -1032,19 +1025,9 @@
         handleScroll(delta);
     });
 
-    // Scroll to the first section on load
+    // Initial Scroll to the First Section
     scrollToSection(currentSectionIndex);
-
-    // Prevent white space on excessive scrolling
-    window.addEventListener("scroll", () => {
-        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
-        if (scrollTop < 0 || scrollTop > maxScrollTop) {
-            scrollToSection(currentSectionIndex);
-        }
-    });
 });
-
 
 
 </script>

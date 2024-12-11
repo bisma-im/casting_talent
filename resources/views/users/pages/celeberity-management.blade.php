@@ -9,12 +9,13 @@
 
     <section class="innerpages">
         <div class="container">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+            
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3 col-xxl-12">
                 <div class="innertext">
                     <h1>Celebrity <span>Management</span></h1>
                 </div>
             </div>
-        </div>
     </section>
 
 

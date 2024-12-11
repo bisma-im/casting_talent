@@ -54,8 +54,8 @@
     padding: 0; /* Reset padding */
 }
                 </style>
-               <div class="featurelist" style="border-bottom: 0 !important;">
-            <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled mt-4">
+               <div class="featurelist " style="border-bottom: 0 !important;">
+            <ul class="d-flex flex-wrap  justify-content-center align-items-center list-unstyled mt-4">
                     <li class="col-md-1 col-sm-2 text-center">
                         <a href="{{ route('modeling-agency.get', ['section' => 'presenters_emcees']) }}"  data-target="tab7" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/presenter.png') }}" alt="Presenters Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
