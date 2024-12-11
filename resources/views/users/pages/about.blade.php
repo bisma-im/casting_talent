@@ -20,7 +20,7 @@
             <div class="row justify-content-center">
             <div class="talentimg">
     <!-- Thumbnail Image -->
-    <img id="imageThumbnail" src="{{ url('user-assets') }}/images/about_img.png" class="img-fluid" alt="Thumbnail">
+    <img id="imageThumbnail"   src="https://img.youtube.com/vi/qmpkCshcRlY/hqdefault.jpg"  class="img-fluid" alt="Thumbnail">
 
     <!-- Play button (click to show video) -->
     <a href="javascript:void(0);" id="playButton">

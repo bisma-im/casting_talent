@@ -596,7 +596,7 @@
                 </div>
                 <div class=" d-flex justify-content-center">
                     <!-- Thumbnail Image -->
-                    <img id="imageThumbnailRight" src="{{ url('user-assets') }}/images/talentbanner.png" class="img-fluid" alt="Talent Banner">
+                    <img id="imageThumbnailRight"  style="width: 100%; height: 80vh"  src="https://img.youtube.com/vi/VXZgS20jvvA/hqdefault.jpg"  class="img-fluid" alt="Talent Banner">
                     <!-- Play button (click to show video) -->
                     <a href="javascript:void(0);" id="playButtonRight">
                         <i class="fa-regular fa-circle-play"></i>

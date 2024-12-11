@@ -450,6 +450,14 @@
         ul{
             list-style: none; /* Removes bullets */
         }
+        .modalagencysec {
+    height: 107vh; /* Each section takes the full viewport height */
+    overflow: hidden; /* Prevent overflow issues within sections */
+    display: flex;
+    align-items: center; /* Center align content vertically */
+    justify-content: center; /* Center align content horizontally */
+}
+
     </style>
 <div  id="scrollable-sections">
 
@@ -963,61 +971,81 @@
 </section>
 </div>
 <script>
-   window.addEventListener("load", function () {
+ window.addEventListener("load", function () {
     const sections = document.querySelectorAll(".modalagencysec");
-    let currentSectionIndex = 0;
+    let currentSectionIndex = 0; // Start at the topmost section
+    let isScrolling = false; // Prevent rapid-fire scrolling
 
-    // Scroll to the first section on page load
-    sections[currentSectionIndex].scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
+    // Helper function to scroll to the current section
+    const scrollToSection = (index) => {
+        if (index < 0 || index >= sections.length) return; // Prevent out-of-bound index
+        sections[index].scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    };
 
-    let isScrolling = false;
-    window.addEventListener("wheel", function (event) {
-        if (isScrolling) return;
+    // Function to handle scrolling logic
+    const handleScroll = (delta) => {
+        if (isScrolling) return; // Prevent multiple simultaneous scrolls
 
         isScrolling = true;
-        if (event.deltaY > 0 && currentSectionIndex < sections.length - 1) {
+
+        // Determine the direction and adjust the current section index
+        if (delta > 0 && currentSectionIndex < sections.length - 1) {
             currentSectionIndex++;
-        } else if (event.deltaY < 0 && currentSectionIndex > 0) {
+        } else if (delta < 0 && currentSectionIndex > 0) {
             currentSectionIndex--;
         }
 
-        sections[currentSectionIndex].scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+        // Scroll to the selected section
+        scrollToSection(currentSectionIndex);
 
+        // Allow scrolling again after smooth scroll completes
         setTimeout(() => {
             isScrolling = false;
-        }, 800);
+        }, 500); // Reduced timeout for faster scroll
+    };
+
+    // Mouse Wheel Scrolling
+    window.addEventListener("wheel", (event) => {
+        handleScroll(event.deltaY);
     });
 
-    window.addEventListener("keydown", function (event) {
-        if (isScrolling) return;
-
-        if (event.key === "ArrowDown" && currentSectionIndex < sections.length - 1) {
-            currentSectionIndex++;
-        } else if (event.key === "ArrowUp" && currentSectionIndex > 0) {
-            currentSectionIndex--;
-        }
-
-        sections[currentSectionIndex].scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-        if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+    // Keyboard Arrow Keys
+    window.addEventListener("keydown", (event) => {
+        if (["ArrowDown", "ArrowUp"].includes(event.key)) {
             event.preventDefault();
+            handleScroll(event.key === "ArrowDown" ? 1 : -1);
         }
+    });
 
-        isScrolling = true;
-        setTimeout(() => {
-            isScrolling = false;
-        }, 800);
+    // Touch Gestures for Mobile
+    let touchStartY = 0;
+    window.addEventListener("touchstart", (event) => {
+        touchStartY = event.touches[0].clientY;
+    });
+
+    window.addEventListener("touchend", (event) => {
+        const touchEndY = event.changedTouches[0].clientY;
+        const delta = touchStartY - touchEndY;
+        handleScroll(delta);
+    });
+
+    // Scroll to the first section on load
+    scrollToSection(currentSectionIndex);
+
+    // Prevent white space on excessive scrolling
+    window.addEventListener("scroll", () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollTop < 0 || scrollTop > maxScrollTop) {
+            scrollToSection(currentSectionIndex);
+        }
     });
 });
+
+
 
 </script>
 
