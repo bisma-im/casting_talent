@@ -215,6 +215,71 @@
    
    
   }
+  .actors-section {
+    margin: 0;
+    padding: 0;
+    height:100vh;
+    
+}
+.modalagencysec {
+        padding: 10px;
+    }
+    .my-container2 {
+        width: 100%;
+    }
+    .modaltext {
+        text-align: center;
+    }
+    .casting-text h2 {
+        font-size: 1.5rem; /* Adjust for smaller screens */
+    }
+    .casting-text p {
+        font-size: 1rem; /* Adjust for readability */
+    }
+    .socialLinks {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+    }
+    .socialLinks .social-icon {
+        font-size: 16px;
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+    }
+    .responsive-menu {
+        flex-direction: column; /* Stack items vertically */
+        gap: 40px; /* Adjust spacing */
+ 
+    }
+
+    .responsive-menu a {
+        font-size: 20px; /* Adjust font size */
+        
+    }
+    .custom-carousel-control-prev {
+        left: 0px;
+    }
+
+    .custom-carousel-control-next {
+        right: 0px;
+    }
+    .profile-card {
+        background: white;
+        /* border-radius: 5px; */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     
+        /* padding: 15px; */
+        height: 60vh;
+         
+          width: 100vw;
+
+    }
+    .profile-card .img-div{
+         
+        width: 100vw;
+
+    }
 }
 
 </style>
@@ -554,38 +619,42 @@
                     ['img' => 'model4.jpg', 'age' => '24', 'number' => 'CTM-38085', 'nationality' => 'Thai'],
                 ];
             @endphp
-            <div class="carousel-container">
-                <div class="custom-carousel" id="customCarousel">
-                    <div class="custom-carousel-inner" id="customCarouselInner">
-                        @foreach ($profiles as $profile)
-                            <div class="custom-carousel-item {{ $loop->first ? 'active' : '' }}">
-                                <div class="profile-card">
-                                    <div class="img-div">
-                                        <img src="{{ url('/user-assets/model-images/' . $profile['img']) }}" class="img-fluid" alt="model-image">
-                                    </div>
-                                    <div class="cardbody text-center">
-                                        <div class="card-code">{{ $profile['number'] }}</div>
-                                        <div class="card-info">{{ $profile['age'] }}, {{ $profile['nationality'] }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+         <div class="carousel-container w-100">
+    <div class="custom-carousel" id="customCarousel">
+        <div class="custom-carousel-inner d-flex" id="customCarouselInner">
+            @foreach ($profiles as $profile)
+                <div class="custom-carousel-item {{ $loop->first ? 'active' : '' }}">
+                    <div class="profile-card">
+                        <div class="img-div">
+                            <img src="{{ url('/user-assets/model-images/' . $profile['img']) }}" 
+                                 class="img-fluid" 
+                                 alt="model-image">
+                        </div>
+                        <div class="cardbody text-center">
+                            <div class="card-code">{{ $profile['number'] }}</div>
+                            <div class="card-info">{{ $profile['age'] }}, {{ $profile['nationality'] }}</div>
+                        </div>
                     </div>
-                    <a class="custom-carousel-control-prev" id="customCarouselPrev" href="#!" role="button" data-slide="prev">&#10094;</a>
-                    <a class="custom-carousel-control-next" id="customCarouselNext" href="#!" role="button" data-slide="next">&#10095;</a>
                 </div>
-            </div>
+            @endforeach
+        </div>
+        <a class="custom-carousel-control-prev" id="customCarouselPrev" href="#!" role="button" data-slide="prev">&#10094;</a>
+        <a class="custom-carousel-control-next" id="customCarouselNext" href="#!" role="button" data-slide="next">&#10095;</a>
+    </div>
+</div>
+
         </div>
     </div>
 </section>
 
 
 
-<div class="startedbtn">
-    <ul>
-        <li><a href="{{ route('register.get') }}">GET STARTED TODAY</a></li>
-        <li><a href="{{ route('jobs.get') }}">VIEW MORE JOBS!</a></li>
-    </ul>
+<div class="startedbtn d-flex justify-content-center">
+<ul class="responsive-menu  d-flex justify-content-center">
+    <li><a href="{{ route('register.get') }}">GET STARTED TODAY</a></li>
+    <li><a href="{{ route('jobs.get') }}">VIEW MORE JOBS!</a></li>
+</ul>
+
 </div>
 <section class="rightsec">
     <div class="">

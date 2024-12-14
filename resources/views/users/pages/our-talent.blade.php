@@ -12,7 +12,16 @@
     </section>
 
     <style>
-        
+        body, html {
+    margin: 0;
+    padding: 0;
+   
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
         .modaltext ul li a {
             font-size: 16px; 
             font-weight: 500;
@@ -451,6 +460,29 @@
             list-style: none; /* Removes bullets */
         }
         
+        .modalagencysec {
+    height: 120vh; /* Full viewport height */
+    width: 100%;
+    overflow: hidden; /* Prevent overflow inside the sections */
+    position: relative; /* For pseudo-elements and absolute positioning */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start; /* For better scrolling experience */
+}
+
+.modalagencysec::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; /* Ensure it stays behind the content */
+}
 
     </style>
 <div  id="scrollable-sections">
@@ -965,72 +997,74 @@
 </section>
 </div>
 <script>
-   window.addEventListener("load", function () {
+  document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".modalagencysec");
-    let currentSectionIndex = 0; // Start at the topmost section
-    let isScrolling = false; // Prevent rapid scroll triggers
+    let currentSectionIndex = 0; // Track current section
+    let isScrolling = false;
 
-    // Helper function to scroll to the current section and fit it into the screen
+    // Function to scroll to a specific section
     const scrollToSection = (index) => {
         sections[index].scrollIntoView({
             behavior: "smooth",
-            block: "start"
+            block: "start",
         });
     };
 
-    // Function to handle scrolling logic
-    const handleScroll = (delta) => {
-        if (isScrolling) return; // Prevent multiple simultaneous scrolls
-
+    // Handle scroll direction
+    const handleScroll = (direction) => {
+        if (isScrolling) return; // Prevent multiple triggers
         isScrolling = true;
 
-        // Determine the direction and adjust the current section index
-        if (delta > 0 && currentSectionIndex < sections.length - 1) {
+        if (direction > 0 && currentSectionIndex < sections.length - 1) {
+            // Scroll Down
             currentSectionIndex++;
-        } else if (delta < 0 && currentSectionIndex > 0) {
+        } else if (direction < 0 && currentSectionIndex > 0) {
+            // Scroll Up
             currentSectionIndex--;
         }
 
-        // Scroll to the selected section
         scrollToSection(currentSectionIndex);
 
-        // Allow scrolling again after smooth scroll completes
         setTimeout(() => {
             isScrolling = false;
-        }, 800); // Match this with the CSS `scroll-behavior` duration if needed
+        }, 600); // Match scroll animation duration
     };
 
-    // Mouse Wheel Scrolling
+    // Mouse Wheel Event
     window.addEventListener("wheel", (event) => {
         handleScroll(event.deltaY);
     });
 
-    // Keyboard Arrow Keys
+    // Keyboard Navigation
     window.addEventListener("keydown", (event) => {
-        if (["ArrowDown", "ArrowUp"].includes(event.key)) {
-            event.preventDefault();
-            handleScroll(event.key === "ArrowDown" ? 1 : -1);
+        if (event.key === "ArrowDown") {
+            handleScroll(1); // Scroll Down
+        } else if (event.key === "ArrowUp") {
+            handleScroll(-1); // Scroll Up
         }
     });
 
-    // Touch Gestures for Mobile
+    // Touch Swipe Events for Mobile
     let touchStartY = 0;
     window.addEventListener("touchstart", (event) => {
         touchStartY = event.touches[0].clientY;
     });
-
     window.addEventListener("touchend", (event) => {
         const touchEndY = event.changedTouches[0].clientY;
         const delta = touchStartY - touchEndY;
-        handleScroll(delta);
+
+        // Add a threshold for touch sensitivity
+        if (Math.abs(delta) > 30) {
+            handleScroll(delta);
+        }
     });
 
-    // Initial Scroll to the First Section
+    // Initial scroll to the first section
     scrollToSection(currentSectionIndex);
 });
 
-
 </script>
+
 
 
 

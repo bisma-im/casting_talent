@@ -40,6 +40,7 @@
             font-weight: 600;
             margin: 0 5px;
         }
+        
     </style>
 
 
@@ -47,11 +48,10 @@
         <div id="smooth-content">
             <header>
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
                     <div class="row w-100 align-items-center">
                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                             <div class="">

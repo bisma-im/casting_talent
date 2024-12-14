@@ -150,23 +150,25 @@
 
     /* Adjust the .filter-form class for absolute positioning */
     .filter-form {
-        position: absolute;
-        top: 40px;
-        /* Adjust based on your needs, such as the height of your filter button */
-        /* left: 0; */
-        z-index: 1000;
-        /* Ensures it floats above other content */
-        background-color: #f7f1f1;
-        /* border: 1px solid #ccc; */
-        border-radius: 4px;
-        padding: 20px;
-        width: 97%;
-        /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); */
-        display: none;
-        /* Keeps it hidden until triggered */
-        margin-right: 10px;
-        margin-left: 10px;
-    }
+    position: absolute; /* Keeps dropdown on top of content */
+    top: 40px; 
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #f7f1f1;
+    border-radius: 4px;
+    padding: 20px;
+    width: 97%;
+    display: none; /* Hidden by default */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+
+.featruredmodalsec {
+    transition: margin-top 0.3s ease; /* Smooth margin shift */
+}
+
 
         /* Unique Dropdown styling */
     .hair-dropdown {
@@ -1024,17 +1026,22 @@
 
 </script> --}}
 <script>
-    document.getElementById('filterBtn').addEventListener('click', function() {
-    var form = document.getElementById('filterForm');
-    var button = document.querySelector(".filter-button");
-    if (form.style.display === 'none') {
-        form.style.display = 'block';
-        button.classList.add("active");
+ document.getElementById('filterBtn').addEventListener('click', function () {
+    var filterForm = document.getElementById('filterForm');
+    var featuredSection = document.querySelector('.featruredmodalsec');
+    var button = document.querySelector('.filter-button');
+
+    if (filterForm.style.display === 'none' || filterForm.style.display === '') {
+        filterForm.style.display = 'block';
+        featuredSection.style.marginTop = filterForm.offsetHeight + 'px'; // Push cards down
+        button.classList.add('active');
     } else {
-        form.style.display = 'none';
-        button.classList.remove("active");
+        filterForm.style.display = 'none';
+        featuredSection.style.marginTop = '0'; // Reset margin
+        button.classList.remove('active');
     }
 });
+
 // Define the talents array
 const talents = [
     {
