@@ -80,19 +80,19 @@ section.homebanner {
     padding: 200px 0 150px;
     position: relative;
 }
+
 section.homebanner:before {
     content: "";
     position: absolute;
     background-image: url(../images/infi.png);
-     
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100vw;
+    width: 100%;
     height: 100%;
-
     z-index: -1;
     top: 0;
 }
+
 .bannertext h5 {
     color: rgba(0, 0, 0, 1);
     font-size: 20px;
@@ -1003,6 +1003,16 @@ section.ourmissionsec:after {
     top: 0;
     border-radius: 10px;
 }
+@media (max-width: 1024px) {
+    section.ourmissionsec:after {
+    height: 100%;
+
+    }
+    .navbarlogo img{
+           width: 120px;
+          
+    }
+    }
 section.ourmissionsec::before {
     content: "";
     position: absolute;

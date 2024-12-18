@@ -328,7 +328,7 @@
                             <!-- <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_2.jpg " class="img-fluid section1images" alt="img"> -->
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 ">
                         <div class="rightbanner">
                             <div class="bannerlistimg">
                                 <!-- <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_1.jpg" class="img-fluid " alt="img"> -->
@@ -541,31 +541,31 @@
             </div>
             <div class="featurelist" style="border-bottom: 0 !important;">
             <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled mt-4">
-                    <li class="col-md-1 text-center">
+                    <li class="col-md-1 col-12 text-center">
                         <a href="{{ route('modeling-agency.get', ['section' => 'presenters_emcees']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/presenter.png') }}" alt="Presenters Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
                             <p class="hover-text">PRESENTERS & EMCEES</p>
                         </a>
                     </li>
-                    <li class="col-md-2 text-center">
+                    <li class="col-md-2  col-12 text-center">
                         <a href="{{ route('modeling-agency.get', ['section' => 'event_staff_ushers']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/eventstaff.png') }}" alt="Event Staff Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
                             <p class="hover-text ">EVENT STAFF & <br/> USHERS</p>
                         </a>
                     </li>
-                    <li class="col-md-2 text-center">
+                    <li class="col-md-2 col-12 text-center">
                         <a href="{{ route('modeling-agency.get', ['section' => 'makeup_hair_stylist']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/makeup.png') }}" alt="Makeup Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
                             <p class="hover-text">MAKEUP, HAIR & <br/> FASHION</p>
                         </a>
                     </li>
-                    <li class="col-md-2 text-center">
+                    <li class="col-md-2 col-12 text-center">
                         <a href="{{ route('modeling-agency.get', ['section' => 'photographers_videographers']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/photo.png') }}" alt="Photographers Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
                             <p class="hover-text">PHOTOGRAPHY & VIDEOGRAPHY</p>
                         </a>
                     </li>
-                    <li class="col-md-2 text-center">
+                    <li class="col-md-2 col-12 text-center">
                         <a href="{{ route('modeling-agency.get', ['section' => 'dancers_performers']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/dancer.png') }}" alt="Dancers Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
                             <p class="hover-text">DANCERS &  <br/> PERFORMERS</p>
@@ -575,31 +575,31 @@
                 </ul>
               <!-- Row 1 -->
               <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled">
-                    <li class="col-md-1 text-center">
+                    <li class="col-md-1  col-12 text-center">
                         <a href="{{ route('modeling-agency.get', ['section' => 'actors']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/actor.png') }}" alt="Actors Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
                             <p class="hover-text">ACTORS</p>
                         </a>
                     </li>
-                    <li class="col-md-2 text-center">
+                    <li class="col-md-2 col-12 text-center">
                         <a href="{{ route('modeling-agency.get', ['section' => 'models']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/model.png') }}" alt="Models Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
                             <p class="hover-text">MODELS</p>
                         </a>
                     </li>
-                    <li class="col-md-2 text-center">
+                    <li class="col-md-2 col-12 text-center">
                         <a href="{{ route('modeling-agency.get', ['section' => 'musicians']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/musician.png') }}" alt="Musicians Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
                             <p class="hover-text">MUSICIANS</p>
                         </a>
                     </li>
-                    <li class="col-md-2 text-center">
+                    <li class="col-md-2  col-12 text-center">
                         <a href="{{ route('modeling-agency.get', ['section' => 'film_crew']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/film.png') }}" alt="Film Crew Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
                             <p class="hover-text">FILM CREW</p>
                         </a>
                     </li>
-                    <li class="col-md-2 text-center">
+                    <li class="col-md-2 col-12 text-center">
                         <a href="{{ route('modeling-agency.get', ['section' => 'influencers']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/influencer.png') }}" alt="Influencers Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
                             <p class="hover-text">INFLUENCERS</p>
