@@ -592,6 +592,10 @@
             // Collect form data
             var formData = $(this).serialize();  // Serialize form data to send as a URL-encoded string
             formData += `&requiredCategories=${encodeURIComponent(requiredCategories)}`;
+
+            const submitButton = $(this).find('button[type="submit"]');  // Get the submit button
+            submitButton.prop('disabled', true);
+
             // Send data to the server via AJAX POST
             $.ajax({
                 url: "{{ route('admin.job.store') }}",  // Laravel route for form submission
@@ -600,17 +604,35 @@
                 success: function (response) {
                     // Handle success response
                     if (response.success) {
-                        alert('Job created successfully!');
-                        $('#createJobForm')[0].reset();  // Reset the form after successful submission
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Job created successfully',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        })
+                        .then(() => {
+                            $('#createJobForm')[0].reset();  // Reset the form after successful submission
+                        });
                     } else {
-                        alert('Error: ' + response.message);
+                        Swal.fire({
+                            title: 'Error!',
+                            text: `There was an error creating the job: ${response.message}`,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
                     }
+                    submitButton.prop('disabled', false);
                 },
                 error: function (xhr, status, error) {
                     // Handle error response
                     const response = JSON.parse(xhr.responseText);
-                    console.log('Validation errors:', response.errors);
-                    alert('Validation failed: ' + JSON.stringify(response.errors));
+                    Swal.fire({
+                            title: 'Error!',
+                            text: `There was an error creating the job: ${JSON.stringify(response.errors)}`,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    submitButton.prop('disabled', false);
                 }
             });
         });

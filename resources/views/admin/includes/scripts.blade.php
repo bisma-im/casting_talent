@@ -12,4 +12,5 @@
 <!-- endinject -->
 <!-- Custom js for this page -->
 <script src="{{ url('admin-assets') }}/assets/js/dashboard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- End custom js for this page -->
