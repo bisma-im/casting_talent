@@ -37,6 +37,7 @@
     margin: 0 auto;
     border-radius: 30px;
     overflow: hidden; /* Ensure no overflow */
+
 }
 
 .instagram-feed {
@@ -82,37 +83,7 @@
             /* Transparent white bg for the form */
         }
 
-        @media (max-width: 768px) {
-            .form-container {
-                width: 90%;
-              
-                height:10vh !important;
-
-                /* Allow height to adjust for smaller screens */
-            }
-
-            .form-step {
-                padding: 10px;
-                height:2vh !important;
-
-            }
-        }
-
-        @media (max-width: 480px) {
-            .form-container {
-                width: 100%;
-                padding: 15px;
-                height:1vh !important;
-
-            }
-
-            .form-step {
-                height:10vh !important;
-
-                padding: 5px;
-            }
-        }
-
+    
         /* Position the slider behind the section */
         .background-slider {
             position: absolute;
@@ -422,43 +393,20 @@
         /* Custom height adjustments for different screen sizes */
 
 /* Extra Small Screens (≤576px) */
-@media (max-width: 576px) {
-    .custom-height-sm {
-        height: 40vh; /* Example: Set height as 50% of the viewport height */
-    }
-}
 
-/* Small Screens (≥576px) */
-@media (min-width: 576px) and (max-width: 768px) {
-    .custom-height-sm {
-        height: 60vh;
-    }
-}
-
-/* Medium Screens (≥768px) */
-@media (min-width: 768px) and (max-width: 992px) {
-    .custom-height-md {
-        height: 70vh;
-    }
-}
-
-/* Large Screens (≥992px) */
-@media (min-width: 992px) {
-    .custom-height-lg {
-        height: 100vh;
-    }
-}
 @media (max-width: 768px) {
     .contactussec {
-        height: auto; /* Adjust the height for smaller screens */
+        height: 50vh !important; /* Adjust the height for smaller screens */
     }
 
     .form-container {
-        width: 90%;
-        max-width: 400px;
-        margin: 0 auto;
-    }
+        width:100%;
+        height: 40vh !important; 
+        
 
+    }
+   
+  
     .mobile-frame {
         width: 60vw; 
         height: 120vw; 
@@ -468,6 +416,7 @@
         width: 100%;
         height: 100%;
     }
+    
 }
 
     </style>
@@ -485,7 +434,7 @@
 
     <div class="contactussec">
 
-        <div class="container">
+        <div class="container slider">
             <!-- Background Image Slider -->
             <div class="row ">
                 <!-- Form Container -->
@@ -525,14 +474,13 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-sm-2 form-container custom-height-sm mt-3">
+                <div class="col-md-6 col-12 form-container custom-height-sm mt-md-3">
                     <!-- General Inquiry Form (initially hidden) -->
-                    <div id="generalInquiryForm" style="display: none; " class="custom-height-sm">
+                    <div id="generalInquiryForm" style="display: none; " class="custom-height-sm ">
                         <div class="card-title innertext">
                             <h1 style="text-align:left;">General <span>Enquiry</span></h1><br>
                         </div>
                         <!-- Background Image Slider -->
-
 
                         <div class="progress">
                             <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
@@ -1406,7 +1354,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
                 <!-- Mobile Frame Container -->
-                <div class="mobile-frame">
+                <div class="mobile-frame d-none d-md-block">
                     <!-- Instagram Feed Iframe -->
                     <iframe src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html"
                         scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed">
@@ -1417,7 +1365,12 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 </div>
 </div>
-
+<div class="mobile-frame  d-md-none">
+                    <!-- Instagram Feed Iframe -->
+                    <iframe src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html"
+                        scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed">
+                    </iframe>
+                </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
             // Show modal when page loads
