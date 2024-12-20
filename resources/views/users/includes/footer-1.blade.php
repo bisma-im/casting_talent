@@ -202,7 +202,7 @@
                     <!--    </div>-->
                     <!--</div>-->
                     <div class="owl-carousel owl-theme mt-5" id="testimonailSliderff">
-                        @for ($i = 1; $i <= 30; $i++)
+                        @for ($i = 1; $i <= 34; $i++)
                             <div class="item">
                                 <div class="image-container">
                                     <img src="{{ url('user-assets/loggs/' . $i . '.png') }}" class="img-fluid" alt="Image {{ $i }}" style="width: 100%;">

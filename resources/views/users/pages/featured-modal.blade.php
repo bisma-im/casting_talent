@@ -523,7 +523,7 @@
 
     </div>
     <button id="filterBtn" class="filter-button"><i class="fas fa-sliders-v m-1"></i> Filter</button>
-    <div id="filterForm" class="filter-form" style="display:none;">
+    <div id="filterForm" class="filter-form mt-4" style="display:none;">
         {{-- <form action="{{ route('your.route') }}" method="GET"> --}}
             <form method="GET">
                 <div class="row mb-3 ">
