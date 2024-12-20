@@ -41,7 +41,17 @@ class AdminAuthController extends Controller
                 'transportation' => 'required',
                 'food' => 'required',
                 'payment_mode' => 'required',
+                'details' => 'required',  // Validate details
+                'image' => 'required|image'
             ]);
+
+            // Handle file upload
+            $fileName = null;
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('/uploads/job-files/'), $fileName);
+            }
 
             // If validation fails, Laravel will automatically return a 422 response
             // so there's no need to manually check if validation passes.
@@ -61,6 +71,8 @@ class AdminAuthController extends Controller
                 'transportation' => $validatedData['transportation'],
                 'food' => $validatedData['food'],
                 'payment_mode' => $validatedData['payment_mode'],
+                'details' => $validatedData['details'],  // Store details
+                'image' => $fileName ?? null,
             ]);
 
             // Return success response

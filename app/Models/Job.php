@@ -27,7 +27,8 @@ class Job extends Model
         'transportation',
         'food',
         'payment_mode',
-        'paid_status',
+        'image',
+        'details',
     ];
 
     // If you have any custom timestamps, you can disable default timestamp handling

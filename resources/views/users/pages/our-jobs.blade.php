@@ -23,6 +23,52 @@
         font-weight: 500;
         font-family: "Poppins", sans-serif;
     }
+
+    .job-box {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        overflow: hidden;
+        background: #fff;
+    }
+
+    .job-image {
+        width: 100%;
+        height: 200px;
+        /* Adjust height as needed */
+        background-color: #333;
+        /* Dark grey background */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .job-details {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .fw-bold {
+        font-weight: bold;
+    }
+
+    .fw-normal {
+        font-weight: normal;
+    }
+
+    .details-box {
+        font-size: 12px;
+    }
+
+    .btn-primary {
+        background-color: #0056b3;
+        border-color: #004085;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .row div {
+        margin-bottom: 5px;
+    }
 </style>
 
 <section class="innerpages">
@@ -149,13 +195,13 @@
                     </div>
                 </div>
                 @php
-                $jobs = DB::table('job_details')->get();
+                $jobs = DB::table('jobs')->get();
                 // dump($jobs);
                 @endphp
                 <div class="tabcontent">
                     <div class="tabbox" id="tab1" style="display: block;">
                         <div class="container">
-                            <div class="row pt-3">
+                            {{-- <div class="row pt-3">
                                 @if ($jobs->count() > 0)
                                 @php
                                 $userId = Auth::check() ? Auth::id() : null; // Get user ID if authenticated
@@ -219,7 +265,113 @@
                                     <h6>There are no jobs present yet!</h6>
                                 </div>
                                 @endif
+                            </div> --}}
+
+                            <div class="row pt-3">
+                                @if ($jobs->count() > 0)
+                                    @php
+                                        $userId = Auth::check() ? Auth::id() : null; // Get user ID if authenticated
+                                    @endphp
+                                    @foreach ($jobs as $job)
+                                        @php
+                                            $isApplied = false;
+                                            if ($userId) {
+                                                $appliedJob = DB::table('job_applieds')
+                                                ->where('job_applier_id', $userId)
+                                                ->where('job_id', $job->id)
+                                                ->first();
+                                                $isApplied = $appliedJob !== null;
+                                            }
+                                        @endphp
+                                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4">
+                                            <div class="job-box shadow-sm border">
+                                                <!-- Grey Image Section -->
+                                                <div class="job-image"
+                                                    style="background-image: url('{{ $job->image ? url('uploads/job-files/' . $job->image) : url('https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png') }}');">
+                                                </div>
+
+                                                <!-- Job Content -->
+                                                <div class="job-details p-2">
+                                                    <!-- Project and Required -->
+                                                    <div class="row mb-2">
+                                                        <div class="col-6 fw-bold text-start">PROJECT: <span
+                                                                class="fw-normal">{{ $job->project }}</span></div>
+                                                        <div class="col-6 fw-bold text-end">REQUIRED: <span class="fw-normal">{{
+                                                                $job->required }}</span></div>
+                                                    </div>
+
+                                                    <!-- Date, Timings, Days, Payment -->
+                                                    <div class="row mb-2">
+                                                        <div class="col-6 fw-bold text-start">DATE: <span class="fw-normal">{{
+                                                                $job->date }}</span></div>
+                                                        <div class="col-6 fw-bold text-end">TIMINGS: <span class="fw-normal">{{
+                                                                $job->timings }}</span></div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-6 fw-bold text-start">DAYS: <span class="fw-normal">{{
+                                                                $job->days }}</span></div>
+                                                        <div class="col-6 fw-bold text-end">PAYMENT: <span class="fw-normal">{{
+                                                                $job->payment ?? 'TBD' }}</span></div>
+                                                    </div>
+
+                                                    <!-- Location -->
+                                                    <div class="fw-bold mb-2 text-center">LOCATION:</div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-4 fw-bold text-start">COUNTRY: <span
+                                                                class="fw-normal">{{ $job->country }}</span></div>
+                                                        <div class="col-4 fw-bold text-center">CITY: <span class="fw-normal">{{
+                                                                $job->city }}</span></div>
+                                                        <div class="col-4 fw-bold text-end">AREA: <span class="fw-normal">{{
+                                                                $job->area }}</span></div>
+                                                    </div>
+
+                                                    <!-- Transportation, Food, Payment Mode, Paid -->
+                                                    <div class="row mb-2">
+                                                        <div class="col-6 fw-bold text-start">TRANSPORTATION: <span
+                                                                class="fw-normal">{{ $job->transportation }}</span></div>
+                                                        <div class="col-6 fw-bold text-end">FOOD: <span class="fw-normal">{{
+                                                                $job->food }}</span></div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-6 fw-bold text-start">PAYMENT MODE: <span
+                                                                class="fw-normal">{{ $job->payment_mode }}</span></div>
+                                                        <div class="col-6 fw-bold text-end">PAID: <span class="fw-normal">{{
+                                                                $job->payment_status }}</span></div>
+                                                    </div>
+
+                                                    <!-- Details Textarea -->
+                                                    <div class="details-box p-1 text-white mb-2"
+                                                        style="text-align: center; background-color: rgba(28, 120, 135, 1);">
+                                                        {{-- {{ $job->details }} --}}
+                                                        Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                        industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                        since the 1500s, when an unknown printer took a galley of type and
+                                                        scrambled it to make a type specimen book. It has survived not only five
+                                                        centuries, but also the leap into electronic typesetting, remaining
+                                                        essentially unchanged.
+                                                    </div>
+
+                                                    <!-- Apply Button -->
+                                                    <div class="text-center">
+                                                        @if (Auth::check())
+                                                            <a href="{{ route('job-apply.post', $job->id) }}" style="background-color: rgba(28, 120, 135, 1);"
+                                                                class="btn btn-primary" >APPLY NOW</a>
+                                                        @else
+                                                            <a href="{{ route('login.get') }}" class="btn btn-secondary" style="background-color: rgba(28, 120, 135, 1);">
+                                                                LOGIN TO APPLY</a>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <div class="alert alert-info">
+                                        <h6>There are no jobs present yet!</h6>
+                                    </div>
+                                @endif
                             </div>
+
                         </div>
 
                     </div>
@@ -231,4 +383,4 @@
 </div>
 
 
-    @endsection
+@endsection

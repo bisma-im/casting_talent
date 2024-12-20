@@ -116,7 +116,7 @@
 <hr>
 <div class="row mb-5">
     <div class="col-lg-12">
-        <form method="POST" id="createJobForm">
+        <form method="POST" id="createJobForm" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <!-- Project Field -->
@@ -239,13 +239,24 @@
 
             <div class="row">
                 <!-- Paid Input -->
-                <div class="col-md-12 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="payment_status">PAID</label>
                     <input name="payment_status" id="paid" class="form-control"
                         placeholder="e.g. Cash on the spot, Paid after 10 days, or if Bank Transfer, Same day" />
                 </div>
+                <div class="col-md-6 mb-3">
+                    <label for="image">IMAGE</label>
+                    <input type="file" name="image" id="image" class="form-control" />
+                </div>
             </div>
-
+            <div class="row">
+                <!-- Paid Input -->
+                <div class="col-md-12 mb-3">
+                    <label for="payment_status">DETAILS</label>
+                    <textarea name="details" id="details" class="form-control"
+                        placeholder="Description box to write details of shoot" rows="8"></textarea>
+                </div>
+            </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
@@ -589,9 +600,9 @@
             event.preventDefault();  // Prevent the default form submission
             const dropdownButton = document.getElementById('categoryButton');
             const requiredCategories = dropdownButton.textContent;
-            // Collect form data
-            var formData = $(this).serialize();  // Serialize form data to send as a URL-encoded string
-            formData += `&requiredCategories=${encodeURIComponent(requiredCategories)}`;
+            
+            var formData = new FormData(this);  
+            formData.append('requiredCategories', requiredCategories);
 
             const submitButton = $(this).find('button[type="submit"]');  // Get the submit button
             submitButton.prop('disabled', true);
@@ -601,6 +612,8 @@
                 url: "{{ route('admin.job.store') }}",  // Laravel route for form submission
                 type: 'POST',
                 data: formData,
+                processData: false,  // Prevent jQuery from processing the data into a string
+                contentType: false,  // Prevent jQuery from setting a default content type
                 success: function (response) {
                     // Handle success response
                     if (response.success) {
@@ -636,6 +649,7 @@
                 }
             });
         });
+
 
         // Define the talents array
         const talents = [
