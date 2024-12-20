@@ -1,4 +1,4 @@
-@extends('users.layouts.layout-1')
+@extends('users.layouts.layout')
 
 @section('title', 'Casting Talent | Filming')
 
