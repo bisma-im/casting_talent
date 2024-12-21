@@ -30,7 +30,7 @@ window.onload = function() { // This waits for the entire window to load, includ
     <section class="modalagencysec" id="celebrity-management">
         <div class="container">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5 mb-0 pb-0">
-                    <div class="innertext pt-3">
+                    <div class="innertext pt-md-3 pt-5">
                     <h1>Celebrity <span>Management</span></h1>
 
             
@@ -38,8 +38,8 @@ window.onload = function() { // This waits for the entire window to load, includ
                 </div>
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext">
-                        <h2>Celerity<span>Management</span> Services</h2>
+                    <div class="modaltext pt-5 pt-md-0 text-center text-md-start">
+                        <h2>Celebrity<span> Management</span> Services</h2>
                         <p><b>Book Celebrities Worldwide with CAST TALENTS</b></p>
                         <p>Elevate your events with CAST TALENTS exclusive celebrity management services. Whether it's for
                             inaugurations, weddings, birthday parties, or any celebration, we offer access to celebrities
@@ -91,7 +91,7 @@ window.onload = function() { // This waits for the entire window to load, includ
     <section class="modalagencysec" id="security-bouncer">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center text-md-start"">
                     <div class="modaltext">
                         <h2>Security /<span> Bouncer</span></h2>
                         <p><b>Professional Security Services by CAST TALENTS</b></p>
@@ -164,7 +164,7 @@ window.onload = function() { // This waits for the entire window to load, includ
     <section class="modalagencysec"  id="transportation">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center text-md-start"">
                     <div class="modaltext">
                         <h2>Transportation</h2>
                         <p><b>Professional Vehicle Rental Services for the Film and Television Industry BY CAST TALENTS</b>

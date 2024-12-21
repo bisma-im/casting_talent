@@ -1,4 +1,4 @@
-@extends('users.layouts.layout-1')
+@extends('users.layouts.layout')
 
 @section('title', 'Casting Talent | Events')
 
@@ -41,7 +41,7 @@ window.onload = function() { // This waits for the entire window to load, includ
             </div>
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext">
+                    <div class="modaltext pt-5 pt-md-0 text-center text-md-start">
                         <h2>Event Management</h2>
                         <p><b>Expert Event Creation and Management by Cast Talents</b></p>
                         <p>At Cast Talents, we specialize in crafting exceptional events for both private and corporate
@@ -58,7 +58,7 @@ window.onload = function() { // This waits for the entire window to load, includ
                         <a href="#" class="contactbtn" id="readMoreTrigger">READ MORE</a>
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mt-4">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/event_1.png" class="img-fluid" alt="img">
                     </div>
@@ -286,7 +286,7 @@ window.onload = function() { // This waits for the entire window to load, includ
                         <a href="#" class="contactbtn" id="readMoreTrigger2">READ MORE</a>
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mt-4">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/event_3.png" class="img-fluid" alt="img">
                     </div>

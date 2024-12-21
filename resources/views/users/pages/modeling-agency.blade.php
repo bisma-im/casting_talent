@@ -16,12 +16,12 @@
         <div class="container">
             
 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5 mb-0 pb-0">
-        <div class="innertext pt-3">
+        <div class="innertext pt-md-3 pt-5">
         <h1>Modeling <span>Agency</span></h1>
 
         </div>
     </div>
-            <div class="row align-items-center pt-2">
+            <div class="row align-items-center pt-md-2 pt-4 text-center text-md-start">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modaltext">
                         <h2>Actors / <span>Models</span></h2>
@@ -102,7 +102,7 @@
     <section class="modalagencysec" id="videography-photography">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center text-md-start">
                     <div class="modaltext">
                         <h2>Videography & <span>Photography</span></h2>
                         <p><strong>One of the Premier Professional Photography and Videography Services</strong></p>
@@ -121,7 +121,7 @@
                     </div>
 
                     <!-- Modal Structure -->
-                    <div id="readMoreModal" class="modal" style="display: none;">
+                    <div id="readMoreModal" class="modal mt-2" style="display: none;">
                         <div class="modal-content">
                             <span class="close" id="closeModal">&times;</span>
                             <div class="modaltext">
@@ -342,7 +342,7 @@ window.onload = function() { // This waits for the entire window to load, includ
 };
 </script>
 
-    <section class="modalagencysec2" id="fashion-show">
+    <section class="modalagencysec2 mt-4" id="fashion-show">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -380,7 +380,7 @@ window.onload = function() { // This waits for the entire window to load, includ
     <section class="modalagencysec" id="locations-permit">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center text-md-start">
                     <div class="modaltext">
                         <h2>Locations / <span>Permit</span></h2>
                         <p><b>CAST TALENTS Location Scout: Premier Film Locations and Production Support in the UAE</b></p>
