@@ -7,19 +7,16 @@
 
 
 
-    <section class="innerpages">
+   
+
+    <section class="modalagencysec2" id="locations-permit">
         <div class="container">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                <div class="innertext">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
+                <div class="innertext pt-3">
                     <h1>Location <span>Scouting</span></h1>
 
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="modalagencysec2" id="locations-permit">
-        <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">

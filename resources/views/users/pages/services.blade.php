@@ -154,6 +154,7 @@
                         <li><a href="{{ route('modeling-agency.get', ['section' => 'hair-makeup']) }}">HAIR AND MAKE UP ARTIST</a></li>
                         <li><a href="{{ route('modeling-agency.get', ['section' => 'videography-photography']) }}">VIDEOGRAPHY / PHOTOGRAPHY</a></li>
                     </ul>
+                    
                 </div>
                 <div class="col-6">
                     <ul>

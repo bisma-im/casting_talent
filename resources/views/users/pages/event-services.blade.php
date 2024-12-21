@@ -10,21 +10,35 @@
             height: auto !important;
         }
     </style>
+<script>
+window.onload = function() { // This waits for the entire window to load, including images.
+    setTimeout(function() { // Additional delay to ensure all scripts and content are fully loaded
+        var section = "{{ $section }}";
+        console.log("Section to scroll to:", section);
+        var element = document.getElementById(section);
+        if (element) {
+            console.log("Element details:", element);
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        } else {
+            console.error("Failed to find element with ID:", section);
+        }
+    }, 1000); // Delay might need adjusting based on page load performance
+};
+</script>
 
-    <section class="innerpages">
+  
+
+    <section class="modalagencysec" id="event-management">
         <div class="container">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                <div class="innertext">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
+                <div class="innertext pt-3">
                     <h1>Events <span>Services</span></h1>
 
                 </div>
             </div>
-        </div>
-    </section>
-
-
-    <section class="modalagencysec" id="event-management">
-        <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modaltext">

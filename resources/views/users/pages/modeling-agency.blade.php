@@ -320,8 +320,27 @@
                 document.body.classList.remove('modal-open'); // Enable body scroll
             }
         };
+        
     </script>
 
+<script>
+window.onload = function() { // This waits for the entire window to load, including images.
+    setTimeout(function() { // Additional delay to ensure all scripts and content are fully loaded
+        var section = "{{ $section }}";
+        console.log("Section to scroll to:", section);
+        var element = document.getElementById(section);
+        if (element) {
+            console.log("Element details:", element);
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        } else {
+            console.error("Failed to find element with ID:", section);
+        }
+    }, 1000); // Delay might need adjusting based on page load performance
+};
+</script>
 
     <section class="modalagencysec2" id="fashion-show">
         <div class="container">

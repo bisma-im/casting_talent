@@ -220,6 +220,7 @@ class PagesController extends Controller
     {
         return view('users.pages.modeling-agency', ['section' => $section]);
     }
+    
 
     public function celeberityManagementPage($section = '')
     {
