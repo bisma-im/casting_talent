@@ -225,9 +225,19 @@ section.casting {
 }
 .casting-text p {
     color: #fff;
+    font-size: 20px;
+    width: 100% !important;
+    font-weight: bold !important;
     line-height: 25px;
-    margin-bottom: 50px;
 }
+@media (max-width: 768px) {
+
+    .casting-text h2 {
+        font-size: 25px !important;
+        font-weight: bolder !important;
+    }
+}
+
 .casting-text h2 span {
     color: rgba(216, 31, 38, 1);
 }
@@ -354,6 +364,7 @@ a.contactbtn1:hover{
         flex: 0 0 50%;
         max-width: 50%;
     }
+
 }
 
 @media (max-width: 576px) {

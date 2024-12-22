@@ -355,7 +355,7 @@
                           <div>
                           <div>
                 <div class="casting-text" >
-                    <h5 class="pt-2">ABEERA K SHEIKH</h5>
+                    <h5 class="pt-md-2 pt-3">ABEERA K SHEIKH</h5>
                     <h2>Casting <sapn style="color: rgba(216, 31, 38, 1);">Director</sapn> & <sapn
                             style="color: rgba(216, 31, 38, 1);">Founder</sapn> Of Cast Talents.</h2>
                     <p class="">Abeera K Sheikh's journey into entertainment began with a profound love for the arts. Relocating
@@ -374,8 +374,8 @@
                             display: flex;
                             align-items: center;
                             justify-content: flex-end;
-                            padding: 50px;
-                            margin-top: 30px;
+                            padding: 30px;
+                              
                             width: 100%;
                         }
 
