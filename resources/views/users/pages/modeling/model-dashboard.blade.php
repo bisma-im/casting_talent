@@ -680,7 +680,178 @@
                                                 @csrf
                                                 <div class="multiple_steps_container">
                                                     <div class="maintab">
-                                                        <div class="tab active_tab_" data-step="1">
+
+                                                        <div class="tab" data-step="1">
+                                                            <div class="row">
+                                                                <div
+                                                                    class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                                                    <div class="caterlisttext">
+                                                                        <h5>Select A Category</h5>
+                                                                    </div>
+                                                                    <div class="row  row-cols-12 row-cols-md-5 row-cols-lg-5 row-cols-xl-5 row-cols-xxl-5">
+                                                                        @php
+                                                                            // Decode the JSON into an array
+                                                                            $selectedCategories = isset($profileInfo) ? json_decode($profileInfo->category, true) : [];
+                                                                            // Define the categories and their respective images and labels
+                                                                            $categories = [
+                                                                                'actors' => 'category_1.png',
+                                                                                'models' => 'category_2.png',
+                                                                                'dancers_performers' => 'category_3.png',
+                                                                                'film_crew' => 'category_4.png',
+                                                                                'musicians' => 'category_5.png',
+                                                                                'influencers' => 'category_6.png',
+                                                                                'presenters_emcees' => 'category_7.png',
+                                                                                'event_staff_ushers' => 'category_8.png',
+                                                                                'photographers_videographers' => 'category_9.png',
+                                                                                'makeup_hair_painter_fashion_stylists' => 'category_10.png'
+                                                                            ];
+                                                                        @endphp
+                                                                        @foreach ($categories as $key => $image)
+                                                                            <div class="col">
+                                                                                <div class="selectbox">
+                                                                                    <input type="checkbox" name="category[]" value="{{ $key }}" id="category_{{ $key }}"
+                                                                                        {{ in_array($key, $selectedCategories) ? 'checked' : '' }}>
+                                                                                    <label class="customselect" for="category_{{ $key }}">
+                                                                                        <div class="catogerybox">
+                                                                                            <img src="{{ url('user-assets/images/' . $image) }}" class="img-fluid" alt="img">
+                                                                                            <h5>{{ ucfirst(str_replace('_', ' ', $key)) }}</h5>
+                                                                                        </div>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab" data-step="2">
+                                                            @php
+                                                                $selectedSubcategories = $profileInfo ? json_decode($profileInfo->musician_categories ?? '[]', true) : [];
+                                                            @endphp
+                                                        
+                                                            <!-- Subcategories for Actors -->
+                                                            <div id="actors_subcategories" class="subcategory-section" style="display: none;">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="caterlisttext">
+                                                                            <h5>Category Type - Actors</h5>
+                                                                        </div>
+                                                                        <div class="musicainlist">
+                                                                            <ul>
+                                                                                @foreach (['main_lead', 'featured_actors', 'body_double', 'mime_artist', 'stunt_person', 'extras'] as $actorCategory)
+                                                                                <li>
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="category_type[]" value="{{ $actorCategory }}" id="actor_{{ $actorCategory }}"
+                                                                                            {{ in_array($actorCategory, $selectedSubcategories) ? 'checked' : '' }}>
+                                                                                        <label for="actor_{{ $actorCategory }}">{{ ucwords(str_replace('_', ' ', $actorCategory)) }}</label>
+                                                                                    </label>
+                                                                                </li>
+                                                                                @endforeach
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        
+                                                            <!-- Subcategories for Models -->
+                                                            <div id="models_subcategories" class="subcategory-section" style="display: none;">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="caterlisttext">
+                                                                            <h5>Category Type - Models</h5>
+                                                                        </div>
+                                                                        <div class="musicainlist">
+                                                                            <ul>
+                                                                                @foreach (['high_fashion_editorial', 'fashion_catalogue', 'commercial_models', 'mature_models', 'promotional_models'] as $modelCategory)
+                                                                                <li>
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="category_type[]" value="{{ $modelCategory }}" id="model_{{ $modelCategory }}"
+                                                                                            {{ in_array($modelCategory, $selectedSubcategories) ? 'checked' : '' }}>
+                                                                                        <label for="model_{{ $modelCategory }}">{{ ucwords(str_replace('_', ' ', $modelCategory)) }}</label>
+                                                                                    </label>
+                                                                                </li>
+                                                                                @endforeach
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        
+                                                            <!-- Subcategories for Dancers & Performers -->
+                                                            <div id="dancers_performers_subcategories" class="subcategory-section" style="display: none;">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="caterlisttext">
+                                                                            <h5>Category Type - Dancers & Performers</h5>
+                                                                        </div>
+                                                                        <div class="musicainlist">
+                                                                            <ul>
+                                                                                @foreach (['ballet_dancers', 'ballroom_dancers', 'baroque_dancers'] as $dancerCategory)
+                                                                                <li>
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="category_type[]" value="{{ $dancerCategory }}" id="dancer_{{ $dancerCategory }}"
+                                                                                            {{ in_array($dancerCategory, $selectedSubcategories) ? 'checked' : '' }}>
+                                                                                        <label for="dancer_{{ $dancerCategory }}">{{ ucwords(str_replace('_', ' ', $dancerCategory)) }}</label>
+                                                                                    </label>
+                                                                                </li>
+                                                                                @endforeach
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        
+                                                            <!-- Subcategories for Makeup, Hair, Painter & Fashion Stylists -->
+                                                            <div id="makeup_hair_painter_fashion_stylists_subcategories" class="subcategory-section" style="display: none;">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="caterlisttext">
+                                                                            <h5>Category Type - Makeup, Hair, Painter & Fashion Stylists</h5>
+                                                                        </div>
+                                                                        <div class="musicainlist">
+                                                                            <ul>
+                                                                                @foreach (['makeup_artists', 'fashion_stylists', 'hair_stylists', 'body_painters'] as $stylistCategory)
+                                                                                <li>
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="category_type[]" value="{{ $stylistCategory }}" id="stylist_{{ $stylistCategory }}"
+                                                                                            {{ in_array($stylistCategory, $selectedSubcategories) ? 'checked' : '' }}>
+                                                                                        <label for="stylist_{{ $stylistCategory }}">{{ ucwords(str_replace('_', ' ', $stylistCategory)) }}</label>
+                                                                                    </label>
+                                                                                </li>
+                                                                                @endforeach
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Subcategories for Photographers / Videographers -->
+                                                            <div id="photographers_videographers_subcategories" class="subcategory-section" style="display: none;">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="caterlisttext">
+                                                                            <h5>Category Type - Photographers / Videographers</h5>
+                                                                        </div>
+                                                                        <div class="musicainlist">
+                                                                            <ul>
+                                                                                @foreach (['fashion_photographer', 'portrait_photographer', 'landscape_photographer', 'event_videographer', 'wedding_videographer'] as $photographerCategory)
+                                                                                <li>
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="category_type[]" value="{{ $photographerCategory }}" id="photographer_{{ $photographerCategory }}"
+                                                                                            {{ in_array($photographerCategory, $selectedSubcategories) ? 'checked' : '' }}>
+                                                                                        <label for="photographer_{{ $photographerCategory }}">{{ ucwords(str_replace('_', ' ', $photographerCategory)) }}</label>
+                                                                                    </label>
+                                                                                </li>
+                                                                                @endforeach
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        
+                                                        </div>     
+                                                        <div class="tab" data-step="3">
                                                             <div class="row">
                                                                 <div
                                                                     class="col-sm-12 col-md-4">
@@ -1124,7 +1295,7 @@
                                                                             placeholder="Instagram handle..">
                                                                     </div>
                                                                 </div>
-                                                                <div
+                                                                <div name="height"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Height (CM)</label>
@@ -1132,15 +1303,15 @@
                                                                             name="height_cm" placeholder="e.g., 170">
                                                                     </div>
                                                                 </div>
-                                                                <div
+                                                                <div name="chest"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Bust (CM)</label>
+                                                                        <label>Chest (CM)</label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->bust ?? '' }}"
                                                                             name="bust_cm" placeholder="e.g., 90">
                                                                     </div>
                                                                 </div>
-                                                                <div
+                                                                <div name="waist"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Waist (CM)</label>
@@ -1148,7 +1319,7 @@
                                                                             name="waist_cm" placeholder="e.g., 60">
                                                                     </div>
                                                                 </div>
-                                                                <div
+                                                                <div name="hip"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Hip (CM)</label>
@@ -1156,7 +1327,7 @@
                                                                             name="hip_cm" placeholder="e.g., 90">
                                                                     </div>
                                                                 </div>
-                                                                <div
+                                                                <div name="weight"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Weight (KG)</label>
@@ -1164,7 +1335,7 @@
                                                                             name="weight_kg" placeholder="e.g., 70">
                                                                     </div>
                                                                 </div>
-                                                                <div
+                                                                <div name="eye"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Eye Color</label>
@@ -1172,7 +1343,7 @@
                                                                             name="eyes_color" placeholder="e.g., Brown">
                                                                     </div>
                                                                 </div>
-                                                                <div
+                                                                <div name="hair"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Hair Color</label>
@@ -1206,7 +1377,7 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <div
+                                                                <div name="hairlength"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Hair Length</label>
@@ -1218,7 +1389,7 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <div
+                                                                <div name="shoesize"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Shoe Size (EURO)</label>
@@ -1226,7 +1397,7 @@
                                                                             name="shoe_size_euro" placeholder="e.g. 12">
                                                                     </div>
                                                                 </div>
-                                                                <div
+                                                                <div name="dresssize"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Dress Size (EURO)</label>
@@ -1242,7 +1413,7 @@
                                                                             name="hourly_rate" placeholder="e.g. 120">
                                                                     </div>
                                                                 </div>
-                                                                <div
+                                                                <div name="tattoos"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Do You Have Tattoos?</label>
@@ -1284,178 +1455,7 @@
                                                                     
                                                             </div>
                                                         </div>
-
-                                                        <div class="tab" data-step="2">
-                                                            <div class="row">
-                                                                <div
-                                                                    class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                                                    <div class="caterlisttext">
-                                                                        <h5>Select A Category</h5>
-                                                                    </div>
-                                                                    <div class="row  row-cols-12 row-cols-md-5 row-cols-lg-5 row-cols-xl-5 row-cols-xxl-5">
-                                                                        @php
-                                                                            // Decode the JSON into an array
-                                                                            $selectedCategories = isset($profileInfo) ? json_decode($profileInfo->category, true) : [];
-                                                                            // Define the categories and their respective images and labels
-                                                                            $categories = [
-                                                                                'actors' => 'category_1.png',
-                                                                                'models' => 'category_2.png',
-                                                                                'dancers_performers' => 'category_3.png',
-                                                                                'film_crew' => 'category_4.png',
-                                                                                'musicians' => 'category_5.png',
-                                                                                'influencers' => 'category_6.png',
-                                                                                'presenters_emcees' => 'category_7.png',
-                                                                                'event_staff_ushers' => 'category_8.png',
-                                                                                'photographers_videographers' => 'category_9.png',
-                                                                                'makeup_hair_painter_fashion_stylists' => 'category_10.png'
-                                                                            ];
-                                                                        @endphp
-                                                                        @foreach ($categories as $key => $image)
-                                                                            <div class="col">
-                                                                                <div class="selectbox">
-                                                                                    <input type="checkbox" name="category[]" value="{{ $key }}" id="category_{{ $key }}"
-                                                                                        {{ in_array($key, $selectedCategories) ? 'checked' : '' }}>
-                                                                                    <label class="customselect" for="category_{{ $key }}">
-                                                                                        <div class="catogerybox">
-                                                                                            <img src="{{ url('user-assets/images/' . $image) }}" class="img-fluid" alt="img">
-                                                                                            <h5>{{ ucfirst(str_replace('_', ' ', $key)) }}</h5>
-                                                                                        </div>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-                                                                        @endforeach
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="tab" data-step="2">
-                                                            @php
-                                                                $selectedSubcategories = $profileInfo ? json_decode($profileInfo->musician_categories ?? '[]', true) : [];
-                                                            @endphp
-                                                        
-                                                            <!-- Subcategories for Actors -->
-                                                            <div id="actors_subcategories" class="subcategory-section" style="display: none;">
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <div class="caterlisttext">
-                                                                            <h5>Category Type - Actors</h5>
-                                                                        </div>
-                                                                        <div class="musicainlist">
-                                                                            <ul>
-                                                                                @foreach (['main_lead', 'featured_actors', 'body_double', 'mime_artist', 'stunt_person', 'extras'] as $actorCategory)
-                                                                                <li>
-                                                                                    <label>
-                                                                                        <input type="checkbox" name="category_type[]" value="{{ $actorCategory }}" id="actor_{{ $actorCategory }}"
-                                                                                            {{ in_array($actorCategory, $selectedSubcategories) ? 'checked' : '' }}>
-                                                                                        <label for="actor_{{ $actorCategory }}">{{ ucwords(str_replace('_', ' ', $actorCategory)) }}</label>
-                                                                                    </label>
-                                                                                </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        
-                                                            <!-- Subcategories for Models -->
-                                                            <div id="models_subcategories" class="subcategory-section" style="display: none;">
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <div class="caterlisttext">
-                                                                            <h5>Category Type - Models</h5>
-                                                                        </div>
-                                                                        <div class="musicainlist">
-                                                                            <ul>
-                                                                                @foreach (['high_fashion_editorial', 'fashion_catalogue', 'commercial_models', 'mature_models', 'promotional_models'] as $modelCategory)
-                                                                                <li>
-                                                                                    <label>
-                                                                                        <input type="checkbox" name="category_type[]" value="{{ $modelCategory }}" id="model_{{ $modelCategory }}"
-                                                                                            {{ in_array($modelCategory, $selectedSubcategories) ? 'checked' : '' }}>
-                                                                                        <label for="model_{{ $modelCategory }}">{{ ucwords(str_replace('_', ' ', $modelCategory)) }}</label>
-                                                                                    </label>
-                                                                                </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        
-                                                            <!-- Subcategories for Dancers & Performers -->
-                                                            <div id="dancers_performers_subcategories" class="subcategory-section" style="display: none;">
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <div class="caterlisttext">
-                                                                            <h5>Category Type - Dancers & Performers</h5>
-                                                                        </div>
-                                                                        <div class="musicainlist">
-                                                                            <ul>
-                                                                                @foreach (['ballet_dancers', 'ballroom_dancers', 'baroque_dancers'] as $dancerCategory)
-                                                                                <li>
-                                                                                    <label>
-                                                                                        <input type="checkbox" name="category_type[]" value="{{ $dancerCategory }}" id="dancer_{{ $dancerCategory }}"
-                                                                                            {{ in_array($dancerCategory, $selectedSubcategories) ? 'checked' : '' }}>
-                                                                                        <label for="dancer_{{ $dancerCategory }}">{{ ucwords(str_replace('_', ' ', $dancerCategory)) }}</label>
-                                                                                    </label>
-                                                                                </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        
-                                                            <!-- Subcategories for Makeup, Hair, Painter & Fashion Stylists -->
-                                                            <div id="makeup_hair_painter_fashion_stylists_subcategories" class="subcategory-section" style="display: none;">
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <div class="caterlisttext">
-                                                                            <h5>Category Type - Makeup, Hair, Painter & Fashion Stylists</h5>
-                                                                        </div>
-                                                                        <div class="musicainlist">
-                                                                            <ul>
-                                                                                @foreach (['makeup_artists', 'fashion_stylists', 'hair_stylists', 'body_painters'] as $stylistCategory)
-                                                                                <li>
-                                                                                    <label>
-                                                                                        <input type="checkbox" name="category_type[]" value="{{ $stylistCategory }}" id="stylist_{{ $stylistCategory }}"
-                                                                                            {{ in_array($stylistCategory, $selectedSubcategories) ? 'checked' : '' }}>
-                                                                                        <label for="stylist_{{ $stylistCategory }}">{{ ucwords(str_replace('_', ' ', $stylistCategory)) }}</label>
-                                                                                    </label>
-                                                                                </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <!-- Subcategories for Photographers / Videographers -->
-                                                            <div id="photographers_videographers_subcategories" class="subcategory-section" style="display: none;">
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <div class="caterlisttext">
-                                                                            <h5>Category Type - Photographers / Videographers</h5>
-                                                                        </div>
-                                                                        <div class="musicainlist">
-                                                                            <ul>
-                                                                                @foreach (['fashion_photographer', 'portrait_photographer', 'landscape_photographer', 'event_videographer', 'wedding_videographer'] as $photographerCategory)
-                                                                                <li>
-                                                                                    <label>
-                                                                                        <input type="checkbox" name="category_type[]" value="{{ $photographerCategory }}" id="photographer_{{ $photographerCategory }}"
-                                                                                            {{ in_array($photographerCategory, $selectedSubcategories) ? 'checked' : '' }}>
-                                                                                        <label for="photographer_{{ $photographerCategory }}">{{ ucwords(str_replace('_', ' ', $photographerCategory)) }}</label>
-                                                                                    </label>
-                                                                                </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        
-                                                        </div>     
-                                                        <div class="tab" data-step="2">
+                                                        <div class="tab" data-step="4">
                                                             <div class="row">
                                                                 <!-- Profile Picture Upload -->
                                                                 <div
@@ -1545,10 +1545,8 @@
                                                     </div>
                                                     <hr>
                                                     <div class="contactlist text-center btnlist mt-5">
-                                                        <button class="orange previousButtonForm" id="prevStepBtn"
-                                                            style="display:none;">Back</button>
-                                                        <button type="button" class="nextButtonForm"
-                                                            id="nextStepBtn">Next</button>
+                                                        <button type="button" class="orange previousButtonForm" id="prevStepBtn" style="display:none;">Back</button>
+                                                        <button type="button" class="nextButtonForm" id="nextStepBtn">Next</button>
                                                     </div>
 
                                                 </div>
@@ -1624,6 +1622,35 @@
 
     <script>
         $(document).ready(function() {
+
+            // const fieldsToHide = ['height', 'chest', 'waist', 'hip', 'weight', 'eye', 'hair', 'hairlength', 'shoesize', 'dresssize', 'tattoos'];
+            const fieldsToHide = ['height_cm', 'bust_cm', 'waist_cm', 'hip_cm', 'weight_kg', 'eyes_color', 'hair_color', 'hair_length', 'shoe_size_euro', 'dress_size_euro', 'have_tattoos'];
+            // Function to check the selected categories and show/hide form fields
+            function checkCategoriesAndAdjustFields() {
+                // Categories that trigger hiding the fields
+                const categoriesToCheck = ['makeup_hair_painter_fashion_stylists', 'photographers_videographers', 'musicians', 'film_crew'];
+                let selectedCategories = [];
+
+                $('input[name="category[]"]:checked').each(function() {
+                    selectedCategories.push($(this).val());
+                });
+
+                console.log(selectedCategories)
+
+                // Check if any of the specified categories are selected
+                // const shouldHideFields = categoriesToCheck.some(category => selectedCategories.includes(category));
+                // Check if all selected categories are within the exclusive categories list
+                const shouldHideFields = selectedCategories && selectedCategories.length > 0 && selectedCategories.every(cat => categoriesToCheck.includes(cat));
+                // Show or hide fields based on the presence of specified categories
+                fieldsToHide.forEach(field => {
+                    if (shouldHideFields) {
+                        $(`input[name="${field}"], select[name="${field}"]`).closest('.col-12').hide();
+                    } else {
+                        $(`input[name="${field}"], select[name="${field}"]`).closest('.col-12').show();
+                    }
+                });
+            }
+
             // Function to show or hide subcategory sections based on the parent category selection
             function toggleSubcategories() {
                 // Iterate over each checkbox for parent categories
@@ -1641,58 +1668,70 @@
 
             // Call the function on page load to handle pre-selected categories
             toggleSubcategories();
+            // Initial check on page load
+            checkCategoriesAndAdjustFields();
 
             // Attach a change event listener to the parent category checkboxes
             $('input[name="category[]"]').on('change', function() {
                 // Call the function to show or hide subcategories when a checkbox changes state
                 toggleSubcategories();
+                checkCategoriesAndAdjustFields();
             });
         });
     </script>  
     <script>
-        $("#nextStepBtn").click(function(e) {
-            // debugger
-            let activeTab = $(".multiple_steps_container .tab.active_tab_")
-            let input = Array.from($(activeTab)[0].querySelectorAll("input"))
-            input.forEach(elem => {
-                if ((elem.checked || (elem.type != "radio" && elem.value != "")) && activeTab.next()
-                    .length != 0) {
-                    $(activeTab).removeClass("active_tab_")
-                    $(activeTab).next().addClass("active_tab_")
+        $(document).ready(function() {
+            // Initially set the first tab as active
+            $('.multiple_steps_container .tab[data-step="1"]').addClass('active_tab_');
+
+            $("#nextStepBtn").click(function(e) {
+                let activeTab = $(".multiple_steps_container .tab.active_tab_");
+                let nextTab = $(activeTab).next('.tab');
+                
+                if (nextTab.length != 0) {
+                    $(activeTab).removeClass("active_tab_");
+                    $(nextTab).addClass("active_tab_");
                     window.scrollTo({
-                        top: 10,
+                        top: 0,
                         behavior: 'smooth'
                     });
-                    $("#prevStepBtn").css("display", "block")
 
+                    $("#prevStepBtn").css("display", "block");
                 }
-            })
-            if ($(activeTab).nextAll().length == 1) {
-                e.preventDefault()
-                $(this).html("Submit")
-                this.type = "submit"
-            }
 
-        })
+                // Check if the new active tab is the Portfolio Upload Tab
+                setTimeout(()=> {
+                    if ($(nextTab).data("step") === 4) {
+                    $("#nextStepBtn").html("Submit");
+                    $("#nextStepBtn").attr("type", "submit");
+                }
+                }, 1000)
+            });
 
+            $("#prevStepBtn").click(function() {
+                let activeTab = $(".multiple_steps_container .tab.active_tab_");
+                let prevTab = $(activeTab).prev('.tab');
 
-        $("#prevStepBtn").click(function() {
-            $("#nextStepBtn").html("Next")
-            this.type = "button"
-            let activeTab = $(".multiple_steps_container .tab.active_tab_")
-            if (activeTab.prev().length != 0) {
-                $(activeTab).removeClass("active_tab_")
-                $(activeTab).prev().addClass("active_tab_")
-                // window.scrollTo({ top: 10, behavior: 'smooth' });
-                window.scrollTo({
-                    top: 10
-                });
+                if (prevTab.length != 0) {
+                    $(activeTab).removeClass("active_tab_");
+                    $(prevTab).addClass("active_tab_");
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
 
-            }
-            if ($(activeTab).prevAll().length == 1) {
-                $("#prevStepBtn").css("display", "none")
-            }
-        })
+                if ($(prevTab).is(':first-child')) {
+                    $(this).css("display", "none");
+                }
+
+                // Reset to "Next" when going back unless it's the last tab
+                if (!$(prevTab).next().is('[data-step="4"]')) {
+                    $("#nextStepBtn").html("Next");
+                    $("#nextStepBtn").attr("type", "button");
+                }
+            });
+        });
     </script>
     
     <!-- jQuery CDN -->
