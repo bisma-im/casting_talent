@@ -132,6 +132,38 @@ section.homebanner:before {
     transform: translatey(-10px);
     color: rgba(28, 120, 135, 1) !important;
 }
+
+
+/* Responsive layout for images and text */
+@media (max-width: 768px) {
+    .homebanner {
+        padding: 50px 0; /* Reduce padding on smaller screens */
+    }
+
+    .bannertext h1 {
+        font-size: 32px; /* Further reduce font size for small devices */
+        line-height: 38px;
+    }
+
+    .bannertext p {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .btnlist a {
+        font-size: 12px;
+      
+    }
+
+    
+
+    .rightbanner .bannerlistimg img {
+        width: 100%; /* Ensure images fit within container */
+        height: auto;
+    }
+}
+
+
 span.spanlist {
     position: absolute;
     background-color: #fff;
@@ -364,7 +396,20 @@ a.contactbtn1:hover{
         flex: 0 0 50%;
         max-width: 50%;
     }
-
+    .bannerbottom img {
+        height: 130px !important;
+        width: 100% !important;
+        object-fit: cover;
+    
+        float: right;
+    }
+    .bannerbottom {
+        width: 80%;
+        position: absolute;
+        bottom: -3px !important;
+        object-fit: cover;
+      
+    }
 }
 
 @media (max-width: 576px) {

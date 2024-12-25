@@ -169,6 +169,16 @@
     width: 100%;
    
 }
+@media (max-width: 768px) {
+    .casting1{
+    margin-top: 0px;
+     
+    width: 100%;
+   
+}
+
+}
+
         .my-container2::before {
         content: "";
         position: absolute;
@@ -321,14 +331,14 @@
                 </div>
 
             </div>
-            <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+            <div class="col-12  col-md-5">
                 <div class="row">
-                    <div class="col-12 col-sm-8 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="col-12  col-md-4">
                         <div class="bannerlistimg1 "> 
                             <!-- <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_2.jpg " class="img-fluid section1images" alt="img"> -->
                         </div>
                     </div>
-                    <div class="col-md-8 ">
+                    <div class="col-md-8 col-12 ">
                         <div class="rightbanner">
                             <div class="bannerlistimg">
                                 <!-- <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_1.jpg" class="img-fluid " alt="img"> -->

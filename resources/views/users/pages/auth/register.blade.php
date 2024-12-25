@@ -11,13 +11,7 @@
     </style>
     <section class="innerpages">
         <div class="container">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                <div class="innertext">
-
-                    <h1>Registration</h1>
-
-                </div>
-            </div>
+           
         </div>
     </section>
 
@@ -28,8 +22,15 @@
             border-radius: 10px;
         }
     </style>
-
+ 
     <section class="contactussec1">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                <div class="innertext">
+
+                    <h1>Registration</h1>
+
+                </div>
+            </div>
         <div class="container">
             @if ($errors->any())
                 <div class="alert alert-danger">

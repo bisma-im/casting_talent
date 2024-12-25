@@ -13,23 +13,10 @@
             display: none;
         }
     </style>
-    <section class="innerpages">
-        <div class="container">
-           
-            </div>
-            
-        </div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3 col-xl-12 col-xxl-12">
-                <div class="innertext">
-
-                    <h1 class="text-white">Login</h1>
-
-                </div>
-    </section>
-
+ 
     <style>
         .formSec {
-            padding: 25px;
+
             background: #5f9ea052;
             border-radius: 10px;
         }
@@ -84,13 +71,42 @@
     z-index: 1; /* Place above the slider */
     width: 100% !important;
     max-width: 80%; /* Limit width */
+    height: 400px;
+    
     margin: auto;
-    padding: 20px;
+
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow */
 }
+
+    /* Media Query for mobile responsiveness */
+    @media (max-width: 768px) {
+    
+        .slider-image {
+            height: 130vw !important;
+        }
+        .form-container {
+            padding:  0px !important;
+            height: 50vh !important;
+          
+        }
+        .logintext{
+            font-size: 50px !important;
+        }
+    }
     </style>
+     <section class="innerpages">
+    <div class="container">
+
+    </div>
+</section>
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3 col-xxl-12">
+    <div class="innertext">
+        <h1 class="text-white">Login</h1>
+
+    </div>
+
 <div class="background-slider">
     <div class="slider-track">
         <div class="slider-image"

@@ -396,25 +396,34 @@
 
 @media (max-width: 768px) {
     .contactussec {
-        height: 50vh !important; /* Adjust the height for smaller screens */
+        height: 90vh !important; /* Adjust the height for smaller screens */
     }
 
     .form-container {
         width:100%;
-        height: 40vh !important; 
+        height: 100vw !important; 
         
 
+        
     }
-   
-  
     .mobile-frame {
         width: 60vw; 
         height: 120vw; 
     }
-
+    .button-container {
+            margin-top: 10px;
+        }
     .instagram-feed {
         width: 100%;
         height: 100%;
+    }
+    /* Position the slider behind the section */
+    .background-slider {
+        height: 100vw !important; /* Increase the slider height */
+    }
+
+    .slider-image {
+        height: 100vw !important; /* Adjust individual image height */
     }
     
 }
@@ -506,14 +515,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-end">
+                                <div class="text-end ">
                                     <button type="button" class="btn-next">NEXT</button>
                                 </div>
                             </div>
                             <!-- Second step -->
                             <div class="form-step">
                                 <div class="row">
-                                    <div class="col-md-12 col-6">
+                                    <div class="col-md-12 col-12">
                                         <div class="contactlist">
                                             <label>Email</label>
                                             <input type="email" name="email" class="form-control" placeholder="Email"
@@ -585,8 +594,8 @@
                                     <div class="text-start">
                                         <button type="button" class="btn btn-warning btn-prev">BACK</button>
                                     </div>
-                                    <div class="text-end">
-                                        <button type="submit" class="btn-next">SUBMIT</button>
+                                    <div class="text-end ">
+                                        <button type="submit" class="btn-next ">SUBMIT</button>
                                     </div>
                                 </div>
                             </div>
@@ -1365,7 +1374,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 </div>
 </div>
-<div class="mobile-frame  d-md-none">
+<div class="mobile-frame  d-md-none mt-5">
                     <!-- Instagram Feed Iframe -->
                     <iframe src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html"
                         scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed">
