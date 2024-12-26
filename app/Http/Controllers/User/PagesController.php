@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Job;
 use App\Models\ModelDetail;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
@@ -27,9 +28,43 @@ class PagesController extends Controller
         return view('users.pages.contact-us');
     }
 
-    public function jobsPage()
+    public function jobsPage($category = '')
     {
-        return view('users.pages.our-jobs');
+        // Define your categories and subcategories
+        $categories = [
+            'Actor' => ['Lead role', 'Featured', 'Extras', 'Voice-over Artist', 'Body double', 'Stunt person'],
+            'Model' => [],
+            'Dancers & Performers' => ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'B Boy', 'Dance Groups', 'Tabrey Dancer'],
+            'Film Crew' => ['Filmmaker', 'DOP', 'Assistant Director', 'Script Writer', 'Dialog Writer', 'Art Director', 'Production Manager', 'Production Designer', 'Line Producer', 'Focus Puller', 'Camera Operator', 'Lights & Gaffer', 'Crane Operator', 'Sound Engineer', 'Spot Boy'],
+            'Influencers' => [],
+            'Makeup and Hair' => [],
+            'Musicians' => ['Singers', 'Music Band', 'Guitarist', 'Violinist', 'Drummers', 'Bassist', 'Rapper'],
+            'Event Staff and Ushers' => ['Hostess', 'Promoter', 'EmCee'],
+            'Entertainer / Performers' => ['Standup Artist', 'VJ', 'RJ', 'Public Speaker', 'Magician', 'Bottle Twister'],
+            'Celebrity' => [],
+            'Photographers & Videographers' => ['Fashion Photographer', 'Portrait Photographer', 'Landscape Photographer', 'Event Videographer', 'Wedding Videographer'],
+        ];
+
+        $searchCategories = [$category]; // Start with the main category
+
+        // Check if there are subcategories for the main category and add them to the search array
+        if (!empty($categories[$category])) {
+            $searchCategories = array_merge($searchCategories, $categories[$category]);
+        }
+
+        // Convert each category into a LIKE clause for SQL and then combine them into a single OR condition
+        $jobs = Job::where(function ($query) use ($searchCategories) {
+            foreach ($searchCategories as $cat) {
+                $query->orWhere('required', 'LIKE', '%' . $cat . '%');
+            }
+        })->get();
+
+        // dd($jobs);
+        // Pass the jobs data to the view
+        return view('users.pages.our-jobs', [
+            'jobs' => $jobs
+        ]);
+        // return view('users.pages.our-jobs');
     }
 
     public function talentsPage()
@@ -47,22 +82,23 @@ class PagesController extends Controller
         return view('users.pages.event-services', ['section' => $section]);
     }
 
-    public function convertToTitleCaseWithPunctuation($items) {
+    public function convertToTitleCaseWithPunctuation($items)
+    {
         // Array to hold the converted strings
         $convertedItems = [];
-    
+
         // Loop through each item in the input array
         foreach ($items as $item) {
             // Split the string by underscores
             $words = explode('_', $item);
-    
+
             // Capitalize the first letter of each word
             $capitalizedWords = array_map('ucwords', $words);
-    
+
             // Join the words with a space
             $convertedItems[] = implode(' ', $capitalizedWords);
         }
-    
+
         // Add comma to all except the last item and add a period at the end of the last item
         $lastIndex = count($convertedItems) - 1;
         foreach ($convertedItems as $index => $convertedItem) {
@@ -74,7 +110,7 @@ class PagesController extends Controller
                 $convertedItems[$index] = $convertedItem . ',';
             }
         }
-    
+
         // Return the array as a string with each item separated by a space
         return implode(' ', $convertedItems);
     }
@@ -83,7 +119,7 @@ class PagesController extends Controller
     {
         $details = ModelDetail::find($id);
         // $details = $this->convertToTitleCaseWithPunctuation($items);
-        
+
         // dd($details);
         return view('users.pages.model-details', compact('details'));
     }
@@ -161,8 +197,8 @@ class PagesController extends Controller
 
         // Use a left join with memberships to prioritize records with a subscription
         $query->leftJoin('memberships', 'memberships.user_id', '=', 'model_details.user_id')
-        ->select('model_details.*')
-        ->orderByRaw('memberships.user_id IS NULL, model_details.id');
+            ->select('model_details.*')
+            ->orderByRaw('memberships.user_id IS NULL, model_details.id');
 
         $models = $query->get();
 
@@ -220,7 +256,7 @@ class PagesController extends Controller
     {
         return view('users.pages.modeling-agency', ['section' => $section]);
     }
-    
+
 
     public function celeberityManagementPage($section = '')
     {

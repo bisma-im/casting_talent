@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 Route::get('/about', [PagesController::class, 'aboutPage'])->name('about.get');
 Route::get('/contact', [PagesController::class, 'contactPage'])->name('contact.get');
-Route::get('/jobs', [PagesController::class, 'jobsPage'])->name('jobs.get');
+Route::get('/jobs/{category?}', [PagesController::class, 'jobsPage'])->name('jobs.get');
 Route::get('/talents', [PagesController::class, 'talentsPage'])->name('talents.get');
 Route::get('/featured-models/{role?}', [PagesController::class, 'featuredmodelsPage'])->name('featured-models.get');
 Route::get('/all-talent/{role?}', [PagesController::class, 'allmodelsPage'])->name('all-models.get');

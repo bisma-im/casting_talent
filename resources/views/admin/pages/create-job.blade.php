@@ -662,7 +662,7 @@
                 subcategories: []
             },
             {
-                name: 'Dancer',
+                name: 'Dancers & Performers',
                 subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'B Boy', 'Dance Groups', 'Tabrey Dancer']
             },
             {
@@ -675,7 +675,16 @@
             },
             {
                 name: 'Makeup and Hair',
-                subcategories: []
+                subcategories: [
+                    "Body Painter",
+                    "Creative Makeup Artist",
+                    "Face Painter",
+                    "Fashion Stylist",
+                    "Hair Stylist",
+                    "Henna Artist",
+                    "Makeup Artists",
+                    "Wardrobe Stylist"
+                ]
             },
             {
                 name: 'Musicians',
@@ -690,9 +699,39 @@
                 subcategories: ['Standup Artist', 'VJ', 'RJ', 'Public Speaker', 'Magician', 'Bottle Twister']
             },
             {
-                name: 'Celebrity',
-                subcategories: []
+                name: 'Photographers & Videographers',
+                subcategories: ['Fashion Photographer', 'Portrait Photographer', 'Landscape Photographer', 'Event Videographer', 'Wedding Videographer']
+            },
+            {
+                name: "Presenter & Emcees",
+                subcategories: [
+                    "Balloon Decorator",
+                    "Bottle Twister",
+                    "Caricature",
+                    "Clown",
+                    "Comedian",
+                    "Emcee",
+                    "Fire Artist",
+                    "Hypnotist",
+                    "Illustrationist",
+                    "Jugglers",
+                    "Live Statue",
+                    "Magician",
+                    "Media Reporter",
+                    "News Reader",
+                    "Others",
+                    "Public Speaker",
+                    "Radio Jockey RJ",
+                    "Shadow Performer",
+                    "Stand-Up Artist",
+                    "Stilt Walker",
+                    "Unicyclist",
+                    "Video Jockey VJ",
+                    "Virtual Host",
+                    "Voice Over"
+                ]
             }
+
         ];
 
         // Get the container for the dropdown content
