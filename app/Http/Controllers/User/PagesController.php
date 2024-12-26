@@ -209,6 +209,51 @@ class PagesController extends Controller
         ]);
     }
 
+    public function allmodelsForHomePage($role = '')
+    {
+        // Initialize $models to ensure it's always defined
+        $models = collect();
+        $languages = json_decode(File::get(public_path('user-assets/languages.json')), true);
+    
+        $query = ModelDetail::query();
+    
+        // Define subcategories for each main category
+        $subcategories = [
+            'actors' => ['main_lead', 'featured_actors', 'body_double', 'mime_artist', 'stunt_person', 'extras'],
+            'models' => ['high_fashion_editorial', 'fashion_catalogue', 'commercial_models', 'mature_models', 'promotional_models'],
+            'dancers_performers' => ['ballet_dancers', 'ballroom_dancers', 'baroque_dancers'],
+            'makeup_hair_painter_fashion_stylists' => ['makeup_artists', 'fashion_stylists', 'hair_stylists', 'body_painters'],
+            'photographers_videographers' => ['fashion_photographer', 'portrait_photographer', 'landscape_photographer', 'event_videographer', 'wedding_videographer']
+        ];
+    
+        // Use an inner join to ensure only records with a subscription are included
+        $query->join('memberships', 'memberships.user_id', '=', 'model_details.user_id')
+            ->select('model_details.*');
+            
+        // If a role is provided, apply the role filter
+        if ($role) {
+            $query->whereJsonContains('category', $role);
+    
+            // Check if musician_categories contains any of the subcategories for the given role
+            if (isset($subcategories[$role])) {
+                $query->where(function ($query) use ($subcategories, $role) {
+                    foreach ($subcategories[$role] as $subcategory) {
+                        $query->orWhereJsonContains('musician_categories', $subcategory);
+                    }
+                });
+            }
+        }
+    
+        $models = $query->get();
+    
+        return view('users.pages.all-modal', [
+            'models' => $models,
+            'qModels' => $models, // Use $qModels if $role is provided, otherwise use $models
+            'languages' => $languages
+        ]);
+    }
+    
+
     public function allmodelsBySubcategory($subcategory = '', $gender = '')
     {
         // Initialize $models to ensure it's always defined
