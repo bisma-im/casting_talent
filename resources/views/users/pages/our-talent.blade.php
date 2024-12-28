@@ -547,7 +547,7 @@ html {
                             <div class="col-md-3 col-6 d-flex  ps-md-5 align-items-center justify-content-center">
                                 <ul class="mb-3 ms-md-5">
                                     <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'hair_model']) }}">Hair Model</a></li>
-                                    <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'high_fashion_models']) }}"> Plus-Size</a></li>
+                                    <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'plus_size_models']) }}"> Plus-Size</a></li>
                                     <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'party_model']) }}">Image / Party </a></li>
                                     <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'mature_models']) }}">Mature </a></li>
                                     <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'petite_models']) }}">Petite </a></li>
@@ -556,7 +556,7 @@ html {
                             </div>
                             <div class="col-md-3 col-6 d-flex  align-items-center justify-content-center">
                                 <ul class="mb-3">
-                                    <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'plus_size_models']) }}">High Fashion (Editorial) </a></li>
+                                    <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'high_fashion_editorial']) }}">High Fashion (Editorial) </a></li>
                                     <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'promotional_models']) }}">Promotional </a></li>
                                     <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'runway_models']) }}">Runway  / Catwalk </a></li>
                                     <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'stock_photography_model']) }}">Stock Photography </a></li>
@@ -585,7 +585,7 @@ html {
                                 <div class="row">
                                         <div class="col-md-3  col-6 d-flex align-items-center justify-content-center">
                                         <ul class="mb-3 ms-md-5">
-                                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'Ayyala_dancers']) }}">Ayyala </a></li>
+                                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'ayyala_dancers']) }}">Ayyala </a></li>
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'background_dancers']) }}">Background</a></li>
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'ballet_dancers']) }}">Ballet </a></li>
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'ballroom_dancers']) }}">Ballroom </a></li>
@@ -608,7 +608,7 @@ html {
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'dancing_couples']) }}">Dancing Couple</a></li>
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'fictional_dancers']) }}">Fictional </a></li>
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'folk_dancer']) }}">Folk </a></li>
-                                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'folk_dancers']) }}">Samba </a></li>
+                                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'samba_dancers']) }}">Samba </a></li>
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'go_go_dancer']) }}">Go Go </a></li>
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'hip_hop_dancers']) }}">Hip Hop </a></li>
                                         </ul>
@@ -685,38 +685,38 @@ html {
                     <div class="row">
                         <div class="col-md-3 col-6 d-flex align-items-center justify-content-center">
                             <ul class="mb-3 ms-md-5">
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'abstract_photo_video']) }}">Abstract </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'aerial_photo_video']) }}">Aerial </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'architecture_photo_video']) }}">Architecture </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'child_photo_video']) }}">Child </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'commercial_photo_video']) }}">Commercial </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'abstract']) }}">Abstract </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'aerial']) }}">Aerial </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'architecture']) }}">Architecture </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'child']) }}">Child </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'commercial']) }}">Commercial </a></li>
                             </ul>
                         </div>
                         <div class="col-md-3 col-6 d-flex align-items-center justify-content-center">
                             <ul class="mb-3">
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'digital_photo_video']) }}">Digital </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'documentary_photo_video']) }}">Documentary </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'event_photo_video']) }}">Event </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'fashion_photo_video']) }}">Fashion </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'film_photo_video']) }}">Film </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'digital']) }}">Digital </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'documentary']) }}">Documentary </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'event']) }}">Event </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'fashion']) }}">Fashion </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'film']) }}">Film </a></li>
                             </ul>
                         </div>
                         <div class="col-md-3 col-6 d-flex align-items-center justify-content-center">
                             <ul class="mb-3 ms-md-5">
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'fine_art_photo_video']) }}">Fine Art </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'food_photo_video']) }}">Food </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'landscape_photo_video']) }}">Landscape </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'lifestyle_photo_video']) }}">Lifestyle </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'nature_photo_video']) }}">Nature </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'fine_art']) }}">Fine Art </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'food']) }}">Food </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'landscape']) }}">Landscape </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'lifestyle']) }}">Lifestyle </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'nature']) }}">Nature </a></li>
                             </ul>
                         </div>
                         <div class="col-md-3 col-6 d-flex align-items-center justify-content-center">
                             <ul class="mb-3">
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'portrait_photo_video']) }}">Portrait </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'sports_photo_video']) }}">Sports </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'street_photo_video']) }}">Street </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'travel_photo_video']) }}">Travel </a></li>
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'wedding_photo_video']) }}">Wedding </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'portrait']) }}">Portrait </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'sports']) }}">Sports </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'street']) }}">Street </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'travel']) }}">Travel </a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'wedding']) }}">Wedding </a></li>
                             </ul>
                         </div>
                     </div>
@@ -738,9 +738,9 @@ html {
                         <div class="col-md-3 col-6 d-flex align-items-center justify-content-center">
     <ul class="mb-3 ms-md-5">
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'art_director']) }}">Art Director</a></li>
-        <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'art_costume']) }}">Art & Costume</a></li>
+        <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'art_and_costume']) }}">Art & Costume</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'assistant_director']) }}">Assistant Director</a></li>
-        <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'animation_graphic_designer']) }}">Animation & Graphic Designer</a></li>
+        <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'animation_and_graphic_designer']) }}">Animation & Graphic Designer</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'copy_writer']) }}">Copy Writer</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'camera_crew']) }}">Camera Crew</a></li>
     </ul>
@@ -750,7 +750,7 @@ html {
     <ul class="mb-3">
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'crane_operator']) }}">Crane Operator</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'director']) }}">Director</a></li>
-        <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'dop']) }}">DOP</a></li>
+        <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'DOP']) }}">DOP</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'sound_crew']) }}">Sound Crew</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'lighting_crew']) }}">Lighting Crew</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'editor']) }}">Editor</a></li>
@@ -763,7 +763,7 @@ html {
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'film_producer']) }}">Film Producer</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'focus_puller_operator']) }}">Focus Puller Operator</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'line_producer']) }}">Line Producer</a></li>
-        <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'other_film_stage_crew']) }}">Other Film & Stage Crew</a></li>
+        <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'other_film_and_stage_crew']) }}">Other Film & Stage Crew</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'post_production_staff']) }}">Post Production Staff</a></li>
     </ul>
 </div>
@@ -927,7 +927,7 @@ html {
                     <div class="col-md-3  col-6 d-flex align-items-center justify-content-center">
                         <ul class="mb-3 ms-md-5">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'event_supervisor']) }}">Event Supervisor</a></li>
-                            <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'host_hostess']) }}">Host / Hostess</a></li>
+                            <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'host_or_hostess']) }}">Host / Hostess</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'marketing_coordinator']) }}">Marketing Coordinator</a></li>
                         </ul>
                     </div>

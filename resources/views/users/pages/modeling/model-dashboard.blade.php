@@ -762,7 +762,12 @@
                                                                         </div>
                                                                         <div class="musicainlist">
                                                                             <ul>
-                                                                                @foreach (['high_fashion_editorial', 'fashion_catalogue', 'commercial_models', 'mature_models', 'promotional_models'] as $modelCategory)
+                                                                                @foreach ([
+                                                                                    'high_fashion_editorial', 'fashion_catalogue', 'commercial_models', 'mature_models', 'erotic_photography_model',
+                                                                                    'promotional_models', 'art_models', 'body_parts_models', 'child_models', 'expecting_models', 'fitness_models',
+                                                                                    'freelance_models', 'glamour_models', 'hair_model', 'plus_size_models', 'party_model', 'petite_models', 'runway_models',
+                                                                                    'stock_photography_model', 'swimsuit_lingerie_models'
+                                                                                    ] as $modelCategory)
                                                                                 <li>
                                                                                     <label>
                                                                                         <input type="checkbox" name="category_type[]" value="{{ $modelCategory }}" id="model_{{ $modelCategory }}"
@@ -786,12 +791,157 @@
                                                                         </div>
                                                                         <div class="musicainlist">
                                                                             <ul>
-                                                                                @foreach (['ballet_dancers', 'ballroom_dancers', 'baroque_dancers'] as $dancerCategory)
+                                                                                @foreach ([
+                                                                                    'ballet_dancers', 'ballroom_dancers', 'ayyala_dancers', 'background_dancers', 'belly_dancers', 'b_boy',
+                                                                                    'break_dancers', 'cabaret_dancer', 'cheerleaders', 'choreographers', 'contemporary_dancers', 'dance_group',
+                                                                                    'dancing_couples', 'fictional_dancers', 'folk_dancer', 'samba_dancers', 'go_go_dancer', 'hip_hop_dancers',
+                                                                                    'kathak_dancer', 'parade_away', 'salsa_dancers', 'sufi_dancer', 'swing_dancers', 'tap_dancers'
+                                                                                    ] as $dancerCategory)
                                                                                 <li>
                                                                                     <label>
-                                                                                        <input type="checkbox" name="category_type[]" value="{{ $dancerCategory }}" id="dancer_{{ $dancerCategory }}"
+                                                                                        <input type="checkbox" name="category_type[]" value="{{ $dancerCategory }}" id="dancers_{{ $dancerCategory }}"
                                                                                             {{ in_array($dancerCategory, $selectedSubcategories) ? 'checked' : '' }}>
                                                                                         <label for="dancer_{{ $dancerCategory }}">{{ ucwords(str_replace('_', ' ', $dancerCategory)) }}</label>
+                                                                                    </label>
+                                                                                </li>
+                                                                                @endforeach
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Subcategories for Film Crew -->
+                                                            <div id="film_crew_subcategories" class="subcategory-section" style="display: none;">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="caterlisttext">
+                                                                            <h5>Category Type - Film Crew</h5>
+                                                                        </div>
+                                                                        <div class="musicainlist">
+                                                                            <ul>
+                                                                                @foreach ([
+                                                                                    'art_director', 'art_and_costume', 'assistant_director', 'animation_and_graphic_designer', 'copy_writer', 
+                                                                                    'camera_crew', 'crane_operator', 'director', 'DOP', 'sound_crew', 'lighting_crew', 'editor', 'film_maker', 
+                                                                                    'film_producer', 'focus_puller_operator', 'line_producer', 'other_film_and_stage_crew', 'post_production_staff', 
+                                                                                    'production_manager', 'photographer','runner', 'script_writer', 'sound_engineer', 'videographer' 
+                                                                                    ] as $filmCrewCategory)
+                                                                                <li>
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="category_type[]" value="{{ $filmCrewCategory }}" id="film_crew_{{ $filmCrewCategory }}"
+                                                                                            {{ in_array($filmCrewCategory, $selectedSubcategories) ? 'checked' : '' }}>
+                                                                                        <label for="photographer_{{ $filmCrewCategory }}">{{ ucwords(str_replace('_', ' ', $filmCrewCategory)) }}</label>
+                                                                                    </label>
+                                                                                </li>
+                                                                                @endforeach
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Subcategories for Musicians -->
+                                                            <div id="musicians_subcategories" class="subcategory-section" style="display: none;">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="caterlisttext">
+                                                                            <h5>Category Type - Musicians</h5>
+                                                                        </div>
+                                                                        <div class="musicainlist">
+                                                                            <ul>
+                                                                                @foreach ([
+                                                                                    'guitarist', 'hobbyist', 'independent_artist', 'independent_label_artist', 'live_performer', 'music_band',
+                                                                                    'musician', 'orchestral_musician', 'producer_composer', 'rapper', 'session_musician', 'singer', 'song_writer', 
+                                                                                    'teacher', 'tv_show_performer', 'violinist'
+                                                                                    ] as $musicianCategory)
+                                                                                <li>
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="category_type[]" value="{{ $musicianCategory }}" id="musicians_{{ $musicianCategory }}"
+                                                                                            {{ in_array($musicianCategory, $selectedSubcategories) ? 'checked' : '' }}>
+                                                                                        <label for="musicians_{{ $musicianCategory }}">{{ ucwords(str_replace('_', ' ', $musicianCategory)) }}</label>
+                                                                                    </label>
+                                                                                </li>
+                                                                                @endforeach
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Subcategories for Influencers -->
+                                                            <div id="influencers_subcategories" class="subcategory-section" style="display: none;">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="caterlisttext">
+                                                                            <h5>Category Type - Influencers</h5>
+                                                                        </div>
+                                                                        <div class="musicainlist">
+                                                                            <ul>
+                                                                                @foreach ([
+                                                                                    'beauty_influencers', 'bloggers', 'celebrity', 'fashion_influencers', 'fitness_wellness_influencers', 'food_influencers',
+                                                                                    'gaming_tech_influencers', 'event_influencers', 'lifestyle_influencers', 'mens_products_influencers',  
+                                                                                    'travel_influencers', 'womens_products_influencers'
+                                                                                    ] as $influencerCategory)
+                                                                                <li>
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="category_type[]" value="{{ $influencerCategory }}" id="influencers_{{ $influencerCategory }}"
+                                                                                            {{ in_array($influencerCategory, $selectedSubcategories) ? 'checked' : '' }}>
+                                                                                        <label for="musicians_{{ $influencerCategory }}">{{ ucwords(str_replace('_', ' ', $influencerCategory)) }}</label>
+                                                                                    </label>
+                                                                                </li>
+                                                                                @endforeach
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Subcategories for Presenter & Emcee -->
+                                                            <div id="presenters_emcees_subcategories" class="subcategory-section" style="display: none;">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="caterlisttext">
+                                                                            <h5>Category Type - Presenter & Emcee</h5>
+                                                                        </div>
+                                                                        <div class="musicainlist">
+                                                                            <ul>
+                                                                                @foreach ([
+                                                                                    'balloon_decorator', 'bottle_twister', 'caricature', 'clown', 'comedian', 'emcee', 'fire_artist', 'hypnotist',
+                                                                                    'illustrationist', 'jugglers', 'live_statue', 'magician', 'media_reporter', 'news_reader', 'others', 'public_speaker',  
+                                                                                    'radio_jockey', 'shadow_performer', 'stand_up_artist', 'stilt_walker', 'unicyclist', 'video_jockey', 'virtual_host', 'voice_over'
+                                                                                    ] as $presenterEmceeCategory)
+                                                                                <li>
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="category_type[]" value="{{ $presenterEmceeCategory }}" id="presenters_emcees_{{ $presenterEmceeCategory }}"
+                                                                                            {{ in_array($presenterEmceeCategory, $selectedSubcategories) ? 'checked' : '' }}>
+                                                                                        <label for="musicians_{{ $presenterEmceeCategory }}">{{ ucwords(str_replace('_', ' ', $presenterEmceeCategory)) }}</label>
+                                                                                    </label>
+                                                                                </li>
+                                                                                @endforeach
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Subcategories for Presenter & Emcee -->
+                                                            <div id="event_staff_ushers_subcategories" class="subcategory-section" style="display: none;">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="caterlisttext">
+                                                                            <h5>Category Type - Event Staff & Ushers</h5>
+                                                                        </div>
+                                                                        <div class="musicainlist">
+                                                                            <ul>
+                                                                                @foreach ([
+                                                                                    'bartender', 'brand_ambassador', 'caterer', 'chef', 'concierge', 'decorators', 'event_supervisor', 
+                                                                                    'host_or_hostess', 'marketing_coordinator', 'promotional_staff', 'ushers', 'waitress'
+                                                                                    ] as $eventStaffCategory)
+                                                                                <li>
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="category_type[]" value="{{ $eventStaffCategory }}" id="event_staff_{{ $eventStaffCategory }}"
+                                                                                            {{ in_array($eventStaffCategory, $selectedSubcategories) ? 'checked' : '' }}>
+                                                                                        <label for="musicians_{{ $eventStaffCategory }}">{{ ucwords(str_replace('_', ' ', $eventStaffCategory)) }}</label>
                                                                                     </label>
                                                                                 </li>
                                                                                 @endforeach
@@ -810,7 +960,10 @@
                                                                         </div>
                                                                         <div class="musicainlist">
                                                                             <ul>
-                                                                                @foreach (['makeup_artists', 'fashion_stylists', 'hair_stylists', 'body_painters'] as $stylistCategory)
+                                                                                @foreach ([
+                                                                                    'makeup_artists', 'fashion_stylists', 'hair_stylists', 'body_painters', 'creative_makeup_artists',
+                                                                                    'face_painter', 'henna_artist', 'wardrobe_stylist'
+                                                                                    ] as $stylistCategory)
                                                                                 <li>
                                                                                     <label>
                                                                                         <input type="checkbox" name="category_type[]" value="{{ $stylistCategory }}" id="stylist_{{ $stylistCategory }}"
@@ -834,7 +987,11 @@
                                                                         </div>
                                                                         <div class="musicainlist">
                                                                             <ul>
-                                                                                @foreach (['fashion_photographer', 'portrait_photographer', 'landscape_photographer', 'event_videographer', 'wedding_videographer'] as $photographerCategory)
+                                                                                @foreach ([
+                                                                                    'fashion', 'portrait', 'landscape', 'event', 'wedding', 'abstract', 'aerial', 'architecture', 'child',
+                                                                                    'commercial', 'digital', 'documentary', 'film', 'fine_art', 'food', 'lifestyle', 'nature', 'sports', 'street',
+                                                                                    'travel'
+                                                                                    ] as $photographerCategory)
                                                                                 <li>
                                                                                     <label>
                                                                                         <input type="checkbox" name="category_type[]" value="{{ $photographerCategory }}" id="photographer_{{ $photographerCategory }}"
@@ -848,7 +1005,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
                                                         
                                                         </div>     
                                                         <div class="tab" data-step="3">

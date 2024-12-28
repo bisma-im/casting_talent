@@ -18,6 +18,6 @@ class ModelDetail extends Model
         'instagram_username', 'height', 'bust', 'waist', 'hip', 'weight', 
         'eye_color', 'hair_color', 'hair_length', 'shoe_size', 'dress_size', 
         'hourly_rate', 'session_rate', 'category', 'musician_categories', 
-        'profile_images', 'have_tattoos', 'profile', 'visa_status'
+        'profile_images', 'have_tattoos', 'profile', 'visa_status', 'talent_id'
     ];
 }

@@ -173,13 +173,13 @@ class QueryController extends Controller
     //         $modelDetail->session_rate = $request->session_rate;
     //         // $modelDetail->visa_status = $request->visa_status;
     //         $modelDetail->category = json_encode($request->category);
-            
+
     //         // Handle "have_tattoos" condition
     //         if ($request->have_tattoos == 'other') {
     //             $modelDetail->have_tattos = $request->tattoos_other;
     //         } else {
     //             $modelDetail->have_tattos = $request->have_tattoos;
-    
+
     //         }
     //         // JSON encode the musician_categories field
     //         $modelDetail->musician_categories = json_encode($request->category_type);
@@ -234,20 +234,21 @@ class QueryController extends Controller
         if (!Auth::check()) {
             return back()->with('error', 'Please login or create an account first!');
         }
-    
-        $userD = User::where('id', Auth::id())->where('role', 'model')->firstOrFail();
-        
+
+        $user = User::where('id', Auth::id())->where('role', 'model')->firstOrFail();
+
         if (ModelDetail::where('user_id', Auth::id())->exists()) {
             return back()->with('error', 'You already have a model profile!');
         }
-    
+
         DB::beginTransaction();
         try {
             $modelDetail = new ModelDetail();
             $this->assignModelDetails($modelDetail, $request);
             $this->handleFileUploads($modelDetail, $request);
+            $modelDetail->talent_id = $this->generateTalentId($user->id, $request->gender);
             $modelDetail->save();
-    
+
             DB::commit();
             return response()->json(['success' => 'Details saved successfully.'], 200);
         } catch (\Exception $e) {
@@ -256,50 +257,56 @@ class QueryController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
-    
+
+    protected function generateTalentId($userId, $gender)
+    {
+        $genderCode = $gender === 'male' ? 'M' : 'F'; // Assumes gender is either 'Male' or 'Female'
+        return sprintf('CT%s-%05d', $genderCode, $userId);
+    }
+
     private function assignModelDetails($modelDetail, $request)
     {
-        
-            $modelDetail->user_id = Auth::id();
-            $modelDetail->first_name = $request->first_name;
-            $modelDetail->last_name = $request->last_name;
-            $modelDetail->date_of_birth = $request->date_of_birth;
-            $modelDetail->gender = $request->gender;
-            $modelDetail->nationality = $request->nationality;
-            $modelDetail->calling_number = $request->calling_number;
-            $modelDetail->whatsapp_number = $request->whatsapp_number;
-            $modelDetail->marital_status = $request->marital_status;
-            $modelDetail->ethnicity = $request->ethnicity;
-            $modelDetail->location = $request->lives_in;
-            $modelDetail->biography = $request->biography;
-            $modelDetail->driving_license = $request->driving_license;
-            $modelDetail->email = $request->email;
-            $modelDetail->instagram_username = $request->instagram_username;
-            $modelDetail->height = $request->height_cm;
-            $modelDetail->bust = $request->bust_cm;
-            $modelDetail->waist = $request->waist_cm;
-            $modelDetail->hip = $request->hip_cm;
-            $modelDetail->weight = $request->weight_kg;
-            $modelDetail->eye_color = $request->eyes_color;
-            $modelDetail->hair_color = $request->hair_color;
-            $modelDetail->hair_length = $request->hair_length;
-            $modelDetail->shoe_size = $request->shoe_size_euro;
-            $modelDetail->dress_size = $request->dress_size_euro;
-            $modelDetail->hourly_rate = $request->hourly_rate;
-            $modelDetail->session_rate = $request->session_rate;
-            $modelDetail->visa_status = $request->visa_status;
-    
+
+        $modelDetail->user_id = Auth::id();
+        $modelDetail->first_name = $request->first_name;
+        $modelDetail->last_name = $request->last_name;
+        $modelDetail->date_of_birth = $request->date_of_birth;
+        $modelDetail->gender = $request->gender;
+        $modelDetail->nationality = $request->nationality;
+        $modelDetail->calling_number = $request->calling_number;
+        $modelDetail->whatsapp_number = $request->whatsapp_number;
+        $modelDetail->marital_status = $request->marital_status;
+        $modelDetail->ethnicity = $request->ethnicity;
+        $modelDetail->location = $request->lives_in;
+        $modelDetail->biography = $request->biography;
+        $modelDetail->driving_license = $request->driving_license;
+        $modelDetail->email = $request->email;
+        $modelDetail->instagram_username = $request->instagram_username;
+        $modelDetail->height = $request->height_cm;
+        $modelDetail->bust = $request->bust_cm;
+        $modelDetail->waist = $request->waist_cm;
+        $modelDetail->hip = $request->hip_cm;
+        $modelDetail->weight = $request->weight_kg;
+        $modelDetail->eye_color = $request->eyes_color;
+        $modelDetail->hair_color = $request->hair_color;
+        $modelDetail->hair_length = $request->hair_length;
+        $modelDetail->shoe_size = $request->shoe_size_euro;
+        $modelDetail->dress_size = $request->dress_size_euro;
+        $modelDetail->hourly_rate = $request->hourly_rate;
+        $modelDetail->session_rate = $request->session_rate;
+        $modelDetail->visa_status = $request->visa_status;
+
         $modelDetail->languages_spoken = json_encode($request->input('languages_spoken', []));
         $modelDetail->category = json_encode($request->input('category', []));
         $modelDetail->musician_categories = json_encode($request->input('category_type', []));
-    
+
         if ($request->input('have_tattoos') == 'other') {
             $modelDetail->have_tattoos = $request->input('tattoos_other');
         } else {
             $modelDetail->have_tattoos = $request->input('have_tattoos');
         }
     }
-    
+
     private function handleFileUploads($modelDetail, $request)
     {
         if ($request->hasFile('portfolio')) {
@@ -308,88 +315,85 @@ class QueryController extends Controller
                 $file->move(public_path('uploads/models/profiles/'), $fileName);
                 return $fileName;
             }, $request->file('portfolio'));
-    
+
             $modelDetail->profile_images = json_encode($filePaths);
         }
-    
+
         if ($request->hasFile('profile_pic')) {
             $profilePicture = $request->file('profile_pic');
             $profilePictureName = time() . '_' . $profilePicture->getClientOriginalName();
             $profilePicture->move(public_path('uploads/models/profile-pics/'), $profilePictureName);
             $modelDetail->profile = $profilePictureName;
         }
-    
+
         // Additional uploads such as audio or video can be handled here in the same way
     }
 
- public function downloadModelDetails($id)
-{
-   $modelDetail = ModelDetail::find($id);
+    public function downloadModelDetails($id)
+    {
+        $modelDetail = ModelDetail::find($id);
 
-    // Check if model detail exists
-    if (!$modelDetail) {
-        return back()->with('error', 'Model details not found.');
-    }
-
-    // Assuming the images are stored as JSON in the database
-    $images = json_decode($modelDetail->profile_images, true); // Ensure this is an array
-
-    // Create a ZIP file
-    $zip = new \ZipArchive();
-    $zipFileName = 'Model-Images_' . $modelDetail->id . '.zip';
-    $zipPath = storage_path('app/public/' . $zipFileName);
-
-    // Try to create the ZIP file
-    if ($zip->open($zipPath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) !== true) {
-        Log::error("Could not create ZIP file: " . $zip->getStatusString());
-        return back()->with('error', 'Could not create ZIP file: ' . $zip->getStatusString());
-    }
-
-    // Add images to the ZIP file
-    foreach ($images as $image) {
-        $imagePath = public_path('uploads/models/profile-pics/' . $image);
-
-        if (file_exists($imagePath)) {
-            $zip->addFile($imagePath, $image); // Add the image file to the ZIP
-        } else {
-            Log::warning("Image file not found: " . $imagePath);
+        // Check if model detail exists
+        if (!$modelDetail) {
+            return back()->with('error', 'Model details not found.');
         }
+
+        // Assuming the images are stored as JSON in the database
+        $images = json_decode($modelDetail->profile_images, true); // Ensure this is an array
+
+        // Create a ZIP file
+        $zip = new \ZipArchive();
+        $zipFileName = 'Model-Images_' . $modelDetail->id . '.zip';
+        $zipPath = storage_path('app/public/' . $zipFileName);
+
+        // Try to create the ZIP file
+        if ($zip->open($zipPath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) !== true) {
+            Log::error("Could not create ZIP file: " . $zip->getStatusString());
+            return back()->with('error', 'Could not create ZIP file: ' . $zip->getStatusString());
+        }
+
+        // Add images to the ZIP file
+        foreach ($images as $image) {
+            $imagePath = public_path('uploads/models/profile-pics/' . $image);
+
+            if (file_exists($imagePath)) {
+                $zip->addFile($imagePath, $image); // Add the image file to the ZIP
+            } else {
+                Log::warning("Image file not found: " . $imagePath);
+            }
+        }
+
+        // Close the ZIP archive
+        $zip->close();
+
+        // Check if the ZIP file was created successfully
+        if (!file_exists($zipPath)) {
+            return back()->with('error', 'ZIP file was not created.');
+        }
+
+        // Return the ZIP file for download
+        return response()->download($zipPath)->deleteFileAfterSend(true);
     }
 
-    // Close the ZIP archive
-    $zip->close();
+    public function downloadAllModelImages($id)
+    {
+        $modelDetail = ModelDetail::find($id);
 
-    // Check if the ZIP file was created successfully
-    if (!file_exists($zipPath)) {
-        return back()->with('error', 'ZIP file was not created.');
+        // Check if model detail exists
+        if (!$modelDetail) {
+            return back()->with('error', 'Model details not found.');
+        }
+
+        // Assuming the images are stored as JSON in the database
+        $images = json_decode($modelDetail->profile_images, true); // Ensure this is an array
+
+        // Prepare the file paths
+        $filePaths = [];
+        foreach ($images as $image) {
+            $filePaths[] = public_path('uploads/models/profile-pics/' . $image);
+        }
+
+        // Return the array of file paths to the view
+        return view('emails.download-images', compact('filePaths'));
     }
-
-    // Return the ZIP file for download
-    return response()->download($zipPath)->deleteFileAfterSend(true);
-}
-
-public function downloadAllModelImages($id)
-{
-    $modelDetail = ModelDetail::find($id);
-
-    // Check if model detail exists
-    if (!$modelDetail) {
-        return back()->with('error', 'Model details not found.');
-    }
-
-    // Assuming the images are stored as JSON in the database
-    $images = json_decode($modelDetail->profile_images, true); // Ensure this is an array
-
-    // Prepare the file paths
-    $filePaths = [];
-    foreach ($images as $image) {
-        $filePaths[] = public_path('uploads/models/profile-pics/' . $image);
-    }
-
-    // Return the array of file paths to the view
-    return view('emails.download-images', compact('filePaths'));
-}
-
-
-
 }
