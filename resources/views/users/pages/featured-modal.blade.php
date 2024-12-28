@@ -925,7 +925,7 @@
                                 <div class="castbody">
                                     <div class="castbox-code text-center">
                                         <!-- Insert code related content here -->
-                                        CTF - 00001
+                                        {{ $modelDetail->talent_id }}
                                     </div>
                                     <div class="castbox-info text-center">
                                         {{ $age . ', ' . $modelDetail->nationality }}
@@ -956,32 +956,6 @@
                     $height = $modelDetail->height . ' ' . 'cm';
                     $weight = $modelDetail->weight . ' ' . 'kg';
                     @endphp
-                    {{-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                        <a href="{{ route('model-info.get', $modelDetail->id) }}" class="text-dark">
-                            <div class="castbox">
-                                <div class="castimg">
-                                    <img src="{{ url('/uploads/models/' . $firstImage) }}" class="img-fluid"
-                                        alt="Model Image">
-                                </div>
-                                <div class="castbody">
-                                    <h5 class="bodytheading">{{ $modelDetail->first_name }}
-                                        {{ $modelDetail->last_name }}</h5>
-                                    <div class="castbodylist firstitem">
-                                        <h5><strong>AGE:</strong> {{ $age }}</h5>
-                                        <h5><strong>Nationality:</strong>
-                                            {{ $modelDetail->nationality }}
-                                        </h5>
-                                    </div>
-                                    <div class="castbodylist">
-                                        <h5><strong>HEIGHT:</strong> {{ $height }}</h5>
-                                    </div>
-                                    <div class="castbodylist">
-                                        <h5><strong>WEIGHT:</strong> {{ $weight }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div> --}}
                     @endforeach
                     @else
                     <div class="alert alert-info">
@@ -997,34 +971,6 @@
     </div> --}}
 </section>
 
-{{-- <script>
-    document.querySelectorAll('.category-link').forEach(link => {
-                link.addEventListener('click', function(event) {
-                        event.preventDefault(); // Prevent the default link behavior
-
-                        // Close any open pop-ups
-                        document.querySelectorAll('.popup').forEach(popup => {
-                        if (popup !== this.nextElementSibling) {
-                                popup.style.display = 'none';
-                        }
-                        });
-
-                        // Toggle the current pop-up
-                        const popup = this.nextElementSibling;
-                        popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
-                });
-        });
-
-        // Close popups when clicking outside
-        document.addEventListener('click', function(event) {
-        if (!event.target.closest('.category-list')) {
-                document.querySelectorAll('.popup').forEach(popup => {
-                popup.style.display = 'none';
-                });
-        }
-        });
-
-</script> --}}
 <script>
  document.getElementById('filterBtn').addEventListener('click', function () {
     var filterForm = document.getElementById('filterForm');
@@ -1054,7 +1000,7 @@ const talents = [
     },
     {
         name: 'Dancer',
-        subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'B Boy', 'Dance Groups', 'Tabrey Dancer']
+        subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayyala Dancer', 'B Boy', 'Dance Groups', 'Tabrey Dancer']
     },
     {
         name: 'Film Crew',

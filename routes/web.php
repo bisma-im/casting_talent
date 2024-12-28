@@ -19,10 +19,7 @@ use App\Http\Controllers\User\QueryController;
 |
 */
 
-Route::get('/', function () {
-    return view('users.pages.index');
-})->name('index.get');
-
+Route::get('/', [PagesController::class, 'homePage'])->name('index.get');
 
 Route::get('/about', [PagesController::class, 'aboutPage'])->name('about.get');
 Route::get('/contact', [PagesController::class, 'contactPage'])->name('contact.get');

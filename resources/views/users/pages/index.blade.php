@@ -106,8 +106,8 @@
         position: relative;
         width: 100%;
         overflow: hidden;
-        padding-left: 40px;
-        padding-right: 40px;
+        /* padding-left: 40px;
+        padding-right: 40px; */
     }
 
     .custom-carousel-inner {
@@ -120,8 +120,16 @@
     }
 
     .custom-carousel-item {
-        flex: 0 0 25%;
+        flex: 0 0 20%;
         scroll-snap-align: start;
+    }
+
+    .padding-left-40 {
+        padding-left: 40px;
+    }
+
+    .padding-right-40 {
+        padding-right: 40px;
     }
 
     .custom-carousel-control-prev,
@@ -550,7 +558,7 @@
                 <h3>Featured <span>Talents</span></h3>
             </div>
             <div class="featurelist" style="border-bottom: 0 !important;">
-            <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled mt-4">
+                <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled mt-4">
                     <li class="col-md-1 col-12 text-center">
                         <a href="{{ route('all-models-homepage.get', ['role' => 'presenters_emcees']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/presenter.png') }}" alt="Presenters Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
@@ -584,7 +592,7 @@
                   
                 </ul>
               <!-- Row 1 -->
-              <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled">
+                <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled">
                     <li class="col-md-1  col-12 text-center">
                         <a href="{{ route('all-models-homepage.get', ['role' => 'actors']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/actor.png') }}" alt="Actors Icon" class="icon img-fluid" style="width: 75px; height: 75px;">
@@ -617,53 +625,54 @@
                     </li>
                 </ul>
                 <!-- Row 2 -->
-               
             </div>
-
-            <!-- Profile Cards Section -->
-            @php
-                $profiles = [
-                    ['img' => 'model1.jpg', 'age' => '25', 'number' => 'CTM-00132', 'nationality' => 'Brazilian'],
-                    ['img' => 'model2.jpg', 'age' => '30', 'number' => 'CTM-80733', 'nationality' => 'Finnish'],
-                    ['img' => 'model3.jpg', 'age' => '27', 'number' => 'CTM-53734', 'nationality' => 'Egyptian'],
-                    ['img' => 'model4.jpg', 'age' => '24', 'number' => 'CTM-38085', 'nationality' => 'Thai'],
-                ];
-            @endphp
          <div class="carousel-container w-100">
-    <div class="custom-carousel" id="customCarousel">
-        <div class="custom-carousel-inner d-flex" id="customCarouselInner">
-            @foreach ($profiles as $profile)
-                <div class="custom-carousel-item {{ $loop->first ? 'active' : '' }}">
-                    <div class="profile-card">
-                        <div class="img-div">
-                            <img src="{{ url('/user-assets/model-images/' . $profile['img']) }}" 
-                                 class="img-fluid" 
-                                 alt="model-image">
-                        </div>
-                        <div class="cardbody text-center">
-                            <div class="card-code">{{ $profile['number'] }}</div>
-                            <div class="card-info">{{ $profile['age'] }}, {{ $profile['nationality'] }}</div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-        <a class="custom-carousel-control-prev" id="customCarouselPrev" href="#!" role="button" data-slide="prev">&#10094;</a>
-        <a class="custom-carousel-control-next" id="customCarouselNext" href="#!" role="button" data-slide="next">&#10095;</a>
-    </div>
-</div>
+        <div class="custom-carousel" id="customCarousel">
+                <div class="custom-carousel-inner" id="customCarouselInner">
+                    @foreach ($profiles as $modelDetail)
+                        @php
+                            // Parse the profile images string into an array
+                            $profileImages = json_decode($modelDetail->profile_images);
+                            $firstImage = $profileImages[0] ?? 'default.png'; // Default image if no profile image is available
+                            // Calculate the age from the date of birth
+                            $birthDate = new DateTime($modelDetail->date_of_birth);
+                            $currentDate = new DateTime();
+                            $age = $currentDate->diff($birthDate)->y;
+                        @endphp
 
+                        <div class="custom-carousel-item {{ $loop->first ? 'active' : '' }}">
+                            <a href="{{ route('model-info.get', $modelDetail->id) }}" class="text-dark">
+                                <div class="profile-card">
+                                    <div class="img-div">
+                                        <img src="{{ url('/uploads/models/profiles/' . $firstImage) }}"
+                                            class="img-fluid" 
+                                            alt="model-image">
+                                    </div>
+                                    <div class="cardbody text-center">
+                                        <div class="card-code">{{ $modelDetail->talent_id }}</div>
+                                        <div class="card-info">{{ $age . ', ' . $modelDetail->nationality }}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            <a class="custom-carousel-control-prev" id="customCarouselPrev" href="#!" role="button" data-slide="prev">&#10094;</a>
+            <a class="custom-carousel-control-next" id="customCarouselNext" href="#!" role="button" data-slide="next">&#10095;</a>
         </div>
     </div>
+
+        {{-- </div>
+    </div> --}}
 </section>
 
 
 
 <div class="startedbtn d-flex justify-content-center">
-<ul class="responsive-menu  d-flex justify-content-center">
-    <li><a href="{{ route('register.get') }}">GET STARTED TODAY</a></li>
-    <li><a href="{{ route('jobs.get') }}">VIEW MORE JOBS!</a></li>
-</ul>
+    <ul class="responsive-menu  d-flex justify-content-center">
+        <li><a href="{{ route('register.get') }}">GET STARTED TODAY</a></li>
+        <li><a href="{{ route('jobs.get') }}">VIEW MORE JOBS!</a></li>
+    </ul>
 
 </div>
 <section class="rightsec">
@@ -879,15 +888,15 @@
             const prevButton = document.getElementById('customCarouselPrev');
             const nextButton = document.getElementById('customCarouselNext');
             
-            const itemWidth = 22; // The width percentage of each item in the carousel
-            const gapWidth = 3; // The percentage of gap based on CSS
+            const itemWidth = 18; // The width percentage of each item in the carousel
+            const gapWidth = 2; // The percentage of gap based on CSS
             const totalMoveWidth = itemWidth + gapWidth; // Total shift per click
 
             let currentIndex = 0; // Tracks the current index position
             carouselInner.style.transform = `translateX(0%)`; // Ensure initial position is set correctly
 
             const totalProfiles = carouselInner.children.length;
-            const visibleProfiles = 4;
+            const visibleProfiles = 5;
             const maxIndex = totalProfiles - visibleProfiles;
 
             // Event listener for the "next" button

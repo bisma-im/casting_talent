@@ -18,6 +18,26 @@ class PagesController extends Controller
         return view('users.pages.modeling.modal-registeration');
     }
 
+    public function homePage()
+    {
+        $models = collect();
+
+        $query = ModelDetail::query();
+
+        // Join with memberships table to filter models with active subscriptions
+        $query->whereExists(function ($query) {
+            $query->select(DB::raw(1))
+                ->from('memberships')
+                ->whereColumn('memberships.user_id', 'model_details.user_id');
+        });
+
+        $models = $query->get();
+
+        return view('users.pages.index', [
+            'profiles' => $models,
+        ]);
+    }
+
     public function aboutPage()
     {
         return view('users.pages.about');
@@ -118,11 +138,31 @@ class PagesController extends Controller
     public function modelInfoPage($id)
     {
         $details = ModelDetail::find($id);
-        // $details = $this->convertToTitleCaseWithPunctuation($items);
+        if (!$details) {
+            abort(404); // Model not found, handle as needed
+        }
 
-        // dd($details);
-        return view('users.pages.model-details', compact('details'));
+        // Calculate age from date_of_birth
+        $birthDate = new \DateTime($details->date_of_birth);
+        $currentDate = new \DateTime();
+        $age = $currentDate->diff($birthDate)->y;
+
+        // Get all related profiles with the same age or nationality
+        $relatedProfiles = ModelDetail::where('id', '<>', $id) // Exclude the current model
+            ->where(function ($query) use ($age, $details, $birthDate) {
+                $startOfYear = $birthDate->format('Y-01-01'); // Start of the birth year
+                $endOfYear = $birthDate->format('Y-12-31'); // End of the birth year
+                $query->whereBetween('date_of_birth', [$startOfYear, $endOfYear]) // Same age range within the year
+                    ->orWhere('nationality', $details->nationality); // Same nationality
+            })
+            ->get();
+
+        return view('users.pages.model-details', [
+            'details' => $details,
+            'relatedProfiles' => $relatedProfiles
+        ]);
     }
+
 
     public function featuredmodelsPage($role = '', $gender = '')
     {
@@ -214,9 +254,9 @@ class PagesController extends Controller
         // Initialize $models to ensure it's always defined
         $models = collect();
         $languages = json_decode(File::get(public_path('user-assets/languages.json')), true);
-    
+
         $query = ModelDetail::query();
-    
+
         // Define subcategories for each main category
         $subcategories = [
             'actors' => ['main_lead', 'featured_actors', 'body_double', 'mime_artist', 'stunt_person', 'extras'],
@@ -225,15 +265,15 @@ class PagesController extends Controller
             'makeup_hair_painter_fashion_stylists' => ['makeup_artists', 'fashion_stylists', 'hair_stylists', 'body_painters'],
             'photographers_videographers' => ['fashion_photographer', 'portrait_photographer', 'landscape_photographer', 'event_videographer', 'wedding_videographer']
         ];
-    
+
         // Use an inner join to ensure only records with a subscription are included
         $query->join('memberships', 'memberships.user_id', '=', 'model_details.user_id')
             ->select('model_details.*');
-            
+
         // If a role is provided, apply the role filter
         if ($role) {
             $query->whereJsonContains('category', $role);
-    
+
             // Check if musician_categories contains any of the subcategories for the given role
             if (isset($subcategories[$role])) {
                 $query->where(function ($query) use ($subcategories, $role) {
@@ -243,16 +283,16 @@ class PagesController extends Controller
                 });
             }
         }
-    
+
         $models = $query->get();
-    
+
         return view('users.pages.all-modal', [
             'models' => $models,
             'qModels' => $models, // Use $qModels if $role is provided, otherwise use $models
             'languages' => $languages
         ]);
     }
-    
+
 
     public function allmodelsBySubcategory($subcategory = '', $gender = '')
     {

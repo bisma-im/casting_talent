@@ -151,7 +151,7 @@
         box-sizing: border-box;
         /* padding: 20px; */
     }
-    .container {
+    .my-container {
         display: flex;
         align-items: center;
         /* Centers children vertically */
@@ -177,7 +177,7 @@
         color: #555;
     }
 
-    .container>p {
+    .my-container>p {
         flex: 0 0 50px;
         margin: 0 20px 0 5px;
         display: flex;
@@ -190,12 +190,12 @@
 
 
 
-    .row .container:nth-child(odd) .user-info-row {
+    .row .my-container:nth-child(odd) .user-info-row {
         background-color: #DAD7B1;
         /* Lighter color for odd rows */
     }
 
-    .row .container:nth-child(even) .user-info-row {
+    .row .my-container:nth-child(even) .user-info-row {
         background-color: #CFCBA1;
         /* Slightly darker color for even rows */
     }
@@ -274,7 +274,7 @@
     }
 
 
-    .carousel-item .background-image-carousel {
+    .audio-carousel .carousel-item .background-image-carousel {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
@@ -284,7 +284,7 @@
     background-position: center center !important;
     background-repeat: no-repeat !important;
 }
-    .carousel-item {
+    .audio-carousel .carousel-item {
         height: 90vh;
     }
 
@@ -377,8 +377,8 @@
         /* Smooth slide transition */
     }
 
-    .carousel-control-prev,
-    .carousel-control-next {
+    .sec-one .carousel-control-prev,
+    .sec-one .carousel-control-next {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -388,21 +388,13 @@
         cursor: pointer;
     }
 
-    .carousel-control-prev {
+    .sec-one .carousel-control-prev {
         left: 10px;
     }
 
-    .carousel-control-next {
+    .sec-one .carousel-control-next {
         right: 10px;
     }
-
-
-
-
-
-
-
-
     .profile-card {
         background: white;
         /* border-radius: 5px; */
@@ -502,7 +494,7 @@
         color: #333;
     }
 
-    .custom-carousel {
+    .sec-three .custom-carousel {
         position: relative;
         width: 100%;
         overflow: hidden;
@@ -510,7 +502,7 @@
         padding-right: 40px;
     }
 
-    .custom-carousel-inner {
+    .sec-three .custom-carousel-inner {
         display: flex;
         padding: 0;
         margin: 0;
@@ -519,13 +511,13 @@
         will-change: transform;
     }
 
-    .custom-carousel-item {
+    .sec-three .custom-carousel-item {
         flex: 0 0 25%;
         scroll-snap-align: start;
     }
 
-    .custom-carousel-control-prev,
-    .custom-carousel-control-next {
+    .sec-three .custom-carousel-control-prev,
+    .sec-three .custom-carousel-control-next {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -540,11 +532,11 @@
         cursor: pointer;
     }
 
-    .custom-carousel-control-prev {
+    .sec-three .custom-carousel-control-prev {
         left: 10px;
     }
 
-    .custom-carousel-control-next {
+    .sec-three .custom-carousel-control-next {
         right: 10px;
     }
     #videoCarousel {
@@ -663,7 +655,7 @@
 </style>
 
 <section class="innerpages">
-    <div class="container">
+    <div class="my-container">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
             <div class="innertext">
                 <!-- <h1>MODEL <span>DETAILS</span></h1> -->
@@ -692,7 +684,7 @@ $timestamp = time();
 
 {{-- ----------------------------------- SECTION 1 ----------------------------------------- --}}
 
-<div class="container  mx-0 px-0">
+<div class="container mx-0 px-0">
 
     <div class="row d-flex align-items-center mx-0 px-0" id="getSS">
         {{-- ------------- cover image --------------- --}}
@@ -724,7 +716,7 @@ $timestamp = time();
                     <div class="header pe-5 py-3">
                         <div class="name">
                             <!--{{ $details['first_name'] }} {{ $details['last_name'] }} => -->
-                            <span>CTF-00001</span>
+                            <span>{{ $details['talent_id'] }}</span>
                             {{--
                             <!--{{ route('download.model.details', $details['id']) }} {{ url('/download-all-model-images/' . $details['id']) }}  id="captureButton" -->
                             <button id="captureButton" class="btn btn-success">Download</button> --}}
@@ -734,49 +726,49 @@ $timestamp = time();
                             </div>
                         </div>
                     </div>
-                    <div class="container">
+                    <div class="my-container">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-arrows-alt-v me-2"></i>Height</span>
                             <span class="info " >{{ $details['height'] }}</span>
                         </div>
                         <p>CM</p>
                     </div>
-                    <div class="container">
+                    <div class="my-container">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-ruler-vertical me-2"></i>Bust / Chest</span>
                             <span class="info">{{ $details['bust'] }}</span>
                         </div>
                         <p>CM</p>
                     </div>
-                    <div class="container">
+                    <div class="my-container">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-ruler-horizontal me-2"></i>Hip</span>
                             <span class="info">{{ $details['hip'] }}</span>
                         </div>
                         <p>CM</p>
                     </div>
-                    <div class="container">
+                    <div class="my-container">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-tshirt me-2"></i>Dress Size</span>
                             <span class="info">{{ $details['dress_size'] }}</span>
                         </div>
                         <p>EURO</p>
                     </div>
-                    <div class="container">
+                    <div class="my-container">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-ruler-combined me-2"></i> Waist</span>
                             <span class="info">{{ $details['waist'] }}</span>
                         </div>
                         <p>CM</p>
                     </div>
-                    <div class="container">
+                    <div class="my-container">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-shoe-prints me-2"></i>Shoe Size</span>
                             <span class="info">{{ $details['shoe_size'] }}</span>
                         </div>
                         <p>EURO</p>
                     </div>
-                    <div class="container">
+                    <div class="my-container">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-tape me-2"></i>Pants Size</span>
                             <span class="info"></span>
@@ -855,7 +847,7 @@ $timestamp = time();
 
     <div class="tab-content container-fluid m-0 p-0" id="myTabContent">
         <!-- Portfolio Tab -->
-        <div class="tab-pane fade show active m-0 p-0" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
+        <div class="tab-pane fade show active m-0 p-0 sec-one" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
             <!-- Background slider -->
             <div class="background-slider m-0 p-0">
                 <div class="slider-track m-0 p-0" id="sliderTrack">
@@ -898,7 +890,7 @@ $timestamp = time();
 
         <!-- Video Tab -->
         <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
-            <div id="videoCarousel" class="carousel slide" data-ride="carousel">
+            <div id="videoCarousel" class="carousel slide audio-carousel" data-ride="carousel">
                 <div class="carousel-inner">
                     @php
                         $videos = [
@@ -933,7 +925,7 @@ $timestamp = time();
 <div class="tab-pane fade pt-3" id="audio" role="tabpanel" aria-labelledby="audio-tab">
     <!-- Bootstrap Carousel for Audio Slides (manual navigation only) -->
     <div id="audioCarousel" class="carousel slide">
-        <div class="carousel-inner audio-carousel-inner">
+        <div class="carousel-inner audio-carousel-inner audio-carousel">
 
             <!-- Slide 1 -->
             <div class="carousel-item audio-carousel-item active">
@@ -994,35 +986,32 @@ $timestamp = time();
 </div>
 
 {{-- -------------------------------section 3-------------------------------- --}}
-@php
-$profiles = [
-['img' => 'model1.jpg', 'age' => '25', 'number' => 'CTM-00132', 'nationality' => 'Brazilian'],
-['img' => 'model2.jpg', 'age' => '30', 'number' => 'CTM-80733', 'nationality' => 'Finnish'],
-['img' => 'model3.jpg', 'age' => '27', 'number' => 'CTM-53734', 'nationality' => 'Egyptian'],
-['img' => 'model4.jpg', 'age' => '24', 'number' => 'CTM-38085', 'nationality' => 'Thai'],
-['img' => 'model1.jpg', 'age' => '22', 'number' => 'CTM-11234', 'nationality' => 'Brazilian'],
-['img' => 'model2.jpg', 'age' => '31', 'number' => 'CTM-22345', 'nationality' => 'Portuguese']
-];
-@endphp
-<div class="carousel-container">
+<div class="carousel-container sec-three">
     <h2 class="carousel-heading">Related <span>Profiles</span></h2>
     <div class="custom-carousel" id="customCarousel">
         <div class="custom-carousel-inner" id="customCarouselInner">
-            @foreach ($profiles as $profile)
+            @foreach ($relatedProfiles as $profile)
+            @php
+                // Parse the profile images string into an array
+                $profileImages = json_decode($profile->profile_images);
+                $firstImage = $profileImages[0] ?? 'default.png'; 
+                $birthDate = new DateTime($profile->date_of_birth);
+                $currentDate = new DateTime();
+                $age = $currentDate->diff($birthDate)->y;
+            @endphp
             <div class="custom-carousel-item {{ $loop->first ? 'active' : '' }}">
             
                 <div class="profile-card">
                     <div class="img-div">
-                    <img src="{{ url('/user-assets/model-images/' . $profile['img']) }}" class="img-fluid"
+                    <img src="{{ url('/uploads/models/profiles/' . $firstImage) }}" class="img-fluid"
                         alt="model-image">
                             </div>
                             <div class="cardbody">
                             <div class="card-code text-center">
-                                <!-- Insert code related content here -->
-                                {{ $profile['number'] }}
+                                {{ $profile->talent_id }}
                             </div>
                             <div class="card-info text-center">
-                                {{ $profile['age'] . ', ' . $profile['nationality']}}
+                                {{ $age . ', ' . $profile->nationality }}
                                 <!-- Insert age, nationality, etc., here -->
                             </div>
                         </div>
