@@ -11,7 +11,6 @@
         /* border-radius: 5px; */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         text-align: center;
-        /* padding: 15px; */
         height: 60vh;
         margin: 15px;
         overflow: hidden;
@@ -884,72 +883,69 @@
 </section>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-            const carouselInner = document.getElementById('customCarouselInner');
-            const prevButton = document.getElementById('customCarouselPrev');
-            const nextButton = document.getElementById('customCarouselNext');
+        const carouselInner = document.getElementById('customCarouselInner');
+        const prevButton = document.getElementById('customCarouselPrev');
+        const nextButton = document.getElementById('customCarouselNext');
             
-            // Default item and gap widths in percentage
-            let itemWidth = 18; // The width percentage of each item in the carousel for larger screens
-            const gapWidth = 2; // The percentage of gap based on CSS
-            let visibleProfiles = 5;
+        // Default item and gap widths in percentage
+        let itemWidth = 18; // The width percentage of each item in the carousel for larger screens
+        const gapWidth = 2; // The percentage of gap based on CSS
+        let visibleProfiles = 5;
             
-            // Update item width for smaller screens
-            function updateItemWidth() {
-                const screenWidth = window.innerWidth;
-                if (screenWidth <= 768) { // Assuming 768px is the breakpoint for mobile screens
-                    itemWidth = 100; // Set the item width to 100% for mobile screens
-                    visibleProfiles = 1;
-                } else {
-                    itemWidth = 18; // Set back to original width for screens wider than 768px
-                }
+        // Update item width for smaller screens
+        function updateItemWidth() {
+            const screenWidth = window.innerWidth;
+            if (screenWidth <= 768) { // Assuming 768px is the breakpoint for mobile screens
+                itemWidth = 100; // Set the item width to 100% for mobile screens
+                visibleProfiles = 1;
+            } else {
+                itemWidth = 18; // Set back to original width for screens wider than 768px
             }
+        }
             
-            updateItemWidth(); // Call once on load
-            window.addEventListener('resize', updateItemWidth); // Update on window resize
+        updateItemWidth(); // Call once on load
+        window.addEventListener('resize', updateItemWidth); // Update on window resize
 
-            const totalMoveWidth = itemWidth + gapWidth; // Total shift per click
+        const totalMoveWidth = itemWidth + gapWidth; // Total shift per click
 
-            let currentIndex = 0; // Tracks the current index position
-            carouselInner.style.transform = `translateX(0%)`; // Ensure initial position is set correctly
+        let currentIndex = 0; // Tracks the current index position
+        carouselInner.style.transform = `translateX(0%)`; // Ensure initial position is set correctly
 
-            const totalProfiles = carouselInner.children.length;
-            const maxIndex = totalProfiles - visibleProfiles;
+        const totalProfiles = carouselInner.children.length;
+        const maxIndex = totalProfiles - visibleProfiles;
 
-            // Event listener for the "next" button
-            nextButton.addEventListener('click', function() {
-                if (currentIndex < maxIndex) {
-                    currentIndex++;
-                } else {
-                    currentIndex = 0; // Loop back to the start
-                }
-                carouselInner.style.transform = `translateX(-${currentIndex * totalMoveWidth}%)`;
-            });
-
-            // Event listener for the "previous" button
-            prevButton.addEventListener('click', function() {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                } else {
-                    currentIndex = maxIndex; // Loop back to the end
-                }
-                carouselInner.style.transform = `translateX(-${currentIndex * totalMoveWidth}%)`;
-            });
+        // Event listener for the "next" button
+        nextButton.addEventListener('click', function() {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop back to the start
+            }
+            carouselInner.style.transform = `translateX(-${currentIndex * totalMoveWidth}%)`;
         });
 
-        // --------------------------youtube video 
+        // Event listener for the "previous" button
+        prevButton.addEventListener('click', function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = maxIndex; // Loop back to the end
+            }
+            carouselInner.style.transform = `translateX(-${currentIndex * totalMoveWidth}%)`;
+        });
 
         document.getElementById("playButtonRight").addEventListener("click", function() {
-        var imageThumbnailRight = document.getElementById("imageThumbnailRight");
-        var videoContainerRight = document.getElementById("videoContainerRight");
-        var playButtonRight = document.getElementById("playButtonRight");
+            var imageThumbnailRight = document.getElementById("imageThumbnailRight");
+            var videoContainerRight = document.getElementById("videoContainerRight");
+            var playButtonRight = document.getElementById("playButtonRight");
 
-        // Hide the thumbnail and play button
-        imageThumbnailRight.style.display = "none";
-        playButtonRight.style.display = "none";
+            // Hide the thumbnail and play button
+            imageThumbnailRight.style.display = "none";
+            playButtonRight.style.display = "none";
 
-        // Show the video container
+            // Show the video container
         videoContainerRight.style.display = "block";
+        });
     });
-
 </script>
 @endsection

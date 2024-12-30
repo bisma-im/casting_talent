@@ -14,6 +14,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\File;
 
 class ModelController extends Controller
 {
@@ -24,7 +25,9 @@ class ModelController extends Controller
 
     public function modelDashboardPage()
     {
-        return view('users.pages.modeling.model-dashboard');
+        $languages = json_decode(File::get(public_path('user-assets/languages.json')), true);
+        // dd($languages);
+        return view('users.pages.modeling.model-dashboard', ['languages' => $languages]);
     }
 
     public function jobInfoStore(Request $request)
@@ -78,7 +81,7 @@ class ModelController extends Controller
         $jobDetail->shoe_size = $validatedData['shoe_size_euro'];
         $jobDetail->dress_size = $validatedData['dress_size_euro'];
         $jobDetail->hourly_rate = $validatedData['hourly_rate'];
-        
+
         $jobDetail->no_of_days = $request->no_of_days;
         $jobDetail->no_of_hours = $request->no_of_hours;
         $jobDetail->no_of_talents_male = $request->no_of_talents_male;
@@ -87,7 +90,7 @@ class ModelController extends Controller
         $jobDetail->nationalities = $request->nationalities;
         $jobDetail->starting_amount = $request->starting_amount;
         $jobDetail->maximum_amount = $request->maximum_amount;
-        
+
         $jobDetail->category_type = json_encode($validatedData['category_type']); // Save as JSON
         $jobDetail->category = 'hiring'; // Default value for category
 
@@ -133,8 +136,8 @@ class ModelController extends Controller
         if (!Auth::user()) {
             return back()->with('error', 'Please login or create an account first!');
         }
-        
-        $modelExist = ModelDetail::where('user_id', Auth::user()->id)->first(); 
+
+        $modelExist = ModelDetail::where('user_id', Auth::user()->id)->first();
         if (!$modelExist) {
             return back()->with('error', 'Please create an Model Profile!');
         }
@@ -229,7 +232,7 @@ class ModelController extends Controller
             '/user-assets/model-images/model3.jpg',
             '/user-assets/model-images/model4.jpg',
             '/user-assets/model-images/model4.jpg'
-        ]; 
+        ];
 
         // Generate the PDF with the view and pass the images array to it.
         $pdf = PDF::loadView('users.pages.modeling.portfolio-pdf', compact('images'));

@@ -874,7 +874,7 @@
                                 <div class="custom-language-dropdown-content" id="customLanguageDropdownContent">
                                     <!-- Dynamically generate language options -->
                                     @foreach ($languages as $language)
-                                        <label><input type="checkbox" value="{{ $language['value'] }}"> {{ $language['label'] }}</label>
+                                        <label><input type="checkbox" value="{{ $language['label'] }}"> {{ $language['label'] }}</label>
                                     @endforeach
                                 </div>
                             </div>

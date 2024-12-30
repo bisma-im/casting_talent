@@ -1398,17 +1398,13 @@
                                                                             <div class="language-dropdown-button" id="languageDropdownButton">-- Select Languages --</div>
                                                                             <div class="language-dropdown-content" id="languageDropdownContent">
                                                                                 @php
-                                                                                    $languages = [
-                                                                                        'English', 'Hindi', 'Arabic', 'French', 'Spanish',
-                                                                                        'Chinese', 'Russian', 'Portuguese', 'German'
-                                                                                    ];
                                                                                     $selectedLanguages = $profileInfo ? json_decode($profileInfo->languages_spoken, true) : [];
                                                                                 @endphp
                                                                                 @foreach ($languages as $language)
                                                                                     <label>
-                                                                                        <input type="checkbox" name="languages_spoken[]" value="{{ $language }}"
+                                                                                        <input type="checkbox" name="languages_spoken[]" value="{{ $language['label'] }}"
                                                                                             {{ in_array($language, $selectedLanguages) ? 'checked' : '' }}>
-                                                                                        {{ $language }}
+                                                                                        {{ $language['label'] }}
                                                                                     </label>
                                                                                 @endforeach
                                                                             </div>
