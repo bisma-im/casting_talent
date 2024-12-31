@@ -11,6 +11,7 @@
         /* border-radius: 5px; */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         text-align: center;
+        /* padding: 15px; */
         height: 60vh;
         margin: 15px;
         overflow: hidden;

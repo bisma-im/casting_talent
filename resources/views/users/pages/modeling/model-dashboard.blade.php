@@ -1613,7 +1613,7 @@
                                                                 <div
                                                                     class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
                                                                     <div class="uploadimg">
-                                                                        <h5>Upload Your Profile *</h5>
+                                                                        <h5>Profile Picture *</h5>
                                                                         <input type="text" id="profilePictureName"
                                                                             name="profile_picture_name"
                                                                             class="form-control" readonly>
@@ -1624,7 +1624,7 @@
                                                                             <label class="uploadmain text-center"
                                                                                 for="upload-profile-picture">
                                                                                 <i class="fa-light fa-image fa-4x m-2" style="color: #E8AF55;" aria-hidden="true"></i>
-                                                                                <h6 style="font-size: 14px;">Drag and Drop your profile</h6>
+                                                                                <h6 style="font-size: 14px;">Drag and Drop your profile picture</h6>
                                                                             </label>
                                                                         </div>
                                                                     </div>
@@ -1633,7 +1633,7 @@
                                                                 <!-- Photo Upload -->
                                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
                                                                     <div class="uploadimg">
-                                                                        <h5>Upload Your Photos *</h5>
+                                                                        <h5>Portfolio *</h5>
                                                                         <input type="text" id="profileValues"
                                                                             name="profile_photo_names"
                                                                             class="form-control" readonly>
@@ -1677,6 +1677,38 @@
                                                                     </div>
                                                                 </div> --}}
                                                                 
+                                                            </div>
+
+                                                            <div class="row">
+                                                                {{-- Audio Upload --}}
+                                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
+                                                                    <div class="uploadimg">
+                                                                        <h5>Upload Your Voice *</h5>
+                                                                        <input type="text" id="videoFileName" name="video_file_name" class="form-control" readonly>
+                                                                        <div class="uploadbox">
+                                                                            <input type="file" name="video_file" id="upload-video" hidden onchange="updateFileName('upload-video', 'videoFileName')" required />
+                                                                            <label class="uploadmain" for="upload-video">
+                                                                                <img src="{{ url('user-assets') }}/images/audio-icn.png" class="img-fluid" alt="img">
+                                                                                <h6 style="font-size: 14px;">Drag and Drop your audio</h6>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                {{-- Video links --}}
+                                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
+                                                                    <div class="uploadimg">
+                                                                        <h5>YouTube Video URL *</h5>
+                                                                        <div id="video-url-container">
+                                                                            <!-- Dynamic fields will be added here -->
+                                                                            <div class="input-group mb-3">
+                                                                                <input type="text" class="form-control" name="video_urls[]" placeholder="Enter YouTube URL" aria-label="YouTube URL">
+                                                                                <button class="btn btn-danger remove-video-url" type="button">&times;</button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <button class="btn btn-primary mt-2" id="add-video-url" type="button">Add More</button>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <script>
@@ -1751,6 +1783,34 @@
         // document.getElementById('uploadTrigger').addEventListener('click', function() {
         //     document.getElementById('upload-file').click();
         // });
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('video-url-container');
+            const addButton = document.getElementById('add-video-url');
+
+            // Function to create a new input group with a remove button
+            function addVideoUrlInput() {
+                const inputGroup = document.createElement('div');
+                inputGroup.className = 'input-group mb-3';
+                inputGroup.innerHTML = `
+                    <input type="text" class="form-control" name="video_urls[]" placeholder="Enter YouTube URL" aria-label="YouTube URL">
+                    <div class="input-group-append">
+                        <button class="btn btn-danger remove-video-url" type="button">&times;</button>
+                    </div>
+                `;
+                container.appendChild(inputGroup);
+
+                // Add event listener for the remove button within this input group
+                inputGroup.querySelector('.remove-video-url').addEventListener('click', function() {
+                    container.removeChild(inputGroup);
+                });
+            }
+
+            // Add initial input on load
+            addVideoUrlInput();
+
+            // Functionality to add new input fields
+            addButton.addEventListener('click', addVideoUrlInput);
+        });
     </script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
