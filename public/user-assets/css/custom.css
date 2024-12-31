@@ -284,6 +284,13 @@ section.casting {
         font-size: 25px !important;
         font-weight: bolder !important;
     }
+    .casting-text p {
+        color: #fff;
+        font-size: 12px !important;
+        width: 100% !important;
+        margin-top: 25% !important;
+      
+    }
 }
 
 .casting-text h2 span {

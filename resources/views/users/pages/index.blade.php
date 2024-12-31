@@ -182,8 +182,25 @@
      
     width: 100%;
    
-}
+} 
 
+.socialLinks {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 5px !important;
+    
+    }
+    .socialLinks .social-icon {
+    font-size: 16px !important;
+        width: 40px !important;
+        height: 40px !important;
+        margin: 8px !important; 
+        margin-top: 20px !important; 
+    }
+.profile-card .img-div{
+    height:100%
+    
+}
 }
 
         .my-container2::before {
@@ -369,8 +386,7 @@
         <div class="my-container2">
                 <div class="row actors-section">
                     <div class="modaltext">
-                          <div>
-                          <div>
+                         
                 <div class="casting-text" >
                     <h5 class="pt-md-2 pt-3">ABEERA K SHEIKH</h5>
                     <h2>Casting <sapn style="color: rgba(216, 31, 38, 1);">Director</sapn> & <sapn
