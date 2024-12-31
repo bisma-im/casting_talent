@@ -261,6 +261,14 @@
         transform: translateX(-50%);
         /* Centers the line exactly between the columns */
     }
+    @media (max-width: 768px) {
+        .with-divider::before {
+        display: none;
+      }
+
+
+    }
+
 </style>
 
 <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />-->

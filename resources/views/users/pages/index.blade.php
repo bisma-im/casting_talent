@@ -193,13 +193,13 @@
     }
     .socialLinks .social-icon {
     font-size: 16px !important;
-        width: 40px !important;
+        width: 30px !important;
         height: 40px !important;
         margin: 8px !important; 
         margin-top: 20px !important; 
     }
 .profile-card .img-div{
-    height:100%
+    height:50vh !important
     
 }
 }

@@ -134,6 +134,10 @@
         .user-details-card {
             padding: 20px;
         }
+        .profile-card .img-div{
+   
+    width: 70vw !important;
+}
     }
 
     .user-info {
@@ -650,7 +654,24 @@
     height: 20px;
     background-size: contain;
 }
+@media (max-width: 768px) {
+.user-info{
+    background-color: #DAD7B1;
 
+display: flex;
+flex-direction: column;
+justify-content: center;
+height: 80vh;
+width: 100%;
+/* Full height of the viewport */
+width: 100vw;
+/* Full width of the parent container or viewport */
+font-family: Arial, sans-serif;
+box-sizing: border-box;
+/* padding: 20px; */
+
+}
+}
 
 </style>
 
@@ -688,7 +709,7 @@ $timestamp = time();
 
     <div class="row d-flex align-items-center mx-0 px-0" id="getSS">
         {{-- ------------- cover image --------------- --}}
-        <div class="col-5 p-0 pt-3 mt-3">
+        <div class="col-12 col-md-5 p-0 pt-3 mt-3">
             <!-- Display the first image -->
             <div class="castbox" style="max-height: 100%;">
                 <a href="{{ url('uploads/models/profiles/' . $firstImage) }}" data-fancybox="gallery"
@@ -710,23 +731,23 @@ $timestamp = time();
         @endforeach
 
         {{-- ------------------ model details -------------------- --}}
-        <div class="col-7 p-0 m-0 mt-3 pt-3 ">
-            <div class="col-md-6 user-info ">
-                <div class="row ps-4 ms-3 me-5">
-                    <div class="header pe-5 py-3">
+        <div class="col-md-7 col-12 p-0 m-0 mt-3 pt-3 ">
+            <div class="col-md-6 col-12 user-info ">
+                <div class="row ps-4 ms-md-3 me-md-5">
+                    <div class="header pe-md-5 py-md-3">
                         <div class="name">
                             <!--{{ $details['first_name'] }} {{ $details['last_name'] }} => -->
                             <span>{{ $details['talent_id'] }}</span>
                             {{--
                             <!--{{ route('download.model.details', $details['id']) }} {{ url('/download-all-model-images/' . $details['id']) }}  id="captureButton" -->
-                            <button id="captureButton" class="btn btn-success">Download</button> --}}
+                            <button id="captureButton" class="btn btn-success ">Download</button> --}}
                             <div>
-                                <button id="captureButton" class="btn icon-btn"><i class="fas fa-share"></i></button>
-                                <button id="captureButton1" class="btn icon-btn"><i class="fad fa-print"></i></button>
+                                <button id="captureButton" class="btn icon-btn me-3 me-md-0"><i class="fas fa-share"></i></button>
+                                <button id="captureButton1" class="btn icon-btn me-3 me-md-0"><i class="fad fa-print"></i></button>
                             </div>
                         </div>
                     </div>
-                    <div class="my-container">
+                    <div class="my-container ">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-arrows-alt-v me-2"></i>Height</span>
                             <span class="info " >{{ $details['height'] }}</span>
@@ -829,8 +850,8 @@ $timestamp = time();
 </div>
 
 {{-- ------------------------------section 2------------------------ --}}
-<div class="container-fluid full-height mt-3 pt-3 my-section">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+<div class="container-fluid  full-height mt-3 pt-3 my-section">
+    <ul class="nav nav-tabs flex-column flex-md-row" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="portfolio-tab" data-bs-toggle="tab" data-bs-target="#portfolio"
                 type="button" role="tab" aria-controls="portfolio" aria-selected="true">Portfolio</button>
