@@ -582,7 +582,7 @@ a.contactbtn1:hover{
 /* feature modal css start */
 /* talent sec start */
 section.rightsec {
-    padding: 50px 0 140px;
+    padding: 50px;
 }
 .rightsec h3 {
     font-size: 66px;
@@ -953,7 +953,7 @@ section.testtimonailsec .owl-theme .owl-dot.active span{
     display: table;
 }
 section.ourclientssec {
-    padding: 20px 0 50px;
+    /* padding: 20px 0 50px; */
     margin: 20px 0 50px;
 }
 .clientbox img{
@@ -1006,7 +1006,7 @@ section.ourclientssec {
 .footermain {
     background-color: #fff;
     box-shadow: 1px 5px 10px #ccc;
-    padding: 20px 20px 20px 20px;
+    /* padding: 20px 20px 20px 20px; */
     border-radius: 10px;
 }
 .copytext {
@@ -1201,9 +1201,7 @@ section.ourmissionsec::before {
     font-weight: 400;
     margin: 0 auto;
 }
-section.ourteamsec {
-    padding: 0px 0 100px;
-}
+
 .innertext h1 span {
     color: rgba(216, 31, 38, 1);
 }

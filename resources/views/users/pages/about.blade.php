@@ -16,8 +16,8 @@
         </div>
     </div>
     <section class="rightsec" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
-        <div class="">
-            <div class="row justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="row justify-content-center w-50 h-25 ">
             <div class="talentimg">
     <!-- Thumbnail Image -->
     <img id="imageThumbnail"   src="https://img.youtube.com/vi/qmpkCshcRlY/hqdefault.jpg"  class="img-fluid" alt="Thumbnail">
@@ -35,20 +35,7 @@
     </div>
 </div>
 <style>
-.talentimg {
-    position: relative;
-    display: inline-block;
-    width: 80vw;
-   
-    margin: 0 auto;
-}
 
-.talentimg img {
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-    transition: opacity 0.3s ease; /* Smooth fade effect */
-}
 
 #playButton {
     position: absolute;
