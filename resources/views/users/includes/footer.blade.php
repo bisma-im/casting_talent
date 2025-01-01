@@ -119,7 +119,7 @@
     }
 
     section.contactlist {
-        padding: 50px 0 50px !important;
+
     }
 
     .testimonial {

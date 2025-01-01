@@ -502,7 +502,7 @@ html {
                         </div>
                         <div class="col-md-6 d-flex flex-row  justify-content-center">
                             <ul class="">
-                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'mime_artist']) }}">Mime Artist</a></li>
+                                <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'mime_artist']) }}">Voice-over Artist</a></li>
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'stunt_person']) }}">Stunt Person</a></li>
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'extras']) }}">Extras</a></li>
                             </ul>

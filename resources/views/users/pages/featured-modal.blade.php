@@ -996,40 +996,210 @@ const talents = [
     },
     {
         name: 'Model',
-        subcategories: []
+        subcategories: ["Art Models",
+"Body Parts",
+"Child",
+"Commercial",
+"Expecting (Pregnant)","Erotic Photography",
+"Fashion (Catalogue)",
+"Fitness",
+"Freelance",
+"Glamour","Hair Model",
+"Plus-Size",
+"Image / Party",
+"Mature",
+"Petite",
+"High Fashion (Editorial)",
+"Promotional",
+"Runway / Catwalk",
+"Stock Photography",
+"Swimsuit & Lingerie"]
     },
     {
         name: 'Dancer',
-        subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayyala Dancer', 'B Boy', 'Dance Groups', 'Tabrey Dancer']
-    },
+        subcategories: ['Ayyala',
+'Background',
+'Ballet',
+'Ballroom',
+'Belly',
+'B Boy',
+'Break',
+'Cabaret',
+'Cheerleaders',
+'Choreographers',
+'Contemporary',
+'Dance Group',
+'Dancing Couple',
+'Fictional',
+'Folk',
+'Samba',
+'Go Go',
+'Hip Hop',
+'Kathak',
+'Parade Away',
+'Salsa',
+'Sufi D',
+'Swing',
+'Tap']},
+    
     {
         name: 'Film Crew',
-        subcategories: ['Filmmaker', 'DOP', 'Assistant Director', 'Script Writer', 'Dialog Writer', 'Art Director', 'Production Manager', 'Production Designer', 'Line Producer', 'Focus Puller', 'Camera Operator', 'Lights & Gaffer', 'Crane Operator', 'Sound Engineer', 'Spot Boy']
+      subcategories: [
+  'Art Director',
+  'Art & Costume',
+  'Assistant Director',
+  'Animation & Graphic Designer',
+  'Copy Writer',
+  'Camera Crew',
+  'Crane Operator',
+  'Director',
+  'DOP',
+  'Sound Crew',
+  'Lighting Crew',
+  'Editor',
+  'Film Maker',
+  'Film Producer',
+  'Focus Puller Operator',
+  'Line Producer',
+  'Other Film & Stage Crew',
+  'Post Production Staff',
+  'Production Manager',
+  'Photographer',
+  'Runner',
+  'Script Writer',
+  'Sound Engineer',
+  'Videographer'
+]
+
     },
     {
         name: 'Influencers',
-        subcategories: []
+       subcategories: [
+  'Beauty',
+  'Bloggers',
+  'Celebrity',
+  'Fashion',
+  'Fitness & Wellness',
+  'Food',
+  'Gaming & Tech',
+  'Influencers to Attend Events',
+  'Lifestyle',
+  'Men’s Products',
+  'Travel',
+  'Women’s Products',
+  'VIEW ALL'
+]
+
     },
     {
         name: 'Makeup and Hair',
-        subcategories: []
+        subcategories: ['Body Painter',
+'Creative Makeup Artist',
+'Face Painter',
+'Fashion Stylist',
+'Hair Stylist',
+'Henna Artist',
+'Makeup Artists',
+'Wardrobe Stylist']
+    },
+    {
+        name: 'Photo | Video',
+        subcategories: ['Abstract',
+'Aerial',
+'Architecture',
+'Child',
+'Commercial',
+'Digital',
+'Documentary',
+'Event',
+'Fashion',
+'Film',
+'Fine Art',
+'Food',
+'Landscape',
+'Lifestyle',
+'Nature',
+'Portrait',
+'Sports',
+'Street',
+'Travel',
+'Wedding']
     },
     {
         name: 'Musicians',
-        subcategories: ['Singers', 'Music Band', 'Guitarist', 'Violinist', 'Drummers', 'Bassist', 'Rapper']
+     subcategories: [
+  'Guitarist',
+  'Hobbyist',
+  'Independent Artist',
+  'Independent Label Artist',
+  'Live Performer',
+  'Music Band',
+  'Musician',
+  'Orchestral Musician',
+  'Producer - Composer',
+  'Rapper',
+  'Session Musician',
+  'Singer',
+  'Song Writer',
+  'Teacher',
+  'TV Show Performer',
+  'Violinist'
+]
+
     },
     {
         name: 'Event Staff and Ushers',
-        subcategories: ['Hostess', 'Promoter', 'EmCee']
+      subcategories: [
+  'Bartender',
+  'Brand Ambassador',
+  'Caterer',
+  'Chef',
+  'Concierge',
+  'Decorators',
+  'Event Supervisor',
+  'Host / Hostess',
+  'Marketing Coordinator',
+  'Promotional Staff',
+  'Ushers',
+  'Waitress'
+]
+
     },
     {
         name: 'Entertainer / Performers',
-        subcategories: ['Standup Artist', 'VJ', 'RJ', 'Public Speaker', 'Magician', 'Bottle Twister']
+        subcategories: [
+  'Balloon Decorator',
+  'Bottle Twister',
+  'Caricature',
+  'Clown',
+  'Comedian',
+  'Emcee',
+  'Fire Artist',
+  'Hypnotist',
+  'Illustrationist',
+  'Jugglers',
+  'Live Statue',
+  'Magician',
+  'Media Reporter',
+  'News Reader',
+  'Others',
+  'Public Speaker',
+  'Radio Jockey RJ',
+  'Shadow Performer',
+  'Stand-Up Artist',
+  'Stilt Walker',
+  'Unicyclist',
+  'Video Jockey VJ',
+  'Virtual Host',
+  'Voice Over'
+]
+
     },
     {
         name: 'Celebrity',
         subcategories: []
-    }
+    },
+
 ];
 
 // Get the container for the dropdown content

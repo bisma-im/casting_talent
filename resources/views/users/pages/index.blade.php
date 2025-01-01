@@ -240,6 +240,7 @@
     padding: 0;
     height:70vh;
 }
+
 @media (max-width: 768px) {
   .getstartedbtn {
    
@@ -315,6 +316,7 @@
         width: 100vw;
 
     }
+ 
 }
 
 </style>
@@ -381,10 +383,10 @@
 </section>
 
 
-<section class="casting1 ">
+<section class="casting1  ">
     <div class="">
-    <section id="section-models" class="modalagencysec">
-        <div class="my-container2">
+    <section id="section-models" class="modalagencysec ">
+        <div class="my-container2 ">
                 <div class="row actors-section">
                     <div class="modaltext">
                          
@@ -401,7 +403,7 @@
                         and 50 songs, including acclaimed works like “Ride On,” “Street Dancer 3D,” and “6 Underground.”
                         As founder of Cast Talents LLC, she continues to shape entertainment with passion and
                         excellence.</p>
-                    <a href="{{ route('register.get') }}" >WANT TO BECOME A MODEL? <span class="aboutbtn "><i
+                    <a class="btnabout" href="{{ route('register.get') }}" >WANT TO BECOME A MODEL? <span class="aboutbtn "><i
                                 class="fa-solid fa-angle-right"></i></span></a>
                     <style>
                         .socialLinks {
@@ -416,8 +418,9 @@
                         .socialLinks .social-icon {
                             text-decoration: none;
                             color: #000;
-                            margin: 2px;
-
+                            margin-top: 20px !important;
+                            margin: 5px ;
+                            margin-bottom:0 !important;
                             /* Change to desired color */
                             font-size: 20px;
                             /* Adjust size as needed */
@@ -750,7 +753,7 @@
 .video-container {
     width: 100%;
     height: 0;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+   
     position: relative;
     display: block;
     overflow: hidden;

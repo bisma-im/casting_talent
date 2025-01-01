@@ -632,7 +632,7 @@ section.casttelentsec {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 50px 0 60px;
+
     position: relative;
 }
 
@@ -687,7 +687,7 @@ section.casttelentsec::before{
 /* casting telent sec end */
 /* membership sec start */
 section.membershipsec {
-    padding: 150px 0 100px;
+  margin-top: 50px !important;
 }
 .membershiptext h3 {
     font-size: 66px;
@@ -863,7 +863,7 @@ section.membershipsec {
     font-weight: 600;
 }
 section.ourclientssec {
-    padding: 100px 0 100px;
+
 }
 .testimonailimg img {
     width: 86%;
@@ -1276,6 +1276,7 @@ section.servicessec {
 }
 section.modalagencysec {
     padding: 50px 0 0px;
+    margin-top: 295px !important;
 }
 .modaltext h2 {
     font-size: 66px;
