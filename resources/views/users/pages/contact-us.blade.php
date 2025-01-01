@@ -1146,46 +1146,216 @@
 document.addEventListener("DOMContentLoaded", function () {
     const talents = [
         {
-            name: 'Actor',
-            subcategories: ['Lead role','Featured', 'Extras',  'Voice-over Artist','Body double','Stunt person']
-        },
-        {
-            name: 'Model',
-            subcategories: []
-        },
-        {
-            name: 'Dancer',
-            subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'B Boyz', 'Dance Groups', 'Tabrey Dancer']
-        },
-        {
-            name: 'Film Crew',
-            subcategories: ['Filmmaker', 'DOP', 'Assistant Director', 'Script Writer', 'Dialog Writer', 'Art Director', 'Production Manager', 'Production Designer', 'Line Producer', 'Focus Puller', 'Camera Operator', 'Lights & Gaffer', 'Crane Operator', 'Sound Engineer', 'Spot Boy']
-        },
-        {
-            name: 'Influencers',
-            subcategories: []
-        },
-        {
-            name: 'Makeup and Hair',
-            subcategories: []
-        },
-        {
-            name: 'Musicians',
-            subcategories: ['Singers', 'Music Band', 'Guitarist', 'Violinist', 'Drummers', 'Bassist', 'Rapper']
-        },
-        {
-            name: 'Event Staff and Ushers',
-            subcategories: ['Hostess', 'Promoter', 'EmCee',]
-        },
-        {
-            name: 'Entertainer / Performers',
-            subcategories: ['Standup Artist', 'VJ', 'RJ', 'Public Speaker', 'Magician', 'Bottle Twister']
-        },
-        {
-            name: 'Celebrity',
-            subcategories: []
-        },
-    ];
+        name: 'Actor',
+        subcategories: ['Lead role', 'Featured', 'Extras', 'Voice-over Artist', 'Body double', 'Stunt person']
+    },
+    {
+        name: 'Model',
+        subcategories: ["Art Models",
+"Body Parts",
+"Child",
+"Commercial",
+"Expecting (Pregnant)","Erotic Photography",
+"Fashion (Catalogue)",
+"Fitness",
+"Freelance",
+"Glamour","Hair Model",
+"Plus-Size",
+"Image / Party",
+"Mature",
+"Petite",
+"High Fashion (Editorial)",
+"Promotional",
+"Runway / Catwalk",
+"Stock Photography",
+"Swimsuit & Lingerie"]
+    },
+    {
+        name: 'Dancer',
+        subcategories: ['Ayyala',
+'Background',
+'Ballet',
+'Ballroom',
+'Belly',
+'B Boy',
+'Break',
+'Cabaret',
+'Cheerleaders',
+'Choreographers',
+'Contemporary',
+'Dance Group',
+'Dancing Couple',
+'Fictional',
+'Folk',
+'Samba',
+'Go Go',
+'Hip Hop',
+'Kathak',
+'Parade Away',
+'Salsa',
+'Sufi D',
+'Swing',
+'Tap']},
+    
+    {
+        name: 'Film Crew',
+      subcategories: [
+  'Art Director',
+  'Art & Costume',
+  'Assistant Director',
+  'Animation & Graphic Designer',
+  'Copy Writer',
+  'Camera Crew',
+  'Crane Operator',
+  'Director',
+  'DOP',
+  'Sound Crew',
+  'Lighting Crew',
+  'Editor',
+  'Film Maker',
+  'Film Producer',
+  'Focus Puller Operator',
+  'Line Producer',
+  'Other Film & Stage Crew',
+  'Post Production Staff',
+  'Production Manager',
+  'Photographer',
+  'Runner',
+  'Script Writer',
+  'Sound Engineer',
+  'Videographer'
+]
+
+    },
+    {
+        name: 'Influencers',
+       subcategories: [
+  'Beauty',
+  'Bloggers',
+  'Celebrity',
+  'Fashion',
+  'Fitness & Wellness',
+  'Food',
+  'Gaming & Tech',
+  'Influencers to Attend Events',
+  'Lifestyle',
+  'Men’s Products',
+  'Travel',
+  'Women’s Products',
+  'VIEW ALL'
+]
+
+    },
+    {
+        name: 'Makeup and Hair',
+        subcategories: ['Body Painter',
+'Creative Makeup Artist',
+'Face Painter',
+'Fashion Stylist',
+'Hair Stylist',
+'Henna Artist',
+'Makeup Artists',
+'Wardrobe Stylist']
+    },
+    {
+        name: 'Photo | Video',
+        subcategories: ['Abstract',
+'Aerial',
+'Architecture',
+'Child',
+'Commercial',
+'Digital',
+'Documentary',
+'Event',
+'Fashion',
+'Film',
+'Fine Art',
+'Food',
+'Landscape',
+'Lifestyle',
+'Nature',
+'Portrait',
+'Sports',
+'Street',
+'Travel',
+'Wedding']
+    },
+    {
+        name: 'Musicians',
+     subcategories: [
+  'Guitarist',
+  'Hobbyist',
+  'Independent Artist',
+  'Independent Label Artist',
+  'Live Performer',
+  'Music Band',
+  'Musician',
+  'Orchestral Musician',
+  'Producer - Composer',
+  'Rapper',
+  'Session Musician',
+  'Singer',
+  'Song Writer',
+  'Teacher',
+  'TV Show Performer',
+  'Violinist'
+]
+
+    },
+    {
+        name: 'Event Staff and Ushers',
+      subcategories: [
+  'Bartender',
+  'Brand Ambassador',
+  'Caterer',
+  'Chef',
+  'Concierge',
+  'Decorators',
+  'Event Supervisor',
+  'Host / Hostess',
+  'Marketing Coordinator',
+  'Promotional Staff',
+  'Ushers',
+  'Waitress'
+]
+
+    },
+    {
+        name: 'Entertainer / Performers',
+        subcategories: [
+  'Balloon Decorator',
+  'Bottle Twister',
+  'Caricature',
+  'Clown',
+  'Comedian',
+  'Emcee',
+  'Fire Artist',
+  'Hypnotist',
+  'Illustrationist',
+  'Jugglers',
+  'Live Statue',
+  'Magician',
+  'Media Reporter',
+  'News Reader',
+  'Others',
+  'Public Speaker',
+  'Radio Jockey RJ',
+  'Shadow Performer',
+  'Stand-Up Artist',
+  'Stilt Walker',
+  'Unicyclist',
+  'Video Jockey VJ',
+  'Virtual Host',
+  'Voice Over'
+]
+
+    },
+    {
+        name: 'Celebrity',
+        subcategories: []
+    },
+
+];
 
     const dropdownBtn = document.getElementById("dropdown-btn");
     const mainCategoryContainer = document.getElementById("main-category-container");
@@ -1776,13 +1946,51 @@ const gccData = {
         "Asir Region": ["Abha", "Khamis Mushait"]
     },
     "United Arab Emirates": {
-        "Abu Dhabi": ["Abu Dhabi", "Al Ain", "Al Dhafra"],
-        "Dubai": ["Dubai"],
-        "Sharjah": ["Sharjah", "Khor Fakkan", "Dibba Al Hisn"],
-        "Ajman": ["Ajman"],
-        "Ras Al Khaimah": ["Ras Al Khaimah"],
-        "Fujairah": ["Fujairah"],
-        "Umm Al Quwain": ["Umm Al Quwain"]
+        "Abu Dhabi": ["Abu Dhabi",
+      "Al Ain",
+      "Al Dhafra",
+      "Mussafah",
+      "Khalifa City",
+      "Yas Island",
+      "Saadiyat Island",
+      "Al Bateen"],
+        "Dubai": ["Dubai",
+      "Deira",
+      "Bur Dubai",
+      "Jumeirah",
+      "Dubai Marina",
+      "Business Bay",
+      "Al Barsha",
+      "Al Quoz",
+      "Palm Jumeirah",
+      "Dubai Silicon Oasis",
+      "Jumeirah Lakes Towers (JLT)",
+      "Discovery Gardens"],
+        "Sharjah": [  "Sharjah",
+      "Khor Fakkan",
+      "Dibba Al Hisn",
+      "Al Dhaid",
+      "Kalba",
+      "Muweilah",
+      "Al Nahda"],
+        "Ajman": [  "Ajman",
+      "Al Jurf",
+      "Al Nuaimiya",
+      "Musheirif"],
+        "Ras Al Khaimah": [    "Ras Al Khaimah",
+      "Al Hamra",
+      "Al Marjan Island",
+      "Dhayah",
+      "Al Rams"],
+        "Fujairah": [ "Fujairah",
+      "Dibba Al Fujairah",
+      "Mirbah",
+      "Masafi",
+      "Khor Fakkan"],
+        "Umm Al Quwain": [ "Umm Al Quwain",
+      "Al Salama",
+      "Al Raas",
+      "Al Haditha"]
     }
 };
 
