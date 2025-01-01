@@ -759,7 +759,7 @@
     {{-- <div class="container"> --}}
         <div class="clientbox">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                <div class="col-12  col-md-12">
                     {{-- <div>
                         <!--<div class="owl-carousel owl-theme mt-5" id="testimonailSliderff">-->
                         <!--    <div class="item">-->
@@ -840,7 +840,7 @@
                         <!--</div>-->
                     </div> --}}
                     <div class="owl-carousel owl-theme mt-5" id="testimonailSliderff">
-                        @for ($i = 1; $i <= 44; $i++)
+                        @for ($i = 1; $i <= 43 ; $i++)
                             <div class="item">
                                 <div class="image-container">
                                     <img src="{{ url('user-assets/loggs/' . $i . '.png') }}" class="img-fluid" alt="Image {{ $i }}" style="width: 80px; height: 110px;">
@@ -950,7 +950,7 @@
         autoplayHoverPause: true,
         responsive: {
             0: {
-                items: 2
+                items: 4
             },
             600: {
                 items: 4

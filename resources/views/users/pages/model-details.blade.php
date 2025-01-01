@@ -798,7 +798,7 @@ $timestamp = time();
                     </div>
                 </div>
                 <div class="mt-md-2  me-md-3 mb-md-3">
-                    <div class="row pt-3 d-flex justify-content-center  pe-5 mt-2 h-user-info">
+                    <div class="row pt-3 d-flex justify-content-center ps-2 ps-md-0 pe-5 mt-2 h-user-info">
                         <div class="col-md-4 w-25 bg-cfcba1 bottom-p">
                             <p class="m-0"><strong>Nationality</strong><br />{{ ucfirst($details['nationality']) }}
                             </p>
