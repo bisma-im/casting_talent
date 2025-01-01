@@ -426,6 +426,11 @@
         height: 100vw !important; /* Adjust individual image height */
     }
     
+    .text2 {
+            font-size: 10px !important;
+
+
+        }
 }
 
     </style>
@@ -617,7 +622,7 @@
                             <!-- Step 1: Basic Info -->
                             <div class="step" id="step1">
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6  ">
                                         <div class="form-group">
                                             <label class=" text fw-bold">FIRST NAME</label>
                                             <input type="text" class=" form-control" name="first_name"
@@ -680,7 +685,7 @@
                           <!-- Step 3: Project Info -->
                         <div class="step d-none" id="step3">
                             <div class="row">
-                                <div class="col-lg-3">
+                                <div class="col-lg-3 col-4">
                                     <div class="form-group">
                                         <label class="text fw-bold">PROJECT</label>
                                         <select class="form-select" name="project" required>
@@ -689,23 +694,23 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-9">
+                                <div class="col-lg-9 col-8">
                                     <div class="form-group">
                                         <label class="  text fw-bold">LOCATION OF PROJECT</label>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-4">
                                             <select id="countryDropdown" class="form-select" name="country" required>
                                                 <option value="" disabled selected>Country</option>
                                             </select>
 
                                             </div>
 
-                                                <div class="col-md-4">
+                                                <div class="col-md-4 col-4">
                                                 <select id="stateDropdown" class="form-select" name="state" required disabled>
                                                     <option value="" disabled selected>State</option>
                                                 </select>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-4 col-4">
                                                 <select id="cityDropdown" class="form-select" name="city" required disabled>
                                                     <option value="" disabled selected>City</option>
                                                 </select>
@@ -716,14 +721,14 @@
 
 
                                     <!-- No of Days & No of Hours -->
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 col-4">
                                         <div class="form-group">
                                             <label class=" text fw-bold">NO OF DAYS</label>
                                             <input type="number" class="form-control" name="no_of_days" required>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 col-4">
                                         <div class="form-group">
                                             <label class=" text fw-bold">NO OF HOURS</label>
                                             <input type="number" class="form-control" name="no_of_hours" required
@@ -732,14 +737,14 @@
                                     </div>
                                     <!-- start and end date  -->
 
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 col-4">
                                         <div class="form-group">
                                             <label class=" text fw-bold">START DATE</label>
                                             <input type="date" class="form-control" name="start_date" required>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 col-4">
                                         <div class="form-group">
                                             <label class=" text fw-bold">END DATE</label>
                                             <input type="date" class="form-control" name="end_date" required>
@@ -747,22 +752,22 @@
                                     </div>
                                     <!-- male and female   -->
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-4">
                                         <div class="form-group">
-                                            <label class=" text fw-bold">NO OF TALENTS(MALE)</label>
+                                            <label class=" text text2 fw-bold">NO OF TALENTS(MALE)</label>
                                             <input type="number" class="form-control" name="no_of_talents_male"
                                                 placeholder="" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-4">
                                         <div class="form-group">
-                                            <label class=" text fw-bold" class>NO OF TALENTS(FEMALE)</label>
+                                            <label class=" text text2 fw-bold" class>NO OF TALENTS(FEMALE)</label>
                                             <input required type="number" class="form-control"
                                                 name="no_of_talents_female" placeholder="" required>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-4 col-6">
     <div class="form-group">
         <label class="text fw-bold">NATIONALITIES</label>
         <div class="custom-dropdown" id="nationalityDropdown">
@@ -969,7 +974,7 @@
 </div>
 
                                     <!-- Required Talent -->
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-12 col-6">
                                         <div class="form-group w-100">
                                             <label class=" text fw-bold">REQUIRED TALENT</label>
 
