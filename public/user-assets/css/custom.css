@@ -1638,6 +1638,7 @@ button.orange {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 298px;
 }
 .uploadimg {
     margin-bottom: 50px;

@@ -23,12 +23,11 @@
 
         /* Style for each preview thumbnail */
         .dz-preview {
-            width: calc(33.333% - 10px); /* Adjusts the width to be a third minus margins */
+            width: calc(20% - 10px); /* Adjusts the width to be a third minus margins */
             margin: 5px;
-            height: 50px;
+            height: 35px;
             box-sizing: border-box;
             position: relative;  /* Ensure positioning context for the absolute elements */
-            width: calc(33.333% - 10px);  /* As previously defined */
             margin: 5px;
             box-sizing: border-box;
             border: 1px solid #ccc;  /* Optional, adds definition to previews */
@@ -57,14 +56,14 @@
         /* Cross for deletion */
         .dz-remove {
             position: absolute;
-            top: 4px;  /* Adjust top position to make it visible */
-            right: 4px;  /* Adjust right position to place it in the corner */
+            top: -2px;  /* Adjust top position to make it visible */
+            right: -2px;  /* Adjust right position to place it in the corner */
             z-index: 1000;  /* Ensure it is above other elements */
-            font-size: 16px;  /* Adjust the size of the text or icon */
+            font-size: 12px;  /* Adjust the size of the text or icon */
             cursor: pointer;
             background-color: #FFFFFF;  /* Background to make it stand out */
             border-radius: 50%;  /* Circular background */
-            padding: 2px 6px;
+            padding: 2px 3px;
         }
 
         /* Progress bar */
