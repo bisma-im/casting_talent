@@ -136,6 +136,7 @@ section.homebanner:before {
 
 /* Responsive layout for images and text */
 @media (max-width: 768px) {
+
     .homebanner {
         padding: 50px 0; /* Reduce padding on smaller screens */
     }
@@ -1212,7 +1213,7 @@ section.ourmissionsec::before {
     margin: 0 auto;
 }
 section.servicessec {
-    padding: 100px 0 100px;
+    /* padding: 100px 0 100px; */
 }
 .modalbox .modalbody {
     padding: 21px 0;
@@ -1274,8 +1275,9 @@ section.servicessec {
 }
 section.modalagencysec {
     padding: 50px 0 0px;
-    margin-top: 295px !important;
+    /* margin-top: 295px !important; */
 }
+
 .modaltext h2 {
     font-size: 66px;
     line-height: 60px;
@@ -1297,9 +1299,22 @@ section.modalagencysec2 {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    padding: 100px 0 100px;
-    margin-bottom: 100px;
+    /* padding: 100px 0 100px; */
+    /* margin-bottom: 100px; */
     border-radius: 0 0 0px 50px;
+}
+section.modalagencysec3{
+    background-image: url(../images/modeling_banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+       
+   
+    border-radius: 0 0 0px 50px;
+}
+.locationdiv{
+    padding-top: 400px ;
+
 }
 .modaltext1 h2 {
     font-size: 56px;
@@ -1311,6 +1326,19 @@ section.modalagencysec2 {
 }
 .modaltext1 p {
     color: #fff;
+    width: 90%;
+    margin-bottom: 30px;
+}
+.modaltext2 h2 {
+    font-size: 56px;
+    line-height: 60px;
+    font-weight: 500;
+    font-family: "Lateef", serif;
+    color: black;
+    width: 70%;
+}
+.modaltext2 p {
+    color: black;
     width: 90%;
     margin-bottom: 30px;
 }

@@ -9,7 +9,7 @@
 
    
 
-    <section class="modalagencysec2" id="locations-permit">
+    <section class="modalagencysec" id="locations-permit">
         <div class="container">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
                 <div class="innertext pt-3">
@@ -18,15 +18,15 @@
                 </div>
             </div>
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/filim_4.png" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext1">
+                <div class="col-12 d-flex justify-content-center ms-md-5">
+                    <div class="modaltext2  text-center ps-md-5">
 
-                        <h2>Locations / <sapn style="color: rgba(216, 31, 38, 1);">permit</sapn>
+                        <h2 class="modaltext2 text-center ms-md-5">Locations / <sapn style="color: rgba(216, 31, 38, 1);">permit</sapn>
                         </h2>
                         <p><b>CAST TALENTS Location Scout: Premier Film Locations and Production Support in the UAE</b></p>
                         <p>At CAST TALENTS Location Scout, we specialize in providing top-tier film locations and

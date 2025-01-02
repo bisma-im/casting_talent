@@ -37,8 +37,13 @@ window.onload = function() { // This waits for the entire window to load, includ
                     </div>
                 </div>
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext pt-5 pt-md-0 text-center text-md-start">
+            <div class="col-12 d-flex justify-content-center">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/manage_1.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12 ">
+                    <div class="modaltext pt-5 pt-md-0 text-center ">
                         <h2>Celebrity<span> Management</span> Services</h2>
                         <p><b>Book Celebrities Worldwide with CAST TALENTS</b></p>
                         <p>Elevate your events with CAST TALENTS exclusive celebrity management services. Whether it's for
@@ -48,11 +53,7 @@ window.onload = function() { // This waits for the entire window to load, includ
 
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_1.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
+              
             </div>
         </div>
     </section>
@@ -91,7 +92,12 @@ window.onload = function() { // This waits for the entire window to load, includ
     <section class="modalagencysec" id="security-bouncer">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center text-md-start"">
+            <div class="col-12 d-flex justify-content-center ">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/manage_3.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12  text-center ">
                     <div class="modaltext">
                         <h2>Security /<span> Bouncer</span></h2>
                         <p><b>Professional Security Services by CAST TALENTS</b></p>
@@ -117,11 +123,7 @@ window.onload = function() { // This waits for the entire window to load, includ
                         <!--<a href="#" class="contactbtn">READ MORE</a>-->
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_3.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
+              
             </div>
         </div>
     </section>
@@ -164,7 +166,12 @@ window.onload = function() { // This waits for the entire window to load, includ
     <section class="modalagencysec"  id="transportation">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center text-md-start"">
+            <div class="col-12  d-flex justify-content-center">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/manage_5.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12  text-center ">
                     <div class="modaltext">
                         <h2>Transportation</h2>
                         <p><b>Professional Vehicle Rental Services for the Film and Television Industry BY CAST TALENTS</b>
@@ -178,15 +185,42 @@ window.onload = function() { // This waits for the entire window to load, includ
                         <!--<a href="#" class="contactbtn">READ MORE</a>-->
                     </div>
                 </div>
+               
+            </div>
+        </div>
+    </section>
+    <section class="modalagencysec2" id="videography-photography">
+        <div class="container">
+            <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_5.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/event_4.png" alt="Casting Image" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                    <div class="modaltext1">
+
+                        <h2>Videography & <sapn style="color: rgba(216, 31, 38, 1);">Photography</sapn>
+                        </h2>
+                        <p><b>One of the Premier Professional Photography and Videography Services</b></p>
+                        <p><b>Corporate Videos</b> Expand your brand’s reach with our exceptional corporate video production
+                            services. Our team of award-winning writers, videographers, directors, and video creators craft
+                            innovative corporate videos tailored to your business needs.</p>
+                        <p><b>Event Videos</b> Amplify the impact and longevity of your events. From intimate corporate
+                            gatherings to large-scale conferences, our team excels at transforming your events into
+                            spectacular videos that extend their reach and influence.</p>
+                        <p><b>Commercials</b> Create impactful commercials that elevate your brand’s presence. We specialize
+                            in producing compelling advertisements that capture attention and drive results.</p>
+                        <p><b>Events</b> Turn your events into unforgettable memories with our professional event
+                            photography and videography services. We cover everything from corporate gatherings to private
+                            celebrations, ensuring every moment is perfectly captured.</p>
+
+                        <a href="#" class="contactbtn1" id="readMoreTrigger3">READ MORE</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

@@ -35,7 +35,12 @@ window.onload = function() { // This waits for the entire window to load, includ
                 </div>
             </div>
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="col-12 d-flex justify-content-center">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/film_1.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12 ">
                     <div class="modaltext pt-5 pt-md-3 ">
                         <h2>Film <span>Making</span></h2>
 
@@ -56,11 +61,7 @@ window.onload = function() { // This waits for the entire window to load, includ
                         <!--<a href="#" class="contactbtn">READ MORE</a>-->
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/film_1.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -104,7 +105,12 @@ window.onload = function() { // This waits for the entire window to load, includ
     <section class="modalagencysec" id="production">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="col-12 d-flex justify-content-center mt-4" >
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/filim_3.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12 d-flex justify-content-center">
                     <div class="modaltext">
                         <h2>Production</h2>
                         <p>Professional Services Offered by Cast Talents</p>
@@ -124,11 +130,7 @@ window.onload = function() { // This waits for the entire window to load, includ
                         <a href="#" class="contactbtn" id="readMoreTrigger">READ MORE</a>
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mt-4" >
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/filim_3.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
@@ -331,7 +333,12 @@ window.onload = function() { // This waits for the entire window to load, includ
     <section class="modalagencysec" id="tv-commercial-music-videos">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="col-12 d-flex justify-content-center">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/filim_5.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12 text-center">
                     <div class="modaltext">
                         <h2>Tv Commercial, <span>Music Video ,</span> Filming</h2>
                         <p><b>Comprehensive Production Services by CAST TALENTS</b></p>
@@ -342,11 +349,7 @@ window.onload = function() { // This waits for the entire window to load, includ
                         <!--<a href="#" class="contactbtn">READ MORE</a>-->
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/filim_5.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -379,7 +382,165 @@ window.onload = function() { // This waits for the entire window to load, includ
             </div>
         </div>
     </section>
+    <section class="modalagencysec" id="videography-photography">
+        <div class="container">
+            <div class="row align-items-center">
+            <div class="col-12 d-flex justify-content-center">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/modal_3.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12  text-center ">
+                    <div class="modaltext">
+                        <h2>Videography & <span>Photography</span></h2>
+                        <p><strong>One of the Premier Professional Photography and Videography Services</strong></p>
+                        <p><b>Corporate Videos</b> Expand your brand’s reach with our exceptional corporate video production
+                            services. Our team of award-winning writers, videographers, directors, and video creators craft
+                            innovative corporate videos tailored to your business needs.</p>
+                        <p><strong>Event Videos</strong> Amplify the impact and longevity of your events. From intimate
+                            corporate gatherings to large-scale conferences, our team excels at transforming your events
+                            into spectacular videos that extend their reach and influence.</p>
+                        <p><b>Commercials</b> Create impactful commercials that elevate your brand’s presence. We specialize
+                            in producing compelling advertisements that capture attention and drive results.</p>
+                        <p><b>Events</b> Turn your events into unforgettable memories with our professional event
+                            photography and videography services. We cover everything from corporate gatherings to private
+                            celebrations, ensuring every moment is perfectly captured.</p>
+                        <a href="#" class="contactbtn" id="readMoreTrigger">READ MORE</a>
+                    </div>
 
+                    <!-- Modal Structure -->
+                    <div id="readMoreModal" class="modal mt-2" style="display: none;">
+                        <div class="modal-content">
+                            <span class="close" id="closeModal">&times;</span>
+                            <div class="modaltext">
+                                <!-- Additional Read More Content -->
+                                <div class="more-content">
+                                    <h3>Videos</h3>
+                                    <p><b>Promotional Videos</b> Engage and captivate your audience with our expert
+                                        promotional video production. We specialize in creating memorable and effective
+                                        promotional videos that resonate with your target market.</p>
+                                    <p><b>Commercial Videos</b> Boost your revenue with compelling online and TV
+                                        commercials. For decades, we've helped leading companies across the UAE, Saudi
+                                        Arabia, Kuwait, Bahrain, Oman, and Qatar tell their stories. Let us do the same for
+                                        you.</p>
+                                    <p><b>Animation Videos</b> Deliver clear messages while entertaining your audience. Our
+                                        talented animation team brings ideas to life through 2D, 3D, motion graphics, and
+                                        stop-motion animation videos.</p>
+                                    <p><b>Training Videos</b> Enhance information retention with our engaging training
+                                        videos. Our short video productions are designed to be interesting, concise, and
+                                        effective, helping you achieve your training objectives.</p>
+                                    <p><b>Safety Videos</b> Highlight the importance of workplace safety procedures with
+                                        impactful safety videos. Our productions create a strong visual impression, helping
+                                        your employees understand and follow safety protocols.</p>
+                                    <p><b>Documentaries</b> Make a lasting impression with our documentary video production
+                                        services. Whether it’s about your product, business, initiatives, or CSR activities,
+                                        our documentaries tell compelling stories in an emotionally engaging tone.</p>
+                                    <p><b>Explainer Videos</b> Simplify the features and benefits of your products or
+                                        services with our explainer videos. Our team uses live-action or animation to create
+                                        clear, engaging, and informative videos.</p>
+                                    <p><b>Time-lapse Videos</b> Showcase the progress of your construction projects or
+                                        events with stunning time-lapse videos. We can transform years of footage into
+                                        captivating videos that capture the essence of your work.</p>
+                                    <p><b>Branded Videos</b> Connect deeply with your audience through compelling branded
+                                        videos. Our experts produce engaging stories that highlight how your brand
+                                        positively impacts lives, making them share-worthy and memorable.</p>
+                                    <p><b>Aerial Drone Filming</b> Achieve breath-taking 360-degree video and aerial shots
+                                        of any location or event. Our expertise and cutting-edge drone technology ensure the
+                                        capture of stunning and captivating aerial footage.</p>
+                                    <h3>Photography</h3>
+                                    <p><b>Commercials</b> Create impactful commercials that elevate your brand’s presence.
+                                        We specialize in producing compelling advertisements that capture attention and
+                                        drive results.</p>
+                                    <p><b>Events</b> Turn your events into unforgettable memories with our professional
+                                        event photography and videography services. We cover everything from corporate
+                                        gatherings to private celebrations, ensuring every moment is perfectly captured.</p>
+                                    <p><b>Music Video BTS & Posters</b> Get exclusive behind-the-scenes (BTS) content and
+                                        striking posters for your music videos. Our team ensures that every detail of your
+                                        production process is documented and presented artistically.</p>
+                                    <p><b>Product Shoots</b> Showcase your products in the best light with our high-quality
+                                        product photography services. We create visually stunning images that highlight the
+                                        unique features and appeal of your products.</p>
+                                    <p><b>Business Portraits</b> Enhance your professional image with our expert business
+                                        portrait services. We provide polished and professional photos that reflect your
+                                        personal brand and corporate identity.</p>
+                                    <p><b>Modeling Portfolios</b> Build a standout modeling portfolio with our comprehensive
+                                        photography services. We capture diverse and striking images that showcase your
+                                        versatility and talent.</p>
+                                    <p><b>Events</b> Document your special occasions with our professional event coverage.
+                                        From intimate gatherings to large-scale events, we ensure every significant moment
+                                        is captured beautifully.</p>
+                                    <p><b>Weddings</b> Relive the magic of your wedding day through our exceptional wedding
+                                        photography and videography. We create timeless memories that you’ll cherish
+                                        forever.</p>
+                                    <p><b>Interior & Exterior Photography</b> Highlight the beauty of your spaces with our
+                                        interior and exterior photography services. We capture the essence and design of
+                                        your property with stunning visual clarity.</p>
+                                    <p><b>Engagement</b> Celebrate your love with our engagement photography services. We
+                                        create romantic and memorable images that mark the beginning of your journey
+                                        together.</p>
+                                    <p><b>Family Portraits</b> Preserve precious moments with our family photography
+                                        services. We create beautiful and heartfelt images that capture the essence of your
+                                        family’s bond.</p>
+                                    <p><b>Cake Smash</b> Celebrate your little one’s milestone with a fun and creative cake
+                                        smash photo session. We capture the joy and excitement of this special occasion.</p>
+                                    <p><b>Maternity Photography</b> Celebrate the beauty of motherhood with our maternity
+                                        photography services. We create elegant and intimate images that honour this special
+                                        time in your life.</p>
+                                    <p><b>New-born Photography</b> Capture the innocence and sweetness of your new-born with
+                                        our professional photography services. We create timeless images that you’ll
+                                        treasure forever.</p>
+                                    <p><b>Emirati Weddings</b> Honour your cultural heritage with our specialized Emirati
+                                        wedding photography. We document every significant tradition and moment, creating a
+                                        beautiful narrative of your special day.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+    <section class="modalagencysec" id="catering">
+        <div class="container">
+            <div class="row align-items-center">
+            <div class="col-12  d-flex justify-content-center">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/event_6.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12 ">
+                    <div class="modaltext text-center">
+                        <h2>Catering</h2>
+                        <p><b>Food Catering Services by Cast Talents</b></p>
+                        <p>At Cast Talents, we boast an experienced and dedicated team proficient in organizing a wide array
+                            of events, including parties, corporate functions, seminars, and hotel supplies. With a strong
+                            sense of responsibility, we ensure your event is memorable, whether it's a lavish banquet in a
+                            park, a palace setting, or an intimate gathering at home.</p>
+                        <p><b>Equipment Rental:</b> We offer a comprehensive selection of rental equipment, providing you
+                            with a variety of options to suit your event's needs.</p>
+                        <p><b>Food Catering Services:</b> Choose from a diverse range of world-class cuisines such as
+                            Continental, Italian, Arabic, Chinese, Indian, or opt for live cooking arrangements tailored to
+                            your event's theme or preferences.</p>
+                        <p><b>Event and Party Management:</b> From reception to service, we handle every aspect of your
+                            event to ensure you can relax and enjoy as a guest at your own gathering.</p>
+                        <p><strong>Corporate Events:</strong> Utilize our extensive network with five-star hotels to
+                            organize your corporate meetings or events at your preferred location.</p>
+                        <p><strong>Service Staff Supply:</strong> We provide professional food catering service staff at
+                            competitive rates, ensuring seamless service delivery for your event.</p>
+                        <p><strong>Seminar Arrangements:</strong>Arrange corporate seminars and conferences at prestigious
+                            hotels with competitive pricing, ensuring a conducive environment for productive sessions.</p>
+                        <p>Count on Cast Talents to deliver exceptional event management services, tailored to meet your
+                            specific requirements and exceed your expectations.</p>
+                        <!--<a href="#" class="contactbtn">READ MORE</a>-->
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var section = "{{ $section }}";

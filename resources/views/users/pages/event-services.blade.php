@@ -40,8 +40,13 @@ window.onload = function() { // This waits for the entire window to load, includ
                 </div>
             </div>
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext pt-5 pt-md-0 text-center text-md-start">
+            <div class="col-12 d-flex justify-content-center mt-4">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/event_1.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12 ">
+                    <div class="modaltext pt-5 pt-md-0 text-center ">
                         <h2>Event Management</h2>
                         <p><b>Expert Event Creation and Management by Cast Talents</b></p>
                         <p>At Cast Talents, we specialize in crafting exceptional events for both private and corporate
@@ -58,11 +63,7 @@ window.onload = function() { // This waits for the entire window to load, includ
                         <a href="#" class="contactbtn" id="readMoreTrigger">READ MORE</a>
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mt-4">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_1.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
@@ -123,16 +124,16 @@ window.onload = function() { // This waits for the entire window to load, includ
             padding: 20px;
             border: 1px solid #888;
             width: 70%;
-            /* max-height: 80%; */
-            /* overflow-y: auto; */
-            /* overflow-x: hidden; */
+            max-height: 80%;
+            overflow-y: auto; /* Enable scrolling for overflowing content */
             border-radius: 40px;
         }
 
         .more-content {
-            overflow-y: scroll;
-            height: 600px;
-            padding: 20px;
+            overflow-y: auto; /* Allow scrolling */
+            height: 500px;
+            padding: 10px;
+            padding-bottom:0px !important
         }
 
         .more-content::-webkit-scrollbar {
@@ -272,8 +273,13 @@ window.onload = function() { // This waits for the entire window to load, includ
     <section class="modalagencysec" id="retail-promotional-staff">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext">
+            <div class="col-12 d-flex justify-content-center mt-4">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/event_3.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12 ">
+                    <div class="modaltext text-center">
                         <h2>Retail & <span>Promotional</span> Staff</h2>
                         <p><strong>Specialized Staffing Solutions by Cast Talents</strong></p>
                         <p>As a licensed retail, exhibition, and event staffing agency approved by the Ministry of Labour,
@@ -286,11 +292,7 @@ window.onload = function() { // This waits for the entire window to load, includ
                         <a href="#" class="contactbtn" id="readMoreTrigger2">READ MORE</a>
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mt-4">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_3.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
@@ -345,38 +347,7 @@ window.onload = function() { // This waits for the entire window to load, includ
         };
     </script>
 
-    <section class="modalagencysec2" id="videography-photography">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_4.png" alt="Casting Image" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext1">
 
-                        <h2>Videography & <sapn style="color: rgba(216, 31, 38, 1);">Photography</sapn>
-                        </h2>
-                        <p><b>One of the Premier Professional Photography and Videography Services</b></p>
-                        <p><b>Corporate Videos</b> Expand your brand’s reach with our exceptional corporate video production
-                            services. Our team of award-winning writers, videographers, directors, and video creators craft
-                            innovative corporate videos tailored to your business needs.</p>
-                        <p><b>Event Videos</b> Amplify the impact and longevity of your events. From intimate corporate
-                            gatherings to large-scale conferences, our team excels at transforming your events into
-                            spectacular videos that extend their reach and influence.</p>
-                        <p><b>Commercials</b> Create impactful commercials that elevate your brand’s presence. We specialize
-                            in producing compelling advertisements that capture attention and drive results.</p>
-                        <p><b>Events</b> Turn your events into unforgettable memories with our professional event
-                            photography and videography services. We cover everything from corporate gatherings to private
-                            celebrations, ensuring every moment is perfectly captured.</p>
-
-                        <a href="#" class="contactbtn1" id="readMoreTrigger3">READ MORE</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <div id="readMoreModal3" class="modal" style="display: none;">
         <div class="modal-content">
             <span class="close" id="closeModal3">&times;</span>
@@ -480,8 +451,13 @@ window.onload = function() { // This waits for the entire window to load, includ
     <section class="modalagencysec" id="security-bouncer">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext">
+            <div class="col-12 d-flex justify-content-center ">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/event_5.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12 ">
+                    <div class="modaltext text-center">
                         <h2>Security / <span>Bouncer</span></h2>
                         <p><b>Professional Security Services by CAST TALENTS</b></p>
                         <p><strong>VIP and Celebrity Protection:</strong> At CAST TALENTS, ensuring the safety of our
@@ -508,11 +484,7 @@ window.onload = function() { // This waits for the entire window to load, includ
                         <!--<a href="#" class="contactbtn">READ MORE</a>-->
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_5.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
@@ -549,8 +521,13 @@ window.onload = function() { // This waits for the entire window to load, includ
     <section class="modalagencysec" id="catering">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext">
+            <div class="col-12  d-flex justify-content-center">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/event_6.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12 ">
+                    <div class="modaltext text-center">
                         <h2>Catering</h2>
                         <p><b>Food Catering Services by Cast Talents</b></p>
                         <p>At Cast Talents, we boast an experienced and dedicated team proficient in organizing a wide array
@@ -575,11 +552,7 @@ window.onload = function() { // This waits for the entire window to load, includ
                         <!--<a href="#" class="contactbtn">READ MORE</a>-->
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_6.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
@@ -614,8 +587,13 @@ window.onload = function() { // This waits for the entire window to load, includ
     <section class="modalagencysec" id="locations-permit">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext">
+            <div class="col-12 d-flex justify-content-center">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/manage_4.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12 ">
+                    <div class="modaltext text-center">
                         <h2>Location / <span>Permit</span></h2>
                         <p><b>CAST TALENTS Location Scout: Premier Film Locations and Production Support in the UAE</b></p>
                         <p>At CAST TALENTS Location Scout, we specialize in providing top-tier film locations and
@@ -630,11 +608,7 @@ window.onload = function() { // This waits for the entire window to load, includ
                             production's success from start to finish.</p>
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_4.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>

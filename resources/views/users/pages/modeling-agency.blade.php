@@ -21,8 +21,13 @@
 
         </div>
     </div>
-            <div class="row align-items-center pt-md-2 pt-4 text-center text-md-start">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="row align-items-center pt-md-2 pt-4 text-center ">
+            <div class="col-12 ">
+                    <div class="modalimg ">
+                        <img src="{{ url('user-assets') }}/images/modal_1.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12 ">
                     <div class="modaltext">
                         <h2>Actors / <span>Models</span></h2>
                         <p><strong>CAST TALENTS Your Global Talent Source</strong></p>
@@ -54,11 +59,7 @@
                         <!--<a href="#" class="contactbtn read-more-btn">READ MORE</a>-->
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_1.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
@@ -102,7 +103,12 @@
     <section class="modalagencysec" id="videography-photography">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center text-md-start">
+            <div class="col-12 d-flex justify-content-center">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/modal_3.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12  text-center ">
                     <div class="modaltext">
                         <h2>Videography & <span>Photography</span></h2>
                         <p><strong>One of the Premier Professional Photography and Videography Services</strong></p>
@@ -210,11 +216,7 @@
                     </div>
 
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_3.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
@@ -380,7 +382,12 @@ window.onload = function() { // This waits for the entire window to load, includ
     <section class="modalagencysec" id="locations-permit">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-center text-md-start">
+            <div class="col-12 d-flex justify-content-center">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/modal_5.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12  text-center ">
                     <div class="modaltext">
                         <h2>Locations / <span>Permit</span></h2>
                         <p><b>CAST TALENTS Location Scout: Premier Film Locations and Production Support in the UAE</b></p>
@@ -399,11 +406,7 @@ window.onload = function() { // This waits for the entire window to load, includ
                         <!--<a href="#" class="contactbtn">READ MORE</a>-->
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_5.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
