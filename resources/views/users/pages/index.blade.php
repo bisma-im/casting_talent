@@ -179,7 +179,7 @@
 }
 @media (max-width: 768px) {
     .casting1{
-    margin-top: 0px;
+    margin-top: 2px !important;
      
     width: 100%;
    
@@ -385,7 +385,7 @@
 
 <section class="casting1  ">
     <div class="">
-    <section id="section-models" class="modalagencysec ">
+    <section id="section-models" class="modalagencysec0 ">
         <div class="my-container2 ">
                 <div class="row actors-section">
                     <div class="modaltext">
