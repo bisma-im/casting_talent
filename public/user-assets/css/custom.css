@@ -136,7 +136,29 @@ section.homebanner:before {
 
 /* Responsive layout for images and text */
 @media (max-width: 768px) {
+    
+    .btnabout{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    padding-top: 0px !important ;
 
+        /* padding-top: 50px !important ; */
+    }
+    section.modalagencysec0{
+        padding: 10px 0 0px !important;
+
+        margin-top: 50px  !important;
+    }
+    .membershiptext h3 {
+        font-size: 66px;
+        line-height: 55px;
+        font-weight: 500;
+        margin-top: 100px !important;
+        font-family: "Lateef", serif;
+        text-shadow: 0 0 black;
+        text-align: center;
+    }
     .homebanner {
         padding: 50px 0; /* Reduce padding on smaller screens */
     }
@@ -633,7 +655,7 @@ section.casttelentsec {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-
+      margin-top: 70px;
     position: relative;
 }
 
@@ -698,15 +720,7 @@ section.membershipsec {
     text-shadow: 0 0 black;
     text-align: center;
 }
-.membershiptext h3 {
-    font-size: 66px;
-    line-height: 55px;
-    font-weight: 500;
-    font-family: "Lateef", serif;
-    text-shadow: 0 0 black;
-    text-align: center;
-    margin-bottom: 50px;
-}
+
 .membershipbox {
     background-color: rgba(243, 243, 243, 1);
     box-shadow: -1px 1px 5px #ccc;
@@ -1314,7 +1328,11 @@ section.modalagencysec3{
 }
 section.modalagencysec0{
     padding: 50px 0 0px;
-    margin-top: 295px !important;
+    margin-top: 295px ;
+}
+.btnabout{
+   
+    padding-top: 50px  ;
 }
 .locationdiv{
     padding-top: 400px ;

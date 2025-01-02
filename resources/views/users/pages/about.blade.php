@@ -31,7 +31,7 @@
     <div id="videoContainer" class="video-container" style="display: none;">
         <iframe id="videoIframe" class="embed-responsive-item" 
             src="https://www.youtube.com/embed/qmpkCshcRlY?autoplay=1" 
-            frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            frameborder="0" allow=" fullscreen" allowfullscreen></iframe>
     </div>
 </div>
 <style>

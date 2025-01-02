@@ -34,23 +34,23 @@
         font-size: 14px;
         font-weight: 500;
         text-align: center;
-        height: 100%; 
+        height: 100%;
     }
 
     .card-info {
         flex: 1;
         background-color: #4ca1ae;
         display: flex;
-        justify-content: center; 
+        justify-content: center;
         align-items: center;
         font-size: 14px;
         font-weight: 500;
         text-align: center;
-        height: 100%; 
+        height: 100%;
     }
     .profile-card img {
-        width: 100%; 
-        height: 100%; 
+        width: 100%;
+        height: 100%;
         object-fit: fill;
     }
 
@@ -173,34 +173,43 @@
         }
         .casting1{
     margin-top: 250px;
- 
+
     width: 100%;
-   
+
 }
 @media (max-width: 768px) {
     .casting1{
     margin-top: 2px !important;
-     
+
     width: 100%;
-   
-} 
+
+}
+/* Wrapper for consistent thumbnail and video sizing */
+.talentimg {
+    position: relative;
+    display: inline-block;
+    width: 320px !important; /* Set desired width */
+    height: 330px; /* Maintain 16:9 aspect ratio */
+    margin: 0 auto; /* Center horizontally */
+
+}
 
 .socialLinks {
         flex-wrap: wrap;
         justify-content: center;
         padding: 5px !important;
-    
+
     }
     .socialLinks .social-icon {
     font-size: 16px !important;
         width: 30px !important;
         height: 40px !important;
-        margin: 8px !important; 
-        margin-top: 20px !important; 
+        margin: 8px !important;
+        margin-top: 20px !important;
     }
 .profile-card .img-div{
     height:50vh !important
-    
+
 }
 }
 
@@ -219,8 +228,8 @@
         }
 
         .my-container2 .actors-section {
-        position: relative; 
-        z-index: 1; 
+        position: relative;
+        z-index: 1;
         }
 
         .my-container2 .actors-section::before {
@@ -230,10 +239,10 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #fff; 
+        background-color: #fff;
         opacity: 0.1;
-       
-        z-index: -1000;  
+
+        z-index: -1000;
         }
         .actors-section {
     margin: 0;
@@ -243,19 +252,19 @@
 
 @media (max-width: 768px) {
   .getstartedbtn {
-   
+
     width: 60% !important;
   }
   .section1images{
     height: 100vh !important;
-   
-   
+
+
   }
   .actors-section {
     margin: 0;
     padding: 0;
     height:100vh;
-    
+
 }
 .modalagencysec {
         padding: 10px;
@@ -286,12 +295,12 @@
     .responsive-menu {
         flex-direction: column; /* Stack items vertically */
         gap: 40px; /* Adjust spacing */
- 
+
     }
 
     .responsive-menu a {
         font-size: 20px; /* Adjust font size */
-        
+
     }
     .custom-carousel-control-prev {
         left: 0px;
@@ -304,19 +313,19 @@
         background: white;
         /* border-radius: 5px; */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-     
+
         /* padding: 15px; */
         height: 60vh;
-         
+
           width: 100vw;
 
     }
     .profile-card .img-div{
-         
+
         width: 100vw;
 
     }
- 
+
 }
 
 </style>
@@ -361,7 +370,7 @@
             <div class="col-12  col-md-5">
                 <div class="row">
                     <div class="col-12  col-md-4">
-                        <div class="bannerlistimg1 "> 
+                        <div class="bannerlistimg1 ">
                             <!-- <img   data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" src="{{ url('user-assets') }}/images/banner_img_2.jpg " class="img-fluid section1images" alt="img"> -->
                         </div>
                     </div>
@@ -389,7 +398,7 @@
         <div class="my-container2 ">
                 <div class="row actors-section">
                     <div class="modaltext">
-                         
+
                 <div class="casting-text" >
                     <h5 class="pt-md-2 pt-3">ABEERA K SHEIKH</h5>
                     <h2>Casting <sapn style="color: rgba(216, 31, 38, 1);">Director</sapn> & <sapn
@@ -403,37 +412,12 @@
                         and 50 songs, including acclaimed works like “Ride On,” “Street Dancer 3D,” and “6 Underground.”
                         As founder of Cast Talents LLC, she continues to shape entertainment with passion and
                         excellence.</p>
-                    <a class="btnabout" href="{{ route('register.get') }}" >WANT TO BECOME A MODEL? <span class="aboutbtn "><i
-                                class="fa-solid fa-angle-right"></i></span></a>
-                    <style>
-                        .socialLinks {
-                            display: flex;
-                            align-items: center;
-                            justify-content: flex-end;
-                            padding: 30px;
-                              
-                            width: 100%;
-                        }
-
-                        .socialLinks .social-icon {
-                            text-decoration: none;
-                            color: #000;
-                            margin-top: 20px !important;
-                            margin: 5px ;
-                            margin-bottom:0 !important;
-                            /* Change to desired color */
-                            font-size: 20px;
-                            /* Adjust size as needed */
-                            width: 50px;
-                            height: 50px;
-                            border-radius: 50%;
-                        }
-
-                        .socialLinks .social-icon:hover {
-                            color: #0073e6;
-                        }
-                    </style>
-                    <div class="socialLinks ">
+                        <div class="btnabout  d-md-flex flex-md-row ">
+                            <div class="w-100 pt-md-4 ">
+                            <a  href="{{ route('register.get') }}" >WANT TO BECOME A MODEL? <span class="aboutbtn "><i
+                            class="fa-solid fa-angle-right"></i></span></a>
+</div>
+<div class="socialLinks justify-content-md-end">
                         <a href="https://www.facebook.com/abeera.k.sheikh" target="_blank" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
                         </a>
@@ -453,30 +437,49 @@
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
+                       
+</div>
+
+                    <style>
+                        .socialLinks {
+                            display: flex;
+                            align-items: center;
+                            /* justify-content: flex-end; */
+                            padding: 30px;
+                            width: 100%;
+                            
+                        }
+                        .socialLinks .social-icon {
+                            text-decoration: none;
+                            color: #000;
+                            /* margin-top: 20px !important; */
+                            /* margin: 5px ; */
+                            /* margin-bottom:500px !important; */
+                            /* Change to desired color */
+                            font-size: 20px;
+                            /* Adjust size as needed */
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                        }
+
+                        .socialLinks .social-icon:hover {
+                            color: #0073e6;
+                        }
+                    </style>
+
                 </div>
             </div>
-                          
+
                           <div>
 
-                        
-                       
+
+
                     </div>
                 </div>
             </div>
-            
+
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- ---------------------------------------------------------------------------------------- -->
         <!-- <div class="row ">
             <div class="col-sm-6 col-md-12 w-100">
@@ -608,7 +611,7 @@
                             <p class="hover-text">DANCERS &  <br/> PERFORMERS</p>
                         </a>
                     </li>
-                  
+
                 </ul>
               <!-- Row 1 -->
                 <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled">
@@ -664,7 +667,7 @@
                                 <div class="profile-card">
                                     <div class="img-div">
                                         <img src="{{ url('/uploads/models/profiles/' . $firstImage) }}"
-                                            class="img-fluid" 
+                                            class="img-fluid"
                                             alt="model-image">
                                     </div>
                                     <div class="cardbody text-center">
@@ -701,47 +704,57 @@
                 <div class="rightsec">
                     <h3>Finding The <span>Right Talent</span> For Your <span>Next Screen</span> Production, <span>Made Easy.</span></h3>
                 </div>
-                <div class=" d-flex justify-content-center">
+                <div class=" d-flex justify-content-center talentimg">
                     <!-- Thumbnail Image -->
-                    <img id="imageThumbnailRight"  style="width: 100%; height: 80vh"  src="https://img.youtube.com/vi/VXZgS20jvvA/hqdefault.jpg"  class="img-fluid" alt="Talent Banner">
+                    <img id="imageThumbnailRight"  src="https://img.youtube.com/vi/VXZgS20jvvA/hqdefault.jpg"  class="img-fluid" alt="Talent Banner">
                     <!-- Play button (click to show video) -->
                     <a href="javascript:void(0);" id="playButtonRight">
                         <i class="fa-regular fa-circle-play"></i>
                     </a>
                     <!-- Hidden Video container (will be shown when play button is clicked) -->
                     <div id="videoContainerRight" class="video-container" style="display: none;">
-                        <iframe id="videoIframeRight" class="embed-responsive-item" 
-                            src="https://www.youtube.com/embed/VXZgS20jvvA?si=v2IYrl9eK_eXPPCh?autoplay=1" 
-                            frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                    </div>
+    <iframe
+        id="videoIframeRight"
+        class="embed-responsive-item"
+        src="https://www.youtube.com/embed/VXZgS20jvvA?autoplay=1"
+        frameborder="0"
+        allow=" fullscreen"
+        allowfullscreen>
+    </iframe>
+</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 <style>
+/* Wrapper for consistent thumbnail and video sizing */
 .talentimg {
     position: relative;
     display: inline-block;
-    width: 100%;
-    max-width: 600px; /* Adjust as needed */
-    margin: 0 auto;
+    width: 520px; /* Set desired width */
+    height: 330px; /* Maintain 16:9 aspect ratio */
+    margin: 0 auto; /* Center horizontally */
+
 }
 
+/* Thumbnail image */
 .talentimg img {
     width: 100%;
-    height: auto;
+    height: 100% !important;
+
     cursor: pointer;
     transition: opacity 0.3s ease; /* Smooth fade effect */
 }
 
+/* Play button styling */
 #playButtonRight {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 2rem; /* Adjust size */
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     z-index: 10;
 }
@@ -750,23 +763,20 @@
     color: rgba(255, 255, 255, 1);
 }
 
+/* Video container */
 .video-container {
-    width: 100%;
-    height: 0;
-   
-    position: relative;
-    display: block;
-    overflow: hidden;
+    width: 520px; /* Match thumbnail size */
+    height: 330px; /* Match aspect ratio */
+    display: none; /* Hidden by default */
     background-color: black; /* Background color for the video container */
 }
 
 .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
+    border: none; /* Remove border */
 }
+
 
 
 </style>
@@ -906,12 +916,12 @@
         const carouselInner = document.getElementById('customCarouselInner');
         const prevButton = document.getElementById('customCarouselPrev');
         const nextButton = document.getElementById('customCarouselNext');
-            
+
         // Default item and gap widths in percentage
         let itemWidth = 18; // The width percentage of each item in the carousel for larger screens
         const gapWidth = 2; // The percentage of gap based on CSS
         let visibleProfiles = 5;
-            
+
         // Update item width for smaller screens
         function updateItemWidth() {
             const screenWidth = window.innerWidth;
@@ -922,7 +932,7 @@
                 itemWidth = 18; // Set back to original width for screens wider than 768px
             }
         }
-            
+
         updateItemWidth(); // Call once on load
         window.addEventListener('resize', updateItemWidth); // Update on window resize
 
