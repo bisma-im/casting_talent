@@ -9,23 +9,57 @@
 
 
 
-    <script>
-window.onload = function() { // This waits for the entire window to load, including images.
-    setTimeout(function() { // Additional delay to ensure all scripts and content are fully loaded
-        var section = "{{ $section }}";
-        console.log("Section to scroll to:", section);
-        var element = document.getElementById(section);
-        if (element) {
-            console.log("Element details:", element);
-            element.scrollIntoView({
+<style>
+    .visible-section {
+padding-top: 100px !important; /* Adjust as needed */
+    transition: margin 0.3s ease; /* Smooth margin transition */
+}
+    </style>
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the section parameter passed from Laravel
+    var section = "{{ $section }}";
+    console.log("Section to display:", section);
+
+    // Select all sections
+    var allSections = document.querySelectorAll('.modalagencysec, .modalagencysec2');
+
+    // Check if a section parameter exists
+    if (section) {
+        console.log("Displaying specific section:", section);
+
+        // Hide all sections initially
+        allSections.forEach(function (sec) {
+            sec.style.display = 'none';
+        });
+
+        // Show the specific section if the `section` ID matches
+        var targetElement = document.getElementById(section);
+        if (targetElement) {
+            // Add display and margin-top
+            targetElement.style.display = 'block';
+            targetElement.classList.add('visible-section'); // Add a class for margin-top
+
+            // Scroll to the section
+            targetElement.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
         } else {
-            console.error("Failed to find element with ID:", section);
+            console.error("No matching section found for ID:", section);
         }
-    }, 1000); // Delay might need adjusting based on page load performance
-};
+    } else {
+        console.log("No section parameter provided, showing all sections.");
+        // Show all sections by default
+        allSections.forEach(function (sec) {
+            sec.style.display = 'block';
+            sec.classList.add('default-section'); // Add a class for styling all sections if needed
+        });
+    }
+});
+
+
 </script>
     <section class="modalagencysec" id="celebrity-management">
         <div class="container">
