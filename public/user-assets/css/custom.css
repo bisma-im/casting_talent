@@ -147,9 +147,11 @@ section.homebanner:before {
     }
     section.modalagencysec0{
         padding: 10px 0 0px !important;
+        padding-bottom: 0px !important;
 
         margin-top: 50px  !important;
     }
+
     .membershiptext h3 {
         font-size: 66px;
         line-height: 55px;
@@ -311,10 +313,10 @@ section.casting {
     }
     .casting-text p {
         color: #fff;
-        font-size: 12px !important;
+        font-size: 10px !important;
         width: 100% !important;
         margin-top: 25% !important;
-      
+        text-align: justify !important;
     }
     .teamimg{
         width: 100%;

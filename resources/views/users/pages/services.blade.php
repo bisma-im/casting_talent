@@ -340,7 +340,7 @@
                     <ul>
                         <li><a href="{{ route('hospitality.get', ['section' => 'catering']) }}">CATERING</a></li>
                         <li><a href="{{ route('hospitality.get', ['section' => 'transportation']) }}">TRANSPORTATION</a></li>
-                        <li><a href="{{ route('hospitality.get', ['section' => 'security_bouncer']) }}">SECURITY / BOUNCER</a></li>
+                        <li><a href="{{ route('hospitality.get', ['section' => 'security-bouncer']) }}">SECURITY / BOUNCER</a></li>
                     </ul>
                 </div>
             </div>
