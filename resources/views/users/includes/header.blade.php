@@ -48,15 +48,15 @@
         <div id="smooth-content">
             <header>
                 <nav class="navbar navbar-expand-lg navbar-light">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-                        </button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
 
-                    <div class="row w-100 align-items-center">
+                    <div class="row w-100 align-items-center collapse navbar-collapse" id="navbarSupportedContent">
                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                             <div class="">
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <div>
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
                                             <a class="nav-link active" aria-current="page"
@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5 text-end">
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div>
                                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('featured-models.get') }}">FEATURED

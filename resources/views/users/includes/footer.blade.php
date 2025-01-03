@@ -917,7 +917,7 @@
 
 <!--<script src="{{ url('user-assets') }}/js/jquery-3.6.0.min.js"></script>-->
 
-<script src="{{ url('user-assets') }}/js/bootstrap.min.js"></script>
+{{-- <script src="{{ url('user-assets') }}/js/bootstrap.min.js"></script> --}}
 <!--<script src="https://unpkg.com/tilt.js@1.1.21/dest/tilt.jquery.min.js"></script>-->
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>-->
 <!--<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>-->
