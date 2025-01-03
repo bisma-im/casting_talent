@@ -241,7 +241,7 @@
                                                         <div class="col-6 fw-bold text-start">DAYS<br><span class="fw-normal">{{
                                                                 $job->days }}</span></div>
                                                         <div class="col-6 fw-bold text-end">PAYMENT<br><span class="fw-normal">{{
-                                                                $job->payment ?? 'TBD' }}</span></div>
+                                                                $job->payment . ' AED' }}</span></div>
                                                     </div>
 
                                                     <!-- Location -->
