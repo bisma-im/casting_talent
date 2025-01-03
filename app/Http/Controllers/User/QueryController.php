@@ -231,6 +231,7 @@ class QueryController extends Controller
     // }
     public function modelInfoStore(Request $request)
     {
+        // dd($request->input('video_urls'), $request->file('audio'));
         if (!Auth::check()) {
             return back()->with('error', 'Please login or create an account first!');
         }
@@ -317,6 +318,24 @@ class QueryController extends Controller
             }, $request->file('portfolio'));
 
             $modelDetail->profile_images = json_encode($filePaths);
+        }
+
+        if ($request->hasFile('audio')) {
+            $filePaths = array_map(function ($file) {
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('uploads/models/audios/'), $fileName);
+                return $fileName;
+            }, $request->file('audio'));
+
+            $modelDetail->audio_file = json_encode($filePaths);
+        }
+
+        if ($request->has('video_urls')) {
+            // Decode JSON string back to array
+            $videoUrls = $videoUrls = json_decode($request->input('video_urls'), true);
+        
+            // Store or process the URLs as needed
+            $modelDetail->video_file = json_encode($videoUrls);
         }
 
         if ($request->hasFile('profile_pic')) {
