@@ -58,16 +58,17 @@
         font-size: 12px;
     }
 
+    .job-details .row div{
+        margin-bottom: 3px;
+        font-size: 12px;
+    }
+
     .btn-primary {
         background-color: #0056b3;
         border-color: #004085;
         color: white;
         padding: 10px 20px;
         border-radius: 5px;
-    }
-
-    .row div {
-        margin-bottom: 5px;
     }
 </style>
 
@@ -219,66 +220,59 @@
                                                 <div class="job-image"
                                                     style="background-image: url('{{ $job->image ? url('uploads/job-files/' . $job->image) : url('https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png') }}');">
                                                 </div>
-
                                                 <!-- Job Content -->
                                                 <div class="job-details p-2">
                                                     <!-- Project and Required -->
-                                                    <div class="row mb-2">
-                                                        <div class="col-6 fw-bold text-start">PROJECT: <span
+                                                    <div class="row">
+                                                        <div class="col-6 fw-bold text-start">PROJECT<br><span
                                                                 class="fw-normal">{{ $job->project }}</span></div>
-                                                        <div class="col-6 fw-bold text-end">REQUIRED: <span class="fw-normal">{{
+                                                        <div class="col-6 fw-bold text-end">REQUIRED<br><span class="fw-normal">{{
                                                                 $job->required }}</span></div>
                                                     </div>
 
                                                     <!-- Date, Timings, Days, Payment -->
-                                                    <div class="row mb-2">
-                                                        <div class="col-6 fw-bold text-start">DATE: <span class="fw-normal">{{
+                                                    <div class="row">
+                                                        <div class="col-6 fw-bold text-start">DATE<br><span class="fw-normal">{{
                                                                 $job->date }}</span></div>
-                                                        <div class="col-6 fw-bold text-end">TIMINGS: <span class="fw-normal">{{
+                                                        <div class="col-6 fw-bold text-end">TIMINGS<br><span class="fw-normal">{{
                                                                 $job->timings }}</span></div>
                                                     </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-6 fw-bold text-start">DAYS: <span class="fw-normal">{{
+                                                    <div class="row">
+                                                        <div class="col-6 fw-bold text-start">DAYS<br><span class="fw-normal">{{
                                                                 $job->days }}</span></div>
-                                                        <div class="col-6 fw-bold text-end">PAYMENT: <span class="fw-normal">{{
+                                                        <div class="col-6 fw-bold text-end">PAYMENT<br><span class="fw-normal">{{
                                                                 $job->payment ?? 'TBD' }}</span></div>
                                                     </div>
 
                                                     <!-- Location -->
-                                                    <div class="fw-bold mb-2 text-center">LOCATION:</div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-4 fw-bold text-start">COUNTRY: <span
+                                                    <div class="fw-bold mb-2 text-center">LOCATION<br></div>
+                                                    <div class="row">
+                                                        <div class="col-4 fw-bold text-start">COUNTRY<br><span
                                                                 class="fw-normal">{{ $job->country }}</span></div>
-                                                        <div class="col-4 fw-bold text-center">CITY: <span class="fw-normal">{{
+                                                        <div class="col-4 fw-bold text-center">CITY<br><span class="fw-normal">{{
                                                                 $job->city }}</span></div>
-                                                        <div class="col-4 fw-bold text-end">AREA: <span class="fw-normal">{{
+                                                        <div class="col-4 fw-bold text-end">AREA<br><span class="fw-normal">{{
                                                                 $job->area }}</span></div>
                                                     </div>
 
                                                     <!-- Transportation, Food, Payment Mode, Paid -->
-                                                    <div class="row mb-2">
-                                                        <div class="col-6 fw-bold text-start">TRANSPORTATION: <span
+                                                    <div class="row">
+                                                        <div class="col-6 fw-bold text-start">TRANSPORTATION<br><span
                                                                 class="fw-normal">{{ $job->transportation }}</span></div>
-                                                        <div class="col-6 fw-bold text-end">FOOD: <span class="fw-normal">{{
+                                                        <div class="col-6 fw-bold text-end">FOOD<br><span class="fw-normal">{{
                                                                 $job->food }}</span></div>
                                                     </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-6 fw-bold text-start">PAYMENT MODE: <span
+                                                    <div class="row">
+                                                        <div class="col-6 fw-bold text-start">PAYMENT MODE<br><span
                                                                 class="fw-normal">{{ $job->payment_mode }}</span></div>
-                                                        <div class="col-6 fw-bold text-end">PAID: <span class="fw-normal">{{
+                                                        <div class="col-6 fw-bold text-end">PAID<br><span class="fw-normal">{{
                                                                 $job->payment_status }}</span></div>
                                                     </div>
 
                                                     <!-- Details Textarea -->
                                                     <div class="details-box p-1 text-white mb-2"
                                                         style="text-align: center; background-color: rgba(28, 120, 135, 1);">
-                                                        {{-- {{ $job->details }} --}}
-                                                        Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                        industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                                        since the 1500s, when an unknown printer took a galley of type and
-                                                        scrambled it to make a type specimen book. It has survived not only five
-                                                        centuries, but also the leap into electronic typesetting, remaining
-                                                        essentially unchanged.
+                                                        {{ $job->details }}
                                                     </div>
 
                                                     <!-- Apply Button -->

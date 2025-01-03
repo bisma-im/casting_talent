@@ -296,6 +296,45 @@
         .language-selected {
             background-color: #e0ffe0;
         }
+
+        .job-box {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .job-image {
+            width: 100%;
+            height: 200px;
+            /* Adjust height as needed */
+            background-color: #333;
+            /* Dark grey background */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .job-details {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .fw-bold {
+            font-weight: bold;
+        }
+
+        .fw-normal {
+            font-weight: normal;
+        }
+
+        .details-box {
+            font-size: 12px;
+        }
+
+        .job-details .row div{
+            margin-bottom: 3px;
+            font-size: 12px;
+        }
     </style>
     
     <section class="about-sec about-margin">
@@ -374,7 +413,7 @@
                                 </div>
                                 <hr>
                                  @php
-                                    $jobs = DB::table('job_details')->get();
+                                    $jobs = DB::table('jobs')->get();
                                     // dump($jobs);
                                 @endphp
                                 <div class="serve-pad">
@@ -385,7 +424,7 @@
                                         <div class="row">
                                             @foreach ($jobs as $job)
                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                    <div class="jopbox">
+                                                    {{-- <div class="jopbox">
                                                         <div class="jopimg castimg">
                                                             <img src="{{ $job->job_profile ? url('uploads/job-files/' . $job->job_profile) : url('https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png') }}"
                                                                 class="img-fluid" alt="img">
@@ -429,6 +468,88 @@
                                                                 </div>
                                                             @endif
                                                         @endif
+                                                    </div> --}}
+                                                    <div class="job-box shadow-sm border">
+                                                        <!-- Grey Image Section -->
+                                                        <div class="job-image"
+                                                            style="background-image: url('{{ $job->image ? url('uploads/job-files/' . $job->image) : url('https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png') }}');">
+                                                        </div>
+                                                        <!-- Job Content -->
+                                                        <div class="job-details p-2">
+                                                            <!-- Project and Required -->
+                                                            <div class="row">
+                                                                <div class="col-6 fw-bold text-start">PROJECT<br><span
+                                                                        class="fw-normal">{{ $job->project }}</span></div>
+                                                                <div class="col-6 fw-bold text-end">REQUIRED<br><span class="fw-normal">{{
+                                                                        $job->required }}</span></div>
+                                                            </div>
+        
+                                                            <!-- Date, Timings, Days, Payment -->
+                                                            <div class="row">
+                                                                <div class="col-6 fw-bold text-start">DATE<br><span class="fw-normal">{{
+                                                                        $job->date }}</span></div>
+                                                                <div class="col-6 fw-bold text-end">TIMINGS<br><span class="fw-normal">{{
+                                                                        $job->timings }}</span></div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-6 fw-bold text-start">DAYS<br><span class="fw-normal">{{
+                                                                        $job->days }}</span></div>
+                                                                <div class="col-6 fw-bold text-end">PAYMENT<br><span class="fw-normal">{{
+                                                                        $job->payment ?? 'TBD' }}</span></div>
+                                                            </div>
+        
+                                                            <!-- Location -->
+                                                            <div class="fw-bold mb-2 text-center">LOCATION<br></div>
+                                                            <div class="row">
+                                                                <div class="col-4 fw-bold text-start">COUNTRY<br><span
+                                                                        class="fw-normal">{{ $job->country }}</span></div>
+                                                                <div class="col-4 fw-bold text-center">CITY<br><span class="fw-normal">{{
+                                                                        $job->city }}</span></div>
+                                                                <div class="col-4 fw-bold text-end">AREA<br><span class="fw-normal">{{
+                                                                        $job->area }}</span></div>
+                                                            </div>
+        
+                                                            <!-- Transportation, Food, Payment Mode, Paid -->
+                                                            <div class="row">
+                                                                <div class="col-6 fw-bold text-start">TRANSPORTATION<br><span
+                                                                        class="fw-normal">{{ $job->transportation }}</span></div>
+                                                                <div class="col-6 fw-bold text-end">FOOD<br><span class="fw-normal">{{
+                                                                        $job->food }}</span></div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-6 fw-bold text-start">PAYMENT MODE<br><span
+                                                                        class="fw-normal">{{ $job->payment_mode }}</span></div>
+                                                                <div class="col-6 fw-bold text-end">PAID<br><span class="fw-normal">{{
+                                                                        $job->payment_status }}</span></div>
+                                                            </div>
+        
+                                                            <!-- Details Textarea -->
+                                                            <div class="details-box p-1 text-white mb-2"
+                                                                style="text-align: center; background-color: rgba(28, 120, 135, 1);">
+                                                                {{ $job->details }}
+                                                            </div>
+        
+                                                            <!-- Apply Button -->
+                                                            <div class="text-center">
+                                                                @if (Auth::check())
+                                                                    <a href="{{ route('job-apply.post', $job->id) }}" style="background-color: rgba(28, 120, 135, 1);"
+                                                                        class="btn btn-primary" >APPLY NOW</a>
+                                                                @else
+                                                                    @php
+                                                                        $isApplied = false;
+                                                                        if ($userId) {
+                                                                            $appliedJob = DB::table('job_applieds')
+                                                                                            ->where('job_applier_id', $userId)
+                                                                                            ->where('job_id', $job->id)
+                                                                                            ->first();
+                                                                            $isApplied = $appliedJob !== null;
+                                                                        }
+                                                                    @endphp
+                                                                    <button class="btn btn-secondary" style="background-color: rgba(28, 120, 135, 1);" disabled>
+                                                                        APPLIED</button>
+                                                                @endif
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             @endforeach
@@ -596,7 +717,6 @@
                                                     $jobData = DB::table('job_details')
                                                         ->where('id', $jobDetail->job_id)
                                                         ->first();
-
                                                     // Ensure $jobData is not null
                                                     if ($jobData && $modelData) {
                                                         // Parse the profile images string into an array
@@ -702,7 +822,8 @@
                                                                                 'presenters_emcees' => 'category_7.png',
                                                                                 'event_staff_ushers' => 'category_8.png',
                                                                                 'photographers_videographers' => 'category_9.png',
-                                                                                'makeup_hair_painter_fashion_stylists' => 'category_10.png'
+                                                                                'makeup_hair_painter_fashion_stylists' => 'category_10.png',
+                                                                                'celebrity' => 'category_11.png'
                                                                             ];
                                                                         @endphp
                                                                         @foreach ($categories as $key => $image)
@@ -1490,8 +1611,26 @@
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
                                                                         <label>Eye Color</label>
-                                                                        <input type="text" class="form-control" value="{{ $profileInfo->eye_color ?? '' }}"
-                                                                            name="eyes_color" placeholder="e.g., Brown">
+                                                                        <select class="form-select" name="eyes_color"
+                                                                            aria-label="Default select example">
+                                                                            @php
+                                                                                $options = [
+                                                                                    'Amber' => 'Amber',
+                                                                                    'Blue' => 'Blue',
+                                                                                    'Brown' => 'Brown',
+                                                                                    'Gray' => 'Gray',
+                                                                                    'Green' => 'Green',
+                                                                                    'Hazel' => 'Hazel',
+                                                                                    'Red' => 'Red',
+                                                                                    'Violet' => 'Violet'
+                                                                                ];
+                                                                            @endphp
+                                                                            @foreach ($options as $value => $label)
+                                                                                <option value="{{ $value }}" {{ (isset($profileInfo) && $profileInfo->eye_color === $value) ? 'selected' : '' }}>
+                                                                                    {{ $label }}
+                                                                                </option>
+                                                                            @endforeach
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                                 <div name="hair"
@@ -1559,7 +1698,7 @@
                                                                 <div
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Your Hourly/ Session Rate</label>
+                                                                        <label>Your Hourly/ Session Rate (AED)</label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->hourly_rate ?? '' }}"
                                                                             name="hourly_rate" placeholder="e.g. 120">
                                                                     </div>
@@ -1643,53 +1782,20 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>                                                     
-                                                                </div>
-
-                                                                <!-- Audio Upload -->
-                                                                {{-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
-                                                                    <div class="uploadimg">
-                                                                        <h5>Upload Your Voice *</h5>
-                                                                        <input type="text" id="audioFileName" name="audio_file_name" class="form-control" readonly>
-                                                                        <div class="uploadbox">
-                                                                            <input type="file" name="audio_file" id="upload-audio" hidden onchange="updateFileName('upload-audio', 'audioFileName')" />
-                                                                            <label class="uploadmain" for="upload-audio">
-                                                                                <img src="{{ url('user-assets') }}/images/audio-icn.png" class="img-fluid" alt="img">
-                                                                                <h6 style="font-size: 14px;">Drag and Drop your audio</h6>
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div> --}}
-                                                                
-
-                                                                <!-- Video Upload -->
-                                                                {{-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
-                                                                    <div class="uploadimg">
-                                                                        <h5>Upload Your Video *</h5>
-                                                                        <input type="text" id="videoFileName" name="video_file_name" class="form-control" readonly>
-                                                                        <div class="uploadbox">
-                                                                            <input type="file" name="video_file" id="upload-video" hidden onchange="updateFileName('upload-video', 'videoFileName')" required />
-                                                                            <label class="uploadmain" for="upload-video">
-                                                                                <img src="{{ url('user-assets') }}/images/video-icn.png" class="img-fluid" alt="img">
-                                                                                <h6 style="font-size: 14px;">Drag and Drop your video</h6>
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div> --}}
-                                                                
+                                                                </div>                                                                
                                                             </div>
-
                                                             <div class="row">
                                                                 {{-- Audio Upload --}}
                                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
                                                                     <div class="uploadimg">
                                                                         <h5>Upload Your Voice *</h5>
-                                                                        <input type="text" id="videoFileName" name="video_file_name" class="form-control" readonly>
+                                                                        <input type="text" id="audioFileName" name="audio_file_names" class="form-control" readonly>
                                                                         <div class="uploadbox">
-                                                                            <input type="file" name="video_file" id="upload-video" hidden onchange="updateFileName('upload-video', 'videoFileName')" required />
-                                                                            <label class="uploadmain" for="upload-video">
-                                                                                <img src="{{ url('user-assets') }}/images/audio-icn.png" class="img-fluid" alt="img">
+                                                                            {{-- <input type="file" name="audio_file" id="audio-video" hidden onchange="updateFileName('upload-audio', 'videoFileName')" required /> --}}
+                                                                            <div class="uploadmain text-center" for="upload-file-1" id="audioDropzone">
+                                                                                <i class="fa-light fa-images fa-4x m-2" style="color: #E8AF55;" aria-hidden="true"></i>
                                                                                 <h6 style="font-size: 14px;">Drag and Drop your audio</h6>
-                                                                            </label>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1769,6 +1875,31 @@
                         <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
                         <a class="dz-remove" data-dz-remove>&times;</a>
                     </div>`,
+                 acceptedFiles: 'image/*,image/jpeg,image/jpg,image/png,image/gif,image/bmp',
+                init: function() {
+                    this.on("addedfile", function(file) {
+                        if (this.files.length > this.options.maxFiles) {
+                            this.removeFile(file);
+                        }
+                    });
+                }
+            });
+
+            new Dropzone("#audioDropzone", {
+                url: "#",
+                autoProcessQueue: false, // Do not process files automatically
+                paramName: "audio", // The name that will be used to transfer the file
+                maxFiles: numFiles,
+                maxFilesize: 10, // MB
+                clickable: ['#audioDropzone .fa-images', '#audioDropzone h6', '#audioDropzone'],dictRemoveFile: 'Remove', // Customizing the text for remove link
+                dictRemoveFile: '×', 
+                previewTemplate: `
+                    <div class="dz-preview dz-file-preview">
+                        <div class="dz-image"><img data-dz-thumbnail /></div>
+                        <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+                        <a class="dz-remove" data-dz-remove>&times;</a>
+                    </div>`,
+                acceptedFiles: 'audio/*,audio/mpeg,audio/wav,audio/ogg',
                 init: function() {
                     this.on("addedfile", function(file) {
                         if (this.files.length > this.options.maxFiles) {
@@ -2060,13 +2191,27 @@
         $('#profileDetails').submit(function(event) {
             event.preventDefault(); // Prevent the default form submit
             var formData = new FormData(this);
-            const dropzoneElement = document.querySelector('#portfolioDropzone');
-            if (dropzoneElement.dropzone) {
-                const files = dropzoneElement.dropzone.files;
+            const portfolioDropzoneElement = document.querySelector('#portfolioDropzone');
+            if (portfolioDropzoneElement.dropzone) {
+                const files = portfolioDropzoneElement.dropzone.files;
                 files.forEach((file) => {
                     formData.append('portfolio[]', file, file.name);
                 });
             }
+            const audioDropzoneElement = document.querySelector('#audioDropzone');
+            if (audioDropzoneElement.dropzone) {
+                const files = audioDropzoneElement.dropzone.files;
+                files.forEach((file) => {
+                    formData.append('audio[]', file, file.name);
+                });
+            }
+
+            // Collect all video URLs and add them to formData
+            const videoUrls = [];
+            document.querySelectorAll('input[name="video_urls[]"]').forEach(input => {
+                videoUrls.push(input.value);
+            });
+            formData.append('video_urls', JSON.stringify(videoUrls));
             $.ajax({
                 url: '{{ route("model-info.post") }}',
                 type: 'POST',
