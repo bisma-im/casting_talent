@@ -201,6 +201,8 @@
 
     }
     .socialLinks .social-icon {
+     
+
     font-size: 16px !important;
         width: 30px !important;
         height: 40px !important;
@@ -253,7 +255,7 @@
 @media (max-width: 768px) {
   .getstartedbtn {
 
-    width: 60% !important;
+    width: 50% !important;
   }
   .section1images{
     height: 100vh !important;
@@ -349,13 +351,13 @@
                                     class="fa-solid fa-angle-right "></i></span></a>
                         <div class="list"  data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
                             <ul>
-                                <li><img src="{{ url('user-assets') }}/images/icon_1.png" class="img-fluid " alt="img">
+                                <li><img   class="disneyimg" src="{{ url('user-assets') }}/images/icon_1.png" class="img-fluid " alt="img">
                                 </li>
-                                <li><img src="{{ url('user-assets') }}/images/icon_2.png" class="img-fluid " alt="img">
+                                <li><img   src="{{ url('user-assets') }}/images/icon_2.png" class="img-fluid " alt="img">
                                 </li>
-                                <li><img src="{{ url('user-assets') }}/images/icon_3.png" class="img-fluid " alt="img">
+                                <li><img   src="{{ url('user-assets') }}/images/icon_3.png" class="img-fluid " alt="img">
                                 </li>
-                                <li><img src="{{ url('user-assets') }}/images/icon_4.png" class="img-fluid " alt="img">
+                                <li><img   src="{{ url('user-assets') }}/images/icon_4.png" class="img-fluid " alt="img">
                                 </li>
                             </ul>
                         </div>
@@ -403,7 +405,7 @@
                     <h5 class="pt-md-2 pt-3">ABEERA K SHEIKH</h5>
                     <h2>Casting <sapn style="color: rgba(216, 31, 38, 1);">Director</sapn> & <sapn
                             style="color: rgba(216, 31, 38, 1);">Founder</sapn> Of Cast Talents.</h2>
-                    <p class="">Abeera K Sheikh's journey into entertainment began with a profound love for the arts. Relocating
+                    <p class="mb-0 pb-0 mb-md-2 pb-md-2">Abeera K Sheikh's journey into entertainment began with a profound love for the arts. Relocating
                         to the UAE over a decade ago, she swiftly emerged as a prominent figure in casting, acting, and
                         modeling. Abeera Sheikh is renowned for her warmth, professionalism, and exceptional talent,
                         leaving an enduring impact on the industry. Her career highlights include significant milestones
@@ -693,7 +695,7 @@
 <div class="startedbtn d-flex justify-content-center">
     <ul class="responsive-menu  d-flex justify-content-center">
         <li><a href="{{ route('register.get') }}">GET STARTED TODAY</a></li>
-        <li><a href="{{ route('jobs.get') }}">VIEW MORE JOBS!</a></li>
+        <li class="ps-2 ps-md-0 "> <a href="{{ route('jobs.get') }}">VIEW MORE JOBS!</a></li>
     </ul>
 
 </div>
@@ -701,8 +703,8 @@
     <div class="">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-xxl-10">
-                <div class="rightsec">
-                    <h3>Finding The <span>Right Talent</span> For Your <span>Next Screen</span> Production, <span>Made Easy.</span></h3>
+                <div class="rightsec rightmobile">
+                    <h3 class="formobile">Finding The <span>Right Talent</span> For Your <span>Next Screen</span> Production, <span>Made Easy.</span></h3>
                 </div>
                 <div class=" d-flex justify-content-center talentimg">
                     <!-- Thumbnail Image -->

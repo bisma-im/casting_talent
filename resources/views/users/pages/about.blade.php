@@ -15,83 +15,123 @@
             <h1>About <span>Us</span></h1>
         </div>
     </div>
-    <section class="rightsec" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
-        <div class="d-flex justify-content-center">
-            <div class="row justify-content-center w-50 h-25 ">
-            <div class="talentimg">
-    <!-- Thumbnail Image -->
-    <img id="imageThumbnail"   src="https://img.youtube.com/vi/qmpkCshcRlY/hqdefault.jpg"  class="img-fluid" alt="Thumbnail">
-
-    <!-- Play button (click to show video) -->
-    <a href="javascript:void(0);" id="playButton">
-        <i class="fa-regular fa-circle-play"></i>
-    </a>
-
-    <!-- Hidden Video container (will be shown when play button is clicked) -->
-    <div id="videoContainer" class="video-container" style="display: none;">
-        <iframe id="videoIframe" class="embed-responsive-item" 
-            src="https://www.youtube.com/embed/qmpkCshcRlY?autoplay=1" 
-            frameborder="0" allow=" fullscreen" allowfullscreen></iframe>
-    </div>
+    <section class="rightsec">
+    <div class="">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 ">
+                
+                <div class="talentimg  d-flex justify-content-centerx">
+                    <!-- Thumbnail Image -->
+                    <img id="imageThumbnailRight"   src="https://img.youtube.com/vi/qmpkCshcRlY/hqdefault.jpg"  class="img-fluid" alt="Talent Banner">
+                    <!-- Play button (click to show video) -->
+                    <a href="javascript:void(0);" id="playButtonRight">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </a>
+                    <!-- Hidden Video container (will be shown when play button is clicked) -->
+                    <div id="videoContainerRight" class="video-container" style="display: none;">
+    <iframe
+        id="videoIframeRight"
+        class="embed-responsive-item"
+        src="https://www.youtube.com/embed/qmpkCshcRlY?autoplay=1" 
+        frameborder="0"
+        allow=" fullscreen"
+        allowfullscreen>
+    </iframe>
 </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    
+    document.getElementById("playButtonRight").addEventListener("click", function() {
+        var imageThumbnailRight = document.getElementById("imageThumbnailRight");
+        var videoContainerRight = document.getElementById("videoContainerRight");
+        var playButtonRight = document.getElementById("playButtonRight");
+
+        // Hide the thumbnail and play button
+        imageThumbnailRight.style.display = "none";
+        playButtonRight.style.display = "none";
+
+        // Show the video container
+    videoContainerRight.style.display = "block";
+    });
+
+</script>
 <style>
 
+/* Wrapper for consistent thumbnail and video sizing */
+.talentimg {
+    position: relative;
+    display: inline-block;
+    width: 520px; /* Set desired width */
+    height: 330px; /* Maintain 16:9 aspect ratio */
+    margin: 0 auto; /* Center horizontally */
 
-#playButton {
+}
+
+/* Thumbnail image */
+.talentimg img {
+    width: 100%;
+    height: 100% !important;
+
+    cursor: pointer;
+    transition: opacity 0.3s ease; /* Smooth fade effect */
+}
+
+/* Play button styling */
+#playButtonRight {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 2rem; /* Adjust size */
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     z-index: 10;
 }
 
-#playButton:hover {
+#playButtonRight:hover {
     color: rgba(255, 255, 255, 1);
 }
 
+/* Video container */
 .video-container {
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio (16:9) */
-    position: relative;
-    display: block;
-    overflow: hidden;
+    width: 520px; /* Match thumbnail size */
+    height: 330px; /* Match aspect ratio */
+    display: none; /* Hidden by default */
     background-color: black; /* Background color for the video container */
 }
 
 .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
+    border: none; /* Remove border */
 }
 
-    </style>
+@media (max-width: 768px) {
+    .casting1{
+    margin-top: 2px !important;
 
-    <script>
-document.getElementById("playButton").addEventListener("click", function() {
-    var imageThumbnail = document.getElementById("imageThumbnail");
-    var videoContainer = document.getElementById("videoContainer");
-    var playButton = document.getElementById("playButton");
+    width: 100%;
 
-    // Hide the thumbnail and play button
-    imageThumbnail.style.display = "none";
-    playButton.style.display = "none";
+}
+/* Wrapper for consistent thumbnail and video sizing */
+.talentimg {
+    position: relative;
+    display: inline-block;
+    width: 320px !important; /* Set desired width */
+    height: 330px; /* Maintain 16:9 aspect ratio */
+    margin: 0 auto; /* Center horizontally */
 
-    // Show the video container
-    videoContainer.style.display = "block";
-});
+}
 
-        </script>
-            </div>
-        </div>
-    </section>
+}
 
-    <section class="ourmissionsec">
+</style>
+
+    <section class="ourmissionsec mt-5 mt-md-0">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
