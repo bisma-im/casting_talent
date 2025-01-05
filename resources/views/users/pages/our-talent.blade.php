@@ -483,6 +483,54 @@ html {
     background-repeat: no-repeat;
     z-index: -1; /* Ensure it stays behind the content */
 }
+/* General adjustments for small and extra-small screens */
+@media (max-width: 768px) {
+  
+    .row {
+        display: flex; /* Use Flexbox for centering */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        flex-wrap: wrap; /* Allow wrapping if necessary */
+    }
+
+    .col-md-3.col-6 {
+        max-width: 50%; /* Adjust column width to fit two per row */
+        flex: 0 0 50%; /* Set flex basis */
+        margin-bottom: 20px; /* Add spacing between rows */
+        text-align: center; /* Center-align the text */
+    }
+    .modaltext h2{
+        font-size: 50px; /* Adjust font size for smaller screens */
+
+    }
+
+    .modaltext ul li a {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .modaltext h2{
+        font-size: 25px; /* Adjust font size for smaller screens */
+
+    }
+    .row {
+        display: flex; /* Use Flexbox for centering */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        flex-wrap: wrap; /* Allow wrapping if necessary */
+    }
+
+    .col-md-3.col-6 {
+        max-width: 50%; /* Adjust column width to fit two per row */
+        flex: 0 0 50%; /* Set flex basis */
+        margin-bottom: 20px; /* Add spacing between rows */
+        text-align: center; /* Center-align the text */
+    }
+    .modaltext ul li a {
+        font-size: 12px; /* Further reduce font size for extra-small screens */
+    }
+}
 
     </style>
 <div  id="scrollable-sections">
@@ -493,14 +541,14 @@ html {
                 <div class="modaltext">
                     <h2 class="text-center m-0 p-0" style="color: black">Actors</h2>
                     <div class="row pb-0">
-                        <div class="col-md-6 d-flex flex-row justify-content-center">
+                        <div class=" col-6  d-flex align-items-center justify-content-center">
                             <ul class="">
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'main-lead']) }}">Main Lead</a></li>
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'featured_actors']) }}">Featured </a></li>
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'body_double']) }}">Body Double</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-6 d-flex flex-row  justify-content-center">
+                        <div class=" col-6  d-flex align-items-center justify-content-center">
                             <ul class="">
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'mime_artist']) }}">Voice-over Artist</a></li>
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'stunt_person']) }}">Stunt Person</a></li>
@@ -522,9 +570,9 @@ html {
                 <div class="row actors-section d-flex justify-content-center">
                     <div class="modaltext">
                         <h2 class="text-center" style="color: black">Models</h2>
-                        <div class="row">
+                        <div class="row  ">
                                 <!-- First Column -->
-                    <div class="col-md-3 col-6">
+                    <div class="col-md-3 col-6 ">
                         <ul class="list-unstyled ms-md-5">
                             <li><a class="text-dark text-decoration-none" href="{{ route('all-models.subcategory', ['subcategory' => 'art_models']) }}">Art Models</a></li>
                             <li><a class="text-dark text-decoration-none" href="{{ route('all-models.subcategory', ['subcategory' => 'body_parts_models']) }}">Body Parts</a></li>
