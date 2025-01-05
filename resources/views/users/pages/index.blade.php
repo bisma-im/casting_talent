@@ -172,48 +172,38 @@
                 overflow: hidden; /* Prevents any pseudo-element from overflowing the container */
         }
         .casting1{
-    margin-top: 250px;
-
-    width: 100%;
-
-}
-@media (max-width: 768px) {
-    .casting1{
-    margin-top: 2px !important;
-
-    width: 100%;
-
-}
-/* Wrapper for consistent thumbnail and video sizing */
-.talentimg {
-    position: relative;
-    display: inline-block;
-    width: 320px !important; /* Set desired width */
-    height: 330px; /* Maintain 16:9 aspect ratio */
-    margin: 0 auto; /* Center horizontally */
-
-}
-
-.socialLinks {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 5px !important;
-
+            margin-top: 250px;
+            width: 100%;
+        }
+    @media (max-width: 768px) {
+        .casting1{
+            margin-top: 2px !important;
+            width: 100%;
+        }
+        /* Wrapper for consistent thumbnail and video sizing */
+        .talentimg {
+            position: relative;
+            display: inline-block;
+            width: 320px !important; /* Set desired width */
+            height: 330px; /* Maintain 16:9 aspect ratio */
+            margin: 0 auto; /* Center horizontally */
+        }
+        .socialLinks {
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 5px !important;
+        }
+        .socialLinks .social-icon {
+            font-size: 16px !important;
+            width: 30px !important;
+            height: 40px !important;
+            margin: 5px !important;
+            margin-top: 10px !important;
+        }
+        .profile-card .img-div{
+            height:50vh !important
+        }
     }
-    .socialLinks .social-icon {
-     
-
-    font-size: 16px !important;
-        width: 30px !important;
-        height: 40px !important;
-        margin: 8px !important;
-        margin-top: 20px !important;
-    }
-.profile-card .img-div{
-    height:50vh !important
-
-}
-}
 
         .my-container2::before {
         content: "";
@@ -253,22 +243,33 @@
 }
 
 @media (max-width: 768px) {
-  .getstartedbtn {
-
-    width: 50% !important;
-  }
-  .section1images{
-    height: 100vh !important;
-
-
-  }
-  .actors-section {
-    margin: 0;
-    padding: 0;
-    height:100vh;
-
-}
-.modalagencysec {
+    .test-class {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+    span.aboutbtn {
+        font-size: 20px;
+        position: relative;
+        top: 3px;
+        right: -9px;
+    }
+    .btnabout{
+        padding-top: 12px;
+    }
+    .getstartedbtn {
+        width: 50% !important;
+    }
+    .section1images{
+        height: 100vh !important;
+    }
+    .actors-section {
+        margin: 0;
+        padding: 0;
+        height:100vh;
+    }
+    .modalagencysec {
         padding: 10px;
     }
     .my-container2 {
@@ -276,12 +277,23 @@
     }
     .modaltext {
         text-align: center;
+        height:100%;
     }
     .casting-text h2 {
-        font-size: 1.5rem; /* Adjust for smaller screens */
+        font-size: 16px; /* Adjust for smaller screens */
     }
     .casting-text p {
         font-size: 1rem; /* Adjust for readability */
+        font-weight: normal;
+    }
+    .modaltext p {
+        line-height: 15px;
+        font-size: 12px;
+        background-color: rgba(218, 188, 147, 0.5)
+    }
+    .btnabout a {
+        font-size: 12px; 
+        padding: 10px 25px 10px 10px;
     }
     .socialLinks {
         flex-wrap: wrap;
@@ -290,7 +302,7 @@
     }
     .socialLinks .social-icon {
         font-size: 16px;
-        width: 40px;
+        width: 30px;
         height: 40px;
         margin: 5px;
     }
@@ -299,7 +311,6 @@
         gap: 40px; /* Adjust spacing */
 
     }
-
     .responsive-menu a {
         font-size: 20px; /* Adjust font size */
 
@@ -346,7 +357,7 @@
                         development through dedicated support and collaboration with industry professionals. </p>
                     <p>Join us to showcase your unique skills, build portfolios, and pursue extraordinary opportunities
                         in a vibrant entertainment landscape.</p>
-                    <div class="btnlist ">
+                    <div class="btnlist homebtn">
                         <a href="{{ route('register.get') }} " class="getstartedbtn" >GET STARTED <span class="spanlist  "><i
                                     class="fa-solid fa-angle-right "></i></span></a>
                         <div class="list"  data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
@@ -396,93 +407,92 @@
 
 <section class="casting1  ">
     <div class="">
-    <section id="section-models" class="modalagencysec0 ">
-        <div class="my-container2 ">
+        <section id="section-models" class="modalagencysec0 ">
+            <div class="my-container2 ">
                 <div class="row actors-section">
                     <div class="modaltext">
 
-                <div class="casting-text" >
-                    <h5 class="pt-md-2 pt-3">ABEERA K SHEIKH</h5>
-                    <h2>Casting <sapn style="color: rgba(216, 31, 38, 1);">Director</sapn> & <sapn
-                            style="color: rgba(216, 31, 38, 1);">Founder</sapn> Of Cast Talents.</h2>
-                    <p class="mb-0 pb-0 mb-md-2 pb-md-2">Abeera K Sheikh's journey into entertainment began with a profound love for the arts. Relocating
-                        to the UAE over a decade ago, she swiftly emerged as a prominent figure in casting, acting, and
-                        modeling. Abeera Sheikh is renowned for her warmth, professionalism, and exceptional talent,
-                        leaving an enduring impact on the industry. Her career highlights include significant milestones
-                        in both acting and casting direction, contributing to the success of numerous films, songs, and
-                        brand campaigns. With over a decade of experience, Abeera Sheikh has credits in over 20 movies
-                        and 50 songs, including acclaimed works like “Ride On,” “Street Dancer 3D,” and “6 Underground.”
-                        As founder of Cast Talents LLC, she continues to shape entertainment with passion and
-                        excellence.</p>
-                        <div class="btnabout  d-md-flex flex-md-row ">
-                            <div class="w-100 pt-md-4 ">
-                            <a  href="{{ route('register.get') }}" >WANT TO BECOME A MODEL? <span class="aboutbtn "><i
-                            class="fa-solid fa-angle-right"></i></span></a>
-</div>
-<div class="socialLinks justify-content-md-end">
-                        <a href="https://www.facebook.com/abeera.k.sheikh" target="_blank" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.snapchat.com/add/abeeraksheikh" target="_blank" class="social-icon">
-                            <i class="fab fa-snapchat"></i>
-                        </a>
-                        <a href="https://wa.me/971501234796" target="_blank" class="social-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://www.instagram.com/itsabeeraksheikh/" target="_blank" class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/abeera-sheikh-uae-based-casting-specialist-actor-and-founder-of-aks-castings-llc-723063147" target="_blank" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://www.youtube.com" target="_blank" class="social-icon">
-                            <i class="fab fa-youtube"></i>
-                        </a>
+                        <div class="casting-text test-class">
+                            <div>
+                            <h5 class="pt-md-2 pt-3">ABEERA K SHEIKH</h5>
+                            <h2 style="color: rgba(216, 31, 38, 1);">Casting <sapn style="color: rgba(216, 31, 38, 1);">Director</sapn> & <sapn
+                                    style="color: rgba(216, 31, 38, 1);">Founder</span> Of Cast Talents.</h2>
+                            </div>
+                            <div>
+                            <p class="mb-0 pb-0 mb-md-2 pb-md-2">Abeera K Sheikh's journey into entertainment began with a profound love for the arts. Relocating
+                                to the UAE over a decade ago, she swiftly emerged as a prominent figure in casting, acting, and
+                                modeling. Abeera Sheikh is renowned for her warmth, professionalism, and exceptional talent,
+                                leaving an enduring impact on the industry. Her career highlights include significant milestones
+                                in both acting and casting direction, contributing to the success of numerous films, songs, and
+                                brand campaigns. With over a decade of experience, Abeera Sheikh has credits in over 20 movies
+                                and 50 songs, including acclaimed works like “Ride On,” “Street Dancer 3D,” and “6 Underground.”
+                                As founder of Cast Talents LLC, she continues to shape entertainment with passion and
+                                excellence.</p>
+                                <div class="btnabout d-md-flex flex-md-row">
+                                    <div class="w-100 pt-md-4">
+                                        <a href="{{ route('register.get') }}">WANT TO BECOME A MODEL? <span class="aboutbtn "><i
+                                        class="fa-solid fa-angle-right"></i></span></a>
+                                    </div>
+                                    <div class="socialLinks justify-content-md-end">
+                                        <a href="https://www.facebook.com/abeera.k.sheikh" target="_blank" class="social-icon">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="https://www.snapchat.com/add/abeeraksheikh" target="_blank" class="social-icon">
+                                            <i class="fab fa-snapchat"></i>
+                                        </a>
+                                        <a href="https://wa.me/971501234796" target="_blank" class="social-icon">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                        <a href="https://www.instagram.com/itsabeeraksheikh/" target="_blank" class="social-icon">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="https://www.linkedin.com/in/abeera-sheikh-uae-based-casting-specialist-actor-and-founder-of-aks-castings-llc-723063147" target="_blank" class="social-icon">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a href="https://www.youtube.com" target="_blank" class="social-icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <style>
+                                .socialLinks {
+                                    display: flex;
+                                    align-items: center;
+                                    /* justify-content: flex-end; */
+                                    padding: 30px;
+                                    width: 100%;
+                                    
+                                }
+                                .socialLinks .social-icon {
+                                    text-decoration: none;
+                                    color: #000;
+                                    /* margin-top: 20px !important; */
+                                    /* margin: 5px ; */
+                                    /* margin-bottom:500px !important; */
+                                    /* Change to desired color */
+                                    font-size: 20px;
+                                    /* Adjust size as needed */
+                                    width: 50px;
+                                    height: 50px;
+                                    border-radius: 50%;
+                                }
+
+                                .socialLinks .social-icon:hover {
+                                    color: #0073e6;
+                                }
+                            </style>
+
+                        </div>
                     </div>
-                       
-</div>
 
-                    <style>
-                        .socialLinks {
-                            display: flex;
-                            align-items: center;
-                            /* justify-content: flex-end; */
-                            padding: 30px;
-                            width: 100%;
-                            
-                        }
-                        .socialLinks .social-icon {
-                            text-decoration: none;
-                            color: #000;
-                            /* margin-top: 20px !important; */
-                            /* margin: 5px ; */
-                            /* margin-bottom:500px !important; */
-                            /* Change to desired color */
-                            font-size: 20px;
-                            /* Adjust size as needed */
-                            width: 50px;
-                            height: 50px;
-                            border-radius: 50%;
-                        }
-
-                        .socialLinks .social-icon:hover {
-                            color: #0073e6;
-                        }
-                    </style>
-
-                </div>
+                <div>
+            {{-- </div>
+                </div> --}}
             </div>
 
-                          <div>
-
-
-
-                    </div>
-                </div>
-            </div>
-
-    </section>
-    <!-- ---------------------------------------------------------------------------------------- -->
+        </section>
+        <!-- ---------------------------------------------------------------------------------------- -->
         <!-- <div class="row ">
             <div class="col-sm-6 col-md-12 w-100">
                 <div  data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">

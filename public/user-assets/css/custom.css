@@ -158,14 +158,6 @@ section.homebanner:before {
         position: relative;
         top: 0px !important;
     }
-    .btnabout{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    padding-top: 0px !important ;
-
-        /* padding-top: 50px !important ; */
-    }
     section.modalagencysec0{
         padding: 10px 0 0px !important;
         padding-bottom: 0px !important;
@@ -205,22 +197,21 @@ section.homebanner:before {
 
     .btnlist a {
         font-size: 12px;
-      
+    }
+    .homebtn a {
+        font-size: 10px;
     }
     section.homebanner:before {
         content: "";
         position: absolute;
         background-image: url(../images/homemobile.png);
         background-repeat: no-repeat;
-        background-size: cover;
+        background-position: center center;
         width: 100%;
         height: 100%;
         z-index: -1;
         top: 0;
     }
-    
-    
-
     .rightbanner .bannerlistimg img {
         width: 100%; /* Ensure images fit within container */
         height: auto;
@@ -323,13 +314,13 @@ section.casting {
     color: #fff;
     font-size: 20px;
     width: 100% !important;
-    font-weight: bold !important;
+    font-weight: bold;
     line-height: 25px;
 }
 @media (max-width: 768px) {
 
     .casting-text h2 {
-        font-size: 15px !important;
+        font-size: 18px !important;
         padding: 0px  !important;
         font-weight: bolder !important;
     }
@@ -352,6 +343,15 @@ section.casting {
     color: rgba(216, 31, 38, 1);
 }
 .casting-text a {
+    color: rgba(28, 120, 135, 1);
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    padding: 15px 39px 15px 18px;
+    border-radius: 50px;
+}
+.btnabout a {
     color: rgba(28, 120, 135, 1);
     background-color: #fff;
     font-size: 16px;
@@ -1355,7 +1355,6 @@ section.modalagencysec0{
     margin-top: 295px ;
 }
 .btnabout{
-   
     padding-top: 50px  ;
 }
 .locationdiv{
