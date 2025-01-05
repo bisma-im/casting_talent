@@ -225,30 +225,24 @@
         }
 
         .my-container2 .actors-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #fff;
-        opacity: 0.1;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #fff;
+            opacity: 0.1;
 
-        z-index: -1000;
+            z-index: -1000;
         }
         .actors-section {
-    margin: 0;
-    padding: 0;
-    height:70vh;
-}
+            margin: 0;
+            padding: 0;
+            height:70vh;
+        }
 
 @media (max-width: 768px) {
-    .test-class {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-    }
     span.aboutbtn {
         font-size: 20px;
         position: relative;
@@ -256,7 +250,7 @@
         right: -9px;
     }
     .btnabout{
-        padding-top: 12px;
+        padding-top: 20px;
     }
     .getstartedbtn {
         width: 50% !important;
@@ -274,10 +268,17 @@
     }
     .my-container2 {
         width: 100%;
+        height: 90vh;
     }
     .modaltext {
         text-align: center;
-        height:100%;
+        height:90vh;
+    }
+    .test-class {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 90vh;
     }
     .casting-text h2 {
         font-size: 16px; /* Adjust for smaller screens */
@@ -288,11 +289,10 @@
     }
     .modaltext p {
         line-height: 15px;
-        font-size: 12px;
         background-color: rgba(218, 188, 147, 0.5)
     }
     .btnabout a {
-        font-size: 12px; 
+        font-size: 14px; 
         padding: 10px 25px 10px 10px;
     }
     .socialLinks {
@@ -304,7 +304,7 @@
         font-size: 16px;
         width: 30px;
         height: 40px;
-        margin: 5px;
+        margin: 8px 5px 5px 5px;
     }
     .responsive-menu {
         flex-direction: column; /* Stack items vertically */
@@ -415,8 +415,8 @@
                         <div class="casting-text test-class">
                             <div>
                             <h5 class="pt-md-2 pt-3">ABEERA K SHEIKH</h5>
-                            <h2 style="color: rgba(216, 31, 38, 1);">Casting <sapn style="color: rgba(216, 31, 38, 1);">Director</sapn> & <sapn
-                                    style="color: rgba(216, 31, 38, 1);">Founder</span> Of Cast Talents.</h2>
+                            <h2 style="color: rgba(216, 31, 38, 1);">Casting <span style="color: white;">Director</sapn> & <sapn
+                                    style="color: white;">Founder</span> Of Cast Talents.</h2>
                             </div>
                             <div>
                             <p class="mb-0 pb-0 mb-md-2 pb-md-2">Abeera K Sheikh's journey into entertainment began with a profound love for the arts. Relocating
