@@ -516,7 +516,7 @@ html {
     }
 
     .modaltext ul li a {
-        font-size: 10px; /* Smaller font size for small screens */
+
     font-weight: 400 !important;
 
     }
