@@ -461,7 +461,7 @@ html {
         }
         
         .modalagencysec {
-    height: 120vh; /* Full viewport height */
+    /* height: 120vh; Full viewport height */
     width: 100%;
     overflow: hidden; /* Prevent overflow inside the sections */
     position: relative; /* For pseudo-elements and absolute positioning */
@@ -483,53 +483,116 @@ html {
     background-repeat: no-repeat;
     z-index: -1; /* Ensure it stays behind the content */
 }
+.presenter{
+        font-size: 50px !important; /* Adjust font size for smaller screens */
+
+    }
 /* General adjustments for small and extra-small screens */
 @media (max-width: 768px) {
+
+    .actors-section {
+        height: 250px; /* Adjust height automatically */
+      
+    }
+ 
   
-    .row {
-        display: flex; /* Use Flexbox for centering */
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically */
-        flex-wrap: wrap; /* Allow wrapping if necessary */
+
+
+.modaltext h2 {
+        font-size: 20px !important; /* Adjusted font size for small screens */
+        line-height: 5px !important; /* Adjusted line height */
+        font-weight: 400; /* Lighter font for better readability */
+        text-shadow: none; /* Remove text shadow for clarity */
     }
 
-    .col-md-3.col-6 {
-        max-width: 50%; /* Adjust column width to fit two per row */
-        flex: 0 0 50%; /* Set flex basis */
-        margin-bottom: 20px; /* Add spacing between rows */
-        text-align: center; /* Center-align the text */
+    .modaltext {
+        text-align: justify; /* Ensure alignment consistency */
+        padding: 10px; /* Adjust spacing for small screens */
     }
-    .modaltext h2{
-        font-size: 50px; /* Adjust font size for smaller screens */
 
+    .modaltext ul {
+        padding: 0;
+        margin: 0 auto; /* Center align the list */
     }
 
     .modaltext ul li a {
-        font-size: 14px; /* Adjust font size for smaller screens */
+        font-size: 10px; /* Smaller font size for small screens */
+    font-weight: 400 !important;
+
     }
+    .presenter{
+        font-size: 10px !important; /* Adjust font size for smaller screens */
+
+    }
+  
+    .contactbtn {
+        font-size: 10px !important; /* Further reduce font size for smaller screens */
+        padding: 3px 8px !important; /* Smaller padding for mobile view */
+    }
+
+    /* Film Crew Section */
+    .filmcrew-text {
+        font-size: 14px !important; /* Smaller font size */
+        line-height: 1.4 !important; /* Adjust line height */
+       
+    }
+    .filmcrew-text h2 {
+        font-size: 15px !important; /* Smaller heading size */
+        line-height: 5px !important; /* Adjusted line height */
+
+
+    font-family: "Lateef", serif;
+    text-shadow: 0 0 black;
+    }
+    .filmcrew-text ul {
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important; /* Remove bullets */
+    }
+    .filmcrew-text ul li a {
+        font-size: 4px !important; /* Adjust link font size */
+
+    }
+    .modaltext ul li a:hover {
+            color: rgb(235, 13, 13) !important;
+            font-size: 5px !important; 
+            
+        }
 }
 
 @media (max-width: 576px) {
+    .actors-section {
+        height: 237px; /* Adjust height automatically */
+      
+    }
+    .modaltext ul li a:hover {
+            color: rgb(235, 13, 13) !important;
+            font-size: 5px !important; 
+            
+        }
+    .presenter{
+        font-size: 10px !important; /* Adjust font size for smaller screens */
+
+    }
+    .contactbtn {
+        font-size: 10px !important; /* Further reduce font size for smaller screens */
+        padding: 3px 8px !important; /* Smaller padding for mobile view */
+    }
+    .modaltext {
+        text-align: justify; /* Ensure alignment consistency */
+        padding: 20px; /* Adjust spacing for small screens */
+    }
     .modaltext h2{
-        font-size: 25px; /* Adjust font size for smaller screens */
+        font-size: 20px !important; /* Adjust font size for smaller screens */
 
     }
-    .row {
-        display: flex; /* Use Flexbox for centering */
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically */
-        flex-wrap: wrap; /* Allow wrapping if necessary */
-    }
-
-    .col-md-3.col-6 {
-        max-width: 50%; /* Adjust column width to fit two per row */
-        flex: 0 0 50%; /* Set flex basis */
-        margin-bottom: 20px; /* Add spacing between rows */
-        text-align: center; /* Center-align the text */
-    }
+ 
     .modaltext ul li a {
-        font-size: 12px; /* Further reduce font size for extra-small screens */
+        font-size: 6px ; /* Adjust font size for smaller screens */
+    font-weight: 400 !important;
+      
     }
+ 
 }
 
     </style>
@@ -556,7 +619,7 @@ html {
                             </ul>
                         </div>
                     </div>
-                    <div class="text-center mb-4">
+                    <div class="text-center mb-4 viewallbtn">
                         <a href="{{ route('all-models.get', ['role' => 'actors']) }}" class="contactbtn">VIEW ALL</a>
                     </div>
                 </div>
@@ -567,12 +630,12 @@ html {
     <!-- ------------------------------models section ---------------------- -->
     <section id="section-models" class="modalagencysec">
         <div class="my-container2">
-                <div class="row actors-section d-flex justify-content-center">
+                <div class="row actors-section ">
                     <div class="modaltext">
                         <h2 class="text-center" style="color: black">Models</h2>
                         <div class="row  ">
                                 <!-- First Column -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled ms-md-5">
                             <li><a class="text-dark text-decoration-none" href="{{ route('all-models.subcategory', ['subcategory' => 'art_models']) }}">Art Models</a></li>
                             <li><a class="text-dark text-decoration-none" href="{{ route('all-models.subcategory', ['subcategory' => 'body_parts_models']) }}">Body Parts</a></li>
@@ -582,7 +645,7 @@ html {
                         </ul>
                     </div>
                     <!-- Second Column -->
-                    <div class="col-md-3 col-6">
+                    <div class="col-md-3 col-3">
                         <ul class="list-unstyled ">
                             <li><a class="text-dark text-decoration-none" href="{{ route('all-models.subcategory', ['subcategory' => 'erotic_photography_model']) }}">Erotic Photography</a></li>
                             <li><a class="text-dark text-decoration-none" href="{{ route('all-models.subcategory', ['subcategory' => 'fashion_models']) }}">Fashion (Catalogue)</a></li>
@@ -592,7 +655,7 @@ html {
                         </ul>
                     </div>
                     <!-- Third Column -->
-                    <div class="col-md-3 col-6">
+                    <div class="col-md-3 col-3">
                         <ul class="list-unstyled ms-md-5">
                             <li><a class="text-dark text-decoration-none" href="{{ route('all-models.subcategory', ['subcategory' => 'hair_model']) }}">Hair Model</a></li>
                             <li><a class="text-dark text-decoration-none" href="{{ route('all-models.subcategory', ['subcategory' => 'plus_size_models']) }}">Plus-Size</a></li>
@@ -602,7 +665,7 @@ html {
                         </ul>
                     </div>
                     <!-- Fourth Column -->
-                    <div class="col-md-3 col-6">
+                    <div class="col-md-3 col-3">
                         <ul class="list-unstyled ">
                             <li><a class="text-dark text-decoration-none" href="{{ route('all-models.subcategory', ['subcategory' => 'high_fashion_editorial']) }}">High Fashion (Editorial)</a></li>
                             <li><a class="text-dark text-decoration-none" href="{{ route('all-models.subcategory', ['subcategory' => 'promotional_models']) }}">Promotional</a></li>
@@ -629,7 +692,7 @@ html {
                         <h2 class="text-center" style="color: black"> Dancers & Performers                                </h2>
                       
                                 <div class="row">
-                                        <div class="col-md-3 col-6">
+                                        <div class="col-md-3 col-3">
                                         <ul class="list-unstyled ms-md-5">
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'ayyala_dancers']) }}">Ayyala </a></li>
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'background_dancers']) }}">Background</a></li>
@@ -639,7 +702,7 @@ html {
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'b_boy']) }}">B Boy</a></li>
                                         </ul>
                                         </div>
-                                        <div class="col-md-3 col-6">
+                                        <div class="col-md-3 col-3">
                                         <ul class="list-unstyled">
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'break_dancers']) }}">Break </a></li>
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'cabaret_dancer']) }}">Cabaret </a></li>
@@ -649,7 +712,7 @@ html {
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'dance_group']) }}">Dance Group</a></li>
                                         </ul>
                                         </div>
-                                        <div class="col-md-3 col-6">
+                                        <div class="col-md-3 col-3">
                                         <ul class="list-unstyled ms-md-5">
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'dancing_couples']) }}">Dancing Couple</a></li>
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'fictional_dancers']) }}">Fictional </a></li>
@@ -659,7 +722,7 @@ html {
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'hip_hop_dancers']) }}">Hip Hop </a></li>
                                         </ul>
                                         </div>
-                                        <div class="col-md-3 col-6">
+                                        <div class="col-md-3 col-3">
                                         <ul class="list-unstyled">
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'kathak_dancer']) }}">Kathak </a></li>
                                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'parade_away']) }}">Parade Away</a></li>
@@ -689,25 +752,25 @@ html {
             <div class="modaltext">
                 <h2 class="text-center text-black"> Makeup | Hair | Painter | Fashion Stylists </h2>
                 <div class="row">
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled ms-md-5">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'body_painter']) }}">Body Painter</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'creative_makeup_artists']) }}">Creative Makeup Artist</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'face_painter']) }}">Face Painter</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'fashion_stylists']) }}">Fashion Stylist</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled ms-md-5">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'hair_stylists']) }}">Hair Stylist</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'henna_artist']) }}">Henna Artist</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'makeup_artists']) }}">Makeup Artists</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'wardrobe_stylist']) }}">Wardrobe Stylist</a></li>
@@ -729,7 +792,7 @@ html {
                 <div class="modaltext">
                     <h2 class="text-center" style="color: black">Photo | Video</h2>
                     <div class="row">
-                        <div class="col-md-3 col-6 ">
+                        <div class="col-md-3 col-3 ">
                             <ul class="list-unstyled ms-md-5">
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'abstract']) }}">Abstract </a></li>
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'aerial']) }}">Aerial </a></li>
@@ -738,7 +801,7 @@ html {
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'commercial']) }}">Commercial </a></li>
                             </ul>
                         </div>
-                        <div class="col-md-3 col-6 ">
+                        <div class="col-md-3 col-3 ">
                             <ul class="list-unstyled">
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'digital']) }}">Digital </a></li>
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'documentary']) }}">Documentary </a></li>
@@ -747,7 +810,7 @@ html {
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'film']) }}">Film </a></li>
                             </ul>
                         </div>
-                        <div class="col-md-3 col-6 ">
+                        <div class="col-md-3 col-3 ">
                             <ul class="list-unstyled ms-md-5">
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'fine_art']) }}">Fine Art </a></li>
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'food']) }}">Food </a></li>
@@ -756,7 +819,7 @@ html {
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'nature']) }}">Nature </a></li>
                             </ul>
                         </div>
-                        <div class="col-md-3 col-6 ">
+                        <div class="col-md-3 col-3 ">
                             <ul class="list-unstyled">
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'portrait']) }}">Portrait </a></li>
                                 <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'sports']) }}">Sports </a></li>
@@ -777,11 +840,11 @@ html {
     <section id="section-film-crew" class="modalagencysec">
         <div class="my-container6">
             <div class="row actors-section d-flex justify-content-center">
-                <div class="modaltext">
+                <div class=" modaltext filmcrew-text">
                     <h2 class="text-center" style="color: black">Film Crew</h2>
                     <div class="row">
                         <!-- Column 1 -->
-                        <div class="col-md-3 col-6 d-flex align-items-center justify-content-center">
+                        <div class="col-md-3 col-3 d-flex align-items-center justify-content-center">
     <ul class="mb-3 ms-md-5">
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'art_director']) }}">Art Director</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'art_and_costume']) }}">Art & Costume</a></li>
@@ -792,7 +855,7 @@ html {
     </ul>
 </div>
 <!-- Column 2 -->
-<div class="col-md-3 col-6 d-flex align-items-center justify-content-center">
+<div class="col-md-3 col-3 d-flex align-items-center justify-content-center">
     <ul class="mb-3">
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'crane_operator']) }}">Crane Operator</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'director']) }}">Director</a></li>
@@ -803,7 +866,7 @@ html {
     </ul>
 </div>
 <!-- Column 3 -->
-<div class="col-md-3 col-6 d-flex align-items-center justify-content-center">
+<div class="col-md-3 col-3 d-flex align-items-center justify-content-center">
     <ul class="mb-3 ms-md-5">
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'film_maker']) }}">Film Maker</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'film_producer']) }}">Film Producer</a></li>
@@ -814,7 +877,7 @@ html {
     </ul>
 </div>
 <!-- Column 4 -->
-<div class="col-md-3 col-6 d-flex align-items-center justify-content-center">
+<div class="col-md-3 col-3 d-flex align-items-center justify-content-center">
     <ul class="mb-3">
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'production_manager']) }}">Production Manager</a></li>
         <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'photographer']) }}">Photographer</a></li>
@@ -839,10 +902,10 @@ html {
     <div class="my-container7">
         <div class="row actors-section d-flex justify-content-center">
             <div class="modaltext">
-                <h2 class="text-center" style="color: black; font-size: 50px !important;">Presenter & Emcee</h2>
+                <h2 class="text-center presenter" style="color: black;">Presenter & Emcee</h2>
                 <div class="row">
                     <!-- Column 1 -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled ms-md-5">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'balloon_decorator']) }}">Balloon Decorator</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'bottle_twister']) }}">Bottle Twister</a></li>
@@ -853,7 +916,7 @@ html {
                         </ul>
                     </div>
                     <!-- Column 2 -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'fire_artist']) }}">Fire Artist</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'hypnotist']) }}">Hypnotist</a></li>
@@ -864,7 +927,7 @@ html {
                         </ul>
                     </div>
                     <!-- Column 3 -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled ms-md-5">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'media_reporter']) }}">Media Reporter</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'news_reader']) }}">News Reader</a></li>
@@ -875,7 +938,7 @@ html {
                         </ul>
                     </div>
                     <!-- Column 4 -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'stand_up_artist']) }}">Stand-Up Artist</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'stilt_walker']) }}">Stilt Walker</a></li>
@@ -902,7 +965,7 @@ html {
                 <h2 class="text-center" style="color: black"> Musician </h2>
                 <div class="row">
                     <!-- Column 1 -->
-                    <div class="col-md-3  col-6 ">
+                    <div class="col-md-3  col-3 ">
                         <ul class="list-unstyled ms-md-5">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'guitarist']) }}">Guitarist</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'hobbyist']) }}">Hobbyist</a></li>
@@ -911,7 +974,7 @@ html {
                         </ul>
                     </div>
                     <!-- Column 2 -->
-                    <div class="col-md-3  col-6 ">
+                    <div class="col-md-3  col-3 ">
                         <ul class="list-unstyled">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'live_performer']) }}">Live Performer</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'music_band']) }}">Music Band</a></li>
@@ -920,7 +983,7 @@ html {
                         </ul>
                     </div>
                     <!-- Column 3 -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled ms-md-5">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'producer_composer']) }}">Producer - Composer</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'rapper']) }}">Rapper</a></li>
@@ -929,7 +992,7 @@ html {
                         </ul>
                     </div>
                     <!-- Column 4 -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'song_writer']) }}">Song Writer</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'teacher']) }}">Teacher</a></li>
@@ -954,7 +1017,7 @@ html {
                 <h2 class="text-center" style="color: black">EVENT STAFF & USHERS</h2>
                 <div class="row">
                     <!-- Column 1 -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled ms-md-5">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'bartender']) }}">Bartender</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'brand_ambassador']) }}">Brand Ambassador</a></li>
@@ -962,7 +1025,7 @@ html {
                         </ul>
                     </div>
                     <!-- Column 2 -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'chef']) }}">Chef</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'concierge']) }}">Concierge</a></li>
@@ -970,7 +1033,7 @@ html {
                         </ul>
                     </div>
                     <!-- Column 3 -->
-                    <div class="col-md-3  col-6 ">
+                    <div class="col-md-3  col-3 ">
                         <ul class="list-unstyled ms-md-5">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'event_supervisor']) }}">Event Supervisor</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'host_or_hostess']) }}">Host / Hostess</a></li>
@@ -978,7 +1041,7 @@ html {
                         </ul>
                     </div>
                     <!-- Column 4 -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'promotional_staff']) }}">Promotional Staff</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'ushers']) }}">Ushers</a></li>
@@ -997,11 +1060,11 @@ html {
     <section  id="section-influencers" class="modalagencysec">
     <div class="my-container10">
         <div class="row actors-section d-flex justify-content-center">
-            <div class="modaltext">
+            <div class="modaltext filmcrew-text">
                 <h2 class="text-center" style="color: black">Influencers</h2>
                 <div class="row">
                     <!-- Column 1 -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled ms-md-5">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'beauty_influencers']) }}">Beauty </a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'bloggers']) }}">Bloggers</a></li>
@@ -1009,7 +1072,7 @@ html {
                         </ul>
                     </div>
                     <!-- Column 2 -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'fashion_influencers']) }}">Fashion </a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'fitness_wellness_influencers']) }}">Fitness & Wellness</a></li>
@@ -1017,7 +1080,7 @@ html {
                         </ul>
                     </div>
                     <!-- Column 3 -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled ms-md-5">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'gaming_tech_influencers']) }}">Gaming & Tech </a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'event_influencers']) }}">Influencers to Attend Events</a></li>
@@ -1025,7 +1088,7 @@ html {
                         </ul>
                     </div>
                     <!-- Column 4 -->
-                    <div class="col-md-3 col-6 ">
+                    <div class="col-md-3 col-3 ">
                         <ul class="list-unstyled">
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'mens_products_influencers']) }}">Men’s Products</a></li>
                             <li><a class="text-dark" href="{{ route('all-models.subcategory', ['subcategory' => 'travel_influencers']) }}">Travel </a></li>
