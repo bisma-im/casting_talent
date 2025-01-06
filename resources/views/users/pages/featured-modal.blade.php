@@ -197,7 +197,7 @@
         overflow-y: scroll;
         z-index: 1;
     }
-
+s
     /* Styling for options */
     .hair-dropdown-content label {
         display: block;
@@ -477,7 +477,7 @@
         overflow-y: scroll;
         z-index: 1;
     }
-
+   
     /* Styling for options */
     .dress-dropdown-content label {
         display: block;
@@ -498,6 +498,129 @@
     .dress-selected {
         background-color: #e0e0ff;
     }
+/* Custom styles for screens up to 768px */
+@media (max-width: 768px) {
+    .filter-form {
+         margin-top: 20px !important;
+        width: 100%; /* Full width */
+    }
+
+    select, 
+    .dropdown-btn {
+        font-size: 15px; /* Adjust font size */
+        padding: 10px; /* Adjust padding */
+    }
+
+    .row {
+        flex-direction: column; /* Stack form elements vertically */
+        gap: 15px; /* Add spacing between stacked elements */
+    }
+
+    .col-md-4 {
+        width: 100%; /* Ensure each column takes full width */
+        margin-bottom: 10px; /* Add space below each form element */
+    }
+
+    .dropdown-content {
+        max-height: 200px; /* Adjust dropdown height for better scrolling */
+        font-size: 15px; /* Adjust font size for readability */
+        overflow-y: auto;  /* Enable vertical scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+        border-radius: 4px; /* Add rounded corners */
+    }
+
+    .dropdown-content::-webkit-scrollbar {
+        width: 10px; /* Increase scrollbar width */
+    }
+
+    .dropdown-content::-webkit-scrollbar-thumb {
+        background-color: #ccc; /* Add color to scrollbar thumb */
+        border-radius: 4px; /* Rounded scrollbar thumb */
+        border: 2px solid #f7f1f1; /* Add a border to make the scrollbar more visible */
+    }
+
+    .dropdown-content::-webkit-scrollbar-thumb:hover {
+        background-color: #aaa; /* Change color on hover */
+    }
+
+    button[type="submit"] {
+        width: 100%; /* Full width for the submit button */
+        font-size: 18px; /* Adjust font size for better visibility */
+        padding: 10px; /* Add proper padding */
+    }
+
+    .gender-filter a {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        margin-right: 8px; /* Add spacing between links */
+    }
+
+    .gender-filter {
+        justify-content: center; /* Center align gender filter buttons */
+        gap: 10px; /* Add spacing between filter options */
+    }
+
+    .container-for-dropdown {
+        padding: 10px; /* Add padding to the dropdown container */
+    }
+}
+
+/* Custom media queries for better responsiveness on very small screens */
+@media (max-width: 576px) {
+    .filter-form {
+        display: flex;
+        margin-top: 20px !important;
+        align-items: center;
+        justify-content: center;
+       
+    }
+
+    select, 
+    .dropdown-btn {
+        font-size: 14px; /* Reduce font size for smaller screens */
+        padding: 8px; /* Adjust padding */
+    }
+
+    .row {
+        flex-direction: column; /* Stack form elements vertically */
+        gap: 10px; /* Add spacing between stacked elements */
+    }
+
+    .col-md-4 {
+        width: 100%; /* Ensure each column takes full width on small screens */
+        padding: 0;
+    }
+
+    button[type="submit"] {
+        width: 100%; /* Make the submit button span the full width */
+        font-size: 16px;
+    }
+
+    .dropdown-content {
+        max-height: 150px; /* Adjust dropdown height */
+        overflow-y: auto; /* Enable vertical scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+        font-size: 14px; /* Adjust font size for better readability */
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for better focus */
+    }
+
+    .dropdown-content::-webkit-scrollbar {
+        width: 12px; /* Further increase scrollbar width */
+    }
+
+    .dropdown-content::-webkit-scrollbar-thumb {
+        background-color: #ddd; /* Lighter scrollbar thumb */
+        border-radius: 4px; /* Rounded scrollbar */
+        border: 2px solid #ffffff; /* Add a border for better visibility */
+    }
+
+    .dropdown-content::-webkit-scrollbar-thumb:hover {
+        background-color: #bbb; /* Darker color on hover */
+    }
+}
+
+
+
 </style>
 
 <section class="innerpages">
@@ -527,7 +650,7 @@
         {{-- <form action="{{ route('your.route') }}" method="GET"> --}}
             <form method="GET">
                 <div class="row mb-3 ">
-                    <div class="col-md-4 mb-2">
+                    <div class="col-md-4 col-12  mbmd--2">
                         <select name="ethnicity" class="h-100 w-100">
                             <option value="" disabled selected>Select Ethnicity</option>
                             <option value="Arab">Arab</option>
@@ -540,7 +663,7 @@
                             <!-- Add ethnicity options here -->
                         </select>
                     </div>
-                    <div class="col-md-4 mb-2">
+                    <div class="col-md-4 mt-2 mt-md-0 col-12 mb-md-2">
                         <select name="nationality" class="h-100 w-100">
                             <option value="" disabled selected>Select Nationality</option>
                             <option value="Afghanistan">Afghanistan</option>
@@ -744,7 +867,7 @@
                             <option value="Zimbabwe">Zimbabwe</option>
                         </select>
                     </div>
-                    <div class="col-md-4 mb-2" class="h-100 w-100">
+                    <div class="col-md-4 mt-2 mt-md-0 col-12 mb-md-2" class="h-100 w-100">
                         <div class="dropdown">
                             <button onclick="toggleDropdown(event)" class="dropdown-btn text-left" id="categoryButton">Select
                                 Categories</button>
@@ -758,7 +881,7 @@
                     </p>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-md-4 mb-2">
+                    <div class="col-md-4 mt-2 mt-md-0 col-12 mb-md-2">
                         <select name="age " class="h-100 w-100">
                             <option value="" disabled selected>Select Age</option>
                             <option value="newborn">New Born</option>
@@ -777,7 +900,7 @@
                             <!-- Add age options here -->
                         </select>
                     </div>
-                    <div class="col-md-4 mb-2" >
+                    <div class="col-md-4 mt-2 mt-md-0 col-12 mb-md-2" >
                         <select name="height " class="h-100 w-100">
                             <option value="" disabled selected>Select Height (cm)</option>
                             <option value="30-39">30 - 39</option>
@@ -801,7 +924,7 @@
                             <!-- Add height options here -->
                         </select>
                     </div>
-                    <div class="col-md-4 mb-2" >
+                    <div class="col-md-4 mt-2 mt-md-0 col-12 mb-md-2" >
                         <div class="contact-list-dress-size">
                             <div class="dress-dropdown" id="dressDropdown">
                                 <div class="dress-dropdown-button" id="dressDropdownButton">-- Select Dress Sizes --</div>
@@ -823,7 +946,7 @@
                     </div>
                 <div class="row">
                     <!-- Hair Colors Dropdown -->
-                    <div class="col-md-4 mb-2">
+                    <div class="col-md-4  mt-2 mt-md-0 col-12 mb-md-2">
                         <div class="contact-list-hair h-100 w-100">
                             <div class="hair-dropdown" id="hairDropdown">
                                 <div class="hair-dropdown-button" id="hairDropdownButton">-- Select Hair Colors --</div>
@@ -847,7 +970,7 @@
                     </div>
 
                     <!-- Eye Colors Dropdown -->
-                    <div class="col-md-4 mb-2">
+                    <div class="col-md-4 mt-2 mt-md-0 col-12 mb-md-2">
                         <div class="contact-list-eye h-100 w-100">
                             <div class="eye-dropdown" id="eyeDropdown">
                                 <div class="eye-dropdown-button" id="eyeDropdownButton">-- Select Eye Colors --</div>
@@ -867,7 +990,7 @@
                     </div>
 
                     <!-- Languages Dropdown -->
-                    <div class="col-md-4 mb-2">
+                    <div class="col-md-4 mt-2 mt-md-0 col-12 mb-md-2">
                         <div class="h-100 w-100">
                             <div class="custom-language-dropdown" id="customLanguageDropdown">
                                 <div class="custom-language-dropdown-button" id="customLanguageDropdownButton">-- Select Languages --</div>
@@ -881,7 +1004,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-2 mt-md-0">
                     <button type="submit">Filter</button>
                 </div>
             </form>

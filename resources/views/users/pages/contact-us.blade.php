@@ -398,13 +398,10 @@
     .contactussec {
         height: 90vh !important; /* Adjust the height for smaller screens */
     }
-
     .form-container {
         width:100%;
         height: 100vw !important; 
-        
 
-        
     }
     .mobile-frame {
         width: 60vw; 
@@ -421,17 +418,22 @@
     .background-slider {
         height: 100vw !important; /* Increase the slider height */
     }
-
     .slider-image {
         height: 100vw !important; /* Adjust individual image height */
     }
-    
+
     .text2 {
             font-size: 10px !important;
 
-
         }
-}
+        .menu-container {
+        max-height: 200px; /* Reduce height for smaller screens */
+        width: 100%; /* Ensure it spans the container width */
+    }
+    .custom-dropdown-content {
+        max-height: 100px; /* Adjust max height for small screens */
+    }
+    }
 
     </style>
 
