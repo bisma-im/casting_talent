@@ -483,7 +483,7 @@
             list-style: none; /* Removes bullets */
         }
         
-        .modalagencysec {
+        .modalagencysectalents {
     /* height: 120vh; Full viewport height */
     width: 100%;
     height: 100vh; /* Full viewport height for each section */
@@ -496,7 +496,7 @@
     scroll-snap-align: start; /* For better scrolling experience */
 }
 
-.modalagencysec::before {
+.modalagencysectalents::before {
     content: "";
     position: absolute;
     top: 0;
@@ -707,7 +707,7 @@
     </style>
 <div  id="scrollable-sections">
 
-<section class="modalagencysec" id="section-actors">
+<section class="modalagencysectalents" id="section-actors">
     <div class="my-container">
             <div class="row actors-section1 d-flex align-items-center justify-content-center">
                 <div class="modaltext">
@@ -737,7 +737,7 @@
         
 </section>
     <!-- ------------------------------models section ---------------------- -->
-    <section id="section-models" class="modalagencysec">
+    <section id="section-models" class="modalagencysectalents">
         <div class="my-container2">
                 <div class="row actors-section2 ">
                     <div class="modaltext">
@@ -797,7 +797,7 @@
             
     </section>
     <!-- ------------------------------Dancers & Performers---------------------- -->
-    <section  id="section-dancers"  class="modalagencysec">
+    <section  id="section-dancers"  class="modalagencysectalents">
         <div class="my-container3">
                 <div class="row actors-section3 d-flex justify-content-center">
                     <div class="modaltext">
@@ -858,7 +858,7 @@
   
     <!-- ------------------------------Makeup | Hair | Painter | Fashion Stylists---------------------- -->
 
-    <section id="section-makeup" class="modalagencysec">
+    <section id="section-makeup" class="modalagencysectalents">
     <div class="my-container4">
         <div class="row  actors-section4 d-flex justify-content-center">
             <div class="modaltext">
@@ -898,7 +898,7 @@
 </section>
 
     <!-- ------------------------------ Photographers | Videographers---------------------- -->
-    <section id="section-photo-video" class="modalagencysec">
+    <section id="section-photo-video" class="modalagencysectalents">
         <div class="my-container5">
             <div class="row actors-section5 d-flex justify-content-center">
                 <div class="modaltext">
@@ -949,7 +949,7 @@
         </div>
     </section>
     <!-- ------------------------------ Film Crew---------------------- -->
-    <section id="section-film-crew" class="modalagencysec">
+    <section id="section-film-crew" class="modalagencysectalents">
         <div class="my-container6">
             <div class="row actors-section6 d-flex justify-content-center">
                 <div class="modaltext ">
@@ -1012,7 +1012,7 @@
     </section>
 
  <!-- ------------------------------ Presenter & Emcee---------------------- -->
- <section  id="section-presenter" class="modalagencysec">
+ <section  id="section-presenter" class="modalagencysectalents">
     <div class="my-container7">
         <div class="row actors-section7 d-flex justify-content-center">
             <div class="modaltext">
@@ -1072,7 +1072,7 @@
 </section>
 
     <!-- ------------------------------ Presenter & Emcee---------------------- -->
-    <section  id="section-musicians" class="modalagencysec">
+    <section  id="section-musicians" class="modalagencysectalents">
     <div class="my-container8">
         <div class="row actors-section8 d-flex justify-content-center">
             <div class="modaltext">
@@ -1126,7 +1126,7 @@
 </section>
     <!-- ------------------------------ EVENT STAFF & USHERS---------------------- -->
 
-<section  id="section-event-staff" class="modalagencysec">
+<section  id="section-event-staff" class="modalagencysectalents">
     <div class="my-container9">
         <div class="row actors-section9 d-flex justify-content-center">
             <div class="modaltext">
@@ -1173,7 +1173,7 @@
     </div>
 </section>
     <!-- ------------------------------ influencers--------------------- -->
-    <section  id="section-influencers" class="modalagencysec">
+    <section  id="section-influencers" class="modalagencysectalents">
     <div class="my-container10">
         <div class="row actors-section10 d-flex justify-content-center">
             <div class="modaltext ">
@@ -1222,7 +1222,7 @@
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll(".modalagencysec");
+    const sections = document.querySelectorAll(".modalagencysectalents");
     const navigation = document.createElement("div");
     navigation.className = "scroll-navigation";
 

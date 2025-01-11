@@ -488,6 +488,11 @@ a.contactbtn1:hover{
         object-fit: cover;
       
     }
+    section.contactussec {
+        /* padding: 100px 0 100px; */
+        position: relative;
+        background: #f3fbff;
+    }
 }
 
 @media (max-width: 576px) {
@@ -495,8 +500,27 @@ a.contactbtn1:hover{
         flex: 0 0 100%;
         max-width: 90%;
     }
+    section.contactussec {
+        /* padding: 100px 0 100px; */
+        position: relative;
+        background: #f3fbff;
+    }
+    .formobile{
+        font-size: 13px !important;
+      
+        text-align: justify;
+        
+    }
     .castimg img {
         min-height: 65vh;
+    }
+    section.homebanner {
+        background-image: url(../images/homemobile.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 100px 10 150px;
+        position: relative;
     }
 }
 .bodytheading {
@@ -1311,8 +1335,12 @@ section.servicessec {
     box-shadow: 1px -6px 9px #ccc;
     margin-bottom: 50px;
 }
-section.modalagencysec {
+section.modalagencysectalents {
     /* padding: 50px 0 0px; */
+    /* margin-top: 295px !important; */
+}
+section.modalagencysec {
+    padding: 50px 0 0px;
     /* margin-top: 295px !important; */
 }
 
