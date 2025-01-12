@@ -397,7 +397,8 @@
 @media (max-width: 768px) {
     
     .contactussec {
-        height: 90vh !important; /* Adjust the height for smaller screens */
+        
+        height: 60vh !important; /* Adjust the height for smaller screens */
     }
     .form-container {
         width:100%;
@@ -432,6 +433,18 @@
     .custom-dropdown-content {
         max-height: 100px; /* Adjust max height for small screens */
     }
+    .form-container {
+        width: 100%;
+        height: 130vw !important;
+        position: relative;
+        margin: 0 auto; /* Center the container */
+        padding: 10px; /* Optional padding for better spacing */
+   
+        background-color: rgba(255, 255, 255, 0.9); /* Ensure a visible background */
+    }
+    body.lock-scroll {
+        overflow: hidden;
+    }
     }
     @media (max-width: 576px) { 
         .background-slider {
@@ -444,10 +457,14 @@
     .form-container {
         width: 100%;
         height: 130vw !important;
+        position: relative;
         margin: 0 auto; /* Center the container */
         padding: 10px; /* Optional padding for better spacing */
-        overflow-y: auto; /* Add scroll if content overflows */
+   
         background-color: rgba(255, 255, 255, 0.9); /* Ensure a visible background */
+    }
+    body.lock-scroll {
+        overflow: hidden;
     }
     #generalInquiryForm,
     #clientInquiryForm {
@@ -1602,21 +1619,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Function to toggle forms
             function showForm(formType) {
-                const generalForm = document.getElementById('generalInquiryForm');
-                const clientForm = document.getElementById('clientInquiryForm');
+    const generalForm = document.getElementById('generalInquiryForm');
+    const clientForm = document.getElementById('clientInquiryForm');
 
-                if (formType === 'general') {
-                    generalForm.style.display = 'block';
-                    clientForm.style.display = 'none';
-                } else if (formType === 'client') {
-                    generalForm.style.display = 'none';
-                    clientForm.style.display = 'block';
-                }
-            }
+    if (formType === 'general') {
+        generalForm.style.display = 'block';
+        clientForm.style.display = 'none';
+    } else if (formType === 'client') {
+        generalForm.style.display = 'none';
+        clientForm.style.display = 'block';
+    }
+}
 
-            // Initialize with the General Inquiry form visible
-            showForm('general');
-        });
+// Event listeners for toggling forms
+document.getElementById('generalInquiryBtn').addEventListener('click', function () {
+    showForm('general');
+});
+
+document.getElementById('clientInquiryBtn').addEventListener('click', function () {
+    showForm('client');
+});
+
 </script>
 
 <section class="contactlist">
@@ -2092,6 +2115,62 @@ window.addEventListener("DOMContentLoaded", function() {
     const defaultCountry = "United Arab Emirates";
     populateStateDropdown(defaultCountry);
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const formContainer = document.querySelector('.form-container');
+    let isInsideForm = false;
+
+    // Detect when the user is inside the form container
+    formContainer.addEventListener('mouseenter', function () {
+        isInsideForm = true;
+        document.body.classList.add('lock-scroll');
+    });
+
+    formContainer.addEventListener('mouseleave', function () {
+        isInsideForm = false;
+        document.body.classList.remove('lock-scroll');
+    });
+
+    // For mobile touch events
+    formContainer.addEventListener('touchstart', function () {
+        isInsideForm = true;
+        document.body.classList.add('lock-scroll');
+    });
+
+    formContainer.addEventListener('touchend', function () {
+        isInsideForm = false;
+        document.body.classList.remove('lock-scroll');
+    });
+
+    // Allow scrolling inside the form container and prevent body scrolling
+    formContainer.addEventListener('wheel', function (event) {
+        if (isInsideForm) {
+            event.stopPropagation(); // Prevent scroll from propagating to the body
+        }
+    });
+
+    formContainer.addEventListener('touchmove', function (event) {
+        if (isInsideForm) {
+            event.stopPropagation(); // Prevent touchmove from propagating to the body
+        }
+    });
+
+    // Prevent page scroll when inside the form container
+    document.addEventListener('touchmove', function (event) {
+        if (isInsideForm) {
+            event.preventDefault(); // Prevent default scrolling behavior
+        }
+    }, { passive: false }); // Important: Set passive to false to allow preventDefault
+});
+
+
+
+
+
+
+
+
+
 </script>
 
 {{-- <style>
