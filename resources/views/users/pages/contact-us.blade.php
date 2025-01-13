@@ -471,6 +471,27 @@
         display: block;
         height: 100%; /* Ensure the form takes up the container height */
     }
+    @media (max-width: 576px) { 
+        .background-slider {
+        height: 130vw !important; /* Increase the slider height */
+    }
+  
+    .slider-image {
+        height: 130vw !important; /* Adjust individual image height */
+    }
+    .form-container {
+        width: 100%;
+        height: 130vw !important;
+        margin: 0 auto; /* Center the container */
+        padding: 10px; /* Optional padding for better spacing */
+        overflow-y: auto; /* Add scroll if content overflows */
+        background-color: rgba(255, 255, 255, 0.9); /* Ensure a visible background */
+    }
+    #generalInquiryForm,
+    #clientInquiryForm {
+        display: block;
+        height: 100%; /* Ensure the form takes up the container height */
+    }
 
     .step {
         display: block;
