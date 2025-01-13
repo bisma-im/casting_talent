@@ -12,7 +12,7 @@
     </style>
   <style>
     .visible-section {
-padding-top: 100px !important; /* Adjust as needed */
+padding-top: 120px !important; /* Adjust as needed */
     transition: margin 0.3s ease; /* Smooth margin transition */
 }
     </style>
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="container">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
                 <div class="innertext pt-3">
-                    <h1>Events <span>Services</span></h1>
+                    <!-- <h1>Events <span>Services</span></h1> -->
 
                 </div>
             </div>

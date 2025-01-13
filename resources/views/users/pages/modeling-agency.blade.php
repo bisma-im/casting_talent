@@ -17,7 +17,7 @@
             
 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5 mb-0 pb-0">
         <div class="innertext pt-md-3 pt-5">
-        <h1>Modeling <span>Agency</span></h1>
+        <!-- <h1>Modeling <span>Agency</span></h1> -->
 
         </div>
     </div>
@@ -76,7 +76,7 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modaltext1">
 
-                        <h2>Hairs & <sapn style="color: rgba(216, 31, 38, 1);">Makeup </sapn> Artist</h2>
+                        <h2>Hair & <sapn style="color: rgba(216, 31, 38, 1);">Makeup </sapn> Artist</h2>
                         <p><b>Premier Hair and Makeup Services at CAST TALENTS</b></p>
                         <p>At CAST TALENTS, we collaborate exclusively with the finest hair and makeup artists in UAE.
                             Whether you're planning a photo shoot, filming, or preparing for a special occasion, look no
@@ -222,6 +222,7 @@
     </section>
 
     <style>
+        
         .modal {
             position: fixed;
             z-index: 1;
@@ -326,9 +327,11 @@
     </script>
     <style>
     .visible-section {
-padding-top: 100px !important; /* Adjust as needed */
+padding-top: 120px !important; /* Adjust as needed */
     transition: margin 0.3s ease; /* Smooth margin transition */
+    
 }
+
     </style>
 <script>
 

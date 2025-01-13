@@ -37,7 +37,7 @@
     text-align: center;
     z-index: 2; /* Above the image */
     box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 /* Title Styling */

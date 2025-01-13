@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="container">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5 mb-0 pb-0">
                     <div class="innertext pt-md-3 pt-5">
-                    <h1>Celebrity <span>Management</span></h1>
+                    <!-- <h1>Celebrity <span>Management</span></h1> -->
 
             
                     </div>
