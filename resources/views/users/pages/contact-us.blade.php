@@ -104,7 +104,7 @@
             animation: scroll 30s linear infinite;
             /* Adjust the duration to control speed */
         }
-
+    
         .slider-image {
             width: 100vw;
             /* Full width of the viewport for each slide */
@@ -395,13 +395,13 @@
 /* Extra Small Screens (≤576px) */
 
 @media (max-width: 768px) {
+    
     .contactussec {
         height: 90vh !important; /* Adjust the height for smaller screens */
     }
     .form-container {
         width:100%;
         height: 100vw !important; 
-
     }
     .mobile-frame {
         width: 60vw; 
@@ -421,7 +421,6 @@
     .slider-image {
         height: 100vw !important; /* Adjust individual image height */
     }
-
     .text2 {
             font-size: 10px !important;
 
@@ -434,7 +433,33 @@
         max-height: 100px; /* Adjust max height for small screens */
     }
     }
+    @media (max-width: 576px) { 
+        .background-slider {
+        height: 130vw !important; /* Increase the slider height */
+    }
+  
+    .slider-image {
+        height: 130vw !important; /* Adjust individual image height */
+    }
+    .form-container {
+        width: 100%;
+        height: 130vw !important;
+        margin: 0 auto; /* Center the container */
+        padding: 10px; /* Optional padding for better spacing */
+        overflow-y: auto; /* Add scroll if content overflows */
+        background-color: rgba(255, 255, 255, 0.9); /* Ensure a visible background */
+    }
+    #generalInquiryForm,
+    #clientInquiryForm {
+        display: block;
+        height: 100%; /* Ensure the form takes up the container height */
+    }
 
+    .step {
+        display: block;
+        margin: 0 auto;
+    }
+    }
     </style>
 
     <section class="innerpages">
@@ -494,7 +519,7 @@
                     <!-- General Inquiry Form (initially hidden) -->
                     <div id="generalInquiryForm" style="display: none; " class="custom-height-sm ">
                         <div class="card-title innertext">
-                            <h1 style="text-align:left;">General <span>Enquiry</span></h1><br>
+                            <h1 class="" style="text-align:left;">General <span>Enquiry</span></h1><br>
                         </div>
                         <!-- Background Image Slider -->
 
@@ -610,7 +635,7 @@
                     </div>
 
                     <!-- Client Inquiry Form (initially hidden) -->
-                    <div id="clientInquiryForm" style="display: none;">
+                    <div id="clientInquiryForm"  style="display: none;">
                         <div class="card-title innertext">
                             <h1 style="text-align:left;">Client <span>Enquiry</span></h1><br>
                         </div>
@@ -619,26 +644,26 @@
                             <div id="clientProgressBar" class="progress-bar bg-success" role="progressbar"
                                 style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
                         </div>
-                        <form id="client-form" method="post" ">
+                        <form id="client-form" clas="clientForm" method="post" ">
                             @csrf
                             <!-- Step 1: Basic Info -->
                             <div class="step" id="step1">
                                 <div class="row">
-                                    <div class="col-lg-6  ">
+                                    <div class="col-6   ">
                                         <div class="form-group">
                                             <label class=" text fw-bold">FIRST NAME</label>
                                             <input type="text" class=" form-control" name="first_name"
                                                 placeholder="First Name" required>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-6">
                                         <div class="form-group">
                                             <label class=" text fw-bold">LAST NAME</label>
                                             <input type="" class=" text form-control" name="last_name"
                                                 placeholder="Last Name" required>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12">
+                                    <div class="col-md-12 col-6">
                                         <div class="form-group">
                                             <label class=" text  fw-bold">COMPANY / AGENCY NAME</label>
                                             <input type="text" class=" form-control" name="company"
@@ -1540,7 +1565,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
                 <!-- Mobile Frame Container -->
-                <div class="mobile-frame d-none d-md-block">
+                <div class="mobile-frame d-none d-md-block ">
                     <!-- Instagram Feed Iframe -->
                     <iframe src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html"
                         scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed">
@@ -1549,14 +1574,11 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
 
         </div>
+ 
 </div>
+
 </div>
-<div class="mobile-frame  d-md-none mt-5">
-                    <!-- Instagram Feed Iframe -->
-                    <iframe src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html"
-                        scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed">
-                    </iframe>
-                </div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
             // Show modal when page loads
@@ -1598,6 +1620,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <section class="contactlist">
+    <div class="mobile-frame d-flex justify-content-center  d-md-none mt-5 ">
+                    <!-- Instagram Feed Iframe -->
+                    <iframe src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html"
+                        scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed">
+                    </iframe>
+                </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-8">

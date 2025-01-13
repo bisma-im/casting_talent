@@ -102,10 +102,30 @@
                                 padding: 0;
                                 /* Reset padding */
                             }
+                            .col-xs-2 .icon {
+    width: 75px; 
+    height: 75px;
+}
+@media (max-width: 576px) { /* Adjusts for Bootstrap's smallest breakpoint */
+    .col-xs-2 {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+    .col-xs-2 .icon {
+        width: 40px; 
+        height: 40px;
+    }
+    .col-xs-2 p {
+        font-size: 8px;
+    }
+    .featurelist ul li {
+        margin: 0;
+    }
+}
                         </style>
                         <div class="featurelist " style="border-bottom: 0 !important;">
                             <ul class="d-flex flex-wrap  justify-content-center align-items-center list-unstyled mt-4">
-                                <li class="col-md-1 col-12  text-center">
+                                <li class="col-md-1  col-xs-2  text-center">
                                     <a href="{{ route('jobs.get', ['category' => 'Presenter & Emcees']) }}"
                                         data-target="tab7" class="d-flex flex-column align-items-center">
                                         <img src="{{ url('user-assets/icons/presenter.png') }}" alt="Presenters Icon"
@@ -113,7 +133,7 @@
                                         <p class="hover-text">PRESENTERS & EMCEES</p>
                                     </a>
                                 </li>
-                                <li class="col-md-2 col-12  text-center">
+                                <li class="col-md-2  col-xs-2  text-center">
                                     <a href="{{ route('jobs.get', ['category' => 'Event Staff and Ushers']) }}"
                                         data-target="tab8" class="d-flex flex-column align-items-center">
                                         <img src="{{ url('user-assets/icons/eventstaff.png') }}" alt="Event Staff Icon"
@@ -121,7 +141,7 @@
                                         <p class="hover-text ">EVENT STAFF & <br /> USHERS</p>
                                     </a>
                                 </li>
-                                <li class="col-md-2  col-12  text-center">
+                                <li class="col-md-2   col-xs-2  text-center">
                                     <a href="{{ route('jobs.get', ['category' => 'Makeup and Hair']) }}"
                                         data-target="tab10" class="d-flex flex-column align-items-center">
                                         <img src="{{ url('user-assets/icons/makeup.png') }}" alt="Makeup Icon"
@@ -129,7 +149,7 @@
                                         <p class="hover-text">MAKEUP, HAIR & <br /> FASHION</p>
                                     </a>
                                 </li>
-                                <li class="col-md-2 col-12  text-center">
+                                <li class="col-md-2  col-xs-2  text-center">
                                     <a href="{{ route('jobs.get', ['category' => 'Photographers & Videographers']) }}"
                                         data-target="tab9" class="d-flex flex-column align-items-center">
                                         <img src="{{ url('user-assets/icons/photo.png') }}" alt="Photographers Icon"
@@ -137,7 +157,7 @@
                                         <p class="hover-text">PHOTOGRAPHY & VIDEOGRAPHY</p>
                                     </a>
                                 </li>
-                                <li class="col-md-2 col-12  text-center">
+                                <li class="col-md-2  col-xs-2  text-center">
                                     <a href="{{ route('jobs.get', ['category' => 'Dancers & Performers']) }}"
                                         data-target="tab3" class="d-flex flex-column align-items-center">
                                         <img src="{{ url('user-assets/icons/dancer.png') }}" alt="Dancers Icon"
@@ -149,7 +169,7 @@
                             </ul>
                             <!-- Row 1 -->
                             <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled">
-                                <li class="col-md-1 col-12  text-center">
+                                <li class="col-md-1  col-xs-2  text-center">
                                     <a href="{{ route('jobs.get', ['category' => 'Actor']) }}" class="active"
                                         data-target="tab1" class="d-flex flex-column align-items-center">
                                         <img src="{{ url('user-assets/icons/actor.png') }}" alt="Actors Icon"
@@ -157,7 +177,7 @@
                                         <p class="hover-text">ACTORS</p>
                                     </a>
                                 </li>
-                                <li class="col-md-2  col-12  text-center">
+                                <li class="col-md-2   col-xs-2  text-center">
                                     <a href="{{ route('jobs.get', ['category' => 'Model']) }}"
                                         data-target="tab2" class="d-flex flex-column align-items-center">
                                         <img src="{{ url('user-assets/icons/model.png') }}" alt="Models Icon"
@@ -165,7 +185,7 @@
                                         <p class="hover-text">MODELS</p>
                                     </a>
                                 </li>
-                                <li class="col-md-2 col-12 text-center">
+                                <li class="col-md-2  col-xs-2 text-center">
                                     <a href="{{ route('jobs.get', ['category' => 'Musicians']) }}"
                                         data-target="tab5" class="d-flex flex-column align-items-center">
                                         <img src="{{ url('user-assets/icons/musician.png') }}" alt="Musicians Icon"
@@ -173,7 +193,7 @@
                                         <p class="hover-text">MUSICIANS</p>
                                     </a>
                                 </li>
-                                <li class="col-md-2 col-12  text-center">
+                                <li class="col-md-2  col-xs-2  text-center">
                                     <a href="{{ route('jobs.get', ['category' => 'Film Crew']) }}"
                                         data-target="tab4" class="d-flex flex-column align-items-center">
                                         <img src="{{ url('user-assets/icons/film.png') }}" alt="Film Crew Icon"
@@ -181,7 +201,7 @@
                                         <p class="hover-text">FILM CREW</p>
                                     </a>
                                 </li>
-                                <li class="col-md-2 col-12  text-center">
+                                <li class="col-md-2  col-xs-2  text-center">
                                     <a href="{{ route('jobs.get', ['category' => 'Influencers']) }}"
                                         class="d-flex flex-column align-items-center">
                                         <img src="{{ url('user-assets/icons/influencer.png') }}" alt="Influencers Icon"
