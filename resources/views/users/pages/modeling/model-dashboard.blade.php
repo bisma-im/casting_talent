@@ -807,7 +807,7 @@
                                                                     <div class="caterlisttext">
                                                                         <h5>Select A Category</h5>
                                                                     </div>
-                                                                    <div class="row  row-cols-12 row-cols-md-5 row-cols-lg-5 row-cols-xl-5 row-cols-xxl-5">
+                                                                    <div class="row  row-cols-2 row-cols-md-5">
                                                                         @php
                                                                             // Decode the JSON into an array
                                                                             $selectedCategories = isset($profileInfo) ? json_decode($profileInfo->category, true) : [];

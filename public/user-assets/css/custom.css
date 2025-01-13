@@ -85,6 +85,7 @@ section.homebanner:before {
     content: "";
     position: absolute;
     background-image: url(../images/infi.png);
+    
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
