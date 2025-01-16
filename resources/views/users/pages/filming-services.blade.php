@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </ul>
                         <p>Cast Talents provides a diverse range of professional services to meet your filming and content
                             creation needs, ensuring high-quality results tailored to your requirements.</p>
-                        <a href="#" class="contactbtn" id="readMoreTrigger">READ MORE</a>
+                        <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a>
                     </div>
                 </div>
                
@@ -438,7 +438,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <p><b>Events</b> Turn your events into unforgettable memories with our professional event
                             photography and videography services. We cover everything from corporate gatherings to private
                             celebrations, ensuring every moment is perfectly captured.</p>
-                        <a href="#" class="contactbtn" id="readMoreTrigger">READ MORE</a>
+                        <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a>
                     </div>
 
                     <!-- Modal Structure -->

@@ -420,7 +420,7 @@ section.featuremodalsec:before{
     font-weight: 500;
 }
 a.contactbtn1:hover{
-    background-color: transparent;
+    background-color: #EDAE49;
     transform: translatey(-10px);
     color: #000 !important;
 }
@@ -1212,21 +1212,27 @@ section.ourmissionsec::before {
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
+
+    align-items: center;
+}
+.teambox2 {
+    box-shadow: -1px 0px 7px 2px #ccc;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+
+    display: flex;
+ 
+    flex-direction: column;
+
     align-items: center;
 }
 .teambody p {
     font-size: 13px;
     font-weight: 400;
 }
-.teambox {
-    margin-bottom: 15px;
-}
-.teambox {
-    box-shadow: -1px 0px 7px 2px #ccc;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-}
+
 .teambody .socaillisnk ul li a {
     width: 40px;
     height: 40px;
@@ -1394,7 +1400,7 @@ section.modalagencysec0{
 
 }
 .modaltext1 h2 {
-    font-size: 56px;
+    font-size: 40px;
     line-height: 60px;
     font-weight: 500;
     font-family: "Lateef", serif;
@@ -1421,13 +1427,14 @@ section.modalagencysec0{
     margin-bottom: 30px;
 }
 a.contactbtn1 {
-    background: #fff;
+    background: #EDAE49;
     padding: 11px 29px !important;
     color: #000;
+    
     border-radius: 10px;
     font-size: 17px !important;
     transition: 1s all ease;
-    border: 2px solid #fff;
+    border: 2px soli d#EDAE49;
     font-weight: 600;
 }
 .modaltext ul li {
@@ -1441,7 +1448,7 @@ a.contactbtn1 {
 }
 .modaltext1 ul li {
     line-height: 25px;
-    color: #fff;
+    color: black;
     font-size: 13px;
 }
 .modaltext1 ul{

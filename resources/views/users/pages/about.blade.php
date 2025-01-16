@@ -65,8 +65,8 @@
 .talentimg {
     position: relative;
     display: inline-block;
-    width: 520px; /* Set desired width */
-    height: 330px; /* Maintain 16:9 aspect ratio */
+    width: 680px; /* Set desired width */
+    height: 350px; /* Maintain 16:9 aspect ratio */
     margin: 0 auto; /* Center horizontally */
 
 }
@@ -98,8 +98,8 @@
 
 /* Video container */
 .video-container {
-    width: 520px; /* Match thumbnail size */
-    height: 330px; /* Match aspect ratio */
+    width: 680px; /* Match thumbnail size */
+    height: 350px; /* Match aspect ratio */
     display: none; /* Hidden by default */
     background-color: black; /* Background color for the video container */
 }
@@ -131,7 +131,7 @@
 
 </style>
 
-    <section class="ourmissionsec mt-5 mt-md-0">
+    <section class="ourmissionsec mt-4">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -184,8 +184,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                            <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 ">
+                            <div class="row ">
                                 <div class="col-12 col-sm-12 col-lg-6 col-xl-6 col-xxl-6">
                                     <div class="teambox">
                                         <div class="teamimg">

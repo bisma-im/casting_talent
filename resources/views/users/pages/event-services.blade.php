@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             innovative design with the finest elements of dining, entertainment, and that essential element
                             of surprise.</p>
 
-                        <a href="#" class="contactbtn" id="readMoreTrigger">READ MORE</a>
+                        <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a>
                     </div>
                 </div>
                
@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             can be scaled up or down based on your requirements. They bring extensive experience in UAE
                             retail, ensuring seamless integration and performance.</p>
 
-                        <a href="#" class="contactbtn" id="readMoreTrigger2">READ MORE</a>
+                        <a href="#" class="contactbtn1" id="readMoreTrigger2">READ MORE</a>
                     </div>
                 </div>
                
