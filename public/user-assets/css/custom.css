@@ -1204,22 +1204,50 @@ section.ourmissionsec::before {
     flex-grow: 1;
 }
 
+.teambox-row {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.teambox-founder {
+    margin-bottom: 15px;
+}
 .teambox {
     box-shadow: -1px 0px 7px 2px #ccc;
     background-color: #fff;
     padding: 10px;
     border-radius: 10px;
-    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-grow: 1;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media (min-width: 600px) {
+    .teambox-team {
+        height: 375px;
+    }
+    /* .teambox-col {
+        height:100%;
+    } */
+    
+}
+
+@media (max-width: 600px) {
+    .teambox {
+        margin-bottom: 20px;
+    }
+}
+
+.teambody {
+    flex: 1; /* Makes these divs expand to fill available space */
 }
 .teambody p {
     font-size: 13px;
     font-weight: 400;
-}
-.teambox {
-    margin-bottom: 15px;
 }
 .teambox {
     box-shadow: -1px 0px 7px 2px #ccc;
