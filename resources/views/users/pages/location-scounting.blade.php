@@ -13,7 +13,7 @@
         <div class="container">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
                 <div class="innertext pt-3">
-                    <h1>Location <span>Scouting</span></h1>
+                    <!-- <h1>Location <span>Scouting</span></h1> -->
 
                 </div>
             </div>

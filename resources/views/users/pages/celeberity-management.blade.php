@@ -11,9 +11,11 @@
 
 <style>
     .visible-section {
-padding-top: 100px !important; /* Adjust as needed */
+padding-top: 110px !important; Adjust as needed
     transition: margin 0.3s ease; /* Smooth margin transition */
 }
+
+
     </style>
 <script>
 
@@ -65,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="container">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5 mb-0 pb-0">
                     <div class="innertext pt-md-3 pt-5">
-                    <h1>Celebrity <span>Management</span></h1>
+                    <!-- <h1>Celebrity <span>Management</span></h1> -->
 
             
                     </div>
@@ -93,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
     </section>
 
     <section class="modalagencysec2" id="hair-makeup">
-        <div class="container">
-            <div class="row align-items-center">
+        <div class="container ">
+            <div class="row align-items-center"  >
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/manage_2.png" alt="Casting Image" class="img-fluid">
@@ -103,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modaltext1">
 
-                        <h2>Hairs & <sapn style="color: rgba(216, 31, 38, 1);">Makeup </sapn> Artist</h2>
+                        <h2>Hair & <sapn style="color: rgba(216, 31, 38, 1);">Makeup </sapn> Artist</h2>
                         <p><b>Premier Hair and Makeup Services at CAST TALENTS</b></p>
                         <p>At CAST TALENTS, we collaborate exclusively with the finest hair and makeup artists in UAE.
                             Whether you're planning a photo shoot, filming, or preparing for a special occasion, look no

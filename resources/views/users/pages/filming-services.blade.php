@@ -9,7 +9,7 @@
 
 <style>
     .visible-section {
-padding-top: 100px !important; /* Adjust as needed */
+padding-top: 120px !important; /* Adjust as needed */
     transition: margin 0.3s ease; /* Smooth margin transition */
 }
     </style>
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="container">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
                 <div class="innertext pt-3">
-                    <h1>Filming <span>Services</span></h1>
+                    <!-- <h1>Filming <span>Services</span></h1> -->
 
                 </div>
             </div>
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </ul>
                         <p>Cast Talents provides a diverse range of professional services to meet your filming and content
                             creation needs, ensuring high-quality results tailored to your requirements.</p>
-                        <a href="#" class="contactbtn" id="readMoreTrigger">READ MORE</a>
+                        <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a>
                     </div>
                 </div>
                
@@ -438,7 +438,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <p><b>Events</b> Turn your events into unforgettable memories with our professional event
                             photography and videography services. We cover everything from corporate gatherings to private
                             celebrations, ensuring every moment is perfectly captured.</p>
-                        <a href="#" class="contactbtn" id="readMoreTrigger">READ MORE</a>
+                        <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a>
                     </div>
 
                     <!-- Modal Structure -->

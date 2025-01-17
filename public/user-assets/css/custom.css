@@ -420,7 +420,7 @@ section.featuremodalsec:before{
     font-weight: 500;
 }
 a.contactbtn1:hover{
-    background-color: transparent;
+    background-color: #EDAE49;
     transform: translatey(-10px);
     color: #000 !important;
 }
@@ -1220,6 +1220,8 @@ section.ourmissionsec::before {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
+
     align-items: center;
     flex-grow: 1;
     margin-left: 10px;
@@ -1254,7 +1256,18 @@ section.ourmissionsec::before {
     background-color: #fff;
     padding: 10px;
     border-radius: 10px;
+
+    display: flex;
+ 
+    flex-direction: column;
+
+    align-items: center;
 }
+.teambody p {
+    font-size: 13px;
+    font-weight: 400;
+}
+
 .teambody .socaillisnk ul li a {
     width: 40px;
     height: 40px;
@@ -1389,13 +1402,15 @@ section.modalagencysec {
     line-height: 25px;
     font-weight: 400;
 }
-section.modalagencysec2 {
-    background-image: url(../images/modeling_banner.png);
+.modalagencysec2 {
+    /* background-image: url(../images/modeling_banner.png); */
     background-repeat: no-repeat;
     background-size: cover;
+    background: #D6D3AD !important;
+
     background-position: center center;
-    /* padding: 100px 0 100px; */
-    /* margin-bottom: 100px; */
+    /* padding-top: 200px !important; */
+   
     border-radius: 0 0 0px 50px;
 }
 section.modalagencysec3{
@@ -1420,15 +1435,16 @@ section.modalagencysec0{
 
 }
 .modaltext1 h2 {
-    font-size: 56px;
+    font-size: 40px;
     line-height: 60px;
     font-weight: 500;
     font-family: "Lateef", serif;
-    color: #fff;
+    color: #000;
     width: 70%;
 }
 .modaltext1 p {
-    color: #fff;
+    color: #000;
+
     width: 90%;
     margin-bottom: 30px;
 }
@@ -1446,13 +1462,14 @@ section.modalagencysec0{
     margin-bottom: 30px;
 }
 a.contactbtn1 {
-    background: #fff;
+    background: #EDAE49;
     padding: 11px 29px !important;
     color: #000;
+    
     border-radius: 10px;
     font-size: 17px !important;
     transition: 1s all ease;
-    border: 2px solid #fff;
+    border: 2px soli d#EDAE49;
     font-weight: 600;
 }
 .modaltext ul li {
@@ -1466,7 +1483,7 @@ a.contactbtn1 {
 }
 .modaltext1 ul li {
     line-height: 25px;
-    color: #fff;
+    color: black;
     font-size: 13px;
 }
 .modaltext1 ul{

@@ -212,7 +212,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('{{ url('/user-assets/images/casting.jpg') }}');
+        background-image: url('{{ url('/user-assets/images/casting.JPG') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -241,7 +241,16 @@
             padding: 0;
             height:70vh;
         }
-
+     /* Align .btnabout at the bottom only on large screens */
+@media (min-width: 768px) {
+    .btnabout {
+        position: absolute;
+        bottom: 1px; /* Adjust as needed */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
 @media (max-width: 768px) {
     span.aboutbtn {
         font-size: 20px;

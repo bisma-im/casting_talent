@@ -12,7 +12,7 @@
     </style>
   <style>
     .visible-section {
-padding-top: 100px !important; /* Adjust as needed */
+padding-top: 120px !important; /* Adjust as needed */
     transition: margin 0.3s ease; /* Smooth margin transition */
 }
     </style>
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="container">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
                 <div class="innertext pt-3">
-                    <h1>Events <span>Services</span></h1>
+                    <!-- <h1>Events <span>Services</span></h1> -->
 
                 </div>
             </div>
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             innovative design with the finest elements of dining, entertainment, and that essential element
                             of surprise.</p>
 
-                        <a href="#" class="contactbtn" id="readMoreTrigger">READ MORE</a>
+                        <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a>
                     </div>
                 </div>
                
@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             can be scaled up or down based on your requirements. They bring extensive experience in UAE
                             retail, ensuring seamless integration and performance.</p>
 
-                        <a href="#" class="contactbtn" id="readMoreTrigger2">READ MORE</a>
+                        <a href="#" class="contactbtn1" id="readMoreTrigger2">READ MORE</a>
                     </div>
                 </div>
                
