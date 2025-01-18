@@ -37,6 +37,7 @@
                                 <td>{{ Str::limit($contact->message, 150) }}</td>
                                 <td>
                                     <form action="" method="">
+                                        @csrf
                                         <button type="submit" class="badge badge-success">reply</button>
                                     </form>
                                 </td>

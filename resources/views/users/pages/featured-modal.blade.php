@@ -649,6 +649,7 @@ s
     <div id="filterForm" class="filter-form mt-4" style="display:none;">
         {{-- <form action="{{ route('your.route') }}" method="GET"> --}}
             <form method="GET">
+                @csrf
                 <div class="row mb-3 ">
                     <div class="col-md-4 col-12  mbmd--2">
                         <select name="ethnicity" class="h-100 w-100">

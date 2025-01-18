@@ -31,6 +31,7 @@
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <form action="javascript:;">
+                        @csrf
                         <div class="multiple_steps_container">
                             <div class="maintab">
                                 <div class="tab active_tab_" data-step="1">

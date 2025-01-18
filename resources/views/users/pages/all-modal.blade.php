@@ -524,6 +524,7 @@
     <div id="filterForm" class="filter-form" style="display:none;">
         {{-- <form action="{{ route('your.route') }}" method="GET"> --}}
             <form method="GET">
+                @csrf
                 <div class="row mb-3 ">
                     <div class="col-md-4 mb-2">
                         <select name="ethnicity" class="h-100 w-100">

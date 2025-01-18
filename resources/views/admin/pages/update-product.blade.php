@@ -46,6 +46,7 @@
                     <div class="d-flex">
                         <div class="examplesearch-form mx-3">
                             <form action="" method="" class="example">
+                                @csrf
                                 <input type="text" placeholder="Search.." value="" name="search"
                                     class="form-control">
                                 <button type="submit"><i class="fa fa-search"></i></button>
