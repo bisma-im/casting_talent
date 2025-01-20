@@ -48,7 +48,8 @@
 
         /* Table under the portrait image */
         .info-table {
-            margin: 20px auto; /* Center table horizontally */
+            margin: 20px auto;
+            /* Center table horizontally */
             width: 85%;
             border-collapse: collapse;
         }
@@ -102,6 +103,7 @@
             height: 40%;
             max-height: 40%;
         }
+
         .additional-info {
             color: #000
         }
@@ -112,25 +114,30 @@
     <div class="container">
         <!-- Left half with portrait image -->
         <div class="left-half">
-            <img src="{{ public_path($images[0]) }}" class="portrait-image" alt="Portrait Image">
-            
+            @if (isset($images[0]))
+                <img src="{{ public_path($images[0]) }}" class="portrait-image" alt="Portrait Image">
+            @else
+                <p>No image available</p>
+            @endif
+
             <!-- Info Table with Logo Cell -->
             <table class="info-table">
                 <tr class="header-row" style="line-height: 0;">
                     <!-- Merged cell for logo with rowspan -->
                     <td class="logo-cell">
-                        {{-- <td class="logo-cell" rowspan="2"> --}}
+                        {{--
+                    <td class="logo-cell" rowspan="2"> --}}
                         <img src="{{ public_path('user-assets/images/logo-bg-remove.png') }}" alt="Logo">
                     </td>
-                    <th>188</th>
-                    <th>102</th>
-                    <th>82</th>
-                    <th>97</th>
-                    <th>43</th>
-                    <th>27</th>
+                    <th>{{ $modelDetail->height }}</th>
+                    <th>{{ $modelDetail->bust }}</th>
+                    <th>{{ $modelDetail->weight }}</th>
+                    <th>{{ $modelDetail->hip }}</th>
+                    <th>{{ $modelDetail->shoe_size }}</th>
+                    <th>{{ $modelDetail->age }}</th>
                 </tr>
                 <tr style="line-height: 0;">
-                    <td>CTM-00001</td>
+                    <td>{{ $modelDetail->talent_id }}</td>
                     <td>Height</td>
                     <td>Chest</td>
                     <td>Weight</td>
@@ -145,22 +152,40 @@
         <div class="right-half">
             <table class="image-table">
                 <tr>
+                    @if (isset($images[1]))
                     <td class="image-cell"><img src="{{ public_path($images[1]) }}" alt="Image 2"></td>
+                    @else
+                    <td class="image-cell"></td>
+                    @endif
+
+                    @if (isset($images[2]))
                     <td class="image-cell"><img src="{{ public_path($images[2]) }}" alt="Image 3"></td>
+                    @else
+                    <td class="image-cell"></td>
+                    @endif
                 </tr>
                 <tr>
+                    @if (isset($images[3]))
                     <td class="image-cell"><img src="{{ public_path($images[3]) }}" alt="Image 4"></td>
+                    @else
+                    <td class="image-cell"></td>
+                    @endif
+
+                    @if (isset($images[4]))
                     <td class="image-cell"><img src="{{ public_path($images[4]) }}" alt="Image 5"></td>
+                    @else
+                    <td class="image-cell"></td>
+                    @endif
                 </tr>
             </table>
             <table>
                 <tr class="additional-info">
-                    <td>Hair: Brown</td>
-                    <td style="padding-left: 30px;">Nationality: India</td>
+                    <td>{{ 'Hair: ' . ucfirst($modelDetail->hair_color) }}</td>
+                    <td style="padding-left: 30px;">{{ 'Nationality: ' . ucfirst($modelDetail->nationality) }}</td>
                 </tr>
                 <tr class="additional-info">
-                    <td>Eyes: Brown</td>
-                    <td style="padding-left: 30px;">Ethnicity: European, Mediterranean</td>
+                    <td>{{'Eyes: ' . ucfirst($modelDetail->eye_color) }}</td>
+                    <td style="padding-left: 30px;">{{ 'Ethnicity: ' . ucfirst($modelDetail->ethnicity) }}</td>
                 </tr>
                 <tr>
                     <td colspan="5" style="height: 15px;"></td>

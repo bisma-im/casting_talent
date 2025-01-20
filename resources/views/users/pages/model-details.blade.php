@@ -705,9 +705,9 @@ $timestamp = time();
 
 {{-- ----------------------------------- SECTION 1 ----------------------------------------- --}}
 
-<div class="container mx-0 px-0">
+<div class="container mx-0 px-0" id="getSS">
 
-    <div class="row d-flex align-items-center mx-0 px-0" id="getSS">
+    <div class="row d-flex align-items-center mx-0 px-0">
         {{-- ------------- cover image --------------- --}}
         <div class="col-12 col-md-5 p-0 pt-3 mt-3">
             <!-- Display the first image -->
@@ -736,14 +736,14 @@ $timestamp = time();
                 <div class="row ps-4 ms-md-3 me-md-5">
                     <div class="header pe-md-5 py-md-3">
                         <div class="name">
-                            <!--{{ $details['first_name'] }} {{ $details['last_name'] }} => -->
+                            {{-- {{ $details['first_name'] }} {{ $details['last_name'] }}  --}}
                             <span>{{ $details['talent_id'] }}</span>
                             {{--
                             <!--{{ route('download.model.details', $details['id']) }} {{ url('/download-all-model-images/' . $details['id']) }}  id="captureButton" -->
                             <button id="captureButton" class="btn btn-success ">Download</button> --}}
-                            <div>
+                            <div id="downloadButtons">
                                 <button id="captureButton" class="btn icon-btn me-3 me-md-0"><i class="fas fa-share"></i></button>
-                                <button id="captureButton1" class="btn icon-btn me-3 me-md-0"><i class="fad fa-print"></i></button>
+                                <a id="captureButton1" href="{{ '/pdf/' . $details['id']}}" target="_blank" class="btn icon-btn me-3 me-md-0"><i class="fad fa-print"></i></a>
                             </div>
                         </div>
                     </div>
@@ -921,12 +921,12 @@ $timestamp = time();
                         ];
                     @endphp
                     @foreach ($videos as $index => $video)
-                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="background-image: url('https://img.youtube.com/vi/{{ $video }}/maxresdefault.jpg'); background-size: cover; background-position: center center; height: 100vh; width: 100%">
+                    {{-- <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="background-image: url('https://img.youtube.com/vi/{{ $video }}/maxresdefault.jpg'); background-size: cover; background-position: center center; height: 100vh; width: 100%">
                         <!-- Content of the slide -->
                         <div class="container h-100 w-100 d-flex align-items-center">
                             <iframe width="374" height="280" src="https://www.youtube.com/embed/{{ $video }}?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                    </div>
+                    </div> --}}
                     @endforeach
                 </div>
                 <a class="carousel-control-prev text-dark" href="#videoCarousel" role="button" data-slide="prev">
@@ -1160,28 +1160,26 @@ $timestamp = time();
 </script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 <script>
     document.getElementById('captureButton').addEventListener('click', function() {
-        // Hide the capture button
-        var captureButton = document.getElementById('captureButton');
+        var captureButton = document.getElementById('downloadButtons');
         captureButton.style.display = 'none';
 
-        // Capture the screenshot
-        html2canvas(document.getElementById('getSS')).then(function(canvas) {
-            // Create the download link
-            var link = document.createElement('a');
-            link.href = canvas.toDataURL();
-            link.download = 'screenshot.png';
-            link.click();
+        var node = document.getElementById('getSS');
 
-            // Show the capture button again after download
-            captureButton.style.display = 'block';
-        }).catch(function(error) {
-            console.error('Error capturing screenshot:', error);
-            // If there's an error, show the button again
-            captureButton.style.display = 'block';
-        });
+        domtoimage.toPng(node)  // Corrected from dom-to-image to domtoimage
+            .then(function(dataUrl) {
+                var link = document.createElement('a');
+                link.download = 'my-div-image.png';
+                link.href = dataUrl;
+                link.click();
+            })
+            .catch(function(error) {
+                console.error('Oops, something went wrong!', error);
+            });
+        captureButton.style.display = 'block';
     });
 
 
