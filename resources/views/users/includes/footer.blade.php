@@ -119,7 +119,7 @@
     }
 
     section.contactlist {
-
+         
     }
 
     .testimonial {
@@ -251,8 +251,9 @@
         content: "";
         position: absolute;
         left: 50%;
+        
         /* Center the line between the two columns */
-        top: 20px;
+        top: 46px;
         bottom: 30px;
         width: 2px;
         /* Line thickness */
@@ -629,10 +630,10 @@
     <div class="row with-divider">
 
         {{---------------------------- google reviews ----------------------}}
-        <section class="contactlist col-lg-6 col-md-6 col-xl-6" style="background-color: #f3fbff !important;">
+        <section class="contactlist mt-5 col-lg-6 col-md-6 col-xl-6" style="background-color: #f3fbff !important;">
             <div class="container">
                 <div class="row">
-                    <div class="innertext text-left">
+                    <div class="innertext text-left ps-4">
                         <h3 style="text-align:left; font-weight:bold;">What Our <span>Clients</span> have to say</h3>
                         @php
                         $fullStars = floor($averageRating); // Number of full stars
@@ -703,7 +704,7 @@
         </section>
 
         {{---------------------------- client reviews ----------------------}}
-        <section class="contactlist col-lg-6 col-md-6 col-xl-6" style="background-color: #f3fbff !important;">
+        <section class="contactlist mt-5 col-lg-6 col-md-6 col-xl-6" style="background-color: #f3fbff !important;">
             <div class="container">
                 <div class="row">
                     <div class="innertext text-left" style="margin-bottom: 48px;">

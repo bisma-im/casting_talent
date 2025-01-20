@@ -74,27 +74,27 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             </div>
             <div class="row align-items-center">
-            <div class="col-12 d-flex justify-content-center mt-4">
+            <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/event_1.png" class="img-fluid" alt="img">
                     </div>
                 </div>
-                <div class="col-12 ">
-                    <div class="modaltext pt-5 pt-md-0 text-center ">
-                        <h2>Event Management</h2>
-                        <p><b>Expert Event Creation and Management by Cast Talents</b></p>
-                        <p>At Cast Talents, we specialize in crafting exceptional events for both private and corporate
-                            clients. From conception to execution, we design, plan, and manage each project with meticulous
-                            attention to detail.</p>
-                        <p>Our team of seasoned professionals understands that breakthrough ideas require robust logistical
-                            support. We believe that the mastery of logistics is key to creating awe-inspiring experiences.
-                        </p>
-                        <p>Every event we create is uniquely customized to reflect the brand personality of our clients.
-                            Whether we are working with a family, product, company, or cause, our events integrate
-                            innovative design with the finest elements of dining, entertainment, and that essential element
-                            of surprise.</p>
+                <div class="col-12  ms-3  d-flex justify-content-center ">
+                    <div class="modaltext " >
+                        <h2 class="text-center" >Event Management</h2>
+                       <p class="ms-md-5 text-dark text-center"> <strong>Event Management by Cast Talents</strong></p>
+                       <ul class="ms-5 d-flex justify-content-center flex-column" style="list-style-position: inside;">
+    <li><strong>Expert Services:</strong> We design, plan, and manage private and corporate events with precision and creativity, delivering unique and memorable experiences tailored to your needs.</li>
+    <strong>Our Services Include:</strong>
+    <li><strong>Design:</strong> Print, graphic, décor, lighting, table, and floral design. Management of invitations, RSVPs, budgets, critical paths, and vendor contracts.</li>
+    <li><strong>Production:</strong> Sound, video, and multimedia production.</li>
+    <li><strong>Coordination:</strong> Catering, staffing, media relations, sponsorships, talent procurement, hospitality, travel, protocol, and concierge services.</li>
+</ul>
 
-                        <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a>
+
+                       <p class="text-center">Seamlessly blending innovative design and exceptional service for unforgettable events.
+                       </p>
+                        <!-- <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a> -->
                     </div>
                 </div>
                

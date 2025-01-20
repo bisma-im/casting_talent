@@ -322,7 +322,7 @@ section.casting {
 }
 .casting-text p {
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
     width: 100% !important;
     font-weight: bold !important;
     line-height: 25px;
@@ -1627,6 +1627,7 @@ section.contactussec:before {
 
 section.contactlist {
     padding: 100px 0 100px;
+   
     
 }
 a.number {
