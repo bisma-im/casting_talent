@@ -872,9 +872,10 @@ $timestamp = time();
             <!-- Background slider -->
             <div class="background-slider m-0 p-0">
                 <div class="slider-track m-0 p-0" id="sliderTrack">
-                    <div class="slider-image m-0 p-0"
-                        style="background-image: url('{{ url('/user-assets/model-images/1.jpeg') }}');"></div>
-                    <div class="slider-image m-0 p-0"
+                    @foreach($portfolio as $image)
+                        <div class="slider-image m-0 p-0" style="background-image: url('{{ url($image) }}');"></div>
+                    @endforeach
+                    {{-- <div class="slider-image m-0 p-0"
                         style="background-image: url('{{ url('/user-assets/model-images/2.jpeg') }}');"></div>
                     <div class="slider-image m-0 p-0"
                         style="background-image: url('{{ url('/user-assets/model-images/3.jpeg') }}');"></div>
@@ -892,7 +893,7 @@ $timestamp = time();
                     <div class="slider-image m-0 p-0"
                         style="background-image: url('{{ url('/user-assets/model-images/9.jpeg') }}');"></div>
                      <div class="slider-image m-0 p-0"
-                        style="background-image: url('{{ url('/user-assets/model-images/model4.jpg') }}');"></div> 
+                        style="background-image: url('{{ url('/user-assets/model-images/model4.jpg') }}');"></div>  --}}
                 </div>
             </div>
 
@@ -913,15 +914,8 @@ $timestamp = time();
         <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
             <div id="videoCarousel" class="carousel slide audio-carousel" data-ride="carousel">
                 <div class="carousel-inner">
-                    @php
-                        $videos = [
-                            'TivAwezqug4', // Video ID 1
-                            'ZPhlSqHN4yg', // Video ID 2
-                            'psnAGlcVbcY', // Video ID 3
-                        ];
-                    @endphp
                     @foreach ($videos as $index => $video)
-                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="background-image: url('https://img.youtube.com/vi/{{ $video }}/maxresdefault.jpg'); background-size: cover; background-position: center center; height: 100vh; width: 100%">
+                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="background-image: url('https://i.ytimg.com/vi/{{ $video }}/maxresdefault.jpg'); background-size: cover; background-position: center center; height: 100vh; width: 100%">
                         <!-- Content of the slide -->
                         <div class="container h-100 w-100 d-flex align-items-center">
                             <iframe width="374" height="280" src="https://www.youtube.com/embed/{{ $video }}?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -948,44 +942,20 @@ $timestamp = time();
     <div id="audioCarousel" class="carousel slide">
         <div class="carousel-inner audio-carousel-inner audio-carousel">
 
-            <!-- Slide 1 -->
-            <div class="carousel-item audio-carousel-item active">
-                <div class="audio-slide">
-                    <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
-                    <div class="audio-player-wrapper">
-                        <audio controls class="audio-player" style="width: 60%; max-width: 400px;">
-                            <source src="{{ url('/user-assets/model-images/xyz.mp3') }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
+            <!-- Slide -->
+            @foreach ($audios as $audio)
+                <div class="carousel-item audio-carousel-item active">
+                    <div class="audio-slide">
+                        <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
+                        <div class="audio-player-wrapper">
+                            <audio controls class="audio-player" style="width: 60%; max-width: 400px;">
+                                <source src="{{ url($audio) }}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="carousel-item audio-carousel-item">
-                <div class="audio-slide">
-                    <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
-                    <div class="audio-player-wrapper">
-                        <audio controls class="audio-player" style="width: 60%; max-width: 400px;">
-                            <source src="{{ url('/user-assets/model-images/xyz.mp3') }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="carousel-item audio-carousel-item">
-                <div class="audio-slide">
-                    <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
-                    <div class="audio-player-wrapper">
-                        <audio controls class="audio-player" style="width: 60%; max-width: 400px;">
-                            <source src="{{ url('/user-assets/model-images/xyz.mp3') }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
         <!-- Carousel Controls -->
@@ -1009,6 +979,11 @@ $timestamp = time();
 {{-- -------------------------------section 3-------------------------------- --}}
 <div class="carousel-container sec-three">
     <h2 class="carousel-heading">Related <span>Profiles</span></h2>
+    @if($relatedProfiles->isEmpty())
+    <div class="d-flex justify-content-center align-items-center">
+        <p>No related profiles available.</p>
+    </div>
+    @else
     <div class="custom-carousel" id="customCarousel">
         <div class="custom-carousel-inner" id="customCarouselInner">
             @foreach ($relatedProfiles as $profile)
@@ -1021,22 +996,23 @@ $timestamp = time();
                 $age = $currentDate->diff($birthDate)->y;
             @endphp
             <div class="custom-carousel-item {{ $loop->first ? 'active' : '' }}">
-            
-                <div class="profile-card">
-                    <div class="img-div">
-                    <img src="{{ url('/uploads/models/profiles/' . $firstImage) }}" class="img-fluid"
-                        alt="model-image">
+                <a href="{{ route('model-info.get', $profile->id) }}" class="text-dark">
+                    <div class="profile-card">
+                        <div class="img-div">
+                        <img src="{{ url('/uploads/models/profiles/' . $firstImage) }}" class="img-fluid"
+                            alt="model-image">
+                                </div>
+                                <div class="cardbody">
+                                <div class="card-code text-center">
+                                    {{ $profile->talent_id }}
+                                </div>
+                                <div class="card-info text-center">
+                                    {{ $age . ', ' . $profile->nationality }}
+                                    <!-- Insert age, nationality, etc., here -->
+                                </div>
                             </div>
-                            <div class="cardbody">
-                            <div class="card-code text-center">
-                                {{ $profile->talent_id }}
-                            </div>
-                            <div class="card-info text-center">
-                                {{ $age . ', ' . $profile->nationality }}
-                                <!-- Insert age, nationality, etc., here -->
-                            </div>
-                        </div>
-                </div>
+                    </div>
+                </a>
             </div>
             @endforeach
         </div>
@@ -1045,6 +1021,7 @@ $timestamp = time();
         <a class="custom-carousel-control-next" id="customCarouselNext" href="#!" role="button"
             data-slide="next">&#10095;</a>
     </div>
+    @endif
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

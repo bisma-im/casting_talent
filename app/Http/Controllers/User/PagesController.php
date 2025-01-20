@@ -157,9 +157,49 @@ class PagesController extends Controller
             })
             ->get();
 
+        // Decode the JSON encoded image file names
+        $fileNames = json_decode($details->profile_images, true);
+
+        // Check if fileNames is not empty and is an array
+        if (is_array($fileNames)) {
+            // Form full paths for the images
+            $portfolio = array_map(function ($fileName) {
+                return asset('uploads/models/profiles/' . $fileName);
+            }, $fileNames);
+        } else {
+            $portfolio = [];
+        }
+
+        $urls = json_decode($details->video_file, true);
+
+        // Check if urls is not null and is an array before mapping
+        if (is_array($urls)) {
+            $videos = array_map(function ($url) {
+                parse_str(parse_url($url, PHP_URL_QUERY), $query);
+                return $query['v'] ?? trim(parse_url($url, PHP_URL_PATH), '/');
+            }, $urls);
+        } else {
+            $videos = [];  // Default to an empty array if null or not an array
+        }
+
+        $audioFiles = json_decode($details->audio_file, true);
+
+        // Check if fileNames is not empty and is an array
+        if (is_array($audioFiles)) {
+            // Form full paths for the images
+            $audios = array_map(function ($audioFile) {
+                return asset('uploads/models/audios/' . $audioFile);
+            }, $audioFiles);
+        } else {
+            $audios = [];
+        }
+
         return view('users.pages.model-details', [
             'details' => $details,
-            'relatedProfiles' => $relatedProfiles
+            'relatedProfiles' => $relatedProfiles,
+            'portfolio' => $portfolio,
+            'audios' => $audios,
+            'videos' => $videos
         ]);
     }
 
