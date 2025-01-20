@@ -172,15 +172,33 @@ class PagesController extends Controller
 
         $urls = json_decode($details->video_file, true);
 
-        $videos = array_map(function ($url) {
-            parse_str(parse_url($url, PHP_URL_QUERY), $query);
-            return $query['v'] ?? trim(parse_url($url, PHP_URL_PATH), '/');
-        }, $urls);
+        // Check if urls is not null and is an array before mapping
+        if (is_array($urls)) {
+            $videos = array_map(function ($url) {
+                parse_str(parse_url($url, PHP_URL_QUERY), $query);
+                return $query['v'] ?? trim(parse_url($url, PHP_URL_PATH), '/');
+            }, $urls);
+        } else {
+            $videos = [];  // Default to an empty array if null or not an array
+        }
+
+        $audioFiles = json_decode($details->audio_file, true);
+
+        // Check if fileNames is not empty and is an array
+        if (is_array($audioFiles)) {
+            // Form full paths for the images
+            $audios = array_map(function ($audioFile) {
+                return asset('uploads/models/audios/' . $audioFile);
+            }, $audioFiles);
+        } else {
+            $audios = [];
+        }
 
         return view('users.pages.model-details', [
             'details' => $details,
             'relatedProfiles' => $relatedProfiles,
             'portfolio' => $portfolio,
+            'audios' => $audios,
             'videos' => $videos
         ]);
     }

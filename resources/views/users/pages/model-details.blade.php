@@ -942,44 +942,20 @@ $timestamp = time();
     <div id="audioCarousel" class="carousel slide">
         <div class="carousel-inner audio-carousel-inner audio-carousel">
 
-            <!-- Slide 1 -->
-            <div class="carousel-item audio-carousel-item active">
-                <div class="audio-slide">
-                    <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
-                    <div class="audio-player-wrapper">
-                        <audio controls class="audio-player" style="width: 60%; max-width: 400px;">
-                            <source src="{{ url('/user-assets/model-images/xyz.mp3') }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
+            <!-- Slide -->
+            @foreach ($audios as $audio)
+                <div class="carousel-item audio-carousel-item active">
+                    <div class="audio-slide">
+                        <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
+                        <div class="audio-player-wrapper">
+                            <audio controls class="audio-player" style="width: 60%; max-width: 400px;">
+                                <source src="{{ url($audio) }}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="carousel-item audio-carousel-item">
-                <div class="audio-slide">
-                    <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
-                    <div class="audio-player-wrapper">
-                        <audio controls class="audio-player" style="width: 60%; max-width: 400px;">
-                            <source src="{{ url('/user-assets/model-images/xyz.mp3') }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="carousel-item audio-carousel-item">
-                <div class="audio-slide">
-                    <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
-                    <div class="audio-player-wrapper">
-                        <audio controls class="audio-player" style="width: 60%; max-width: 400px;">
-                            <source src="{{ url('/user-assets/model-images/xyz.mp3') }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
         <!-- Carousel Controls -->
@@ -1003,6 +979,11 @@ $timestamp = time();
 {{-- -------------------------------section 3-------------------------------- --}}
 <div class="carousel-container sec-three">
     <h2 class="carousel-heading">Related <span>Profiles</span></h2>
+    @if($relatedProfiles->isEmpty())
+    <div class="d-flex justify-content-center align-items-center">
+        <p>No related profiles available.</p>
+    </div>
+    @else
     <div class="custom-carousel" id="customCarousel">
         <div class="custom-carousel-inner" id="customCarouselInner">
             @foreach ($relatedProfiles as $profile)
@@ -1040,6 +1021,7 @@ $timestamp = time();
         <a class="custom-carousel-control-next" id="customCarouselNext" href="#!" role="button"
             data-slide="next">&#10095;</a>
     </div>
+    @endif
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
