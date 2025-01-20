@@ -143,15 +143,19 @@ document.addEventListener('DOMContentLoaded', function () {
                         <img src="{{ url('user-assets') }}/images/filim_3.png" class="img-fluid" alt="img">
                     </div>
                 </div>
-                <div class="col-12 text-center  ">
+                <div class="col-12 ms-5">
                     <div class="modaltext ps-5 d-flex justify-content-center flex-column">
+                      
+                        
+                        <ul class="mb-5 pt-3 ms-5 ">
                         <h2 class="pt-4">Production Services by Cast Talents
                         </h2>
-                        
-                        <ul class="mb-5 pt-3 text-center ms-5 ">
-                          <p><strong>Production</strong>Services: Filming, Content Creation, TVCs, Film Production, Corporate Videos, Social Media Content, Interviews, Animation, PSAs.
-Design: Art Direction, Wardrobe Styling, Set Design, Post-Production Supervision.
-</p>
+                        <strong>Production</strong>
+                          <p><strong>Services:</strong> Filming, Content Creation, TVCs, Film Production, Corporate Videos, Social Media Content, Interviews, Animation, PSAs.</p>
+                          <p><strong>Design:</strong>
+                          Art Direction, Wardrobe Styling, Set Design, Post-Production Supervision.</p>
+
+
                           <p><strong>Pre-Production:
                           </strong>Concept Development, Scriptwriting, Creative Direction, Storyboarding, Location Scouting, Casting, Research, Consultation, Copywriting.
                           </p>
@@ -164,12 +168,14 @@ Design: Art Direction, Wardrobe Styling, Set Design, Post-Production Supervision
                           <p><strong>Line Production
                           </strong>
                           Full coordination of budgets, schedules, logistics, and personnel from pre- to post-production for seamless execution.
-Comprehensive services tailored to meet diverse production needs with creativity and precision.
 
 
 
                         </p>
+<strong>
+Comprehensive services tailored to meet diverse production needs with creativity and precision.
 
+</strong>
                         </ul>
                         <!-- <p>Cast Talents provides a diverse range of professional services to meet your filming and content
                             creation needs, ensuring high-quality results tailored to your requirements.</p> -->
