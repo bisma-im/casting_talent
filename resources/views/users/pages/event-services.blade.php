@@ -236,27 +236,35 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     </script>
 
-    <section class="modalagencysec2" id="promotional-events-marketing">
+    <section class="modalagencysec2 mt-4" id="promotional-events-marketing">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row ">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/event_2.png" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="col-12 col-md-6">
                     <div class="modaltext1">
 
                         <h2>Promotional <sapn style="color: rgba(216, 31, 38, 1);">Events </sapn> Marketing</h2>
                         <p><b>Professional Marketing Services by Cast Talents</b></p>
-                        <p>For those seeking expert marketing services to advertise an event, it's essential to understand
-                            the capabilities and pricing of such services. At Cast Talents, we offer comprehensive media
-                            design and selection, providing various advertising options tailored to your needs. We analyze
-                            your budget and brand to develop the most effective promotional strategy, ensuring the best
-                            return on your investment.</p>
-
-
-                        <a href="#" class="contactbtn1" id="readMoreTrigger1">READ MORE</a>
+                        <p>Cast Talents offers tailored marketing solutions to advertise events effectively, focusing on budget optimization and impactful strategies.
+                        </p>
+                        <strong>Our Services Include:
+                        </strong>
+                       <ul>
+                       <li><strong>Media Design & Selection:</strong>Customized advertising options for maximum ROI.</li> 
+                       <li><strong>Promotional Strategy:</strong>Budget and brand analysis for targeted campaigns.
+                       </li> 
+                       <li><strong>Media Buying:</strong> Expertly selected locations and localized ads for audience targeting</li> 
+                       <li><strong>Campaign Management:</strong> Full-service support, from strategy to ad placement.
+                       </li> 
+                       <p>Streamline your promotional efforts with our expertise. Contact us for details on services and pricing.
+    </p>
+                       <ul>
+                        
+                        <!-- <a href="#" class="contactbtn1" id="readMoreTrigger1">READ MORE</a> -->
                     </div>
                 </div>
             </div>
@@ -315,14 +323,28 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="modaltext text-center">
                         <h2>Retail & <span>Promotional</span> Staff</h2>
                         <p><strong>Specialized Staffing Solutions by Cast Talents</strong></p>
-                        <p>As a licensed retail, exhibition, and event staffing agency approved by the Ministry of Labour,
-                            Cast Talents is dedicated to providing high-quality temporary staffing services. Our clients
-                            benefit from exceptional support and top-tier staff tailored to their specific needs.</p>
-                        <p><strong>Retail Staffing:</strong> Our flexible retail staff, equipped with visas and labor cards,
-                            can be scaled up or down based on your requirements. They bring extensive experience in UAE
-                            retail, ensuring seamless integration and performance.</p>
+                        <p>As a licensed and Ministry-approved staffing agency, Cast Talents provides high-quality temporary staffing for retail, events, and exhibitions.
+                        </p>
+                        
+                            <strong>Our Services Include:
+                        </strong>
+                       <ul>
+                       <li><strong>Retail Staffing:</strong> Experienced staff with UAE retail expertise, scalable to your needs.
+                       </li> 
+                       <li><strong>Promoters:</strong>Trained professionals for sampling, launches, events, and activations.
+                       </li> 
+                       <li><strong>Hospitality Support:</strong> Waitstaff with occupational health cards for seamless events.
+                       </li> 
+                       <li><strong>Hostesses:</strong>Multilingual, experienced professionals for trade shows, corporate events, and more.
 
-                        <a href="#" class="contactbtn1" id="readMoreTrigger2">READ MORE</a>
+                       </li> 
+                       <li><strong>Host:</strong>Skilled male and female hosts with extensive event expertise.
+
+                       </li> 
+                       <p>We ensure top-tier staffing through rigorous auditing and customization to meet your requirements.
+    </p>
+                       <ul>
+                        <!-- <a href="#" class="contactbtn1" id="readMoreTrigger2">READ MORE</a> -->
                     </div>
                 </div>
                
