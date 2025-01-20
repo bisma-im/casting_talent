@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="modaltext " >
                         <h2 class="text-center" >Event Management</h2>
                        <p class="ms-md-5 text-dark text-center"> <strong>Event Management by Cast Talents</strong></p>
-                       <ul class="ms-5 d-flex justify-content-center flex-column" style="list-style-position: inside;">
+                       <ul class="ms-4 d-flex justify-content-center flex-column" style="list-style-position: inside;">
     <li><strong>Expert Services:</strong> We design, plan, and manage private and corporate events with precision and creativity, delivering unique and memorable experiences tailored to your needs.</li>
     <strong>Our Services Include:</strong>
     <li><strong>Design:</strong> Print, graphic, décor, lighting, table, and floral design. Management of invitations, RSVPs, budgets, critical paths, and vendor contracts.</li>
@@ -92,8 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </ul>
 
 
-                       <p class="text-center">Seamlessly blending innovative design and exceptional service for unforgettable events.
-                       </p>
+<p class="ms-md-5 text-dark text-center"> <strong>Seamlessly blending innovative design and exceptional service for unforgettable events.</strong></p>
                         <!-- <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a> -->
                     </div>
                 </div>
