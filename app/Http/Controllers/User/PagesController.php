@@ -157,9 +157,31 @@ class PagesController extends Controller
             })
             ->get();
 
+        // Decode the JSON encoded image file names
+        $fileNames = json_decode($details->profile_images, true);
+
+        // Check if fileNames is not empty and is an array
+        if (is_array($fileNames)) {
+            // Form full paths for the images
+            $portfolio = array_map(function ($fileName) {
+                return asset('uploads/models/profiles/' . $fileName);
+            }, $fileNames);
+        } else {
+            $portfolio = [];
+        }
+
+        $urls = json_decode($details->video_file, true);
+
+        $videos = array_map(function ($url) {
+            parse_str(parse_url($url, PHP_URL_QUERY), $query);
+            return $query['v'] ?? trim(parse_url($url, PHP_URL_PATH), '/');
+        }, $urls);
+
         return view('users.pages.model-details', [
             'details' => $details,
-            'relatedProfiles' => $relatedProfiles
+            'relatedProfiles' => $relatedProfiles,
+            'portfolio' => $portfolio,
+            'videos' => $videos
         ]);
     }
 
