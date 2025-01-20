@@ -227,10 +227,10 @@ document.addEventListener('DOMContentLoaded', function () {
     </section>
     <section class="modalagencysec2" id="videography-photography">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row mt-4 ">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_4.png" alt="Casting Image" class="img-fluid">
+                        <img style="" src="{{ url('user-assets') }}/images/event_4.png" alt="Casting Image" class="img-fluid pt-5">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -238,20 +238,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         <h2>Videography & <sapn style="color: rgba(216, 31, 38, 1);">Photography</sapn>
                         </h2>
-                        <p><b>One of the Premier Professional Photography and Videography Services</b></p>
-                        <p><b>Corporate Videos</b> Expand your brand’s reach with our exceptional corporate video production
-                            services. Our team of award-winning writers, videographers, directors, and video creators craft
-                            innovative corporate videos tailored to your business needs.</p>
-                        <p><b>Event Videos</b> Amplify the impact and longevity of your events. From intimate corporate
-                            gatherings to large-scale conferences, our team excels at transforming your events into
-                            spectacular videos that extend their reach and influence.</p>
-                        <p><b>Commercials</b> Create impactful commercials that elevate your brand’s presence. We specialize
-                            in producing compelling advertisements that capture attention and drive results.</p>
-                        <p><b>Events</b> Turn your events into unforgettable memories with our professional event
-                            photography and videography services. We cover everything from corporate gatherings to private
-                            celebrations, ensuring every moment is perfectly captured.</p>
+                        <p class="pt-4"><strong>Corporate Videos:</strong> Expand your brand’s reach with tailored productions.</p>
+<p><strong>Event Videos:</strong> Create lasting visual memories from events.</p>
+<p><strong>Promotional Videos:</strong> Engage audiences with captivating content.</p>
+<p><strong>Commercial Videos:</strong> Drive revenue through compelling TV and online ads.</p>
+<p><strong>Animation Videos:</strong> Bring ideas to life with 2D, 3D, and motion graphics.</p>
+<p><strong>Training & Safety Videos:</strong> Simplify learning and safety protocols effectively.</p>
+<p><strong>Documentaries:</strong> Tell impactful and emotionally engaging stories.</p>
+<p><strong>Explainer Videos:</strong> Showcase product/service benefits clearly.</p>
+<p><strong>Time-lapse Videos:</strong> Highlight progress through condensed visuals.</p>
+<p><strong>Branded Videos:</strong> Create engaging, share-worthy brand stories.</p>
+<p><strong>Aerial Drone Filming:</strong> Capture stunning aerial perspectives.</p>
+<p ><strong>Photography</strong></p>
+<p><strong>Commercials:</strong> Produce impactful, result-driven advertisements.</p>
+<p><strong>Events:</strong> Preserve memories of corporate and private occasions.</p>
+<p><strong>Music Video BTS & Posters:</strong> Artistic behind-the-scenes content.</p>
+<p><strong>Product Shoots:</strong> Highlight features with high-quality visuals.</p>
+<p><strong>Business Portraits:</strong> Professional photos reflecting your identity.</p>
+<p><strong>Modeling Portfolios:</strong> Showcase versatility with standout images.</p>
+<p><strong>Weddings & Emirati Weddings:</strong> Capture timeless and traditional moments.</p>
+<p><strong>Interior & Exterior:</strong> Showcase property beauty with clarity.</p>
+<p><strong>Engagement & Family Portraits:</strong> Celebrate milestones beautifully.</p>
+<p><strong>Cake Smash & Maternity:</strong> Mark special occasions creatively.</p>
+<p><strong>Newborn Photography:</strong> Treasure early life moments forever.</p>
 
-                        <a href="#" class="contactbtn1" id="readMoreTrigger3">READ MORE</a>
+                        <!-- <a href="#" class="contactbtn1" id="readMoreTrigger3">READ MORE</a> -->
                     </div>
                 </div>
             </div>

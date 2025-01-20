@@ -425,7 +425,7 @@
                         <div class="casting-text test-class">
                             <div>
                             <h5 class="pt-md-2 pt-3">ABEERA K SHEIKH</h5>
-                            <h2 style="color: rgba(216, 31, 38, 1);">Casting <span style="color: white;">Director</sapn> & <sapn
+                            <h2 style="color: rgba(216, 31, 38, 1);"><span
                                     style="color: white;">Founder</span> Of Cast Talents.</h2>
                             </div>
                             <div>
@@ -443,7 +443,7 @@
                                         <a href="{{ route('register.get') }}">WANT TO BECOME A MODEL? <span class="aboutbtn "><i
                                         class="fa-solid fa-angle-right"></i></span></a>
                                     </div>
-                                    <div class="socialLinks justify-content-md-end">
+                                    <div class="socialLinks justify-content-md-end ">
                                         <a href="https://www.facebook.com/abeera.k.sheikh" target="_blank" class="social-icon">
                                             <i class="fab fa-facebook-f"></i>
                                         </a>
@@ -478,7 +478,8 @@
                                     text-decoration: none;
                                     color: #000;
                                     /* margin-top: 20px !important; */
-                                    /* margin: 5px ; */
+                                    margin: 3px ;
+                                    margin-bottom:0px !important ;
                                     /* margin-bottom:500px !important; */
                                     /* Change to desired color */
                                     font-size: 20px;
@@ -616,8 +617,8 @@
 
 </style>
 
-<section class="featuremodalsec mt-5">
-    <div class="row">
+<section class="featuremodalsec ">
+    <div class="row pt-2">
         <div class="col-12">
             <div class="featuremodal">
                 <h3>Featured <span>Talents</span></h3>
@@ -625,31 +626,31 @@
             <div class="featurelist" style="border-bottom: 0 !important;">
                 <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled mt-4">
                     <li class="col-md-1 col-xs-2 text-center">
-                        <a href="{{ route('all-models-homepage.get', ['role' => 'presenters_emcees']) }}" class="d-flex flex-column align-items-center">
+                        <a href="{{ route('featured-models.get', ['role' => 'presenters_emcees']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/presenter.png') }}" alt="Presenters Icon" class="icon img-fluid">
                             <p class="hover-text">PRESENTERS & EMCEES</p>
                         </a>
                     </li>
                     <li class="col-md-2 col-xs-2 text-center">
-                        <a href="{{ route('all-models-homepage.get', ['role' => 'event_staff_ushers']) }}" class="d-flex flex-column align-items-center">
+                        <a href="{{ route('featured-models.get', ['role' => 'event_staff_ushers']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/eventstaff.png') }}" alt="Event Staff Icon" class="icon img-fluid">
                             <p class="hover-text ">EVENT STAFF & <br/> USHERS</p>
                         </a>
                     </li>
                     <li class="col-md-2 col-xs-2 text-center">
-                        <a href="{{ route('all-models-homepage.get', ['role' => 'makeup_hair_painter_fashion_stylists']) }}" class="d-flex flex-column align-items-center">
+                        <a href="{{ route('featured-models.get', ['role' => 'makeup_hair_painter_fashion_stylists']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/makeup.png') }}" alt="Makeup Icon" class="icon img-fluid">
                             <p class="hover-text">MAKEUP, HAIR & <br/> FASHION</p>
                         </a>
                     </li>
                     <li class="col-md-2 col-xs-2 text-center">
-                        <a href="{{ route('all-models-homepage.get', ['role' => 'photographers_videographers']) }}" class="d-flex flex-column align-items-center">
+                        <a href="{{ route('featured-models.get', ['role' => 'photographers_videographers']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/photo.png') }}" alt="Photographers Icon" class="icon img-fluid">
                             <p class="hover-text">PHOTOGRAPHY & VIDEOGRAPHY</p>
                         </a>
                     </li>
                     <li class="col-md-2 col-xs-2 text-center">
-                        <a href="{{ route('all-models-homepage.get', ['role' => 'dancers_performers']) }}" class="d-flex flex-column align-items-center">
+                        <a href="{{ route('featured-models.get', ['role' => 'dancers_performers']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/dancer.png') }}" alt="Dancers Icon" class="icon img-fluid">
                             <p class="hover-text">DANCERS &  <br/> PERFORMERS</p>
                         </a>
@@ -659,31 +660,31 @@
               <!-- Row 1 -->
                 <ul class="d-flex flex-wrap justify-content-center align-items-center list-unstyled">
                     <li class="col-md-1 col-xs-2 text-center">
-                        <a href="{{ route('all-models-homepage.get', ['role' => 'actors']) }}" class="d-flex flex-column align-items-center">
+                        <a href="{{ route('featured-models.get', ['role' => 'actors']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/actor.png') }}" alt="Actors Icon" class="icon img-fluid">
                             <p class="hover-text">ACTORS</p>
                         </a>
                     </li>
                     <li class="col-md-2 col-xs-2 text-center">
-                        <a href="{{ route('all-models-homepage.get', ['role' => 'models']) }}" class="d-flex flex-column align-items-center">
+                        <a href="{{ route('featured-models.get', ['role' => 'models']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/model.png') }}" alt="Models Icon" class="icon img-fluid">
                             <p class="hover-text">MODELS</p>
                         </a>
                     </li>
                     <li class="col-md-2 col-xs-2 text-center">
-                        <a href="{{ route('all-models-homepage.get', ['role' => 'musicians']) }}" class="d-flex flex-column align-items-center">
+                        <a href="{{ route('featured-models.get', ['role' => 'musicians']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/musician.png') }}" alt="Musicians Icon" class="icon img-fluid">
                             <p class="hover-text">MUSICIANS</p>
                         </a>
                     </li>
                     <li class="col-md-2 col-xs-2 text-center">
-                        <a href="{{ route('all-models-homepage.get', ['role' => 'film_crew']) }}" class="d-flex flex-column align-items-center">
+                        <a href="{{ route('featured-models.get', ['role' => 'film_crew']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/film.png') }}" alt="Film Crew Icon" class="icon img-fluid">
                             <p class="hover-text">FILM CREW</p>
                         </a>
                     </li>
                     <li class="col-md-2 col-xs-2 text-center">
-                        <a href="{{ route('all-models-homepage.get', ['role' => 'influencers']) }}" class="d-flex flex-column align-items-center">
+                        <a href="{{ route('featured-models.get', ['role' => 'influencers']) }}" class="d-flex flex-column align-items-center">
                             <img src="{{ url('user-assets/icons/influencer.png') }}" alt="Influencers Icon" class="icon img-fluid">
                             <p class="hover-text">INFLUENCERS</p>
                         </a>

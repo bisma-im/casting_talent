@@ -137,30 +137,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <section class="modalagencysec" id="production">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center ">
             <div class="col-12 d-flex justify-content-center mt-4" >
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/filim_3.png" class="img-fluid" alt="img">
                     </div>
                 </div>
-                <div class="col-12 d-flex justify-content-center">
-                    <div class="modaltext">
-                        <h2>Production</h2>
-                        <p>Professional Services Offered by Cast Talents</p>
-                        <ul class="mb-5 ">
-                            <li>Filming Services</li>
-                            <li>Content Creation</li>
-                            <li>TV Commercials (TVC)</li>
-                            <li>Film Production</li>
-                            <li>Corporate Video Production</li>
-                            <li>Social Media Content Creation</li>
-                            <li>Interview Filming</li>
-                            <li>Animation Services</li>
-                            <li>Public Service Announcements (PSA)</li>
+                <div class="col-12 text-center  ">
+                    <div class="modaltext ps-5 d-flex justify-content-center flex-column">
+                        <h2 class="pt-4">Production Services by Cast Talents
+                        </h2>
+                        
+                        <ul class="mb-5 pt-3 text-center ms-5 ">
+                          <p><strong>Production</strong>Services: Filming, Content Creation, TVCs, Film Production, Corporate Videos, Social Media Content, Interviews, Animation, PSAs.
+Design: Art Direction, Wardrobe Styling, Set Design, Post-Production Supervision.
+</p>
+                          <p><strong>Pre-Production:
+                          </strong>Concept Development, Scriptwriting, Creative Direction, Storyboarding, Location Scouting, Casting, Research, Consultation, Copywriting.
+                          </p>
+                          <p><strong>Post-Production
+                          </strong>Editing, Sound Design, Music, Color Grading, VO Recording, VFX, Infographics, Translation, Subtitling.
+
+
+</p>
+
+                          <p><strong>Line Production
+                          </strong>
+                          Full coordination of budgets, schedules, logistics, and personnel from pre- to post-production for seamless execution.
+Comprehensive services tailored to meet diverse production needs with creativity and precision.
+
+
+
+                        </p>
+
                         </ul>
-                        <p>Cast Talents provides a diverse range of professional services to meet your filming and content
-                            creation needs, ensuring high-quality results tailored to your requirements.</p>
-                        <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a>
+                        <!-- <p>Cast Talents provides a diverse range of professional services to meet your filming and content
+                            creation needs, ensuring high-quality results tailored to your requirements.</p> -->
+                        <!-- <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a> -->
                     </div>
                 </div>
                
@@ -423,22 +436,33 @@ document.addEventListener('DOMContentLoaded', function () {
                         <img src="{{ url('user-assets') }}/images/modal_3.png" class="img-fluid" alt="img">
                     </div>
                 </div>
-                <div class="col-12  text-center ">
+                <div class="col-12 ms-3  d-flex justify-content-center ">
                     <div class="modaltext">
-                        <h2>Videography & <span>Photography</span></h2>
-                        <p><strong>One of the Premier Professional Photography and Videography Services</strong></p>
-                        <p><b>Corporate Videos</b> Expand your brand’s reach with our exceptional corporate video production
-                            services. Our team of award-winning writers, videographers, directors, and video creators craft
-                            innovative corporate videos tailored to your business needs.</p>
-                        <p><strong>Event Videos</strong> Amplify the impact and longevity of your events. From intimate
-                            corporate gatherings to large-scale conferences, our team excels at transforming your events
-                            into spectacular videos that extend their reach and influence.</p>
-                        <p><b>Commercials</b> Create impactful commercials that elevate your brand’s presence. We specialize
-                            in producing compelling advertisements that capture attention and drive results.</p>
-                        <p><b>Events</b> Turn your events into unforgettable memories with our professional event
-                            photography and videography services. We cover everything from corporate gatherings to private
-                            celebrations, ensuring every moment is perfectly captured.</p>
-                        <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a>
+                        <h2 >Videography & <span>Photography</span></h2>
+                        <p class="pt-4"><strong>Corporate Videos:</strong> Expand your brand’s reach with tailored productions.</p>
+<p><strong>Event Videos:</strong> Create lasting visual memories from events.</p>
+<p><strong>Promotional Videos:</strong> Engage audiences with captivating content.</p>
+<p><strong>Commercial Videos:</strong> Drive revenue through compelling TV and online ads.</p>
+<p><strong>Animation Videos:</strong> Bring ideas to life with 2D, 3D, and motion graphics.</p>
+<p><strong>Training & Safety Videos:</strong> Simplify learning and safety protocols effectively.</p>
+<p><strong>Documentaries:</strong> Tell impactful and emotionally engaging stories.</p>
+<p><strong>Explainer Videos:</strong> Showcase product/service benefits clearly.</p>
+<p><strong>Time-lapse Videos:</strong> Highlight progress through condensed visuals.</p>
+<p><strong>Branded Videos:</strong> Create engaging, share-worthy brand stories.</p>
+<p><strong>Aerial Drone Filming:</strong> Capture stunning aerial perspectives.</p>
+<p ><strong>Photography</strong></p>
+<p><strong>Commercials:</strong> Produce impactful, result-driven advertisements.</p>
+<p><strong>Events:</strong> Preserve memories of corporate and private occasions.</p>
+<p><strong>Music Video BTS & Posters:</strong> Artistic behind-the-scenes content.</p>
+<p><strong>Product Shoots:</strong> Highlight features with high-quality visuals.</p>
+<p><strong>Business Portraits:</strong> Professional photos reflecting your identity.</p>
+<p><strong>Modeling Portfolios:</strong> Showcase versatility with standout images.</p>
+<p><strong>Weddings & Emirati Weddings:</strong> Capture timeless and traditional moments.</p>
+<p><strong>Interior & Exterior:</strong> Showcase property beauty with clarity.</p>
+<p><strong>Engagement & Family Portraits:</strong> Celebrate milestones beautifully.</p>
+<p><strong>Cake Smash & Maternity:</strong> Mark special occasions creatively.</p>
+<p><strong>Newborn Photography:</strong> Treasure early life moments forever.</p>
+                        <!-- <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a> -->
                     </div>
 
                     <!-- Modal Structure -->
