@@ -223,21 +223,41 @@ class ModelController extends Controller
         return redirect()->back()->with('success', 'Payment successful.');
     }
 
-    public function downloadImagesPdf(Request $request)
+    public function downloadImagesPdf($id)
     {
-        // Get the images array from the request or fetch from the backend as needed.
-        $images = [
-            '/user-assets/model-images/model1.jpg',
-            '/user-assets/model-images/model2.jpg',
-            '/user-assets/model-images/model3.jpg',
-            '/user-assets/model-images/model4.jpg',
-            '/user-assets/model-images/model4.jpg'
-        ];
+        // Fetch the model detail record by ID
+        $modelDetail = ModelDetail::find($id);
 
-        // Generate the PDF with the view and pass the images array to it.
-        $pdf = PDF::loadView('users.pages.modeling.portfolio-pdf', compact('images'));
+        if (!$modelDetail) {
+            abort(404, 'Model not found');
+        }
+
+        // Calculate age based on date_of_birth
+        if (!empty($modelDetail->date_of_birth)) {
+            $dob = new \DateTime($modelDetail->date_of_birth);
+            $now = new \DateTime();
+            $age = $now->diff($dob)->y;
+            $modelDetail->age = $age; // Adding age as a property of modelDetail
+        } else {
+            $modelDetail->age = 'N/A'; // Default message or handle as needed
+        }
+
+        // Decode the JSON encoded image file names
+        $fileNames = json_decode($modelDetail->profile_images, true);
+
+        // Check if fileNames is not empty and is an array
+        if (is_array($fileNames)) {
+            // Form full paths for the images
+            $images = array_map(function ($fileName) {
+                return asset('uploads/models/profiles/' . $fileName);
+            }, $fileNames);
+        } else {
+            $images = [];
+        }
+
+        // Generate the PDF with the view and pass the images array to it
+        $pdf = PDF::loadView('users.pages.modeling.portfolio-pdf', compact('images', 'modelDetail'));
         return $pdf->setPaper('a4', 'landscape')->download('portfolio.pdf');
-
-        // return $pdf->download('portfolio.pdf');
     }
+
 }
