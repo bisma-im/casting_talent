@@ -921,12 +921,12 @@ $timestamp = time();
                         ];
                     @endphp
                     @foreach ($videos as $index => $video)
-                    {{-- <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="background-image: url('https://img.youtube.com/vi/{{ $video }}/maxresdefault.jpg'); background-size: cover; background-position: center center; height: 100vh; width: 100%">
+                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="background-image: url('https://img.youtube.com/vi/{{ $video }}/maxresdefault.jpg'); background-size: cover; background-position: center center; height: 100vh; width: 100%">
                         <!-- Content of the slide -->
                         <div class="container h-100 w-100 d-flex align-items-center">
                             <iframe width="374" height="280" src="https://www.youtube.com/embed/{{ $video }}?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                    </div> --}}
+                    </div>
                     @endforeach
                 </div>
                 <a class="carousel-control-prev text-dark" href="#videoCarousel" role="button" data-slide="prev">
