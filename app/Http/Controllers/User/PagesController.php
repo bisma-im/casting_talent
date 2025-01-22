@@ -194,11 +194,21 @@ class PagesController extends Controller
             $audios = [];
         }
 
+        // Decode the JSON encoded musician categories
+        $selectedCategories = json_decode($details->category, true);
+        $categoriesToCheck = ['makeup_hair_painter_fashion_stylists', 'photographers_videographers', 'film_crew'];
+
+        // Check to determine if all selected categories are valid and should hide fields
+        $shortForm = is_array($selectedCategories) && count($selectedCategories) > 0 && collect($selectedCategories)->every(function ($cat) use ($categoriesToCheck) {
+            return in_array($cat, $categoriesToCheck);
+        });
+
         return view('users.pages.model-details', [
             'details' => $details,
             'relatedProfiles' => $relatedProfiles,
             'portfolio' => $portfolio,
             'audios' => $audios,
+            'shortForm' => $shortForm,
             'videos' => $videos
         ]);
     }

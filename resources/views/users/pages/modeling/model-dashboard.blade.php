@@ -794,8 +794,6 @@
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                             <form method="post" id="profileDetails"
                                                 enctype="multipart/form-data">
-                                                {{-- <form method="post" id="profileDetails" action="{{ route('model-info.post') }}"
-                                                enctype="multipart/form-data"> --}}
                                                 @csrf
                                                 <div class="multiple_steps_container">
                                                     <div class="maintab">
@@ -1622,9 +1620,11 @@
                                                                                     'Green' => 'Green',
                                                                                     'Hazel' => 'Hazel',
                                                                                     'Red' => 'Red',
+                                                                                    'Black' => 'Black',
                                                                                     'Violet' => 'Violet'
                                                                                 ];
                                                                             @endphp
+                                                                            <option value="">Select eye color..</option>
                                                                             @foreach ($options as $value => $label)
                                                                                 <option value="{{ $value }}" {{ (isset($profileInfo) && $profileInfo->eye_color === $value) ? 'selected' : '' }}>
                                                                                     {{ $label }}
@@ -1658,7 +1658,7 @@
                                                                                     'Silver' => 'Silver'
                                                                                 ];
                                                                             @endphp
-
+                                                                            <option value="">Select hair color..</option>
                                                                             @foreach ($options as $value => $label)
                                                                                 <option value="{{ $value }}" {{ (isset($profileInfo) && $profileInfo->hair_color === $value) ? 'selected' : '' }}>
                                                                                     {{ $label }}
@@ -1673,6 +1673,7 @@
                                                                         <label>Hair Length</label>
                                                                         <select class="form-select" name="hair_length"
                                                                             aria-label="Default select example">
+                                                                            <option value="">Select hair length..</option>
                                                                             <option value="long"  {{ (isset($profileInfo) && $profileInfo->hair_length === 'long') ? 'selected' : '' }}>Long</option>
                                                                             <option value="medium" {{ (isset($profileInfo) && $profileInfo->hair_length === 'medium') ? 'selected' : '' }}>Medium</option>
                                                                             <option value="short" {{ (isset($profileInfo) && $profileInfo->hair_length === 'short') ? 'selected' : '' }}>Short</option>
@@ -1698,9 +1699,30 @@
                                                                 <div
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Your Hourly/ Session Rate (AED)</label>
+                                                                        <label>Hourly/ Session Rate (AED)</label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->hourly_rate ?? '' }}"
                                                                             name="hourly_rate" placeholder="e.g. 120">
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                    <div class="contactlist">
+                                                                        <label>Experience (Years)</label>
+                                                                        <input type="text" class="form-control" value="{{ $profileInfo->experience ?? '' }}"
+                                                                            name="experience" placeholder="e.g. 4 years">
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                                                                    <div class="contactlist">
+                                                                        <label>Skills</label>
+                                                                        <select class="form-select" name="skills"
+                                                                            aria-label="Default select example">
+                                                                            <option value="">Select skill level..</option>
+                                                                            <option value="Fresher"  {{ (isset($profileInfo) && $profileInfo->skills === 'Fresher') ? 'selected' : '' }}>Fresher</option>
+                                                                            <option value="Experienced" {{ (isset($profileInfo) && $profileInfo->skills === 'Experienced') ? 'selected' : '' }}>Experienced</option>
+                                                                            <option value="Expert" {{ (isset($profileInfo) && $profileInfo->skills === 'Expert') ? 'selected' : '' }}>Expert</option>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                                 <div name="tattoos"
@@ -1711,6 +1733,7 @@
                                                                             id="have_tattoos"
                                                                             aria-label="Default select example"
                                                                             onchange="toggleTattoosInput()">
+                                                                            <option value="">Select..</option>
                                                                             <option value="yes" {{ (isset($profileInfo) && $profileInfo->have_tattoos === 'yes' || isset($profileInfo) && $profileInfo->have_tattoos === 'Yes') ? 'selected' : '' }}>Yes</option>
                                                                             <option value="no" {{ (isset($profileInfo) && $profileInfo->have_tattoos === 'no' || isset($profileInfo) && $profileInfo->have_tattoos === 'No') ? 'selected' : '' }}>No</option>
                                                                             
@@ -1964,13 +1987,12 @@
 
     <script>
         $(document).ready(function() {
-
-            // const fieldsToHide = ['height', 'chest', 'waist', 'hip', 'weight', 'eye', 'hair', 'hairlength', 'shoesize', 'dresssize', 'tattoos'];
-            const fieldsToHide = ['height_cm', 'bust_cm', 'waist_cm', 'hip_cm', 'weight_kg', 'eyes_color', 'hair_color', 'hair_length', 'shoe_size_euro', 'dress_size_euro', 'have_tattoos'];
+            const fieldsToHide = ['bust_cm', 'waist_cm', 'hip_cm', 'weight_kg', 'eyes_color', 'hair_color', 'hair_length', 'shoe_size_euro', 'dress_size_euro', 'have_tattoos'];
+            const fieldsToShow = ['experience', 'skills'];
             // Function to check the selected categories and show/hide form fields
             function checkCategoriesAndAdjustFields() {
                 // Categories that trigger hiding the fields
-                const categoriesToCheck = ['makeup_hair_painter_fashion_stylists', 'photographers_videographers', 'musicians', 'film_crew'];
+                const categoriesToCheck = ['makeup_hair_painter_fashion_stylists', 'photographers_videographers', 'film_crew'];
                 let selectedCategories = [];
 
                 $('input[name="category[]"]:checked').each(function() {
@@ -1989,6 +2011,14 @@
                         $(`input[name="${field}"], select[name="${field}"]`).closest('.col-12').hide();
                     } else {
                         $(`input[name="${field}"], select[name="${field}"]`).closest('.col-12').show();
+                    }
+                });
+
+                fieldsToShow.forEach(field => {
+                    if (shouldHideFields) {
+                        $(`input[name="${field}"], select[name="${field}"]`).closest('.col-12').show();
+                    } else {
+                        $(`input[name="${field}"], select[name="${field}"]`).closest('.col-12').hide();
                     }
                 });
             }
@@ -2127,113 +2157,113 @@
 
         // -------------------Languages ----------------------
          // Get elements
-    const languageDropdownButton = document.getElementById('languageDropdownButton');
-    const languageDropdownContent = document.getElementById('languageDropdownContent');
+        const languageDropdownButton = document.getElementById('languageDropdownButton');
+        const languageDropdownContent = document.getElementById('languageDropdownContent');
 
-    // Dropdown toggle functionality
-    languageDropdownButton.addEventListener('click', function () {
-        languageDropdownContent.classList.toggle('language-dropdown-open');
-    });
-
-    // Function to move selected checkboxes to the top
-    function moveSelectedLanguagesToTop() {
-        const labels = languageDropdownContent.querySelectorAll('label');
-        const selectedLabels = [];
-        const unselectedLabels = [];
-
-        // Separate selected and unselected checkboxes
-        labels.forEach(label => {
-            const checkbox = label.querySelector('input[type="checkbox"]');
-            if (checkbox.checked) {
-                selectedLabels.push(label);
-                label.classList.add('language-selected');  // Add selected class for styling
-            } else {
-                unselectedLabels.push(label);
-                label.classList.remove('language-selected');
-            }
+        // Dropdown toggle functionality
+        languageDropdownButton.addEventListener('click', function () {
+            languageDropdownContent.classList.toggle('language-dropdown-open');
         });
 
-        // Clear the dropdown content
-        languageDropdownContent.innerHTML = '';
+        // Function to move selected checkboxes to the top
+        function moveSelectedLanguagesToTop() {
+            const labels = languageDropdownContent.querySelectorAll('label');
+            const selectedLabels = [];
+            const unselectedLabels = [];
 
-        // Append selected labels to the top
-        selectedLabels.forEach(label => {
-            languageDropdownContent.appendChild(label);
-        });
-
-        // Append unselected labels after the selected ones
-        unselectedLabels.forEach(label => {
-            languageDropdownContent.appendChild(label);
-        });
-    }
-
-    // Event listener for checkbox changes
-    languageDropdownContent.addEventListener('change', function (e) {
-        if (e.target.type === 'checkbox') {
-            moveSelectedLanguagesToTop();
-        }
-    });
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('#languageDropdownButton')) {
-            const dropdowns = document.getElementsByClassName("language-dropdown-content");
-            for (let i = 0; i < dropdowns.length; i++) {
-                const openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('language-dropdown-open')) {
-                    openDropdown.classList.remove('language-dropdown-open');
+            // Separate selected and unselected checkboxes
+            labels.forEach(label => {
+                const checkbox = label.querySelector('input[type="checkbox"]');
+                if (checkbox.checked) {
+                    selectedLabels.push(label);
+                    label.classList.add('language-selected');  // Add selected class for styling
+                } else {
+                    unselectedLabels.push(label);
+                    label.classList.remove('language-selected');
                 }
-            }
-        }
-    }
-    
-    $(document).ready(function() {
-        $('#profileDetails').submit(function(event) {
-            event.preventDefault(); // Prevent the default form submit
-            var formData = new FormData(this);
-            const portfolioDropzoneElement = document.querySelector('#portfolioDropzone');
-            if (portfolioDropzoneElement.dropzone) {
-                const files = portfolioDropzoneElement.dropzone.files;
-                files.forEach((file) => {
-                    formData.append('portfolio[]', file, file.name);
-                });
-            }
-            const audioDropzoneElement = document.querySelector('#audioDropzone');
-            if (audioDropzoneElement.dropzone) {
-                const files = audioDropzoneElement.dropzone.files;
-                files.forEach((file) => {
-                    formData.append('audio[]', file, file.name);
-                });
-            }
-
-            // Collect all video URLs and add them to formData
-            const videoUrls = [];
-            document.querySelectorAll('input[name="video_urls[]"]').forEach(input => {
-                videoUrls.push(input.value);
             });
-            formData.append('video_urls', JSON.stringify(videoUrls));
-            $.ajax({
-                url: '{{ route("model-info.post") }}',
-                type: 'POST',
-                data: formData, // Serializes the form's elements.
-                processData: false,  // Important: don't process data into a query string
-                contentType: false, 
-                dataType: 'json', // Expecting JSON response
-                success: function(data) {
-                    if(data.success) {
-                        $('#result').html('<div class="alert alert-success">' + data.success + '</div>');
-                        location.reload();
-                    } else if(data.error) {
-                        $('#result').html('<div class="alert alert-danger">' + data.error + '</div>');
+
+            // Clear the dropdown content
+            languageDropdownContent.innerHTML = '';
+
+            // Append selected labels to the top
+            selectedLabels.forEach(label => {
+                languageDropdownContent.appendChild(label);
+            });
+
+            // Append unselected labels after the selected ones
+            unselectedLabels.forEach(label => {
+                languageDropdownContent.appendChild(label);
+            });
+        }
+
+        // Event listener for checkbox changes
+        languageDropdownContent.addEventListener('change', function (e) {
+            if (e.target.type === 'checkbox') {
+                moveSelectedLanguagesToTop();
+            }
+        });
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('#languageDropdownButton')) {
+                const dropdowns = document.getElementsByClassName("language-dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('language-dropdown-open')) {
+                        openDropdown.classList.remove('language-dropdown-open');
                     }
-                },
-                error: function(xhr, status, error) {
-                    // Generic error message, but you might want to handle HTTP status codes differently
-                    $('#result').html('<div class="alert alert-danger">Request failed: ' + xhr.responseText + '</div>');
                 }
+            }
+        }
+    
+        $(document).ready(function() {
+            $('#profileDetails').submit(function(event) {
+                event.preventDefault(); // Prevent the default form submit
+                var formData = new FormData(this);
+                const portfolioDropzoneElement = document.querySelector('#portfolioDropzone');
+                if (portfolioDropzoneElement.dropzone) {
+                    const files = portfolioDropzoneElement.dropzone.files;
+                    files.forEach((file) => {
+                        formData.append('portfolio[]', file, file.name);
+                    });
+                }
+                const audioDropzoneElement = document.querySelector('#audioDropzone');
+                if (audioDropzoneElement.dropzone) {
+                    const files = audioDropzoneElement.dropzone.files;
+                    files.forEach((file) => {
+                        formData.append('audio[]', file, file.name);
+                    });
+                }
+
+                // Collect all video URLs and add them to formData
+                const videoUrls = [];
+                document.querySelectorAll('input[name="video_urls[]"]').forEach(input => {
+                    videoUrls.push(input.value);
+                });
+                formData.append('video_urls', JSON.stringify(videoUrls));
+                $.ajax({
+                    url: '{{ route("model-info.post") }}',
+                    type: 'POST',
+                    data: formData, // Serializes the form's elements.
+                    processData: false,  // Important: don't process data into a query string
+                    contentType: false, 
+                    dataType: 'json', // Expecting JSON response
+                    success: function(data) {
+                        if(data.success) {
+                            toastr.success(data.success); // Display success message using toastr
+                            location.reload();
+                        } else if(data.error) {
+                            toastr.error(data.error);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Use toastr to display the error message
+                        toastr.error('Request failed: ' + xhr.responseText);
+                    }
+                });
             });
         });
-    });
 
     </script>
 

@@ -267,7 +267,6 @@ class QueryController extends Controller
 
     private function assignModelDetails($modelDetail, $request)
     {
-
         $modelDetail->user_id = Auth::id();
         $modelDetail->first_name = $request->first_name;
         $modelDetail->last_name = $request->last_name;
@@ -296,6 +295,8 @@ class QueryController extends Controller
         $modelDetail->hourly_rate = $request->hourly_rate;
         $modelDetail->session_rate = $request->session_rate;
         $modelDetail->visa_status = $request->visa_status;
+        $modelDetail->skills = $request->skills;
+        $modelDetail->experience = $request->experience;
 
         $modelDetail->languages_spoken = json_encode($request->input('languages_spoken', []));
         $modelDetail->category = json_encode($request->input('category', []));

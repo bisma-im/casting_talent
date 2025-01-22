@@ -130,14 +130,9 @@
             font-size: 16px;
             line-height: 1.6;
         }
-
         .user-details-card {
             padding: 20px;
         }
-        .profile-card .img-div{
-   
-    width: 70vw !important;
-}
     }
 
     .user-info {
@@ -304,6 +299,10 @@
         margin-bottom: 90px;
     }
 
+    .my-section .flex-column {
+        flex-direction: row !important;
+    }
+
     .my-section .nav-tabs .nav-item.show .nav-link,
     .my-section .nav-tabs .nav-link.active {
         color: #fff;
@@ -311,6 +310,12 @@
         border: none;
         font-weight: bold;
         text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .my-section .nav-tabs {
+            font-size: 12px;
+        }
     }
 
     .my-section .nav-link {
@@ -377,19 +382,18 @@
     .slider-track {
         display: flex;
         transition: transform 0.5s ease;
-        border: 1px solid rgb(0, 255, 13);
-        /* Smooth slide transition */
     }
 
     .sec-one .carousel-control-prev,
     .sec-one .carousel-control-next {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        border: none;
-        z-index: 1000;
-        padding: 20px;
-        cursor: pointer;
+        top: 50%; 
+        transform: translateY(-50%); 
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
     }
 
     .sec-one .carousel-control-prev {
@@ -543,6 +547,18 @@
     .sec-three .custom-carousel-control-next {
         right: 10px;
     }
+    /* Responsive adjustments for mobile devices */
+    @media (max-width: 768px) { /* Adjust the breakpoint as needed */
+        .sec-three .custom-carousel-item {
+            flex: 0 0 100%; /* 1 item per row */
+            width: 100%;
+        }
+        .carousel-container h2 {
+            font-size: 36px; /* Smaller font size for heading */
+            line-height: 36px;
+        }
+    }
+
     #videoCarousel {
         width: 100%;
         position: relative;
@@ -552,8 +568,10 @@
         position: absolute;
         top: 50%; 
         transform: translateY(-50%); 
-        width: auto;
-        height: 8%;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
         border-radius: 50%;
     }
 
@@ -568,7 +586,7 @@
     #videoCarousel .carousel-control-prev span,
     #videoCarousel .carousel-control-next span {
         font-size: 30px; 
-        color: #000;   
+        /* color: #000;    */
     }
 
     #videoCarousel .carousel-control-prev span:hover,
@@ -579,7 +597,7 @@
 #audioCarousel {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     overflow: hidden; /* Prevents overflow issues */
 }
 
@@ -647,31 +665,31 @@
 }
 
 /* Custom styling for the icons inside the buttons */
-.audio-carousel-control-prev-icon,
+/* .audio-carousel-control-prev-icon,
 .audio-carousel-control-next-icon {
     background-color: transparent;
     width: 20px;
     height: 20px;
     background-size: contain;
-}
-@media (max-width: 768px) {
-.user-info{
-    background-color: #DAD7B1;
+} */
+    @media (max-width: 768px) {
+        .user-info{
+            background-color: #DAD7B1;
 
-display: flex;
-flex-direction: column;
-justify-content: center;
-height: 80vh;
-width: 100%;
-/* Full height of the viewport */
-width: 100vw;
-/* Full width of the parent container or viewport */
-font-family: Arial, sans-serif;
-box-sizing: border-box;
-/* padding: 20px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 80vh;
+        width: 100%;
+        /* Full height of the viewport */
+        width: 100vw;
+        /* Full width of the parent container or viewport */
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+        /* padding: 20px; */
 
-}
-}
+        }
+    }
 
 </style>
 
@@ -750,42 +768,42 @@ $timestamp = time();
                     <div class="my-container ">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-arrows-alt-v me-2"></i>Height</span>
-                            <span class="info " >{{ $details['height'] }}</span>
+                            <span class="info " >{{ $details['height'] ?? '-' }}</span>
                         </div>
                         <p>CM</p>
                     </div>
                     <div class="my-container">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-ruler-vertical me-2"></i>Bust / Chest</span>
-                            <span class="info">{{ $details['bust'] }}</span>
+                            <span class="info">{{ $details['bust'] ?? '-' }}</span>
                         </div>
                         <p>CM</p>
                     </div>
                     <div class="my-container">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-ruler-horizontal me-2"></i>Hip</span>
-                            <span class="info">{{ $details['hip'] }}</span>
+                            <span class="info">{{ $details['hip'] ?? '-' }}</span>
                         </div>
                         <p>CM</p>
                     </div>
                     <div class="my-container">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-tshirt me-2"></i>Dress Size</span>
-                            <span class="info">{{ $details['dress_size'] }}</span>
+                            <span class="info">{{ $details['dress_size'] ?? '-' }}</span>
                         </div>
                         <p>EURO</p>
                     </div>
                     <div class="my-container">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-ruler-combined me-2"></i> Waist</span>
-                            <span class="info">{{ $details['waist'] }}</span>
+                            <span class="info">{{ $details['waist'] ?? '-' }}</span>
                         </div>
                         <p>CM</p>
                     </div>
                     <div class="my-container">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-shoe-prints me-2"></i>Shoe Size</span>
-                            <span class="info">{{ $details['shoe_size'] }}</span>
+                            <span class="info">{{ $details['shoe_size'] ?? '-' }}</span>
                         </div>
                         <p>EURO</p>
                     </div>
@@ -817,7 +835,7 @@ $timestamp = time();
                     </div>
                     <div class="row pe-5  d-flex justify-content-center text-center h-user-info">
                         <div class="col-md-4  w-25  bottom-p">
-                            <p><strong>Visa Status</strong><br />Golden
+                            <p><strong>Visa Status</strong><br />{{ ucfirst($details['visa_status']) }}
                             </p>
                         </div>
                         <div class="col-md-4  w-25  bg-cfcba1 bottom-p">
@@ -825,21 +843,21 @@ $timestamp = time();
                             </p>
                         </div>
                         <div class="col-md-4   w-25  bottom-p">
-                            <p><strong>Tattoos</strong><br />{{ ucfirst($details['have_tattos']) }}
+                            <p><strong>{{ $shortForm ? 'Experience' : 'Tattoos'}}</strong><br />{{ $shortForm ? ($details['experience'] ? ucfirst($details['experience']) : '-') : ( $details['have_tattos'] ? ucfirst($details['have_tattos']) : '-') }}
                             </p>
                         </div>
                     </div>
                     <div class="row pe-5  d-flex justify-content-center text-center h-user-info">
                         <div class="col-md-4 w-25 bg-cfcba1 bottom-p">
-                            <p><strong>Eye Color</strong><br />{{ ucfirst($details['eye_color']) }}
+                            <p><strong>{{ $shortForm ? 'Skills' : 'Eye Color' }}</strong><br />{{ $shortForm ? ($details['skills'] ? ucfirst($details['skills']) : '-') : ($details['eye_color'] ? ucfirst($details['eye_color']) : '-') }}
                             </p>
                         </div>
                         <div class="col-md-4 w-25 bottom-p">
-                            <p><strong>Hair Color</strong><br />{{ ucfirst($details['hair_color']) }}
+                            <p><strong>{{ $shortForm ? 'Ethnicity' : 'Hair Color' }}</strong><br />{{ $shortForm ? ($details['ethnicity'] ? ucwords(str_replace('_', ' ', $details['ethnicity'])) : '-') : ($details['hair_color'] ? ucfirst($details['hair_color']) : '-') }}
                             </p>
                         </div>
                         <div class="col-md-4 w-25 bg-cfcba1 bottom-p">
-                            <p><strong>Hair Length</strong><br />{{ ucfirst($details['hair_length']) }}
+                            <p><strong>{{ $shortForm ? 'Marital Status' : 'Hair Length' }}</strong><br />{{ $shortForm ? ($details['marital_status'] ? ucfirst($details['marital_status']) : '-') : ($details['hair_length'] ? ucfirst($details['hair_length']) : '-') }}
                             </p>
                         </div>
                     </div>
@@ -875,25 +893,6 @@ $timestamp = time();
                     @foreach($portfolio as $image)
                         <div class="slider-image m-0 p-0" style="background-image: url('{{ url($image) }}');"></div>
                     @endforeach
-                    {{-- <div class="slider-image m-0 p-0"
-                        style="background-image: url('{{ url('/user-assets/model-images/2.jpeg') }}');"></div>
-                    <div class="slider-image m-0 p-0"
-                        style="background-image: url('{{ url('/user-assets/model-images/3.jpeg') }}');"></div>
-                    <div class="slider-image m-0 p-0"
-                        style="background-image: url('{{ url('/user-assets/model-images/4.jpeg') }}');"></div>
-                    <div class="slider-image m-0 p-0"
-                        style="background-image: url('{{ url('/user-assets/model-images/5.jpeg') }}');"></div>
-                    <!-- Duplicate slides for smooth looping -->
-                    <div class="slider-image m-0 p-0"
-                        style="background-image: url('{{ url('/user-assets/model-images/6.jpeg') }}');"></div>
-                    <div class="slider-image m-0 p-0"
-                        style="background-image: url('{{ url('/user-assets/model-images/7.jpeg') }}');"></div>
-                    <div class="slider-image m-0 p-0"
-                        style="background-image: url('{{ url('/user-assets/model-images/8.jpeg') }}');"></div>
-                    <div class="slider-image m-0 p-0"
-                        style="background-image: url('{{ url('/user-assets/model-images/9.jpeg') }}');"></div>
-                     <div class="slider-image m-0 p-0"
-                        style="background-image: url('{{ url('/user-assets/model-images/model4.jpg') }}');"></div>  --}}
                 </div>
             </div>
 
@@ -911,24 +910,28 @@ $timestamp = time();
         </div>
 
         <!-- Video Tab -->
-        <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
+        <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab" style="{{ empty($videos) ? 'background-color: #DAD7B1' : '' }}">
             <div id="videoCarousel" class="carousel slide audio-carousel" data-ride="carousel">
                 <div class="carousel-inner">
-                    @foreach ($videos as $index => $video)
-                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="background-image: url('https://i.ytimg.com/vi/{{ $video }}/maxresdefault.jpg'); background-size: cover; background-position: center center; height: 100vh; width: 100%">
-                        <!-- Content of the slide -->
-                        <div class="container h-100 w-100 d-flex align-items-center">
-                            <iframe width="374" height="280" src="https://www.youtube.com/embed/{{ $video }}?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    @forelse ($videos as $index => $video)
+                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="background-image: url('https://i.ytimg.com/vi/{{ $video }}/maxresdefault.jpg'); background-size: cover; background-position: center center; height: 100vh; width: 100%">
+                            <!-- Content of the slide -->
+                            <div class="container h-100 w-100 d-flex align-items-center">
+                                <iframe width="374" height="280" src="https://www.youtube.com/embed/{{ $video }}?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
                         </div>
-                    </div>
-                    @endforeach
+                    @empty
+                        <div class="d-flex align-items-center justify-content-center">
+                            <p>No videos to show</p>
+                        </div>
+                    @endforelse
                 </div>
                 <a class="carousel-control-prev text-dark" href="#videoCarousel" role="button" data-slide="prev">
-                    <span class="fas fa-chevrons-left"></span> <!-- Replacing the default icon with Font Awesome -->
+                    <span class="carousel-control-prev-icon"></span> <!-- Replacing the default icon with Font Awesome -->
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="text-dark carousel-control-next" href="#videoCarousel" role="button" data-slide="next">
-                    <span class="fas fa-chevrons-right"></span> <!-- Replacing the default icon with Font Awesome -->
+                    <span class="carousel-control-next-icon"></span> <!-- Replacing the default icon with Font Awesome -->
                     <span class="sr-only">Next</span>
                 </a>                
             </div>
@@ -937,13 +940,13 @@ $timestamp = time();
         
 
 <!-- Audio Tab -->
-<div class="tab-pane fade pt-3" id="audio" role="tabpanel" aria-labelledby="audio-tab">
+<div class="tab-pane fade" id="audio" role="tabpanel" aria-labelledby="audio-tab" style="{{ empty($audios) ? 'background-color: #DAD7B1' : '' }}">
     <!-- Bootstrap Carousel for Audio Slides (manual navigation only) -->
-    <div id="audioCarousel" class="carousel slide">
-        <div class="carousel-inner audio-carousel-inner audio-carousel">
+    <div id="audioCarousel" class="carousel slide" style="height:100%;">
+        <div class="carousel-inner audio-carousel-inner audio-carousel {{ empty($audios) ? 'd-flex align-items-center justify-content-center' : '' }}">
 
             <!-- Slide -->
-            @foreach ($audios as $audio)
+            @forelse ($audios as $audio)
                 <div class="carousel-item audio-carousel-item active">
                     <div class="audio-slide">
                         <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
@@ -955,7 +958,11 @@ $timestamp = time();
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div class="d-flex align-items-center justify-content-center">
+                    <p>No audios to show</p>
+                </div>
+            @endforelse
         </div>
 
         <!-- Carousel Controls -->
@@ -981,7 +988,7 @@ $timestamp = time();
     <h2 class="carousel-heading">Related <span>Profiles</span></h2>
     @if($relatedProfiles->isEmpty())
     <div class="d-flex justify-content-center align-items-center">
-        <p>No related profiles available.</p>
+        <p>No related profiles to show.</p>
     </div>
     @else
     <div class="custom-carousel" id="customCarousel">
@@ -1095,6 +1102,14 @@ $timestamp = time();
                 };
                 img.src = container.style.backgroundImage.slice(5, -2); // Extract the URL from the background-image style
             });
+
+            const carouselInner = document.getElementById('customCarouselInner');
+            const items = carouselInner.querySelectorAll('.custom-carousel-item');
+
+            // Log the width of each item
+            items.forEach((item, index) => {
+                console.log(`Width of item ${index}:`, item.offsetWidth, 'pixels');
+            });
         });
 
 
@@ -1102,38 +1117,48 @@ $timestamp = time();
             const carouselInner = document.getElementById('customCarouselInner');
             const prevButton = document.getElementById('customCarouselPrev');
             const nextButton = document.getElementById('customCarouselNext');
-            
-            const itemWidth = 22; // The width percentage of each item in the carousel
-            const gapWidth = 3; // The percentage of gap based on CSS
-            const totalMoveWidth = itemWidth + gapWidth; // Total shift per click
 
-            let currentIndex = 0; // Tracks the current index position
-            carouselInner.style.transform = `translateX(0%)`; // Ensure initial position is set correctly
+            // Function to determine how many items to display
+            function getVisibleProfiles() {
+                return window.innerWidth <= 768 ? 1 : 4; // 1 item on screens <= 768px wide
+            }
+
+            let visibleProfiles = getVisibleProfiles(); // Initial visible profiles based on screen size
+            const itemWidth = 100 / visibleProfiles; // Adjusted to take full width on mobile
+            const gapWidth = 0; // Keep same gap width
+            const totalMoveWidth = itemWidth + gapWidth;
+
+            let currentIndex = 0;
+            carouselInner.style.transform = 'translateX(0%)';
 
             const totalProfiles = carouselInner.children.length;
-            const visibleProfiles = 4;
             const maxIndex = totalProfiles - visibleProfiles;
 
-            // Event listener for the "next" button
+            window.addEventListener('resize', function() {
+                visibleProfiles = getVisibleProfiles(); // Update on window resize
+                currentIndex = Math.min(currentIndex, totalProfiles - visibleProfiles);
+                carouselInner.style.transform = `translateX(-${currentIndex * totalMoveWidth}%)`;
+            });
+
             nextButton.addEventListener('click', function() {
                 if (currentIndex < maxIndex) {
                     currentIndex++;
                 } else {
-                    currentIndex = 0; // Loop back to the start
+                    currentIndex = 0;
                 }
                 carouselInner.style.transform = `translateX(-${currentIndex * totalMoveWidth}%)`;
             });
 
-            // Event listener for the "previous" button
             prevButton.addEventListener('click', function() {
                 if (currentIndex > 0) {
                     currentIndex--;
                 } else {
-                    currentIndex = maxIndex; // Loop back to the end
+                    currentIndex = maxIndex;
                 }
                 carouselInner.style.transform = `translateX(-${currentIndex * totalMoveWidth}%)`;
             });
         });
+
 </script>
 
 
