@@ -319,16 +319,17 @@ document.addEventListener('DOMContentLoaded', function () {
                         <img src="{{ url('user-assets') }}/images/event_3.png" class="img-fluid" alt="img">
                     </div>
                 </div>
-                <div class="col-12 ">
-                    <div class="modaltext text-center">
-                        <h2>Retail & <span>Promotional</span> Staff</h2>
-                        <p><strong>Specialized Staffing Solutions by Cast Talents</strong></p>
-                        <p>As a licensed and Ministry-approved staffing agency, Cast Talents provides high-quality temporary staffing for retail, events, and exhibitions.
+                <div class="col-12  ms-3  d-flex justify-content-center ">
+                    <div class="modaltext ">
+                        <h2 class="text-center">Retail & <span>Promotional</span> Staff</h2>
+                        <p  class="ms-md-5 text-dark text-center"><strong>Specialized Staffing Solutions by Cast Talents</strong></p>
+                        <p class="ms-md-5 text-dark text-center">As a licensed and Ministry-approved staffing agency, Cast Talents provides high-quality temporary staffing for retail, events, and exhibitions.
                         </p>
                         
-                            <strong>Our Services Include:
-                        </strong>
-                       <ul>
+                        
+                       <ul class="ms-4 d-flex justify-content-center flex-column" style="list-style-position: inside;">
+                       <strong >Our Services Include:
+                       </strong>
                        <li><strong>Retail Staffing:</strong> Experienced staff with UAE retail expertise, scalable to your needs.
                        </li> 
                        <li><strong>Promoters:</strong>Trained professionals for sampling, launches, events, and activations.
@@ -341,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function () {
                        <li><strong>Host:</strong>Skilled male and female hosts with extensive event expertise.
 
                        </li> 
-                       <p>We ensure top-tier staffing through rigorous auditing and customization to meet your requirements.
+                       <p class="ms-md-5 text-dark text-center">We ensure top-tier staffing through rigorous auditing and customization to meet your requirements.
     </p>
                        <ul>
                         <!-- <a href="#" class="contactbtn1" id="readMoreTrigger2">READ MORE</a> -->
