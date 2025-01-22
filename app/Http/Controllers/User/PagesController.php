@@ -209,6 +209,7 @@ class PagesController extends Controller
             'portfolio' => $portfolio,
             'audios' => $audios,
             'shortForm' => $shortForm,
+            'age' => $age,
             'videos' => $videos
         ]);
     }

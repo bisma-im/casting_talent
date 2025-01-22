@@ -135,21 +135,23 @@
         }
     }
 
+    @media (min-width: 768px) {
+        .details-container {
+            height: 90vh;
+        }
+    }
+
     .user-info {
         background-color: #DAD7B1;
-
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: 80vh;
+        height: 100%;
         width: 100%;
-        /* Full height of the viewport */
-        width: 65vw;
-        /* Full width of the parent container or viewport */
         font-family: Arial, sans-serif;
         box-sizing: border-box;
-        /* padding: 20px; */
     }
+
     .my-container {
         display: flex;
         align-items: center;
@@ -178,7 +180,7 @@
 
     .my-container>p {
         flex: 0 0 50px;
-        margin: 0 20px 0 5px;
+        margin: 0 0 0 5px;
         display: flex;
         font-size: 12px;
         align-items: center;
@@ -241,11 +243,11 @@
         /* Centers content vertically in the container */
         text-align: center;
         /* Aligns text horizontally */
-        height: 100%;
+        /* height: 100%; */
     }
 
     .h-user-info p {
-        font-size: 12px;
+        font-size: 10px;
         /* Sets font size */
         text-align: center;
         /* Ensures text is centered horizontally */
@@ -675,19 +677,16 @@
     @media (max-width: 768px) {
         .user-info{
             background-color: #DAD7B1;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 80vh;
-        width: 100%;
-        /* Full height of the viewport */
-        width: 100vw;
-        /* Full width of the parent container or viewport */
-        font-family: Arial, sans-serif;
-        box-sizing: border-box;
-        /* padding: 20px; */
-
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            /* Full height of the viewport */
+            width: 100vw;
+            /* Full width of the parent container or viewport */
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
         }
     }
 
@@ -723,16 +722,15 @@ $timestamp = time();
 
 {{-- ----------------------------------- SECTION 1 ----------------------------------------- --}}
 
-<div class="container mx-0 px-0" id="getSS">
+<div class="col-12 mx-0 px-0 mt-5 details-container" id="getSS">
 
-    <div class="row d-flex align-items-center mx-0 px-0">
+    <div class="row d-flex mx-0 px-0" style="height: 100%;">
         {{-- ------------- cover image --------------- --}}
-        <div class="col-12 col-md-5 p-0 pt-3 mt-3">
-            <!-- Display the first image -->
-            <div class="castbox" style="max-height: 100%;">
+        <div class="col-12 col-md-5 p-0" style="height: 100%;">
+            <div class="castbox" style="height: 100%;">
                 <a href="{{ url('uploads/models/profiles/' . $firstImage) }}" data-fancybox="gallery"
-                    data-caption="Model Image">
-                    <div class="model-cover">
+                    data-caption="Model Image" style="height: 100%; width: 100%;">
+                    <div class="model-cover" style="height: 100%; width: 100%;">
                         <img src="{{ url('uploads/models/profiles/' . $firstImage) }}" class="img-fluid"
                             alt="Model Image">
                     </div>
@@ -740,19 +738,11 @@ $timestamp = time();
             </div>
         </div>
 
-        <!-- Add the rest of the images to FancyBox gallery -->
-        @foreach(array_slice($profileImages, 1) as $image)
-        <a href="{{ url('uploads/models/profiles/' . $image) }}" data-fancybox="gallery" data-caption="Model Image"
-            style="display: none;">
-            <img src="{{ url('uploads/models/profiles/' . $image) }}" alt="Gallery Image">
-        </a>
-        @endforeach
-
         {{-- ------------------ model details -------------------- --}}
-        <div class="col-md-7 col-12 p-0 m-0 mt-3 pt-3 ">
-            <div class="col-md-6 col-12 user-info ">
-                <div class="row ps-4 ms-md-3 me-md-5">
-                    <div class="header pe-md-5 py-md-3">
+        <div class="col-12 col-md-7 p-0" style="height: 100%;">
+            <div class="user-info px-5 pt-2">
+                <div class="row p-0 m-0">
+                    <div class="header mb-3">
                         <div class="name">
                             {{-- {{ $details['first_name'] }} {{ $details['last_name'] }}  --}}
                             <span>{{ $details['talent_id'] }}</span>
@@ -764,8 +754,9 @@ $timestamp = time();
                                 <a id="captureButton1" href="{{ '/pdf/' . $details['id']}}" target="_blank" class="btn icon-btn me-3 me-md-0"><i class="fad fa-print"></i></a>
                             </div>
                         </div>
+                        <span class="pb-4 fw-bold">{{ 'Age: ' . $age }}</span>
                     </div>
-                    <div class="my-container ">
+                    <div class="my-container">
                         <div class="user-info-row">
                             <span class="label"><i class="fas fa-arrows-alt-v me-2"></i>Height</span>
                             <span class="info " >{{ $details['height'] ?? '-' }}</span>
@@ -815,10 +806,12 @@ $timestamp = time();
                         <p>EURO</p>
                     </div>
                 </div>
-                <div class="mt-md-2  me-md-3 mb-md-3">
-                    <div class="row pt-3 d-flex justify-content-center ps-2 ps-md-0 pe-5 mt-2 h-user-info">
+                <div class="mt-md-1 mb-md-3">
+                {{-- <div class="mt-md-2  me-md-3 mb-md-3"> --}}
+                    <div class="row pt-3 pe-5 d-flex justify-content-center text-center h-user-info">
+                    {{-- <div class="row pt-3 d-flex justify-content-center ps-2 ps-md-0 pe-5 mt-2 h-user-info"> --}}
                         <div class="col-md-4 w-25 bg-cfcba1 bottom-p">
-                            <p class="m-0"><strong>Nationality</strong><br />{{ ucfirst($details['nationality']) }}
+                            <p><strong>Nationality</strong><br />{{ ucfirst($details['nationality']) }}
                             </p>
                         </div>
                         <div class="col-md-4 w-25 bottom-p">
@@ -833,7 +826,7 @@ $timestamp = time();
                             </p>
                         </div>
                     </div>
-                    <div class="row pe-5  d-flex justify-content-center text-center h-user-info">
+                    <div class="row pe-5 d-flex justify-content-center text-center h-user-info">
                         <div class="col-md-4  w-25  bottom-p">
                             <p><strong>Visa Status</strong><br />{{ ucfirst($details['visa_status']) }}
                             </p>
@@ -847,7 +840,7 @@ $timestamp = time();
                             </p>
                         </div>
                     </div>
-                    <div class="row pe-5  d-flex justify-content-center text-center h-user-info">
+                    <div class="row pe-5 d-flex justify-content-center text-center h-user-info">
                         <div class="col-md-4 w-25 bg-cfcba1 bottom-p">
                             <p><strong>{{ $shortForm ? 'Skills' : 'Eye Color' }}</strong><br />{{ $shortForm ? ($details['skills'] ? ucfirst($details['skills']) : '-') : ($details['eye_color'] ? ucfirst($details['eye_color']) : '-') }}
                             </p>
@@ -939,47 +932,43 @@ $timestamp = time();
         </div>
         
 
-<!-- Audio Tab -->
-<div class="tab-pane fade" id="audio" role="tabpanel" aria-labelledby="audio-tab" style="{{ empty($audios) ? 'background-color: #DAD7B1' : '' }}">
-    <!-- Bootstrap Carousel for Audio Slides (manual navigation only) -->
-    <div id="audioCarousel" class="carousel slide" style="height:100%;">
-        <div class="carousel-inner audio-carousel-inner audio-carousel {{ empty($audios) ? 'd-flex align-items-center justify-content-center' : '' }}">
+    <!-- Audio Tab -->
+    <div class="tab-pane fade" id="audio" role="tabpanel" aria-labelledby="audio-tab" style="{{ empty($audios) ? 'background-color: #DAD7B1' : '' }}">
+        <!-- Bootstrap Carousel for Audio Slides (manual navigation only) -->
+        <div id="audioCarousel" class="carousel slide" style="height:100%;">
+            <div class="carousel-inner audio-carousel-inner audio-carousel {{ empty($audios) ? 'd-flex align-items-center justify-content-center' : '' }}">
 
-            <!-- Slide -->
-            @forelse ($audios as $audio)
-                <div class="carousel-item audio-carousel-item active">
-                    <div class="audio-slide">
-                        <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
-                        <div class="audio-player-wrapper">
-                            <audio controls class="audio-player" style="width: 60%; max-width: 400px;">
-                                <source src="{{ url($audio) }}" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
+                <!-- Slide -->
+                @forelse ($audios as $audio)
+                    <div class="carousel-item audio-carousel-item active">
+                        <div class="audio-slide">
+                            <div class="audio-blurred-bg" style="background-image: url('{{ url('/user-assets/model-images/model5.jpg') }}');"></div>
+                            <div class="audio-player-wrapper">
+                                <audio controls class="audio-player" style="width: 60%; max-width: 400px;">
+                                    <source src="{{ url($audio) }}" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @empty
-                <div class="d-flex align-items-center justify-content-center">
-                    <p>No audios to show</p>
-                </div>
-            @endforelse
+                @empty
+                    <div class="d-flex align-items-center justify-content-center">
+                        <p>No audios to show</p>
+                    </div>
+                @endforelse
+            </div>
+
+            <!-- Carousel Controls -->
+            <a class="carousel-control-prev audio-carousel-control-prev" href="#audioCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next audio-carousel-control-next" href="#audioCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
         </div>
-
-        <!-- Carousel Controls -->
-        <a class="carousel-control-prev audio-carousel-control-prev" href="#audioCarousel" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next audio-carousel-control-next" href="#audioCarousel" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </a>
     </div>
-</div>
-
-
-
-
     </div>
 </div>
 
@@ -1039,8 +1028,7 @@ $timestamp = time();
         width: 100%;
         padding: 0;
     }
-
-
+    
     .row.no-gutters {
         margin-right: 0;
         margin-left: 0;
