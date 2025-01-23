@@ -432,6 +432,10 @@ a.contactbtn1:hover{
 .castbox {
     background-color: #fff;
     box-shadow: 4px 2px 9px #ccc;
+}
+.model-cover-container {
+    background-color: #fff;
+    box-shadow: 4px 2px 9px #ccc;
     height: 100%;  /* Ensure it takes the full height of its parent */
     display: flex;
     align-items: center;  /* Centers the image vertically if it's shorter */

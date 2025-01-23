@@ -727,7 +727,7 @@ $timestamp = time();
     <div class="row d-flex mx-0 px-0" style="height: 100%;">
         {{-- ------------- cover image --------------- --}}
         <div class="col-12 col-md-5 p-0" style="height: 100%;">
-            <div class="castbox" style="height: 100%;">
+            <div class="model-cover-container" style="height: 100%;">
                 <a href="{{ url('uploads/models/profiles/' . $firstImage) }}" data-fancybox="gallery"
                     data-caption="Model Image" style="height: 100%; width: 100%;">
                     <div class="model-cover" style="height: 100%; width: 100%;">
@@ -754,7 +754,13 @@ $timestamp = time();
                                 <a id="captureButton1" href="{{ '/pdf/' . $details['id']}}" target="_blank" class="btn icon-btn me-3 me-md-0"><i class="fad fa-print"></i></a>
                             </div>
                         </div>
-                        <span class="pb-4 fw-bold">{{ 'Age: ' . $age }}</span>
+                    </div>
+                    <div class="my-container">
+                        <div class="user-info-row">
+                            <span class="label"><i class="fas fa-hourglass me-2"></i>Age</span>
+                            <span class="info " >{{ $age ?? '-' }}</span>
+                        </div>
+                        <p></p>
                     </div>
                     <div class="my-container">
                         <div class="user-info-row">
