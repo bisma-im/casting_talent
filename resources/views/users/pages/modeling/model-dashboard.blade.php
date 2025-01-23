@@ -797,7 +797,6 @@
                                                 @csrf
                                                 <div class="multiple_steps_container">
                                                     <div class="maintab">
-
                                                         <div class="tab" data-step="1">
                                                             <div class="row">
                                                                 <div
@@ -1130,286 +1129,95 @@
                                                                 <div
                                                                     class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
-                                                                        <label>First Name</label>
+                                                                        <label>First Name <span class="required">*</span></label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->first_name ?? '' }}"
-                                                                            name="first_name" placeholder="First name..">
+                                                                            name="first_name" placeholder="First name.." required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div
                                                                     class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
-                                                                        <label>Last Name</label>
+                                                                        <label>Last Name <span class="required">*</span></label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->last_name ?? '' }}"
-                                                                            name="last_name" placeholder="Last name...">
+                                                                            name="last_name" placeholder="Last name..." required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div
                                                                     class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
-                                                                        <label>Date Of Birth</label>
+                                                                        <label>Date Of Birth <span class="required">*</span></label>
                                                                         <input type="date" class="form-control" value="{{ $profileInfo->date_of_birth ?? '' }}"
-                                                                            name="date_of_birth">
+                                                                            name="date_of_birth" required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div
                                                                     class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
-                                                                        <label>Gender</label>
+                                                                        <label>Gender <span class="required">*</span></label>
                                                                         <select class="form-select" name="gender"
-                                                                            aria-label="Default select example">
+                                                                            aria-label="Default select example" required>
                                                                             <option value="female" {{ (isset($profileInfo) && $profileInfo->gender === 'female') ? 'selected' : '' }}>Female</option>
                                                                             <option value="male" {{ (isset($profileInfo) && $profileInfo->gender === 'male') ? 'selected' : '' }}>Male</option>
                                                                         </select>
+                                                                        <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div
                                                                     class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
-                                                                        <label>Nationality</label>
-                                                                        <select class="form-select" name="nationality"
-                                                                            aria-label="Default select example">
-                                                                            <option value="" disabled selected>Select
-                                                                                Nationality</option>
-                                                                            <option value="Afghanistan">Afghanistan
-                                                                            </option>
-                                                                            <option value="Albania">Albania</option>
-                                                                            <option value="Algeria">Algeria</option>
-                                                                            <option value="Andorra">Andorra</option>
-                                                                            <option value="Angola">Angola</option>
-                                                                            <option value="Antigua and Barbuda">Antigua and
-                                                                                Barbuda</option>
-                                                                            <option value="Argentina">Argentina</option>
-                                                                            <option value="Armenia">Armenia</option>
-                                                                            <option value="Australia">Australia</option>
-                                                                            <option value="Austria">Austria</option>
-                                                                            <option value="Azerbaijan">Azerbaijan</option>
-                                                                            <option value="Bahamas">Bahamas</option>
-                                                                            <option value="Bahrain">Bahrain</option>
-                                                                            <option value="Bangladesh">Bangladesh</option>
-                                                                            <option value="Barbados">Barbados</option>
-                                                                            <option value="Belarus">Belarus</option>
-                                                                            <option value="Belgium">Belgium</option>
-                                                                            <option value="Belize">Belize</option>
-                                                                            <option value="Benin">Benin</option>
-                                                                            <option value="Bhutan">Bhutan</option>
-                                                                            <option value="Bolivia">Bolivia</option>
-                                                                            <option value="Bosnia and Herzegovina">Bosnia
-                                                                                and Herzegovina</option>
-                                                                            <option value="Botswana">Botswana</option>
-                                                                            <option value="Brazil">Brazil</option>
-                                                                            <option value="Brunei">Brunei</option>
-                                                                            <option value="Bulgaria">Bulgaria</option>
-                                                                            <option value="Burkina Faso">Burkina Faso
-                                                                            </option>
-                                                                            <option value="Burundi">Burundi</option>
-                                                                            <option value="Cabo Verde">Cabo Verde</option>
-                                                                            <option value="Cambodia">Cambodia</option>
-                                                                            <option value="Cameroon">Cameroon</option>
-                                                                            <option value="Canada">Canada</option>
-                                                                            <option value="Central African Republic">
-                                                                                Central African Republic</option>
-                                                                            <option value="Chad">Chad</option>
-                                                                            <option value="Chile">Chile</option>
-                                                                            <option value="China">China</option>
-                                                                            <option value="Colombia">Colombia</option>
-                                                                            <option value="Comoros">Comoros</option>
-                                                                            <option value="Congo (Congo-Brazzaville)">Congo
-                                                                                (Congo-Brazzaville)</option>
-                                                                            <option value="Costa Rica">Costa Rica</option>
-                                                                            <option value="Croatia">Croatia</option>
-                                                                            <option value="Cuba">Cuba</option>
-                                                                            <option value="Cyprus">Cyprus</option>
-                                                                            <option value="Czech Republic">Czech Republic
-                                                                            </option>
-                                                                            <option value="Denmark">Denmark</option>
-                                                                            <option value="Djibouti">Djibouti</option>
-                                                                            <option value="Dominica">Dominica</option>
-                                                                            <option value="Dominican Republic">Dominican
-                                                                                Republic</option>
-                                                                            <option value="Ecuador">Ecuador</option>
-                                                                            <option value="Egypt">Egypt</option>
-                                                                            <option value="El Salvador">El Salvador
-                                                                            </option>
-                                                                            <option value="Equatorial Guinea">Equatorial
-                                                                                Guinea</option>
-                                                                            <option value="Eritrea">Eritrea</option>
-                                                                            <option value="Estonia">Estonia</option>
-                                                                            <option value="Eswatini (fmr. "Swaziland")">
-                                                                                Eswatini (fmr. "Swaziland")</option>
-                                                                            <option value="Ethiopia">Ethiopia</option>
-                                                                            <option value="Fiji">Fiji</option>
-                                                                            <option value="Finland">Finland</option>
-                                                                            <option value="France">France</option>
-                                                                            <option value="Gabon">Gabon</option>
-                                                                            <option value="Gambia">Gambia</option>
-                                                                            <option value="Georgia">Georgia</option>
-                                                                            <option value="Germany">Germany</option>
-                                                                            <option value="Ghana">Ghana</option>
-                                                                            <option value="Greece">Greece</option>
-                                                                            <option value="Grenada">Grenada</option>
-                                                                            <option value="Guatemala">Guatemala</option>
-                                                                            <option value="Guinea">Guinea</option>
-                                                                            <option value="Guinea-Bissau">Guinea-Bissau
-                                                                            </option>
-                                                                            <option value="Guyana">Guyana</option>
-                                                                            <option value="Haiti">Haiti</option>
-                                                                            <option value="Honduras">Honduras</option>
-                                                                            <option value="Hungary">Hungary</option>
-                                                                            <option value="Iceland">Iceland</option>
-                                                                            <option value="India">India</option>
-                                                                            <option value="Indonesia">Indonesia</option>
-                                                                            <option value="Iran">Iran</option>
-                                                                            <option value="Iraq">Iraq</option>
-                                                                            <option value="Ireland">Ireland</option>
-                                                                            <option value="Israel">Israel</option>
-                                                                            <option value="Italy">Italy</option>
-                                                                            <option value="Jamaica">Jamaica</option>
-                                                                            <option value="Japan">Japan</option>
-                                                                            <option value="Jordan">Jordan</option>
-                                                                            <option value="Kazakhstan">Kazakhstan</option>
-                                                                            <option value="Kenya">Kenya</option>
-                                                                            <option value="Kiribati">Kiribati</option>
-                                                                            <option value="Kuwait">Kuwait</option>
-                                                                            <option value="Kyrgyzstan">Kyrgyzstan</option>
-                                                                            <option value="Laos">Laos</option>
-                                                                            <option value="Latvia">Latvia</option>
-                                                                            <option value="Lebanon">Lebanon</option>
-                                                                            <option value="Lesotho">Lesotho</option>
-                                                                            <option value="Liberia">Liberia</option>
-                                                                            <option value="Libya">Libya</option>
-                                                                            <option value="Liechtenstein">Liechtenstein
-                                                                            </option>
-                                                                            <option value="Lithuania">Lithuania</option>
-                                                                            <option value="Luxembourg">Luxembourg</option>
-                                                                            <option value="Madagascar">Madagascar</option>
-                                                                            <option value="Malawi">Malawi</option>
-                                                                            <option value="Malaysia">Malaysia</option>
-                                                                            <option value="Maldives">Maldives</option>
-                                                                            <option value="Mali">Mali</option>
-                                                                            <option value="Malta">Malta</option>
-                                                                            <option value="Marshall Islands">Marshall
-                                                                                Islands</option>
-                                                                            <option value="Mauritania">Mauritania</option>
-                                                                            <option value="Mauritius">Mauritius</option>
-                                                                            <option value="Mexico">Mexico</option>
-                                                                            <option value="Micronesia">Micronesia</option>
-                                                                            <option value="Moldova">Moldova</option>
-                                                                            <option value="Monaco">Monaco</option>
-                                                                            <option value="Mongolia">Mongolia</option>
-                                                                            <option value="Montenegro">Montenegro</option>
-                                                                            <option value="Morocco">Morocco</option>
-                                                                            <option value="Mozambique">Mozambique</option>
-                                                                            <option value="Myanmar">Myanmar</option>
-                                                                            <option value="Namibia">Namibia</option>
-                                                                            <option value="Nauru">Nauru</option>
-                                                                            <option value="Nepal">Nepal</option>
-                                                                            <option value="Netherlands">Netherlands
-                                                                            </option>
-                                                                            <option value="New Zealand">New Zealand
-                                                                            </option>
-                                                                            <option value="Nicaragua">Nicaragua</option>
-                                                                            <option value="Niger">Niger</option>
-                                                                            <option value="Nigeria">Nigeria</option>
-                                                                            <option value="North Korea">North Korea
-                                                                            </option>
-                                                                            <option value="North Macedonia">North Macedonia
-                                                                            </option>
-                                                                            <option value="Norway">Norway</option>
-                                                                            <option value="Oman">Oman</option>
-                                                                            <option value="Pakistan">Pakistan</option>
-                                                                            <option value="Palau">Palau</option>
-                                                                            <option value="Palestine">Palestine</option>
-                                                                            <option value="Panama">Panama</option>
-                                                                            <option value="Papua New Guinea">Papua New
-                                                                                Guinea</option>
-                                                                            <option value="Paraguay">Paraguay</option>
-                                                                            <option value="Peru">Peru</option>
-                                                                            <option value="Philippines">Philippines
-                                                                            </option>
-                                                                            <option value="Poland">Poland</option>
-                                                                            <option value="Portugal">Portugal</option>
-                                                                            <option value="Qatar">Qatar</option>
-                                                                            <option value="Romania">Romania</option>
-                                                                            <option value="Russia">Russia</option>
-                                                                            <option value="Rwanda">Rwanda</option>
-                                                                            <option value="Saint Kitts and Nevis">Saint
-                                                                                Kitts and Nevis</option>
-                                                                            <option value="Saint Lucia">Saint Lucia
-                                                                            </option>
-                                                                            <option
-                                                                                value="Saint Vincent and the Grenadines">
-                                                                                Saint Vincent and the Grenadines</option>
-                                                                            <option value="Samoa">Samoa</option>
-                                                                            <option value="San Marino">San Marino</option>
-                                                                            <option value="Sao Tome and Principe">Sao Tome
-                                                                                and Principe</option>
-                                                                            <option value="Saudi Arabia">Saudi Arabia
-                                                                            </option>
-                                                                            <option value="Senegal">Senegal</option>
-                                                                            <option value="Serbia">Serbia</option>
-                                                                            <option value="Seychelles">Seychelles</option>
-                                                                            <option value="Sierra Leone">Sierra Leone
-                                                                            </option>
-                                                                            <option value="Singapore">Singapore</option>
-                                                                            <option value="Slovakia">Slovakia</option>
-                                                                            <option value="Slovenia">Slovenia</option>
-                                                                            <option value="Solomon Islands">Solomon Islands
-                                                                            </option>
-                                                                            <option value="Somalia">Somalia</option>
-                                                                            <option value="South Africa">South Africa
-                                                                            </option>
-                                                                            <option value="South Sudan">South Sudan
-                                                                            </option>
-                                                                            <option value="Spain">Spain</option>
-                                                                            <option value="Sri Lanka">Sri Lanka</option>
-                                                                            <option value="Sudan">Sudan</option>
-                                                                            <option value="Suriname">Suriname</option>
-                                                                            <option value="Sweden">Sweden</option>
-                                                                            <option value="Switzerland">Switzerland
-                                                                            </option>
-                                                                            <option value="Syria">Syria</option>
-                                                                            <option value="Taiwan">Taiwan</option>
-                                                                            <option value="Tajikistan">Tajikistan</option>
-                                                                            <option value="Tanzania">Tanzania</option>
-                                                                            <option value="Thailand">Thailand</option>
-                                                                            <option value="Timor-Leste">Timor-Leste
-                                                                            </option>
-                                                                            <option value="Togo">Togo</option>
-                                                                            <option value="Tonga">Tonga</option>
-                                                                            <option value="Trinidad and Tobago">Trinidad
-                                                                                and Tobago</option>
-                                                                            <option value="Tunisia">Tunisia</option>
-                                                                            <option value="Turkey">Turkey</option>
-                                                                            <option value="Turkmenistan">Turkmenistan
-                                                                            </option>
-                                                                            <option value="Tuvalu">Tuvalu</option>
-                                                                            <option value="Uganda">Uganda</option>
-                                                                            <option value="Ukraine">Ukraine</option>
-                                                                            <option value="United Arab Emirates">United
-                                                                                Arab Emirates</option>
-                                                                            <option value="United Kingdom">United Kingdom
-                                                                            </option>
-                                                                            <option value="United States of America">United
-                                                                                States of America</option>
-                                                                            <option value="Uruguay">Uruguay</option>
-                                                                            <option value="Uzbekistan">Uzbekistan</option>
-                                                                            <option value="Vanuatu">Vanuatu</option>
-                                                                            <option value="Vatican City">Vatican City
-                                                                            </option>
-                                                                            <option value="Venezuela">Venezuela</option>
-                                                                            <option value="Vietnam">Vietnam</option>
-                                                                            <option value="Yemen">Yemen</option>
-                                                                            <option value="Zambia">Zambia</option>
-                                                                            <option value="Zimbabwe">Zimbabwe</option>
+                                                                        <label>Nationality <span class="required">*</span></label>
+                                                                        <select required class="form-select" name="nationality" aria-label="Default select example">
+                                                                            <option value="">Select Nationality</option>
+                                                                                @php
+                                                                                    $nationalities = [
+                                                                                        "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda",
+                                                                                        "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain",
+                                                                                        "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia",
+                                                                                        "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso",
+                                                                                        "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic",
+                                                                                        "Chad", "Chile", "China", "Colombia", "Comoros", "Congo (Congo-Brazzaville)", "Costa Rica",
+                                                                                        "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica",
+                                                                                        "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea",
+                                                                                        "Estonia", "Eswatini (fmr. 'Swaziland')", "Ethiopia", "Fiji", "Finland", "France",
+                                                                                        "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala",
+                                                                                        "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India",
+                                                                                        "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan",
+                                                                                        "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon",
+                                                                                        "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar",
+                                                                                        "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania",
+                                                                                        "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro",
+                                                                                        "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand",
+                                                                                        "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman",
+                                                                                        "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru",
+                                                                                        "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis",
+                                                                                        "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe",
+                                                                                        "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia",
+                                                                                        "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka",
+                                                                                        "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania",
+                                                                                        "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey",
+                                                                                        "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom",
+                                                                                        "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela",
+                                                                                        "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+                                                                                    ];
 
+                                                                                @endphp
+                                                                            @foreach ($nationalities as $nationality)
+                                                                                <option value="{{ $nationality }}" {{ (isset($profileInfo) && $profileInfo->nationality === $nationality) ? 'selected' : '' }}>
+                                                                                    {{ $nationality }}
+                                                                                </option>
+                                                                            @endforeach
                                                                         </select>
+                                                                        <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <div class="form-group">
-                                                                            <label for="ethnicity">Ethnicity</label>
-                                                                            <select name="ethnicity" id="ethnicity"
+                                                                            <label for="ethnicity">Ethnicity <span class="required">*</span></label>
+                                                                            <select required name="ethnicity" id="ethnicity"
                                                                                 class="form-control">
                                                                                 <option value="">Select Ethnicity</option>
                                                                                 @php
@@ -1434,41 +1242,45 @@
                                                                                     </option>
                                                                                 @endforeach
                                                                             </select>
+                                                                            <span class="error-message"></span>
                                                                         </div>
 
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
-                                                                        <label>Calling Number</label>
+                                                                        <label>Calling Number <span class="required">*</span></label>
                                                                         <input id="" type="tel" class="form-control phone-input"  value="{{ $profileInfo->calling_number ?? '' }}"
-                                                                        name="calling_number" placeholder="(000) *** ***">
+                                                                        name="calling_number" placeholder="(000) *** ***" required>
+                                                                        <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
-                                                                        <label>Whatsapp Number</label>
+                                                                        <label>Whatsapp Number <span class="required">*</span></label>
                                                                         <input id="phoneNumber" type="tel" class="form-control phone-input"
                                                                             name="whatsapp_number" value="{{ $profileInfo->whatsapp_number ?? '' }}"
-                                                                            placeholder="(000) *** ***">
+                                                                            placeholder="(000) *** ***" required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div
                                                                     class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
-                                                                        <label>Marital Status</label>
+                                                                        <label>Marital Status <span class="required">*</span></label>
                                                                        
-                                                                        <select class="form-control"
+                                                                        <select class="form-control" required
                                                                             name="marital_status">
                                                                             <option value="single"  {{ (isset($profileInfo) && $profileInfo->marital_status === 'single') ? 'selected' : '' }}>Single</option>
                                                                             <option value="married" {{ (isset($profileInfo) && $profileInfo->marital_status === 'married') ? 'selected' : '' }}>Married</option>
                                                                         </select>
+                                                                        <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
-                                                                        <label>Lives in</label>
-                                                                        <select class="form-select" name="lives_in"
+                                                                        <label>Lives in <span class="required">*</span></label>
+                                                                        <select class="form-select" name="lives_in" required
                                                                             aria-label="Default select example">
                                                                             @php
                                                                                 $countries = [
@@ -1494,24 +1306,26 @@
                                                                                 </option>
                                                                             @endforeach
                                                                         </select>
+                                                                        <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Visa Status</label>
-                                                                        <select class="form-select" name="visa_status"
+                                                                        <label class="required">Visa Status <span class="required">*</span></label>
+                                                                        <select class="form-select" name="visa_status" required
                                                                             aria-label="Default select example">                                                                          
                                                                             <option value="visit"  {{ (isset($profileInfo) && $profileInfo->visa_status === 'visit') ? 'selected' : '' }}>Visit Visa</option>
                                                                             <option value="residence" {{ (isset($profileInfo) && $profileInfo->visa_status === 'residence') ? 'selected' : '' }}>Residence Visa</option>
                                                                             <option value="golden" {{ (isset($profileInfo) && $profileInfo->visa_status === 'golden') ? 'selected' : '' }}>Golden Visa</option>
                                                                         </select>
+                                                                        <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contact-list-language">
-                                                                        <label>Languages Spoken</label>
+                                                                        <label>Languages Spoken <span class="required">*</span></label>
                                                                         <div class="language-dropdown" id="languageDropdown">
                                                                             <div class="language-dropdown-button" id="languageDropdownButton">-- Select Languages --</div>
                                                                             <div class="language-dropdown-content" id="languageDropdownContent">
@@ -1527,6 +1341,7 @@
                                                                                 @endforeach
                                                                             </div>
                                                                         </div>
+                                                                        <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                    
@@ -1536,81 +1351,89 @@
                                                                    <div class="col-sm-12 col-md-4">
                                                                     <div class="contactlist">
                                                                         <div class="form-group">
-                                                                            <label>Driving License</label>
+                                                                            <label>Driving License <span class="required">*</span></label>
                                                                             <select name="driving_license"
-                                                                                id="driving_license" class="form-control">
+                                                                                id="driving_license" class="form-control" required>
                                                                                 <option value="">-- Select --
                                                                                 </option>
                                                                                 <option value="yes" {{ (isset($profileInfo) && $profileInfo->driving_license === 'yes') ? 'selected' : '' }}>Yes</option>
                                                                                 <option value="no" {{ (isset($profileInfo) && $profileInfo->driving_license === 'no') ? 'selected' : '' }}>No</option>
                                                                             </select>
+                                                                            <span class="error-message"></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Email</label>
+                                                                        <label>Email <span class="required">*</span></label>
                                                                         <input type="email" class="form-control"
                                                                             name="email" value="{{ $profileInfo->email ?? '' }}"
-                                                                            placeholder="Dummy321@gmail.com">
+                                                                            placeholder="Dummy321@gmail.com" required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Instagram Username</label>
+                                                                        <label>Instagram Username <span class="required">*</span></label>
                                                                         <input type="text" class="form-control"
                                                                             name="instagram_username" value="{{ $profileInfo->instagram_username ?? '' }}"
-                                                                            placeholder="Instagram handle..">
+                                                                            placeholder="Instagram handle.." required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div name="height"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Height (CM)</label>
+                                                                        <label>Height (CM) <span class="required">*</span></label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->height ?? '' }}"
-                                                                            name="height_cm" placeholder="e.g., 170">
+                                                                            name="height_cm" placeholder="e.g., 170" required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div name="chest"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Chest (CM)</label>
+                                                                        <label>Chest (CM) <span class="required">*</span></label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->bust ?? '' }}"
-                                                                            name="bust_cm" placeholder="e.g., 90">
+                                                                            name="bust_cm" placeholder="e.g., 90" required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div name="waist"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Waist (CM)</label>
+                                                                        <label>Waist (CM) <span class="required">*</span></label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->waist ?? '' }}"
-                                                                            name="waist_cm" placeholder="e.g., 60">
+                                                                            name="waist_cm" placeholder="e.g., 60" required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div name="hip"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Hip (CM)</label>
+                                                                        <label>Hip (CM) <span class="required">*</span></label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->hip ?? '' }}"
-                                                                            name="hip_cm" placeholder="e.g., 90">
+                                                                            name="hip_cm" placeholder="e.g., 90" required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div name="weight"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Weight (KG)</label>
+                                                                        <label>Weight (KG) <span class="required">*</span></label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->weight ?? '' }}"
-                                                                            name="weight_kg" placeholder="e.g., 70">
+                                                                            name="weight_kg" placeholder="e.g., 70" required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div name="eye"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Eye Color</label>
+                                                                        <label>Eye Color <span class="required">*</span></label>
                                                                         <select class="form-select" name="eyes_color"
-                                                                            aria-label="Default select example">
+                                                                            aria-label="Default select example" required>
                                                                             @php
                                                                                 $options = [
                                                                                     'Amber' => 'Amber',
@@ -1631,14 +1454,15 @@
                                                                                 </option>
                                                                             @endforeach
                                                                         </select>
+                                                                        <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div name="hair"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Hair Color</label>
+                                                                        <label>Hair Color <span class="required">*</span></label>
                                                                         <select class="form-select" name="hair_color"
-                                                                            aria-label="Default select example">
+                                                                            aria-label="Default select example" required>
                                                                             @php
                                                                                 $options = [
                                                                                     'Brown' => 'Brown',
@@ -1665,71 +1489,78 @@
                                                                                 </option>
                                                                             @endforeach
                                                                         </select>
+                                                                        <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div name="hairlength"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Hair Length</label>
-                                                                        <select class="form-select" name="hair_length"
+                                                                        <label>Hair Length <span class="required">*</span></label>
+                                                                        <select class="form-select" name="hair_length" required
                                                                             aria-label="Default select example">
                                                                             <option value="">Select hair length..</option>
                                                                             <option value="long"  {{ (isset($profileInfo) && $profileInfo->hair_length === 'long') ? 'selected' : '' }}>Long</option>
                                                                             <option value="medium" {{ (isset($profileInfo) && $profileInfo->hair_length === 'medium') ? 'selected' : '' }}>Medium</option>
                                                                             <option value="short" {{ (isset($profileInfo) && $profileInfo->hair_length === 'short') ? 'selected' : '' }}>Short</option>
                                                                         </select>
+                                                                        <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div name="shoesize"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Shoe Size (EURO)</label>
+                                                                        <label>Shoe Size (EURO) <span class="required">*</span></label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->shoe_size ?? '' }}"
-                                                                            name="shoe_size_euro" placeholder="e.g. 12">
+                                                                            name="shoe_size_euro" placeholder="e.g. 12" required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div name="dresssize"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Dress Size (EURO)</label>
+                                                                        <label>Dress Size (EURO) <span class="required">*</span></label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->dress_size ?? '' }}"
-                                                                            name="dress_size_euro" placeholder="e.g. 12">
+                                                                            name="dress_size_euro" placeholder="e.g. 12" required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Hourly/ Session Rate (AED)</label>
+                                                                        <label>Hourly/ Session Rate (AED) <span class="required">*</span></label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->hourly_rate ?? '' }}"
-                                                                            name="hourly_rate" placeholder="e.g. 120">
+                                                                            name="hourly_rate" placeholder="e.g. 120" required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Experience (Years)</label>
+                                                                        <label>Experience (Years) <span class="required">*</span></label>
                                                                         <input type="text" class="form-control" value="{{ $profileInfo->experience ?? '' }}"
-                                                                            name="experience" placeholder="e.g. 4 years">
+                                                                            name="experience" placeholder="e.g. 4 years" required>
+                                                                            <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Skills</label>
-                                                                        <select class="form-select" name="skills"
+                                                                        <label>Skills <span class="required">*</span></label>
+                                                                        <select class="form-select" name="skills" required
                                                                             aria-label="Default select example">
                                                                             <option value="">Select skill level..</option>
                                                                             <option value="Fresher"  {{ (isset($profileInfo) && $profileInfo->skills === 'Fresher') ? 'selected' : '' }}>Fresher</option>
                                                                             <option value="Experienced" {{ (isset($profileInfo) && $profileInfo->skills === 'Experienced') ? 'selected' : '' }}>Experienced</option>
                                                                             <option value="Expert" {{ (isset($profileInfo) && $profileInfo->skills === 'Expert') ? 'selected' : '' }}>Expert</option>
                                                                         </select>
+                                                                        <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div name="tattoos"
                                                                     class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                                                     <div class="contactlist">
-                                                                        <label>Do You Have Tattoos?</label>
-                                                                        <select class="form-select" name="have_tattoos"
+                                                                        <label>Do You Have Tattoos? <span class="required">*</span></label>
+                                                                        <select class="form-select" name="have_tattoos" required
                                                                             id="have_tattoos"
                                                                             aria-label="Default select example"
                                                                             onchange="toggleTattoosInput()">
@@ -1738,6 +1569,7 @@
                                                                             <option value="no" {{ (isset($profileInfo) && $profileInfo->have_tattoos === 'no' || isset($profileInfo) && $profileInfo->have_tattoos === 'No') ? 'selected' : '' }}>No</option>
                                                                             
                                                                         </select>
+                                                                        <span class="error-message"></span>
                                                                         <input type="text" class="form-control mt-2"
                                                                             id="tattoos_other_input" name="tattoos_other"
                                                                             placeholder="Please specify"
@@ -1999,26 +1831,30 @@
                     selectedCategories.push($(this).val());
                 });
 
-                console.log(selectedCategories)
-
                 // Check if any of the specified categories are selected
                 // const shouldHideFields = categoriesToCheck.some(category => selectedCategories.includes(category));
                 // Check if all selected categories are within the exclusive categories list
                 const shouldHideFields = selectedCategories && selectedCategories.length > 0 && selectedCategories.every(cat => categoriesToCheck.includes(cat));
                 // Show or hide fields based on the presence of specified categories
                 fieldsToHide.forEach(field => {
+                    let $field = $(`input[name="${field}"], select[name="${field}"]`);
                     if (shouldHideFields) {
-                        $(`input[name="${field}"], select[name="${field}"]`).closest('.col-12').hide();
+                        $field.closest('.col-12').hide();
+                        $field.prop('required', false); // Remove required if hidden
                     } else {
-                        $(`input[name="${field}"], select[name="${field}"]`).closest('.col-12').show();
+                        $field.closest('.col-12').show();
+                        $field.prop('required', true); // Set required if visible
                     }
                 });
 
                 fieldsToShow.forEach(field => {
+                    let $field = $(`input[name="${field}"], select[name="${field}"]`);
                     if (shouldHideFields) {
-                        $(`input[name="${field}"], select[name="${field}"]`).closest('.col-12').show();
+                        $field.closest('.col-12').show();
+                        $field.prop('required', true); // Set required if visible
                     } else {
-                        $(`input[name="${field}"], select[name="${field}"]`).closest('.col-12').hide();
+                        $field.closest('.col-12').hide();
+                        $field.prop('required', false); // Remove required if hidden
                     }
                 });
             }
@@ -2053,6 +1889,27 @@
     </script>  
     <script>
         $(document).ready(function() {
+            // Function to check required fields
+            function validateInput(input) {
+                let value = $(input).val();
+                let messageBox = $(input).next('.error-message');
+
+                if (value === '') {
+                    $(input).addClass('invalid');
+                    messageBox.text('This field is required').show();
+                    return false;
+                } else {
+                    $(input).removeClass('invalid');
+                    messageBox.hide();
+                    return true;
+                }
+            }
+
+            // Validate input on blur
+            $('.form-control, .form-select').blur(function() {
+                validateInput(this);
+            });
+
             // Initially set the first tab as active
             $('.multiple_steps_container .tab[data-step="1"]').addClass('active_tab_');
 
@@ -2060,6 +1917,33 @@
                 let activeTab = $(".multiple_steps_container .tab.active_tab_");
                 let nextTab = $(activeTab).next('.tab');
                 
+                // Validate categories on the first tab
+                if ($(activeTab).data("step") === 1) {
+                    if ($('input[name="category[]"]:checked').length === 0) {
+                        alert("Please select at least one category before proceeding.");
+                        return false; // Stop the function execution here if no categories are selected
+                    }
+                }
+
+                // Validate input fields on third tab
+                if ($(activeTab).data("step") === 3) {
+                    let isValid = true;
+                    var inputs = activeTab.find('input[required], select[required], textarea[required]');
+
+                    inputs.each(function() {
+                        console.log(this.name, validateInput(this));
+                        if (!validateInput(this)) {
+                            isValid = false;
+                        } 
+                    });
+
+                    if (!isValid) {
+                        e.preventDefault(); // Prevent form submission if validation fails
+                        return;
+                        // alert('Please fill all required fields.');
+                    }
+                }
+
                 if (nextTab.length != 0) {
                     $(activeTab).removeClass("active_tab_");
                     $(nextTab).addClass("active_tab_");
@@ -2083,6 +1967,12 @@
             $("#prevStepBtn").click(function() {
                 let activeTab = $(".multiple_steps_container .tab.active_tab_");
                 let prevTab = $(activeTab).prev('.tab');
+                let nextTab = $(activeTab).next('.tab');
+
+                if ($(nextTab).data("step") !== 4) {
+                    $("#nextStepBtn").html("Next");
+                    $("#nextStepBtn").attr("type", "button");
+                }
 
                 if (prevTab.length != 0) {
                     $(activeTab).removeClass("active_tab_");
@@ -2220,6 +2110,8 @@
         $(document).ready(function() {
             $('#profileDetails').submit(function(event) {
                 event.preventDefault(); // Prevent the default form submit
+                
+                $("#nextStepBtn").prop('disabled', true);
                 var formData = new FormData(this);
                 const portfolioDropzoneElement = document.querySelector('#portfolioDropzone');
                 if (portfolioDropzoneElement.dropzone) {
@@ -2249,17 +2141,26 @@
                     processData: false,  // Important: don't process data into a query string
                     contentType: false, 
                     dataType: 'json', // Expecting JSON response
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') // Ensure CSRF token is included if POST
+                    },
                     success: function(data) {
                         if(data.success) {
                             toastr.success(data.success); // Display success message using toastr
                             location.reload();
+                            // console.log(data.success);
                         } else if(data.error) {
+                            // console.log(data.error);
                             toastr.error(data.error);
                         }
                     },
                     error: function(xhr, status, error) {
                         // Use toastr to display the error message
-                        toastr.error('Request failed: ' + xhr.responseText);
+                        toastr.error('Request failed: ' + error);
+                    },
+                    complete: function() {
+                        // Re-enable the button whether the AJAX call was successful or failed
+                        $('#nextStepBtn').prop('disabled', false);
                     }
                 });
             });

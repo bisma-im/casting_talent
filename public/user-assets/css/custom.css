@@ -476,6 +476,10 @@ a.contactbtn1:hover{
     padding: 0 7px;
 }
 
+.required { color: red; }
+.error-message { color: red; font-size: 0.8rem; display: none; }
+.invalid { border: 1px solid red; }
+
 @media (max-width: 768px) {
     .custom-col {
         flex: 0 0 50%;
@@ -1611,6 +1615,12 @@ section.contactussec:before {
     border: 1px solid #0000007a !important;
     color: #000;
 }
+.contactlist input.invalid {
+    border: 1px solid red !important;  /* Change border color to red for invalid inputs */
+}
+.contactlist select.invalid {
+    border: 1px solid red !important;  /* Change border color to red for invalid inputs */
+}
 .border-right {
     border-right: 1px dotted #1c7887;
 }
@@ -1632,6 +1642,12 @@ section.contactussec:before {
     border: 2px solid rgba(28, 120, 135, 1);
 }
 
+.contactlist button:disabled {
+    background: rgba(28, 120, 135, 0.5); /* Lighter background */
+    color: #ccc; /* Lighter text color */
+    border: 2px solid rgba(28, 120, 135, 0.5); /* Lighter border */
+    cursor: not-allowed; /* Cursor to indicate it's not clickable */
+}
 section.contactlist {
     padding: 100px 0 100px;
    
