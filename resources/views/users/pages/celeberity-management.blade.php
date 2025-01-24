@@ -234,35 +234,50 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext1">
+                    <div class="modaltext1 pt-4">
 
                         <h2>Videography & <sapn style="color: rgba(216, 31, 38, 1);">Photography</sapn>
                         </h2>
-                        <ul>
-  <li><strong>Corporate Videos:</strong></li>
-  <li><strong>Event Videos:</strong></li>
-  <li><strong>Promotional Videos:</strong></li>
-  <li><strong>Commercial Videos:</strong></li>
-  <li><strong>Animation Videos:</strong></li>
-  <li><strong>Training & Safety Videos:</strong></li>
-  <li><strong>Documentaries:</strong></li>
-  <li><strong>Explainer Videos:</strong></li>
-  <li><strong>Time-lapse Videos:</strong></li>
-  <li><strong>Branded Videos:</strong></li>
-  <li><strong>Aerial Drone Filming:</strong></li>
+                        <div class="flex-col d-flex ms-3 ">
+                        <div class="row">
+    <ul>
+    <li><strong>Corporate Videos</strong></li>
+  <li><strong>Event Videos</strong></li>
+  <li><strong>Promotional Videos</strong></li>
+  <li><strong>Commercial Videos</strong></li>
+  <li><strong>Animation Videos</strong></li>
+  <li><strong>Training & Safety Videos</strong></li>
+  <li><strong>Documentaries</strong></li>
+  <li><strong>Explainer Videos</strong></li>
+  <li><strong>Time-lapse Videos</strong></li>
+  <li><strong>Branded Videos</strong></li>
+  <li><strong>Aerial Drone Filming</strong></li>
   <li><strong>Photography</strong></li>
-  <li><strong>Commercials:</strong></li>
-  <li><strong>Events:</strong></li>
-  <li><strong>Music Video BTS & Posters:</strong></li>
-  <li><strong>Product Shoots:</strong></li>
-  <li><strong>Business Portraits:</strong></li>
-  <li><strong>Modeling Portfolios:</strong></li>
-  <li><strong>Weddings & Emirati Weddings:</strong></li>
-  <li><strong>Interior & Exterior:</strong></li>
-  <li><strong>Engagement & Family Portraits:</strong></li>
-  <li><strong>Cake Smash & Maternity:</strong></li>
-  <li><strong>Newborn Photography:</strong></li>
-</ul>
+    </ul>
+</div>
+<div class="row ms-5">
+    <ul>
+    <li><strong>Interviews videography</strong></li>
+
+    <li><strong>Events</strong></li>
+  <li><strong>Music Video BTS & Posters</strong></li>
+  <li><strong>Product Shoots</strong></li>
+  <li><strong>Business Portraits</strong></li>
+  <li><strong>Modeling Portfolios</strong></li>
+  <li><strong>Weddings & Emirati Weddings</strong></li>
+  <li><strong>Interior & Exterior</strong></li>
+  <li><strong>Engagement & Family Portraits</strong></li>
+  <li><strong>Cake Smash & Maternity</strong></li>
+  <li><strong>Newborn Photography</strong></li>
+  <li><strong>Commercials</strong></li>
+
+    </ul>
+</div>
+                        </div>
+
+  
+ 
+
 
                         <!-- <a href="#" class="contactbtn1" id="readMoreTrigger3">READ MORE</a> -->
                     </div>

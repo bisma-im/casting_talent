@@ -445,29 +445,43 @@ Comprehensive services tailored to meet diverse production needs with creativity
                 <div class="col-12 ms-3  d-flex justify-content-center ">
                     <div class="modaltext">
                         <h2 >Videography & <span>Photography</span></h2>
-                        <p class="pt-4"><strong>Corporate Videos:</strong> Expand your brand’s reach with tailored productions.</p>
-<p><strong>Event Videos:</strong> Create lasting visual memories from events.</p>
-<p><strong>Promotional Videos:</strong> Engage audiences with captivating content.</p>
-<p><strong>Commercial Videos:</strong> Drive revenue through compelling TV and online ads.</p>
-<p><strong>Animation Videos:</strong> Bring ideas to life with 2D, 3D, and motion graphics.</p>
-<p><strong>Training & Safety Videos:</strong> Simplify learning and safety protocols effectively.</p>
-<p><strong>Documentaries:</strong> Tell impactful and emotionally engaging stories.</p>
-<p><strong>Explainer Videos:</strong> Showcase product/service benefits clearly.</p>
-<p><strong>Time-lapse Videos:</strong> Highlight progress through condensed visuals.</p>
-<p><strong>Branded Videos:</strong> Create engaging, share-worthy brand stories.</p>
-<p><strong>Aerial Drone Filming:</strong> Capture stunning aerial perspectives.</p>
-<p ><strong>Photography</strong></p>
-<p><strong>Commercials:</strong> Produce impactful, result-driven advertisements.</p>
-<p><strong>Events:</strong> Preserve memories of corporate and private occasions.</p>
-<p><strong>Music Video BTS & Posters:</strong> Artistic behind-the-scenes content.</p>
-<p><strong>Product Shoots:</strong> Highlight features with high-quality visuals.</p>
-<p><strong>Business Portraits:</strong> Professional photos reflecting your identity.</p>
-<p><strong>Modeling Portfolios:</strong> Showcase versatility with standout images.</p>
-<p><strong>Weddings & Emirati Weddings:</strong> Capture timeless and traditional moments.</p>
-<p><strong>Interior & Exterior:</strong> Showcase property beauty with clarity.</p>
-<p><strong>Engagement & Family Portraits:</strong> Celebrate milestones beautifully.</p>
-<p><strong>Cake Smash & Maternity:</strong> Mark special occasions creatively.</p>
-<p><strong>Newborn Photography:</strong> Treasure early life moments forever.</p>
+                        <div class="flex-col d-flex ms-3 justify-content-center">
+                        <div class="row">
+    <ul>
+    <li><strong>Corporate Videos</strong></li>
+  <li><strong>Event Videos</strong></li>
+  <li><strong>Promotional Videos</strong></li>
+  <li><strong>Commercial Videos</strong></li>
+  <li><strong>Animation Videos</strong></li>
+  <li><strong>Training & Safety Videos</strong></li>
+  <li><strong>Documentaries</strong></li>
+  <li><strong>Explainer Videos</strong></li>
+  <li><strong>Time-lapse Videos</strong></li>
+  <li><strong>Branded Videos</strong></li>
+  <li><strong>Aerial Drone Filming</strong></li>
+  <li><strong>Photography</strong></li>
+
+
+    </ul>
+</div>
+<div class="row ms-5">
+    <ul>
+    <li><strong>Interviews videography</strong></li>
+
+<li><strong>Events</strong></li>
+<li><strong>Music Video BTS & Posters</strong></li>
+<li><strong>Product Shoots</strong></li>
+<li><strong>Business Portraits</strong></li>
+<li><strong>Modeling Portfolios</strong></li>
+<li><strong>Weddings & Emirati Weddings</strong></li>
+<li><strong>Interior & Exterior</strong></li>
+<li><strong>Engagement & Family Portraits</strong></li>
+<li><strong>Cake Smash & Maternity</strong></li>
+<li><strong>Newborn Photography</strong></li>
+<li><strong>Commercials</strong></li>
+    </ul>
+</div>
+                        </div>
                         <!-- <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a> -->
                     </div>
 

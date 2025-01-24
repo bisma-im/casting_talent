@@ -129,11 +129,11 @@
         </div>
     </section>
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12  mt-3 ">
-                <div class="innertext">
+                <div class="innertext pt-3">
                     <h1>Our <span>Activities</span></h1>
                 </div>
             </div>
-    <section class="servicessec">
+    <section class="servicessec pt-3">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
