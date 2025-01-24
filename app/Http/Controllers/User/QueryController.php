@@ -233,13 +233,13 @@ class QueryController extends Controller
     {
         // dd($request->input('video_urls'), $request->file('audio'));
         if (!Auth::check()) {
-            return back()->with('error', 'Please login or create an account first!');
+            return response()->json(['error' => 'Please login or create an account first!']);
         }
 
         $user = User::where('id', Auth::id())->where('role', 'model')->firstOrFail();
 
         if (ModelDetail::where('user_id', Auth::id())->exists()) {
-            return back()->with('error', 'You already have a model profile!');
+            return response()->json(['error' => 'You already have a model profile!']);
         }
 
         DB::beginTransaction();
