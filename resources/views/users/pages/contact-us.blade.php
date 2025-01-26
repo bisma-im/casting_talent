@@ -1741,7 +1741,7 @@ document.getElementById('clientInquiryBtn').addEventListener('click', function (
                                     href="https://www.linkedin.com/in/abeera-sheikh-uae-based-casting-specialist-actor-and-founder-of-aks-castings-llc-723063147"><i
                                         class="fa-brands fa-linkedin"></i></a>
                                 <a class="text-yellow fs-3" target="_blank"
-                                    href="https://www.snapchat.com/add/abeeraksheikh"><i
+                                    href="https://youtube.com/@casttalents "><i
                                         class="fa-brands fa-youtube"></i></a>
                             </div>
                         </div>

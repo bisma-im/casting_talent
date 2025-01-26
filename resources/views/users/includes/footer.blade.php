@@ -938,7 +938,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="copytext d-flex justify-content-center align-items-center">
-                    <p class="m-0 p-0">© casttalents.com 2024. All rights reserved</p>
+                    <p class="m-0 p-0">© casttalents.com 2025. All rights reserved</p>
                 </div>
             </div>
         </div>

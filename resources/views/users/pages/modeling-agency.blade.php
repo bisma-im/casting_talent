@@ -21,17 +21,17 @@
 
         </div>
     </div>
-            <div class="row align-items-center pt-md-2 pt-4 text-center ">
-            <div class="col-12 ">
-                    <div class="modalimg ">
+            <div class="row align-items-center justify-content-center mx-0 text-center ">
+            <div class="col-12">
+                    <div class="modalimg mb-4">
                         <img src="{{ url('user-assets') }}/images/modal_1.png" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12 ">
                     <div class="modaltext">
                         <h2>Actors / <span>Models</span></h2>
-                        <p><strong>CAST TALENTS Your Global Talent Source</strong></p>
-                        <p>At <strong>CAST TALENTS</strong>, we offer a wide array of talent, including actors and models of
+                        <p class=""><strong>CAST TALENTS Your Global Talent Source</strong></p>
+                        <p class="">At <strong>CAST TALENTS</strong>, we offer a wide array of talent, including actors and models of
                             all ages and types, for TV commercials, movie roles, print advertisements, music videos, and
                             promotional campaigns. <br> Headquartered in Dubai, CAST TALENTS manages models from across the
                             globe. Our energetic and youthful team is dedicated to a personalized and attentive approach,
@@ -475,15 +475,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <section class="modalagencysec2" id="tv-commercials">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="row ">
+                <div class="col-6 ">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/modal_6.png" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="col-6 ">
                     <div class="modaltext1">
-
                         <h2>Tv Commercial, <sapn style="color: rgba(216, 31, 38, 1);">Music Video </sapn> , Filming</h2>
                         <p>CAST TALENTS provides a full suite of vertically integrated services, encompassing concept
                             development, script writing, filming, and post-production. Our storytelling expertise ensures

@@ -459,7 +459,7 @@
                                         <a href="https://www.linkedin.com/in/abeera-sheikh-uae-based-casting-specialist-actor-and-founder-of-aks-castings-llc-723063147" target="_blank" class="social-icon">
                                             <i class="fab fa-linkedin-in"></i>
                                         </a>
-                                        <a href="https://www.youtube.com" target="_blank" class="social-icon">
+                                        <a href="https://youtube.com/@casttalents" target="_blank" class="social-icon">
                                             <i class="fab fa-youtube"></i>
                                         </a>
                                     </div>

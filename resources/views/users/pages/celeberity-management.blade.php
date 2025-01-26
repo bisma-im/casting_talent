@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="col-12 ">
                     <div class="modaltext pt-5 pt-md-0 text-center ">
                         <h2>Celebrity<span> Management</span> Services</h2>
-                        <p><b>Book Celebrities Worldwide with CAST TALENTS</b></p>
+                        <p class=" text-dark"><b>Book Celebrities Worldwide with CAST TALENTS</b></p>
                         <p>Elevate your events with CAST TALENTS exclusive celebrity management services. Whether it's for
                             inaugurations, weddings, birthday parties, or any celebration, we offer access to celebrities
                             from around the world. Make your occasion truly memorable by adding a touch of celebrity glamour
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="col-12  text-center ">
                     <div class="modaltext">
                         <h2>Security /<span> Bouncer</span></h2>
-                        <p><b>Professional Security Services by CAST TALENTS</b></p>
+                        <p class="text-dark "><b>Professional Security Services by CAST TALENTS</b></p>
                         <p><strong>VIP and Celebrity Protection:</strong> At CAST TALENTS, ensuring the safety of our
                             clients is paramount. We specialize in providing highly trained bodyguards and security
                             personnel who are dedicated to protecting VIPs and celebrities. Our team is prepared to
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="col-12  text-center ">
                     <div class="modaltext">
                         <h2>Transportation</h2>
-                        <p><b>Professional Vehicle Rental Services for the Film and Television Industry BY CAST TALENTS</b>
+                        <p class="text-dark"><b>Professional Vehicle Rental Services for the Film and Television Industry BY CAST TALENTS</b>
                         </p>
                         <p>Cast Talents specializes in providing a wide array of support vehicles for the film and
                             television sector in the UAE. With our extensive fleet, we are the preferred partner for the
