@@ -81,18 +81,27 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="col-12 ">
                     <div class="modaltext " >
-                        <h2 class="text-center" >Event Management</h2>
+                        <h2 class="text-center" >Event <span style="color: rgba(216, 31, 38, 1);">Management</span></h2>
                        <p class=""> <strong>Event Management by Cast Talents</strong></p>
-                       <ul class="" style="list-style-position: inside;">
-    <li><strong>Expert Services:</strong> We design, plan, and manage private and corporate events with precision and creativity, delivering unique and memorable experiences tailored to your needs.</li>
-    <strong class="pt-4">Our Services Include:</strong>
-    <li><strong>Design:</strong> Print, graphic, décor, lighting, table, and floral design. Management of invitations, RSVPs, budgets, critical paths, and vendor contracts.</li>
-    <li><strong>Production:</strong> Sound, video, and multimedia production.</li>
-    <li><strong>Coordination:</strong> Catering, staffing, media relations, sponsorships, talent procurement, hospitality, travel, protocol, and concierge services.</li>
-</ul>
+                       <p>
+    <strong>Expert Services:</strong> We design, plan, and manage private and corporate events with precision and creativity, delivering unique and memorable experiences tailored to your needs.
+</p>
+<p>
+    <strong>Our Services Include:</strong>
+</p>
+<p>
+    <strong>Design:</strong> Print, graphic, décor, lighting, table, and floral design. Management of invitations, RSVPs, budgets, critical paths, and vendor contracts.
+</p>
+<p>
+    <strong>Production:</strong> Sound, video, and multimedia production.
+</p>
+<p>
+    <strong>Coordination:</strong> Catering, staffing, media relations, sponsorships, talent procurement, hospitality, travel, protocol, and concierge services.
+</p>
 
 
-<p class="ms-md-5 text-dark text-center"> <strong>Seamlessly blending innovative design and exceptional service for unforgettable events.</strong></p>
+
+<p class=""> <strong>Seamlessly blending innovative design and exceptional service for unforgettable events.</strong></p>
                         <!-- <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a> -->
                     </div>
                 </div>
@@ -327,24 +336,14 @@ document.addEventListener('DOMContentLoaded', function () {
                         </p>
                         
                         
-                       <ul class="ms-4 d-flex justify-content-center flex-column" style="list-style-position: inside;">
-                       <strong >Our Services Include:
-                       </strong>
-                       <li><strong>Retail Staffing:</strong> Experienced staff with UAE retail expertise, scalable to your needs.
-                       </li> 
-                       <li><strong>Promoters:</strong>Trained professionals for sampling, launches, events, and activations.
-                       </li> 
-                       <li><strong>Hospitality Support:</strong> Waitstaff with occupational health cards for seamless events.
-                       </li> 
-                       <li><strong>Hostesses:</strong>Multilingual, experienced professionals for trade shows, corporate events, and more.
+                        <p><strong>Our Services Include:</strong></p>
+<p><strong>Retail Staffing:</strong> Experienced staff with UAE retail expertise, scalable to your needs.</p>
+<p><strong>Promoters:</strong> Trained professionals for sampling, launches, events, and activations.</p>
+<p><strong>Hospitality Support:</strong> Waitstaff with occupational health cards for seamless events.</p>
+<p><strong>Hostesses:</strong> Multilingual, experienced professionals for trade shows, corporate events, and more.</p>
+<p><strong>Host:</strong> Skilled male and female hosts with extensive event expertise.</p>
+<p class="">We ensure top-tier staffing through rigorous auditing and customization to meet your requirements.</p>
 
-                       </li> 
-                       <li><strong>Host:</strong>Skilled male and female hosts with extensive event expertise.
-
-                       </li> 
-                       <p class="ms-md-5 text-dark text-center">We ensure top-tier staffing through rigorous auditing and customization to meet your requirements.
-    </p>
-                       <ul>
                         <!-- <a href="#" class="contactbtn1" id="readMoreTrigger2">READ MORE</a> -->
                     </div>
                 </div>
@@ -549,7 +548,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
             <div class="col-12  d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_6.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/event_6.jpeg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12 ">
@@ -585,7 +584,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <section class="modalagencysec2" id="live-streaming">
         <div class="container">
-            <div class="row ">
+            <div class="row align-items-center"">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/event_7.png" alt="Casting Image" class="img-fluid">
@@ -644,7 +643,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_5.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/eventtransport.jpeg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">

@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
             <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_1.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/manage_1.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12 ">
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center"  >
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_2.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/manage_2.jpg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_4.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/manage_4.jpeg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
             <div class="col-12  d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_5.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/manage_5.jpeg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12  text-center ">
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row mt-4 ">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg " >
-                        <img style="" src="{{ url('user-assets') }}/images/event_4.png" alt="Casting Image" class="img-fluid  pt-5">
+                        <img style="" src="{{ url('user-assets') }}/images/event_4.jpg" alt="Casting Image" class="img-fluid  pt-5">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">

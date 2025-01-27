@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
             <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_5.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/eventsecurity.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12  pt-md-0">
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_5.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/hospitalitytransport.jpeg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
             <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_6.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/hospcatering.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12">

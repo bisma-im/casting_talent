@@ -12,6 +12,8 @@
 padding-top: 120px !important; /* Adjust as needed */
     transition: margin 0.3s ease; /* Smooth margin transition */
 }
+
+
     </style>
 <script>
 
@@ -67,39 +69,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 </div>
             </div>
-           <div class="row align-items-center justify-content-center text-center mx-0">
+           <div class="row align-items-center justify-content-center mx-0">
   <div class="col-12">
-    <div class="modalimg mb-4">
-      <img src="{{ url('user-assets') }}/images/modal_1.png" class="img-fluid" alt="img">
+    <div class="modalimg mb-4 text-center">
+      <img src="{{ url('user-assets') }}/images/film_1.png" class="img-fluid" alt="img">
     </div>
     <div class="modaltext">
-      <h2>Actors / <span>Models</span></h2>
-      <p class="text-dark"><strong>CAST TALENTS Your Global Talent Source</strong></p>
-      <p>
-        At <strong>CAST TALENTS</strong>, we offer a wide array of talent, including actors and models of
-        all ages and types, for TV commercials, movie roles, print advertisements, music videos, and
-        promotional campaigns. <br> Headquartered in Dubai, CAST TALENTS manages models from across the
-        globe. Our energetic and youthful team is dedicated to a personalized and attentive approach,
-        securing top-tier national and international bookings with the industry's leading clients.
-      </p>
-      <p>
-        Our dedication and innovative management style have established us as a leading agency. Praised
-        as a top-listed agency in the UAE by models.com, CAST TALENTS is distinguished in the fashion
-        industry for its excellence.
-      </p>
-      <p>
-        We are committed to delivering not only the perfect face for your brand but also professional
-        models who embody the ideal attitude and demeanour for your specific needs.
-      </p>
-      <p>
-        At <strong>CAST TALENTS</strong>, we honour the unique beauty and vibrant personalities of our
-        models, embodying our distinct work philosophy. Our agency operates like a close-knit family,
-        where we nurture and support each other.
-      </p>
-      <p>
-        Experience the <strong>CAST TALENTS</strong> difference. Join us in advancing the future of
-        modeling and fashion.
-      </p>
+      <h2 class="text-center">Film <span  style="color: rgba(216, 31, 38, 1)";>Making</span></h2>
+      <p class="text-dark text-center  text-justify"><strong>Visuals speak louder than words, and filming makes your content more engaging and impactful. At Cast Talents, we specialize in a variety of video production services to meet your needs</strong></p>
+      <div class="flex-col d-flex justify-content-center">
+                        <div class="row">
+    <ul>
+    <li><strong>Films</strong></li>
+        <li><strong>Short Films</strong></li>
+        <li><strong>Music Videos</strong></li>
+        <li><strong>Showreels</strong></li>
+        <li><strong>Commercial and Corporate Videos</strong></li>
+        <li><strong>Event Coverage</strong></li>
+        <li><strong>Wedding Highlights</strong></li>
+        <li><strong>Emirati Wedding Highlights</strong></li>
+
+
+    </ul>
+</div>
     </div>
   </div>
 </div>
@@ -112,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/filim_2.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/filim_2.jpg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -362,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/filim_4.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/filim_4.jpg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -419,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_5.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/managt.jpeg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -446,7 +438,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
             <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_3.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/modalvideo.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12 ms-3  d-flex justify-content-center ">
@@ -589,7 +581,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <section class="modalagencysec2" id="catering">
         <div class="container">
-            <div class="row  justify-content-center mx-0 ">
+            <div class="row  align-items-center">
             <div class="col-6 d-flex justify-content-center">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/event_6.png" class="img-fluid" alt="img">
@@ -602,18 +594,18 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="col-md-3">
 
                         <ul >
-        <li class="text-nowrap"><strong>Corporate Events</strong></li>
-        <li class="text-nowrap"><strong>Service Staff Supply</strong></li>
-        <li class="text-nowrap"><strong>Seminar Arrangements</strong></li>
+        <li class="text-nowrap">Corporate Events</li>
+        <li class="text-nowrap">Service Staff Supply</li>
+        <li class="text-nowrap">Seminar Arrangements</li>
       </ul>
                         </div>
                         <div class="col-md-3"></div>
 
                         
                         <ul class="">
-        <li class="text-nowrap"><strong>Equipment Rental</strong></li>
-        <li class="text-nowrap"><strong>Food Catering Services</strong></li>
-        <li class="text-nowrap"><strong>Event and Party Management</strong></li>
+        <li class="text-nowrap">Equipment Rental</li>
+        <li class="text-nowrap">Food Catering Services</li>
+        <li class="text-nowrap">Event and Party Management</li>
       </ul>
                         <!--<a href="#" class="contactbtn">READ MORE</a>-->
                     </div>

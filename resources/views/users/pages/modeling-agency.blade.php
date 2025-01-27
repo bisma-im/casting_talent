@@ -24,11 +24,11 @@
             <div class="row align-items-center justify-content-center mx-0 text-center ">
             <div class="col-12">
                     <div class="modalimg mb-4">
-                        <img src="{{ url('user-assets') }}/images/modal_1.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/modal_1.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12 ">
-                    <div class="modaltext">
+                    <div class="modaltext ">
                         <h2>Actors / <span>Models</span></h2>
                         <p class=""><strong>CAST TALENTS Your Global Talent Source</strong></p>
                         <p class="">At <strong>CAST TALENTS</strong>, we offer a wide array of talent, including actors and models of
@@ -70,7 +70,7 @@
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_2.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/modal_2.jpeg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -105,7 +105,7 @@
             <div class="row align-items-center">
             <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_3.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/modal_3.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12 ms-3  d-flex justify-content-center ">
@@ -354,7 +354,7 @@
     .visible-section {
 padding-top: 120px !important; /* Adjust as needed */
     transition: margin 0.3s ease; /* Smooth margin transition */
-    
+   
 }
 
     </style>
@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_4.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/modal_4.jpg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -445,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
             <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_5.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/modal_5.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12  text-center ">
@@ -474,28 +474,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     <section class="modalagencysec2" id="tv-commercials">
-        <div class="container">
-            <div class="row ">
-                <div class="col-6 ">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_6.png" alt="Casting Image" class="img-fluid">
-                    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <div class="modalimg">
+                    <img src="{{ url('user-assets') }}/images/modal_6.jpg" alt="Casting Image" class="img-fluid">
                 </div>
-                <div class="col-6 ">
-                    <div class="modaltext1">
-                        <h2>Tv Commercial, <sapn style="color: rgba(216, 31, 38, 1);">Music Video </sapn> , Filming</h2>
-                        <p>CAST TALENTS provides a full suite of vertically integrated services, encompassing concept
-                            development, script writing, filming, and post-production. Our storytelling expertise ensures
-                            the creation of commercial videos that captivate, impress, and have the potential to go viral.
-                        </p>
-
-
-                        <!--<a href="#" class="contactbtn1">READ MORE</a>-->
-                    </div>
+            </div>
+            <div class="col-6">
+                <div class="modaltext1">
+                    <h2>Tv Commercial, <span style="color: rgba(216, 31, 38, 1);">Music Video</span>, Filming</h2>
+                    <p>
+                        CAST TALENTS provides a full suite of vertically integrated services, encompassing concept
+                        development, script writing, filming, and post-production. Our storytelling expertise ensures
+                        the creation of commercial videos that captivate, impress, and have the potential to go viral.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
 
     <script>

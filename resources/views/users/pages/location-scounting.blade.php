@@ -21,7 +21,7 @@
   <!-- Centered Image -->
   <div class="col-12 d-flex justify-content-center">
     <div class="modalimg">
-      <img src="{{ url('user-assets') }}/images/filim_4.png" alt="Casting Image" class="img-fluid">
+      <img src="{{ url('user-assets') }}/images/locationpic.jpeg" alt="Casting Image" class="img-fluid">
     </div>
   </div>
 
