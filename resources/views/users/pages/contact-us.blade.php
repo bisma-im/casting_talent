@@ -1618,47 +1618,57 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-            // Show modal when page loads
-            var inquiryModal = new bootstrap.Modal(document.getElementById('inquiryModal'), {
-                keyboard: false,
-                backdrop: 'static'
-            });
-            inquiryModal.show();
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize the modal
+    const inquiryModal = new bootstrap.Modal(document.getElementById('inquiryModal'), {
+        keyboard: false,
+        backdrop: 'static',
+    });
 
-            // Show General Inquiry form by default
-            document.getElementById('generalInquiryBtn').addEventListener('click', function() {
-                showForm('general');
-                inquiryModal.hide();
-            });
-
-            // Show Client Inquiry form when clicked
-            document.getElementById('clientInquiryBtn').addEventListener('click', function() {
-                showForm('client');
-                inquiryModal.hide();
-            });
-
-            // Function to toggle forms
-            function showForm(formType) {
+    // Form references
     const generalForm = document.getElementById('generalInquiryForm');
     const clientForm = document.getElementById('clientInquiryForm');
+    const generalInquiryBtn = document.getElementById('generalInquiryBtn');
+    const clientInquiryBtn = document.getElementById('clientInquiryBtn');
 
-    if (formType === 'general') {
-        generalForm.style.display = 'block';
-        clientForm.style.display = 'none';
-    } else if (formType === 'client') {
-        generalForm.style.display = 'none';
-        clientForm.style.display = 'block';
+    // Track if a form has been selected
+    let formSelected = false;
+
+    // Function to show the specified form
+    function showForm(formType) {
+        if (formType === 'general') {
+            generalForm.style.display = 'block';
+            clientForm.style.display = 'none';
+        } else if (formType === 'client') {
+            generalForm.style.display = 'none';
+            clientForm.style.display = 'block';
+        }
+        formSelected = true; // Mark that a form has been selected
     }
-}
 
-// Event listeners for toggling forms
-document.getElementById('generalInquiryBtn').addEventListener('click', function () {
+    // Show modal when the page loads
+    inquiryModal.show();
+
+    // Attach event listeners to buttons
+    generalInquiryBtn.addEventListener('click', function () {
+        showForm('general');
+        inquiryModal.hide();
+    });
+
+    clientInquiryBtn.addEventListener('click', function () {
+        showForm('client');
+        inquiryModal.hide();
+    });
+
+    // Handle the modal close event to default to General Inquiry form if no selection was made
+    document.getElementById('inquiryModal').addEventListener('hide.bs.modal', function () {
+        if (!formSelected) {
+            showForm('general');
+        }
+    });
+
+    // Ensure the General Inquiry form is shown by default
     showForm('general');
-});
-
-document.getElementById('clientInquiryBtn').addEventListener('click', function () {
-    showForm('client');
 });
 
 </script>
