@@ -1886,7 +1886,7 @@
                 checkCategoriesAndAdjustFields();
             });
         });
-    </script>  
+    </script>
     <script>
         $(document).ready(function() {
             // Function to check required fields
@@ -2111,7 +2111,7 @@
             $('#profileDetails').submit(function(event) {
                 event.preventDefault(); // Prevent the default form submit
                 
-                $("#nextStepBtn").prop('disabled', true);
+                $("#nextStepBtn").prop('disabled', true).text('Please wait...');
                 var formData = new FormData(this);
                 const portfolioDropzoneElement = document.querySelector('#portfolioDropzone');
                 if (portfolioDropzoneElement.dropzone) {
@@ -2160,12 +2160,11 @@
                     },
                     complete: function() {
                         // Re-enable the button whether the AJAX call was successful or failed
-                        $('#nextStepBtn').prop('disabled', false);
+                        $('#nextStepBtn').prop('disabled', false).text('Submit');
                     }
                 });
             });
         });
-
     </script>
 
 @endsection
