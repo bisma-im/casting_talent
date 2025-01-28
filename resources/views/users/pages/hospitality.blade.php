@@ -71,13 +71,13 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
             <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_5.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/eventsecurity.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
-                <div class="col-12  pt-5 pt-md-0">
+                <div class="col-12  pt-md-0">
                     <div class="modaltext text-center ">
                         <h2>Security / <span>Bouncer</span></h2>
-                        <p><b>Professional Security Services by CAST TALENTS</b></p>
+                        <p class=" text-dark text-center"><b>Professional Security Services by CAST TALENTS</b></p>
                         <p><strong>VIP and Celebrity Protection:</strong> At CAST TALENTS, ensuring the safety of our
                             clients is paramount. We specialize in providing highly trained bodyguards and security
                             personnel who are dedicated to protecting VIPs and celebrities. Our team is prepared to
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_5.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/hospitalitytransport.jpeg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -141,14 +141,14 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
             <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_6.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/hospcatering.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="modaltext text-center">
                         <h2>Catering</h2>
-                        <p><b>Food Catering Services by Cast Talents</b></p>
-                        <p>At Cast Talents, we boast an experienced and dedicated team proficient in organizing a wide array
+                        <p class="text-dark text-center"><b>Food Catering Services by Cast Talents</b></p>
+                        <p >At Cast Talents, we boast an experienced and dedicated team proficient in organizing a wide array
                             of events, including parties, corporate functions, seminars, and hotel supplies. With a strong
                             sense of responsibility, we ensure your event is memorable, whether it's a lavish banquet in a
                             park, a palace setting, or an intimate gathering at home.</p>

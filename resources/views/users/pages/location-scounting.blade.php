@@ -17,32 +17,39 @@
 
                 </div>
             </div>
-            <div class="row align-items-center">
-                <div class="col-12 d-flex justify-content-center">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/filim_4.png" alt="Casting Image" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-12 d-flex justify-content-center ms-md-5">
-                    <div class="modaltext2  text-center ps-md-5">
+            <div class="row align-items-center justify-content-center text-center mx-0">
+  <!-- Centered Image -->
+  <div class="col-12 d-flex justify-content-center">
+    <div class="modalimg">
+      <img src="{{ url('user-assets') }}/images/locationpic.jpeg" alt="Casting Image" class="img-fluid">
+    </div>
+  </div>
 
-                        <h2 class="modaltext2 text-center ms-md-5">Locations / <sapn style="color: rgba(216, 31, 38, 1);">permit</sapn>
-                        </h2>
-                        <p><b>CAST TALENTS Location Scout: Premier Film Locations and Production Support in the UAE</b></p>
-                        <p>At CAST TALENTS Location Scout, we specialize in providing top-tier film locations and
-                            comprehensive production support across the UAE. Our experienced team excels in location
-                            scouting, permitting, and sourcing local crews, along with a range of other production resources
-                            to meet all your needs.</p>
-                        <p>With a keen eye for breathtaking locations, we facilitate film permits and location services for
-                            both public and private properties. Our offerings include location scouting, location
-                            management, and full production services for film, commercials, television, photography, and
-                            print advertising.</p>
-                        <p>With years of industry experience, CAST TALENTS Location Scout is dedicated to ensuring your
-                            production's success from start to finish.</p>
-                        <!--<a href="#" class="contactbtn1">READ MORE</a>-->
-                    </div>
-                </div>
-            </div>
+  <!-- Centered Text Content -->
+  <div class="col-12 d-flex justify-content-center">
+    <div class="modaltext2 text-center">
+      <h2 class="modaltext2 text-dark">
+        Locations / <span style="color: rgba(216, 31, 38, 1);">Permit</span>
+      </h2>
+      <p class="text-dark"><b>CAST TALENTS Location Scout: Premier Film Locations and Production Support in the UAE</b></p>
+      <p>
+        At CAST TALENTS Location Scout, we specialize in providing top-tier film locations and comprehensive
+        production support across the UAE. Our experienced team excels in location scouting, permitting, and
+        sourcing local crews, along with a range of other production resources to meet all your needs.
+      </p>
+      <p>
+        With a keen eye for breathtaking locations, we facilitate film permits and location services for both
+        public and private properties. Our offerings include location scouting, location management, and full
+        production services for film, commercials, television, photography, and print advertising.
+      </p>
+      <p>
+        With years of industry experience, CAST TALENTS Location Scout is dedicated to ensuring your production's
+        success from start to finish.
+      </p>
+    </div>
+  </div>
+</div>
+
         </div>
     </section>
 

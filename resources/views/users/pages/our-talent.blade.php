@@ -411,7 +411,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('{{ url('/user-assets/images/event.jpg') }}');
+        background-image: url('{{ url('/user-assets/images/USHER.png') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

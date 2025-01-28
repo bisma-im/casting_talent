@@ -24,7 +24,24 @@
     object-fit: cover; /* Ensures the image covers the background */
     z-index: 1;
 }
-
+.modalimgceleb img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 122vh;
+    object-fit: cover; /* Ensures the image covers the background */
+    z-index: 1;
+}
+.modalimgevent img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 125vh;
+    object-fit: cover; /* Ensures the image covers the background */
+    z-index: 1;
+}
 /* Modal Body Content Styles */
 .modalbody {
     position: absolute;
@@ -129,11 +146,11 @@
         </div>
     </section>
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12  mt-3 ">
-                <div class="innertext">
+                <div class="innertext pt-3">
                     <h1>Our <span>Activities</span></h1>
                 </div>
             </div>
-    <section class="servicessec">
+    <section class="servicessec pt-3">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -152,15 +169,17 @@
                     <ul class>
                         <li class="mt-3"><a href="{{ route('modeling-agency.get', ['section' => 'actors-models']) }}">ACTORS / MODELS</a></li>
                         <li><a href="{{ route('modeling-agency.get', ['section' => 'hair-makeup']) }}">HAIR AND MAKE UP ARTIST</a></li>
-                        <li><a href="{{ route('modeling-agency.get', ['section' => 'videography-photography']) }}">VIDEOGRAPHY / PHOTOGRAPHY</a></li>
+                        <li class="text-nowrap ps-2"><a href="{{ route('modeling-agency.get', ['section' => 'tv-commercials']) }}">TV COMMERCIAL / MUSIC VIDEOS / FILMING</a></li>
+                       
                     </ul>
                     
                 </div>
                 <div class="col-6">
                     <ul>
                         <li class="mt-3"><a href="{{ route('modeling-agency.get', ['section' => 'fashion-show']) }}">FASHION SHOW</a></li>
+                        <li><a href="{{ route('modeling-agency.get', ['section' => 'videography-photography']) }}">VIDEOGRAPHY / PHOTOGRAPHY</a></li>
+                   
                         <li><a href="{{ route('modeling-agency.get', ['section' => 'locations-permit']) }}">LOCATIONS / PERMIT</a></li>
-                        <li><a href="{{ route('modeling-agency.get', ['section' => 'tv-commercials']) }}">TV COMMERCIAL/MUSIC VIDEOS/FILMING</a></li>
                     </ul>
                 </div>
             </div>
@@ -184,8 +203,8 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                 <div class="modalbox">
     <!-- Background Image -->
-    <div class="modalimg">
-        <img src="{{ url('user-assets') }}/images/Celebmanagement.jpg" class="img-fluid" alt="img">
+    <div class="modalimgceleb">
+        <img src="{{ url('user-assets') }}/images/Celebmanagement.png" class="img-fluid" alt="img">
     </div>
 
     <!-- Content -->
@@ -197,7 +216,7 @@
                     <ul>
                         <li class="mt-3"><a href="{{ route('celeberity-management.get', ['section' => 'celebrity-management']) }}">CELEBRITY MANAGEMENT SERVICES</a></li>
                         <li><a href="{{ route('celeberity-management.get', ['section' => 'hair-makeup']) }}">HAIR AND MAKE UP ARTIST</a></li>
-                        <li><a href="{{ route('celeberity-management.get', ['section' => 'videography-photography']) }}">VIDEOGRAPHY/PHOTOGRAPHY</a></li>
+                        <li><a href="{{ route('celeberity-management.get', ['section' => 'videography-photography']) }}">VIDEOGRAPHY / PHOTOGRAPHY</a></li>
                     </ul>
                 </div>
                 <div class="col-6 ">
@@ -238,7 +257,7 @@
                 <div class="col-6">
                     <ul>
                         <li class="mt-3"><a href="{{ route('filming-services.get', ['section' => 'tv-commercial-music-videos']) }}">TV COMMERCIAL / MUSIC VIDEOS</a></li>
-                        <li><a href="{{ route('filming-services.get', ['section' => 'videography-photography']) }}">VIDEO / PHOTOGRAPHY</a></li>
+                        <li><a href="{{ route('filming-services.get', ['section' => 'videography-photography']) }}">VIDEOGRAPHY / PHOTOGRAPHY</a></li>
                         <li><a href="{{ route('filming-services.get', ['section' => 'transportation']) }}">TRANSPORTATION</a></li>
                         <li><a href="{{ route('filming-services.get', ['section' => 'catering']) }}">CATERING</a></li>
                     </ul>
@@ -253,8 +272,8 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                 <div class="modalbox">
     <!-- Background Image -->
-    <div class="modalimg">
-        <img src="{{ url('user-assets') }}/images/event.webp" class="img-fluid" alt="img">
+    <div class="modalimgevent">
+        <img src="{{ url('user-assets') }}/images/event.jpg" class="img-fluid" alt="img">
     </div>
 
     <!-- Content -->
@@ -338,9 +357,11 @@
             <div class="row">
                 <div class="col-6">
                     <ul>
-                        <li><a href="{{ route('hospitality.get', ['section' => 'catering']) }}">CATERING</a></li>
+                    <li><a href="{{ route('hospitality.get', ['section' => 'security-bouncer']) }}">SECURITY / BOUNCER</a></li>
+
                         <li><a href="{{ route('hospitality.get', ['section' => 'transportation']) }}">TRANSPORTATION</a></li>
-                        <li><a href="{{ route('hospitality.get', ['section' => 'security-bouncer']) }}">SECURITY / BOUNCER</a></li>
+                        <li><a href="{{ route('hospitality.get', ['section' => 'catering']) }}">CATERING</a></li>
+                   
                     </ul>
                 </div>
             </div>

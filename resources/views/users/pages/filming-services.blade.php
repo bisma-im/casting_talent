@@ -12,6 +12,8 @@
 padding-top: 120px !important; /* Adjust as needed */
     transition: margin 0.3s ease; /* Smooth margin transition */
 }
+
+
     </style>
 <script>
 
@@ -67,36 +69,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 </div>
             </div>
-            <div class="row align-items-center">
-            <div class="col-12 d-flex justify-content-center">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/film_1.png" class="img-fluid" alt="img">
-                    </div>
-                </div>
-                <div class="col-12 ">
-                    <div class="modaltext pt-5 pt-md-3 ">
-                        <h2>Film <span>Making</span></h2>
+           <div class="row align-items-center justify-content-center mx-0">
+  <div class="col-12">
+    <div class="modalimg mb-4 text-center">
+      <img src="{{ url('user-assets') }}/images/film_1.png" class="img-fluid" alt="img">
+    </div>
+    <div class="modaltext">
+      <h2 class="text-center">Film <span  style="color: rgba(216, 31, 38, 1)";>Making</span></h2>
+      <p class="text-dark text-center  text-justify"><strong>Visuals speak louder than words, and filming makes your content more engaging and impactful. At Cast Talents, we specialize in a variety of video production services to meet your needs</strong></p>
+      <div class="flex-col d-flex justify-content-center">
+                        <div class="row">
+    <ul>
+    <li><strong>Films</strong></li>
+        <li><strong>Short Films</strong></li>
+        <li><strong>Music Videos</strong></li>
+        <li><strong>Showreels</strong></li>
+        <li><strong>Commercial and Corporate Videos</strong></li>
+        <li><strong>Event Coverage</strong></li>
+        <li><strong>Wedding Highlights</strong></li>
+        <li><strong>Emirati Wedding Highlights</strong></li>
 
-                        <p>Visuals speak louder than words, and filming makes your content more engaging and impactful. At
-                            Cast Talents, we specialize in a variety of video production services to meet your needs:</p>
 
-                        <ul>
-                            <li>Films</li>
-                            <li>Short Films</li>
-                            <li>Music Videos</li>
-                            <li>Showreels</li>
-                            <li>Commercial and Corporate Videos</li>
-                            <li>Event Coverage</li>
-                            <li>Wedding Highlights</li>
-                            <li>Emirati Wedding Highlights</li>
-                        </ul>
+    </ul>
+</div>
+    </div>
+  </div>
+</div>
 
-                        <!--<a href="#" class="contactbtn">READ MORE</a>-->
-                    </div>
-                </div>
-                
-            </div>
-        </div>
     </section>
 
 
@@ -105,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/filim_2.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/filim_2.jpg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -137,21 +136,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <section class="modalagencysec" id="production">
         <div class="container">
-            <div class="row align-items-center ">
-            <div class="col-12 d-flex justify-content-center mt-4" >
+            <div class="row align-items-center justify-content-center text-center mx-0">
+            <div class="col-12 " >
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/filim_3.png" class="img-fluid" alt="img">
                     </div>
                 </div>
-                <div class="col-12 ms-5">
-                    <div class="modaltext ps-5 d-flex justify-content-center flex-column">
+                <div class="col-12 ">
+                    <div class="modaltext  d-flex justify-content-center flex-column">
                       
                         
-                        <ul class="mb-5 pt-3 ms-5 ">
-                        <h2 class="pt-4">Production Services by Cast Talents
+                        <ul class="mb-5 pt-3 ">
+                        <h2 class="pt-4">Production <span style="color: rgba(216, 31, 38, 1);">Services</span>
                         </h2>
-                        <strong>Production</strong>
-                          <p><strong>Services:</strong> Filming, Content Creation, TVCs, Film Production, Corporate Videos, Social Media Content, Interviews, Animation, PSAs.</p>
+                    <p>Comprehensive services tailored to meet diverse production needs with creativity and precision</p>
+                          <p><strong>Production Services:</strong> Filming, Content Creation, TVCs, Film Production, Corporate Videos, Social Media Content, Interviews, Animation, PSAs.</p>
                           <p><strong>Design:</strong>
                           Art Direction, Wardrobe Styling, Set Design, Post-Production Supervision.</p>
 
@@ -173,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         </p>
 <strong>
-Comprehensive services tailored to meet diverse production needs with creativity and precision.
+
 
 </strong>
                         </ul>
@@ -355,7 +354,7 @@ Comprehensive services tailored to meet diverse production needs with creativity
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/filim_4.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/filim_4.jpg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -412,7 +411,7 @@ Comprehensive services tailored to meet diverse production needs with creativity
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_5.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/managt.jpeg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -439,35 +438,49 @@ Comprehensive services tailored to meet diverse production needs with creativity
             <div class="row align-items-center">
             <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_3.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/modalvideo.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12 ms-3  d-flex justify-content-center ">
                     <div class="modaltext">
                         <h2 >Videography & <span>Photography</span></h2>
-                        <p class="pt-4"><strong>Corporate Videos:</strong> Expand your brand’s reach with tailored productions.</p>
-<p><strong>Event Videos:</strong> Create lasting visual memories from events.</p>
-<p><strong>Promotional Videos:</strong> Engage audiences with captivating content.</p>
-<p><strong>Commercial Videos:</strong> Drive revenue through compelling TV and online ads.</p>
-<p><strong>Animation Videos:</strong> Bring ideas to life with 2D, 3D, and motion graphics.</p>
-<p><strong>Training & Safety Videos:</strong> Simplify learning and safety protocols effectively.</p>
-<p><strong>Documentaries:</strong> Tell impactful and emotionally engaging stories.</p>
-<p><strong>Explainer Videos:</strong> Showcase product/service benefits clearly.</p>
-<p><strong>Time-lapse Videos:</strong> Highlight progress through condensed visuals.</p>
-<p><strong>Branded Videos:</strong> Create engaging, share-worthy brand stories.</p>
-<p><strong>Aerial Drone Filming:</strong> Capture stunning aerial perspectives.</p>
-<p ><strong>Photography</strong></p>
-<p><strong>Commercials:</strong> Produce impactful, result-driven advertisements.</p>
-<p><strong>Events:</strong> Preserve memories of corporate and private occasions.</p>
-<p><strong>Music Video BTS & Posters:</strong> Artistic behind-the-scenes content.</p>
-<p><strong>Product Shoots:</strong> Highlight features with high-quality visuals.</p>
-<p><strong>Business Portraits:</strong> Professional photos reflecting your identity.</p>
-<p><strong>Modeling Portfolios:</strong> Showcase versatility with standout images.</p>
-<p><strong>Weddings & Emirati Weddings:</strong> Capture timeless and traditional moments.</p>
-<p><strong>Interior & Exterior:</strong> Showcase property beauty with clarity.</p>
-<p><strong>Engagement & Family Portraits:</strong> Celebrate milestones beautifully.</p>
-<p><strong>Cake Smash & Maternity:</strong> Mark special occasions creatively.</p>
-<p><strong>Newborn Photography:</strong> Treasure early life moments forever.</p>
+                        <div class="flex-col d-flex ms-3 justify-content-center">
+                        <div class="row">
+    <ul>
+    <li><strong>Corporate Videos</strong></li>
+  <li><strong>Event Videos</strong></li>
+  <li><strong>Promotional Videos</strong></li>
+  <li><strong>Commercial Videos</strong></li>
+  <li><strong>Animation Videos</strong></li>
+  <li><strong>Training & Safety Videos</strong></li>
+  <li><strong>Documentaries</strong></li>
+  <li><strong>Explainer Videos</strong></li>
+  <li><strong>Time-lapse Videos</strong></li>
+  <li><strong>Branded Videos</strong></li>
+  <li><strong>Aerial Drone Filming</strong></li>
+  <li><strong>Photography</strong></li>
+
+
+    </ul>
+</div>
+<div class="row ms-5">
+    <ul>
+    <li><strong>Interviews videography</strong></li>
+
+<li><strong>Events</strong></li>
+<li><strong>Music Video BTS & Posters</strong></li>
+<li><strong>Product Shoots</strong></li>
+<li><strong>Business Portraits</strong></li>
+<li><strong>Modeling Portfolios</strong></li>
+<li><strong>Weddings & Emirati Weddings</strong></li>
+<li><strong>Interior & Exterior</strong></li>
+<li><strong>Engagement & Family Portraits</strong></li>
+<li><strong>Cake Smash & Maternity</strong></li>
+<li><strong>Newborn Photography</strong></li>
+<li><strong>Commercials</strong></li>
+    </ul>
+</div>
+                        </div>
                         <!-- <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a> -->
                     </div>
 
@@ -566,37 +579,34 @@ Comprehensive services tailored to meet diverse production needs with creativity
         </div>
     </section>
 
-    <section class="modalagencysec" id="catering">
+    <section class="modalagencysec2" id="catering">
         <div class="container">
-            <div class="row align-items-center">
-            <div class="col-12  d-flex justify-content-center">
+            <div class="row  align-items-center">
+            <div class="col-6 d-flex justify-content-center">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/event_6.png" class="img-fluid" alt="img">
                     </div>
                 </div>
-                <div class="col-12 ">
-                    <div class="modaltext text-center">
+                <div class="col-6">
+                    <div class="modaltext">
                         <h2>Catering</h2>
-                        <p><b>Food Catering Services by Cast Talents</b></p>
-                        <p>At Cast Talents, we boast an experienced and dedicated team proficient in organizing a wide array
-                            of events, including parties, corporate functions, seminars, and hotel supplies. With a strong
-                            sense of responsibility, we ensure your event is memorable, whether it's a lavish banquet in a
-                            park, a palace setting, or an intimate gathering at home.</p>
-                        <p><b>Equipment Rental:</b> We offer a comprehensive selection of rental equipment, providing you
-                            with a variety of options to suit your event's needs.</p>
-                        <p><b>Food Catering Services:</b> Choose from a diverse range of world-class cuisines such as
-                            Continental, Italian, Arabic, Chinese, Indian, or opt for live cooking arrangements tailored to
-                            your event's theme or preferences.</p>
-                        <p><b>Event and Party Management:</b> From reception to service, we handle every aspect of your
-                            event to ensure you can relax and enjoy as a guest at your own gathering.</p>
-                        <p><strong>Corporate Events:</strong> Utilize our extensive network with five-star hotels to
-                            organize your corporate meetings or events at your preferred location.</p>
-                        <p><strong>Service Staff Supply:</strong> We provide professional food catering service staff at
-                            competitive rates, ensuring seamless service delivery for your event.</p>
-                        <p><strong>Seminar Arrangements:</strong>Arrange corporate seminars and conferences at prestigious
-                            hotels with competitive pricing, ensuring a conducive environment for productive sessions.</p>
-                        <p>Count on Cast Talents to deliver exceptional event management services, tailored to meet your
-                            specific requirements and exceed your expectations.</p>
+                        <p class=""><b>Food Catering Services by Cast Talents</b></p>
+                        <div class="col-md-3">
+
+                        <ul >
+        <li class="text-nowrap">Corporate Events</li>
+        <li class="text-nowrap">Service Staff Supply</li>
+        <li class="text-nowrap">Seminar Arrangements</li>
+      </ul>
+                        </div>
+                        <div class="col-md-3"></div>
+
+                        
+                        <ul class="">
+        <li class="text-nowrap">Equipment Rental</li>
+        <li class="text-nowrap">Food Catering Services</li>
+        <li class="text-nowrap">Event and Party Management</li>
+      </ul>
                         <!--<a href="#" class="contactbtn">READ MORE</a>-->
                     </div>
                 </div>

@@ -73,26 +73,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 </div>
             </div>
-            <div class="row align-items-center">
+            <div class="row align-items-center justify-content-center mx-0 text-center">
             <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/event_1.png" class="img-fluid" alt="img">
                     </div>
                 </div>
-                <div class="col-12  ms-3  d-flex justify-content-center ">
+                <div class="col-12 ">
                     <div class="modaltext " >
-                        <h2 class="text-center" >Event Management</h2>
-                       <p class="ms-md-5 text-dark text-center"> <strong>Event Management by Cast Talents</strong></p>
-                       <ul class="ms-4 d-flex justify-content-center flex-column" style="list-style-position: inside;">
-    <li><strong>Expert Services:</strong> We design, plan, and manage private and corporate events with precision and creativity, delivering unique and memorable experiences tailored to your needs.</li>
+                        <h2 class="text-center" >Event <span style="color: rgba(216, 31, 38, 1);">Management</span></h2>
+                       <p class=""> <strong>Event Management by Cast Talents</strong></p>
+                       <p>
+    <strong>Expert Services:</strong> We design, plan, and manage private and corporate events with precision and creativity, delivering unique and memorable experiences tailored to your needs.
+</p>
+<p>
     <strong>Our Services Include:</strong>
-    <li><strong>Design:</strong> Print, graphic, décor, lighting, table, and floral design. Management of invitations, RSVPs, budgets, critical paths, and vendor contracts.</li>
-    <li><strong>Production:</strong> Sound, video, and multimedia production.</li>
-    <li><strong>Coordination:</strong> Catering, staffing, media relations, sponsorships, talent procurement, hospitality, travel, protocol, and concierge services.</li>
-</ul>
+</p>
+<p>
+    <strong>Design:</strong> Print, graphic, décor, lighting, table, and floral design. Management of invitations, RSVPs, budgets, critical paths, and vendor contracts.
+</p>
+<p>
+    <strong>Production:</strong> Sound, video, and multimedia production.
+</p>
+<p>
+    <strong>Coordination:</strong> Catering, staffing, media relations, sponsorships, talent procurement, hospitality, travel, protocol, and concierge services.
+</p>
 
 
-<p class="ms-md-5 text-dark text-center"> <strong>Seamlessly blending innovative design and exceptional service for unforgettable events.</strong></p>
+
+<p class=""> <strong>Seamlessly blending innovative design and exceptional service for unforgettable events.</strong></p>
                         <!-- <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a> -->
                     </div>
                 </div>
@@ -313,38 +322,28 @@ document.addEventListener('DOMContentLoaded', function () {
     </script>
     <section class="modalagencysec" id="retail-promotional-staff">
         <div class="container">
-            <div class="row align-items-center">
-            <div class="col-12 d-flex justify-content-center mt-4">
+            <div class="row align-items-center justify-content-center mx-0 text-center">
+            <div class="col-12 ">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/event_3.png" class="img-fluid" alt="img">
                     </div>
                 </div>
-                <div class="col-12  ms-3  d-flex justify-content-center ">
+                <div class="col-12 ">
                     <div class="modaltext ">
                         <h2 class="text-center">Retail & <span>Promotional</span> Staff</h2>
-                        <p  class="ms-md-5 text-dark text-center"><strong>Specialized Staffing Solutions by Cast Talents</strong></p>
-                        <p class="ms-md-5 text-dark text-center">As a licensed and Ministry-approved staffing agency, Cast Talents provides high-quality temporary staffing for retail, events, and exhibitions.
+                        <p  class=""><strong>Specialized Staffing Solutions by Cast Talents</strong></p>
+                        <p class="">As a licensed and Ministry-approved staffing agency, Cast Talents provides high-quality temporary staffing for retail, events, and exhibitions.
                         </p>
                         
                         
-                       <ul class="ms-4 d-flex justify-content-center flex-column" style="list-style-position: inside;">
-                       <strong >Our Services Include:
-                       </strong>
-                       <li><strong>Retail Staffing:</strong> Experienced staff with UAE retail expertise, scalable to your needs.
-                       </li> 
-                       <li><strong>Promoters:</strong>Trained professionals for sampling, launches, events, and activations.
-                       </li> 
-                       <li><strong>Hospitality Support:</strong> Waitstaff with occupational health cards for seamless events.
-                       </li> 
-                       <li><strong>Hostesses:</strong>Multilingual, experienced professionals for trade shows, corporate events, and more.
+                        <p><strong>Our Services Include:</strong></p>
+<p><strong>Retail Staffing:</strong> Experienced staff with UAE retail expertise, scalable to your needs.</p>
+<p><strong>Promoters:</strong> Trained professionals for sampling, launches, events, and activations.</p>
+<p><strong>Hospitality Support:</strong> Waitstaff with occupational health cards for seamless events.</p>
+<p><strong>Hostesses:</strong> Multilingual, experienced professionals for trade shows, corporate events, and more.</p>
+<p><strong>Host:</strong> Skilled male and female hosts with extensive event expertise.</p>
+<p class="">We ensure top-tier staffing through rigorous auditing and customization to meet your requirements.</p>
 
-                       </li> 
-                       <li><strong>Host:</strong>Skilled male and female hosts with extensive event expertise.
-
-                       </li> 
-                       <p class="ms-md-5 text-dark text-center">We ensure top-tier staffing through rigorous auditing and customization to meet your requirements.
-    </p>
-                       <ul>
                         <!-- <a href="#" class="contactbtn1" id="readMoreTrigger2">READ MORE</a> -->
                     </div>
                 </div>
@@ -504,27 +503,24 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     </script>
 
-    <section class="modalagencysec" id="security-bouncer">
+    <section class="modalagencysec2" id="security-bouncer">
         <div class="container">
-            <div class="row align-items-center">
-            <div class="col-12 d-flex justify-content-center ">
+            <div class="row align-items-center justify-content-center mx-0 ">
+            <div class="col-6  ">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/event_5.png" class="img-fluid" alt="img">
                     </div>
                 </div>
-                <div class="col-12 ">
-                    <div class="modaltext text-center">
+                <div class="col-6">
+                    <div class="modaltext ">
                         <h2>Security / <span>Bouncer</span></h2>
-                        <p><b>Professional Security Services by CAST TALENTS</b></p>
+                        <p class=""><b>Professional Security Services by CAST TALENTS</b></p>
                         <p><strong>VIP and Celebrity Protection:</strong> At CAST TALENTS, ensuring the safety of our
                             clients is paramount. We specialize in providing highly trained bodyguards and security
                             personnel who are dedicated to protecting VIPs and celebrities. Our team is prepared to
                             safeguard clients at all times, employing a strategic approach where some guards remain close
                             while others maintain a discreet presence in the surrounding crowd.</p>
-                        <p><strong>Event Security:</strong> CAST TALENTS excels in event security, offering comprehensive
-                            services for concerts, film openings, nightclubs, and festivals. Our experienced event security
-                            managers oversee guards and personnel, implementing robust security protocols to ensure a safe
-                            and enjoyable environment.</p>
+                        
                         <p><strong>Event Security:</strong> CAST TALENTS excels in event security, offering comprehensive
                             services for concerts, film openings, nightclubs, and festivals. Our experienced event security
                             managers oversee guards and personnel, implementing robust security protocols to ensure a safe
@@ -546,46 +542,19 @@ document.addEventListener('DOMContentLoaded', function () {
     </section>
 
 
-    <section class="modalagencysec2" id="transportation">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_5.png" alt="Casting Image" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext1">
-
-                        <h2>Transportation </h2>
-                        <p><strong>Professional Vehicle Rental Services for the Film and Television Industry BY CAST
-                                TALENTS</strong></p>
-                        <p>Cast Talents specializes in providing a wide array of support vehicles for the film and
-                            television sector in the UAE. With our extensive fleet, we are the preferred partner for the
-                            industry.</p>
-                        <p>We strive to cater to the specific needs of each production or client, ensuring exceptional
-                            service and excellent value. Our commitment is to provide a friendly and reliable service that
-                            meets the demands of every project.</p>
-
-                        <!--<a href="#" class="contactbtn1">READ MORE</a>-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <section class="modalagencysec" id="catering">
         <div class="container">
             <div class="row align-items-center">
             <div class="col-12  d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_6.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/event_6.jpeg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12 ">
                     <div class="modaltext text-center">
                         <h2>Catering</h2>
-                        <p><b>Food Catering Services by Cast Talents</b></p>
+                        <p class=""><b>Food Catering Services by Cast Talents</b></p>
                         <p>At Cast Talents, we boast an experienced and dedicated team proficient in organizing a wide array
                             of events, including parties, corporate functions, seminars, and hotel supplies. With a strong
                             sense of responsibility, we ensure your event is memorable, whether it's a lavish banquet in a
@@ -615,7 +584,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <section class="modalagencysec2" id="live-streaming">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center"">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/event_7.png" alt="Casting Image" class="img-fluid">
@@ -651,7 +620,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="col-12 ">
                     <div class="modaltext text-center">
                         <h2>Location / <span>Permit</span></h2>
-                        <p><b>CAST TALENTS Location Scout: Premier Film Locations and Production Support in the UAE</b></p>
+                        <p class=""><b>CAST TALENTS Location Scout: Premier Film Locations and Production Support in the UAE</b></p>
                         <p>At CAST TALENTS Location Scout, we specialize in providing top-tier film locations and
                             comprehensive production support across the UAE. Our experienced team excels in location
                             scouting, permitting, and sourcing local crews, along with a range of other production resources
@@ -669,6 +638,33 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
     </section>
 
+    <section class="modalagencysec2" id="transportation">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                    <div class="modalimg">
+                        <img src="{{ url('user-assets') }}/images/eventtransport.jpeg" alt="Casting Image" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                    <div class="modaltext1">
+
+                        <h2>Transportation </h2>
+                        <p><strong>Professional Vehicle Rental Services for the Film and Television Industry BY CAST
+                                TALENTS</strong></p>
+                        <p>Cast Talents specializes in providing a wide array of support vehicles for the film and
+                            television sector in the UAE. With our extensive fleet, we are the preferred partner for the
+                            industry.</p>
+                        <p>We strive to cater to the specific needs of each production or client, ensuring exceptional
+                            service and excellent value. Our commitment is to provide a friendly and reliable service that
+                            meets the demands of every project.</p>
+
+                        <!--<a href="#" class="contactbtn1">READ MORE</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 @endsection

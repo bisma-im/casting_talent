@@ -21,17 +21,17 @@
 
         </div>
     </div>
-            <div class="row align-items-center pt-md-2 pt-4 text-center ">
-            <div class="col-12 ">
-                    <div class="modalimg ">
-                        <img src="{{ url('user-assets') }}/images/modal_1.png" class="img-fluid" alt="img">
+            <div class="row align-items-center justify-content-center mx-0 text-center ">
+            <div class="col-12">
+                    <div class="modalimg mb-4">
+                        <img src="{{ url('user-assets') }}/images/modal_1.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12 ">
-                    <div class="modaltext">
+                    <div class="modaltext ">
                         <h2>Actors / <span>Models</span></h2>
-                        <p><strong>CAST TALENTS Your Global Talent Source</strong></p>
-                        <p>At <strong>CAST TALENTS</strong>, we offer a wide array of talent, including actors and models of
+                        <p class=""><strong>CAST TALENTS Your Global Talent Source</strong></p>
+                        <p class="">At <strong>CAST TALENTS</strong>, we offer a wide array of talent, including actors and models of
                             all ages and types, for TV commercials, movie roles, print advertisements, music videos, and
                             promotional campaigns. <br> Headquartered in Dubai, CAST TALENTS manages models from across the
                             globe. Our energetic and youthful team is dedicated to a personalized and attentive approach,
@@ -70,7 +70,7 @@
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_2.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/modal_2.jpeg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -105,35 +105,49 @@
             <div class="row align-items-center">
             <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_3.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/modal_3.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12 ms-3  d-flex justify-content-center ">
                     <div class="modaltext">
                         <h2 >Videography & <span>Photography</span></h2>
-                        <p class="pt-4"><strong>Corporate Videos:</strong> Expand your brand’s reach with tailored productions.</p>
-<p><strong>Event Videos:</strong> Create lasting visual memories from events.</p>
-<p><strong>Promotional Videos:</strong> Engage audiences with captivating content.</p>
-<p><strong>Commercial Videos:</strong> Drive revenue through compelling TV and online ads.</p>
-<p><strong>Animation Videos:</strong> Bring ideas to life with 2D, 3D, and motion graphics.</p>
-<p><strong>Training & Safety Videos:</strong> Simplify learning and safety protocols effectively.</p>
-<p><strong>Documentaries:</strong> Tell impactful and emotionally engaging stories.</p>
-<p><strong>Explainer Videos:</strong> Showcase product/service benefits clearly.</p>
-<p><strong>Time-lapse Videos:</strong> Highlight progress through condensed visuals.</p>
-<p><strong>Branded Videos:</strong> Create engaging, share-worthy brand stories.</p>
-<p><strong>Aerial Drone Filming:</strong> Capture stunning aerial perspectives.</p>
-<p ><strong>Photography</strong></p>
-<p><strong>Commercials:</strong> Produce impactful, result-driven advertisements.</p>
-<p><strong>Events:</strong> Preserve memories of corporate and private occasions.</p>
-<p><strong>Music Video BTS & Posters:</strong> Artistic behind-the-scenes content.</p>
-<p><strong>Product Shoots:</strong> Highlight features with high-quality visuals.</p>
-<p><strong>Business Portraits:</strong> Professional photos reflecting your identity.</p>
-<p><strong>Modeling Portfolios:</strong> Showcase versatility with standout images.</p>
-<p><strong>Weddings & Emirati Weddings:</strong> Capture timeless and traditional moments.</p>
-<p><strong>Interior & Exterior:</strong> Showcase property beauty with clarity.</p>
-<p><strong>Engagement & Family Portraits:</strong> Celebrate milestones beautifully.</p>
-<p><strong>Cake Smash & Maternity:</strong> Mark special occasions creatively.</p>
-<p><strong>Newborn Photography:</strong> Treasure early life moments forever.</p>
+                        <div class="flex-col d-flex ms-3 justify-content-center">
+                        <div class="row">
+    <ul>
+    <li><strong>Corporate Videos</strong></li>
+  <li><strong>Event Videos</strong></li>
+  <li><strong>Promotional Videos</strong></li>
+  <li><strong>Commercial Videos</strong></li>
+  <li><strong>Animation Videos</strong></li>
+  <li><strong>Training & Safety Videos</strong></li>
+  <li><strong>Documentaries</strong></li>
+  <li><strong>Explainer Videos</strong></li>
+  <li><strong>Time-lapse Videos</strong></li>
+  <li><strong>Branded Videos</strong></li>
+  <li><strong>Aerial Drone Filming</strong></li>
+  <li><strong>Photography</strong></li>
+
+
+    </ul>
+</div>
+<div class="row ms-5">
+    <ul>
+    <li><strong>Interviews videography</strong></li>
+
+<li><strong>Events</strong></li>
+<li><strong>Music Video BTS & Posters</strong></li>
+<li><strong>Product Shoots</strong></li>
+<li><strong>Business Portraits</strong></li>
+<li><strong>Modeling Portfolios</strong></li>
+<li><strong>Weddings & Emirati Weddings</strong></li>
+<li><strong>Interior & Exterior</strong></li>
+<li><strong>Engagement & Family Portraits</strong></li>
+<li><strong>Cake Smash & Maternity</strong></li>
+<li><strong>Newborn Photography</strong></li>
+<li><strong>Commercials</strong></li>
+    </ul>
+</div>
+                        </div>
                         <!-- <a href="#" class="contactbtn1" id="readMoreTrigger">READ MORE</a> -->
                     </div>
 
@@ -340,7 +354,7 @@
     .visible-section {
 padding-top: 120px !important; /* Adjust as needed */
     transition: margin 0.3s ease; /* Smooth margin transition */
-    
+   
 }
 
     </style>
@@ -396,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_4.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/modal_4.jpg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -431,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
             <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_5.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/modal_5.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12  text-center ">
@@ -460,29 +474,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     <section class="modalagencysec2" id="tv-commercials">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/modal_6.png" alt="Casting Image" class="img-fluid">
-                    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <div class="modalimg">
+                    <img src="{{ url('user-assets') }}/images/modal_6.jpg" alt="Casting Image" class="img-fluid">
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext1">
-
-                        <h2>Tv Commercial, <sapn style="color: rgba(216, 31, 38, 1);">Music Video </sapn> , Filming</h2>
-                        <p>CAST TALENTS provides a full suite of vertically integrated services, encompassing concept
-                            development, script writing, filming, and post-production. Our storytelling expertise ensures
-                            the creation of commercial videos that captivate, impress, and have the potential to go viral.
-                        </p>
-
-
-                        <!--<a href="#" class="contactbtn1">READ MORE</a>-->
-                    </div>
+            </div>
+            <div class="col-6">
+                <div class="modaltext1">
+                    <h2>Tv Commercial, <span style="color: rgba(216, 31, 38, 1);">Music Video</span>, Filming</h2>
+                    <p>
+                        CAST TALENTS provides a full suite of vertically integrated services, encompassing concept
+                        development, script writing, filming, and post-production. Our storytelling expertise ensures
+                        the creation of commercial videos that captivate, impress, and have the potential to go viral.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
 
     <script>

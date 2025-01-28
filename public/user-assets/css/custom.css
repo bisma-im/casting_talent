@@ -1407,7 +1407,7 @@ section.modalagencysec {
 }
 .modaltext p {
     margin-bottom: 30px;
-    width: 90%;
+    width: 100%;
     line-height: 25px;
     font-weight: 400;
 }
@@ -1444,7 +1444,7 @@ section.modalagencysec0{
 
 }
 .modaltext1 h2 {
-    font-size: 35px;
+    font-size: 30px;
     line-height: 60px;
     font-weight: 500;
     font-family: "Lateef", serif;
@@ -1463,11 +1463,11 @@ section.modalagencysec0{
     font-weight: 500;
     font-family: "Lateef", serif;
     color: black;
-    width: 70%;
+    width: 100%;
 }
 .modaltext2 p {
     color: black;
-    width: 90%;
+    width: 100%;
     margin-bottom: 30px;
 }
 a.contactbtn1 {

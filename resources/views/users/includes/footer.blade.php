@@ -269,6 +269,49 @@
 
 
     }
+/* Adjust the image position and size for smaller screens */
+/* Adjust the image and layout for mobile view */
+@media (max-width: 768px) {
+    .styled-avatar {
+        position: relative;
+        bottom: auto; /* Remove absolute positioning */
+        left: auto; /* Reset the left position */
+        max-width: 80px; /* Scale the image down */
+        height: auto; /* Maintain aspect ratio */
+        margin: 0 auto 10px auto; /* Center-align with spacing below */
+        display: block; /* Ensure proper flow */
+        border-radius: 10px; /* Consistent rounding */
+    }
+
+    .testimonial .row {
+        flex-direction: column; /* Stack the content vertically */
+        align-items: center; /* Center-align the image and text */
+        text-align: center; /* Center-align text */
+    }
+
+    .testimonial .col-md-4,
+    .testimonial .col-md-8 {
+        width: 100%; /* Full width for both columns */
+    }
+
+    .testimonial {
+        padding: 15px; /* Add padding for better spacing */
+    }
+
+    .testimonial p {
+        font-size: 10px !important; /* Slightly smaller font for mobile */
+    }
+
+    .testimonial h5 {
+        font-size: 10px !important; /* Adjust font size for mobile */
+        margin-top: 0px !important; /* Add spacing above the author name */
+    }
+
+    .testimonial .stars {
+        margin-top: 2px !important; /* Add spacing above stars */
+    }
+}
+
 
 </style>
 
@@ -895,7 +938,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="copytext d-flex justify-content-center align-items-center">
-                    <p class="m-0 p-0">© casttalents.com 2024. All rights reserved</p>
+                    <p class="m-0 p-0">© casttalents.com 2025. All rights reserved</p>
                 </div>
             </div>
         </div>

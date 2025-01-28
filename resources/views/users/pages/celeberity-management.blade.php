@@ -75,13 +75,13 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
             <div class="col-12 d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_1.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/manage_1.jpg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12 ">
                     <div class="modaltext pt-5 pt-md-0 text-center ">
                         <h2>Celebrity<span> Management</span> Services</h2>
-                        <p><b>Book Celebrities Worldwide with CAST TALENTS</b></p>
+                        <p class=" text-dark"><b>Book Celebrities Worldwide with CAST TALENTS</b></p>
                         <p>Elevate your events with CAST TALENTS exclusive celebrity management services. Whether it's for
                             inaugurations, weddings, birthday parties, or any celebration, we offer access to celebrities
                             from around the world. Make your occasion truly memorable by adding a touch of celebrity glamour
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center"  >
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_2.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/manage_2.jpg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="col-12  text-center ">
                     <div class="modaltext">
                         <h2>Security /<span> Bouncer</span></h2>
-                        <p><b>Professional Security Services by CAST TALENTS</b></p>
+                        <p class="text-dark "><b>Professional Security Services by CAST TALENTS</b></p>
                         <p><strong>VIP and Celebrity Protection:</strong> At CAST TALENTS, ensuring the safety of our
                             clients is paramount. We specialize in providing highly trained bodyguards and security
                             personnel who are dedicated to protecting VIPs and celebrities. Our team is prepared to
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_4.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/manage_4.jpeg" alt="Casting Image" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -204,13 +204,13 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
             <div class="col-12  d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_5.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/manage_5.jpeg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12  text-center ">
                     <div class="modaltext">
                         <h2>Transportation</h2>
-                        <p><b>Professional Vehicle Rental Services for the Film and Television Industry BY CAST TALENTS</b>
+                        <p class="text-dark"><b>Professional Vehicle Rental Services for the Film and Television Industry BY CAST TALENTS</b>
                         </p>
                         <p>Cast Talents specializes in providing a wide array of support vehicles for the film and
                             television sector in the UAE. With our extensive fleet, we are the preferred partner for the
@@ -230,39 +230,54 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row mt-4 ">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg " >
-                        <img style="" src="{{ url('user-assets') }}/images/event_4.png" alt="Casting Image" class="img-fluid  pt-5">
+                        <img style="" src="{{ url('user-assets') }}/images/event_4.jpg" alt="Casting Image" class="img-fluid  pt-5">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext1">
+                    <div class="modaltext1 pt-4">
 
                         <h2>Videography & <sapn style="color: rgba(216, 31, 38, 1);">Photography</sapn>
                         </h2>
-                        <ul>
-  <li><strong>Corporate Videos:</strong></li>
-  <li><strong>Event Videos:</strong></li>
-  <li><strong>Promotional Videos:</strong></li>
-  <li><strong>Commercial Videos:</strong></li>
-  <li><strong>Animation Videos:</strong></li>
-  <li><strong>Training & Safety Videos:</strong></li>
-  <li><strong>Documentaries:</strong></li>
-  <li><strong>Explainer Videos:</strong></li>
-  <li><strong>Time-lapse Videos:</strong></li>
-  <li><strong>Branded Videos:</strong></li>
-  <li><strong>Aerial Drone Filming:</strong></li>
+                        <div class="flex-col d-flex ms-3 ">
+                        <div class="row">
+    <ul>
+    <li><strong>Corporate Videos</strong></li>
+  <li><strong>Event Videos</strong></li>
+  <li><strong>Promotional Videos</strong></li>
+  <li><strong>Commercial Videos</strong></li>
+  <li><strong>Animation Videos</strong></li>
+  <li><strong>Training & Safety Videos</strong></li>
+  <li><strong>Documentaries</strong></li>
+  <li><strong>Explainer Videos</strong></li>
+  <li><strong>Time-lapse Videos</strong></li>
+  <li><strong>Branded Videos</strong></li>
+  <li><strong>Aerial Drone Filming</strong></li>
   <li><strong>Photography</strong></li>
-  <li><strong>Commercials:</strong></li>
-  <li><strong>Events:</strong></li>
-  <li><strong>Music Video BTS & Posters:</strong></li>
-  <li><strong>Product Shoots:</strong></li>
-  <li><strong>Business Portraits:</strong></li>
-  <li><strong>Modeling Portfolios:</strong></li>
-  <li><strong>Weddings & Emirati Weddings:</strong></li>
-  <li><strong>Interior & Exterior:</strong></li>
-  <li><strong>Engagement & Family Portraits:</strong></li>
-  <li><strong>Cake Smash & Maternity:</strong></li>
-  <li><strong>Newborn Photography:</strong></li>
-</ul>
+    </ul>
+</div>
+<div class="row ms-5">
+    <ul>
+    <li><strong>Interviews videography</strong></li>
+
+    <li><strong>Events</strong></li>
+  <li><strong>Music Video BTS & Posters</strong></li>
+  <li><strong>Product Shoots</strong></li>
+  <li><strong>Business Portraits</strong></li>
+  <li><strong>Modeling Portfolios</strong></li>
+  <li><strong>Weddings & Emirati Weddings</strong></li>
+  <li><strong>Interior & Exterior</strong></li>
+  <li><strong>Engagement & Family Portraits</strong></li>
+  <li><strong>Cake Smash & Maternity</strong></li>
+  <li><strong>Newborn Photography</strong></li>
+  <li><strong>Commercials</strong></li>
+
+    </ul>
+</div>
+                        </div>
+
+  
+ 
+
 
                         <!-- <a href="#" class="contactbtn1" id="readMoreTrigger3">READ MORE</a> -->
                     </div>
