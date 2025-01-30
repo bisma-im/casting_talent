@@ -9,12 +9,14 @@ use App\Models\ModelDetail;
 use Illuminate\Http\Request;
 use App\Models\ProfileDetail;
 use App\Http\Controllers\Controller;
+use App\Models\ClientInquiry;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -43,6 +45,79 @@ class QueryController extends Controller
         //     $message->subject('Query Notification');
         // });
         return redirect()->back()->with('success', 'Message sent successfully!');
+    }
+
+    public function storeClientInquiry(Request $request)
+    {
+        // Validate the incoming data
+        $validated = $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'company' => 'nullable|string|max:255',
+            'calling_number' => 'required|string|max:20',
+            'whatsapp_number' => 'nullable|string|max:20',
+            'email' => 'required|email|max:255',
+            'project' => 'required|string|max:20',
+            'country' => 'required|string|max:100',
+            'state' => 'required|string|max:100',
+            'city' => 'required|string|max:100',
+            'no_of_days' => 'required|integer',
+            'no_of_hours' => 'required|integer',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'no_of_talents_male' => 'required|integer',
+            'no_of_talents_female' => 'required|integer',
+            'nationalities' => 'nullable|string|max:255',
+            'categories' => 'required|string|max:255',
+            'starting_amount' => 'required|numeric',
+            'maximum_amount' => 'required|numeric',
+            'project_detail' => 'nullable|string',
+            'brief_file' => 'nullable|string'
+        ]);
+
+        try {
+            // Begin a transaction
+            DB::beginTransaction();
+
+            // Create a new Client Inquiry
+            $inquiry = new ClientInquiry([
+                'first_name' => $validated['first_name'],
+                'last_name' => $validated['last_name'],
+                'company' => $validated['company'],
+                'calling_number' => $validated['calling_number'],
+                'whatsapp_number' => $validated['whatsapp_number'],
+                'email' => $validated['email'],
+                'project' => $validated['project'],
+                'country' => $validated['country'],
+                'state' => $validated['state'],
+                'city' => $validated['city'],
+                'no_of_days' => $validated['no_of_days'],
+                'no_of_hours' => $validated['no_of_hours'],
+                'start_date' => Carbon::parse($validated['start_date']),
+                'end_date' => Carbon::parse($validated['end_date']),
+                'no_of_talents_male' => $validated['no_of_talents_male'],
+                'no_of_talents_female' => $validated['no_of_talents_female'],
+                'nationalities' => $validated['nationalities'],
+                'categories' => $validated['categories'],
+                'starting_amount' => $validated['starting_amount'],
+                'maximum_amount' => $validated['maximum_amount'],
+                'project_detail' => $validated['project_detail'],
+                'brief_file' => $validated['brief_file'],
+            ]);
+
+            $inquiry->save();
+
+            // Commit the transaction
+            DB::commit();
+
+            return response()->json(['message' => 'Client Inquiry created successfully', 'success' => true], 201);
+        } catch (\Exception $e) {
+            // Rollback the transaction on error
+            DB::rollBack();
+
+            // Return an error response
+            return response()->json(['message' => $e->getMessage(), 'success' => false], 500);
+        }
     }
 
     public function profileInfoStore(Request $request)

@@ -1548,10 +1548,10 @@
                                                                         <label>Skills <span class="required">*</span></label>
                                                                         <select class="form-select" name="skills" required
                                                                             aria-label="Default select example">
-                                                                            <option value="">Select skill level..</option>
-                                                                            <option value="Fresher"  {{ (isset($profileInfo) && $profileInfo->skills === 'Fresher') ? 'selected' : '' }}>Fresher</option>
-                                                                            <option value="Experienced" {{ (isset($profileInfo) && $profileInfo->skills === 'Experienced') ? 'selected' : '' }}>Experienced</option>
-                                                                            <option value="Expert" {{ (isset($profileInfo) && $profileInfo->skills === 'Expert') ? 'selected' : '' }}>Expert</option>
+                                                                            <option value="">Select skill level...</option>
+                                                                            <option value="Fresher" <?php echo e(($profileInfo->skills ?? '') === 'Fresher' ? 'selected' : ''); ?>>Fresher</option>
+                                                                            <option value="Experienced" <?php echo e(($profileInfo->skills ?? '') === 'Experienced' ? 'selected' : ''); ?>>Experienced</option>
+                                                                            <option value="Expert" <?php echo e(($profileInfo->skills ?? '') === 'Expert' ? 'selected' : ''); ?>>Expert</option>
                                                                         </select>
                                                                         <span class="error-message"></span>
                                                                     </div>

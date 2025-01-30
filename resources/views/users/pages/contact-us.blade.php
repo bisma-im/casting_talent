@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
 
     <style>
         .blurred {
@@ -17,50 +18,13 @@
             -webkit-filter: blur(8px);
             /* pointer-events: none; Prevent interaction with blurred elements */
         }
-
         .button-container {
             display: flex;
             justify-content: space-between;
         }
-
-        section.contactlist {
-            padding: 50px 0 50px !important;
-        }
-
-        .mobile-frame {
-    background-image: url('{{ url('user-assets/images/mobile-mockup.png') }}');
-    background-size: cover;
-    background-position: center;
-    width: 50vh;
-    height: 49vw;
-    position: relative;
-    margin: 0 auto;
-    border-radius: 30px;
-    overflow: hidden; /* Ensure no overflow */
-
-}
-
-.instagram-feed {
-    width: 83%; /* Adjusted to fit inside the frame */
-    height: 100%; /* Fills the height */
-    position: absolute;
-    top: 4vw;
-    left: 24px;
-    border: none;
-    overflow: hidden;
-    padding: 0; /* Remove padding for a snug fit */
-    border-radius: 15px;
-}
-
-
-
-
-
-
         .innertext h3 span {
             color: rgba(216, 31, 38, 1);
         }
-
         #map {
             height: 450px;
             width: 100%;
@@ -82,8 +46,6 @@
             background-color: rgba(255, 255, 255, 0.8);
             /* Transparent white bg for the form */
         }
-
-    
         /* Position the slider behind the section */
         .background-slider {
             position: absolute;
@@ -134,12 +96,8 @@
         .contactussec {
             position: relative;
             z-index: 2;
-            /* Place above the slider */
             padding:  0;
             background-color: transparent;
-            height: 50vw;
-
-            /* Transparent background */
         }
 
         .form-container {
@@ -148,10 +106,6 @@
             
            
         }
-
-
-
-
         /* Additional form styling */
         .form-step {
             margin-bottom: 20px;
@@ -227,21 +181,15 @@
         .btn-primary:hover {
             background-color: #007BFF;
         }
-
         .text {
             font-size: 13px;
-
-
         }
-
         .is-invalid {
             border-color: #dc3545;
         }
-
         .is-invalid::placeholder {
             color: #dc3545;
         }
-
         /* Initially hide subcategories */
         /* Initially hide subcategories */
         .sub-category {
@@ -266,19 +214,16 @@
             font-weight: bold;
             position: relative;
         }
-
         /* Category Checkbox Styles */
         .category-checkbox,
         .subcategory-checkbox {
             margin-right: 5px;
         }
-
         /* Subcategory styling */
         .sub-category li {
             padding: 5px 0;
             font-size: 14px;
         }
-
         /* Menu container styles */
         .menu-container {
             border: 1px solid #ddd;
@@ -294,8 +239,6 @@
             width: 250px;
             /* Adjusted width for better readability */
         }
-
-
         /* Dropdown Button Styles */
         #dropdown-btn {
             width: 100%;
@@ -310,18 +253,15 @@
             font-size: 14px;
             margin-bottom: 5px;
         }
-
         /* Display categories on hover or click */
         #dropdown-container:hover .menu-container {
             display: block;
         }
-
         /* Hover effect for subcategories */
         .sub-category li:hover {
             background-color: #f0f0f0;
             cursor: pointer;
         }
-
         /* Custom Scrollbar */
         .menu-container::-webkit-scrollbar {
             width: 8px;
@@ -390,114 +330,112 @@
         .dropdown-open {
             display: block;
         }
+        .mobile-frame {
+            background-image: url('{{ url('user-assets/images/mobile-mockup.png') }}');
+            background-size: cover;
+        }
         /* Custom height adjustments for different screen sizes */
+        @media (min-width: 768px) {
+            .mobile-frame {
+                width: 51vh;
+                height: 49vw;
+                position: relative;
+                margin: 0 auto;
+                border-radius: 30px;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                background-position: center;
+                overflow: hidden;
+            }
+            .instagram-feed {
+                width: 83%; 
+                border: none;
+                overflow: hidden;
+                padding: 0;
+                border-radius: 15px;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+            }
+        }
+        /* Extra Small Screens (≤576px) */
+        @media (max-width: 768px) {
+            .form-container {
+                width:100%;
+                height: 100vw !important; 
+            }
+            .test {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%; /* Ensure it takes full width of its parent */
+            }
 
-/* Extra Small Screens (≤576px) */
 
-@media (max-width: 768px) {
-    
-    .contactussec {
+            .button-container {
+                    margin-top: 10px;
+                }
+            
+            /* Position the slider behind the section */
+            .background-slider {
+                height: 100vw !important;
+            }
+            .slider-image {
+                height: 100vw !important; /* Adjust individual image height */
+            }
+            .text2 {
+                font-size: 10px !important;
+            }
+            .menu-container {
+                max-height: 200px; 
+                width: 100%; 
+            }
+            .custom-dropdown-content {
+                max-height: 100px; /* Adjust max height for small screens */
+            }
+            .form-container {
+                width: 100%;
+                height: 130vw !important;
+                position: relative;
+                margin: 0 auto; /* Center the container */
+                padding: 10px; /* Optional padding for better spacing */
         
-        height: 60vh !important; /* Adjust the height for smaller screens */
-    }
-    .form-container {
-        width:100%;
-        height: 100vw !important; 
-    }
-    .mobile-frame {
-        width: 60vw; 
-        height: 120vw; 
-    }
-    .button-container {
-            margin-top: 10px;
+                background-color: rgba(255, 255, 255, 0.9); /* Ensure a visible background */
+            }
+            body.lock-scroll {
+                overflow: hidden;
+            }
         }
-    .instagram-feed {
-        width: 100%;
-        height: 100%;
-    }
-    /* Position the slider behind the section */
-    .background-slider {
-        height: 100vw !important; /* Increase the slider height */
-    }
-    .slider-image {
-        height: 100vw !important; /* Adjust individual image height */
-    }
-    .text2 {
-            font-size: 10px !important;
-
+        @media (max-width: 576px) { 
+            .background-slider {
+                height: 130vw !important; /* Increase the slider height */
+            }
+            .slider-image {
+                height: 130vw !important; /* Adjust individual image height */
+            }
+            .form-container {
+                width: 100%;
+                height: 130vw !important;
+                margin: 0 auto; /* Center the container */
+                padding: 10px; /* Optional padding for better spacing */
+                overflow-y: auto; /* Add scroll if content overflows */
+                background-color: rgba(255, 255, 255, 0.9); /* Ensure a visible background */
+            }
+            #generalInquiryForm,
+            #clientInquiryForm {
+                display: block;
+                height: 100%; /* Ensure the form takes up the container height */
+            }
+            body.lock-scroll {
+                overflow: hidden;
+            }
+            .step {
+                display: block;
+                margin: 0 auto;
+            }
         }
-        .menu-container {
-        max-height: 200px; /* Reduce height for smaller screens */
-        width: 100%; /* Ensure it spans the container width */
-    }
-    .custom-dropdown-content {
-        max-height: 100px; /* Adjust max height for small screens */
-    }
-    .form-container {
-        width: 100%;
-        height: 130vw !important;
-        position: relative;
-        margin: 0 auto; /* Center the container */
-        padding: 10px; /* Optional padding for better spacing */
-   
-        background-color: rgba(255, 255, 255, 0.9); /* Ensure a visible background */
-    }
-    body.lock-scroll {
-        overflow: hidden;
-    }
-    }
-    @media (max-width: 576px) { 
-        .background-slider {
-        height: 130vw !important; /* Increase the slider height */
-    }
-  
-    .slider-image {
-        height: 130vw !important; /* Adjust individual image height */
-    }
-    .form-container {
-        width: 100%;
-        height: 130vw !important;
-        position: relative;
-        margin: 0 auto; /* Center the container */
-        padding: 10px; /* Optional padding for better spacing */
-   
-        background-color: rgba(255, 255, 255, 0.9); /* Ensure a visible background */
-    }
-    body.lock-scroll {
-        overflow: hidden;
-    }
-    #generalInquiryForm,
-    #clientInquiryForm {
-        display: block;
-        height: 100%; /* Ensure the form takes up the container height */
-    }
-    @media (max-width: 576px) { 
-        .background-slider {
-        height: 130vw !important; /* Increase the slider height */
-    }
-  
-    .slider-image {
-        height: 130vw !important; /* Adjust individual image height */
-    }
-    .form-container {
-        width: 100%;
-        height: 130vw !important;
-        margin: 0 auto; /* Center the container */
-        padding: 10px; /* Optional padding for better spacing */
-        overflow-y: auto; /* Add scroll if content overflows */
-        background-color: rgba(255, 255, 255, 0.9); /* Ensure a visible background */
-    }
-    #generalInquiryForm,
-    #clientInquiryForm {
-        display: block;
-        height: 100%; /* Ensure the form takes up the container height */
-    }
-
-    .step {
-        display: block;
-        margin: 0 auto;
-    }
-    }
     </style>
 
     <section class="innerpages">
@@ -512,10 +450,9 @@
     </section>
 
     <div class="contactussec">
-
-        <div class="container slider">
+        <div class="container">
             <!-- Background Image Slider -->
-            <div class="row ">
+            <div class="row">
                 <!-- Form Container -->
                 <div class="background-slider">
                     <div class="slider-track">
@@ -833,210 +770,209 @@
                                     </div>
 
                                     <div class="col-lg-4 col-6">
-    <div class="form-group">
-        <label class="text fw-bold">NATIONALITIES</label>
-        <div class="custom-dropdown" id="nationalityDropdown">
-            <div class=" form-control" id="dropdownButton">Select Nationalities</div>
-            <div class="custom-dropdown-content" id="dropdownContent">
-    <label><input type="checkbox" value="Afghanistan"> Afghanistan</label>
-    <label><input type="checkbox" value="Albania"> Albania</label>
-    <label><input type="checkbox" value="Algeria"> Algeria</label>
-    <label><input type="checkbox" value="Andorra"> Andorra</label>
-    <label><input type="checkbox" value="Angola"> Angola</label>
-    <label><input type="checkbox" value="Antigua and Barbuda"> Antigua and Barbuda</label>
-    <label><input type="checkbox" value="Argentina"> Argentina</label>
-    <label><input type="checkbox" value="Armenia"> Armenia</label>
-    <label><input type="checkbox" value="Australia"> Australia</label>
-    <label><input type="checkbox" value="Austria"> Austria</label>
-    <label><input type="checkbox" value="Azerbaijan"> Azerbaijan</label>
-    <label><input type="checkbox" value="Bahamas"> Bahamas</label>
-    <label><input type="checkbox" value="Bahrain"> Bahrain</label>
-    <label><input type="checkbox" value="Bangladesh"> Bangladesh</label>
-    <label><input type="checkbox" value="Barbados"> Barbados</label>
-    <label><input type="checkbox" value="Belarus"> Belarus</label>
-    <label><input type="checkbox" value="Belgium"> Belgium</label>
-    <label><input type="checkbox" value="Belize"> Belize</label>
-    <label><input type="checkbox" value="Benin"> Benin</label>
-    <label><input type="checkbox" value="Bhutan"> Bhutan</label>
-    <label><input type="checkbox" value="Bolivia"> Bolivia</label>
-    <label><input type="checkbox" value="Bosnia and Herzegovina"> Bosnia and Herzegovina</label>
-    <label><input type="checkbox" value="Botswana"> Botswana</label>
-    <label><input type="checkbox" value="Brazil"> Brazil</label>
-    <label><input type="checkbox" value="Brunei"> Brunei</label>
-    <label><input type="checkbox" value="Bulgaria"> Bulgaria</label>
-    <label><input type="checkbox" value="Burkina Faso"> Burkina Faso</label>
-    <label><input type="checkbox" value="Burundi"> Burundi</label>
-    <label><input type="checkbox" value="Cabo Verde"> Cabo Verde</label>
-    <label><input type="checkbox" value="Cambodia"> Cambodia</label>
-    <label><input type="checkbox" value="Cameroon"> Cameroon</label>
-    <label><input type="checkbox" value="Canada"> Canada</label>
-    <label><input type="checkbox" value="Central African Republic"> Central African Republic</label>
-    <label><input type="checkbox" value="Chad"> Chad</label>
-    <label><input type="checkbox" value="Chile"> Chile</label>
-    <label><input type="checkbox" value="China"> China</label>
-    <label><input type="checkbox" value="Colombia"> Colombia</label>
-    <label><input type="checkbox" value="Comoros"> Comoros</label>
-    <label><input type="checkbox" value="Congo (Congo-Brazzaville)"> Congo (Congo-Brazzaville)</label>
-    <label><input type="checkbox" value="Congo (Congo-Kinshasa)"> Congo (Congo-Kinshasa)</label>
-    <label><input type="checkbox" value="Costa Rica"> Costa Rica</label>
-    <label><input type="checkbox" value="Croatia"> Croatia</label>
-    <label><input type="checkbox" value="Cuba"> Cuba</label>
-    <label><input type="checkbox" value="Cyprus"> Cyprus</label>
-    <label><input type="checkbox" value="Czech Republic"> Czech Republic</label>
-    <label><input type="checkbox" value="Denmark"> Denmark</label>
-    <label><input type="checkbox" value="Djibouti"> Djibouti</label>
-    <label><input type="checkbox" value="Dominica"> Dominica</label>
-    <label><input type="checkbox" value="Dominican Republic"> Dominican Republic</label>
-    <label><input type="checkbox" value="Ecuador"> Ecuador</label>
-    <label><input type="checkbox" value="Egypt"> Egypt</label>
-    <label><input type="checkbox" value="El Salvador"> El Salvador</label>
-    <label><input type="checkbox" value="Equatorial Guinea"> Equatorial Guinea</label>
-    <label><input type="checkbox" value="Eritrea"> Eritrea</label>
-    <label><input type="checkbox" value="Estonia"> Estonia</label>
-    <label><input type="checkbox" value="Eswatini"> Eswatini (formerly Swaziland)</label>
-    <label><input type="checkbox" value="Ethiopia"> Ethiopia</label>
-    <label><input type="checkbox" value="Fiji"> Fiji</label>
-    <label><input type="checkbox" value="Finland"> Finland</label>
-    <label><input type="checkbox" value="France"> France</label>
-    <label><input type="checkbox" value="Gabon"> Gabon</label>
-    <label><input type="checkbox" value="Gambia"> Gambia</label>
-    <label><input type="checkbox" value="Georgia"> Georgia</label>
-    <label><input type="checkbox" value="Germany"> Germany</label>
-    <label><input type="checkbox" value="Ghana"> Ghana</label>
-    <label><input type="checkbox" value="Greece"> Greece</label>
-    <label><input type="checkbox" value="Grenada"> Grenada</label>
-    <label><input type="checkbox" value="Guatemala"> Guatemala</label>
-    <label><input type="checkbox" value="Guinea"> Guinea</label>
-    <label><input type="checkbox" value="Guinea-Bissau"> Guinea-Bissau</label>
-    <label><input type="checkbox" value="Guyana"> Guyana</label>
-    <label><input type="checkbox" value="Haiti"> Haiti</label>
-    <label><input type="checkbox" value="Honduras"> Honduras</label>
-    <label><input type="checkbox" value="Hungary"> Hungary</label>
-    <label><input type="checkbox" value="Iceland"> Iceland</label>
-    <label><input type="checkbox" value="India"> India</label>
-    <label><input type="checkbox" value="Indonesia"> Indonesia</label>
-    <label><input type="checkbox" value="Iran"> Iran</label>
-    <label><input type="checkbox" value="Iraq"> Iraq</label>
-    <label><input type="checkbox" value="Ireland"> Ireland</label>
-    <label><input type="checkbox" value="Israel"> Israel</label>
-    <label><input type="checkbox" value="Italy"> Italy</label>
-    <label><input type="checkbox" value="Jamaica"> Jamaica</label>
-    <label><input type="checkbox" value="Japan"> Japan</label>
-    <label><input type="checkbox" value="Jordan"> Jordan</label>
-    <label><input type="checkbox" value="Kazakhstan"> Kazakhstan</label>
-    <label><input type="checkbox" value="Kenya"> Kenya</label>
-    <label><input type="checkbox" value="Kiribati"> Kiribati</label>
-    <label><input type="checkbox" value="Kuwait"> Kuwait</label>
-    <label><input type="checkbox" value="Kyrgyzstan"> Kyrgyzstan</label>
-    <label><input type="checkbox" value="Laos"> Laos</label>
-    <label><input type="checkbox" value="Latvia"> Latvia</label>
-    <label><input type="checkbox" value="Lebanon"> Lebanon</label>
-    <label><input type="checkbox" value="Lesotho"> Lesotho</label>
-    <label><input type="checkbox" value="Liberia"> Liberia</label>
-    <label><input type="checkbox" value="Libya"> Libya</label>
-    <label><input type="checkbox" value="Liechtenstein"> Liechtenstein</label>
-    <label><input type="checkbox" value="Lithuania"> Lithuania</label>
-    <label><input type="checkbox" value="Luxembourg"> Luxembourg</label>
-    <label><input type="checkbox" value="Madagascar"> Madagascar</label>
-    <label><input type="checkbox" value="Malawi"> Malawi</label>
-    <label><input type="checkbox" value="Malaysia"> Malaysia</label>
-    <label><input type="checkbox" value="Maldives"> Maldives</label>
-    <label><input type="checkbox" value="Mali"> Mali</label>
-    <label><input type="checkbox" value="Malta"> Malta</label>
-    <label><input type="checkbox" value="Marshall Islands"> Marshall Islands</label>
-    <label><input type="checkbox" value="Mauritania"> Mauritania</label>
-    <label><input type="checkbox" value="Mauritius"> Mauritius</label>
-    <label><input type="checkbox" value="Mexico"> Mexico</label>
-    <label><input type="checkbox" value="Micronesia"> Micronesia</label>
-    <label><input type="checkbox" value="Moldova"> Moldova</label>
-    <label><input type="checkbox" value="Monaco"> Monaco</label>
-    <label><input type="checkbox" value="Mongolia"> Mongolia</label>
-    <label><input type="checkbox" value="Montenegro"> Montenegro</label>
-    <label><input type="checkbox" value="Morocco"> Morocco</label>
-    <label><input type="checkbox" value="Mozambique"> Mozambique</label>
-    <label><input type="checkbox" value="Myanmar"> Myanmar (formerly Burma)</label>
-    <label><input type="checkbox" value="Namibia"> Namibia</label>
-    <label><input type="checkbox" value="Nauru"> Nauru</label>
-    <label><input type="checkbox" value="Nepal"> Nepal</label>
-    <label><input type="checkbox" value="Netherlands"> Netherlands</label>
-    <label><input type="checkbox" value="New Zealand"> New Zealand</label>
-    <label><input type="checkbox" value="Nicaragua"> Nicaragua</label>
-    <label><input type="checkbox" value="Niger"> Niger</label>
-    <label><input type="checkbox" value="Nigeria"> Nigeria</label>
-    <label><input type="checkbox" value="North Korea"> North Korea</label>
-    <label><input type="checkbox" value="North Macedonia"> North Macedonia</label>
-    <label><input type="checkbox" value="Norway"> Norway</label>
-    <label><input type="checkbox" value="Oman"> Oman</label>
-    <label><input type="checkbox" value="Pakistan"> Pakistan</label>
-    <label><input type="checkbox" value="Palau"> Palau</label>
-    <label><input type="checkbox" value="Panama"> Panama</label>
-    <label><input type="checkbox" value="Papua New Guinea"> Papua New Guinea</label>
-    <label><input type="checkbox" value="Paraguay"> Paraguay</label>
-    <label><input type="checkbox" value="Peru"> Peru</label>
-    <label><input type="checkbox" value="Philippines"> Philippines</label>
-    <label><input type="checkbox" value="Poland"> Poland</label>
-    <label><input type="checkbox" value="Portugal"> Portugal</label>
-    <label><input type="checkbox" value="Qatar"> Qatar</label>
-    <label><input type="checkbox" value="Romania"> Romania</label>
-    <label><input type="checkbox" value="Russia"> Russia</label>
-    <label><input type="checkbox" value="Rwanda"> Rwanda</label>
-    <label><input type="checkbox" value="Saint Kitts and Nevis"> Saint Kitts and Nevis</label>
-    <label><input type="checkbox" value="Saint Lucia"> Saint Lucia</label>
-    <label><input type="checkbox" value="Saint Vincent and the Grenadines"> Saint Vincent and the Grenadines</label>
-    <label><input type="checkbox" value="Samoa"> Samoa</label>
-    <label><input type="checkbox" value="San Marino"> San Marino</label>
-    <label><input type="checkbox" value="Sao Tome and Principe"> Sao Tome and Principe</label>
-    <label><input type="checkbox" value="Saudi Arabia"> Saudi Arabia</label>
-    <label><input type="checkbox" value="Senegal"> Senegal</label>
-    <label><input type="checkbox" value="Serbia"> Serbia</label>
-    <label><input type="checkbox" value="Seychelles"> Seychelles</label>
-    <label><input type="checkbox" value="Sierra Leone"> Sierra Leone</label>
-    <label><input type="checkbox" value="Singapore"> Singapore</label>
-    <label><input type="checkbox" value="Slovakia"> Slovakia</label>
-    <label><input type="checkbox" value="Slovenia"> Slovenia</label>
-    <label><input type="checkbox" value="Solomon Islands"> Solomon Islands</label>
-    <label><input type="checkbox" value="Somalia"> Somalia</label>
-    <label><input type="checkbox" value="South Africa"> South Africa</label>
-    <label><input type="checkbox" value="South Korea"> South Korea</label>
-    <label><input type="checkbox" value="South Sudan"> South Sudan</label>
-    <label><input type="checkbox" value="Spain"> Spain</label>
-    <label><input type="checkbox" value="Sri Lanka"> Sri Lanka</label>
-    <label><input type="checkbox" value="Sudan"> Sudan</label>
-    <label><input type="checkbox" value="Suriname"> Suriname</label>
-    <label><input type="checkbox" value="Sweden"> Sweden</label>
-    <label><input type="checkbox" value="Switzerland"> Switzerland</label>
-    <label><input type="checkbox" value="Syria"> Syria</label>
-    <label><input type="checkbox" value="Taiwan"> Taiwan</label>
-    <label><input type="checkbox" value="Tajikistan"> Tajikistan</label>
-    <label><input type="checkbox" value="Tanzania"> Tanzania</label>
-    <label><input type="checkbox" value="Thailand"> Thailand</label>
-    <label><input type="checkbox" value="Timor-Leste"> Timor-Leste</label>
-    <label><input type="checkbox" value="Togo"> Togo</label>
-    <label><input type="checkbox" value="Tonga"> Tonga</label>
-    <label><input type="checkbox" value="Trinidad and Tobago"> Trinidad and Tobago</label>
-    <label><input type="checkbox" value="Tunisia"> Tunisia</label>
-    <label><input type="checkbox" value="Turkey"> Turkey</label>
-    <label><input type="checkbox" value="Turkmenistan"> Turkmenistan</label>
-    <label><input type="checkbox" value="Tuvalu"> Tuvalu</label>
-    <label><input type="checkbox" value="Uganda"> Uganda</label>
-    <label><input type="checkbox" value="Ukraine"> Ukraine</label>
-    <label><input type="checkbox" value="United Arab Emirates"> United Arab Emirates</label>
-    <label><input type="checkbox" value="United Kingdom"> United Kingdom</label>
-    <label><input type="checkbox" value="United States"> United States</label>
-    <label><input type="checkbox" value="Uruguay"> Uruguay</label>
-    <label><input type="checkbox" value="Uzbekistan"> Uzbekistan</label>
-    <label><input type="checkbox" value="Vanuatu"> Vanuatu</label>
-    <label><input type="checkbox" value="Vatican City"> Vatican City</label>
-    <label><input type="checkbox" value="Venezuela"> Venezuela</label>
-    <label><input type="checkbox" value="Vietnam"> Vietnam</label>
-    <label><input type="checkbox" value="Yemen"> Yemen</label>
-    <label><input type="checkbox" value="Zambia"> Zambia</label>
-    <label><input type="checkbox" value="Zimbabwe"> Zimbabwe</label>
-</div>
-
-        </div>
-    </div>
-</div>
+                                    <div class="form-group">
+                                        <label class="text fw-bold">NATIONALITIES</label>
+                                        <div class="custom-dropdown" id="nationalityDropdown">
+                                            <div class=" form-control" id="dropdownButton">Select Nationalities</div>
+                                            <div class="custom-dropdown-content" id="dropdownContent">
+                                                <label><input type="checkbox" value="Afghanistan"> Afghanistan</label>
+                                                <label><input type="checkbox" value="Albania"> Albania</label>
+                                                <label><input type="checkbox" value="Algeria"> Algeria</label>
+                                                <label><input type="checkbox" value="Andorra"> Andorra</label>
+                                                <label><input type="checkbox" value="Angola"> Angola</label>
+                                                <label><input type="checkbox" value="Antigua and Barbuda"> Antigua and Barbuda</label>
+                                                <label><input type="checkbox" value="Argentina"> Argentina</label>
+                                                <label><input type="checkbox" value="Armenia"> Armenia</label>
+                                                <label><input type="checkbox" value="Australia"> Australia</label>
+                                                <label><input type="checkbox" value="Austria"> Austria</label>
+                                                <label><input type="checkbox" value="Azerbaijan"> Azerbaijan</label>
+                                                <label><input type="checkbox" value="Bahamas"> Bahamas</label>
+                                                <label><input type="checkbox" value="Bahrain"> Bahrain</label>
+                                                <label><input type="checkbox" value="Bangladesh"> Bangladesh</label>
+                                                <label><input type="checkbox" value="Barbados"> Barbados</label>
+                                                <label><input type="checkbox" value="Belarus"> Belarus</label>
+                                                <label><input type="checkbox" value="Belgium"> Belgium</label>
+                                                <label><input type="checkbox" value="Belize"> Belize</label>
+                                                <label><input type="checkbox" value="Benin"> Benin</label>
+                                                <label><input type="checkbox" value="Bhutan"> Bhutan</label>
+                                                <label><input type="checkbox" value="Bolivia"> Bolivia</label>
+                                                <label><input type="checkbox" value="Bosnia and Herzegovina"> Bosnia and Herzegovina</label>
+                                                <label><input type="checkbox" value="Botswana"> Botswana</label>
+                                                <label><input type="checkbox" value="Brazil"> Brazil</label>
+                                                <label><input type="checkbox" value="Brunei"> Brunei</label>
+                                                <label><input type="checkbox" value="Bulgaria"> Bulgaria</label>
+                                                <label><input type="checkbox" value="Burkina Faso"> Burkina Faso</label>
+                                                <label><input type="checkbox" value="Burundi"> Burundi</label>
+                                                <label><input type="checkbox" value="Cabo Verde"> Cabo Verde</label>
+                                                <label><input type="checkbox" value="Cambodia"> Cambodia</label>
+                                                <label><input type="checkbox" value="Cameroon"> Cameroon</label>
+                                                <label><input type="checkbox" value="Canada"> Canada</label>
+                                                <label><input type="checkbox" value="Central African Republic"> Central African Republic</label>
+                                                <label><input type="checkbox" value="Chad"> Chad</label>
+                                                <label><input type="checkbox" value="Chile"> Chile</label>
+                                                <label><input type="checkbox" value="China"> China</label>
+                                                <label><input type="checkbox" value="Colombia"> Colombia</label>
+                                                <label><input type="checkbox" value="Comoros"> Comoros</label>
+                                                <label><input type="checkbox" value="Congo (Congo-Brazzaville)"> Congo (Congo-Brazzaville)</label>
+                                                <label><input type="checkbox" value="Congo (Congo-Kinshasa)"> Congo (Congo-Kinshasa)</label>
+                                                <label><input type="checkbox" value="Costa Rica"> Costa Rica</label>
+                                                <label><input type="checkbox" value="Croatia"> Croatia</label>
+                                                <label><input type="checkbox" value="Cuba"> Cuba</label>
+                                                <label><input type="checkbox" value="Cyprus"> Cyprus</label>
+                                                <label><input type="checkbox" value="Czech Republic"> Czech Republic</label>
+                                                <label><input type="checkbox" value="Denmark"> Denmark</label>
+                                                <label><input type="checkbox" value="Djibouti"> Djibouti</label>
+                                                <label><input type="checkbox" value="Dominica"> Dominica</label>
+                                                <label><input type="checkbox" value="Dominican Republic"> Dominican Republic</label>
+                                                <label><input type="checkbox" value="Ecuador"> Ecuador</label>
+                                                <label><input type="checkbox" value="Egypt"> Egypt</label>
+                                                <label><input type="checkbox" value="El Salvador"> El Salvador</label>
+                                                <label><input type="checkbox" value="Equatorial Guinea"> Equatorial Guinea</label>
+                                                <label><input type="checkbox" value="Eritrea"> Eritrea</label>
+                                                <label><input type="checkbox" value="Estonia"> Estonia</label>
+                                                <label><input type="checkbox" value="Eswatini"> Eswatini (formerly Swaziland)</label>
+                                                <label><input type="checkbox" value="Ethiopia"> Ethiopia</label>
+                                                <label><input type="checkbox" value="Fiji"> Fiji</label>
+                                                <label><input type="checkbox" value="Finland"> Finland</label>
+                                                <label><input type="checkbox" value="France"> France</label>
+                                                <label><input type="checkbox" value="Gabon"> Gabon</label>
+                                                <label><input type="checkbox" value="Gambia"> Gambia</label>
+                                                <label><input type="checkbox" value="Georgia"> Georgia</label>
+                                                <label><input type="checkbox" value="Germany"> Germany</label>
+                                                <label><input type="checkbox" value="Ghana"> Ghana</label>
+                                                <label><input type="checkbox" value="Greece"> Greece</label>
+                                                <label><input type="checkbox" value="Grenada"> Grenada</label>
+                                                <label><input type="checkbox" value="Guatemala"> Guatemala</label>
+                                                <label><input type="checkbox" value="Guinea"> Guinea</label>
+                                                <label><input type="checkbox" value="Guinea-Bissau"> Guinea-Bissau</label>
+                                                <label><input type="checkbox" value="Guyana"> Guyana</label>
+                                                <label><input type="checkbox" value="Haiti"> Haiti</label>
+                                                <label><input type="checkbox" value="Honduras"> Honduras</label>
+                                                <label><input type="checkbox" value="Hungary"> Hungary</label>
+                                                <label><input type="checkbox" value="Iceland"> Iceland</label>
+                                                <label><input type="checkbox" value="India"> India</label>
+                                                <label><input type="checkbox" value="Indonesia"> Indonesia</label>
+                                                <label><input type="checkbox" value="Iran"> Iran</label>
+                                                <label><input type="checkbox" value="Iraq"> Iraq</label>
+                                                <label><input type="checkbox" value="Ireland"> Ireland</label>
+                                                <label><input type="checkbox" value="Israel"> Israel</label>
+                                                <label><input type="checkbox" value="Italy"> Italy</label>
+                                                <label><input type="checkbox" value="Jamaica"> Jamaica</label>
+                                                <label><input type="checkbox" value="Japan"> Japan</label>
+                                                <label><input type="checkbox" value="Jordan"> Jordan</label>
+                                                <label><input type="checkbox" value="Kazakhstan"> Kazakhstan</label>
+                                                <label><input type="checkbox" value="Kenya"> Kenya</label>
+                                                <label><input type="checkbox" value="Kiribati"> Kiribati</label>
+                                                <label><input type="checkbox" value="Kuwait"> Kuwait</label>
+                                                <label><input type="checkbox" value="Kyrgyzstan"> Kyrgyzstan</label>
+                                                <label><input type="checkbox" value="Laos"> Laos</label>
+                                                <label><input type="checkbox" value="Latvia"> Latvia</label>
+                                                <label><input type="checkbox" value="Lebanon"> Lebanon</label>
+                                                <label><input type="checkbox" value="Lesotho"> Lesotho</label>
+                                                <label><input type="checkbox" value="Liberia"> Liberia</label>
+                                                <label><input type="checkbox" value="Libya"> Libya</label>
+                                                <label><input type="checkbox" value="Liechtenstein"> Liechtenstein</label>
+                                                <label><input type="checkbox" value="Lithuania"> Lithuania</label>
+                                                <label><input type="checkbox" value="Luxembourg"> Luxembourg</label>
+                                                <label><input type="checkbox" value="Madagascar"> Madagascar</label>
+                                                <label><input type="checkbox" value="Malawi"> Malawi</label>
+                                                <label><input type="checkbox" value="Malaysia"> Malaysia</label>
+                                                <label><input type="checkbox" value="Maldives"> Maldives</label>
+                                                <label><input type="checkbox" value="Mali"> Mali</label>
+                                                <label><input type="checkbox" value="Malta"> Malta</label>
+                                                <label><input type="checkbox" value="Marshall Islands"> Marshall Islands</label>
+                                                <label><input type="checkbox" value="Mauritania"> Mauritania</label>
+                                                <label><input type="checkbox" value="Mauritius"> Mauritius</label>
+                                                <label><input type="checkbox" value="Mexico"> Mexico</label>
+                                                <label><input type="checkbox" value="Micronesia"> Micronesia</label>
+                                                <label><input type="checkbox" value="Moldova"> Moldova</label>
+                                                <label><input type="checkbox" value="Monaco"> Monaco</label>
+                                                <label><input type="checkbox" value="Mongolia"> Mongolia</label>
+                                                <label><input type="checkbox" value="Montenegro"> Montenegro</label>
+                                                <label><input type="checkbox" value="Morocco"> Morocco</label>
+                                                <label><input type="checkbox" value="Mozambique"> Mozambique</label>
+                                                <label><input type="checkbox" value="Myanmar"> Myanmar (formerly Burma)</label>
+                                                <label><input type="checkbox" value="Namibia"> Namibia</label>
+                                                <label><input type="checkbox" value="Nauru"> Nauru</label>
+                                                <label><input type="checkbox" value="Nepal"> Nepal</label>
+                                                <label><input type="checkbox" value="Netherlands"> Netherlands</label>
+                                                <label><input type="checkbox" value="New Zealand"> New Zealand</label>
+                                                <label><input type="checkbox" value="Nicaragua"> Nicaragua</label>
+                                                <label><input type="checkbox" value="Niger"> Niger</label>
+                                                <label><input type="checkbox" value="Nigeria"> Nigeria</label>
+                                                <label><input type="checkbox" value="North Korea"> North Korea</label>
+                                                <label><input type="checkbox" value="North Macedonia"> North Macedonia</label>
+                                                <label><input type="checkbox" value="Norway"> Norway</label>
+                                                <label><input type="checkbox" value="Oman"> Oman</label>
+                                                <label><input type="checkbox" value="Pakistan"> Pakistan</label>
+                                                <label><input type="checkbox" value="Palau"> Palau</label>
+                                                <label><input type="checkbox" value="Panama"> Panama</label>
+                                                <label><input type="checkbox" value="Papua New Guinea"> Papua New Guinea</label>
+                                                <label><input type="checkbox" value="Paraguay"> Paraguay</label>
+                                                <label><input type="checkbox" value="Peru"> Peru</label>
+                                                <label><input type="checkbox" value="Philippines"> Philippines</label>
+                                                <label><input type="checkbox" value="Poland"> Poland</label>
+                                                <label><input type="checkbox" value="Portugal"> Portugal</label>
+                                                <label><input type="checkbox" value="Qatar"> Qatar</label>
+                                                <label><input type="checkbox" value="Romania"> Romania</label>
+                                                <label><input type="checkbox" value="Russia"> Russia</label>
+                                                <label><input type="checkbox" value="Rwanda"> Rwanda</label>
+                                                <label><input type="checkbox" value="Saint Kitts and Nevis"> Saint Kitts and Nevis</label>
+                                                <label><input type="checkbox" value="Saint Lucia"> Saint Lucia</label>
+                                                <label><input type="checkbox" value="Saint Vincent and the Grenadines"> Saint Vincent and the Grenadines</label>
+                                                <label><input type="checkbox" value="Samoa"> Samoa</label>
+                                                <label><input type="checkbox" value="San Marino"> San Marino</label>
+                                                <label><input type="checkbox" value="Sao Tome and Principe"> Sao Tome and Principe</label>
+                                                <label><input type="checkbox" value="Saudi Arabia"> Saudi Arabia</label>
+                                                <label><input type="checkbox" value="Senegal"> Senegal</label>
+                                                <label><input type="checkbox" value="Serbia"> Serbia</label>
+                                                <label><input type="checkbox" value="Seychelles"> Seychelles</label>
+                                                <label><input type="checkbox" value="Sierra Leone"> Sierra Leone</label>
+                                                <label><input type="checkbox" value="Singapore"> Singapore</label>
+                                                <label><input type="checkbox" value="Slovakia"> Slovakia</label>
+                                                <label><input type="checkbox" value="Slovenia"> Slovenia</label>
+                                                <label><input type="checkbox" value="Solomon Islands"> Solomon Islands</label>
+                                                <label><input type="checkbox" value="Somalia"> Somalia</label>
+                                                <label><input type="checkbox" value="South Africa"> South Africa</label>
+                                                <label><input type="checkbox" value="South Korea"> South Korea</label>
+                                                <label><input type="checkbox" value="South Sudan"> South Sudan</label>
+                                                <label><input type="checkbox" value="Spain"> Spain</label>
+                                                <label><input type="checkbox" value="Sri Lanka"> Sri Lanka</label>
+                                                <label><input type="checkbox" value="Sudan"> Sudan</label>
+                                                <label><input type="checkbox" value="Suriname"> Suriname</label>
+                                                <label><input type="checkbox" value="Sweden"> Sweden</label>
+                                                <label><input type="checkbox" value="Switzerland"> Switzerland</label>
+                                                <label><input type="checkbox" value="Syria"> Syria</label>
+                                                <label><input type="checkbox" value="Taiwan"> Taiwan</label>
+                                                <label><input type="checkbox" value="Tajikistan"> Tajikistan</label>
+                                                <label><input type="checkbox" value="Tanzania"> Tanzania</label>
+                                                <label><input type="checkbox" value="Thailand"> Thailand</label>
+                                                <label><input type="checkbox" value="Timor-Leste"> Timor-Leste</label>
+                                                <label><input type="checkbox" value="Togo"> Togo</label>
+                                                <label><input type="checkbox" value="Tonga"> Tonga</label>
+                                                <label><input type="checkbox" value="Trinidad and Tobago"> Trinidad and Tobago</label>
+                                                <label><input type="checkbox" value="Tunisia"> Tunisia</label>
+                                                <label><input type="checkbox" value="Turkey"> Turkey</label>
+                                                <label><input type="checkbox" value="Turkmenistan"> Turkmenistan</label>
+                                                <label><input type="checkbox" value="Tuvalu"> Tuvalu</label>
+                                                <label><input type="checkbox" value="Uganda"> Uganda</label>
+                                                <label><input type="checkbox" value="Ukraine"> Ukraine</label>
+                                                <label><input type="checkbox" value="United Arab Emirates"> United Arab Emirates</label>
+                                                <label><input type="checkbox" value="United Kingdom"> United Kingdom</label>
+                                                <label><input type="checkbox" value="United States"> United States</label>
+                                                <label><input type="checkbox" value="Uruguay"> Uruguay</label>
+                                                <label><input type="checkbox" value="Uzbekistan"> Uzbekistan</label>
+                                                <label><input type="checkbox" value="Vanuatu"> Vanuatu</label>
+                                                <label><input type="checkbox" value="Vatican City"> Vatican City</label>
+                                                <label><input type="checkbox" value="Venezuela"> Venezuela</label>
+                                                <label><input type="checkbox" value="Vietnam"> Vietnam</label>
+                                                <label><input type="checkbox" value="Yemen"> Yemen</label>
+                                                <label><input type="checkbox" value="Zambia"> Zambia</label>
+                                                <label><input type="checkbox" value="Zimbabwe"> Zimbabwe</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
 
                                     <!-- Required Talent -->
                                     <div class="col-lg-12 col-6">
@@ -1102,7 +1038,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class=" text fw-bold">BRIEF (OPTIONAL)</label>
-                                            <input type="file" class="form-control" name="upload_file">
+                                            <input type="file" class="form-control" name="brief_file">
                                         </div>
                                     </div>
                                 </div>
@@ -1118,652 +1054,104 @@
                 <!-- intl-tel-input JS for phone inputs with flags -->
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js">
                 </script>
-
-                <script>
-                    // Progress and step navigation for client form
-   let currentStep = 1;
-    let progress = 0; // Start with 0%
-
-    function nextStep() {
-        const stepElements = document.querySelectorAll('.step');
-        const progressBar = document.getElementById('clientProgressBar');
-        
-        // Get current step form
-        const currentStepElement = document.getElementById(`step${currentStep}`);
-        const inputs = currentStepElement.querySelectorAll('input, select');
-        
-        // Validate the current step's inputs
-        let isValid = true;
-        inputs.forEach(input => {
-            if (!input.checkValidity()) {
-                input.classList.add('is-invalid');  // Highlight invalid fields
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');  // Remove the invalid highlight if corrected
-            }
-        });
-
-        if (!isValid) {
-            // Scroll to the top to focus on the first invalid field
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            return;
-        }
-
-        // Hide the current step
-        currentStepElement.classList.add('d-none');
-
-        // Increment step
-        currentStep++;
-
-        // Show the next step if it exists
-        const nextStepElement = document.getElementById(`step${currentStep}`);
-        if (nextStepElement) {
-            nextStepElement.classList.remove('d-none');
-        }
-
-        // Increment progress by 25% on each "Next" button press
-        progress += 25;
-        progressBar.style.width = `${progress}%`;
-        progressBar.setAttribute('aria-valuenow', progress);
-        progressBar.textContent = `${progress}%`;
-
-        // Scroll to the top of the form after step change
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function prevStep() {
-        const stepElements = document.querySelectorAll('.step');
-        const progressBar = document.getElementById('clientProgressBar');
-
-        // Hide the current step
-        const currentStepElement = document.getElementById(`step${currentStep}`);
-        currentStepElement.classList.add('d-none');
-
-        // Decrement step
-        currentStep--;
-
-        // Show the previous step
-        const prevStepElement = document.getElementById(`step${currentStep}`);
-        if (prevStepElement) {
-            prevStepElement.classList.remove('d-none');
-        }
-
-        // Decrease progress by 25% on each "Back" button press
-        progress -= 25;
-        progressBar.style.width = `${progress}%`;
-        progressBar.setAttribute('aria-valuenow', progress);
-        progressBar.textContent = `${progress}%`;
-
-        // Scroll to the top of the form after step change
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Event listeners for next and previous buttons
-    document.querySelectorAll('.btn-next').forEach(button => {
-        button.addEventListener('click', nextStep);
-    });
-
-    document.querySelectorAll('.btn-prev').forEach(button => {
-        button.addEventListener('click', prevStep);
-    });
-// -----------------------------------------------
-//  talent list js 
-document.addEventListener("DOMContentLoaded", function () {
-    const talents = [
-        {
-        name: 'Actor',
-        subcategories: ['Lead role', 'Featured', 'Extras', 'Voice-over Artist', 'Body double', 'Stunt person']
-    },
-    {
-        name: 'Model',
-        subcategories: ["Art Models",
-"Body Parts",
-"Child",
-"Commercial",
-"Expecting (Pregnant)","Erotic Photography",
-"Fashion (Catalogue)",
-"Fitness",
-"Freelance",
-"Glamour","Hair Model",
-"Plus-Size",
-"Image / Party",
-"Mature",
-"Petite",
-"High Fashion (Editorial)",
-"Promotional",
-"Runway / Catwalk",
-"Stock Photography",
-"Swimsuit & Lingerie"]
-    },
-    {
-        name: 'Dancer',
-        subcategories: ['Ayyala',
-'Background',
-'Ballet',
-'Ballroom',
-'Belly',
-'B Boy',
-'Break',
-'Cabaret',
-'Cheerleaders',
-'Choreographers',
-'Contemporary',
-'Dance Group',
-'Dancing Couple',
-'Fictional',
-'Folk',
-'Samba',
-'Go Go',
-'Hip Hop',
-'Kathak',
-'Parade Away',
-'Salsa',
-'Sufi D',
-'Swing',
-'Tap']},
-    
-    {
-        name: 'Film Crew',
-      subcategories: [
-  'Art Director',
-  'Art & Costume',
-  'Assistant Director',
-  'Animation & Graphic Designer',
-  'Copy Writer',
-  'Camera Crew',
-  'Crane Operator',
-  'Director',
-  'DOP',
-  'Sound Crew',
-  'Lighting Crew',
-  'Editor',
-  'Film Maker',
-  'Film Producer',
-  'Focus Puller Operator',
-  'Line Producer',
-  'Other Film & Stage Crew',
-  'Post Production Staff',
-  'Production Manager',
-  'Photographer',
-  'Runner',
-  'Script Writer',
-  'Sound Engineer',
-  'Videographer'
-]
-
-    },
-    {
-        name: 'Influencers',
-       subcategories: [
-  'Beauty',
-  'Bloggers',
-  'Celebrity',
-  'Fashion',
-  'Fitness & Wellness',
-  'Food',
-  'Gaming & Tech',
-  'Influencers to Attend Events',
-  'Lifestyle',
-  'Men’s Products',
-  'Travel',
-  'Women’s Products',
-  'VIEW ALL'
-]
-
-    },
-    {
-        name: 'Makeup and Hair',
-        subcategories: ['Body Painter',
-'Creative Makeup Artist',
-'Face Painter',
-'Fashion Stylist',
-'Hair Stylist',
-'Henna Artist',
-'Makeup Artists',
-'Wardrobe Stylist']
-    },
-    {
-        name: 'Photo | Video',
-        subcategories: ['Abstract',
-'Aerial',
-'Architecture',
-'Child',
-'Commercial',
-'Digital',
-'Documentary',
-'Event',
-'Fashion',
-'Film',
-'Fine Art',
-'Food',
-'Landscape',
-'Lifestyle',
-'Nature',
-'Portrait',
-'Sports',
-'Street',
-'Travel',
-'Wedding']
-    },
-    {
-        name: 'Musicians',
-     subcategories: [
-  'Guitarist',
-  'Hobbyist',
-  'Independent Artist',
-  'Independent Label Artist',
-  'Live Performer',
-  'Music Band',
-  'Musician',
-  'Orchestral Musician',
-  'Producer - Composer',
-  'Rapper',
-  'Session Musician',
-  'Singer',
-  'Song Writer',
-  'Teacher',
-  'TV Show Performer',
-  'Violinist'
-]
-
-    },
-    {
-        name: 'Event Staff and Ushers',
-      subcategories: [
-  'Bartender',
-  'Brand Ambassador',
-  'Caterer',
-  'Chef',
-  'Concierge',
-  'Decorators',
-  'Event Supervisor',
-  'Host / Hostess',
-  'Marketing Coordinator',
-  'Promotional Staff',
-  'Ushers',
-  'Waitress'
-]
-
-    },
-    {
-        name: 'Entertainer / Performers',
-        subcategories: [
-  'Balloon Decorator',
-  'Bottle Twister',
-  'Caricature',
-  'Clown',
-  'Comedian',
-  'Emcee',
-  'Fire Artist',
-  'Hypnotist',
-  'Illustrationist',
-  'Jugglers',
-  'Live Statue',
-  'Magician',
-  'Media Reporter',
-  'News Reader',
-  'Others',
-  'Public Speaker',
-  'Radio Jockey RJ',
-  'Shadow Performer',
-  'Stand-Up Artist',
-  'Stilt Walker',
-  'Unicyclist',
-  'Video Jockey VJ',
-  'Virtual Host',
-  'Voice Over'
-]
-
-    },
-    {
-        name: 'Celebrity',
-        subcategories: []
-    },
-
-];
-
-    const dropdownBtn = document.getElementById("dropdown-btn");
-    const mainCategoryContainer = document.getElementById("main-category-container");
-    const selectedCategoriesParagraph = document.getElementById("selectedCategories");
-
-    // Function to create and populate categories and subcategories
-    function generateCategories() {
-        let html = '<ul class="main-category">';
-        talents.forEach(talent => {
-            html += `
-                <li class="main-category-item">
-                    <label>
-                        <input  type="checkbox" class="category-checkbox" value="${talent.name}">
-                        ${talent.name}
-                    </label>`;
-            if (talent.subcategories.length > 0) {
-                html += `<ul class="sub-category">`;
-                talent.subcategories.forEach(sub => {
-                    html += `
-                        <li>
-                            <label>
-                                <input type="checkbox" class="subcategory-checkbox" value="${sub}">
-                                ${sub}
-                            </label>
-                        </li>`;
-                });
-                html += `</ul>`;
-            }
-            html += `</li>`;
-        });
-        html += '</ul>';
-        mainCategoryContainer.innerHTML = html;
-    }
-
-    // Generate the categories on page load
-    generateCategories();
-
-    // Toggle the visibility of the main categories on dropdown button click
-    dropdownBtn.addEventListener('click', function () {
-        if (mainCategoryContainer.style.display === "none" || mainCategoryContainer.style.display === "") {
-            mainCategoryContainer.style.display = "block";
-        } else {
-            mainCategoryContainer.style.display = "none";
-        }
-    });
-
-    // Function to handle checkbox selections
-    function handleCheckboxSelection() {
-        const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
-        const subCategoryCheckboxes = document.querySelectorAll('.subcategory-checkbox');
-
-        let selectedOptions = [];
-
-        // Collect selected main categories
-        categoryCheckboxes.forEach(function (checkbox) {
-            if (checkbox.checked) {
-                selectedOptions.push(checkbox.value);
-            }
-        });
-
-        // Collect selected subcategories
-        subCategoryCheckboxes.forEach(function (subCheckbox) {
-            if (subCheckbox.checked) {
-                selectedOptions.push(subCheckbox.value);
-            }
-        });
-
-        // Update the paragraph with the selected values
-        if (selectedOptions.length > 0) {
-            selectedCategoriesParagraph.textContent = 'Selected Talents: ' + selectedOptions.join(', ');
-        } else {
-            selectedCategoriesParagraph.textContent = 'Selected Talents: None';
-        }
-    }
-
-    // Event delegation for dynamically added checkboxes
-    mainCategoryContainer.addEventListener('change', handleCheckboxSelection);
-
-    // Close dropdown if clicked outside
-    document.addEventListener('click', function (e) {
-        if (!e.target.closest('#dropdown-container')) {
-            mainCategoryContainer.style.display = "none";
-        }
-    });
-});
-
-
-
-// // --------------------------xxxxxxxxxxxxxxxxx
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize intl-tel-input for WhatsApp Number
-    const whatsappInput = document.querySelector("#whatsappNumber");
-    window.intlTelInput(whatsappInput, {
-        initialCountry: "ae",  // Detect country automatically based on the user's IP
-        geoIpLookup: function(callback) {
-            fetch('https://ipinfo.io/json', { headers: { 'Accept': 'application/json' } })
-                .then((resp) => resp.json())
-                .then((resp) => {
-                    const countryCode = (resp && resp.country) ? resp.country : "US";
-                    callback(countryCode);
-                });
-        },
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",  // Load utility script for formatting
-    });
-
-    // Initialize intl-tel-input for Calling Number
-    const callingInput = document.querySelector("#callingNumber");
-    window.intlTelInput(callingInput, {
-        initialCountry: "ae",  // Detect country automatically based on the user's IP
-        geoIpLookup: function(callback) {
-            fetch('https://ipinfo.io/json', { headers: { 'Accept': 'application/json' } })
-                .then((resp) => resp.json())
-                .then((resp) => {
-                    const countryCode = (resp && resp.country) ? resp.country : "US";
-                    callback(countryCode);
-                });
-        },
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",  // Load utility script for formatting
-    });
-});
-// document.addEventListener('DOMContentLoaded', function () {
-//     // When country is selected
-//     $('#countryDropdown').on('change', function () {
-//         const country = $(this).val();
-
-//         // Fetch states/regions based on the selected country
-//         $.ajax({
-//             url: '/get-states', // Route to fetch states
-//             type: 'GET',
-//             data: { country: country },
-//             success: function (states) {
-//                 $('#stateDropdown').empty().append('<option value="" disabled selected>Select State/Region</option>');
-//                 $('#cityDropdown').empty().append('<option value="" disabled selected>Select City</option>');
-
-//                 // Populate states dropdown
-//                 $.each(states, function (index, state) {
-//                     $('#stateDropdown').append('<option value="' + state + '">' + state + '</option>');
-//                 });
-//             }
-//         });
-//     });
-
-//     // When state is selected
-//     $('#stateDropdown').on('change', function () {
-//         const state = $(this).val();
-
-//         // Fetch cities based on the selected state
-//         $.ajax({
-//             url: '/get-cities', // Route to fetch cities
-//             type: 'GET',
-//             data: { state: state },
-//             success: function (cities) {
-//                 $('#cityDropdown').empty().append('<option value="" disabled selected>Select City</option>');
-
-//                 // Populate cities dropdown
-//                 $.each(cities, function (index, city) {
-//                     $('#cityDropdown').append('<option value="' + city + '">' + city + '</option>');
-//                 });
-//             }
-//         });
-//     });
-// });
-
-
-
-
-
-
-
-
-
-                </script>
-
-                <div class="col-lg-1"> </div>
-
-                <div class="col-md-5 col-sm-12 p-4 pt-0 text-center mt-2">
-                    <!-- <<div class="card-title innertext">
-                        <h1 style="text-align:center; color: white !important;"> Follow us on Instagram</h1><br>
-                </div> -->
-
-
-                <!-- Mobile Frame Container -->
-                <div class="mobile-frame d-none d-md-block ">
-                    <!-- Instagram Feed Iframe -->
-                    <iframe src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html"
-                        scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed">
-                    </iframe>
+                <div class="col-lg-1"></div>
+                <div class="col-md-5 col-sm-12 pt-0 text-center mt-md-2 p-md-4 test">
+                    <div class="mobile-frame">
+                        <!-- LightWidget WIDGET -->
+                        <iframe src="https://cdn.lightwidget.com/widgets/fdd393cebb295d169e8957cc7a61300c.html" 
+                            scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed">
+                        </iframe>
+                    </div>
                 </div>
             </div>
-
         </div>
- 
-</div>
+    </div>
 
-</div>
+    <section style="padding-top: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <div class="innertext text-left">
+                        <h1 style="text-align:left;">Contact <span>Us</span></h1><br>
+                        <div class="row">
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    // Initialize the modal
-    const inquiryModal = new bootstrap.Modal(document.getElementById('inquiryModal'), {
-        keyboard: false,
-        backdrop: 'static',
-    });
-
-    // Form references
-    const generalForm = document.getElementById('generalInquiryForm');
-    const clientForm = document.getElementById('clientInquiryForm');
-    const generalInquiryBtn = document.getElementById('generalInquiryBtn');
-    const clientInquiryBtn = document.getElementById('clientInquiryBtn');
-
-    // Track if a form has been selected
-    let formSelected = false;
-
-    // Function to show the specified form
-    function showForm(formType) {
-        if (formType === 'general') {
-            generalForm.style.display = 'block';
-            clientForm.style.display = 'none';
-        } else if (formType === 'client') {
-            generalForm.style.display = 'none';
-            clientForm.style.display = 'block';
-        }
-        formSelected = true; // Mark that a form has been selected
-    }
-
-    // Show modal when the page loads
-    inquiryModal.show();
-
-    // Attach event listeners to buttons
-    generalInquiryBtn.addEventListener('click', function () {
-        showForm('general');
-        inquiryModal.hide();
-    });
-
-    clientInquiryBtn.addEventListener('click', function () {
-        showForm('client');
-        inquiryModal.hide();
-    });
-
-    // Handle the modal close event to default to General Inquiry form if no selection was made
-    document.getElementById('inquiryModal').addEventListener('hide.bs.modal', function () {
-        if (!formSelected) {
-            showForm('general');
-        }
-    });
-
-    // Ensure the General Inquiry form is shown by default
-    showForm('general');
-});
-
-</script>
-
-<section class="contactlist">
-    <div class="mobile-frame d-flex justify-content-center  d-md-none mt-5 ">
-                    <!-- Instagram Feed Iframe -->
-                    <iframe src="https://cdn.lightwidget.com/widgets/0aa177f118285cf7b8c7d7abe5d7c349.html"
-                        scrolling="no" allowtransparency="true" class="lightwidget-widget instagram-feed">
-                    </iframe>
-                </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-8">
-                <div class="innertext text-left">
-                    <h1 style="text-align:left;">Contact <span>Us</span></h1><br>
-                    <div class="row">
-
-                        <div class="col-md-12 mb-3">
-                            <div class="text-left">
+                            <div class="col-md-12 mb-3">
+                                <div class="text-left">
+                                    <div class="mb-4">
+                                        <h4 class="text-left fw_500 lateef"> <i
+                                                class="fa-solid px-2 text-yellow fa-phone"></i> PHONE</h4>
+                                        <p class="text-left mx-5">
+                                            <a class="fw_400 text_grey" href="tel:971501234796">+971 50 123 4796</a>
+                                        </p>
+                                    </div>
+                                    <div class="mb-4">
+                                        <h4 class="text-left fw_500 lateef"> <i
+                                                class=" fab px-2 text-yellow fa-whatsapp"></i> WHATSAPP</h4>
+                                        <p class="text-left mx-5 ">
+                                            <a class="text_grey" href="https://wa.me/971501234796" target="_blank">
+                                                +971 50 123 4796
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
                                 <div class="mb-4">
                                     <h4 class="text-left fw_500 lateef"> <i
-                                            class="fa-solid px-2 text-yellow fa-phone"></i> PHONE</h4>
+                                            class="fa-solid px-2 text-yellow fa-envelope"></i> EMAIL</h4>
                                     <p class="text-left mx-5">
-                                        <a class="fw_400 text_grey" href="tel:971501234796">+971 50 123 4796</a>
+                                        <a class="fw_400 text_grey"
+                                            href="mailto:info@casttalents.com">info@casttalents.com</a><br />
                                     </p>
                                 </div>
                                 <div class="mb-4">
                                     <h4 class="text-left fw_500 lateef"> <i
-                                            class=" fab px-2 text-yellow fa-whatsapp"></i> WHATSAPP</h4>
-                                    <p class="text-left mx-5 ">
-                                        <a class="text_grey" href="https://wa.me/971501234796" target="_blank">
-                                            +971 50 123 4796
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <h4 class="text-left fw_500 lateef"> <i
-                                        class="fa-solid px-2 text-yellow fa-envelope"></i> EMAIL</h4>
-                                <p class="text-left mx-5">
-                                    <a class="fw_400 text_grey"
-                                        href="mailto:info@casttalents.com">info@casttalents.com</a><br />
-                                </p>
-                            </div>
-                            <div class="mb-4">
-                                <h4 class="text-left fw_500 lateef"> <i
-                                        class="fa-solid px-2 text-yellow fa-location-dot"></i> ADDRESS</h4>
-                                <p class="text-left mx-5">
-                                    <span class="fw_400 text_grey"><span class="fw_500 text-dark"> UAE
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
-                                        Business Bay, Dubai, United Arab Emirates | <a class="fw_400 text_grey"
-                                            href="mailto:dxb@casttalents.com">dxb@casttalents.com</a></span><br />
-                                    <span class="fw_400 text_grey"><span class="fw_500 text-dark"> KSA
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
-                                        Al Olaya St, Riyadh, KSA | <a class="fw_400 text_grey"
-                                            href="mailto:ksa@casttalents.com">ksa@casttalents.com</a></span><br />
-                                    <span class="fw_400 text_grey"><span class="fw_500 text-dark"> OMAN &nbsp;:
-                                        </span> 18th November St, Muscat, Oman |
-                                        <a class="fw_400 text_grey"
-                                            href="mailto:oman@casttalents.com">oman@casttalents.com</a></span><br />
+                                            class="fa-solid px-2 text-yellow fa-location-dot"></i> ADDRESS</h4>
+                                    <p class="text-left mx-5">
+                                        <span class="fw_400 text_grey"><span class="fw_500 text-dark"> UAE
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
+                                            Business Bay, Dubai, United Arab Emirates | <a class="fw_400 text_grey"
+                                                href="mailto:dxb@casttalents.com">dxb@casttalents.com</a></span><br />
+                                        <span class="fw_400 text_grey"><span class="fw_500 text-dark"> KSA
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
+                                            Al Olaya St, Riyadh, KSA | <a class="fw_400 text_grey"
+                                                href="mailto:ksa@casttalents.com">ksa@casttalents.com</a></span><br />
+                                        <span class="fw_400 text_grey"><span class="fw_500 text-dark"> OMAN &nbsp;:
+                                            </span> 18th November St, Muscat, Oman |
+                                            <a class="fw_400 text_grey"
+                                                href="mailto:oman@casttalents.com">oman@casttalents.com</a></span><br />
 
-                                </p>
-                                <!-- <p class="text-left mx-5">
-                                        <a class="fw_400 text_grey" href="mailto:dxb@casttalents.com"><span class="fw_500 text-dark"> DUBAI: </span> dubai address</a><br/>
-                                        <a class="fw_400 text_grey" href="mailto:oman@casttalents.com"><span class="fw_500 text-dark"> MUSCAT, OMAN: </span> oman address</a><br/>
-                                        <a class="fw_400 text_grey" href="mailto:ksa@casttalents.com"><span class="fw_500 text-dark"> RIYADH, KSA: </span> riyadh address</a><br/>
-                                    </p> -->
-                            </div>
-                            <div class="social-icons mx-5 d-flex gap-4">
-                                <a class="text-yellow fs-3" target="_blank" href="https://wa.me/+971501234796"><i
-                                        class="fa-brands fa-whatsapp"></i></a>
-                                <a class="text-yellow fs-3" target="_blank"
-                                    href="https://www.instagram.com/casttalents.llc/"><i
-                                        class="fa-brands fa-instagram"></i></a>
-                                <a class="text-yellow fs-3" target="_blank"
-                                    href="https://www.facebook.com/abeera.k.sheikh"><i
-                                        class="fa-brands fa-facebook"></i></a>
-                                <a class="text-yellow fs-3" target="_blank"
-                                    href="https://www.linkedin.com/in/abeera-sheikh-uae-based-casting-specialist-actor-and-founder-of-aks-castings-llc-723063147"><i
-                                        class="fa-brands fa-linkedin"></i></a>
-                                <a class="text-yellow fs-3" target="_blank"
-                                    href="https://youtube.com/@casttalents "><i
-                                        class="fa-brands fa-youtube"></i></a>
+                                    </p>
+                                    <!-- <p class="text-left mx-5">
+                                            <a class="fw_400 text_grey" href="mailto:dxb@casttalents.com"><span class="fw_500 text-dark"> DUBAI: </span> dubai address</a><br/>
+                                            <a class="fw_400 text_grey" href="mailto:oman@casttalents.com"><span class="fw_500 text-dark"> MUSCAT, OMAN: </span> oman address</a><br/>
+                                            <a class="fw_400 text_grey" href="mailto:ksa@casttalents.com"><span class="fw_500 text-dark"> RIYADH, KSA: </span> riyadh address</a><br/>
+                                        </p> -->
+                                </div>
+                                <div class="social-icons mx-5 d-flex gap-4">
+                                    <a class="text-yellow fs-3" target="_blank" href="https://wa.me/+971501234796"><i
+                                            class="fa-brands fa-whatsapp"></i></a>
+                                    <a class="text-yellow fs-3" target="_blank"
+                                        href="https://www.instagram.com/casttalents.llc/"><i
+                                            class="fa-brands fa-instagram"></i></a>
+                                    <a class="text-yellow fs-3" target="_blank"
+                                        href="https://www.facebook.com/abeera.k.sheikh"><i
+                                            class="fa-brands fa-facebook"></i></a>
+                                    <a class="text-yellow fs-3" target="_blank"
+                                        href="https://www.linkedin.com/in/abeera-sheikh-uae-based-casting-specialist-actor-and-founder-of-aks-castings-llc-723063147"><i
+                                            class="fa-brands fa-linkedin"></i></a>
+                                    <a class="text-yellow fs-3" target="_blank"
+                                        href="https://youtube.com/@casttalents "><i
+                                            class="fa-brands fa-youtube"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-4">
-                <div id="map"></div>
+                <div class="col-lg-4 col-md-4">
+                    <div id="map"></div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -2193,15 +1581,482 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }, { passive: false }); // Important: Set passive to false to allow preventDefault
 });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize the modal
+        const inquiryModal = new bootstrap.Modal(document.getElementById('inquiryModal'), {
+            keyboard: false,
+            backdrop: 'static',
+        });
 
+        // Form references
+        const generalForm = document.getElementById('generalInquiryForm');
+        const clientForm = document.getElementById('clientInquiryForm');
+        const generalInquiryBtn = document.getElementById('generalInquiryBtn');
+        const clientInquiryBtn = document.getElementById('clientInquiryBtn');
 
+        // Track if a form has been selected
+        let formSelected = false;
 
+        // Function to show the specified form
+        function showForm(formType) {
+            if (formType === 'general') {
+                generalForm.style.display = 'block';
+                clientForm.style.display = 'none';
+            } else if (formType === 'client') {
+                generalForm.style.display = 'none';
+                clientForm.style.display = 'block';
+            }
+            formSelected = true; // Mark that a form has been selected
+        }
 
+        // Show modal when the page loads
+        inquiryModal.show();
 
+        // Attach event listeners to buttons
+        generalInquiryBtn.addEventListener('click', function () {
+            showForm('general');
+            inquiryModal.hide();
+        });
 
+        clientInquiryBtn.addEventListener('click', function () {
+            showForm('client');
+            inquiryModal.hide();
+        });
 
+        // Handle the modal close event to default to General Inquiry form if no selection was made
+        document.getElementById('inquiryModal').addEventListener('hide.bs.modal', function () {
+            if (!formSelected) {
+                showForm('general');
+            }
+        });
 
+        // Ensure the General Inquiry form is shown by default
+        showForm('general');
+    });
+</script>
 
+<script>
+    let currentStep = 1;
+    let progress = 0; // Start with 0%
+
+    function nextStep() {
+        const stepElements = document.querySelectorAll('.step');
+        const progressBar = document.getElementById('clientProgressBar');
+        
+        // Get current step form
+        const currentStepElement = document.getElementById(`step${currentStep}`);
+        const inputs = currentStepElement.querySelectorAll('input, select');
+        
+        // Validate the current step's inputs
+        let isValid = true;
+        inputs.forEach(input => {
+            if (!input.checkValidity()) {
+                input.classList.add('is-invalid');  // Highlight invalid fields
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');  // Remove the invalid highlight if corrected
+            }
+        });
+
+        if (!isValid) {
+            // Scroll to the top to focus on the first invalid field
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+
+        // Hide the current step
+        currentStepElement.classList.add('d-none');
+
+        // Increment step
+        currentStep++;
+
+        // Show the next step if it exists
+        const nextStepElement = document.getElementById(`step${currentStep}`);
+        if (nextStepElement) {
+            nextStepElement.classList.remove('d-none');
+        }
+
+        // Increment progress by 25% on each "Next" button press
+        progress += 25;
+        progressBar.style.width = `${progress}%`;
+        progressBar.setAttribute('aria-valuenow', progress);
+        progressBar.textContent = `${progress}%`;
+
+        // Scroll to the top of the form after step change
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function prevStep() {
+        const stepElements = document.querySelectorAll('.step');
+        const progressBar = document.getElementById('clientProgressBar');
+
+        // Hide the current step
+        const currentStepElement = document.getElementById(`step${currentStep}`);
+        currentStepElement.classList.add('d-none');
+
+        // Decrement step
+        currentStep--;
+
+        // Show the previous step
+        const prevStepElement = document.getElementById(`step${currentStep}`);
+        if (prevStepElement) {
+            prevStepElement.classList.remove('d-none');
+        }
+
+        // Decrease progress by 25% on each "Back" button press
+        progress -= 25;
+        progressBar.style.width = `${progress}%`;
+        progressBar.setAttribute('aria-valuenow', progress);
+        progressBar.textContent = `${progress}%`;
+
+        // Scroll to the top of the form after step change
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Event listeners for next and previous buttons
+    document.querySelectorAll('.btn-next').forEach(button => {
+        button.addEventListener('click', nextStep);
+    });
+
+    document.querySelectorAll('.btn-prev').forEach(button => {
+        button.addEventListener('click', prevStep);
+    });
+    // -----------------------------------------------
+    //  talent list js 
+    document.addEventListener("DOMContentLoaded", function () {
+        const talents = [
+            {
+                name: 'Actor',
+                subcategories: ['Lead role', 'Featured', 'Extras', 'Voice-over Artist', 'Body double', 'Stunt person']
+            },
+            {
+                name: 'Model',
+                subcategories: [
+                    "Art Models",
+                    "Body Parts",
+                    "Child",
+                    "Commercial",
+                    "Expecting (Pregnant)","Erotic Photography",
+                    "Fashion (Catalogue)",
+                    "Fitness",
+                    "Freelance",
+                    "Glamour","Hair Model",
+                    "Plus-Size",
+                    "Image / Party",
+                    "Mature",
+                    "Petite",
+                    "High Fashion (Editorial)",
+                    "Promotional",
+                    "Runway / Catwalk",
+                    "Stock Photography",
+                    "Swimsuit & Lingerie"
+                ]
+            },
+            {
+                name: 'Dancer',
+                subcategories: [
+                    'Ayyala',
+                    'Background',
+                    'Ballet',
+                    'Ballroom',
+                    'Belly',
+                    'B Boy',
+                    'Break',
+                    'Cabaret',
+                    'Cheerleaders',
+                    'Choreographers',
+                    'Contemporary',
+                    'Dance Group',
+                    'Dancing Couple',
+                    'Fictional',
+                    'Folk',
+                    'Samba',
+                    'Go Go',
+                    'Hip Hop',
+                    'Kathak',
+                    'Parade Away',
+                    'Salsa',
+                    'Sufi D',
+                    'Swing',
+                    'Tap'
+                ]
+            },
+            {
+                name: 'Film Crew',
+                subcategories: [
+                    'Art Director',
+                    'Art & Costume',
+                    'Assistant Director',
+                    'Animation & Graphic Designer',
+                    'Copy Writer',
+                    'Camera Crew',
+                    'Crane Operator',
+                    'Director',
+                    'DOP',
+                    'Sound Crew',
+                    'Lighting Crew',
+                    'Editor',
+                    'Film Maker',
+                    'Film Producer',
+                    'Focus Puller Operator',
+                    'Line Producer',
+                    'Other Film & Stage Crew',
+                    'Post Production Staff',
+                    'Production Manager',
+                    'Photographer',
+                    'Runner',
+                    'Script Writer',
+                    'Sound Engineer',
+                    'Videographer'
+                ]
+            },
+            {
+                name: 'Influencers',
+                subcategories: [
+                    'Beauty',
+                    'Bloggers',
+                    'Celebrity',
+                    'Fashion',
+                    'Fitness & Wellness',
+                    'Food',
+                    'Gaming & Tech',
+                    'Influencers to Attend Events',
+                    'Lifestyle',
+                    'Men’s Products',
+                    'Travel',
+                    'Women’s Products',
+                    'VIEW ALL'
+                ]
+            },
+            {
+                name: 'Makeup and Hair',
+                subcategories: [
+                    'Body Painter',
+                    'Creative Makeup Artist',
+                    'Face Painter',
+                    'Fashion Stylist',
+                    'Hair Stylist',
+                    'Henna Artist',
+                    'Makeup Artists',
+                    'Wardrobe Stylist'
+                ]
+            },
+            {
+                name: 'Photo | Video',
+                subcategories: [
+                    'Abstract',
+                    'Aerial',
+                    'Architecture',
+                    'Child',
+                    'Commercial',
+                    'Digital',
+                    'Documentary',
+                    'Event',
+                    'Fashion',
+                    'Film',
+                    'Fine Art',
+                    'Food',
+                    'Landscape',
+                    'Lifestyle',
+                    'Nature',
+                    'Portrait',
+                    'Sports',
+                    'Street',
+                    'Travel',
+                    'Wedding'
+                ]
+            },
+            {
+                name: 'Musicians',
+                subcategories: [
+                    'Guitarist',
+                    'Hobbyist',
+                    'Independent Artist',
+                    'Independent Label Artist',
+                    'Live Performer',
+                    'Music Band',
+                    'Musician',
+                    'Orchestral Musician',
+                    'Producer - Composer',
+                    'Rapper',
+                    'Session Musician',
+                    'Singer',
+                    'Song Writer',
+                    'Teacher',
+                    'TV Show Performer',
+                    'Violinist'
+                ]
+            },
+            {
+                name: 'Event Staff and Ushers',
+                subcategories: [
+                    'Bartender',
+                    'Brand Ambassador',
+                    'Caterer',
+                    'Chef',
+                    'Concierge',
+                    'Decorators',
+                    'Event Supervisor',
+                    'Host / Hostess',
+                    'Marketing Coordinator',
+                    'Promotional Staff',
+                    'Ushers',
+                    'Waitress'
+                ]
+            },
+            {
+                name: 'Entertainer / Performers',
+                subcategories: [
+                    'Balloon Decorator',
+                    'Bottle Twister',
+                    'Caricature',
+                    'Clown',
+                    'Comedian',
+                    'Emcee',
+                    'Fire Artist',
+                    'Hypnotist',
+                    'Illustrationist',
+                    'Jugglers',
+                    'Live Statue',
+                    'Magician',
+                    'Media Reporter',
+                    'News Reader',
+                    'Others',
+                    'Public Speaker',
+                    'Radio Jockey RJ',
+                    'Shadow Performer',
+                    'Stand-Up Artist',
+                    'Stilt Walker',
+                    'Unicyclist',
+                    'Video Jockey VJ',
+                    'Virtual Host',
+                    'Voice Over'
+                ]
+            },
+            {
+                name: 'Celebrity',
+                subcategories: []
+            }
+        ];
+
+        const dropdownBtn = document.getElementById("dropdown-btn");
+        const mainCategoryContainer = document.getElementById("main-category-container");
+        const selectedCategoriesParagraph = document.getElementById("selectedCategories");
+
+        // Function to create and populate categories and subcategories
+        function generateCategories() {
+            let html = '<ul class="main-category">';
+            talents.forEach(talent => {
+                html += `
+                    <li class="main-category-item">
+                        <label>
+                            <input  type="checkbox" class="category-checkbox" value="${talent.name}">
+                            ${talent.name}
+                        </label>`;
+                if (talent.subcategories.length > 0) {
+                    html += `<ul class="sub-category">`;
+                    talent.subcategories.forEach(sub => {
+                        html += `
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="subcategory-checkbox" value="${sub}">
+                                    ${sub}
+                                </label>
+                            </li>`;
+                    });
+                    html += `</ul>`;
+                }
+                html += `</li>`;
+            });
+            html += '</ul>';
+            mainCategoryContainer.innerHTML = html;
+        }
+
+        // Generate the categories on page load
+        generateCategories();
+
+        // Toggle the visibility of the main categories on dropdown button click
+        dropdownBtn.addEventListener('click', function () {
+            if (mainCategoryContainer.style.display === "none" || mainCategoryContainer.style.display === "") {
+                mainCategoryContainer.style.display = "block";
+            } else {
+                mainCategoryContainer.style.display = "none";
+            }
+        });
+
+        // Function to handle checkbox selections
+        function handleCheckboxSelection() {
+            const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
+            const subCategoryCheckboxes = document.querySelectorAll('.subcategory-checkbox');
+
+            let selectedOptions = [];
+
+            // Collect selected main categories
+            categoryCheckboxes.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    selectedOptions.push(checkbox.value);
+                }
+            });
+
+            // Collect selected subcategories
+            subCategoryCheckboxes.forEach(function (subCheckbox) {
+                if (subCheckbox.checked) {
+                    selectedOptions.push(subCheckbox.value);
+                }
+            });
+
+            // Update the paragraph with the selected values
+            if (selectedOptions.length > 0) {
+                selectedCategoriesParagraph.textContent = 'Selected Talents: ' + selectedOptions.join(', ');
+            } else {
+                selectedCategoriesParagraph.textContent = 'Selected Talents: None';
+            }
+        }
+
+        // Event delegation for dynamically added checkboxes
+        mainCategoryContainer.addEventListener('change', handleCheckboxSelection);
+
+        // Close dropdown if clicked outside
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('#dropdown-container')) {
+                mainCategoryContainer.style.display = "none";
+            }
+        });
+    });
+    // // --------------------------xxxxxxxxxxxxxxxxx
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize intl-tel-input for WhatsApp Number
+        const whatsappInput = document.querySelector("#whatsappNumber");
+        window.intlTelInput(whatsappInput, {
+            initialCountry: "ae",  // Detect country automatically based on the user's IP
+            geoIpLookup: function(callback) {
+                fetch('https://ipinfo.io/json', { headers: { 'Accept': 'application/json' } })
+                    .then((resp) => resp.json())
+                    .then((resp) => {
+                        const countryCode = (resp && resp.country) ? resp.country : "US";
+                        callback(countryCode);
+                    });
+            },
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",  // Load utility script for formatting
+        });
+
+        // Initialize intl-tel-input for Calling Number
+        const callingInput = document.querySelector("#callingNumber");
+        window.intlTelInput(callingInput, {
+            initialCountry: "ae",  // Detect country automatically based on the user's IP
+            geoIpLookup: function(callback) {
+                fetch('https://ipinfo.io/json', { headers: { 'Accept': 'application/json' } })
+                    .then((resp) => resp.json())
+                    .then((resp) => {
+                        const countryCode = (resp && resp.country) ? resp.country : "US";
+                        callback(countryCode);
+                    });
+            },
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",  // Load utility script for formatting
+        });
+    });
 </script>
 
 {{-- <style>
