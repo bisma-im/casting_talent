@@ -473,8 +473,8 @@
                                           <label for="whatsapp_number">Whatsapp Number</label>
                                           <br>
                                           <input type="tel" class="form-control phone-input w-100"
-                                             name="whatsapp_number" placeholder="(000) 000 000"
-                                             value="{{ old('whatsapp_number', $userInfo->whatsapp_number ?? '') }}"
+                                             name="whatsapp_number"  placeholder="+971 50 123 4567"
+                                             value="{{ old('whatsapp_number', $userInfo->whatsapp_number ?? '+971') }}"
                                              required style="width: 389px !important;">
                                           @error('whatsapp_number')
                                           <div class="text-danger">{{ $message }}</div>
