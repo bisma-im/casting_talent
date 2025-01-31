@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p><b>Comprehensive Production Equipment Services by Cast Talents</b></p>
                     <p>At Cast Talents, we bring your vision to life from start to finish. With our expertise and reliability, we ensure seamless execution, paying meticulous attention to every detail.</p>
                     <p>Explore our extensive range of high-quality equipment:</p>
-                    <ul>
+                    <ul class="ms-3">
                         <li>Cameras</li>
                         <li>Lenses</li>
                         <li>Tripods</li>
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 </div>
                 <div class="col-12 ">
-                    <div class="modaltext  d-flex justify-content-center flex-column">
+                    <div class="modaltextProduction text-center d-flex justify-content-center flex-column">
                       
                         
                         <ul class="mb-5 pt-3 ">
@@ -152,15 +152,15 @@ document.addEventListener('DOMContentLoaded', function () {
                           <p><strong>Pre-Production:
                           </strong>Concept Development, Scriptwriting, Creative Direction, Storyboarding, Location Scouting, Casting, Research, Consultation, Copywriting.
                           </p>
-                          <p><strong>Post-Production
-                          </strong>Editing, Sound Design, Music, Color Grading, VO Recording, VFX, Infographics, Translation, Subtitling.
+                          <p><strong>Post-Production:
+                          </strong> Editing, Sound Design, Music, Color Grading, VO Recording, VFX, Infographics, Translation, Subtitling.
 
 
 </p>
 
-                          <p><strong>Line Production
+                          <p><strong>Line Production:
                           </strong>
-                          Full coordination of budgets, schedules, logistics, and personnel from pre- to post-production for seamless execution.
+                           Full coordination of budgets, schedules, logistics, and personnel from pre- to post-production for seamless execution.
 
 
 
@@ -470,7 +470,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><strong>Interior & Exterior</strong></li>
 <li><strong>Engagement & Family Portraits</strong></li>
 <li><strong>Cake Smash & Maternity</strong></li>
-<li><strong>Newborn Photography</strong></li>
+<li><strong>New Born Photography</strong></li>
 <li><strong>Commercials</strong></li>
     </ul>
 </div>

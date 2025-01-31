@@ -74,9 +74,9 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext1">
+                    <div class="modaltext1 ">
 
-                        <h2>Hair & <sapn style="color: rgba(216, 31, 38, 1);">Makeup </sapn> Artist</h2>
+                        <h2>Hair & <span style="color: rgba(216, 31, 38, 1);">Makeup </span> Artist</h2>
                         <p><b>Premier Hair and Makeup Services at CAST TALENTS</b></p>
                         <p>At CAST TALENTS, we collaborate exclusively with the finest hair and makeup artists in UAE.
                             Whether you're planning a photo shoot, filming, or preparing for a special occasion, look no
@@ -87,8 +87,8 @@
                             hours, we have the perfect expert to meet your needs.
                         </p>
                         <p>
-                            Experience the difference with <strong>CAST TALENTS</strong> , where quality and professionalism
-                            are our top priorities.
+                        Experience the difference with <strong>CAST TALENTS</strong>, where quality and professionalism
+                        are our top priorities.
 
                         </p>
 
@@ -143,7 +143,7 @@
 <li><strong>Interior & Exterior</strong></li>
 <li><strong>Engagement & Family Portraits</strong></li>
 <li><strong>Cake Smash & Maternity</strong></li>
-<li><strong>Newborn Photography</strong></li>
+<li><strong>New Born Photography</strong></li>
 <li><strong>Commercials</strong></li>
     </ul>
 </div>

@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function () {
   <li><strong>Interior & Exterior</strong></li>
   <li><strong>Engagement & Family Portraits</strong></li>
   <li><strong>Cake Smash & Maternity</strong></li>
-  <li><strong>Newborn Photography</strong></li>
+  <li><strong>New Born Photography</strong></li>
   <li><strong>Commercials</strong></li>
 
     </ul>

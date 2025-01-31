@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="col-12 col-md-6">
                     <div class="modaltext1">
 
-                        <h2>Promotional <sapn style="color: rgba(216, 31, 38, 1);">Events </sapn> Marketing</h2>
+                        <h2>Promotional <span style="color: rgba(216, 31, 38, 1);">Events </span> Marketing</h2>
                         <p><b>Professional Marketing Services by Cast Talents</b></p>
                         <p>Cast Talents offers tailored marketing solutions to advertise events effectively, focusing on budget optimization and impactful strategies.
                         </p>
@@ -512,7 +512,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="modaltext ">
+                    <div class="modaltext1 ">
                         <h2>Security / <span>Bouncer</span></h2>
                         <p class=""><b>Professional Security Services by CAST TALENTS</b></p>
                         <p><strong>VIP and Celebrity Protection:</strong> At CAST TALENTS, ensuring the safety of our
@@ -570,7 +570,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             organize your corporate meetings or events at your preferred location.</p>
                         <p><strong>Service Staff Supply:</strong> We provide professional food catering service staff at
                             competitive rates, ensuring seamless service delivery for your event.</p>
-                        <p><strong>Seminar Arrangements:</strong>Arrange corporate seminars and conferences at prestigious
+                        <p><strong>Seminar Arrangements:</strong> Arrange corporate seminars and conferences at prestigious
                             hotels with competitive pricing, ensuring a conducive environment for productive sessions.</p>
                         <p>Count on Cast Talents to deliver exceptional event management services, tailored to meet your
                             specific requirements and exceed your expectations.</p>

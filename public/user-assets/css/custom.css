@@ -112,6 +112,7 @@ section.homebanner:before {
     font-size: 15px;
     line-height: 20px;
     font-weight: 500;
+    text-align: justify;
 }
 .bannertext h1 span {
     color: rgba(216, 31, 38, 1);
@@ -937,9 +938,9 @@ section.membershipsec {
     line-height: 25px;
     font-weight: 600;
 }
-section.ourclientssec {
+/* section.ourclientssec {
 
-}
+} */
 .testimonailimg img {
     width: 86%;
     border: 5px solid #fff;
@@ -1141,6 +1142,7 @@ section.ourclientssec {
 }
 .missiontext p {
     margin-bottom: 30px;
+    text-align: justify;
 }
 
 section.ourmissionsec{
@@ -1325,9 +1327,9 @@ section.ourmissionsec::before {
     width: 80%;
     margin: 0 auto;
 }
-section.servicessec {
-    /* padding: 100px 0 100px; */
-}
+/* section.servicessec {
+    padding: 100px 0 100px;
+} */
 .modalbox .modalbody {
     padding: 21px 0;
 }
@@ -1386,10 +1388,10 @@ section.servicessec {
     box-shadow: 1px -6px 9px #ccc;
     margin-bottom: 50px;
 }
-section.modalagencysectalents {
-    /* padding: 50px 0 0px; */
-    /* margin-top: 295px !important; */
-}
+/* section.modalagencysectalents {
+    padding: 50px 0 0px;
+    margin-top: 295px !important;
+} */
 section.modalagencysec {
     padding: 50px 0 0px;
     /* margin-top: 295px !important; */
@@ -1408,6 +1410,24 @@ section.modalagencysec {
 .modaltext p {
     margin-bottom: 30px;
     width: 100%;
+    
+    line-height: 25px;
+    font-weight: 400;
+}
+.modaltextProduction h2 {
+    font-size: 66px;
+    line-height: 60px;
+    font-weight: 500;
+    font-family: "Lateef", serif;
+    text-shadow: 0 0 black;
+}
+.modaltextProduction h2 span{
+    color: rgba(216, 31, 38, 1);
+}
+.modaltextProduction p {
+    margin-bottom: 30px;
+    width: 100%;
+   
     line-height: 25px;
     font-weight: 400;
 }
@@ -1449,12 +1469,13 @@ section.modalagencysec0{
     font-weight: 500;
     font-family: "Lateef", serif;
     color: #000;
-    width: 70%;
+    width: 100%;
 }
 .modaltext1 p {
     color: #000;
-
-    width: 90%;
+  
+    text-align: justify;
+    width: 100%;
     margin-bottom: 30px;
 }
 .modaltext2 h2 {
@@ -1469,6 +1490,7 @@ section.modalagencysec0{
     color: black;
     width: 100%;
     margin-bottom: 30px;
+
 }
 .modaltextEquipment h2 {
     font-size: 30px;
@@ -1485,6 +1507,8 @@ section.modalagencysec0{
 
 .modaltextEquipment p {
     color: #000;
+    text-align: justify !important;
+
 }
 
 .modaltextEquipment ul {
@@ -1573,6 +1597,9 @@ section.featuremodalsec1 {
 }
 .jopbody ul {
     padding: 0 14px;
+}
+.CeoText{
+    text-align: justify;
 }
 .jopfooter a {
     background: rgba(28, 120, 135, 1);
