@@ -109,7 +109,7 @@ section.homebanner:before {
 }
 .bannertext p {
     color: #000;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 20px;
     font-weight: 500;
     text-align: justify;
@@ -327,6 +327,7 @@ section.casting {
     width: 100% !important;
     font-weight: bold !important;
     line-height: 25px;
+    text-align: justify;
 }
 @media (max-width: 768px) {
 
@@ -737,6 +738,9 @@ section.casttelentsec::before{
     font-weight: 500;
     font-family: "Lateef", serif;
     text-shadow: 0 0 black;
+}
+.castingport p{
+    text-align: justify;
 }
 .castingport h3 span{
     color: rgba(216, 31, 38, 1);

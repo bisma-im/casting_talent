@@ -251,12 +251,14 @@
                         <li class="mt-3"><a href="{{ route('filming-services.get', ['section' => 'filmmaking']) }}">FILMMAKING</a></li>
                         <li><a href="{{ route('filming-services.get', ['section' => 'filmmaking-equipment']) }}">FILMMAKING EQUIPMENT</a></li>
                         <li><a href="{{ route('filming-services.get', ['section' => 'production']) }}">PRODUCTION</a></li>
-                        <li><a href="{{ route('filming-services.get', ['section' => 'locations-permit']) }}">LOCATIONS / PERMIT</a></li>
+                        <li class=" text-nowrap ps-2"><a href="{{ route('filming-services.get', ['section' => 'tv-commercial-music-videos']) }}">TV Commercial / Music videos / Filming</a></li>
+                       
                     </ul>
                 </div>
                 <div class="col-6">
-                    <ul>
-                        <li class="mt-3"><a href="{{ route('filming-services.get', ['section' => 'tv-commercial-music-videos']) }}">Filming,Tv Commercial,Music Videos</a></li>
+                    <ul> 
+                    <li class="mt-3"><a href="{{ route('filming-services.get', ['section' => 'locations-permit']) }}">LOCATIONS / PERMIT</a></li>
+
                         <li><a href="{{ route('filming-services.get', ['section' => 'videography-photography']) }}">VIDEOGRAPHY / PHOTOGRAPHY</a></li>
                         <li><a href="{{ route('filming-services.get', ['section' => 'transportation']) }}">TRANSPORTATION</a></li>
                         <li><a href="{{ route('filming-services.get', ['section' => 'catering']) }}">CATERING</a></li>
