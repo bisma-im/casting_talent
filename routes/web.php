@@ -45,6 +45,7 @@ Route::get('/download-all-model-images/{id?}', [QueryController::class, 'downloa
 
 //post query
 Route::post('/contact', [QueryController::class, 'storeQuery'])->name('contact.post');
+Route::post('/client-inquiry', [QueryController::class, 'storeClientInquiry'])->name('client-inquiry.post');
 // job apply
 Route::get('/job/{id?}/applied', [ModelController::class, 'jobsApply'])->name('job-apply.post');
 

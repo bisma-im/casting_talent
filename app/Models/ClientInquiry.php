@@ -36,8 +36,8 @@ class ClientInquiry extends Model
         'brief_file'
     ];
 
-    protected $casts = [
-        'start_date' => 'datetime',
-        'end_date' => 'datetime',
-    ];    
+    // protected $casts = [
+    //     'start_date' => 'datetime',
+    //     'end_date' => 'datetime',
+    // ];    
 }

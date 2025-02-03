@@ -619,7 +619,7 @@
                             <div id="clientProgressBar" class="progress-bar bg-success" role="progressbar"
                                 style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
                         </div>
-                        <form id="client-form" clas="clientForm" method="post" ">
+                        <form id="client-form" class="clientForm" method="post">
                             @csrf
                             <!-- Step 1: Basic Info -->
                             <div class="step" id="step1">
@@ -993,6 +993,7 @@
                                             </div>
 
                                             <!-- Paragraph to show selected categories and subcategories -->
+                                            <input type="hidden" name="categories" id="categories" value="" />
                                             <p id="selectedCategories" style="margin-top: 10px; font-weight: bold;">
                                                 Selected Talents: None
                                             </p>
@@ -2009,6 +2010,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Update the paragraph with the selected values
             if (selectedOptions.length > 0) {
+                document.getElementById('categories').value = selectedOptions.join(', ');
                 selectedCategoriesParagraph.textContent = 'Selected Talents: ' + selectedOptions.join(', ');
             } else {
                 selectedCategoriesParagraph.textContent = 'Selected Talents: None';
@@ -2057,6 +2059,75 @@ document.addEventListener('DOMContentLoaded', function () {
             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",  // Load utility script for formatting
         });
     });
+
+    // submit client inquire form
+    $(document).ready(function() {
+        $('#client-form').on('submit', function(e) {
+            e.preventDefault();
+
+            var formData = new FormData(this);
+
+            var submitButton = $(this).find('button[type="submit"]'); // Assuming there's a button of type submit
+
+            // Disable the button and change its text
+            submitButton.prop('disabled', true).text('Submitting...');
+
+            $.ajax({
+                url: "/client-inquiry", // Adjust the URL to match your route
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    console.log(response);
+                    toastr.success('Client Inquiry submitted successfully!');
+                    // Reset the form
+                    resetFormUI();
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX error response:", xhr);  // Log the entire response object to see its structure
+
+                    // if (xhr.responseJSON && xhr.responseJSON.errors) {
+                    //     console.error('Validation Errors:', xhr.responseJSON.errors);
+                    //     alert('Validation Errors: ' + JSON.stringify(xhr.responseJSON.errors));
+                    // } else if (xhr.responseJSON && xhr.responseJSON.error) {
+                    //     console.error('Error:', xhr.responseJSON.error);
+                    //     alert('Error: ' + xhr.responseJSON.error);
+                    // } else {
+                        console.error('Unexpected Error:', xhr.statusText);
+                        toastr.error('An unexpected error occurred.');
+                    // }
+                },
+                complete: function() {
+                    // Enable the button and restore its original text regardless of success or error
+                    submitButton.prop('disabled', false).text('Submit');
+                }
+
+            });
+        });
+
+        function resetFormUI() {
+            // Reset the form
+            $('#client-form')[0].reset();
+            // Reset progress bar and step visibility
+            currentStep = 1;
+            progress = 0;
+            const progressBar = document.getElementById('clientProgressBar');
+            progressBar.style.width = `${progress}%`;
+            progressBar.setAttribute('aria-valuenow', progress);
+            progressBar.textContent = `${progress}%`;
+
+            const stepElements = document.querySelectorAll('.step');
+            stepElements.forEach(step => {
+                step.classList.add('d-none');
+            });
+            document.getElementById('step1').classList.remove('d-none');  // Assuming the first step has ID 'step1'
+        }
+    });
+
 </script>
 
 {{-- <style>

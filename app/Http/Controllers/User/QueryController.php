@@ -49,76 +49,75 @@ class QueryController extends Controller
 
     public function storeClientInquiry(Request $request)
     {
-        // Validate the incoming data
-        $validated = $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'company' => 'nullable|string|max:255',
-            'calling_number' => 'required|string|max:20',
-            'whatsapp_number' => 'nullable|string|max:20',
-            'email' => 'required|email|max:255',
-            'project' => 'required|string|max:20',
-            'country' => 'required|string|max:100',
-            'state' => 'required|string|max:100',
-            'city' => 'required|string|max:100',
-            'no_of_days' => 'required|integer',
-            'no_of_hours' => 'required|integer',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date',
-            'no_of_talents_male' => 'required|integer',
-            'no_of_talents_female' => 'required|integer',
-            'nationalities' => 'nullable|string|max:255',
-            'categories' => 'required|string|max:255',
-            'starting_amount' => 'required|numeric',
-            'maximum_amount' => 'required|numeric',
-            'project_detail' => 'nullable|string',
-            'brief_file' => 'nullable|string'
-        ]);
-
         try {
+            // Validate the incoming data
+            $validated = $request->validate([
+                'first_name' => 'nullable|string|max:255',
+                'last_name' => 'nullable|string|max:255',
+                'company' => 'nullable|string|max:255',
+                'calling_number' => 'nullable|string|max:20',
+                'whatsapp_number' => 'nullable|string|max:20',
+                'email' => 'nullable|email|max:255',
+                'project' => 'nullable|string|max:20',
+                'country' => 'nullable|string|max:100',
+                'state' => 'nullable|string|max:100',
+                'city' => 'nullable|string|max:100',
+                'no_of_days' => 'nullable|integer',
+                'no_of_hours' => 'nullable|integer',
+                'start_date' => 'nullable|date',
+                'end_date' => 'nullable|date',
+                'no_of_talents_male' => 'nullable|integer',
+                'no_of_talents_female' => 'nullable|integer',
+                'nationalities' => 'nullable|string|max:255',
+                'categories' => 'nullable|string|max:255',
+                'starting_amount' => 'nullable|numeric',
+                'maximum_amount' => 'nullable|numeric',
+                'project_detail' => 'nullable|string',
+                'brief_file' => 'nullable|file'
+            ]);
+
             // Begin a transaction
             DB::beginTransaction();
 
             // Create a new Client Inquiry
-            $inquiry = new ClientInquiry([
-                'first_name' => $validated['first_name'],
-                'last_name' => $validated['last_name'],
-                'company' => $validated['company'],
-                'calling_number' => $validated['calling_number'],
-                'whatsapp_number' => $validated['whatsapp_number'],
-                'email' => $validated['email'],
-                'project' => $validated['project'],
-                'country' => $validated['country'],
-                'state' => $validated['state'],
-                'city' => $validated['city'],
-                'no_of_days' => $validated['no_of_days'],
-                'no_of_hours' => $validated['no_of_hours'],
-                'start_date' => Carbon::parse($validated['start_date']),
-                'end_date' => Carbon::parse($validated['end_date']),
-                'no_of_talents_male' => $validated['no_of_talents_male'],
-                'no_of_talents_female' => $validated['no_of_talents_female'],
-                'nationalities' => $validated['nationalities'],
-                'categories' => $validated['categories'],
-                'starting_amount' => $validated['starting_amount'],
-                'maximum_amount' => $validated['maximum_amount'],
-                'project_detail' => $validated['project_detail'],
-                'brief_file' => $validated['brief_file'],
-            ]);
+            $inquiry = new ClientInquiry($validated);
+
+            if ($request->hasFile('brief_file')) {
+                $file = $request->file('brief_file');
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('uploads/client-inquiry/'), $fileName);
+                $inquiry->brief_file = 'uploads/client-inquiry/' . $fileName;
+            }
 
             $inquiry->save();
 
             // Commit the transaction
             DB::commit();
 
-            return response()->json(['message' => 'Client Inquiry created successfully', 'success' => true], 201);
-        } catch (\Exception $e) {
-            // Rollback the transaction on error
+            return response()->json(['message' => 'Client Inquiry created successfully', 'data' => $inquiry, 'success' => true], 201);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Rollback the transaction on validation failure
             DB::rollBack();
-
-            // Return an error response
-            return response()->json(['message' => $e->getMessage(), 'success' => false], 500);
+            $errorMessages = [];
+            foreach ($e->errors() as $errors) {
+                foreach ($errors as $error) {
+                    array_push($errorMessages, $error);
+                }
+            }
+            return response()->json(['message' => 'There was an issue with your submission.', 'errors' => $errorMessages, 'success' => false], 422);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Error creating client inquiry: ' . $e->getMessage());
+            return response()->json([
+                'message' => 'An unexpected error occurred while processing your request.',
+                'error' => $e->getMessage(),  // Make sure this line exists to send the error message
+                'success' => false
+            ], 500);
         }
+        
     }
+
+
 
     public function profileInfoStore(Request $request)
     {
