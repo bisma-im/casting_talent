@@ -100,39 +100,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     <section class="modalagencysec2" id="filmmaking-equipment">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/filim_2.jpg" alt="Casting Image" class="img-fluid">
-                    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="modalimg">
+                    <img src="{{ url('user-assets') }}/images/filim_2.jpg" alt="Casting Image" class="img-fluid">
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext1">
-
-                        <h2>Film Making <sapn style="color: rgba(216, 31, 38, 1);">Equipment </sapn>
-                        </h2>
-                        <p><b>Comprehensive Production Equipment Services by Cast Talents</b></p>
-                        <p>At Cast Talents, we bring your vision to life from start to finish. With our expertise and
-                            reliability, we ensure seamless execution, paying meticulous attention to every detail.</p>
-                        <p>Explore our extensive range of high-quality equipment:</p>
-                        <ul>
-                            <li>Cameras</li>
-                            <li>Lenses</li>
-                            <li>Tripods</li>
-                            <li>Sound and Audio Equipment</li>
-                            <li>Lighting Equipment</li>
-                            <li>Aerial Drone Filming</li>
-                        </ul>
-                        <p>Count on Cast Talents to provide the tools you need for a successful production, enhancing every
-                            aspect of your project with precision and professionalism.</p>
-
-                        <!--<a href="#" class="contactbtn1">READ MORE</a>-->
-                    </div>
+            </div>
+            <div class="col-md-6">
+                <div class="modaltextEquipment">
+                    <h2>Film Making <span>Equipment</span></h2>
+                    <p><b>Comprehensive Production Equipment Services by Cast Talents</b></p>
+                    <p>At Cast Talents, we bring your vision to life from start to finish. With our expertise and reliability, we ensure seamless execution, paying meticulous attention to every detail.</p>
+                    <p>Explore our extensive range of high-quality equipment:</p>
+                    <ul class="ms-3">
+                        <li>Cameras</li>
+                        <li>Lenses</li>
+                        <li>Tripods</li>
+                        <li>Sound and Audio Equipment</li>
+                        <li>Lighting Equipment</li>
+                        <li>Aerial Drone Filming</li>
+                    </ul>
+                    <p>Count on Cast Talents to provide the tools you need for a successful production, enhancing every aspect of your project with precision and professionalism.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="modalagencysec" id="production">
         <div class="container">
@@ -143,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 </div>
                 <div class="col-12 ">
-                    <div class="modaltext  d-flex justify-content-center flex-column">
+                    <div class="modaltextProduction text-center d-flex justify-content-center flex-column">
                       
                         
                         <ul class="mb-5 pt-3 ">
@@ -158,15 +152,15 @@ document.addEventListener('DOMContentLoaded', function () {
                           <p><strong>Pre-Production:
                           </strong>Concept Development, Scriptwriting, Creative Direction, Storyboarding, Location Scouting, Casting, Research, Consultation, Copywriting.
                           </p>
-                          <p><strong>Post-Production
-                          </strong>Editing, Sound Design, Music, Color Grading, VO Recording, VFX, Infographics, Translation, Subtitling.
+                          <p><strong>Post-Production:
+                          </strong> Editing, Sound Design, Music, Color Grading, VO Recording, VFX, Infographics, Translation, Subtitling.
 
 
 </p>
 
-                          <p><strong>Line Production
+                          <p><strong>Line Production:
                           </strong>
-                          Full coordination of budgets, schedules, logistics, and personnel from pre- to post-production for seamless execution.
+                           Full coordination of budgets, schedules, logistics, and personnel from pre- to post-production for seamless execution.
 
 
 
@@ -476,7 +470,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><strong>Interior & Exterior</strong></li>
 <li><strong>Engagement & Family Portraits</strong></li>
 <li><strong>Cake Smash & Maternity</strong></li>
-<li><strong>Newborn Photography</strong></li>
+<li><strong>New Born Photography</strong></li>
 <li><strong>Commercials</strong></li>
     </ul>
 </div>

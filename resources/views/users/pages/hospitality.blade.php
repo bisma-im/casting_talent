@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             organize your corporate meetings or events at your preferred location.</p>
                         <p><strong>Service Staff Supply:</strong> We provide professional food catering service staff at
                             competitive rates, ensuring seamless service delivery for your event.</p>
-                        <p><strong>Seminar Arrangements:</strong>Arrange corporate seminars and conferences at prestigious
+                        <p><strong>Seminar Arrangements:</strong> Arrange corporate seminars and conferences at prestigious
                             hotels with competitive pricing, ensuring a conducive environment for productive sessions.</p>
                         <p>Count on Cast Talents to deliver exceptional event management services, tailored to meet your
                             specific requirements and exceed your expectations.</p>

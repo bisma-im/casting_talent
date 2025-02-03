@@ -20,43 +20,45 @@
             background: #5f9ea052;
             border-radius: 10px;
         }
-        /* Background slider container */
+/* Background slider container */
 .background-slider {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Place behind the login form */
-    overflow: hidden; /* Hide overflowing images */
+    z-index: -1;
+    overflow: hidden;
+    white-space: nowrap; /* Prevent line breaks */
 }
 
 /* Slider track for smooth animation */
 .slider-track {
     display: flex;
-    width: calc(100% * 5); /* 5 slides in total */
-    animation: scroll 30s linear infinite; /* Smooth scrolling */
+    width: calc(100% * 10); /* 5 original images + 5 duplicates */
+    animation: scroll 30s linear infinite;
 }
 
 /* Individual slider image styling */
 .slider-image {
-    width: 100vw; /* Full viewport width */
+    width: 100vw;
     height: 60vw !important;
-    background-size: cover; /* Cover entire slide area */
-    background-position: center; /* Center background image */
-    background-repeat: no-repeat; /* Avoid repeating images */
-    flex-shrink: 0; /* Prevent shrinking */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
 }
 
 /* Keyframes for scrolling animation */
 @keyframes scroll {
     0% {
-        transform: translateX(0); /* Start at the first slide */
+        transform: translateX(0);
     }
     100% {
-        transform: translateX(-500vw); /* Scroll across 5 slides */
+        transform: translateX(-500vw); /* Scroll across both sets */
     }
 }
+
 .slider-track {
             display: flex;
             width: calc(100% * 10);
@@ -107,8 +109,21 @@
 
     </div>
 
-<div class="background-slider">
+    <div class="background-slider">
     <div class="slider-track">
+        <!-- Original Set -->
+        <div class="slider-image"
+            style="background-image: url('{{ url('user-assets/images/pexels-photo-247287.jpeg') }}');"></div>
+        <div class="slider-image"
+            style="background-image: url('{{ url('user-assets/images/woman-g1553007e5_340.jpg') }}');"></div>
+        <div class="slider-image"
+            style="background-image: url('{{ url('user-assets/images/pexels-photo-247204.jpeg') }}');"></div>
+        <div class="slider-image"
+            style="background-image: url('{{ url('user-assets/images/pexels-photo-247322.webp') }}');"></div>
+        <div class="slider-image"
+            style="background-image: url('{{ url('user-assets/images/woman-g21b0b6abe_340.jpg') }}');"></div>
+
+        <!-- Duplicate Set for Seamless Loop -->
         <div class="slider-image"
             style="background-image: url('{{ url('user-assets/images/pexels-photo-247287.jpeg') }}');"></div>
         <div class="slider-image"
@@ -120,6 +135,8 @@
         <div class="slider-image"
             style="background-image: url('{{ url('user-assets/images/woman-g21b0b6abe_340.jpg') }}');"></div>
     </div>
+</div>
+
 </div>
     <section class="contactussec1 form-container">
         <div class="container">
