@@ -803,90 +803,23 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="fw-bold">LOCATION OF PROJECT</label>
+                                    <label class="fw-bold">LOCATION OF PROJECT</label>
                                         <div class="row">
-                                            <div class="col-md-4">
-                                                <select id="countryDropdown" class="form-select" name="country" required>
-                    <option value="" disabled selected>Country</option>
-                    <option value="United Arab Emirates" >United Arab Emirates</option>
-                    <option value="Afghanistan">Afghanistan</option>
-                    <option value="Albania">Albania</option>
-                    <option value="Algeria">Algeria</option>
-                    <option value="Andorra">Andorra</option>
-                    <option value="Angola">Angola</option>
-                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                    <option value="Argentina">Argentina</option>
-                    <option value="Armenia">Armenia</option>
-                    <option value="Australia">Australia</option>
-                    <option value="Austria">Austria</option>
-                    <option value="Azerbaijan">Azerbaijan</option>
-                    <option value="Bahamas">Bahamas</option>
-                    <option value="Bahrain">Bahrain</option>
-                    <option value="Bangladesh">Bangladesh</option>
-                    <option value="Barbados">Barbados</option>
-                    <option value="Belarus">Belarus</option>
-                    <option value="Belgium">Belgium</option>
-                    <option value="Belize">Belize</option>
-                    <option value="Benin">Benin</option>
-                    <option value="Bhutan">Bhutan</option>
-                    <option value="Bolivia">Bolivia</option>
-                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                    <option value="Botswana">Botswana</option>
-                    <option value="Brazil">Brazil</option>
-                    <option value="Brunei">Brunei</option>
-                    <option value="Bulgaria">Bulgaria</option>
-                    <option value="Burkina Faso">Burkina Faso</option>
-                    <option value="Burundi">Burundi</option>
-                    <option value="Cabo Verde">Cabo Verde</option>
-                    <option value="Cambodia">Cambodia</option>
-                    <option value="Cameroon">Cameroon</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Central African Republic">Central African Republic</option>
-                    <option value="Chad">Chad</option>
-                    <option value="Chile">Chile</option>
-                    <option value="China">China</option>
-                    <option value="Colombia">Colombia</option>
-                    <option value="Comoros">Comoros</option>
-                    <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
-                    <option value="Costa Rica">Costa Rica</option>
-                    <option value="Croatia">Croatia</option>
-                    <option value="Cuba">Cuba</option>
-                    <option value="Cyprus">Cyprus</option>
-                    <option value="Czech Republic">Czech Republic</option>
-                    <option value="Denmark">Denmark</option>
-                    <option value="Djibouti">Djibouti</option>
-                    <option value="Dominica">Dominica</option>
-                    <option value="Dominican Republic">Dominican Republic</option>
-                    <option value="Ecuador">Ecuador</option>
-                    <option value="Egypt">Egypt</option>
-                    <option value="El Salvador">El Salvador</option>
-                    <option value="Equatorial Guinea">Equatorial Guinea</option>
-                    <option value="Eritrea">Eritrea</option>
-                    <option value="Estonia">Estonia</option>
-                    <option value="Eswatini">Eswatini (fmr. "Swaziland")</option>
-                    <option value="Ethiopia">Ethiopia</option>
-                    <option value="Fiji">Fiji</option>
-                    <option value="Finland">Finland</option>
-                    <option value="France">France</option>
-                    </select>
-                    </div>
-
-                    <div class="col-md-4">
-                <select  id="stateDropdown" class="form-select" name="state" required>
-                    <option  value="" disabled selected>State</option>
-                    <option  value="" >karachi</option>
-
-                    <!-- States will be dynamically populated based on the selected country -->
-                </select>
-            </div>
-            <div class="col-md-4">
-                <select id="cityDropdown" class="form-select" name="city" required>
-                    <option value="" disabled selected>City</option>
-                    <option  value="" >karachi</option>
-
-                    <!-- Cities will be dynamically populated based on the selected state/region -->
-                </select>
-            </div>
+                                        <div class="col-md-4">
+        <select id="countryDropdown" class="form-select" name="country" required>
+            <option value="" disabled selected>Select a Country</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <select id="stateDropdown" class="form-select" name="state" required disabled>
+            <option value="" disabled selected>Select a State</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <select id="cityDropdown" class="form-select" name="city" required disabled>
+            <option value="" disabled selected>Select a City</option>
+        </select>
+    </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1019,19 +952,22 @@
 
                         <!-- start and end date  -->
 
-                         <div class="col-lg-3">
+                        <!-- Start Date Input -->
+<div class="col-lg-3">
     <div class="form-group">
-        <label  class="fw-bold">START DATE</label>
-        <input type="date" class="form-control" name="start_date" required>
+        <label class="fw-bold">START DATE</label>
+        <input type="date" class="form-control" name="start_date" required onchange="validateDates()">
     </div>
 </div>
 
+<!-- End Date Input -->
 <div class="col-lg-3">
     <div class="form-group">
-        <label  class="fw-bold">END DATE</label>
-        <input type="date" class="form-control" name="end_date" required>
+        <label class="fw-bold">END DATE</label>
+        <input type="date" class="form-control" name="end_date" required onchange="validateDates()">
     </div>
 </div>
+
 </div>
                             <div class="text-center  d-flex justify-content-between">
                             <button type="button" class="btn btn-danger" onclick="prevStep()">Back</button>
@@ -1370,8 +1306,132 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+function validateDates() {
+    const startDate = document.querySelector('input[name="start_date"]').value;
+    const endDate = document.querySelector('input[name="end_date"]').value;
+    const endDateInput = document.querySelector('input[name="end_date"]');
+
+    if (startDate && endDate) {
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+
+        if (end < start) {
+            endDateInput.setCustomValidity('End date cannot be prior to start date.');
+        } else {
+            endDateInput.setCustomValidity('');
+        }
+    }
+}
 
 
+// JSON data for GCC countries, states/regions, and cities
+const gccData = {
+    "Bahrain": {
+        "Capital Governorate": ["Manama"],
+        "Muharraq Governorate": ["Muharraq", "Arad"],
+        "Northern Governorate": ["Al Budaiya", "Diraz"],
+        "Southern Governorate": ["Riffa", "Zallaq"]
+    },
+    "Kuwait": {
+        "Al Ahmadi": ["Ahmadi", "Sabah Al-Ahmad", "Fahaheel"],
+        "Al Farwaniyah": ["Farwaniyah", "Jleeb Al-Shuyoukh"],
+        "Hawalli": ["Salmiya", "Jabriya", "Hawalli"],
+        "Capital": ["Kuwait City", "Dasma"],
+        "Al Jahra": ["Jahra"]
+    },
+    "Oman": {
+        "Muscat": ["Muscat", "Muttrah", "Seeb", "Bawshar"],
+        "Dhofar": ["Salalah", "Taqah", "Mirbat"],
+        "Al Batinah South": ["Sohar", "Rustaq"],
+        "Ad Dakhiliyah": ["Nizwa", "Bahla", "Samail"]
+    },
+    "Qatar": {
+        "Ad Dawhah": ["Doha", "Al Wakrah"],
+        "Al Rayyan": ["Al Rayyan", "Umm Salal", "Al Shahaniya"],
+        "Al Daayen": ["Lusail"],
+        "Al Khor": ["Al Khor"]
+    },
+    "Saudi Arabia": {
+        "Riyadh Region": ["Riyadh", "Al Kharj", "Diriyah"],
+        "Makkah Region": ["Jeddah", "Mecca", "Taif"],
+        "Eastern Province": ["Dammam", "Al Khobar", "Dhahran"],
+        "Madinah Region": ["Medina", "Yanbu"],
+        "Asir Region": ["Abha", "Khamis Mushait"]
+    },
+    "United Arab Emirates": {
+        "Abu Dhabi": ["Abu Dhabi", "Al Ain", "Al Dhafra", "Mussafah", "Khalifa City"],
+        "Dubai": ["Dubai", "Deira", "Bur Dubai", "Jumeirah", "Dubai Marina"],
+        "Sharjah": ["Sharjah", "Khor Fakkan", "Dibba Al Hisn", "Al Dhaid", "Kalba"],
+        "Ajman": ["Ajman", "Al Jurf", "Al Nuaimiya", "Musheirif"],
+        "Ras Al Khaimah": ["Ras Al Khaimah", "Al Hamra", "Al Marjan Island", "Dhayah"],
+        "Fujairah": ["Fujairah", "Dibba Al Fujairah", "Mirbah", "Masafi"],
+        "Umm Al Quwain": ["Umm Al Quwain", "Al Salama", "Al Raas", "Al Haditha"]
+    }
+};
+
+// Initialize dropdown elements
+const countryDropdown = document.getElementById("countryDropdown");
+const stateDropdown = document.getElementById("stateDropdown");
+const cityDropdown = document.getElementById("cityDropdown");
+
+// Function to populate country dropdown
+function populateCountryDropdown() {
+    for (let country in gccData) {
+        let option = document.createElement("option");
+        option.value = country;
+        option.textContent = country;
+        countryDropdown.appendChild(option);
+    }
+}
+
+// Function to populate state dropdown based on selected country
+function populateStateDropdown(selectedCountry) {
+    stateDropdown.innerHTML = '<option value="" disabled selected>Select a State</option>'; // Reset states
+    cityDropdown.innerHTML = '<option value="" disabled selected>Select a City</option>'; // Reset cities
+    stateDropdown.disabled = false;
+    cityDropdown.disabled = true;
+
+    if (!selectedCountry || !gccData[selectedCountry]) return;
+
+    let states = gccData[selectedCountry];
+    for (let state in states) {
+        let option = document.createElement("option");
+        option.value = state;
+        option.textContent = state;
+        stateDropdown.appendChild(option);
+    }
+}
+
+// Function to populate city dropdown based on selected state
+function populateCityDropdown(selectedCountry, selectedState) {
+    cityDropdown.innerHTML = '<option value="" disabled selected>Select a City</option>'; // Reset cities
+    cityDropdown.disabled = false;
+
+    if (!selectedState || !gccData[selectedCountry] || !gccData[selectedCountry][selectedState]) return;
+
+    let cities = gccData[selectedCountry][selectedState];
+    cities.forEach(city => {
+        let option = document.createElement("option");
+        option.value = city;
+        option.textContent = city;
+        cityDropdown.appendChild(option);
+    });
+}
+
+// Event listener for country dropdown
+countryDropdown.addEventListener("change", function () {
+    populateStateDropdown(this.value);
+});
+
+// Event listener for state dropdown
+stateDropdown.addEventListener("change", function () {
+    populateCityDropdown(countryDropdown.value, this.value);
+});
+
+// Initialize country dropdown on page load
+window.addEventListener("DOMContentLoaded", function () {
+    populateCountryDropdown();
+});
 
 
 

@@ -92,7 +92,7 @@ class AuthController extends Controller
             } elseif (Auth::user()->role == 'business') {
                 // dd($request->all());
                 // Alert::success('Success', 'Login as Service Provider  !!!');
-                return redirect()->route('dashboard.get')->with('success', 'Login as Service Provider  !!!');
+                return redirect()->route('dashboard.get')->with('success', ' Logged in as Client  !!!');
             }
             return redirect()->route('index.get');
         }
