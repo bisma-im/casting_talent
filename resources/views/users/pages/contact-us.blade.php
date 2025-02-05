@@ -740,17 +740,17 @@
                                     <!-- start and end date  -->
 
                                     <div class="col-lg-3 col-4">
-                                        <div class="form-group">
-                                            <label class=" text fw-bold">START DATE</label>
-                                            <input type="date" class="form-control" name="start_date" required>
-                                        </div>
+                                    <div class="form-group">
+        <label class="fw-bold">START DATE</label>
+        <input type="date" class="form-control" name="start_date" required onchange="validateDates()">
+    </div>
                                     </div>
 
                                     <div class="col-lg-3 col-4">
-                                        <div class="form-group">
-                                            <label class=" text fw-bold">END DATE</label>
-                                            <input type="date" class="form-control" name="end_date" required>
-                                        </div>
+                                    <div class="form-group">
+        <label class="fw-bold">END DATE</label>
+        <input type="date" class="form-control" name="end_date" required onchange="validateDates()">
+    </div>
                                     </div>
                                     <!-- male and female   -->
 
@@ -1584,6 +1584,37 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 <script>
+
+function validateDates() {
+    const startDate = document.querySelector('input[name="start_date"]').value;
+    const endDate = document.querySelector('input[name="end_date"]').value;
+    const endDateInput = document.querySelector('input[name="end_date"]');
+
+    if (startDate && endDate) {
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+
+        if (end < start) {
+            endDateInput.setCustomValidity('End date cannot be prior to start date.');
+        } else {
+            endDateInput.setCustomValidity('');
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     document.addEventListener('DOMContentLoaded', function () {
         // Initialize the modal
         const inquiryModal = new bootstrap.Modal(document.getElementById('inquiryModal'), {
