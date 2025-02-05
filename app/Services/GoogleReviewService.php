@@ -19,7 +19,7 @@ class GoogleReviewService
         $reviews = [];
         $reviewsCount = 0;
         $averageRating = 0;
-        $businessReviewUrl = "https://www.google.com/maps/place/?q=place_id:{$placeId}";
+        $businessReviewUrl = "https://www.google.com/maps/place/Cast+Talents/@25.1815668,55.2715102,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f69716e0efaf5:0x6a4061bcc8f01882!8m2!3d25.1815668!4d55.2715102!16s%2Fg%2F11w1hx_9lb?entry=ttu&g_ep=EgoyMDI1MDEyOS4xIKXMDSoASAFQAw%3D%3D";
 
         try {
             $response = $client->request('GET', $url);
@@ -44,13 +44,10 @@ class GoogleReviewService
                 $averageRating = isset($data['result']['rating']) ? $data['result']['rating'] : 0;
             } 
             else {
-                dd($response->getStatusCode());
                 Log::error($response->getStatusCode());
                 throw new \Exception("Failed to fetch reviews, API returned status code: " . $response->getStatusCode());
             }
         } catch (\Exception $e) {
-            // Log exception details, this can be to a file, or another logging service
-            dd($e->getMessage());
             Log::error($e->getMessage());
             error_log($e->getMessage());
 
