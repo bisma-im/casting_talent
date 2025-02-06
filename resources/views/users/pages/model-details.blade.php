@@ -867,7 +867,7 @@ $timestamp = time();
 </div>
 
 {{-- ------------------------------section 2------------------------ --}}
-<div class="container-fluid  full-height mt-3 pt-3 my-section">
+<div class="container-fluid  full-height mt-5 pt-3 my-section">
     <ul class="nav nav-tabs flex-column flex-md-row" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="portfolio-tab" data-bs-toggle="tab" data-bs-target="#portfolio"
@@ -979,7 +979,7 @@ $timestamp = time();
 </div>
 
 {{-- -------------------------------section 3-------------------------------- --}}
-<div class="carousel-container sec-three">
+<div class="carousel-container mt-3 sec-three">
     <h2 class="carousel-heading">Related <span>Profiles</span></h2>
     @if($relatedProfiles->isEmpty())
     <div class="d-flex justify-content-center align-items-center">
