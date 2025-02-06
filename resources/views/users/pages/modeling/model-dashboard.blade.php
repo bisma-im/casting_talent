@@ -602,7 +602,7 @@
                                                                     value="standard">
                                                                 <input type="hidden" name="package_price"
                                                                     value="35">
-                                                                <h5>35 AED <small>/per month</small></h5>
+                                                                <h6 class="text-nowrap pkg">35 AED <small>/per month</small></h6>
                                                                 <button class="btn" style="background: #D81F26;">Get it
                                                                     now</button>
                                                             </form>
@@ -640,7 +640,7 @@
                                                                 <input type="hidden" name="package_name" value="gold">
                                                                 <input type="hidden" name="package_price"
                                                                     value="95">
-                                                                <h5>95 AED <small>/ for 3 months</small></h5>
+                                                                <h6 class="text-nowrap pkg">95 AED <small>/ for 3 months</small></h6>
                                                                 <button class="btn" style="background: #000;">Get it
                                                                     now</button>
                                                             </form>
@@ -679,7 +679,7 @@
                                                                     value="platinum">
                                                                 <input type="hidden" name="package_price"
                                                                     value="175">
-                                                                <h5>175 AED <small>/ for 6 months</small></h5>
+                                                                <h6 class="text-nowrap pkg">175 AED <small>/ for 6 months</small></h6>
                                                                 <button class="btn" style="background: #1C7887;">Get it
                                                                     now</button>
                                                             </form>
