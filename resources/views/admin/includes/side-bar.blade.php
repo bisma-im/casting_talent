@@ -14,10 +14,19 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.queries.get') }}">
-                <span class="icon-bg"><i class="mdi mdi-message menu-icon"></i></span>
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <span class="icon-bg"><i class="mdi mdi-account-group menu-icon"></i></span>
                 <span class="menu-title">Queries</span>
+                <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.queries.get') }}">General Queries</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('admin.client-inquiries.get') }}">Client Inquiries</a>
+                    </li>
+                </ul>
+            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">

@@ -275,6 +275,17 @@
     max-height: none; /* Remove max height when a subcategory is open */
 }
 
+.my-col {
+   flex: 0 0 25%;
+    max-width: 25%;
+    padding: 0 7px;
+}
+@media (max-width: 768px) {
+   .my-col {
+      flex: 0 0 50%;
+      max-width: 50%;
+   }
+}
 </style>
 @php
 @endphp
@@ -353,39 +364,27 @@
                            $height = $modelDetail->height . ' ' . 'cm';
                            $weight = $modelDetail->weight . ' ' . 'kg';
                            @endphp
-                           <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 mb-3">
-                              <a href="{{ route('model-info.get', $modelDetail->id) }}"
-                                 class="text-dark">
-                                 <div class="castbox">
-                                    <div class="castimg">
-                                       @if(!empty($firstImage))
-                                       <img src="{{ url('/uploads/models/profiles/' . $firstImage) }}"
-                                          class="img-fluid" alt="Model Image">
-                                       @else
-                                       <img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-                                          class="img-fluid" alt="Model Image">
-                                       @endif
-                                    </div>
-                                    <div class="castbody">
-                                       <h5 class="bodytheading">{{ $modelDetail->first_name }}
-                                          {{ $modelDetail->last_name }}
-                                       </h5>
-                                       <div class="castbodylist firstitem">
-                                          <h5><strong>AGE:</strong> {{ $age }}</h5>
-                                          <h5><strong>Nationality:</strong>
-                                             {{ $modelDetail->nationality }}
-                                          </h5>
-                                       </div>
-                                       <div class="castbodylist">
-                                          <h5><strong>HEIGHT:</strong> {{ $height }}</h5>
-                                       </div>
-                                       <div class="castbodylist">
-                                          <h5><strong>WEIGHT:</strong> {{ $weight }}</h5>
-                                       </div>
-                                    </div>
-                                 </div>
+                           <div class="col my-col">
+                              <a href="{{ route('model-info.get', $modelDetail->id) }}" class="text-dark">
+                                  <div class="castbox mb-3">
+                                      {{-- <span class="bodytheading">{{ $modelDetail->gender }}</span> --}}
+                                      <div class="castimg">
+                                          <img src="{{ url('/uploads/models/profile-pics/' . $modelDetail->profile) }}" class="img-fluid"
+                                              alt="Model Image">
+                                      </div>
+                                      <div class="castbody">
+                                          <div class="castbox-code text-center">
+                                              <!-- Insert code related content here -->
+                                              {{ $modelDetail->talent_id }}
+                                          </div>
+                                          <div class="castbox-info text-center">
+                                              {{ $age . ', ' . $modelDetail->nationality }}
+                                              <!-- Insert age, nationality, etc., here -->
+                                          </div>
+                                      </div>
+                                  </div>
                               </a>
-                           </div>
+                          </div>
                            @endforeach
                         </div>
                         @else

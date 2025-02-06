@@ -107,6 +107,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
         //queries
         Route::get('/queries', [ViewsController::class, 'adminQueries'])->name('admin.queries.get');
+        Route::get('/client-inquiries', [ViewsController::class, 'adminQueries'])->name('admin.client-inquiries.get');
 
         // job
         Route::get('/create-job', [AdminAuthController::class, 'createJobPage'])->name('admin.create-job.get');

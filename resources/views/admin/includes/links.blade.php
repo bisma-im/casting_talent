@@ -6,6 +6,7 @@
 <!-- endinject -->
 <!-- Plugin css for this page -->
 <link rel="stylesheet" href="{{ url('admin-assets') }}/assets/vendors/font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="stylesheet"
     href="{{ url('admin-assets') }}/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
 <!-- End plugin css for this page -->

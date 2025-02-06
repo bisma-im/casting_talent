@@ -130,16 +130,7 @@ class QueryController extends Controller
             'last_name' => 'required|string|max:255',
             'whatsapp_number' => 'required|string|max:20',
             'email' => 'required|email|max:255',
-            // 'no_of_days' => 'required|integer',
-            // 'no_of_hours' => 'required|integer',
-            // 'no_of_talents_male' => 'required|integer',
-            // 'no_of_talents_female' => 'required|integer',
-            // 'required_talent' => 'required|string|max:255',
-            // 'nationalities' => 'required|string|max:255',
-            // 'starting_amount' => 'required|numeric',
-            // 'maximum_amount' => 'required|numeric',
-            // 'project_detail' => 'required|string',
-            // 'profile' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'profile' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ]);
 
         if ($validator->fails()) {
@@ -163,15 +154,6 @@ class QueryController extends Controller
             $profile->last_name = $request->last_name;
             $profile->whatsapp_number = $request->whatsapp_number;
             $profile->email = $request->email;
-            $profile->no_of_days = $request->no_of_days;
-            $profile->no_of_hours = $request->no_of_hours;
-            $profile->no_of_talents_male = $request->no_of_talents_male;
-            $profile->no_of_talents_female = $request->no_of_talents_female;
-            $profile->required_talent = $request->required_talent;
-            $profile->nationalities = $request->nationalities;
-            $profile->starting_amount = $request->starting_amount;
-            $profile->maximum_amount = $request->maximum_amount;
-            $profile->project_detail = $request->project_detail;
             $profile->profile_image = $fileName ?? $profile->profile_image; // Keep the old image if new one is not uploaded
             $profile->save();
         } else {
@@ -182,15 +164,6 @@ class QueryController extends Controller
             $profile->last_name = $request->last_name;
             $profile->whatsapp_number = $request->whatsapp_number;
             $profile->email = $request->email;
-            $profile->no_of_days = $request->no_of_days;
-            $profile->no_of_hours = $request->no_of_hours;
-            $profile->no_of_talents_male = $request->no_of_talents_male;
-            $profile->no_of_talents_female = $request->no_of_talents_female;
-            $profile->required_talent = $request->required_talent;
-            $profile->nationalities = $request->nationalities;
-            $profile->starting_amount = $request->starting_amount;
-            $profile->maximum_amount = $request->maximum_amount;
-            $profile->project_detail = $request->project_detail;
             $profile->profile_image = $fileName;
             $profile->save();
         }
