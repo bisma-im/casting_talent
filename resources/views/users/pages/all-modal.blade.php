@@ -918,7 +918,7 @@
                                         <div class="castbox mb-3">
                                             {{-- <span class="bodytheading">{{ $modelDetail->gender }}</span> --}}
                                             <div class="castimg">
-                                                <img src="{{ url('/uploads/models/profiles/' . $firstImage) }}" class="img-fluid"
+                                                <img src="{{ url('/uploads/models/profile-pics/' . $modelDetail->profile) }}" class="img-fluid"
                                                     alt="Model Image">
                                             </div>
                                             <div class="castbody">

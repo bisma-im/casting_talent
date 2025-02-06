@@ -343,7 +343,7 @@
                 <div class="col-12 col-md-3 col-lg-3 col-xl-3">
                     <div class="side-dash">
                         <div class="dash-flex">
-                            <img class="img-fluid dash-img" src="{{ url('user-assets') }}/images/pic-41.png" alt="">
+                            {{-- <img class="img-fluid dash-img" src="{{ url('user-assets') }}/images/pic-41.png" alt=""> --}}
                             <div class="">
                                 <h6 class="dash-head"></h6>
                                 <span class="dash-span"></span>
@@ -1997,7 +1997,7 @@
     </script>
     
     <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oPydU5Tj9L5ts9W5vS29nldU6d4XoBvTW3OWUqv9yEo=" crossorigin="anonymous"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oPydU5Tj9L5ts9W5vS29nldU6d4XoBvTW3OWUqv9yEo=" crossorigin="anonymous"></script> --}}
     <script>
         function showDisabledAlert(event) {
             event.preventDefault(); // Prevent the default action (e.g., navigation)

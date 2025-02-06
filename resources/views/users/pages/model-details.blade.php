@@ -707,7 +707,7 @@
 $musicianCategories = json_decode($details['musician_categories'], true);
 // Extracting the first profile image
 $profileImages = json_decode($details['profile_images']);
-$firstImage = $profileImages[0] ?? 'default.png'; // Default image if no profile image is available
+$firstImage = $profileImages[0] ?? 'default.png'; 
 // Calculating age from the date of birth
 $birthDate = new DateTime($details['date_of_birth']);
 $currentDate = new DateTime();
@@ -731,7 +731,7 @@ $timestamp = time();
                 <a href="{{ url('uploads/models/profiles/' . $firstImage) }}" data-fancybox="gallery"
                     data-caption="Model Image" style="height: 100%; width: 100%;">
                     <div class="model-cover" style="height: 100%; width: 100%;">
-                        <img src="{{ url('uploads/models/profiles/' . $firstImage) }}" class="img-fluid"
+                        <img src="{{ url('uploads/models/profile-pics/' . $details['profile']) }}" class="img-fluid"
                             alt="Model Image">
                     </div>
                 </a>

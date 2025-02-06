@@ -14,23 +14,24 @@ class ViewsController extends Controller
     {
         return view('admin.pages.index');
     }
-    
+
     public function adminUsers()
     {
         $users = User::paginate(20);
-        return view('admin.pages.users',compact('users'));
+        return view('admin.pages.users', compact('users'));
     }
 
     public function modelInfoPage()
     {
         $models = ModelDetail::paginate(20);
         // dd($models);
-        return view('admin.pages.models',compact('models'));
+        return view('admin.pages.models', compact('models'));
     }
 
-    public function adminQueries()
+    public function adminQueries(Request $request)
     {
-        $contacts = Contact::paginate(20);
-        return view('admin.pages.contacts',compact('contacts'));
+        $perPage = 10; // Adjust as needed
+        $contacts = Contact::paginate($perPage)->appends($request->query());
+        return view('admin.pages.contacts', compact('contacts'));
     }
 }
