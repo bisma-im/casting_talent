@@ -764,13 +764,13 @@
                                 <div class="col-lg-5">
                                     <div class="form-group">
                                         <label class="fw-bold">CALLING NUMBER</label>
-                                        <input id="callingNumber" type="tel" class="form-control" name="calling_number" placeholder="Calling Number" required>
+                                        <input id="callingNumber" type="tel" class="form-control"   inputmode="numeric" oninput="this.value = this.value.replace(/\D/g, '')"  name="calling_number" placeholder="Calling Number" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="fw-bold">WHATSAPP NUMBER</label>
-                                        <input id="whatsappNumber" type="tel" class="form-control" name="whatsapp_number" placeholder="WhatsApp Number" required>
+                                        <input id="whatsappNumber" type="tel" class="form-control" name="whatsapp_number"  inputmode="numeric" oninput="this.value = this.value.replace(/\D/g, '')"  placeholder="WhatsApp Number" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -828,14 +828,14 @@
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label  class="fw-bold">NO OF DAYS</label>
-                                    <input type="number" class="form-control" name="no_of_days" placeholder="Number of Days" required>
+                                    <input type="number"  min="1"  class="form-control" name="no_of_days" placeholder="Number of Days" required>
                                 </div>
                             </div>
 
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label  class="fw-bold">NO OF HOURS</label>
-                                    <input type="number" class="form-control" name="no_of_hours" placeholder="Number of Hours"  required>
+                                    <input type="number"   max="24" min="1" class="form-control" name="no_of_hours" placeholder="Number of Hours"  required>
                                 </div>
                             </div>
 
@@ -844,13 +844,13 @@
                           <div class="col-md-3">
                                         <div class="form-group">
                                             <label  class="text fw-bold">NO OF TALENTS(MALE)</label>
-                                            <input type="number" class="form-control" name="no_of_talents_male" placeholder="" required>
+                                            <input type="number"  min="1" class="form-control" name="no_of_talents_male" placeholder="" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label  class="text fw-bold" class>NO OF TALENTS(FEMALE)</label>
-                                            <input required type="number" class="form-control" name="no_of_talents_female" placeholder="" required>
+                                            <input required type="number"   min="1" class="form-control" name="no_of_talents_female" placeholder="" required>
                                         </div>
                                     </div>
                                
@@ -981,12 +981,13 @@
                                         <label class="fw-bold">BUDGET FOR EACH TALENT</label>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <input type="number" class="form-control" name="starting_amount" placeholder="Starting Amount" required>
+                                                <input type="number" class="form-control" id="starting_amount" name="starting_amount"  required oninput="validateBudget()" placeholder="Starting Amount" required>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="number" class="form-control" name="maximum_amount" placeholder="Maximum Amount" required>
+                                                <input type="number" class="form-control"  id="maximum_amount" name="maximum_amount"  required oninput="validateBudget()" placeholder="Maximum Amount" required>
                                             </div>
                                         </div>
+                                        <span id="budget-error" style="color: red; display: none;">Maximum budget cannot be less than the minimum amount.</span>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -1591,6 +1592,7 @@ window.addEventListener("DOMContentLoaded", function () {
                                                    <label>Whatsapp Number</label>
                                                    <input type="tel" class="form-control phone-input"
                                                       name="whatsapp_number"
+                                                      
                                                       placeholder="(000) 000 000">
                                                 </div>
                                              </div>
@@ -2627,6 +2629,25 @@ $(document).ready(function() {
         option.prop("selected", false).trigger('change'); // Deselect the option
     });
 });
+
+
+ 
+function validateBudget() {
+    const minAmount = document.getElementById("starting_amount");
+    const maxAmount = document.getElementById("maximum_amount");
+    const errorMessage = document.getElementById("budget-error");
+
+    if (minAmount.value && maxAmount.value) {
+        if (parseFloat(maxAmount.value) < parseFloat(minAmount.value)) {
+            errorMessage.style.display = "inline"; // Show error message
+            maxAmount.setCustomValidity("Maximum budget cannot be less than the minimum amount.");
+        } else {
+            errorMessage.style.display = "none"; // Hide error message
+            maxAmount.setCustomValidity(""); // Remove validation error
+        }
+    }
+}
+
 </script>
 
 

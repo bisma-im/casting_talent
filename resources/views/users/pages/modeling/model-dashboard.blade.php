@@ -1251,7 +1251,7 @@
                                                                     <div class="contactlist">
                                                                         <label>Calling Number <span class="required">*</span></label>
                                                                         <input id="" type="tel" class="form-control phone-input"  value="{{ $profileInfo->calling_number ?? '' }}"
-                                                                        name="calling_number" placeholder="(000) *** ***" required>
+                                                                        name="calling_number" inputmode="numeric" oninput="this.value = this.value.replace(/\D/g, '')"  placeholder="(000) *** ***" required>
                                                                         <span class="error-message"></span>
                                                                     </div>
                                                                 </div>
@@ -1259,7 +1259,7 @@
                                                                     <div class="contactlist">
                                                                         <label>Whatsapp Number <span class="required">*</span></label>
                                                                         <input id="phoneNumber" type="tel" class="form-control phone-input"
-                                                                            name="whatsapp_number" value="{{ $profileInfo->whatsapp_number ?? '' }}"
+                                                                            name="whatsapp_number" inputmode="numeric" oninput="this.value = this.value.replace(/\D/g, '')"  value="{{ $profileInfo->whatsapp_number ?? '' }}"
                                                                             placeholder="(000) *** ***" required>
                                                                             <span class="error-message"></span>
                                                                     </div>

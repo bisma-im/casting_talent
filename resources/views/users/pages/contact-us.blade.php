@@ -554,17 +554,21 @@
                                         <div class="contactlist">
                                             <label>Calling Number</label>
                                             <input type="tel" name="calling_number" id="calling_number"
-                                                placeholder="Calling Number" class="form-control phone-input" required>
-                                            <input type="hidden" name="calling_country_code" id="calling_country_code"
+                                                placeholder="Calling Number" 
+                                                
+                                                inputmode="numeric" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control phone-input" required>
+                                            <input type="hidden"name="calling_country_code" id="calling_country_code"
                                                 value="ae">
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-6">
                                         <div class="contactlist">
                                             <label>Whatsapp Number</label>
-                                            <input type="tel" name="whatsapp_number" id="whatsapp_number"
-                                                placeholder="Whatsapp Number" class="form-control phone-input" required>
-                                            <input type="hidden" name="whatsapp_country_code" id="whatsapp_country_code"
+                                            <input type="tel" 
+
+                                            name="whatsapp_number" id="whatsapp_number"
+                                                placeholder="Whatsapp Number" inputmode="numeric" oninput="this.value = this.value.replace(/\D/g, '')" class="form-control phone-input" required>
+                                            <input type="hidden" name="whatsapp_country_code"  id="whatsapp_country_code"
                                                 value="ae">
                                         </div>
                                     </div>
@@ -726,7 +730,7 @@
                                     <div class="col-lg-3 col-4">
                                         <div class="form-group">
                                             <label class=" text fw-bold">NO OF DAYS</label>
-                                            <input type="number" class="form-control" name="no_of_days" required>
+                                            <input type="number"  min="1" class="form-control" name="no_of_days" required>
                                         </div>
                                     </div>
 
@@ -757,7 +761,7 @@
                                     <div class="col-md-4 col-4">
                                         <div class="form-group">
                                             <label class=" text text2 fw-bold">NO OF TALENTS(MALE)</label>
-                                            <input type="number" class="form-control" name="no_of_talents_male"
+                                            <input type="number"  min="1" class="form-control" name="no_of_talents_male"
                                                 placeholder="" required>
                                         </div>
                                     </div>
@@ -765,7 +769,7 @@
                                         <div class="form-group">
                                             <label class=" text text2 fw-bold" class>NO OF TALENTS(FEMALE)</label>
                                             <input required type="number" class="form-control"
-                                                name="no_of_talents_female" placeholder="" required>
+                                            min="1"    name="no_of_talents_female" placeholder="" required>
                                         </div>
                                     </div>
 
@@ -1020,16 +1024,20 @@
                                             <label class=" text fw-bold">BUDGET FOR EACH TALENT</label>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <input type="number" class="form-control" name="starting_amount"
-                                                        placeholder="Starting Amount" required>
+                                                <input type="number" class="form-control" name="starting_amount" id="starting_amount"
+                                                placeholder="Starting Amount" required oninput="validateBudget()">
                                                 </div>
+
+                                                
                                                 <div class="col-md-6">
-                                                    <input type="number" class="form-control" name="maximum_amount"
-                                                        placeholder="Maximum Amount" required>
+                                                <input type="number" class="form-control" name="maximum_amount" id="maximum_amount"
+                                                placeholder="Maximum Amount" required oninput="validateBudget()">
                                                 </div>
                                             </div>
+                                            <span id="budget-error" style="color: red; display: none;">Maximum budget cannot be less than the minimum amount.</span>
                                         </div>
                                     </div>
+
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label class=" text fw-bold">DETAIL OF PROJECT</label>
@@ -1087,7 +1095,7 @@
                                         </p>
                                     </div>
                                     <div class="mb-4">
-                                        <h4 class="text-left fw_500 lateef"> <i
+                                        <h4 class="text-left fw_500 lateef" > <i
                                                 class=" fab px-2 text-yellow fa-whatsapp"></i> WHATSAPP</h4>
                                         <p class="text-left mx-5 ">
                                             <a class="text_grey" href="https://wa.me/971501234796" target="_blank">
@@ -2200,6 +2208,27 @@ function validateDates() {
             document.getElementById('step1').classList.remove('d-none');  // Assuming the first step has ID 'step1'
         }
     });
+
+
+
+
+
+ 
+function validateBudget() {
+    const minAmount = document.getElementById("starting_amount");
+    const maxAmount = document.getElementById("maximum_amount");
+    const errorMessage = document.getElementById("budget-error");
+
+    if (minAmount.value && maxAmount.value) {
+        if (parseFloat(maxAmount.value) < parseFloat(minAmount.value)) {
+            errorMessage.style.display = "inline"; // Show error message
+            maxAmount.setCustomValidity("Maximum budget cannot be less than the minimum amount.");
+        } else {
+            errorMessage.style.display = "none"; // Hide error message
+            maxAmount.setCustomValidity(""); // Remove validation error
+        }
+    }
+}
 
 </script>
 
