@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ClientInquiry;
 use App\Models\Contact;
 use App\Models\ModelDetail;
 
@@ -33,5 +34,12 @@ class ViewsController extends Controller
         $perPage = 10; // Adjust as needed
         $contacts = Contact::paginate($perPage)->appends($request->query());
         return view('admin.pages.contacts', compact('contacts'));
+    }
+
+    public function clientInquiries(Request $request)
+    {
+        $perPage = 10; // Adjust as needed
+        $contacts = ClientInquiry::paginate($perPage)->appends($request->query());
+        return view('admin.pages.client-inquiries', compact('contacts'));
     }
 }

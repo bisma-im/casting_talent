@@ -971,6 +971,7 @@
                                                 <label><input type="checkbox" value="Zimbabwe"> Zimbabwe</label>
                                             </div>
                                         </div>
+                                        <input type="hidden" name="nationalities" id="nationalities" value="" />
                                     </div>
                             </div>
 
@@ -1170,6 +1171,32 @@
             initialCountry: "ae",
             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // for formatting/validation
         });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Select all nationality checkboxes
+        const nationalityCheckboxes = document.querySelectorAll('.custom-dropdown-content input[type="checkbox"]');
+
+        // Function to update the hidden input based on selected checkboxes
+        function updateNationalities() {
+            const selectedNationalities = Array.from(nationalityCheckboxes) // Convert NodeList to Array
+                .filter(checkbox => checkbox.checked) // Filter only checked checkboxes
+                .map(checkbox => checkbox.value); // Map to their values
+
+            // Update the hidden input's value
+            document.getElementById('nationalities').value = selectedNationalities.join(', ');
+
+            // Optional: Update UI or other elements to show selected nationalities
+            // For example, updating a paragraph or label
+            // document.getElementById('displaySelectedNationalities').textContent = selectedNationalities.join(', ');
+        }
+
+        // Attach event listeners to all checkboxes
+        nationalityCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateNationalities); // Update whenever a checkbox is checked or unchecked
+        });
+    });
 </script>
 
 <script>
