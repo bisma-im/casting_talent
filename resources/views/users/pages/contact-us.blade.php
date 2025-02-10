@@ -658,14 +658,14 @@
                                         <div class="form-group">
                                             <label class=" text fw-bold">CALLING NUMBER</label>
                                             <input id="callingNumber" type="tel" class="form-control"
-                                                name="calling_number" placeholder="Calling Number" required>
+                                                name="calling_number" required pattern="[0-9]*" inputmode="numeric" placeholder="Calling Number" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class=" text fw-bold">WHATSAPP NUMBER</label>
                                             <input id="whatsappNumber" type="tel" class="form-control"
-                                                name="whatsapp_number" placeholder="WhatsApp Number" required>
+                                                name="whatsapp_number" required pattern="[0-9]*" inputmode="numeric" placeholder="WhatsApp Number" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -1586,9 +1586,24 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
 
 function validateDates() {
-    const startDate = document.querySelector('input[name="start_date"]').value;
-    const endDate = document.querySelector('input[name="end_date"]').value;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set time to midnight to compare only dates
+
+    const startDateInput = document.querySelector('input[name="start_date"]');
     const endDateInput = document.querySelector('input[name="end_date"]');
+
+    const startDate = startDateInput.value;
+    const endDate = endDateInput.value;
+
+    if (startDate) {
+        const start = new Date(startDate);
+        
+        if (start < today) {
+            startDateInput.setCustomValidity('Start date cannot be in the past.');
+        } else {
+            startDateInput.setCustomValidity('');
+        }
+    }
 
     if (startDate && endDate) {
         const start = new Date(startDate);

@@ -1306,9 +1306,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function validateDates() {
-    const startDate = document.querySelector('input[name="start_date"]').value;
-    const endDate = document.querySelector('input[name="end_date"]').value;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set time to midnight to compare only dates
+
+    const startDateInput = document.querySelector('input[name="start_date"]');
     const endDateInput = document.querySelector('input[name="end_date"]');
+
+    const startDate = startDateInput.value;
+    const endDate = endDateInput.value;
+
+    if (startDate) {
+        const start = new Date(startDate);
+        
+        if (start < today) {
+            startDateInput.setCustomValidity('Start date cannot be in the past.');
+        } else {
+            startDateInput.setCustomValidity('');
+        }
+    }
 
     if (startDate && endDate) {
         const start = new Date(startDate);
@@ -1321,6 +1336,8 @@ function validateDates() {
         }
     }
 }
+
+
 
 
 // JSON data for GCC countries, states/regions, and cities
