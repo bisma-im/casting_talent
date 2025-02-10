@@ -1222,7 +1222,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="fw-bold">BRIEF (OPTIONAL)</label>
-                                        <input type="file" class="form-control" name="upload_file">
+                                        <input type="file" class="form-control" name="brief_file">
                                     </div>
                                 </div>
                             </div>
