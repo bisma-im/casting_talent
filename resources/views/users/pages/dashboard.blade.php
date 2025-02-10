@@ -9,286 +9,370 @@
 
 
 <style>
+   @media (max-width: 768px) {
+      .custom-dropdown-content {
+         max-height: 100px;
+         /* Adjust max height for small screens */
+      }
+   }
+
+   /* Dropdown button styling */
+   .custom-dropdown {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+   }
+
+   .custom-dropdown-button {
+      width: 100%;
+      padding: 2px;
+      border: 2px solid white;
+      background-color: white;
+      cursor: pointer;
+
+   }
+
+   /* Dropdown content (hidden by default) */
+   .custom-dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 100%;
+      border: 1px solid #ccc;
+      max-height: 200px;
+      overflow-y: scroll;
+      z-index: 1;
+   }
+
+   /* Checkbox options styling */
+   .custom-dropdown-content label {
+      display: block;
+      padding: 10px;
+      cursor: pointer;
+   }
+
+   .custom-dropdown-content label:hover {
+      background-color: #f1f1f1;
+   }
+
+   .dropdown-open {
+      display: block;
+   }
    .about-sec {
-   padding: 150px 0px;
+      padding: 150px 0px;
    }
+
    .side-dash {
-   background-color: #fff;
-   box-shadow: 0px 3px 30px #00000030;
-   border: 1px solid #ffffff;
-   border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0px 3px 30px #00000030;
+      border: 1px solid #ffffff;
+      border-radius: 10px;
    }
+
    .dash-flex {
-   display: flex;
-   align-items: center;
-   gap: 20px;
-   padding: 15px 0px 0px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 15px 0px 0px 20px;
    }
+
    .left-dash {
-   box-shadow: 0px 3px 30px #00000030;
-   border: 1px solid #ffffff;
-   border-radius: 10px;
-   background-color: #fff;
-   padding: 15px;
+      box-shadow: 0px 3px 30px #00000030;
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+      background-color: #fff;
+      padding: 15px;
    }
+
    .nav-pills .nav-item .nav-link {
-   color: black;
-   font-weight: 700;
-   padding: 15px;
+      color: black;
+      font-weight: 700;
+      padding: 15px;
    }
+
    .nav-pills .nav-link.active,
    .nav-pills .show>.nav-link {
-   color: #fff;
-   background-color: #1C7887;
-   padding: 15px;
+      color: #fff;
+      background-color: #1C7887;
+      padding: 15px;
    }
+
    .tb-container1 {
-   width: 100%;
-   position: relative;
-   border: 1px dashed;
-   border-radius: 5px;
-   padding: 80px;
-   background-color: #F4F5F6;
+      width: 100%;
+      position: relative;
+      border: 1px dashed;
+      border-radius: 5px;
+      padding: 80px;
+      background-color: #F4F5F6;
    }
+
    .cstmlbl {
-   width: 130px;
-   height: 40px;
-   background: #003C51;
-   color: white;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   cursor: pointer;
-   font-size: 14px;
-   border-radius: 20px;
-   margin-bottom: 10px;
-   /* Adjust as needed */
+      width: 130px;
+      height: 40px;
+      background: #003C51;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      /* Adjust as needed */
    }
+
    .checkbox {
-   display: none;
+      display: none;
    }
+
    .btn-up {
-   padding: 5px 140px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 4px 2px;
-   cursor: pointer;
-   background-color: white;
-   color: black;
-   border: 2px solid #26596A;
-   border-radius: 15px
+      padding: 5px 140px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      background-color: white;
+      color: black;
+      border: 2px solid #26596A;
+      border-radius: 15px
    }
+
    .imgProfile img {
-   width: 220px;
-   height: 220px;
-   border-radius: 50%;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
    }
+
    .servicePeriod {
-   padding: 10px;
-   background: #f1f1f1;
+      padding: 10px;
+      background: #f1f1f1;
    }
+
    .walks-head .slotData {
-   font-size: 8px;
-   width: 100%;
-   padding: 5px;
-   background: #00000082;
-   border-radius: 20px;
+      font-size: 8px;
+      width: 100%;
+      padding: 5px;
+      background: #00000082;
+      border-radius: 20px;
    }
+
    .slotsMain {
-   width: 100%;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
    }
+
    .bookSer {
-   padding: 10px;
-   background: #d0d5d794;
-   border-radius: 15px;
+      padding: 10px;
+      background: #d0d5d794;
+      border-radius: 15px;
    }
+
    .ptDtaSlot {
-   width: 100%;
-   height: 30px;
-   border: 1px solid #00132e59;
+      width: 100%;
+      height: 30px;
+      border: 1px solid #00132e59;
    }
+
    .perhour {
-   font-size: 11px;
-   color: #000;
-   font-weight: bold;
+      font-size: 11px;
+      color: #000;
+      font-weight: bold;
    }
+
    .serprice {
-   color: #fff !important;
-   font-size: 15px !important;
+      color: #fff !important;
+      font-size: 15px !important;
    }
+
    .progress {
-    height: 30px;
-}
-.progress-bar {
-    font-weight: bold;
-    line-height: 30px;
-}
-
-
-/* ----------------------------------------------------- */
-.form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-control, .form-select {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 14px;
-        }
-
-        .form-select {
-            height: auto;
-        }
-
-        .intl-tel-input {
-            width: 100%;
-        }
-
-        .intl-tel-input input {
-            width: 100%;
-            padding-left: 50px; /* Ensure enough padding for the flag inside the input */
-        }
-
-        .btn-primary {
-            background-color: #1C7887;
-            border: none;
-            padding: 10px 30px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            background-color: #007BFF;
-        }
- .text{
-               font-size: 14px;
-               
-
- }
- .is-invalid {
-        border-color: #dc3545;
-    }
-
-    .is-invalid::placeholder {
-        color: #dc3545;
-    }
-/* Initially hide subcategories */
-/* Initially hide subcategories */
-.sub-category {
-    display: none;
-    list-style-type: none;
-    margin-top: 5px;
-    padding-left: 20px;
-}
-.main-category {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-/* Main category styling */
-.main-category-item {
-    cursor: pointer;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
-    font-weight: bold;
-    position: relative;
-}
-/* Category Checkbox Styles */
-.category-checkbox,
-.subcategory-checkbox {
-    margin-right: 5px;
-}
-/* Subcategory styling */
-.sub-category li {
-    padding: 5px 0;
-    font-size: 14px;
-}
-
-/* Menu container styles */
-.menu-container {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: #fff;
-    max-height: 350px; /* Increase max height to avoid scrolling too soon */
-    overflow-y: auto;
-    display: none; /* Hidden until the dropdown button is clicked */
-    transition: max-height 0.3s ease-in-out;
-    width: 250px; /* Adjusted width for better readability */
-}
-
-
-/* Dropdown Button Styles */
-#dropdown-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #6c757d; /* Button color */
-    color: white;
-    border-radius: 5px;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-/* Display categories on hover or click */
-#dropdown-container:hover .menu-container {
-    display: block;
-}
-
-/* Hover effect for subcategories */
-.sub-category li:hover {
-    background-color: #f0f0f0;
-    cursor: pointer;
-}
-/* Custom Scrollbar */
-.menu-container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.menu-container::-webkit-scrollbar-thumb {
-    background-color: #888; /* Scrollbar thumb color */
-    border-radius: 5px;
-}
-
-/* Expandable height for subcategories */
-.main-category-item:hover .sub-category {
-    display: block;
-}
-
-.main-category-item.expanded .sub-category {
-    display: block;
-}
-
-/* Adjust max-height dynamically when a subcategory is visible */
-.menu-container.expand {
-    max-height: none; /* Remove max height when a subcategory is open */
-}
-
-.my-col {
-   flex: 0 0 25%;
-    max-width: 25%;
-    padding: 0 7px;
-}
-@media (max-width: 768px) {
-   .my-col {
-      flex: 0 0 50%;
-      max-width: 50%;
+      height: 30px;
    }
-}
+
+   .progress-bar {
+      font-weight: bold;
+      line-height: 30px;
+   }
+
+
+   /* ----------------------------------------------------- */
+   .form-group {
+      margin-bottom: 20px;
+   }
+
+   .form-control,
+   .form-select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+   }
+
+   .form-select {
+      height: auto;
+   }
+
+   .intl-tel-input {
+      width: 100%;
+   }
+
+   .intl-tel-input input {
+      width: 100%;
+      padding-left: 50px;
+      /* Ensure enough padding for the flag inside the input */
+   }
+
+   .btn-primary {
+      background-color: #1C7887;
+      border: none;
+      padding: 10px 30px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+   }
+
+   .btn-primary:hover {
+      background-color: #007BFF;
+   }
+
+   .text {
+      font-size: 14px;
+
+
+   }
+
+   .is-invalid {
+      border-color: #dc3545;
+   }
+
+   .is-invalid::placeholder {
+      color: #dc3545;
+   }
+
+   /* Initially hide subcategories */
+   /* Initially hide subcategories */
+   .sub-category {
+      display: none;
+      list-style-type: none;
+      margin-top: 5px;
+      padding-left: 20px;
+   }
+
+   .main-category {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+   }
+
+   /* Main category styling */
+   .main-category-item {
+      cursor: pointer;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      font-size: 14px;
+      font-weight: bold;
+      position: relative;
+   }
+
+   /* Category Checkbox Styles */
+   .category-checkbox,
+   .subcategory-checkbox {
+      margin-right: 5px;
+   }
+
+   /* Subcategory styling */
+   .sub-category li {
+      padding: 5px 0;
+      font-size: 14px;
+   }
+
+   /* Menu container styles */
+   .menu-container {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      background-color: #fff;
+      max-height: 350px;
+      /* Increase max height to avoid scrolling too soon */
+      overflow-y: auto;
+      display: none;
+      /* Hidden until the dropdown button is clicked */
+      transition: max-height 0.3s ease-in-out;
+      width: 250px;
+      /* Adjusted width for better readability */
+   }
+
+
+   /* Dropdown Button Styles */
+   #dropdown-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #6c757d;
+      /* Button color */
+      color: white;
+      border-radius: 5px;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-size: 14px;
+      margin-bottom: 5px;
+   }
+
+   /* Display categories on hover or click */
+   #dropdown-container:hover .menu-container {
+      display: block;
+   }
+
+   /* Hover effect for subcategories */
+   .sub-category li:hover {
+      background-color: #f0f0f0;
+      cursor: pointer;
+   }
+
+   /* Custom Scrollbar */
+   .menu-container::-webkit-scrollbar {
+      width: 8px;
+   }
+
+   .menu-container::-webkit-scrollbar-thumb {
+      background-color: #888;
+      /* Scrollbar thumb color */
+      border-radius: 5px;
+   }
+
+   /* Expandable height for subcategories */
+   .main-category-item:hover .sub-category {
+      display: block;
+   }
+
+   .main-category-item.expanded .sub-category {
+      display: block;
+   }
+
+   /* Adjust max-height dynamically when a subcategory is visible */
+   .menu-container.expand {
+      max-height: none;
+      /* Remove max height when a subcategory is open */
+   }
+
+   .my-col {
+      flex: 0 0 25%;
+      max-width: 25%;
+      padding: 0 7px;
+   }
+
+   @media (max-width: 768px) {
+      .my-col {
+         flex: 0 0 50%;
+         max-width: 50%;
+      }
+   }
 </style>
-@php
-@endphp
+
 <section class="about-sec about-margin">
    <div class="container">
       <div class="row">
@@ -723,7 +807,7 @@
         <div class="serve-pad">
             <div class="row">
                 <div class="col-12">
-                    <form id="multiStepForm" method="post" action="{{ route('job-info.post') }}" enctype="multipart/form-data">
+                    <form id="client-form" method="post" action="{{ route('client-inquiry.post') }}" enctype="multipart/form-data">
                         @csrf
 
                         <!-- Progress bar -->
@@ -796,7 +880,7 @@
                                         <label class="fw-bold">PROJECT</label>
                                         <select class="form-select" name="project" required>
                                             <option value="Shoot">Shoot</option>
-                                            <option value="Film">Film</option>
+                                            <option value="Event">Event</option>
                                         </select>
                                     </div>
                                 </div>
@@ -870,7 +954,7 @@
             <!-- Menu container with categories and subcategories (initially hidden) -->
             <div class="menu-container" id="main-category-container" style="display: none;"></div>
         </div>
-
+        <input type="hidden" name="categories" id="categories" value="" />
         <!-- Paragraph to show selected categories and subcategories -->
         <p id="selectedCategories" style="margin-top: 10px; font-weight: bold;">
             Selected Talents: None
@@ -881,72 +965,211 @@
 
 
 
- <div class="col-lg-3">
-                            <div class="form-group">
-                                <label  class="fw-bold">NATIONALITIES</label>
-                                <select class="form-select" name="nationality" required>
-                                    <option value="" disabled selected>Select Nationality</option>
-                                    <option value="Afghanistan">Afghanistan</option>
-                                    <option value="Albania">Albania</option>
-                                    <option value="Algeria">Algeria</option>
-                                    <option value="Andorra">Andorra</option>
-                                    <option value="Angola">Angola</option>
-                                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                    <option value="Argentina">Argentina</option>
-                                    <option value="Armenia">Armenia</option>
-                                    <option value="Australia">Australia</option>
-                                    <option value="Austria">Austria</option>
-                                    <option value="Azerbaijan">Azerbaijan</option>
-                                    <option value="Bahamas">Bahamas</option>
-                                    <option value="Bahrain">Bahrain</option>
-                                    <option value="Bangladesh">Bangladesh</option>
-                                    <option value="Barbados">Barbados</option>
-                                    <option value="Belarus">Belarus</option>
-                                    <option value="Belgium">Belgium</option>
-                                    <option value="Belize">Belize</option>
-                                    <option value="Benin">Benin</option>
-                                    <option value="Bhutan">Bhutan</option>
-                                    <option value="Bolivia">Bolivia</option>
-                                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                                    <option value="Botswana">Botswana</option>
-                                    <option value="Brazil">Brazil</option>
-                                    <option value="Brunei">Brunei</option>
-                                    <option value="Bulgaria">Bulgaria</option>
-                                    <option value="Burkina Faso">Burkina Faso</option>
-                                    <option value="Burundi">Burundi</option>
-                                    <option value="Cabo Verde">Cabo Verde</option>
-                                    <option value="Cambodia">Cambodia</option>
-                                    <option value="Cameroon">Cameroon</option>
-                                    <option value="Canada">Canada</option>
-                                    <option value="Central African Republic">Central African Republic</option>
-                                    <option value="Chad">Chad</option>
-                                    <option value="Chile">Chile</option>
-                                    <option value="China">China</option>
-                                    <option value="Colombia">Colombia</option>
-                                    <option value="Comoros">Comoros</option>
-                                    <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
-                                    <option value="Costa Rica">Costa Rica</option>
-                                    <option value="Croatia">Croatia</option>
-                                    <option value="Cuba">Cuba</option>
-                                    <option value="Cyprus">Cyprus</option>
-                                    <option value="Czech Republic">Czech Republic</option>
-                                    <option value="Denmark">Denmark</option>
-                                    <option value="Djibouti">Djibouti</option>
-                                    <option value="Dominica">Dominica</option>
-                                    <option value="Dominican Republic">Dominican Republic</option>
-                                    <option value="Ecuador">Ecuador</option>
-                                    <option value="Egypt">Egypt</option>
-                                    <option value="El Salvador">El Salvador</option>
-                                    <option value="Equatorial Guinea">Equatorial Guinea</option>
-                                    <option value="Eritrea">Eritrea</option>
-                                    <option value="Estonia">Estonia</option>
-                                    <option value="Eswatini">Eswatini (fmr. "Swaziland")</option>
-                                    <option value="Ethiopia">Ethiopia</option>
-                                    <option value="Fiji">Fiji</option>
-                                    <option value="Finland">Finland</option>
-                                    <option value="France">France</option>
-                                </select>
-                            </div>
+                        <div class="col-lg-3">
+                           <div class="form-group">
+                              <label class="fw-bold">NATIONALITIES</label>
+                              <div class="custom-dropdown" id="nationalityDropdown">
+                                 <div class=" form-control" id="dropdownButton">Select Nationalities</div>
+                                 <div class="custom-dropdown-content" id="dropdownContent">
+                                    <label><input type="checkbox" value="Afghanistan"> Afghanistan</label>
+                                    <label><input type="checkbox" value="Albania"> Albania</label>
+                                    <label><input type="checkbox" value="Algeria"> Algeria</label>
+                                    <label><input type="checkbox" value="Andorra"> Andorra</label>
+                                    <label><input type="checkbox" value="Angola"> Angola</label>
+                                    <label><input type="checkbox" value="Antigua and Barbuda"> Antigua and Barbuda</label>
+                                    <label><input type="checkbox" value="Argentina"> Argentina</label>
+                                    <label><input type="checkbox" value="Armenia"> Armenia</label>
+                                    <label><input type="checkbox" value="Australia"> Australia</label>
+                                    <label><input type="checkbox" value="Austria"> Austria</label>
+                                    <label><input type="checkbox" value="Azerbaijan"> Azerbaijan</label>
+                                    <label><input type="checkbox" value="Bahamas"> Bahamas</label>
+                                    <label><input type="checkbox" value="Bahrain"> Bahrain</label>
+                                    <label><input type="checkbox" value="Bangladesh"> Bangladesh</label>
+                                    <label><input type="checkbox" value="Barbados"> Barbados</label>
+                                    <label><input type="checkbox" value="Belarus"> Belarus</label>
+                                    <label><input type="checkbox" value="Belgium"> Belgium</label>
+                                    <label><input type="checkbox" value="Belize"> Belize</label>
+                                    <label><input type="checkbox" value="Benin"> Benin</label>
+                                    <label><input type="checkbox" value="Bhutan"> Bhutan</label>
+                                    <label><input type="checkbox" value="Bolivia"> Bolivia</label>
+                                    <label><input type="checkbox" value="Bosnia and Herzegovina"> Bosnia and Herzegovina</label>
+                                    <label><input type="checkbox" value="Botswana"> Botswana</label>
+                                    <label><input type="checkbox" value="Brazil"> Brazil</label>
+                                    <label><input type="checkbox" value="Brunei"> Brunei</label>
+                                    <label><input type="checkbox" value="Bulgaria"> Bulgaria</label>
+                                    <label><input type="checkbox" value="Burkina Faso"> Burkina Faso</label>
+                                    <label><input type="checkbox" value="Burundi"> Burundi</label>
+                                    <label><input type="checkbox" value="Cabo Verde"> Cabo Verde</label>
+                                    <label><input type="checkbox" value="Cambodia"> Cambodia</label>
+                                    <label><input type="checkbox" value="Cameroon"> Cameroon</label>
+                                    <label><input type="checkbox" value="Canada"> Canada</label>
+                                    <label><input type="checkbox" value="Central African Republic"> Central African Republic</label>
+                                    <label><input type="checkbox" value="Chad"> Chad</label>
+                                    <label><input type="checkbox" value="Chile"> Chile</label>
+                                    <label><input type="checkbox" value="China"> China</label>
+                                    <label><input type="checkbox" value="Colombia"> Colombia</label>
+                                    <label><input type="checkbox" value="Comoros"> Comoros</label>
+                                    <label><input type="checkbox" value="Congo (Congo-Brazzaville)"> Congo (Congo-Brazzaville)</label>
+                                    <label><input type="checkbox" value="Congo (Congo-Kinshasa)"> Congo (Congo-Kinshasa)</label>
+                                    <label><input type="checkbox" value="Costa Rica"> Costa Rica</label>
+                                    <label><input type="checkbox" value="Croatia"> Croatia</label>
+                                    <label><input type="checkbox" value="Cuba"> Cuba</label>
+                                    <label><input type="checkbox" value="Cyprus"> Cyprus</label>
+                                    <label><input type="checkbox" value="Czech Republic"> Czech Republic</label>
+                                    <label><input type="checkbox" value="Denmark"> Denmark</label>
+                                    <label><input type="checkbox" value="Djibouti"> Djibouti</label>
+                                    <label><input type="checkbox" value="Dominica"> Dominica</label>
+                                    <label><input type="checkbox" value="Dominican Republic"> Dominican Republic</label>
+                                    <label><input type="checkbox" value="Ecuador"> Ecuador</label>
+                                    <label><input type="checkbox" value="Egypt"> Egypt</label>
+                                    <label><input type="checkbox" value="El Salvador"> El Salvador</label>
+                                    <label><input type="checkbox" value="Equatorial Guinea"> Equatorial Guinea</label>
+                                    <label><input type="checkbox" value="Eritrea"> Eritrea</label>
+                                    <label><input type="checkbox" value="Estonia"> Estonia</label>
+                                    <label><input type="checkbox" value="Eswatini"> Eswatini (formerly Swaziland)</label>
+                                    <label><input type="checkbox" value="Ethiopia"> Ethiopia</label>
+                                    <label><input type="checkbox" value="Fiji"> Fiji</label>
+                                    <label><input type="checkbox" value="Finland"> Finland</label>
+                                    <label><input type="checkbox" value="France"> France</label>
+                                    <label><input type="checkbox" value="Gabon"> Gabon</label>
+                                    <label><input type="checkbox" value="Gambia"> Gambia</label>
+                                    <label><input type="checkbox" value="Georgia"> Georgia</label>
+                                    <label><input type="checkbox" value="Germany"> Germany</label>
+                                    <label><input type="checkbox" value="Ghana"> Ghana</label>
+                                    <label><input type="checkbox" value="Greece"> Greece</label>
+                                    <label><input type="checkbox" value="Grenada"> Grenada</label>
+                                    <label><input type="checkbox" value="Guatemala"> Guatemala</label>
+                                    <label><input type="checkbox" value="Guinea"> Guinea</label>
+                                    <label><input type="checkbox" value="Guinea-Bissau"> Guinea-Bissau</label>
+                                    <label><input type="checkbox" value="Guyana"> Guyana</label>
+                                    <label><input type="checkbox" value="Haiti"> Haiti</label>
+                                    <label><input type="checkbox" value="Honduras"> Honduras</label>
+                                    <label><input type="checkbox" value="Hungary"> Hungary</label>
+                                    <label><input type="checkbox" value="Iceland"> Iceland</label>
+                                    <label><input type="checkbox" value="India"> India</label>
+                                    <label><input type="checkbox" value="Indonesia"> Indonesia</label>
+                                    <label><input type="checkbox" value="Iran"> Iran</label>
+                                    <label><input type="checkbox" value="Iraq"> Iraq</label>
+                                    <label><input type="checkbox" value="Ireland"> Ireland</label>
+                                    <label><input type="checkbox" value="Israel"> Israel</label>
+                                    <label><input type="checkbox" value="Italy"> Italy</label>
+                                    <label><input type="checkbox" value="Jamaica"> Jamaica</label>
+                                    <label><input type="checkbox" value="Japan"> Japan</label>
+                                    <label><input type="checkbox" value="Jordan"> Jordan</label>
+                                    <label><input type="checkbox" value="Kazakhstan"> Kazakhstan</label>
+                                    <label><input type="checkbox" value="Kenya"> Kenya</label>
+                                    <label><input type="checkbox" value="Kiribati"> Kiribati</label>
+                                    <label><input type="checkbox" value="Kuwait"> Kuwait</label>
+                                    <label><input type="checkbox" value="Kyrgyzstan"> Kyrgyzstan</label>
+                                    <label><input type="checkbox" value="Laos"> Laos</label>
+                                    <label><input type="checkbox" value="Latvia"> Latvia</label>
+                                    <label><input type="checkbox" value="Lebanon"> Lebanon</label>
+                                    <label><input type="checkbox" value="Lesotho"> Lesotho</label>
+                                    <label><input type="checkbox" value="Liberia"> Liberia</label>
+                                    <label><input type="checkbox" value="Libya"> Libya</label>
+                                    <label><input type="checkbox" value="Liechtenstein"> Liechtenstein</label>
+                                    <label><input type="checkbox" value="Lithuania"> Lithuania</label>
+                                    <label><input type="checkbox" value="Luxembourg"> Luxembourg</label>
+                                    <label><input type="checkbox" value="Madagascar"> Madagascar</label>
+                                    <label><input type="checkbox" value="Malawi"> Malawi</label>
+                                    <label><input type="checkbox" value="Malaysia"> Malaysia</label>
+                                    <label><input type="checkbox" value="Maldives"> Maldives</label>
+                                    <label><input type="checkbox" value="Mali"> Mali</label>
+                                    <label><input type="checkbox" value="Malta"> Malta</label>
+                                    <label><input type="checkbox" value="Marshall Islands"> Marshall Islands</label>
+                                    <label><input type="checkbox" value="Mauritania"> Mauritania</label>
+                                    <label><input type="checkbox" value="Mauritius"> Mauritius</label>
+                                    <label><input type="checkbox" value="Mexico"> Mexico</label>
+                                    <label><input type="checkbox" value="Micronesia"> Micronesia</label>
+                                    <label><input type="checkbox" value="Moldova"> Moldova</label>
+                                    <label><input type="checkbox" value="Monaco"> Monaco</label>
+                                    <label><input type="checkbox" value="Mongolia"> Mongolia</label>
+                                    <label><input type="checkbox" value="Montenegro"> Montenegro</label>
+                                    <label><input type="checkbox" value="Morocco"> Morocco</label>
+                                    <label><input type="checkbox" value="Mozambique"> Mozambique</label>
+                                    <label><input type="checkbox" value="Myanmar"> Myanmar (formerly Burma)</label>
+                                    <label><input type="checkbox" value="Namibia"> Namibia</label>
+                                    <label><input type="checkbox" value="Nauru"> Nauru</label>
+                                    <label><input type="checkbox" value="Nepal"> Nepal</label>
+                                    <label><input type="checkbox" value="Netherlands"> Netherlands</label>
+                                    <label><input type="checkbox" value="New Zealand"> New Zealand</label>
+                                    <label><input type="checkbox" value="Nicaragua"> Nicaragua</label>
+                                    <label><input type="checkbox" value="Niger"> Niger</label>
+                                    <label><input type="checkbox" value="Nigeria"> Nigeria</label>
+                                    <label><input type="checkbox" value="North Korea"> North Korea</label>
+                                    <label><input type="checkbox" value="North Macedonia"> North Macedonia</label>
+                                    <label><input type="checkbox" value="Norway"> Norway</label>
+                                    <label><input type="checkbox" value="Oman"> Oman</label>
+                                    <label><input type="checkbox" value="Pakistan"> Pakistan</label>
+                                    <label><input type="checkbox" value="Palau"> Palau</label>
+                                    <label><input type="checkbox" value="Panama"> Panama</label>
+                                    <label><input type="checkbox" value="Papua New Guinea"> Papua New Guinea</label>
+                                    <label><input type="checkbox" value="Paraguay"> Paraguay</label>
+                                    <label><input type="checkbox" value="Peru"> Peru</label>
+                                    <label><input type="checkbox" value="Philippines"> Philippines</label>
+                                    <label><input type="checkbox" value="Poland"> Poland</label>
+                                    <label><input type="checkbox" value="Portugal"> Portugal</label>
+                                    <label><input type="checkbox" value="Qatar"> Qatar</label>
+                                    <label><input type="checkbox" value="Romania"> Romania</label>
+                                    <label><input type="checkbox" value="Russia"> Russia</label>
+                                    <label><input type="checkbox" value="Rwanda"> Rwanda</label>
+                                    <label><input type="checkbox" value="Saint Kitts and Nevis"> Saint Kitts and Nevis</label>
+                                    <label><input type="checkbox" value="Saint Lucia"> Saint Lucia</label>
+                                    <label><input type="checkbox" value="Saint Vincent and the Grenadines"> Saint Vincent and the
+                                       Grenadines</label>
+                                    <label><input type="checkbox" value="Samoa"> Samoa</label>
+                                    <label><input type="checkbox" value="San Marino"> San Marino</label>
+                                    <label><input type="checkbox" value="Sao Tome and Principe"> Sao Tome and Principe</label>
+                                    <label><input type="checkbox" value="Saudi Arabia"> Saudi Arabia</label>
+                                    <label><input type="checkbox" value="Senegal"> Senegal</label>
+                                    <label><input type="checkbox" value="Serbia"> Serbia</label>
+                                    <label><input type="checkbox" value="Seychelles"> Seychelles</label>
+                                    <label><input type="checkbox" value="Sierra Leone"> Sierra Leone</label>
+                                    <label><input type="checkbox" value="Singapore"> Singapore</label>
+                                    <label><input type="checkbox" value="Slovakia"> Slovakia</label>
+                                    <label><input type="checkbox" value="Slovenia"> Slovenia</label>
+                                    <label><input type="checkbox" value="Solomon Islands"> Solomon Islands</label>
+                                    <label><input type="checkbox" value="Somalia"> Somalia</label>
+                                    <label><input type="checkbox" value="South Africa"> South Africa</label>
+                                    <label><input type="checkbox" value="South Korea"> South Korea</label>
+                                    <label><input type="checkbox" value="South Sudan"> South Sudan</label>
+                                    <label><input type="checkbox" value="Spain"> Spain</label>
+                                    <label><input type="checkbox" value="Sri Lanka"> Sri Lanka</label>
+                                    <label><input type="checkbox" value="Sudan"> Sudan</label>
+                                    <label><input type="checkbox" value="Suriname"> Suriname</label>
+                                    <label><input type="checkbox" value="Sweden"> Sweden</label>
+                                    <label><input type="checkbox" value="Switzerland"> Switzerland</label>
+                                    <label><input type="checkbox" value="Syria"> Syria</label>
+                                    <label><input type="checkbox" value="Taiwan"> Taiwan</label>
+                                    <label><input type="checkbox" value="Tajikistan"> Tajikistan</label>
+                                    <label><input type="checkbox" value="Tanzania"> Tanzania</label>
+                                    <label><input type="checkbox" value="Thailand"> Thailand</label>
+                                    <label><input type="checkbox" value="Timor-Leste"> Timor-Leste</label>
+                                    <label><input type="checkbox" value="Togo"> Togo</label>
+                                    <label><input type="checkbox" value="Tonga"> Tonga</label>
+                                    <label><input type="checkbox" value="Trinidad and Tobago"> Trinidad and Tobago</label>
+                                    <label><input type="checkbox" value="Tunisia"> Tunisia</label>
+                                    <label><input type="checkbox" value="Turkey"> Turkey</label>
+                                    <label><input type="checkbox" value="Turkmenistan"> Turkmenistan</label>
+                                    <label><input type="checkbox" value="Tuvalu"> Tuvalu</label>
+                                    <label><input type="checkbox" value="Uganda"> Uganda</label>
+                                    <label><input type="checkbox" value="Ukraine"> Ukraine</label>
+                                    <label><input type="checkbox" value="United Arab Emirates"> United Arab Emirates</label>
+                                    <label><input type="checkbox" value="United Kingdom"> United Kingdom</label>
+                                    <label><input type="checkbox" value="United States"> United States</label>
+                                    <label><input type="checkbox" value="Uruguay"> Uruguay</label>
+                                    <label><input type="checkbox" value="Uzbekistan"> Uzbekistan</label>
+                                    <label><input type="checkbox" value="Vanuatu"> Vanuatu</label>
+                                    <label><input type="checkbox" value="Vatican City"> Vatican City</label>
+                                    <label><input type="checkbox" value="Venezuela"> Venezuela</label>
+                                    <label><input type="checkbox" value="Vietnam"> Vietnam</label>
+                                    <label><input type="checkbox" value="Yemen"> Yemen</label>
+                                    <label><input type="checkbox" value="Zambia"> Zambia</label>
+                                    <label><input type="checkbox" value="Zimbabwe"> Zimbabwe</label>
+                                 </div>
+                              </div>
+                              <input type="hidden" name="nationalities" id="nationalities" value="" />
+                           </div>
                         </div>
 
                         <!-- start and end date  -->
@@ -1209,6 +1432,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Update the paragraph with the selected values
         if (selectedOptions.length > 0) {
+            document.getElementById('categories').value = selectedOptions.join(', ');
             selectedCategoriesParagraph.textContent = 'Selected Talents: ' + selectedOptions.join(', ');
         } else {
             selectedCategoriesParagraph.textContent = 'Selected Talents: None';
@@ -2584,70 +2808,218 @@ window.addEventListener("DOMContentLoaded", function () {
 
 <!-- Initialize Select2 with custom checkbox template -->
 <script>
-$(document).ready(function() {
-    $('.languages-select').select2({
-        placeholder: 'Select languages',
-        closeOnSelect: false,  // Prevent the dropdown from closing on select
-        templateResult: formatState,  // Custom format for displaying checkboxes
-        templateSelection: formatSelection,  // Custom format for displaying selected items
-        width: '100%'
-    });
+   document.addEventListener('DOMContentLoaded', function() {
+        // Select all nationality checkboxes
+        const nationalityCheckboxes = document.querySelectorAll('.custom-dropdown-content input[type="checkbox"]');
 
-    // Function to render checkboxes inside Select2 options
-    function formatState(state) {
-        if (!state.id) {
-            return state.text; // Return text for the placeholder or non-selected options
+        // Function to update the hidden input based on selected checkboxes
+        function updateNationalities() {
+            const selectedNationalities = Array.from(nationalityCheckboxes) // Convert NodeList to Array
+                .filter(checkbox => checkbox.checked) // Filter only checked checkboxes
+                .map(checkbox => checkbox.value); // Map to their values
+
+            // Update the hidden input's value
+            document.getElementById('nationalities').value = selectedNationalities.join(', ');
+
+            // Optional: Update UI or other elements to show selected nationalities
+            // For example, updating a paragraph or label
+            // document.getElementById('displaySelectedNationalities').textContent = selectedNationalities.join(', ');
         }
-        var $state = $(
-            `<span>
-                <input type="checkbox" style="margin-right: 8px;" ${state.selected ? 'checked' : ''}/> 
-                ${state.text}
-            </span>`
-        );
-        return $state;
-    }
 
-    // Function to render selected items with remove button
-    function formatSelection(state) {
-        return $(`<span>${state.text} <span class="remove">×</span></span>`);
-    }
-
-    // Event to handle removing selected items
-    $('.languages-select').on('select2:select', function (e) {
-        var data = e.params.data;
-        $(this).find('.select2-selection__choice').filter(function() {
-            return $(this).text().trim() === data.text;
-        }).addClass('selected'); // Add a class to selected items
-    });
-
-    // Event to handle the click on the remove button
-    $('.languages-select').on('click', '.remove', function () {
-        var text = $(this).parent().text().trim(); // Get the text of the option to remove
-        var option = $('.languages-select option').filter(function() {
-            return $(this).text() === text;
+        // Attach event listeners to all checkboxes
+        nationalityCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateNationalities); // Update whenever a checkbox is checked or unchecked
         });
-        option.prop("selected", false).trigger('change'); // Deselect the option
     });
-});
 
+   $(document).ready(function() {
+      $('.languages-select').select2({
+         placeholder: 'Select languages',
+         closeOnSelect: false,  // Prevent the dropdown from closing on select
+         templateResult: formatState,  // Custom format for displaying checkboxes
+         templateSelection: formatSelection,  // Custom format for displaying selected items
+         width: '100%'
+      });
 
- 
-function validateBudget() {
-    const minAmount = document.getElementById("starting_amount");
-    const maxAmount = document.getElementById("maximum_amount");
-    const errorMessage = document.getElementById("budget-error");
+      // Function to render checkboxes inside Select2 options
+      function formatState(state) {
+         if (!state.id) {
+               return state.text; // Return text for the placeholder or non-selected options
+         }
+         var $state = $(
+               `<span>
+                  <input type="checkbox" style="margin-right: 8px;" ${state.selected ? 'checked' : ''}/> 
+                  ${state.text}
+               </span>`
+         );
+         return $state;
+      }
 
-    if (minAmount.value && maxAmount.value) {
-        if (parseFloat(maxAmount.value) < parseFloat(minAmount.value)) {
-            errorMessage.style.display = "inline"; // Show error message
-            maxAmount.setCustomValidity("Maximum budget cannot be less than the minimum amount.");
-        } else {
-            errorMessage.style.display = "none"; // Hide error message
-            maxAmount.setCustomValidity(""); // Remove validation error
+      // Function to render selected items with remove button
+      function formatSelection(state) {
+         return $(`<span>${state.text} <span class="remove">×</span></span>`);
+      }
+
+      // Event to handle removing selected items
+      $('.languages-select').on('select2:select', function (e) {
+         var data = e.params.data;
+         $(this).find('.select2-selection__choice').filter(function() {
+               return $(this).text().trim() === data.text;
+         }).addClass('selected'); // Add a class to selected items
+      });
+
+      // Event to handle the click on the remove button
+      $('.languages-select').on('click', '.remove', function () {
+         var text = $(this).parent().text().trim(); // Get the text of the option to remove
+         var option = $('.languages-select option').filter(function() {
+               return $(this).text() === text;
+         });
+         option.prop("selected", false).trigger('change'); // Deselect the option
+      });
+   });
+  
+   function validateBudget() {
+      const minAmount = document.getElementById("starting_amount");
+      const maxAmount = document.getElementById("maximum_amount");
+      const errorMessage = document.getElementById("budget-error");
+
+      if (minAmount.value && maxAmount.value) {
+         if (parseFloat(maxAmount.value) < parseFloat(minAmount.value)) {
+               errorMessage.style.display = "inline"; // Show error message
+               maxAmount.setCustomValidity("Maximum budget cannot be less than the minimum amount.");
+         } else {
+               errorMessage.style.display = "none"; // Hide error message
+               maxAmount.setCustomValidity(""); // Remove validation error
+         }
+      }
+   }
+
+   $(document).ready(function() {
+        $('#client-form').on('submit', function(e) {
+            e.preventDefault();
+
+            var formData = new FormData(this);
+
+            var submitButton = $(this).find('button[type="submit"]'); // Assuming there's a button of type submit
+
+            // Disable the button and change its text
+            submitButton.prop('disabled', true).text('Submitting...');
+
+            $.ajax({
+                url: "/client-inquiry", // Adjust the URL to match your route
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    console.log(response);
+                    toastr.success('Client Inquiry submitted successfully!');
+                    // Reset the form
+                    resetFormUI();
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX error response:", xhr);  // Log the entire response object to see its structure
+
+                    // if (xhr.responseJSON && xhr.responseJSON.errors) {
+                    //     console.error('Validation Errors:', xhr.responseJSON.errors);
+                    //     alert('Validation Errors: ' + JSON.stringify(xhr.responseJSON.errors));
+                    // } else if (xhr.responseJSON && xhr.responseJSON.error) {
+                    //     console.error('Error:', xhr.responseJSON.error);
+                    //     alert('Error: ' + xhr.responseJSON.error);
+                    // } else {
+                        console.error('Unexpected Error:', xhr.statusText);
+                        toastr.error('An unexpected error occurred.');
+                    // }
+                },
+                complete: function() {
+                    // Enable the button and restore its original text regardless of success or error
+                    submitButton.prop('disabled', false).text('Submit');
+                }
+
+            });
+        });
+
+         function resetFormUI() {
+               // Reset the form
+               $('#client-form')[0].reset();
+               // Reset progress bar and step visibility
+               currentStep = 1;
+               progress = 0;
+               const progressBar = document.getElementById('clientProgressBar');
+               progressBar.style.width = `${progress}%`;
+               progressBar.setAttribute('aria-valuenow', progress);
+               progressBar.textContent = `${progress}%`;
+
+               const stepElements = document.querySelectorAll('.step');
+               stepElements.forEach(step => {
+                  step.classList.add('d-none');
+               });
+               document.getElementById('step1').classList.remove('d-none');  // Assuming the first step has ID 'step1'
+         }
+    });
+
+    const dropdownButton = document.getElementById('dropdownButton');
+    const dropdownContent = document.getElementById('dropdownContent');
+
+    // Function to move selected checkboxes to the top
+    function moveSelectedToTop() {
+        const labels = dropdownContent.querySelectorAll('label');
+        const selectedLabels = [];
+        const unselectedLabels = [];
+
+        // Separate selected and unselected checkboxes
+        labels.forEach(label => {
+            const checkbox = label.querySelector('input[type="checkbox"]');
+            if (checkbox.checked) {
+                selectedLabels.push(label);
+                label.classList.add('selected');  // Add selected class for styling
+            } else {
+                unselectedLabels.push(label);
+                label.classList.remove('selected');
+            }
+        });
+
+        // Clear the dropdown content
+        dropdownContent.innerHTML = '';
+
+        // Append selected labels to the top
+        selectedLabels.forEach(label => {
+            dropdownContent.appendChild(label);
+        });
+
+        // Append unselected labels after the selected ones
+        unselectedLabels.forEach(label => {
+            dropdownContent.appendChild(label);
+        });
+    }
+
+    // Dropdown toggle functionality
+    dropdownButton.addEventListener('click', function () {
+        dropdownContent.classList.toggle('dropdown-open');
+    });
+
+    // Event listener for checkbox changes
+    dropdownContent.addEventListener('change', function (e) {
+        if (e.target.type === 'checkbox') {
+            moveSelectedToTop();
+        }
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('#dropdownButton')) {
+            var dropdowns = document.getElementsByClassName("custom-dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('dropdown-open')) {
+                    openDropdown.classList.remove('dropdown-open');
+                }
+            }
         }
     }
-}
-
 </script>
 
 

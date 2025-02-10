@@ -501,7 +501,7 @@
                         <div class="progress">
                             <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
                         </div>
-                        <form id="contact-form" action="{{ route('contact.post') }}" method="post">
+                        <form id="contact-form" action="{{ route('client-inquiry.post') }}" method="post">
                             @csrf
                             <!-- Form steps go here -->
                             <!-- Example first step -->
@@ -696,7 +696,7 @@
                                         <label class="text fw-bold">PROJECT</label>
                                         <select class="form-select" name="project" required>
                                             <option value="Shoot">Shoot</option>
-                                            <option value="Film">Event</option>
+                                            <option value="Event">Event</option>
                                         </select>
                                     </div>
                                 </div>
@@ -1208,66 +1208,67 @@
 </script>
 
 <script>
-      // Dropdown toggle functionality for multople nationalites
-      const dropdownButton = document.getElementById('dropdownButton');
-    const dropdownContent = document.getElementById('dropdownContent');
+    $(document).ready(function()  {  // Dropdown toggle functionality for multople nationalites
+        const dropdownButton = document.getElementById('dropdownButton');
+        const dropdownContent = document.getElementById('dropdownContent');
 
-    // Function to move selected checkboxes to the top
-    function moveSelectedToTop() {
-        const labels = dropdownContent.querySelectorAll('label');
-        const selectedLabels = [];
-        const unselectedLabels = [];
+        // Function to move selected checkboxes to the top
+        function moveSelectedToTop() {
+            const labels = dropdownContent.querySelectorAll('label');
+            const selectedLabels = [];
+            const unselectedLabels = [];
 
-        // Separate selected and unselected checkboxes
-        labels.forEach(label => {
-            const checkbox = label.querySelector('input[type="checkbox"]');
-            if (checkbox.checked) {
-                selectedLabels.push(label);
-                label.classList.add('selected');  // Add selected class for styling
-            } else {
-                unselectedLabels.push(label);
-                label.classList.remove('selected');
+            // Separate selected and unselected checkboxes
+            labels.forEach(label => {
+                const checkbox = label.querySelector('input[type="checkbox"]');
+                if (checkbox.checked) {
+                    selectedLabels.push(label);
+                    label.classList.add('selected');  // Add selected class for styling
+                } else {
+                    unselectedLabels.push(label);
+                    label.classList.remove('selected');
+                }
+            });
+
+            // Clear the dropdown content
+            dropdownContent.innerHTML = '';
+
+            // Append selected labels to the top
+            selectedLabels.forEach(label => {
+                dropdownContent.appendChild(label);
+            });
+
+            // Append unselected labels after the selected ones
+            unselectedLabels.forEach(label => {
+                dropdownContent.appendChild(label);
+            });
+        }
+
+        // Dropdown toggle functionality
+        dropdownButton.addEventListener('click', function () {
+            dropdownContent.classList.toggle('dropdown-open');
+        });
+
+        // Event listener for checkbox changes
+        dropdownContent.addEventListener('change', function (e) {
+            if (e.target.type === 'checkbox') {
+                moveSelectedToTop();
             }
         });
 
-        // Clear the dropdown content
-        dropdownContent.innerHTML = '';
-
-        // Append selected labels to the top
-        selectedLabels.forEach(label => {
-            dropdownContent.appendChild(label);
-        });
-
-        // Append unselected labels after the selected ones
-        unselectedLabels.forEach(label => {
-            dropdownContent.appendChild(label);
-        });
-    }
-
-    // Dropdown toggle functionality
-    dropdownButton.addEventListener('click', function () {
-        dropdownContent.classList.toggle('dropdown-open');
-    });
-
-    // Event listener for checkbox changes
-    dropdownContent.addEventListener('change', function (e) {
-        if (e.target.type === 'checkbox') {
-            moveSelectedToTop();
-        }
-    });
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('#dropdownButton')) {
-            var dropdowns = document.getElementsByClassName("custom-dropdown-content");
-            for (var i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('dropdown-open')) {
-                    openDropdown.classList.remove('dropdown-open');
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('#dropdownButton')) {
+                var dropdowns = document.getElementsByClassName("custom-dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('dropdown-open')) {
+                        openDropdown.classList.remove('dropdown-open');
+                    }
                 }
             }
         }
-    }
+    });
 
     // -----------------------------------------------------------------
     document.addEventListener("DOMContentLoaded", function() {
@@ -1651,19 +1652,6 @@ function validateDates() {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     document.addEventListener('DOMContentLoaded', function () {
         // Initialize the modal
