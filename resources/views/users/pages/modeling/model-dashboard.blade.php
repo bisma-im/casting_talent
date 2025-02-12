@@ -714,57 +714,73 @@
                                                         ->first();
 
                                                     // Fetch job details
-                                                    $jobData = DB::table('job_details')
+                                                    $job = DB::table('jobs')
                                                         ->where('id', $jobDetail->job_id)
                                                         ->first();
-                                                    // Ensure $jobData is not null
-                                                    if ($jobData && $modelData) {
-                                                        // Parse the profile images string into an array
-                                                        $profileImages = json_decode($modelData->profile_images);
-                                                        $firstImage = $profileImages[0] ?? 'default.png'; // Default image if no profile image is available
-
-                                                        // Calculate the age from the date of birth
-                                                        $birthDate = new DateTime($modelData->date_of_birth);
-                                                        $currentDate = new DateTime();
-                                                        $age = $currentDate->diff($birthDate)->y;
-
-                                                        // Example conversion for height and weight if needed
-                                                        $height = $modelData->height . ' cm';
-                                                        $weight = $modelData->weight . ' kg';
-                                                    }
-                                                @endphp
-
-                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                    <a href="javascript:void(0);" class="text-dark">
-                                                        <div class="castbox">
-                                                            <div class="castimg">
-                                                                @if (!empty($jobData->job_profile))
-                                                                    <img src="{{ url('/uploads/job-files/' . $jobData->job_profile) }}"
-                                                                        class="img-fluid" alt="Model Image">
-                                                                @else
-                                                                    <img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-                                                                        class="img-fluid" alt="Model Image">
-                                                                @endif
+                                                    // dd($job);
+                                                    @endphp
+                                                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4">
+                                                    <div class="job-box shadow-sm border">
+                                                        <!-- Grey Image Section -->
+                                                        <div class="job-image"
+                                                            style="background-image: url('{{ $job->image ? url('uploads/job-files/' . $job->image) : url('https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png') }}');">
+                                                        </div>
+                                                        <!-- Job Content -->
+                                                        <div class="job-details p-2">
+                                                            <!-- Project and Required -->
+                                                            <div class="row">
+                                                                <div class="col-6 fw-bold text-start">PROJECT<br><span
+                                                                        class="fw-normal">{{ $job->project }}</span></div>
+                                                                <div class="col-6 fw-bold text-end">REQUIRED<br><span class="fw-normal">{{
+                                                                        $job->required }}</span></div>
                                                             </div>
-                                                            <div class="castbody">
-                                                                <h5 class="bodytheading"></strong> {{ $jobData->title }}
-                                                                </h5>
-                                                                <div class="castbodylist">
-                                                                    <h5><strong>Gender:</strong> {{ $jobData->gender }}
-                                                                    </h5>
-                                                                    <h5><strong>Nationality:</strong>
-                                                                        {{ $jobData->nationality }}</h5>
-                                                                    <h5><strong>Location:</strong> {{ $jobData->location }}
-                                                                    </h5>
-                                                                    <h5><strong>Languages Spoken:</strong>
-                                                                        {{ json_decode($jobData->languages_spoken, true) ? implode(', ', json_decode($jobData->languages_spoken, true)) : 'N/A' }}
-                                                                    </h5>
-                                                                    <h5><strong>Category:</strong> {{ $jobData->category }}
-                                                                    </h5>
-                                                                </div>
+
+                                                            <!-- Date, Timings, Days, Payment -->
+                                                            <div class="row">
+                                                                <div class="col-6 fw-bold text-start">DATE<br><span class="fw-normal">{{
+                                                                        $job->date }}</span></div>
+                                                                <div class="col-6 fw-bold text-end">TIMINGS<br><span class="fw-normal">{{
+                                                                        $job->timings }}</span></div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-6 fw-bold text-start">DAYS<br><span class="fw-normal">{{
+                                                                        $job->days }}</span></div>
+                                                                <div class="col-6 fw-bold text-end">PAYMENT<br><span class="fw-normal">{{
+                                                                        $job->payment . ' AED' }}</span></div>
+                                                            </div>
+
+                                                            <!-- Location -->
+                                                            <div class="fw-bold mb-2 text-center">LOCATION<br></div>
+                                                            <div class="row">
+                                                                <div class="col-4 fw-bold text-start">COUNTRY<br><span
+                                                                        class="fw-normal">{{ $job->country }}</span></div>
+                                                                <div class="col-4 fw-bold text-center">CITY<br><span class="fw-normal">{{
+                                                                        $job->city }}</span></div>
+                                                                <div class="col-4 fw-bold text-end">AREA<br><span class="fw-normal">{{
+                                                                        $job->area }}</span></div>
+                                                            </div>
+
+                                                            <!-- Transportation, Food, Payment Mode, Paid -->
+                                                            <div class="row">
+                                                                <div class="col-6 fw-bold text-start">TRANSPORTATION<br><span
+                                                                        class="fw-normal">{{ $job->transportation }}</span></div>
+                                                                <div class="col-6 fw-bold text-end">FOOD<br><span class="fw-normal">{{
+                                                                        $job->food }}</span></div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-6 fw-bold text-start">PAYMENT MODE<br><span
+                                                                        class="fw-normal">{{ $job->payment_mode }}</span></div>
+                                                                <div class="col-6 fw-bold text-end">PAID<br><span class="fw-normal">{{
+                                                                        $job->payment_status }}</span></div>
+                                                            </div>
+
+                                                            <!-- Details Textarea -->
+                                                            <div class="details-box p-1 text-white mb-2"
+                                                                style="text-align: center; background-color: rgba(28, 120, 135, 1);">
+                                                                {{ $job->details }}
                                                             </div>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                             @endforeach
 

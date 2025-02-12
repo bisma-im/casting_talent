@@ -9,6 +9,7 @@ use App\Models\Membership;
 use App\Models\ModelDetail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Job;
 use App\Models\JobApplied;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
@@ -143,10 +144,10 @@ class ModelController extends Controller
         }
         // dd($request->all());
         // Create a new jobDetail instance
-        $jobDetail = JobDetail::find($id);
+        $jobDetail = Job::find($id);
         $jobApplied = new JobApplied();
         $jobApplied->job_id = $jobDetail->id;
-        $jobApplied->job_poster_id = $jobDetail->user_id;
+        // $jobApplied->job_poster_id = $jobDetail->user_id;
         $jobApplied->job_applier_id = Auth::user()->id;
         // dd($jobDetail,$jobApplied);
         $jobApplied->save();
