@@ -263,8 +263,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         <strong>Our Services Include:
                         </strong>
                        <ul>
-                       <li><strong>Media Design & Selection:</strong>Customized advertising options for maximum ROI.</li> 
-                       <li><strong>Promotional Strategy:</strong>Budget and brand analysis for targeted campaigns.
+                       <li><strong>Media Design & Selection:</strong> Customized advertising options for maximum ROI.</li> 
+                       <li><strong>Promotional Strategy:</strong> Budget and brand analysis for targeted campaigns.
                        </li> 
                        <li><strong>Media Buying:</strong> Expertly selected locations and localized ads for audience targeting</li> 
                        <li><strong>Campaign Management:</strong> Full-service support, from strategy to ad placement.
