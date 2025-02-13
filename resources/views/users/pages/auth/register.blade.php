@@ -55,13 +55,13 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                             <div class="contactlist">
                                 <label>First Name *</label>
-                                <input type="text" name="fname" class="form-control" placeholder="First Name" required>
+                                <input type="text" name="fname" class="form-control" placeholder="First Name"  value="{{ $errors->has('fname') ? '' : old('fname') }}"  required>
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                             <div class="contactlist">
                                 <label>Last Name *</label>
-                                <input type="text" name="lname" class="form-control" placeholder="Last Name" required>
+                                <input type="text" name="lname" class="form-control" placeholder="Last Name"  value="{{ $errors->has('lname') ? '' : old('lname') }}" required>
                             </div>
                         </div>
                     </div>
@@ -71,15 +71,15 @@
                                 <label>Account Type *</label>
                                 <select name="account_type" id="" class="form-control">
                                     <option value="">-- Select Type --</option>
-                                    <option value="model">Talents</option>
-                                    <option value="business">Clients</option>
+                                    <option value="model" {{ old('account_type') == 'model' && !$errors->has('account_type') ? 'selected' : '' }}>Talents</option>
+                                    <option value="business" {{ old('account_type') == 'business' && !$errors->has('account_type') ? 'selected' : '' }}>Clients</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="contactlist">
                                 <label>Email *</label>
-                                <input type="email" name="email" class="form-control" placeholder="example@gmail.com"
+                                <input type="email" name="email"   value="{{ $errors->has('email') ? '' : old('email') }}"  class="form-control" placeholder="example@gmail.com"
                                     required>
                             </div>
                         </div>
