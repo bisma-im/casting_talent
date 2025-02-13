@@ -183,12 +183,12 @@ document.addEventListener('DOMContentLoaded', function () {
                             scouting, permitting, and sourcing local crews, along with a range of other production resources
                             to meet all your needs.</p>
 
-                        <p>With a keen eye for breathtaking locations, we facilitate film permits and location services for
+                        <p>With a keen eye for breath-taking locations, we facilitate film permits and location services for
                             both public and private properties. Our offerings include location scouting, location
                             management, and full production services for film, commercials, television, photography, and
                             print advertising.</p>
                         <p>
-                            With years of industry experience,<strong>CAST TALENTS</strong> Location Scout is dedicated to
+                            With years of industry experience,<strong> CAST TALENTS</strong> Location Scout is dedicated to
                             ensuring your production's success from start to finish.
                         </p>
 
