@@ -4,9 +4,9 @@
 
 @section('main-content')
 <div id="pageContent" class="blurred">
-    <script
+    <!-- <script
         src="https://maps.googleapis.com/maps/api/js?key={{ config('services.googlemaps.api_key') }}&callback=initMap&libraries=places&v=weekly"
-        defer></script>
+        defer></script> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
@@ -1157,8 +1157,13 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <div id="map"></div>
-                </div>
+    <div id="map">
+        <a href="https://maps.app.goo.gl/E4DWcUv2aPtCTTzm7?g_st=com.google.maps.preview.copy" target="_blank">
+            <img src="{{ url('user-assets') }}/images/Map.jpg" alt="Map Location" class="img-fluid h-100 pt-5 w-100">
+        </a>
+    </div>  
+</div>
+
             </div>
         </div>
     </section>
