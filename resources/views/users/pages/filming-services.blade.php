@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="modaltextProduction text-center d-flex justify-content-center flex-column">
                       
                         
-                        <ul class="mb-5 pt-3 ">
+                        <ul class="mb-5  ">
                         <h2 class="pt-4">Production <span style="color: rgba(216, 31, 38, 1);">Services</span>
                         </h2>
                     <p>Comprehensive services tailored to meet diverse production needs with creativity and precision</p>
@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="col-12 text-center">
                     <div class="modaltext">
-                        <h2>Tv Commercial, <span>Music Video ,</span> Filming</h2>
+                        <h2 class="pt-4">Tv Commercial, <span>Music Video ,</span> Filming</h2>
                         <p><b>Comprehensive Production Services by CAST TALENTS</b></p>
                         <p>CAST TALENTS provides a full suite of vertically integrated services, encompassing concept
                             development, script writing, filming, and post-production. Our storytelling expertise ensures
@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="col-12 ms-3  d-flex justify-content-center ">
                     <div class="modaltext">
-                        <h2 >Videography & <span>Photography</span></h2>
+                        <h2 class="pt-4">Videography & <span>Photography</span></h2>
                         <div class="flex-col d-flex ms-3 justify-content-center">
                         <div class="row">
     <ul>

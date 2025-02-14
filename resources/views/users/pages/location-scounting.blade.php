@@ -28,7 +28,7 @@
   <!-- Centered Text Content -->
   <div class="col-12 d-flex justify-content-center">
     <div class="modaltext2 text-center">
-      <h2 class="modaltext2 text-dark">
+      <h2 class="modaltext2 text-dark pt-4">
         Locations / <span style="color: rgba(216, 31, 38, 1);">Permit</span>
       </h2>
       <p class="text-dark"><b>CAST TALENTS Location Scout: Premier Film Locations and Production Support in the UAE</b></p>

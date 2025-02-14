@@ -79,8 +79,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 </div>
                 <div class="col-12 ">
-                    <div class="modaltext pt-5 pt-md-0 text-center ">
-                        <h2>Celebrity<span> Management</span> Services</h2>
+                    <div class="modaltext  pt-md-4 text-center ">
+                        <h2 >Celebrity<span> Management</span> Services</h2>
                         <p class=" text-dark"><b>Book Celebrities Worldwide with CAST TALENTS</b></p>
                         <p>Elevate your events with CAST TALENTS exclusive celebrity management services. Whether it's for
                             inaugurations, weddings, birthday parties, or any celebration, we offer access to celebrities
@@ -130,12 +130,12 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
             <div class="col-12 d-flex justify-content-center ">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/manage_3.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/manage_3.jpeg" class="img-fluid" alt="img">
                     </div>
                 </div>
                 <div class="col-12  text-center ">
                     <div class="modaltext">
-                        <h2>Security /<span> Bouncer</span></h2>
+                        <h2 class="pt-4">Security /<span> Bouncer</span></h2>
                         <p class="text-dark "><b>Professional Security Services by CAST TALENTS</b></p>
                         <p><strong>VIP and Celebrity Protection:</strong> At CAST TALENTS, ensuring the safety of our
                             clients is paramount. We specialize in providing highly trained bodyguards and security
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="col-12  text-center ">
                     <div class="modaltext">
-                        <h2>Transportation</h2>
+                        <h2 class="pt-4">Transportation</h2>
                         <p class="text-dark"><b>Professional Vehicle Rental Services for the Film and Television Industry BY CAST TALENTS</b>
                         </p>
                         <p>Cast Talents specializes in providing a wide array of support vehicles for the film and

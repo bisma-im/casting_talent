@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="col-12 ">
                     <div class="modaltext " >
-                        <h2 class="text-center" >Event <span style="color: rgba(216, 31, 38, 1);">Management</span></h2>
+                        <h2 class="text-center pt-4" >Event <span style="color: rgba(216, 31, 38, 1);">Management</span></h2>
                        <p class=""> <strong>Event Management by Cast Talents</strong></p>
                        <p>
     <strong>Expert Services:</strong> We design, plan, and manage private and corporate events with precision and creativity, delivering unique and memorable experiences tailored to your needs.
@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="col-12 ">
                     <div class="modaltext ">
-                        <h2 class="text-center">Retail & <span>Promotional</span> Staff</h2>
+                        <h2 class="text-center pt-4">Retail & <span>Promotional</span> Staff</h2>
                         <p  class=""><strong>Specialized Staffing Solutions by Cast Talents</strong></p>
                         <p class="">As a licensed and Ministry-approved staffing agency, Cast Talents provides high-quality temporary staffing for retail, events, and exhibitions.
                         </p>
@@ -553,7 +553,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="col-12 ">
                     <div class="modaltext text-center">
-                        <h2>Catering</h2>
+                        <h2 class="pt-4">Catering</h2>
                         <p class=""><b>Food Catering Services by Cast Talents</b></p>
                         <p>At Cast Talents, we boast an experienced and dedicated team proficient in organizing a wide array
                             of events, including parties, corporate functions, seminars, and hotel supplies. With a strong
@@ -619,7 +619,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="col-12 ">
                     <div class="modaltext text-center">
-                        <h2>Location / <span>Permit</span></h2>
+                        <h2 class="pt-4">Location / <span>Permit</span></h2>
                         <p class=""><b>CAST TALENTS Location Scout: Premier Film Locations and Production Support in the UAE</b></p>
                         <p>At CAST TALENTS Location Scout, we specialize in providing top-tier film locations and
                             comprehensive production support across the UAE. Our experienced team excels in location

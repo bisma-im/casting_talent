@@ -110,7 +110,7 @@
                 </div>
                 <div class="col-12 ms-3  d-flex justify-content-center ">
                     <div class="modaltext">
-                        <h2 >Videography & <span>Photography</span></h2>
+                        <h2 class="pt-4">Videography & <span>Photography</span></h2>
                         <div class="flex-col d-flex ms-3 justify-content-center">
                         <div class="row">
     <ul>
@@ -450,7 +450,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="col-12  text-center ">
                     <div class="modaltext">
-                        <h2>Locations / <span>Permit</span></h2>
+                        <h2 class="pt-4">Locations / <span>Permit</span></h2>
                         <p><b>CAST TALENTS Location Scout: Premier Film Locations and Production Support in the UAE</b></p>
                         <p>At CAST TALENTS Location Scout, we specialize in providing top-tier film locations and
                             comprehensive production support across the UAE. Our experienced team excels in location

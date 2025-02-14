@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="col-12  pt-md-0">
                     <div class="modaltext text-center ">
-                        <h2>Security / <span>Bouncer</span></h2>
+                        <h2 class="pt-4">Security / <span>Bouncer</span></h2>
                         <p class=" text-dark text-center"><b>Professional Security Services by CAST TALENTS</b></p>
                         <p><strong>VIP and Celebrity Protection:</strong> At CAST TALENTS, ensuring the safety of our
                             clients is paramount. We specialize in providing highly trained bodyguards and security
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="col-12">
                     <div class="modaltext text-center">
-                        <h2>Catering</h2>
+                        <h2 class="pt-4">Catering</h2>
                         <p class="text-dark text-center"><b>Food Catering Services by Cast Talents</b></p>
                         <p >At Cast Talents, we boast an experienced and dedicated team proficient in organizing a wide array
                             of events, including parties, corporate functions, seminars, and hotel supplies. With a strong
