@@ -400,10 +400,6 @@
                      <a class="nav-link" id="add-job-tab" data-bs-toggle="pill" href="#add-job" role="tab"
                         aria-controls="add-job" aria-selected="false">Job Details</a>
                   </li>
-                  <li class="nav-item" role="presentation">
-                     <a class="nav-link" id="job-apply-tab" data-bs-toggle="pill" href="#job-apply" role="tab"
-                        aria-controls="job-apply" aria-selected="false">Job & Requests</a>
-                  </li>
                   {{-- 
                   <li class="nav-item" role="presentation">
                      <a class="nav-link" id="add-pets-tab" data-bs-toggle="pill" href="#add-pets" role="tab"
@@ -429,7 +425,27 @@
                      </div>
                      <hr>
                      @php
-                     $myModels = DB::table('model_details')->get();
+                     $userCategories = DB::table('client_inquiry')
+                        ->where('user_id', Auth::id())
+                        ->select('categories')
+                        ->get()
+                        ->pluck('categories')
+                        ->toArray();
+
+                     // Assuming categories are comma-separated, we will split them into individual category names
+                     $categories = [];
+                     foreach ($userCategories as $categoryList) {
+                        $categories = array_merge($categories, explode(',', $categoryList));
+                     }
+                     $categories = array_unique($categories);  // Remove duplicates
+                     $myModels = DB::table('model_details')
+                        ->where(function ($query) use ($categories) {
+                           foreach ($categories as $category) {
+                                 $query->orWhere('category', 'like', '%"'.$category.'"%');
+                                 $query->orWhere('musician_categories', 'like', '%"'.$category.'"%');
+                           }
+                        })
+                        ->get();
                      // dump($myModels);
                      @endphp
                      <div class="serve-pad">
@@ -719,78 +735,6 @@
                               </form>
                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Job applied tab pane -->
-               <div class="tab-pane fade" id="job-apply" role="tabpanel" aria-labelledby="job-tab">
-                  <div class="left-dash">
-                     <div class="left-main">
-                        <h4 class="left-head">Job Requests</h4>
-                     </div>
-                     <hr>
-                     @php
-                     $jobApplieds = DB::table('job_applieds')->where('job_poster_id', Auth::id())->get();
-                     @endphp
-                     <div class="serve-pad">
-                        @if ($jobApplieds->count() > 0)
-                        <div class="row">
-                           @foreach ($jobApplieds as $jobDetail)
-                           @php
-                           // Retrieve model details for the job applier
-                           $modelData = DB::table('model_details')->where('user_id', $jobDetail->job_applier_id)->first();
-                           $userData = DB::table('users')->where('id', $jobDetail->job_applier_id)->first();
-                           // Retrieve job details
-                           $jobData = DB::table('job_details')->where('id', $jobDetail->job_id)->first();
-                           // Default placeholder image URL
-                           $placeholderImage = 'https://static.vecteezy.com/system/resources/thumbnails/036/594/092/small_2x/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg';
-                           $userImg = "{{ url('uploads/users/'. $userData->profile) }}";
-                           if ($modelData) {
-                           $profileImages = json_decode($modelData->profile_images);
-                           $firstImage = !empty($profileImages[0]) ? $profileImages[0] : ''; // Use default image if no profile image is available
-                           // dd($modelData,$userData,$profileImages,$firstImage);
-                           $birthDate = new DateTime($modelData->date_of_birth);
-                           $currentDate = new DateTime();
-                           $age = $currentDate->diff($birthDate)->y;
-                           $height = $modelData->height . ' cm';
-                           $weight = $modelData->weight . ' kg';
-                           } else {
-                           // Set default values if modelData is not found
-                           $firstImage = $placeholderImage;
-                           $age = 'Unknown';
-                           $height = 'Unknown';
-                           $weight = 'Unknown';
-                           }
-                           @endphp
-                           <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                              <a href="{{ route('model-info.get', $modelData->id ?? '#') }}" class="text-dark">
-                                 <div class="castbox">
-                                    <div class="castimg">
-                                       <img src="{{ url('uploads/models/profile-pics/'.$modelData->profile) }}" class="img-fluid" alt="Model Image">
-                                    </div>
-                                    <div class="castbody">
-                                       <h5 class="bodytheading">{{ $modelData->first_name ?? 'Unknown' }} {{ $modelData->last_name ?? '' }}</h5>
-                                       <div class="castbodylist firstitem">
-                                          <h5><strong>AGE:</strong> {{ $age }}</h5>
-                                          <h5><strong>Nationality:</strong> {{ $modelData->nationality ?? 'Unknown' }}</h5>
-                                       </div>
-                                       <div class="castbodylist">
-                                          <h5><strong>Job Info:</strong></h5>
-                                       </div>
-                                       <div class="castbodylist">
-                                          <h5><strong>Title:</strong> {{ $jobData->title ?? 'Unknown' }}</h5>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </a>
-                           </div>
-                           @endforeach
-                        </div>
-                        @else
-                        <div class="alert alert-info">
-                           <h6>There is no job applieds data present at this time!</h6>
-                        </div>
-                        @endif
                      </div>
                   </div>
                </div>
@@ -1327,40 +1271,81 @@
 document.addEventListener("DOMContentLoaded", function () {
     const talents = [
         {
-            name: 'Actor',
-            subcategories: ['Featured', 'Extras', 'Lead Role', 'Voice-over Artist']
+            name: 'actors',
+            subcategories: ['main_lead', 'featured_actors', 'body_double', 'mime_artist', 'stunt_person', 'extras']
         },
         {
-            name: 'Model',
+            name: 'models',
+            subcategories: ['high_fashion_editorial', 'fashion_catalogue', 'commercial_models', 'mature_models', 'erotic_photography_model',
+            'promotional_models', 'art_models', 'body_parts_models', 'child_models', 'expecting_models', 'fitness_models',
+            'freelance_models', 'glamour_models', 'hair_model', 'plus_size_models', 'party_model', 'petite_models', 'runway_models',
+            'stock_photography_model', 'swimsuit_lingerie_models']
+        },
+        {
+            name: 'dancers_performers',
+            subcategories: ['ballet_dancers', 'ballroom_dancers', 'ayyala_dancers', 'background_dancers', 'belly_dancers', 'b_boy',
+            'break_dancers', 'cabaret_dancer', 'cheerleaders', 'choreographers', 'contemporary_dancers', 'dance_group',
+            'dancing_couples', 'fictional_dancers', 'folk_dancer', 'samba_dancers', 'go_go_dancer', 'hip_hop_dancers',
+            'kathak_dancer', 'parade_away', 'salsa_dancers', 'sufi_dancer', 'swing_dancers', 'tap_dancers']
+        },
+        {
+            name: 'film_crew',
+            subcategories: [
+               'art_director', 'art_and_costume', 'assistant_director', 'animation_and_graphic_designer', 'copy_writer', 
+               'camera_crew', 'crane_operator', 'director', 'DOP', 'sound_crew', 'lighting_crew', 'editor', 'film_maker',
+               'film_producer', 'focus_puller_operator', 'line_producer', 'other_film_and_stage_crew', 'post_production_staff',
+               'production_manager', 'photographer','runner', 'script_writer', 'sound_engineer', 'videographer'
+            ]
+        },
+        {
+            name: 'influencers',
+            subcategories: [
+               'beauty_influencers', 'bloggers', 'celebrity', 'fashion_influencers', 'fitness_wellness_influencers', 'food_influencers',
+               'gaming_tech_influencers', 'event_influencers', 'lifestyle_influencers', 'mens_products_influencers',
+               'travel_influencers', 'womens_products_influencers'
+            ]
+        },
+        {
+            name: 'presenters_emcees',
+            subcategories: [
+               'balloon_decorator', 'bottle_twister', 'caricature', 'clown', 'comedian', 'emcee', 'fire_artist', 'hypnotist',
+               'illustrationist', 'jugglers', 'live_statue', 'magician', 'media_reporter', 'news_reader', 'others', 'public_speaker',
+               'radio_jockey', 'shadow_performer', 'stand_up_artist', 'stilt_walker', 'unicyclist', 'video_jockey', 'virtual_host', 'voice_over'
+            ]
+        },
+        {
+            name: 'makeup_hair_painter_fashion_stylists',
+            subcategories: [
+               'makeup_artists', 'fashion_stylists', 'hair_stylists', 'body_painters', 'creative_makeup_artists',
+               'face_painter', 'henna_artist', 'wardrobe_stylist'
+            ]
+        },
+        {
+            name: 'musicians',
+            subcategories: [
+               'guitarist', 'hobbyist', 'independent_artist', 'independent_label_artist', 'live_performer', 'music_band',
+               'musician', 'orchestral_musician', 'producer_composer', 'rapper', 'session_musician', 'singer', 'song_writer', 
+               'teacher', 'tv_show_performer', 'violinist'
+            ]
+        },
+        {
+            name: 'event_staff_ushers',
+            subcategories: [
+               'bartender', 'brand_ambassador', 'caterer', 'chef', 'concierge', 'decorators', 'event_supervisor', 
+               'host_or_hostess', 'marketing_coordinator', 'promotional_staff', 'ushers', 'waitress'
+            ]
+        },
+        {
+            name: 'photographers_videographers',
+            subcategories: [
+               'fashion', 'portrait', 'landscape', 'event', 'wedding', 'abstract', 'aerial', 'architecture', 'child',
+               'commercial', 'digital', 'documentary', 'film', 'fine_art', 'food', 'lifestyle', 'nature', 'sports', 'street',
+               'travel'
+            ]
+        },
+        {
+            name: 'celebrity',
             subcategories: []
-        },
-        {
-            name: 'Dancer',
-            subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'Be Boyz', 'Dance Groups', 'Tabrey Dancer']
-        },
-        {
-            name: 'Film Crew',
-            subcategories: ['Filmmaker', 'DOP', 'Assistant Director', 'Script Writer', 'Dialog Writer', 'Art Director', 'Production Manager', 'Production Designer', 'Line Producer', 'Focus Puller', 'Camera Operator', 'Lights & Gaffer', 'Crane Operator', 'Sound Engineer', 'Spot Boy']
-        },
-        {
-            name: 'Influencers',
-            subcategories: []
-        },
-        {
-            name: 'Makeup and Hair',
-            subcategories: []
-        },
-        {
-            name: 'Musicians',
-            subcategories: ['Singers', 'Music Band', 'Guitarist', 'Violinist', 'Drummers', 'Bassist', 'Rapper']
-        },
-        {
-            name: 'Event Staff and Ushers',
-            subcategories: ['Hostess', 'Promoter', 'EmCee', 'Stunt Person']
-        },
-        {
-            name: 'Entertainer / Performers',
-            subcategories: ['Standup Artist', 'VJ', 'RJ', 'Public Speaker', 'Magician', 'Body Double', 'Bottle Twister']
         }
     ];
 
@@ -1368,24 +1353,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const mainCategoryContainer = document.getElementById("main-category-container");
     const selectedCategoriesParagraph = document.getElementById("selectedCategories");
 
+    function formatTalentName(name) {
+      // Replace underscores with spaces
+      let formattedName = name.replace(/_/g, ' ');
+
+      // Capitalize the first letter of each word
+      formattedName = formattedName.replace(/\b\w/g, letter => letter.toUpperCase());
+
+      return formattedName;
+   }
+
     // Function to create and populate categories and subcategories
     function generateCategories() {
         let html = '<ul class="main-category">';
         talents.forEach(talent => {
+            const formattedName = formatTalentName(talent.name);
             html += `
                 <li class="main-category-item">
                     <label>
                         <input  type="checkbox" class="category-checkbox" value="${talent.name}">
-                        ${talent.name}
+                        ${formattedName}
                     </label>`;
             if (talent.subcategories.length > 0) {
                 html += `<ul class="sub-category">`;
                 talent.subcategories.forEach(sub => {
+                  const formattedSub = formatTalentName(sub);
                     html += `
                         <li>
                             <label>
                                 <input type="checkbox" class="subcategory-checkbox" value="${sub}">
-                                ${sub}
+                                ${formattedSub}
                             </label>
                         </li>`;
                 });

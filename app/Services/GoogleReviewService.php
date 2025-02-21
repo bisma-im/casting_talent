@@ -56,15 +56,36 @@ class GoogleReviewService
         //         'error' => 'Failed to fetch reviews: ' . $e->getMessage()
         //     ];
         // }
-        $customReview = [
-            'author_name' => 'Laiba Azhar',
-            'text' => 'Amazing agency with top-notch services! The team is professional, friendly, and incredibly supportive. The management always ensures a positive experience for all. Highly recommend for anyone looking for talent management or casting services! ⭐⭐⭐⭐⭐',
-            'rating' => 5,
-            'profile_photo_url' => null,
-            'relative_time_description' => 'just now'
+        $reviews = [
+            [
+                'author_name' => 'Laiba Azhar',
+                'text' => 'Amazing agency with top-notch services! The team is professional, friendly, and incredibly supportive. The management always ensures a positive experience for all. Highly recommend for anyone looking for talent management or casting services! ⭐⭐⭐⭐⭐',
+                'rating' => 5,
+                'profile_photo_url' => null,
+                'relative_time_description' => 'just now'
+            ],
+            [
+                'author_name' => 'Syed Noman Ali',
+                'text' => 'I had an amazing experience with Cast Talents! The professionalism, dedication, and warmth of the team truly stand out. From the welcoming environment to the guidance provided throughout the process, everything was top-notch. They go above and beyond to support talent and ensure everyone feels comfortable and confident. The opportunities they provide are exceptional, and their passion for the industry is evident in everything they do. Highly recommend this agency to anyone looking to grow their career in modeling or acting!',
+                'rating' => 5,
+                'profile_photo_url' => null,
+                'relative_time_description' => 'a week ago'
+            ],
+            [
+                'author_name' => 'Maryna Pogonowska',
+                'text' => 'I want to thank the company Cast Talents for the opportunity to work with them at Women\'s Run Event. They provide very professional service and after the job was done I received my payment strait after. I definitely recommend this company.',
+                'rating' => 5,
+                'profile_photo_url' => null,
+                'relative_time_description' => '3 months ago'
+            ],
+            [
+                'author_name' => 'Christle Kashif',
+                'text' => 'I had a fantastic experience with CAST TALENTS. Their professionalism and attention to detail truly set them apart. The casting process was smooth, and the staff was incredibly supportive and knowledgeable. I felt valued and respected throughout the entire experience. I highly recommend CAST TALENTS to anyone looking for top-notch casting services. Thank you for a wonderful experience!',
+                'rating' => 5,
+                'profile_photo_url' => null,
+                'relative_time_description' => '5 months ago'
+            ],
         ];
-
-        $reviews[] = $customReview;
 
         return [
             'reviews' => $reviews,
