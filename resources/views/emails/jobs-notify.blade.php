@@ -16,7 +16,7 @@
     <meta name="x-apple-disable-message-reformatting">
 
     <!-- Will display in auto-preview area in some clients. -->
-    <title>Register Notification</title>
+    <title>Casting Opportunity – {{ $data['project_name'] }}</title>
 
     <!-- Desktop Outlook defaults to Times New Roman. Forces a less obscene fallback font. -->
     <!--[if mso]>
@@ -284,80 +284,46 @@
         &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
     </div>
 
-    <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center"
-        class="document">
-
-        <!-- Start main structure -->
+    <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center" class="document">
+        
         <tr>
             <td valign="top">
+                <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center" class="container container--main" width="680">
+                    <tr>
+                        <td style="text-align: center;">
+                            <img src="{{ url('user-assets') }}/images/Logo.png" alt="Logo" style="margin: 0 auto;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Dear {{ $data['first_name'] . ' ' . $data['last_name'] }},</p>
 
-                <!-- Main -->
-                <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0"
-                    align="center" class="container  container--main" width="680">
-                    <!-- Email title -->
-                    <tr>
-                        <td style="width: 100%; display:block; text-align: center;">
-                            <div style="display: inline-block;">
-                                <img src="{{ url('user-assets') }}/images/Logo.png" alt=""
-                                    style="display: block; margin: 0 auto;">
-                            </div>
+                            <p>We are excited to present you with a new opportunity that matches your profile at Cast Talents LLC.</p>
                         </td>
                     </tr>
+                    <tr><td><hr></td></tr>
                     <tr>
                         <td>
-                            <hr>
+                            <h3>Project Details</h3>
+                            <p><strong>Category:</strong> {{ $data['category'] }}</p>
+                            <p><strong>Project Name:</strong> {{ $data['project_name'] }}</p>
+                            <p><strong>Date:</strong> {{ $data['date'] }}</p>
+                            <p><strong>Timings:</strong> {{ $data['timings'] }}</p>
+                            <p><strong>Location:</strong> {{ $data['area'] . ', ' . $data['city'] . ', ' . $data['country'] }}</p>
+                            <p><strong>Budget:</strong> {{ $data['payment'] }}</p>
+                            <p><strong>Payment Mode:</strong> {{ $data['payment_mode'] }}</p>
                         </td>
                     </tr>
-                    <!-- Section -->
-                    <tr>
-                        <td>
-                            <h3>Jobs Information</h3>
-                        </td>
-                    </tr>
-                    <tr class="list">
-                        <td>
-                            <!-- Job Detail Information -->
-                            <p><strong>Job Title:</strong> {{ $jobDetail->title }}</p>
-                            <p><strong>Gender:</strong> {{ $jobDetail->gender }}</p>
-                            <p><strong>Nationality:</strong> {{ $jobDetail->nationality }}</p>
-                            <p><strong>Location:</strong> {{ $jobDetail->location }}</p>
-                            <p><strong>Biography:</strong> {{ $jobDetail->biography }}</p>
-                            <p><strong>Languages Spoken:</strong>
-                                {{ implode(', ', json_decode($jobDetail->languages_spoken)) }}</p>
-                            <p><strong>Height:</strong> {{ $jobDetail->height }} cm</p>
-                            <p><strong>Bust:</strong> {{ $jobDetail->bust ?? 'N/A' }} cm</p>
-                            <p><strong>Waist:</strong> {{ $jobDetail->waist ?? 'N/A' }} cm</p>
-                            <p><strong>Hip:</strong> {{ $jobDetail->hip ?? 'N/A' }} cm</p>
-                            <p><strong>Weight:</strong> {{ $jobDetail->weight }} kg</p>
-                            <p><strong>Eye Color:</strong> {{ $jobDetail->eye_color }}</p>
-                            <p><strong>Hair Color:</strong> {{ $jobDetail->hair_color }}</p>
-                            <p><strong>Hair Length:</strong> {{ $jobDetail->hair_length }}</p>
-                            <p><strong>Shoe Size:</strong> {{ $jobDetail->shoe_size ?? 'N/A' }} (EU)</p>
-                            <p><strong>Dress Size:</strong> {{ $jobDetail->dress_size ?? 'N/A' }} (EU)</p>
-                            <p><strong>Hourly Rate:</strong> {{ $jobDetail->hourly_rate }}</p>
-                            <p><strong>Category Type:</strong>
-                                {{ implode(', ', json_decode($jobDetail->category_type)) }}</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <hr>
-                        </td>
-                    </tr>
-                    <!-- Sign off -->
+                    <tr><td><hr></td></tr>
                     <tr class="top-space">
                         <td>
-                            <p>We’re here to help. If you have any questions, please send us an email at <a
-                                    href="mailto:info@castingtalent.com">info@castingtalent.com</a>.</p>
+                            <p>To apply for this job, kindly click the link below and submit your confirmation: <a href="{{ $data['link'] }}">Apply Here</a></p>
+                            <p>We’re here to help. If you have any questions, please send us an email at <a href="mailto:info@castingtalents.com">info@castingtalents.com</a>.</p>
                         </td>
                     </tr>
                 </table>
-
-
             </td>
         </tr>
-        <!-- End main structure -->
-
     </table>
 
 </body>

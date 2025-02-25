@@ -152,13 +152,13 @@ class ModelController extends Controller
         // dd($jobDetail,$jobApplied);
         $jobApplied->save();
         // Send email notification to the matched users
-        // if ($jobApplied) {
-        //     $userMatched = User::where('id', $jobDetail->user_id)->first();
-        //     Mail::send('emails.job-applied', ['jobDetail' => $jobDetail], function ($message) use ($userMatched) {
-        //         $message->to($userMatched->email); // Send to the matched user's email
-        //         $message->subject('Jobs Applied Notification');
-        //     });
-        // }
+        if ($jobApplied) {
+            $userMatched = User::where('id', $jobDetail->user_id)->first();
+            Mail::send('emails.job-applied', ['jobDetail' => $jobDetail], function ($message) use ($userMatched) {
+                $message->to(Auth::user()->email); // Send to the matched user's email
+                $message->subject('Jobs Applied Notification');
+            });
+        }
         return redirect()->back()->with('success', 'Job Applied Successfully !!!');
     }
 

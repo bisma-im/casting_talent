@@ -89,6 +89,8 @@ class QueryController extends Controller
                 $inquiry->brief_file = 'uploads/client-inquiry/' . $fileName;
             }
 
+            $inquiry->user_id = Auth::user()->id;
+
             $inquiry->save();
 
             // Commit the transaction

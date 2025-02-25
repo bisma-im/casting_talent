@@ -653,86 +653,84 @@
 
         // Define the talents array
         const talents = [
-            {
-                name: 'Actor',
-                subcategories: ['Lead role', 'Featured', 'Extras', 'Voice-over Artist', 'Body double', 'Stunt person']
-            },
-            {
-                name: 'Model',
-                subcategories: []
-            },
-            {
-                name: 'Dancers & Performers',
-                subcategories: ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'B Boy', 'Dance Groups', 'Tabrey Dancer']
-            },
-            {
-                name: 'Film Crew',
-                subcategories: ['Filmmaker', 'DOP', 'Assistant Director', 'Script Writer', 'Dialog Writer', 'Art Director', 'Production Manager', 'Production Designer', 'Line Producer', 'Focus Puller', 'Camera Operator', 'Lights & Gaffer', 'Crane Operator', 'Sound Engineer', 'Spot Boy']
-            },
-            {
-                name: 'Influencers',
-                subcategories: []
-            },
-            {
-                name: 'Makeup and Hair',
-                subcategories: [
-                    "Body Painter",
-                    "Creative Makeup Artist",
-                    "Face Painter",
-                    "Fashion Stylist",
-                    "Hair Stylist",
-                    "Henna Artist",
-                    "Makeup Artists",
-                    "Wardrobe Stylist"
-                ]
-            },
-            {
-                name: 'Musicians',
-                subcategories: ['Singers', 'Music Band', 'Guitarist', 'Violinist', 'Drummers', 'Bassist', 'Rapper']
-            },
-            {
-                name: 'Event Staff and Ushers',
-                subcategories: ['Hostess', 'Promoter', 'EmCee']
-            },
-            {
-                name: 'Entertainer / Performers',
-                subcategories: ['Standup Artist', 'VJ', 'RJ', 'Public Speaker', 'Magician', 'Bottle Twister']
-            },
-            {
-                name: 'Photographers & Videographers',
-                subcategories: ['Fashion Photographer', 'Portrait Photographer', 'Landscape Photographer', 'Event Videographer', 'Wedding Videographer']
-            },
-            {
-                name: "Presenter & Emcees",
-                subcategories: [
-                    "Balloon Decorator",
-                    "Bottle Twister",
-                    "Caricature",
-                    "Clown",
-                    "Comedian",
-                    "Emcee",
-                    "Fire Artist",
-                    "Hypnotist",
-                    "Illustrationist",
-                    "Jugglers",
-                    "Live Statue",
-                    "Magician",
-                    "Media Reporter",
-                    "News Reader",
-                    "Others",
-                    "Public Speaker",
-                    "Radio Jockey RJ",
-                    "Shadow Performer",
-                    "Stand-Up Artist",
-                    "Stilt Walker",
-                    "Unicyclist",
-                    "Video Jockey VJ",
-                    "Virtual Host",
-                    "Voice Over"
-                ]
-            }
-
-        ];
+        {
+            name: 'actors',
+            subcategories: ['main_lead', 'featured_actors', 'body_double', 'mime_artist', 'stunt_person', 'extras']
+        },
+        {
+            name: 'models',
+            subcategories: ['high_fashion_editorial', 'fashion_catalogue', 'commercial_models', 'mature_models', 'erotic_photography_model',
+            'promotional_models', 'art_models', 'body_parts_models', 'child_models', 'expecting_models', 'fitness_models',
+            'freelance_models', 'glamour_models', 'hair_model', 'plus_size_models', 'party_model', 'petite_models', 'runway_models',
+            'stock_photography_model', 'swimsuit_lingerie_models']
+        },
+        {
+            name: 'dancers_performers',
+            subcategories: ['ballet_dancers', 'ballroom_dancers', 'ayyala_dancers', 'background_dancers', 'belly_dancers', 'b_boy',
+            'break_dancers', 'cabaret_dancer', 'cheerleaders', 'choreographers', 'contemporary_dancers', 'dance_group',
+            'dancing_couples', 'fictional_dancers', 'folk_dancer', 'samba_dancers', 'go_go_dancer', 'hip_hop_dancers',
+            'kathak_dancer', 'parade_away', 'salsa_dancers', 'sufi_dancer', 'swing_dancers', 'tap_dancers']
+        },
+        {
+            name: 'film_crew',
+            subcategories: [
+               'art_director', 'art_and_costume', 'assistant_director', 'animation_and_graphic_designer', 'copy_writer', 
+               'camera_crew', 'crane_operator', 'director', 'DOP', 'sound_crew', 'lighting_crew', 'editor', 'film_maker',
+               'film_producer', 'focus_puller_operator', 'line_producer', 'other_film_and_stage_crew', 'post_production_staff',
+               'production_manager', 'photographer','runner', 'script_writer', 'sound_engineer', 'videographer'
+            ]
+        },
+        {
+            name: 'influencers',
+            subcategories: [
+               'beauty_influencers', 'bloggers', 'celebrity', 'fashion_influencers', 'fitness_wellness_influencers', 'food_influencers',
+               'gaming_tech_influencers', 'event_influencers', 'lifestyle_influencers', 'mens_products_influencers',
+               'travel_influencers', 'womens_products_influencers'
+            ]
+        },
+        {
+            name: 'presenters_emcees',
+            subcategories: [
+               'balloon_decorator', 'bottle_twister', 'caricature', 'clown', 'comedian', 'emcee', 'fire_artist', 'hypnotist',
+               'illustrationist', 'jugglers', 'live_statue', 'magician', 'media_reporter', 'news_reader', 'others', 'public_speaker',
+               'radio_jockey', 'shadow_performer', 'stand_up_artist', 'stilt_walker', 'unicyclist', 'video_jockey', 'virtual_host', 'voice_over'
+            ]
+        },
+        {
+            name: 'makeup_hair_painter_fashion_stylists',
+            subcategories: [
+               'makeup_artists', 'fashion_stylists', 'hair_stylists', 'body_painters', 'creative_makeup_artists',
+               'face_painter', 'henna_artist', 'wardrobe_stylist'
+            ]
+        },
+        {
+            name: 'musicians',
+            subcategories: [
+               'guitarist', 'hobbyist', 'independent_artist', 'independent_label_artist', 'live_performer', 'music_band',
+               'musician', 'orchestral_musician', 'producer_composer', 'rapper', 'session_musician', 'singer', 'song_writer', 
+               'teacher', 'tv_show_performer', 'violinist'
+            ]
+        },
+        {
+            name: 'event_staff_ushers',
+            subcategories: [
+               'bartender', 'brand_ambassador', 'caterer', 'chef', 'concierge', 'decorators', 'event_supervisor', 
+               'host_or_hostess', 'marketing_coordinator', 'promotional_staff', 'ushers', 'waitress'
+            ]
+        },
+        {
+            name: 'photographers_videographers',
+            subcategories: [
+               'fashion', 'portrait', 'landscape', 'event', 'wedding', 'abstract', 'aerial', 'architecture', 'child',
+               'commercial', 'digital', 'documentary', 'film', 'fine_art', 'food', 'lifestyle', 'nature', 'sports', 'street',
+               'travel'
+            ]
+        },
+        {
+            name: 'celebrity',
+            subcategories: []
+        }
+    ];
 
         // Get the container for the dropdown content
         const dropdownContent = document.getElementById('dropdownContent');
@@ -749,6 +747,16 @@
             }
         }
 
+        function formatTalentName(name) {
+            // Replace underscores with spaces
+            let formattedName = name.replace(/_/g, ' ');
+
+            // Capitalize the first letter of each word
+            formattedName = formattedName.replace(/\b\w/g, letter => letter.toUpperCase());
+
+            return formattedName;
+        }
+
         // Populate the checkboxes for categories and subcategories
         talents.forEach(talent => {
             // Create a div for the main category and its subcategories
@@ -763,7 +771,7 @@
             categoryCheckbox.classList.add('category-checkbox');
             // categoryCheckbox.addEventListener('change', updateSelectedOptions); 
             categoryLabel.appendChild(categoryCheckbox);
-            categoryLabel.appendChild(document.createTextNode(talent.name));
+            categoryLabel.appendChild(document.createTextNode(formatTalentName(talent.name)));
 
             // Add the main category to the container
             mainCategoryDiv.appendChild(categoryLabel);
@@ -781,7 +789,7 @@
                     subcategoryCheckbox.classList.add('category-checkbox');
                     // subcategoryCheckbox.addEventListener('change', updateSelectedOptions);
                     subcategoryLabel.appendChild(subcategoryCheckbox);
-                    subcategoryLabel.appendChild(document.createTextNode(subcategory));
+                    subcategoryLabel.appendChild(document.createTextNode(formatTalentName(subcategory)));
 
                     // Add subcategory to the subcategory div
                     subcategoryDiv.appendChild(subcategoryLabel);
