@@ -7,10 +7,13 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Mail\JobOpportunityMail;
 use App\Models\Job;
+use App\Models\ModelDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class AdminAuthController extends Controller
 {
@@ -59,7 +62,7 @@ class AdminAuthController extends Controller
             // Create the job record in the database
             $job = Job::create([
                 'project' => $validatedData['project'],
-                'required' => $validatedData['requiredCategories'], // Store the categories
+                'required' => json_encode($request->input('requiredCategories', [])), // Store the categories
                 'date' => $validatedData['date'],
                 'timings' => $validatedData['timings'],
                 'days' => $validatedData['days'],
@@ -74,6 +77,50 @@ class AdminAuthController extends Controller
                 'details' => $validatedData['details'],  // Store details
                 'image' => $fileName ?? null,
             ]);
+
+            // Convert the comma-separated string into an array
+            $requiredCategoriesArray = array_map('trim', explode(',', $validatedData['requiredCategories']));
+
+            DB::enableQueryLog();
+            // Your query execution
+            $models = ModelDetail::all()->filter(function ($model) use ($requiredCategoriesArray) {
+                $categories = json_decode($model->category, true);
+                $musician_categories = json_decode($model->musician_categories, true);
+
+                // Ensure that both categories and musician_categories are arrays
+                $categories = is_array($categories) ? $categories : [];
+                $musician_categories = is_array($musician_categories) ? $musician_categories : [];
+
+                foreach ($requiredCategoriesArray as $category) {
+                    if (in_array($category, $categories) || in_array($category, $musician_categories)) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+
+            // Send emails to the matched models
+            foreach ($models as $model) {
+                // Prepare email data
+                $emailData = [
+                    'first_name' => $model->first_name,
+                    'last_name' => $model->last_name,
+                    'category' => $request->input('requiredCategories', []),
+                    'project_name' => $validatedData['project'],
+                    'date' => $validatedData['date'],
+                    'timings' => $validatedData['timings'],
+                    'country' => $validatedData['country'],
+                    'city' => $validatedData['city'],
+                    'area' => $validatedData['area'],
+                    'payment' => $validatedData['payment'],
+                    'payment_mode' => $validatedData['payment_mode'],
+                    'details' => $validatedData['details'],
+                    'link' => 'https://www.casttalents.com/jobs', // Modify with actual link
+                ];
+
+                // Send email
+                Mail::to($model->email)->send(new JobOpportunityMail($emailData));
+            }
 
             // Return success response
             return response()->json([
