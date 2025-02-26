@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <section class="modalagencysec2 mt-4" id="promotional-events-marketing">
         <div class="container">
-            <div class="row ">
+            <div class="row align-items-center ">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
                         <img src="{{ url('user-assets') }}/images/event_2.png" alt="Casting Image" class="img-fluid">

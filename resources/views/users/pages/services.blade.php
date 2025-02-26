@@ -286,7 +286,7 @@
             <!-- Column 1 -->
             <div class="col-6">
                 <ul>
-                    <li>
+                    <li class="pt-3">
                         <a href="{{ route('event-services.get', ['section' => 'event-management']) }}">
                             EVENT MANAGEMENT
                         </a>
@@ -312,7 +312,7 @@
             <!-- Column 2 -->
             <div class="col-6">
                 <ul>
-                    <li>
+                    <li class="pt-3">
                         <a href="{{ route('event-services.get', ['section' => 'security-bouncer']) }}">
                             SECURITY / BOUNCER
                         </a>

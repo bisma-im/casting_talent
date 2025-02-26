@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
     <div class="modaltext">
       <h2 class="text-center">Film <span  style="color: rgba(216, 31, 38, 1)";>Making</span></h2>
-      <p class="text-dark text-center  text-justify"><strong>Visuals speak louder than words, and filming makes your content more engaging and impactful. At Cast Talents, we specialize in a variety of video production services to meet your needs</strong></p>
+      <p class="text-dark text-center  "><strong>Visuals speak louder than words, and filming makes your content more engaging and impactful. At Cast Talents, we specialize in a variety of video production services to meet your needs</strong></p>
       <div class="flex-col d-flex justify-content-center">
                         <div class="row">
     <ul>
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </h2>
                     <p>Comprehensive services tailored to meet diverse production needs with creativity and precision</p>
                           <p><strong>Production Services:</strong> Filming, Content Creation, TVCs, Film Production, Corporate Videos, Social Media Content, Interviews, Animation, PSAs.</p>
-                          <p><strong>Design:</strong>
+                          <p><strong>Production Design:</strong>
                           Art Direction, Wardrobe Styling, Set Design, Post-Production Supervision.</p>
 
 
