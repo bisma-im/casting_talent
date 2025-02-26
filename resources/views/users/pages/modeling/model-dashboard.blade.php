@@ -413,7 +413,7 @@
                                 </div>
                                 <hr>
                                  @php
-                                    $jobs = DB::table('jobs')->get();
+                                    $jobs = DB::table('model_jobs')->get();
                                     // dump($jobs);
                                 @endphp
                                 <div class="serve-pad">
@@ -714,7 +714,7 @@
                                                         ->first();
 
                                                     // Fetch job details
-                                                    $job = DB::table('jobs')
+                                                    $job = DB::table('model_jobs')
                                                         ->where('id', $jobDetail->job_id)
                                                         ->first();
                                                     // dd($job);

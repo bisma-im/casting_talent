@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Jobs\SendJobOpportunityEmail;
 use App\Mail\JobOpportunityMail;
 use App\Models\Job;
 use App\Models\ModelDetail;
@@ -28,7 +29,6 @@ class AdminAuthController extends Controller
     public function storeJob(Request $request)
     {
         try {
-            // dd($request->all());
             // Validate the incoming request data
             $validatedData = $request->validate([
                 'project' => 'required|string|max:255',
@@ -44,7 +44,7 @@ class AdminAuthController extends Controller
                 'transportation' => 'required',
                 'food' => 'required',
                 'payment_mode' => 'required',
-                'details' => 'required',  // Validate details
+                'details' => 'required',
                 'image' => 'required|image'
             ]);
 
@@ -56,13 +56,10 @@ class AdminAuthController extends Controller
                 $file->move(public_path('/uploads/job-files/'), $fileName);
             }
 
-            // If validation fails, Laravel will automatically return a 422 response
-            // so there's no need to manually check if validation passes.
-
             // Create the job record in the database
             $job = Job::create([
                 'project' => $validatedData['project'],
-                'required' => json_encode($request->input('requiredCategories', [])), // Store the categories
+                'required' => json_encode($request->input('requiredCategories', [])),
                 'date' => $validatedData['date'],
                 'timings' => $validatedData['timings'],
                 'days' => $validatedData['days'],
@@ -74,73 +71,66 @@ class AdminAuthController extends Controller
                 'transportation' => $validatedData['transportation'],
                 'food' => $validatedData['food'],
                 'payment_mode' => $validatedData['payment_mode'],
-                'details' => $validatedData['details'],  // Store details
+                'details' => $validatedData['details'],
                 'image' => $fileName ?? null,
             ]);
 
             // Convert the comma-separated string into an array
             $requiredCategoriesArray = array_map('trim', explode(',', $validatedData['requiredCategories']));
 
-            DB::enableQueryLog();
-            // Your query execution
-            $models = ModelDetail::all()->filter(function ($model) use ($requiredCategoriesArray) {
-                $categories = json_decode($model->category, true);
-                $musician_categories = json_decode($model->musician_categories, true);
+            // Process models in chunks
+            ModelDetail::chunk(100, function ($models) use ($requiredCategoriesArray, $validatedData, $request) {
+                foreach ($models as $model) {
+                    Log::info('Model: ' . $model->toJson());
+                    $categories = json_decode($model->category, true);
+                    $musician_categories = json_decode($model->musician_categories, true);
 
-                // Ensure that both categories and musician_categories are arrays
-                $categories = is_array($categories) ? $categories : [];
-                $musician_categories = is_array($musician_categories) ? $musician_categories : [];
+                    $categories = is_array($categories) ? $categories : [];
+                    $musician_categories = is_array($musician_categories) ? $musician_categories : [];
 
-                foreach ($requiredCategoriesArray as $category) {
-                    if (in_array($category, $categories) || in_array($category, $musician_categories)) {
-                        return true;
+                    foreach ($requiredCategoriesArray as $category) {
+                        if (in_array($category, $categories) || in_array($category, $musician_categories)) {
+                            // Prepare email data
+                            $emailData = [
+                                'first_name' => $model->first_name,
+                                'last_name' => $model->last_name,
+                                'category' => $request->input('requiredCategories', []),
+                                'project_name' => $validatedData['project'],
+                                'date' => $validatedData['date'],
+                                'timings' => $validatedData['timings'],
+                                'country' => $validatedData['country'],
+                                'city' => $validatedData['city'],
+                                'area' => $validatedData['area'],
+                                'payment' => $validatedData['payment'],
+                                'payment_mode' => $validatedData['payment_mode'],
+                                'details' => $validatedData['details'],
+                                'link' => 'https://www.casttalents.com/jobs',
+                            ];
+
+                            // Dispatch the job to send the email
+                            SendJobOpportunityEmail::dispatch($model, $emailData);
+                        }
                     }
                 }
-                return false;
             });
-
-            // Send emails to the matched models
-            foreach ($models as $model) {
-                // Prepare email data
-                $emailData = [
-                    'first_name' => $model->first_name,
-                    'last_name' => $model->last_name,
-                    'category' => $request->input('requiredCategories', []),
-                    'project_name' => $validatedData['project'],
-                    'date' => $validatedData['date'],
-                    'timings' => $validatedData['timings'],
-                    'country' => $validatedData['country'],
-                    'city' => $validatedData['city'],
-                    'area' => $validatedData['area'],
-                    'payment' => $validatedData['payment'],
-                    'payment_mode' => $validatedData['payment_mode'],
-                    'details' => $validatedData['details'],
-                    'link' => 'https://www.casttalents.com/jobs', // Modify with actual link
-                ];
-
-                // Send email
-                Mail::to($model->email)->send(new JobOpportunityMail($emailData));
-            }
 
             // Return success response
             return response()->json([
                 'success' => true,
-                'message' => 'Job created successfully!',
+                'message' => 'Job created successfully! Emails are being sent in the background.',
                 'job' => $job,
             ], 200);
         } catch (\Illuminate\Validation\ValidationException $e) {
-            // If validation fails manually, we catch the exception and return a detailed error response
             return response()->json([
                 'success' => false,
                 'message' => 'Validation failed.',
-                'errors' => $e->errors(), // Will return an array of validation errors
+                'errors' => $e->errors(),
             ], 422);
         } catch (\Exception $e) {
-            // Catch any other exceptions that might occur (like database errors)
             return response()->json([
                 'success' => false,
                 'message' => 'An error occurred while creating the job.',
-                'error' => $e->getMessage(), // Display the error message
+                'error' => $e->getMessage(),
             ], 500);
         }
     }

@@ -1,3 +1,7 @@
+@php
+    Log::info('Rendering email view for:', $data);
+@endphp
+
 <!DOCTYPE html>
 <html>
 
@@ -305,12 +309,12 @@
                     <tr>
                         <td>
                             <h3>Project Details</h3>
-                            <p><strong>Category:</strong> {{ $data['category'] }}</p>
-                            <p><strong>Project Name:</strong> {{ $data['project_name'] }}</p>
-                            <p><strong>Date:</strong> {{ $data['date'] }}</p>
+                            <p><strong>Category:</strong> {{ ucfirst($data['category']) }}</p>
+                            <p><strong>Project Name:</strong> {{ ucfirst($data['project_name']) }}</p>
+                            <p><strong>Date:</strong> {{ \Carbon\Carbon::parse($data['date'])->format('F j, Y') }}</p>
                             <p><strong>Timings:</strong> {{ $data['timings'] }}</p>
                             <p><strong>Location:</strong> {{ $data['area'] . ', ' . $data['city'] . ', ' . $data['country'] }}</p>
-                            <p><strong>Budget:</strong> {{ $data['payment'] }}</p>
+                            <p><strong>Budget:</strong> {{ $data['payment'] . ' AED'}}</p>
                             <p><strong>Payment Mode:</strong> {{ $data['payment_mode'] }}</p>
                         </td>
                     </tr>

@@ -52,17 +52,45 @@ class PagesController extends Controller
     {
         // Define your categories and subcategories
         $categories = [
-            'Actor' => ['Lead role', 'Featured', 'Extras', 'Voice-over Artist', 'Body double', 'Stunt person'],
-            'Model' => [],
-            'Dancers & Performers' => ['Choreographer', 'Belly Dancer', 'Sufi Dancer', 'Gogo Dancer', 'Performer', 'Ayala Dancer', 'B Boy', 'Dance Groups', 'Tabrey Dancer'],
-            'Film Crew' => ['Filmmaker', 'DOP', 'Assistant Director', 'Script Writer', 'Dialog Writer', 'Art Director', 'Production Manager', 'Production Designer', 'Line Producer', 'Focus Puller', 'Camera Operator', 'Lights & Gaffer', 'Crane Operator', 'Sound Engineer', 'Spot Boy'],
-            'Influencers' => [],
-            'Makeup and Hair' => [],
-            'Musicians' => ['Singers', 'Music Band', 'Guitarist', 'Violinist', 'Drummers', 'Bassist', 'Rapper'],
-            'Event Staff and Ushers' => ['Hostess', 'Promoter', 'EmCee'],
-            'Entertainer / Performers' => ['Standup Artist', 'VJ', 'RJ', 'Public Speaker', 'Magician', 'Bottle Twister'],
-            'Celebrity' => [],
-            'Photographers & Videographers' => ['Fashion Photographer', 'Portrait Photographer', 'Landscape Photographer', 'Event Videographer', 'Wedding Videographer'],
+            'actors' => ['main_lead', 'featured_actors', 'body_double', 'mime_artist', 'stunt_person', 'extras'],
+            'models' => ['high_fashion_editorial', 'fashion_catalogue', 'commercial_models', 'mature_models', 'erotic_photography_model',
+                'promotional_models', 'art_models', 'body_parts_models', 'child_models', 'expecting_models', 'fitness_models',
+                'freelance_models', 'glamour_models', 'hair_model', 'plus_size_models', 'party_model', 'petite_models', 'runway_models',
+                'stock_photography_model', 'swimsuit_lingerie_models'
+            ],
+            'dancers_performers' => ['ballet_dancers', 'ballroom_dancers', 'ayyala_dancers', 'background_dancers', 'belly_dancers', 'b_boy',
+                'break_dancers', 'cabaret_dancer', 'cheerleaders', 'choreographers', 'contemporary_dancers', 'dance_group',
+                'dancing_couples', 'fictional_dancers', 'folk_dancer', 'samba_dancers', 'go_go_dancer', 'hip_hop_dancers',
+                'kathak_dancer', 'parade_away', 'salsa_dancers', 'sufi_dancer', 'swing_dancers', 'tap_dancers'
+            ],
+            'film_crew' => ['art_director', 'art_and_costume', 'assistant_director', 'animation_and_graphic_designer', 'copy_writer', 
+               'camera_crew', 'crane_operator', 'director', 'DOP', 'sound_crew', 'lighting_crew', 'editor', 'film_maker',
+               'film_producer', 'focus_puller_operator', 'line_producer', 'other_film_and_stage_crew', 'post_production_staff',
+               'production_manager', 'photographer','runner', 'script_writer', 'sound_engineer', 'videographer'
+            ],
+            'influencers' => ['beauty_influencers', 'bloggers', 'celebrity', 'fashion_influencers', 'fitness_wellness_influencers', 'food_influencers',
+               'gaming_tech_influencers', 'event_influencers', 'lifestyle_influencers', 'mens_products_influencers',
+               'travel_influencers', 'womens_products_influencers'
+            ],
+            'makeup_hair_painter_fashion_stylists' => ['makeup_artists', 'fashion_stylists', 'hair_stylists', 'body_painters', 'creative_makeup_artists',
+               'face_painter', 'henna_artist', 'wardrobe_stylist'
+            ],
+            'musicians' => ['guitarist', 'hobbyist', 'independent_artist', 'independent_label_artist', 'live_performer', 'music_band',
+               'musician', 'orchestral_musician', 'producer_composer', 'rapper', 'session_musician', 'singer', 'song_writer', 
+               'teacher', 'tv_show_performer', 'violinist'
+            ],
+            'event_staff_ushers' => ['bartender', 'brand_ambassador', 'caterer', 'chef', 'concierge', 'decorators', 'event_supervisor', 
+               'host_or_hostess', 'marketing_coordinator', 'promotional_staff', 'ushers', 'waitress'
+            ],
+            'presenters_emcees' => ['balloon_decorator', 'bottle_twister', 'caricature', 'clown', 'comedian', 'emcee', 'fire_artist', 'hypnotist',
+               'illustrationist', 'jugglers', 'live_statue', 'magician', 'media_reporter', 'news_reader', 'others', 'public_speaker',
+               'radio_jockey', 'shadow_performer', 'stand_up_artist', 'stilt_walker', 'unicyclist', 'video_jockey', 'virtual_host', 'voice_over'
+            ],
+            'celebrity' => [],
+            'photographers_videographers' => ['fashion', 'portrait', 'landscape', 'event', 'wedding', 'abstract', 'aerial', 'architecture', 'child',
+               'commercial', 'digital', 'documentary', 'film', 'fine_art', 'food', 'lifestyle', 'nature', 'sports', 'street',
+               'travel'
+            ],
         ];
 
         $searchCategories = [$category]; // Start with the main category

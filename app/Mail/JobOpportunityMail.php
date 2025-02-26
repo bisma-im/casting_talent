@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class JobOpportunityMail extends Mailable
 {
@@ -30,7 +31,7 @@ class JobOpportunityMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Job Opportunity Mail',
+            subject: 'Casting Opportunity – ' . $this->emailData['project_name'] . ' | Apply Now'
         );
     }
 
@@ -59,8 +60,9 @@ class JobOpportunityMail extends Mailable
      */
     public function build()
     {
+        Log::info('Building JobOpportunityMail with data:', $this->emailData);
+        
         return $this->from('info@casttalents.com')
-                    ->subject('Casting Opportunity – ' . $this->emailData['project_name'] . ' | Apply Now')
                     ->view('emails.jobs-notify')
                     ->with('data', $this->emailData);
     }
