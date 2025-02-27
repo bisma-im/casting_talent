@@ -308,7 +308,7 @@
                             {{-- <p>Dear <strong>first_name</strong></p> --}}
                             <p>Dear {{ $data['first_name'] . ' ' . $data['last_name'] }},</p>
 
-                            <p>Thank you for registering with <strong>Cast Talents LLC!</strong> We are thrilled to have you as part of our growing talent community.</p>
+                            <p>Thank you for registering with <strong>Cast Talents LLC!</strong> We are delighted to have you on board and look forward to assisting you with your casting and talent needs.</p>
                         </td>
                     </tr>
                     <tr>
@@ -319,14 +319,15 @@
                     <!-- Section -->
                     <tr>
                         <td>
-                            <p>By joining us, you now have access to exciting opportunities in <strong>fashion, commercials, films, events, and more.</strong> Our team will review your profile and reach out when a suitable casting call matches your profile.</p>
+                            <p>As a registered client, you now have access to our diverse pool of professional models, actors, influencers, and event talents. Whether you're looking for talent for commercials, fashion shoots, films, corporate events, or brand campaigns, we are here to provide you with the best options.</p>
                         </td>
                     </tr>
                     <tr class="list top">
                         <td>
                             <h3>Next Steps:</h3>
-                            <p><b>✔ </b> Keep your profile updated with recent pictures and details</p>
-                            <p><b>✔ </b> Stay tuned for upcoming job opportunities via email and WhatsApp</p>
+                            <p><b>✔ </b> Explore our talent database and submit casting requests</p>
+                            <p><b>✔ </b> Connect with our team for personalized talent recommendations</p>
+                            <p><b>✔ </b> Stay updated on industry trends and exclusive talent options</p>
                             <p><b>✔ </b> Follow us on social media for the latest updates</p>
                         </td>
                     </tr>
@@ -338,13 +339,13 @@
                     <!-- Sign off -->
                     <tr class="top">
                         <td>
-                            <p>If you have any questions or need assistance, feel free to contact us at <a
+                            <p>If you need any assistance or have specific requirements, feel free to reach out to us at <a
                                 href="mailto:info@casttalents.com">info@casttalents.com</a> or WhatsApp +971 50 1234 796.</p>
                         </td>
                     </tr>
                     <tr class="top">
                         <td>
-                            <p>We look forward to working with you and helping you land amazing opportunities!</p>
+                            <p>We look forward to collaborating with you and bringing your projects to life!</p>
                         </td>
                     </tr>
                     <tr>

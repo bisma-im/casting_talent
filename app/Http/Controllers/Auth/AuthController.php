@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Mail\ClientRegisterMail;
+use App\Mail\RegisterMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -69,6 +71,20 @@ class AuthController extends Controller
     
         // Save the user to the database
         $user->save();
+
+        $emailData = [
+            'first_name' => $user->fname,
+            'last_name' => $user->lname,
+        ];
+
+        // Send the email
+        if($request->account_type === 'model')
+        {
+            Mail::to($user->email)->send(new RegisterMail($emailData));
+        }
+        else {
+            Mail::to($user->email)->send(new ClientRegisterMail($emailData));
+        }
     
         // Send email notification to the user
         // Mail::send('emails.register-notify', ['userInfo' => $user], function ($message) use ($user) {

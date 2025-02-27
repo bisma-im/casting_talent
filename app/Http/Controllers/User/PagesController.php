@@ -18,6 +18,11 @@ class PagesController extends Controller
         return view('users.pages.modeling.modal-registeration');
     }
 
+
+    public function test(){
+        return view('emails.register-notify');
+    }
+
     public function homePage()
     {
         $models = collect();

@@ -1,7 +1,3 @@
-@php
-    Log::info('Rendering email view for:', $data);
-@endphp
-
 <!DOCTYPE html>
 <html>
 
