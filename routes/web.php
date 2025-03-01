@@ -99,7 +99,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/logout', [AdminAuthController::class, 'adminlogout'])->name('admin.logout');
 
     // admin views
-    Route::group(['middleware' => 'admin'], function () {
+    // Route::group(['middleware' => 'admin'], function () {
         Route::get('/dashboard', [ViewsController::class, 'adminDashboard'])->name('admin.index.get');
         Route::get('/users', [ViewsController::class, 'adminUsers'])->name('admin.users.get');
         // models
@@ -112,5 +112,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         // job
         Route::get('/create-job', [AdminAuthController::class, 'createJobPage'])->name('admin.create-job.get');
         Route::post('/store-job', [AdminAuthController::class, 'storeJob'])->name('admin.job.store');
-    });
+    // });
 });
