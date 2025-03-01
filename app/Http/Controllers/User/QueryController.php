@@ -9,6 +9,7 @@ use App\Models\ModelDetail;
 use Illuminate\Http\Request;
 use App\Models\ProfileDetail;
 use App\Http\Controllers\Controller;
+use App\Mail\GeneralInquiry;
 use App\Models\ClientInquiry;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -35,16 +36,30 @@ class QueryController extends Controller
             'message' => 'required|string',
         ]);
 
-        dd($validatedData);
+        try {
+            // Create a new contact entry
+            $contact = Contact::create($validatedData);
 
-        // Create a new contact entry
-        Contact::create($validatedData);
-        // Send email notification to the owner
-        // Mail::send('emails.query-notify', ['userInfo' => $validatedData], function ($message) use ($request) {
-        //     $message->to('info_dev@aimaxdigital.com'); // Replace with the owner's email
-        //     $message->subject('Query Notification');
-        // });
-        return redirect()->back()->with('success', 'Message sent successfully!');
+            // Prepare email data
+            $emailData = [
+                'name' => $validatedData['name'],
+                'email' => $validatedData['email'],
+                'calling_number' => $validatedData['calling_number'],
+                'whatsapp_number' => $validatedData['whatsapp_number'],
+                'subject' => $validatedData['subject'],
+                'message' => $validatedData['message'],
+            ];
+
+            // Send email to multiple recipients using queues
+            Mail::to(['Abeera.k.shaikh@gmail.com', 'abeera@casttalents.com'])
+                ->queue(new GeneralInquiry($emailData));
+
+            return redirect()->back()->with('success', 'Message sent successfully!');
+        } catch (\Exception $e) {
+            // Log the error and notify the user
+            Log::error('Error sending message: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'An error occurred while sending your message. Please try again.');
+        }
     }
 
     public function storeClientInquiry(Request $request)
@@ -116,10 +131,7 @@ class QueryController extends Controller
                 'success' => false
             ], 500);
         }
-        
     }
-
-
 
     public function profileInfoStore(Request $request)
     {
@@ -383,7 +395,7 @@ class QueryController extends Controller
         if ($request->has('video_urls')) {
             // Decode JSON string back to array
             $videoUrls = $videoUrls = json_decode($request->input('video_urls'), true);
-        
+
             // Store or process the URLs as needed
             $modelDetail->video_file = json_encode($videoUrls);
         }

@@ -298,7 +298,7 @@
                         <td>
                             <p>Dear {{ $data['first_name'] . ' ' . $data['last_name'] }},</p>
 
-                            <p>We are excited to present you with a new opportunity that matches your profile at Cast Talents LLC.</p>
+                            <p>We are excited to present you with a new opportunity that matches your profile at <strong>Cast Talents LLC.</strong></p>
                         </td>
                     </tr>
                     <tr><td><hr></td></tr>

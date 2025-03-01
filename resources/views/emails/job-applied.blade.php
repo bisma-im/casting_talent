@@ -285,38 +285,41 @@
                     </tr>
                     <tr>
                         <td>
+                            <p>Dear {{ $data['first_name'] . ' ' . $data['last_name'] }},</p>
+
+                            <p>Thank you for submitting your application for <strong>{{ $data['project_name'] }}</strong> with <strong>Cast Talents LLC!</strong>. We have received your details and appreciate your interest in this opportunity.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <hr>
                         </td>
                     </tr>
                     <!-- Section -->
                     <tr>
                         <td>
-                            <h3>Jobs Information</h3>
+                            <p>Our team is currently reviewing all applications. If you are shortlisted, we will contact you with further details, including confirmation, briefing, and final instructions.</p>
                         </td>
                     </tr>
-                    <tr class="list">
+                    <!-- Section -->
+                    <tr class="list top">
                         <td>
-                            <!-- Job Detail Information -->
-                            <p><strong>Job Title:</strong> {{ $jobDetail->title }}</p>
-                            <p><strong>Gender:</strong> {{ $jobDetail->gender }}</p>
-                            <p><strong>Nationality:</strong> {{ $jobDetail->nationality }}</p>
-                            <p><strong>Location:</strong> {{ $jobDetail->location }}</p>
-                            <p><strong>Biography:</strong> {{ $jobDetail->biography }}</p>
-                            <p><strong>Languages Spoken:</strong>
-                                {{ implode(', ', json_decode($jobDetail->languages_spoken)) }}</p>
-                            <p><strong>Height:</strong> {{ $jobDetail->height }} cm</p>
-                            <p><strong>Bust:</strong> {{ $jobDetail->bust ?? 'N/A' }} cm</p>
-                            <p><strong>Waist:</strong> {{ $jobDetail->waist ?? 'N/A' }} cm</p>
-                            <p><strong>Hip:</strong> {{ $jobDetail->hip ?? 'N/A' }} cm</p>
-                            <p><strong>Weight:</strong> {{ $jobDetail->weight }} kg</p>
-                            <p><strong>Eye Color:</strong> {{ $jobDetail->eye_color }}</p>
-                            <p><strong>Hair Color:</strong> {{ $jobDetail->hair_color }}</p>
-                            <p><strong>Hair Length:</strong> {{ $jobDetail->hair_length }}</p>
-                            <p><strong>Shoe Size:</strong> {{ $jobDetail->shoe_size ?? 'N/A' }} (EU)</p>
-                            <p><strong>Dress Size:</strong> {{ $jobDetail->dress_size ?? 'N/A' }} (EU)</p>
-                            <p><strong>Hourly Rate:</strong> {{ $jobDetail->hourly_rate }}</p>
-                            <p><strong>Category Type:</strong>
-                                {{ implode(', ', json_decode($jobDetail->category_type)) }}</p>
+                            <h3>Next Steps:</h3>
+                            <p><b>• </b> Shortlisted models will be contacted via email/WhatsApp.</p>
+                            <p><b>• </b> If selected, you will receive the final shoot/event details.</p>
+                            <p><b>• </b> In case you are not selected for this project, we will keep you in mind for future opportunities.</p>
+                        </td>
+                    </tr>
+                    <!-- Sign off -->
+                    <tr class="top">
+                        <td>
+                            <p>If you have any questions, feel free to reach out at <a
+                                href="mailto:info@casttalents.com">info@casttalents.com</a> or WhatsApp +971 50 1234 796.</p>
+                        </td>
+                    </tr>
+                    <tr class="top">
+                        <td>
+                            <p>We appreciate your patience and look forward to working with you soon!</p>
                         </td>
                     </tr>
                     <tr>
@@ -324,11 +327,12 @@
                             <hr>
                         </td>
                     </tr>
-                    <!-- Sign off -->
-                    <tr class="top-space">
+                    <tr class="top">
                         <td>
-                            <p>We’re here to help. If you have any questions, please send us an email at <a
-                                    href="mailto:info@castingtalent.com">info@castingtalent.com</a>.</p>
+                            <p><strong>Best Regards,</strong></p>
+                            <p><strong>Cast Talents LLC</strong></p>
+                            <p><a href="mailto:info@casttalents.com">info@casttalents.com</a> | +971 50 1234 796</p>
+                            <p style="margin-top: 20px;"><a href="www.casttalents.com">www.casttalents.com</a></p>
                         </td>
                     </tr>
                 </table>

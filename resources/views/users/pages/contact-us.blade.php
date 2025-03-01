@@ -501,7 +501,7 @@
                         <div class="progress">
                             <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
                         </div>
-                        <form id="contact-form" action="{{ route('client-inquiry.post') }}" method="post">
+                        <form id="contact-form" action="{{ route('contact.post') }}" method="post">
                             @csrf
                             <!-- Form steps go here -->
                             <!-- Example first step -->

@@ -316,12 +316,12 @@
                     </tr>
                     <tr class="list">
                         <td>
-                            <p><strong>Name:</strong> {{ $userInfo['name'] }}</p>
-                            <p><strong>Email:</strong> {{ $userInfo['email'] }}</p>
-                            <p><strong>Calling Number:</strong> {{ $userInfo['calling_number'] ?? 'N/A' }}</p>
-                            <p><strong>WhatsApp Number:</strong> {{ $userInfo['whatsapp_number'] ?? 'N/A' }}</p>
-                            <p><strong>Subject:</strong> {{ $userInfo['subject'] }}</p>
-                            <p><strong>Message:</strong> {{ $userInfo['message'] }}</p>
+                            <p><strong>Name:</strong> {{ $data['name'] }}</p>
+                            <p><strong>Email:</strong> {{ $data['email'] }}</p>
+                            <p><strong>Calling Number:</strong> {{ $data['calling_number'] ?? 'N/A' }}</p>
+                            <p><strong>WhatsApp Number:</strong> {{ $data['whatsapp_number'] ?? 'N/A' }}</p>
+                            <p><strong>Subject:</strong> {{ $data['subject'] }}</p>
+                            <p><strong>Message:</strong> {{ $data['message'] }}</p>
                         </td>
                     </tr>
                     <tr>
@@ -330,10 +330,12 @@
                         </td>
                     </tr>
                     <!-- Sign off -->
-                    <tr class="top-space">
+                    <tr class="top">
                         <td>
-                            <p>We’re here to help. If you have any questions, please send us an email at <a
-                                    href="mailto:info@castingtalent.com">info@castingtalent.com</a>.</p>
+                            <p><strong>Best Regards,</strong></p>
+                            <p><strong>Cast Talents LLC</strong></p>
+                            <p><a href="mailto:info@casttalents.com">info@casttalents.com</a> | +971 50 1234 796</p>
+                            <p style="margin-top: 20px;"><a href="www.casttalents.com">www.casttalents.com</a></p>
                         </td>
                     </tr>
                 </table>

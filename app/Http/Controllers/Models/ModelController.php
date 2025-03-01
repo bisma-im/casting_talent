@@ -9,6 +9,7 @@ use App\Models\Membership;
 use App\Models\ModelDetail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\JobAppliedMail;
 use App\Models\Job;
 use App\Models\JobApplied;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -151,13 +152,15 @@ class ModelController extends Controller
         $jobApplied->job_applier_id = Auth::user()->id;
         // dd($jobDetail,$jobApplied);
         $jobApplied->save();
+
+        $emailData = [
+            'first_name' => $modelExist->first_name,
+            'last_name' => $modelExist->last_name,
+            'project_name' => $jobDetail->required,
+        ];
         // Send email notification to the matched users
         if ($jobApplied) {
-            $userMatched = User::where('id', $jobDetail->user_id)->first();
-            Mail::send('emails.job-applied', ['jobDetail' => $jobDetail], function ($message) use ($userMatched) {
-                $message->to(Auth::user()->email); // Send to the matched user's email
-                $message->subject('Jobs Applied Notification');
-            });
+            Mail::to(Auth::user()->email)->send(new JobAppliedMail($emailData));
         }
         return redirect()->back()->with('success', 'Job Applied Successfully !!!');
     }
