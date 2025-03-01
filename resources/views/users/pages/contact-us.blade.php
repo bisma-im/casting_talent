@@ -532,7 +532,7 @@
                                     <div class="col-md-12 col-12">
                                         <div class="contactlist">
                                             <label>Email</label>
-                                            <input type="email" name="email" class="form-control" placeholder="Email"
+                                            <input pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|[\w-]+(\.[\w-]+)+\.[a-zA-Z]{2,})$" type="email" name="email" class="form-control" placeholder="Email"
                                                 required>
                                         </div>
                                     </div>
@@ -675,7 +675,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class=" text fw-bold">EMAIL</label>
-                                            <input type="email" class="form-control" name="email" placeholder="Email"
+                                            <input  pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|[\w-]+(\.[\w-]+)+\.[a-zA-Z]{2,})$" type="email" class="form-control" name="email" placeholder="Email"
                                                 required>
                                         </div>
                                     </div>
@@ -976,9 +976,14 @@
                                             </div>
                                         </div>
                                         <input type="hidden" name="nationalities" id="nationalities" value="" />
+                                       <!-- Place for selected nationalities -->
+<div id="selectedNationalities" style="margin-top: 5px;">
+    <h3 style="font-size: 12px;">Selected Nationalities:</h3>
+    <ul id="nationalityList" style="font-size: 12px;"></ul>
+</div>
                                     </div>
                             </div>
-
+                         
                                     <!-- Required Talent -->
                                     <div class="col-lg-12 col-6">
                                         <div class="form-group w-100">
@@ -1004,11 +1009,6 @@
                                             </p>
                                         </div>
                                     </div>
-
-
-
-
-
 
                                 </div>
                                 <div class="text-center  d-flex justify-content-between">
@@ -1425,88 +1425,52 @@
             });
 
     }
-    // JSON data for GCC countries, states/regions, and cities
-const gccData = {
+    const gccData = {
     "Bahrain": {
         "Capital Governorate": ["Manama"],
-        "Muharraq Governorate": ["Muharraq", "Arad"],
-        "Northern Governorate": ["Al Budaiya", "Diraz"],
-        "Southern Governorate": ["Riffa", "Zallaq"]
+        "Muharraq Governorate": ["Muharraq", "Arad", "Hidd"],
+        "Northern Governorate": ["Al Budaiya", "Diraz", "Barbar", "Janabiyah"],
+        "Southern Governorate": ["Riffa", "Zallaq", "Isa Town", "A'ali"]
     },
     "Kuwait": {
-        "Al Ahmadi": ["Ahmadi", "Sabah Al-Ahmad", "Fahaheel"],
-        "Al Farwaniyah": ["Farwaniyah", "Jleeb Al-Shuyoukh"],
-        "Hawalli": ["Salmiya", "Jabriya", "Hawalli"],
-        "Capital": ["Kuwait City", "Dasma"],
-        "Al Jahra": ["Jahra"]
+        "Al Ahmadi": ["Ahmadi", "Sabah Al-Ahmad", "Fahaheel", "Wafra"],
+        "Al Farwaniyah": ["Farwaniyah", "Jleeb Al-Shuyoukh", "Rigai"],
+        "Hawalli": ["Salmiya", "Jabriya", "Hawalli", "Bayan"],
+        "Capital": ["Kuwait City", "Dasma", "Sharq", "Mirgab"],
+        "Al Jahra": ["Jahra", "Sulaibiya"]
     },
     "Oman": {
-        "Muscat": ["Muscat", "Muttrah", "Seeb", "Bawshar"],
-        "Dhofar": ["Salalah", "Taqah", "Mirbat"],
-        "Al Batinah South": ["Sohar", "Rustaq"],
-        "Ad Dakhiliyah": ["Nizwa", "Bahla", "Samail"]
+        "Muscat": ["Muscat", "Muttrah", "Seeb", "Bawshar", "Al Amerat"],
+        "Dhofar": ["Salalah", "Taqah", "Mirbat", "Thumrait"],
+        "Al Batinah South": ["Sohar", "Rustaq", "Barka", "Al Musanaah"],
+        "Ad Dakhiliyah": ["Nizwa", "Bahla", "Samail", "Izki"],
+        "Al Sharqiyah South": ["Sur", "Jalan Bani Bu Ali", "Masirah"]
     },
     "Qatar": {
-        "Ad Dawhah": ["Doha", "Al Wakrah"],
-        "Al Rayyan": ["Al Rayyan", "Umm Salal", "Al Shahaniya"],
-        "Al Daayen": ["Lusail"],
-        "Al Khor": ["Al Khor"]
+        "Ad Dawhah": ["Doha", "Al Wakrah", "Mesaieed", "Al Wukair"],
+        "Al Rayyan": ["Al Rayyan", "Umm Salal", "Al Shahaniya", "Mukaynis"],
+        "Al Daayen": ["Lusail", "Al Kheesa", "Leabaib"],
+        "Al Khor": ["Al Khor", "Al Thakhira", "Ras Laffan"]
     },
     "Saudi Arabia": {
-        "Riyadh Region": ["Riyadh", "Al Kharj", "Diriyah"],
-        "Makkah Region": ["Jeddah", "Mecca", "Taif"],
-        "Eastern Province": ["Dammam", "Al Khobar", "Dhahran"],
-        "Madinah Region": ["Medina", "Yanbu"],
-        "Asir Region": ["Abha", "Khamis Mushait"]
+        "Riyadh Region": ["Riyadh", "Al Kharj", "Diriyah", "Dhurma"],
+        "Makkah Region": ["Jeddah", "Mecca", "Taif", "Rabigh"],
+        "Eastern Province": ["Dammam", "Al Khobar", "Dhahran", "Jubail"],
+        "Madinah Region": ["Medina", "Yanbu", "Badar", "Al Ula"],
+        "Asir Region": ["Abha", "Khamis Mushait", "Bisha", "Jizan"],
+        "Tabuk Region": ["Tabuk", "Tayma", "Haql"]
     },
     "United Arab Emirates": {
-        "Abu Dhabi": ["Abu Dhabi",
-      "Al Ain",
-      "Al Dhafra",
-      "Mussafah",
-      "Khalifa City",
-      "Yas Island",
-      "Saadiyat Island",
-      "Al Bateen"],
-        "Dubai": ["Dubai",
-      "Deira",
-      "Bur Dubai",
-      "Jumeirah",
-      "Dubai Marina",
-      "Business Bay",
-      "Al Barsha",
-      "Al Quoz",
-      "Palm Jumeirah",
-      "Dubai Silicon Oasis",
-      "Jumeirah Lakes Towers (JLT)",
-      "Discovery Gardens"],
-        "Sharjah": [  "Sharjah",
-      "Khor Fakkan",
-      "Dibba Al Hisn",
-      "Al Dhaid",
-      "Kalba",
-      "Muweilah",
-      "Al Nahda"],
-        "Ajman": [  "Ajman",
-      "Al Jurf",
-      "Al Nuaimiya",
-      "Musheirif"],
-        "Ras Al Khaimah": [    "Ras Al Khaimah",
-      "Al Hamra",
-      "Al Marjan Island",
-      "Dhayah",
-      "Al Rams"],
-        "Fujairah": [ "Fujairah",
-      "Dibba Al Fujairah",
-      "Mirbah",
-      "Masafi",
-      "Khor Fakkan"],
-        "Umm Al Quwain": [ "Umm Al Quwain",
-      "Al Salama",
-      "Al Raas",
-      "Al Haditha"]
+        "Abu Dhabi": ["Abu Dhabi", "Al Ain", "Al Dhafra", "Mussafah", "Khalifa City", "Yas Island", "Saadiyat Island", "Al Bateen"],
+        "Dubai": ["Dubai", "Deira", "Bur Dubai", "Jumeirah", "Dubai Marina", "Business Bay", "Al Barsha", "Al Quoz", "Palm Jumeirah", "Dubai Silicon Oasis", "Jumeirah Lakes Towers (JLT)", "Discovery Gardens"],
+        "Sharjah": ["Sharjah", "Khor Fakkan", "Dibba Al Hisn", "Al Dhaid", "Kalba", "Muweilah", "Al Nahda"],
+        "Ajman": ["Ajman", "Al Jurf", "Al Nuaimiya", "Musheirif"],
+        "Ras Al Khaimah": ["Ras Al Khaimah", "Al Hamra", "Al Marjan Island", "Dhayah", "Al Rams"],
+        "Fujairah": ["Fujairah", "Dibba Al Fujairah", "Mirbah", "Masafi", "Khor Fakkan"],
+        "Umm Al Quwain": ["Umm Al Quwain", "Al Salama", "Al Raas", "Al Haditha"]
     }
 };
+
 
 // Initialize dropdown elements
 const countryDropdown = document.getElementById("countryDropdown");
@@ -1529,7 +1493,7 @@ function populateCountryDropdown() {
 // Populate state dropdown based on selected country
 function populateStateDropdown(selectedCountry) {
     stateDropdown.innerHTML = '<option value="" disabled selected>Select a state/region</option>'; // Reset states
-    cityDropdown.innerHTML = '<option value="" disabled selected>Select a city</option>'; // Reset cities
+    cityDropdown.innerHTML = '<option value="" disabled selected>Select a area</option>'; // Reset cities
     stateDropdown.disabled = false;
     cityDropdown.disabled = true;
 
@@ -1544,7 +1508,7 @@ function populateStateDropdown(selectedCountry) {
 
 // Populate city dropdown based on selected state
 function populateCityDropdown(selectedCountry, selectedState) {
-    cityDropdown.innerHTML = '<option value="" disabled selected>Select a city</option>'; // Reset cities
+    cityDropdown.innerHTML = '<option value="" disabled selected>Select a area</option>'; // Reset cities
     cityDropdown.disabled = false;
 
     let cities = gccData[selectedCountry][selectedState];
@@ -2222,6 +2186,41 @@ function validateBudget() {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+            // ==================Show updateNationalities in separe div 
+
+            
+    document.addEventListener('DOMContentLoaded', function() {
+        const nationalityCheckboxes = document.querySelectorAll('#dropdownContent input[type="checkbox"]');
+        const nationalityList = document.getElementById('nationalityList');
+
+        function updateNationalities() {
+            nationalityList.innerHTML = ''; // Clear current list
+            nationalityCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    const li = document.createElement('li');
+                    li.textContent = checkbox.value;
+                    nationalityList.appendChild(li);
+                }
+            });
+        }
+
+        nationalityCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateNationalities);
+        });
+
+        // Initial update in case some checkboxes are pre-checked (not shown in your snippet, but just in case)
+        updateNationalities();
+    });
 
 </script>
 
