@@ -227,14 +227,14 @@ document.addEventListener('DOMContentLoaded', function () {
     </section>
     <section class="modalagencysec2" id="videography-photography">
         <div class="container">
-            <div class="row mt-4 ">
+            <div class="row  ">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg " >
                         <img style="" src="{{ url('user-assets') }}/images/event_4.jpg" alt="Casting Image" class="img-fluid  pt-5">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modaltext1 pt-4">
+                    <div class="modaltext1 ">
 
                         <h2>Videography & <sapn style="color: rgba(216, 31, 38, 1);">Photography</sapn>
                         </h2>

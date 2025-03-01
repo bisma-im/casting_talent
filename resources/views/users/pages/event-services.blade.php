@@ -505,10 +505,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <section class="modalagencysec2" id="security-bouncer">
         <div class="container">
-            <div class="row align-items-center justify-content-center mx-0 ">
+            <div class="row  justify-content-center ">
             <div class="col-6  ">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_5.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/event_5.png" class="img-fluid p-5" alt="img">
                     </div>
                 </div>
                 <div class="col-6">
@@ -587,7 +587,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center"">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_7.png" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/event_7.png" alt="Casting Image" class="img-fluid p-4">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -643,7 +643,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/eventtransport.jpg" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/eventtransport.jpg" alt="Casting Image" class="img-fluid p-4">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">

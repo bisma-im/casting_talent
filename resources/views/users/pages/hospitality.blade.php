@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/hospitalitytransport.jpeg" alt="Casting Image" class="img-fluid">
+                        <img src="{{ url('user-assets') }}/images/hospitalitytransport.jpeg" alt="Casting Image" class="img-fluid p-3">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">

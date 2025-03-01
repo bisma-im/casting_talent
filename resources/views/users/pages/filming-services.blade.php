@@ -404,8 +404,8 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/managt.jpeg" alt="Casting Image" class="img-fluid">
+                    <div class="modalimg ">
+                        <img src="{{ url('user-assets') }}/images/managt.jpeg" alt="Casting Image" class="img-fluid p-4">
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
@@ -578,7 +578,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="row  align-items-center">
             <div class="col-6 d-flex justify-content-center">
                     <div class="modalimg">
-                        <img src="{{ url('user-assets') }}/images/event_6.png" class="img-fluid" alt="img">
+                        <img src="{{ url('user-assets') }}/images/event_6.png" class="img-fluid p-4" alt="img">
                     </div>
                 </div>
                 <div class="col-6">
