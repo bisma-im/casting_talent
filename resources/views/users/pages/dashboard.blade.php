@@ -400,12 +400,10 @@
                      <a class="nav-link" id="add-job-tab" data-bs-toggle="pill" href="#add-job" role="tab"
                         aria-controls="add-job" aria-selected="false">Job Details</a>
                   </li>
-                  {{-- 
                   <li class="nav-item" role="presentation">
-                     <a class="nav-link" id="add-pets-tab" data-bs-toggle="pill" href="#add-pets" role="tab"
-                        aria-controls="add-pets" aria-selected="false">Model Details</a>
+                     <a class="nav-link" id="add-pets-tab" data-bs-toggle="pill" href="#selected-models" role="tab"
+                        aria-controls="add-pets" aria-selected="false">Selected Models</a>
                   </li>
-                  --}}
                   <li class="nav-item" role="presentation">
                      <a class="nav-link" href="{{ route('logout.get') }}"><button class="btn w-100"
                         style="background: #1C7887; color:#f1f1f1;"><i
@@ -416,38 +414,13 @@
          </div>
          <div class="col-12 col-md-9 col-lg-9 col-xl-9">
             <div class="tab-content" id="myTabContent">
-               <!-- My models -->
-               <div class="tab-pane fade show active" id="dashboard" role="tabpanel"
-                  aria-labelledby="dashboard-tab">
+               <!-- Featured models -->
+               <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                   <div class="left-dash">
                      <div class="left-main">
-                        <h4 class="left-head">Models</h4>
+                        <h4 class="left-head">Featured Models</h4>
                      </div>
                      <hr>
-                     @php
-                     $userCategories = DB::table('client_inquiry')
-                        ->where('user_id', Auth::id())
-                        ->select('categories')
-                        ->get()
-                        ->pluck('categories')
-                        ->toArray();
-
-                     // Assuming categories are comma-separated, we will split them into individual category names
-                     $categories = [];
-                     foreach ($userCategories as $categoryList) {
-                        $categories = array_merge($categories, explode(',', $categoryList));
-                     }
-                     $categories = array_unique($categories);  // Remove duplicates
-                     $myModels = DB::table('model_details')
-                        ->where(function ($query) use ($categories) {
-                           foreach ($categories as $category) {
-                                 $query->orWhere('category', 'like', '%"'.$category.'"%');
-                                 $query->orWhere('musician_categories', 'like', '%"'.$category.'"%');
-                           }
-                        })
-                        ->get();
-                     // dump($myModels);
-                     @endphp
                      <div class="serve-pad">
                         @if ($myModels->count() > 0)
                         <div class="row">
@@ -738,450 +711,560 @@
                      </div>
                   </div>
                </div>
-
-
-
                <!-- Add model register tab pane -->
                <div class="tab-pane fade" id="add-job" role="tabpanel" aria-labelledby="job-tab">
-    <div class="left-dash">
-        <div class="left-main">
-            <h4 class="left-head">Job Details</h4>
-        </div>
-        <hr>
-        <div class="serve-pad">
-            <div class="row">
-                <div class="col-12">
-                    <form id="client-form" method="post" action="{{ route('client-inquiry.post') }}" enctype="multipart/form-data">
-                        @csrf
-
-                        <!-- Progress bar -->
-                        <div class="progress mb-4">
-                            <div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-                        </div>
-
-                        <!-- Step 1: Basic Info -->
-                        <div class="step" id="step1">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="fw-bold">FIRST NAME</label>
-                                        <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="fw-bold">LAST NAME</label>
-                                        <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="fw-bold">COMPANY / AGENCY NAME</label>
-                                        <input type="text" class="form-control" name="company" placeholder="Company Name" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center d-flex justify-content-end">
-                                <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
-                            </div>
-                        </div>
-
-                        <!-- Step 2: Contact Info -->
-                        <div class="step d-none" id="step2">
-                            <div class="row">
-                                <div class="col-lg-5">
-                                    <div class="form-group">
-                                        <label class="fw-bold">CALLING NUMBER</label>
-                                        <input id="callingNumber" type="tel" class="form-control"   inputmode="numeric" oninput="this.value = this.value.replace(/\D/g, '')"  name="calling_number" placeholder="Calling Number" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="fw-bold">WHATSAPP NUMBER</label>
-                                        <input id="whatsappNumber" type="tel" class="form-control" name="whatsapp_number"  inputmode="numeric" oninput="this.value = this.value.replace(/\D/g, '')"  placeholder="WhatsApp Number" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="fw-bold">EMAIL</label>
-                                        <input type="email" class="form-control" name="email" placeholder="Email" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center d-flex justify-content-between">
-                            <button type="button" class="btn btn-danger  " onclick="prevStep()">Back</button>
-                                <button type="button" class="btn btn-primary " onclick="nextStep()">Next</button>
-                            </div>
-                        </div>
-
-
-                            <!-- Project -->
-                          <!-- Step 3: Project Info -->
-                        <div class="step d-none" id="step3">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="fw-bold">PROJECT</label>
-                                        <select class="form-select" name="project" required>
-                                            <option value="Shoot">Shoot</option>
-                                            <option value="Event">Event</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                    <label class="fw-bold">LOCATION OF PROJECT</label>
-                                        <div class="row">
-                                        <div class="col-md-4">
-        <select id="countryDropdown" class="form-select" name="country" required>
-            <option value="" disabled selected>Select a Country</option>
-        </select>
-    </div>
-    <div class="col-md-4">
-        <select id="stateDropdown" class="form-select" name="state" required disabled>
-            <option value="" disabled selected>Select a State</option>
-        </select>
-    </div>
-    <div class="col-md-4">
-        <select id="cityDropdown" class="form-select" name="city" required disabled>
-            <option value="" disabled selected>Select a City</option>
-        </select>
-    </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            <!-- No of Days & No of Hours -->
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label  class="fw-bold">NO OF DAYS</label>
-                                    <input type="number"  min="1"  class="form-control" name="no_of_days" placeholder="Number of Days" required>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label  class="fw-bold">NO OF HOURS</label>
-                                    <input type="number"   max="24" min="1" class="form-control" name="no_of_hours" placeholder="Number of Hours"  required>
-                                </div>
-                            </div>
-
-                          <!-- male and female   -->
-                               
-                          <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label  class="text fw-bold">NO OF TALENTS(MALE)</label>
-                                            <input type="number"  min="1" class="form-control" name="no_of_talents_male" placeholder="" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label  class="text fw-bold" class>NO OF TALENTS(FEMALE)</label>
-                                            <input required type="number"   min="1" class="form-control" name="no_of_talents_female" placeholder="" required>
-                                        </div>
-                                    </div>
-                               
-
-
-                            <!-- Required Talent -->
- <div class="col-lg-3">
-    <div class="form-group">
-        <label class="fw-bold">REQUIRED TALENT</label>
-
-        <!-- Main Dropdown Button -->
-        <div class="dropdown" id="dropdown-container">
-            <button style="background-color: #1C7887" class="btn btn-secondary  dropdown-toggle" id="dropdown-btn" type="button">
-                Select a Category
-            </button>
-
-            <!-- Menu container with categories and subcategories (initially hidden) -->
-            <div class="menu-container" id="main-category-container" style="display: none;"></div>
-        </div>
-        <input type="hidden" name="categories" id="categories" value="" />
-        <!-- Paragraph to show selected categories and subcategories -->
-        <p id="selectedCategories" style="margin-top: 10px; font-weight: bold;">
-            Selected Talents: None
-        </p>
-    </div>
-</div>
-
-
-
-
-                        <div class="col-lg-3">
-                           <div class="form-group">
-                              <label class="fw-bold">NATIONALITIES</label>
-                              <div class="custom-dropdown" id="nationalityDropdown">
-                                 <div class=" form-control" id="dropdownButton">Select Nationalities</div>
-                                 <div class="custom-dropdown-content" id="dropdownContent">
-                                    <label><input type="checkbox" value="Afghanistan"> Afghanistan</label>
-                                    <label><input type="checkbox" value="Albania"> Albania</label>
-                                    <label><input type="checkbox" value="Algeria"> Algeria</label>
-                                    <label><input type="checkbox" value="Andorra"> Andorra</label>
-                                    <label><input type="checkbox" value="Angola"> Angola</label>
-                                    <label><input type="checkbox" value="Antigua and Barbuda"> Antigua and Barbuda</label>
-                                    <label><input type="checkbox" value="Argentina"> Argentina</label>
-                                    <label><input type="checkbox" value="Armenia"> Armenia</label>
-                                    <label><input type="checkbox" value="Australia"> Australia</label>
-                                    <label><input type="checkbox" value="Austria"> Austria</label>
-                                    <label><input type="checkbox" value="Azerbaijan"> Azerbaijan</label>
-                                    <label><input type="checkbox" value="Bahamas"> Bahamas</label>
-                                    <label><input type="checkbox" value="Bahrain"> Bahrain</label>
-                                    <label><input type="checkbox" value="Bangladesh"> Bangladesh</label>
-                                    <label><input type="checkbox" value="Barbados"> Barbados</label>
-                                    <label><input type="checkbox" value="Belarus"> Belarus</label>
-                                    <label><input type="checkbox" value="Belgium"> Belgium</label>
-                                    <label><input type="checkbox" value="Belize"> Belize</label>
-                                    <label><input type="checkbox" value="Benin"> Benin</label>
-                                    <label><input type="checkbox" value="Bhutan"> Bhutan</label>
-                                    <label><input type="checkbox" value="Bolivia"> Bolivia</label>
-                                    <label><input type="checkbox" value="Bosnia and Herzegovina"> Bosnia and Herzegovina</label>
-                                    <label><input type="checkbox" value="Botswana"> Botswana</label>
-                                    <label><input type="checkbox" value="Brazil"> Brazil</label>
-                                    <label><input type="checkbox" value="Brunei"> Brunei</label>
-                                    <label><input type="checkbox" value="Bulgaria"> Bulgaria</label>
-                                    <label><input type="checkbox" value="Burkina Faso"> Burkina Faso</label>
-                                    <label><input type="checkbox" value="Burundi"> Burundi</label>
-                                    <label><input type="checkbox" value="Cabo Verde"> Cabo Verde</label>
-                                    <label><input type="checkbox" value="Cambodia"> Cambodia</label>
-                                    <label><input type="checkbox" value="Cameroon"> Cameroon</label>
-                                    <label><input type="checkbox" value="Canada"> Canada</label>
-                                    <label><input type="checkbox" value="Central African Republic"> Central African Republic</label>
-                                    <label><input type="checkbox" value="Chad"> Chad</label>
-                                    <label><input type="checkbox" value="Chile"> Chile</label>
-                                    <label><input type="checkbox" value="China"> China</label>
-                                    <label><input type="checkbox" value="Colombia"> Colombia</label>
-                                    <label><input type="checkbox" value="Comoros"> Comoros</label>
-                                    <label><input type="checkbox" value="Congo (Congo-Brazzaville)"> Congo (Congo-Brazzaville)</label>
-                                    <label><input type="checkbox" value="Congo (Congo-Kinshasa)"> Congo (Congo-Kinshasa)</label>
-                                    <label><input type="checkbox" value="Costa Rica"> Costa Rica</label>
-                                    <label><input type="checkbox" value="Croatia"> Croatia</label>
-                                    <label><input type="checkbox" value="Cuba"> Cuba</label>
-                                    <label><input type="checkbox" value="Cyprus"> Cyprus</label>
-                                    <label><input type="checkbox" value="Czech Republic"> Czech Republic</label>
-                                    <label><input type="checkbox" value="Denmark"> Denmark</label>
-                                    <label><input type="checkbox" value="Djibouti"> Djibouti</label>
-                                    <label><input type="checkbox" value="Dominica"> Dominica</label>
-                                    <label><input type="checkbox" value="Dominican Republic"> Dominican Republic</label>
-                                    <label><input type="checkbox" value="Ecuador"> Ecuador</label>
-                                    <label><input type="checkbox" value="Egypt"> Egypt</label>
-                                    <label><input type="checkbox" value="El Salvador"> El Salvador</label>
-                                    <label><input type="checkbox" value="Equatorial Guinea"> Equatorial Guinea</label>
-                                    <label><input type="checkbox" value="Eritrea"> Eritrea</label>
-                                    <label><input type="checkbox" value="Estonia"> Estonia</label>
-                                    <label><input type="checkbox" value="Eswatini"> Eswatini (formerly Swaziland)</label>
-                                    <label><input type="checkbox" value="Ethiopia"> Ethiopia</label>
-                                    <label><input type="checkbox" value="Fiji"> Fiji</label>
-                                    <label><input type="checkbox" value="Finland"> Finland</label>
-                                    <label><input type="checkbox" value="France"> France</label>
-                                    <label><input type="checkbox" value="Gabon"> Gabon</label>
-                                    <label><input type="checkbox" value="Gambia"> Gambia</label>
-                                    <label><input type="checkbox" value="Georgia"> Georgia</label>
-                                    <label><input type="checkbox" value="Germany"> Germany</label>
-                                    <label><input type="checkbox" value="Ghana"> Ghana</label>
-                                    <label><input type="checkbox" value="Greece"> Greece</label>
-                                    <label><input type="checkbox" value="Grenada"> Grenada</label>
-                                    <label><input type="checkbox" value="Guatemala"> Guatemala</label>
-                                    <label><input type="checkbox" value="Guinea"> Guinea</label>
-                                    <label><input type="checkbox" value="Guinea-Bissau"> Guinea-Bissau</label>
-                                    <label><input type="checkbox" value="Guyana"> Guyana</label>
-                                    <label><input type="checkbox" value="Haiti"> Haiti</label>
-                                    <label><input type="checkbox" value="Honduras"> Honduras</label>
-                                    <label><input type="checkbox" value="Hungary"> Hungary</label>
-                                    <label><input type="checkbox" value="Iceland"> Iceland</label>
-                                    <label><input type="checkbox" value="India"> India</label>
-                                    <label><input type="checkbox" value="Indonesia"> Indonesia</label>
-                                    <label><input type="checkbox" value="Iran"> Iran</label>
-                                    <label><input type="checkbox" value="Iraq"> Iraq</label>
-                                    <label><input type="checkbox" value="Ireland"> Ireland</label>
-                                    <label><input type="checkbox" value="Israel"> Israel</label>
-                                    <label><input type="checkbox" value="Italy"> Italy</label>
-                                    <label><input type="checkbox" value="Jamaica"> Jamaica</label>
-                                    <label><input type="checkbox" value="Japan"> Japan</label>
-                                    <label><input type="checkbox" value="Jordan"> Jordan</label>
-                                    <label><input type="checkbox" value="Kazakhstan"> Kazakhstan</label>
-                                    <label><input type="checkbox" value="Kenya"> Kenya</label>
-                                    <label><input type="checkbox" value="Kiribati"> Kiribati</label>
-                                    <label><input type="checkbox" value="Kuwait"> Kuwait</label>
-                                    <label><input type="checkbox" value="Kyrgyzstan"> Kyrgyzstan</label>
-                                    <label><input type="checkbox" value="Laos"> Laos</label>
-                                    <label><input type="checkbox" value="Latvia"> Latvia</label>
-                                    <label><input type="checkbox" value="Lebanon"> Lebanon</label>
-                                    <label><input type="checkbox" value="Lesotho"> Lesotho</label>
-                                    <label><input type="checkbox" value="Liberia"> Liberia</label>
-                                    <label><input type="checkbox" value="Libya"> Libya</label>
-                                    <label><input type="checkbox" value="Liechtenstein"> Liechtenstein</label>
-                                    <label><input type="checkbox" value="Lithuania"> Lithuania</label>
-                                    <label><input type="checkbox" value="Luxembourg"> Luxembourg</label>
-                                    <label><input type="checkbox" value="Madagascar"> Madagascar</label>
-                                    <label><input type="checkbox" value="Malawi"> Malawi</label>
-                                    <label><input type="checkbox" value="Malaysia"> Malaysia</label>
-                                    <label><input type="checkbox" value="Maldives"> Maldives</label>
-                                    <label><input type="checkbox" value="Mali"> Mali</label>
-                                    <label><input type="checkbox" value="Malta"> Malta</label>
-                                    <label><input type="checkbox" value="Marshall Islands"> Marshall Islands</label>
-                                    <label><input type="checkbox" value="Mauritania"> Mauritania</label>
-                                    <label><input type="checkbox" value="Mauritius"> Mauritius</label>
-                                    <label><input type="checkbox" value="Mexico"> Mexico</label>
-                                    <label><input type="checkbox" value="Micronesia"> Micronesia</label>
-                                    <label><input type="checkbox" value="Moldova"> Moldova</label>
-                                    <label><input type="checkbox" value="Monaco"> Monaco</label>
-                                    <label><input type="checkbox" value="Mongolia"> Mongolia</label>
-                                    <label><input type="checkbox" value="Montenegro"> Montenegro</label>
-                                    <label><input type="checkbox" value="Morocco"> Morocco</label>
-                                    <label><input type="checkbox" value="Mozambique"> Mozambique</label>
-                                    <label><input type="checkbox" value="Myanmar"> Myanmar (formerly Burma)</label>
-                                    <label><input type="checkbox" value="Namibia"> Namibia</label>
-                                    <label><input type="checkbox" value="Nauru"> Nauru</label>
-                                    <label><input type="checkbox" value="Nepal"> Nepal</label>
-                                    <label><input type="checkbox" value="Netherlands"> Netherlands</label>
-                                    <label><input type="checkbox" value="New Zealand"> New Zealand</label>
-                                    <label><input type="checkbox" value="Nicaragua"> Nicaragua</label>
-                                    <label><input type="checkbox" value="Niger"> Niger</label>
-                                    <label><input type="checkbox" value="Nigeria"> Nigeria</label>
-                                    <label><input type="checkbox" value="North Korea"> North Korea</label>
-                                    <label><input type="checkbox" value="North Macedonia"> North Macedonia</label>
-                                    <label><input type="checkbox" value="Norway"> Norway</label>
-                                    <label><input type="checkbox" value="Oman"> Oman</label>
-                                    <label><input type="checkbox" value="Pakistan"> Pakistan</label>
-                                    <label><input type="checkbox" value="Palau"> Palau</label>
-                                    <label><input type="checkbox" value="Panama"> Panama</label>
-                                    <label><input type="checkbox" value="Papua New Guinea"> Papua New Guinea</label>
-                                    <label><input type="checkbox" value="Paraguay"> Paraguay</label>
-                                    <label><input type="checkbox" value="Peru"> Peru</label>
-                                    <label><input type="checkbox" value="Philippines"> Philippines</label>
-                                    <label><input type="checkbox" value="Poland"> Poland</label>
-                                    <label><input type="checkbox" value="Portugal"> Portugal</label>
-                                    <label><input type="checkbox" value="Qatar"> Qatar</label>
-                                    <label><input type="checkbox" value="Romania"> Romania</label>
-                                    <label><input type="checkbox" value="Russia"> Russia</label>
-                                    <label><input type="checkbox" value="Rwanda"> Rwanda</label>
-                                    <label><input type="checkbox" value="Saint Kitts and Nevis"> Saint Kitts and Nevis</label>
-                                    <label><input type="checkbox" value="Saint Lucia"> Saint Lucia</label>
-                                    <label><input type="checkbox" value="Saint Vincent and the Grenadines"> Saint Vincent and the
-                                       Grenadines</label>
-                                    <label><input type="checkbox" value="Samoa"> Samoa</label>
-                                    <label><input type="checkbox" value="San Marino"> San Marino</label>
-                                    <label><input type="checkbox" value="Sao Tome and Principe"> Sao Tome and Principe</label>
-                                    <label><input type="checkbox" value="Saudi Arabia"> Saudi Arabia</label>
-                                    <label><input type="checkbox" value="Senegal"> Senegal</label>
-                                    <label><input type="checkbox" value="Serbia"> Serbia</label>
-                                    <label><input type="checkbox" value="Seychelles"> Seychelles</label>
-                                    <label><input type="checkbox" value="Sierra Leone"> Sierra Leone</label>
-                                    <label><input type="checkbox" value="Singapore"> Singapore</label>
-                                    <label><input type="checkbox" value="Slovakia"> Slovakia</label>
-                                    <label><input type="checkbox" value="Slovenia"> Slovenia</label>
-                                    <label><input type="checkbox" value="Solomon Islands"> Solomon Islands</label>
-                                    <label><input type="checkbox" value="Somalia"> Somalia</label>
-                                    <label><input type="checkbox" value="South Africa"> South Africa</label>
-                                    <label><input type="checkbox" value="South Korea"> South Korea</label>
-                                    <label><input type="checkbox" value="South Sudan"> South Sudan</label>
-                                    <label><input type="checkbox" value="Spain"> Spain</label>
-                                    <label><input type="checkbox" value="Sri Lanka"> Sri Lanka</label>
-                                    <label><input type="checkbox" value="Sudan"> Sudan</label>
-                                    <label><input type="checkbox" value="Suriname"> Suriname</label>
-                                    <label><input type="checkbox" value="Sweden"> Sweden</label>
-                                    <label><input type="checkbox" value="Switzerland"> Switzerland</label>
-                                    <label><input type="checkbox" value="Syria"> Syria</label>
-                                    <label><input type="checkbox" value="Taiwan"> Taiwan</label>
-                                    <label><input type="checkbox" value="Tajikistan"> Tajikistan</label>
-                                    <label><input type="checkbox" value="Tanzania"> Tanzania</label>
-                                    <label><input type="checkbox" value="Thailand"> Thailand</label>
-                                    <label><input type="checkbox" value="Timor-Leste"> Timor-Leste</label>
-                                    <label><input type="checkbox" value="Togo"> Togo</label>
-                                    <label><input type="checkbox" value="Tonga"> Tonga</label>
-                                    <label><input type="checkbox" value="Trinidad and Tobago"> Trinidad and Tobago</label>
-                                    <label><input type="checkbox" value="Tunisia"> Tunisia</label>
-                                    <label><input type="checkbox" value="Turkey"> Turkey</label>
-                                    <label><input type="checkbox" value="Turkmenistan"> Turkmenistan</label>
-                                    <label><input type="checkbox" value="Tuvalu"> Tuvalu</label>
-                                    <label><input type="checkbox" value="Uganda"> Uganda</label>
-                                    <label><input type="checkbox" value="Ukraine"> Ukraine</label>
-                                    <label><input type="checkbox" value="United Arab Emirates"> United Arab Emirates</label>
-                                    <label><input type="checkbox" value="United Kingdom"> United Kingdom</label>
-                                    <label><input type="checkbox" value="United States"> United States</label>
-                                    <label><input type="checkbox" value="Uruguay"> Uruguay</label>
-                                    <label><input type="checkbox" value="Uzbekistan"> Uzbekistan</label>
-                                    <label><input type="checkbox" value="Vanuatu"> Vanuatu</label>
-                                    <label><input type="checkbox" value="Vatican City"> Vatican City</label>
-                                    <label><input type="checkbox" value="Venezuela"> Venezuela</label>
-                                    <label><input type="checkbox" value="Vietnam"> Vietnam</label>
-                                    <label><input type="checkbox" value="Yemen"> Yemen</label>
-                                    <label><input type="checkbox" value="Zambia"> Zambia</label>
-                                    <label><input type="checkbox" value="Zimbabwe"> Zimbabwe</label>
+                  <div class="left-dash">
+                     <div class="left-main">
+                        <h4 class="left-head">Job Details</h4>
+                     </div>
+                     <hr>
+                     <div class="serve-pad">
+                        <div class="row">
+                           <div class="col-12">
+                              <form id="client-form" method="post" action="{{ route('client-inquiry.post') }}"
+                                 enctype="multipart/form-data">
+                                 @csrf
+               
+                                 <!-- Progress bar -->
+                                 <div class="progress mb-4">
+                                    <div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%;"
+                                       aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
                                  </div>
-                              </div>
-                              <input type="hidden" name="nationalities" id="nationalities" value="" />
+               
+                                 <!-- Step 1: Basic Info -->
+                                 <div class="step" id="step1">
+                                    <div class="row">
+                                       <div class="col-lg-6">
+                                          <div class="form-group">
+                                             <label class="fw-bold">FIRST NAME</label>
+                                             <input type="text" class="form-control" name="first_name" placeholder="First Name"
+                                                required>
+                                          </div>
+                                       </div>
+                                       <div class="col-lg-6">
+                                          <div class="form-group">
+                                             <label class="fw-bold">LAST NAME</label>
+                                             <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
+                                          </div>
+                                       </div>
+                                       <div class="col-lg-6">
+                                          <div class="form-group">
+                                             <label class="fw-bold">COMPANY / AGENCY NAME</label>
+                                             <input type="text" class="form-control" name="company" placeholder="Company Name"
+                                                required>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="text-center d-flex justify-content-end">
+                                       <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                                    </div>
+                                 </div>
+               
+                                 <!-- Step 2: Contact Info -->
+                                 <div class="step d-none" id="step2">
+                                    <div class="row">
+                                       <div class="col-lg-5">
+                                          <div class="form-group">
+                                             <label class="fw-bold">CALLING NUMBER</label>
+                                             <input id="callingNumber" type="tel" class="form-control" inputmode="numeric"
+                                                oninput="this.value = this.value.replace(/\D/g, '')" name="calling_number"
+                                                placeholder="Calling Number" required>
+                                          </div>
+                                       </div>
+                                       <div class="col-lg-6">
+                                          <div class="form-group">
+                                             <label class="fw-bold">WHATSAPP NUMBER</label>
+                                             <input id="whatsappNumber" type="tel" class="form-control" name="whatsapp_number"
+                                                inputmode="numeric" oninput="this.value = this.value.replace(/\D/g, '')"
+                                                placeholder="WhatsApp Number" required>
+                                          </div>
+                                       </div>
+                                       <div class="col-lg-6">
+                                          <div class="form-group">
+                                             <label class="fw-bold">EMAIL</label>
+                                             <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="text-center d-flex justify-content-between">
+                                       <button type="button" class="btn btn-danger  " onclick="prevStep()">Back</button>
+                                       <button type="button" class="btn btn-primary " onclick="nextStep()">Next</button>
+                                    </div>
+                                 </div>
+               
+               
+                                 <!-- Project -->
+                                 <!-- Step 3: Project Info -->
+                                 <div class="step d-none" id="step3">
+                                    <div class="row">
+                                       <div class="col-lg-6">
+                                          <div class="form-group">
+                                             <label class="fw-bold">PROJECT</label>
+                                             <select class="form-select" name="project" required>
+                                                <option value="Shoot">Shoot</option>
+                                                <option value="Event">Event</option>
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="col-lg-6">
+                                          <div class="form-group">
+                                             <label class="fw-bold">LOCATION OF PROJECT</label>
+                                             <div class="row">
+                                                <div class="col-md-4">
+                                                   <select id="countryDropdown" class="form-select" name="country" required>
+                                                      <option value="" disabled selected>Select a Country</option>
+                                                   </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                   <select id="stateDropdown" class="form-select" name="state" required disabled>
+                                                      <option value="" disabled selected>Select a State</option>
+                                                   </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                   <select id="cityDropdown" class="form-select" name="city" required disabled>
+                                                      <option value="" disabled selected>Select a City</option>
+                                                   </select>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+               
+               
+                                       <!-- No of Days & No of Hours -->
+                                       <div class="col-lg-3">
+                                          <div class="form-group">
+                                             <label class="fw-bold">NO OF DAYS</label>
+                                             <input type="number" min="1" class="form-control" name="no_of_days"
+                                                placeholder="Number of Days" required>
+                                          </div>
+                                       </div>
+               
+                                       <div class="col-lg-3">
+                                          <div class="form-group">
+                                             <label class="fw-bold">NO OF HOURS</label>
+                                             <input type="number" max="24" min="1" class="form-control" name="no_of_hours"
+                                                placeholder="Number of Hours" required>
+                                          </div>
+                                       </div>
+               
+                                       <!-- male and female   -->
+               
+                                       <div class="col-md-3">
+                                          <div class="form-group">
+                                             <label class="text fw-bold">NO OF TALENTS(MALE)</label>
+                                             <input type="number" min="1" class="form-control" name="no_of_talents_male" placeholder=""
+                                                required>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-3">
+                                          <div class="form-group">
+                                             <label class="text fw-bold" class>NO OF TALENTS(FEMALE)</label>
+                                             <input required type="number" min="1" class="form-control" name="no_of_talents_female"
+                                                placeholder="" required>
+                                          </div>
+                                       </div>
+               
+               
+               
+                                       <!-- Required Talent -->
+                                       <div class="col-lg-3">
+                                          <div class="form-group">
+                                             <label class="fw-bold">REQUIRED TALENT</label>
+               
+                                             <!-- Main Dropdown Button -->
+                                             <div class="dropdown" id="dropdown-container">
+                                                <button style="background-color: #1C7887" class="btn btn-secondary  dropdown-toggle"
+                                                   id="dropdown-btn" type="button">
+                                                   Select a Category
+                                                </button>
+               
+                                                <!-- Menu container with categories and subcategories (initially hidden) -->
+                                                <div class="menu-container" id="main-category-container" style="display: none;"></div>
+                                             </div>
+                                             <input type="hidden" name="categories" id="categories" value="" />
+                                             <!-- Paragraph to show selected categories and subcategories -->
+                                             <p id="selectedCategories" style="margin-top: 10px; font-weight: bold;">
+                                                Selected Talents: None
+                                             </p>
+                                          </div>
+                                       </div>
+               
+               
+               
+               
+                                       <div class="col-lg-3">
+                                          <div class="form-group">
+                                             <label class="fw-bold">NATIONALITIES</label>
+                                             <div class="custom-dropdown" id="nationalityDropdown">
+                                                <div class=" form-control" id="dropdownButton">Select Nationalities</div>
+                                                <div class="custom-dropdown-content" id="dropdownContent">
+                                                   <label><input type="checkbox" value="Afghanistan"> Afghanistan</label>
+                                                   <label><input type="checkbox" value="Albania"> Albania</label>
+                                                   <label><input type="checkbox" value="Algeria"> Algeria</label>
+                                                   <label><input type="checkbox" value="Andorra"> Andorra</label>
+                                                   <label><input type="checkbox" value="Angola"> Angola</label>
+                                                   <label><input type="checkbox" value="Antigua and Barbuda"> Antigua and
+                                                      Barbuda</label>
+                                                   <label><input type="checkbox" value="Argentina"> Argentina</label>
+                                                   <label><input type="checkbox" value="Armenia"> Armenia</label>
+                                                   <label><input type="checkbox" value="Australia"> Australia</label>
+                                                   <label><input type="checkbox" value="Austria"> Austria</label>
+                                                   <label><input type="checkbox" value="Azerbaijan"> Azerbaijan</label>
+                                                   <label><input type="checkbox" value="Bahamas"> Bahamas</label>
+                                                   <label><input type="checkbox" value="Bahrain"> Bahrain</label>
+                                                   <label><input type="checkbox" value="Bangladesh"> Bangladesh</label>
+                                                   <label><input type="checkbox" value="Barbados"> Barbados</label>
+                                                   <label><input type="checkbox" value="Belarus"> Belarus</label>
+                                                   <label><input type="checkbox" value="Belgium"> Belgium</label>
+                                                   <label><input type="checkbox" value="Belize"> Belize</label>
+                                                   <label><input type="checkbox" value="Benin"> Benin</label>
+                                                   <label><input type="checkbox" value="Bhutan"> Bhutan</label>
+                                                   <label><input type="checkbox" value="Bolivia"> Bolivia</label>
+                                                   <label><input type="checkbox" value="Bosnia and Herzegovina"> Bosnia and
+                                                      Herzegovina</label>
+                                                   <label><input type="checkbox" value="Botswana"> Botswana</label>
+                                                   <label><input type="checkbox" value="Brazil"> Brazil</label>
+                                                   <label><input type="checkbox" value="Brunei"> Brunei</label>
+                                                   <label><input type="checkbox" value="Bulgaria"> Bulgaria</label>
+                                                   <label><input type="checkbox" value="Burkina Faso"> Burkina Faso</label>
+                                                   <label><input type="checkbox" value="Burundi"> Burundi</label>
+                                                   <label><input type="checkbox" value="Cabo Verde"> Cabo Verde</label>
+                                                   <label><input type="checkbox" value="Cambodia"> Cambodia</label>
+                                                   <label><input type="checkbox" value="Cameroon"> Cameroon</label>
+                                                   <label><input type="checkbox" value="Canada"> Canada</label>
+                                                   <label><input type="checkbox" value="Central African Republic"> Central African
+                                                      Republic</label>
+                                                   <label><input type="checkbox" value="Chad"> Chad</label>
+                                                   <label><input type="checkbox" value="Chile"> Chile</label>
+                                                   <label><input type="checkbox" value="China"> China</label>
+                                                   <label><input type="checkbox" value="Colombia"> Colombia</label>
+                                                   <label><input type="checkbox" value="Comoros"> Comoros</label>
+                                                   <label><input type="checkbox" value="Congo (Congo-Brazzaville)"> Congo
+                                                      (Congo-Brazzaville)</label>
+                                                   <label><input type="checkbox" value="Congo (Congo-Kinshasa)"> Congo
+                                                      (Congo-Kinshasa)</label>
+                                                   <label><input type="checkbox" value="Costa Rica"> Costa Rica</label>
+                                                   <label><input type="checkbox" value="Croatia"> Croatia</label>
+                                                   <label><input type="checkbox" value="Cuba"> Cuba</label>
+                                                   <label><input type="checkbox" value="Cyprus"> Cyprus</label>
+                                                   <label><input type="checkbox" value="Czech Republic"> Czech Republic</label>
+                                                   <label><input type="checkbox" value="Denmark"> Denmark</label>
+                                                   <label><input type="checkbox" value="Djibouti"> Djibouti</label>
+                                                   <label><input type="checkbox" value="Dominica"> Dominica</label>
+                                                   <label><input type="checkbox" value="Dominican Republic"> Dominican Republic</label>
+                                                   <label><input type="checkbox" value="Ecuador"> Ecuador</label>
+                                                   <label><input type="checkbox" value="Egypt"> Egypt</label>
+                                                   <label><input type="checkbox" value="El Salvador"> El Salvador</label>
+                                                   <label><input type="checkbox" value="Equatorial Guinea"> Equatorial Guinea</label>
+                                                   <label><input type="checkbox" value="Eritrea"> Eritrea</label>
+                                                   <label><input type="checkbox" value="Estonia"> Estonia</label>
+                                                   <label><input type="checkbox" value="Eswatini"> Eswatini (formerly
+                                                      Swaziland)</label>
+                                                   <label><input type="checkbox" value="Ethiopia"> Ethiopia</label>
+                                                   <label><input type="checkbox" value="Fiji"> Fiji</label>
+                                                   <label><input type="checkbox" value="Finland"> Finland</label>
+                                                   <label><input type="checkbox" value="France"> France</label>
+                                                   <label><input type="checkbox" value="Gabon"> Gabon</label>
+                                                   <label><input type="checkbox" value="Gambia"> Gambia</label>
+                                                   <label><input type="checkbox" value="Georgia"> Georgia</label>
+                                                   <label><input type="checkbox" value="Germany"> Germany</label>
+                                                   <label><input type="checkbox" value="Ghana"> Ghana</label>
+                                                   <label><input type="checkbox" value="Greece"> Greece</label>
+                                                   <label><input type="checkbox" value="Grenada"> Grenada</label>
+                                                   <label><input type="checkbox" value="Guatemala"> Guatemala</label>
+                                                   <label><input type="checkbox" value="Guinea"> Guinea</label>
+                                                   <label><input type="checkbox" value="Guinea-Bissau"> Guinea-Bissau</label>
+                                                   <label><input type="checkbox" value="Guyana"> Guyana</label>
+                                                   <label><input type="checkbox" value="Haiti"> Haiti</label>
+                                                   <label><input type="checkbox" value="Honduras"> Honduras</label>
+                                                   <label><input type="checkbox" value="Hungary"> Hungary</label>
+                                                   <label><input type="checkbox" value="Iceland"> Iceland</label>
+                                                   <label><input type="checkbox" value="India"> India</label>
+                                                   <label><input type="checkbox" value="Indonesia"> Indonesia</label>
+                                                   <label><input type="checkbox" value="Iran"> Iran</label>
+                                                   <label><input type="checkbox" value="Iraq"> Iraq</label>
+                                                   <label><input type="checkbox" value="Ireland"> Ireland</label>
+                                                   <label><input type="checkbox" value="Israel"> Israel</label>
+                                                   <label><input type="checkbox" value="Italy"> Italy</label>
+                                                   <label><input type="checkbox" value="Jamaica"> Jamaica</label>
+                                                   <label><input type="checkbox" value="Japan"> Japan</label>
+                                                   <label><input type="checkbox" value="Jordan"> Jordan</label>
+                                                   <label><input type="checkbox" value="Kazakhstan"> Kazakhstan</label>
+                                                   <label><input type="checkbox" value="Kenya"> Kenya</label>
+                                                   <label><input type="checkbox" value="Kiribati"> Kiribati</label>
+                                                   <label><input type="checkbox" value="Kuwait"> Kuwait</label>
+                                                   <label><input type="checkbox" value="Kyrgyzstan"> Kyrgyzstan</label>
+                                                   <label><input type="checkbox" value="Laos"> Laos</label>
+                                                   <label><input type="checkbox" value="Latvia"> Latvia</label>
+                                                   <label><input type="checkbox" value="Lebanon"> Lebanon</label>
+                                                   <label><input type="checkbox" value="Lesotho"> Lesotho</label>
+                                                   <label><input type="checkbox" value="Liberia"> Liberia</label>
+                                                   <label><input type="checkbox" value="Libya"> Libya</label>
+                                                   <label><input type="checkbox" value="Liechtenstein"> Liechtenstein</label>
+                                                   <label><input type="checkbox" value="Lithuania"> Lithuania</label>
+                                                   <label><input type="checkbox" value="Luxembourg"> Luxembourg</label>
+                                                   <label><input type="checkbox" value="Madagascar"> Madagascar</label>
+                                                   <label><input type="checkbox" value="Malawi"> Malawi</label>
+                                                   <label><input type="checkbox" value="Malaysia"> Malaysia</label>
+                                                   <label><input type="checkbox" value="Maldives"> Maldives</label>
+                                                   <label><input type="checkbox" value="Mali"> Mali</label>
+                                                   <label><input type="checkbox" value="Malta"> Malta</label>
+                                                   <label><input type="checkbox" value="Marshall Islands"> Marshall Islands</label>
+                                                   <label><input type="checkbox" value="Mauritania"> Mauritania</label>
+                                                   <label><input type="checkbox" value="Mauritius"> Mauritius</label>
+                                                   <label><input type="checkbox" value="Mexico"> Mexico</label>
+                                                   <label><input type="checkbox" value="Micronesia"> Micronesia</label>
+                                                   <label><input type="checkbox" value="Moldova"> Moldova</label>
+                                                   <label><input type="checkbox" value="Monaco"> Monaco</label>
+                                                   <label><input type="checkbox" value="Mongolia"> Mongolia</label>
+                                                   <label><input type="checkbox" value="Montenegro"> Montenegro</label>
+                                                   <label><input type="checkbox" value="Morocco"> Morocco</label>
+                                                   <label><input type="checkbox" value="Mozambique"> Mozambique</label>
+                                                   <label><input type="checkbox" value="Myanmar"> Myanmar (formerly Burma)</label>
+                                                   <label><input type="checkbox" value="Namibia"> Namibia</label>
+                                                   <label><input type="checkbox" value="Nauru"> Nauru</label>
+                                                   <label><input type="checkbox" value="Nepal"> Nepal</label>
+                                                   <label><input type="checkbox" value="Netherlands"> Netherlands</label>
+                                                   <label><input type="checkbox" value="New Zealand"> New Zealand</label>
+                                                   <label><input type="checkbox" value="Nicaragua"> Nicaragua</label>
+                                                   <label><input type="checkbox" value="Niger"> Niger</label>
+                                                   <label><input type="checkbox" value="Nigeria"> Nigeria</label>
+                                                   <label><input type="checkbox" value="North Korea"> North Korea</label>
+                                                   <label><input type="checkbox" value="North Macedonia"> North Macedonia</label>
+                                                   <label><input type="checkbox" value="Norway"> Norway</label>
+                                                   <label><input type="checkbox" value="Oman"> Oman</label>
+                                                   <label><input type="checkbox" value="Pakistan"> Pakistan</label>
+                                                   <label><input type="checkbox" value="Palau"> Palau</label>
+                                                   <label><input type="checkbox" value="Panama"> Panama</label>
+                                                   <label><input type="checkbox" value="Papua New Guinea"> Papua New Guinea</label>
+                                                   <label><input type="checkbox" value="Paraguay"> Paraguay</label>
+                                                   <label><input type="checkbox" value="Peru"> Peru</label>
+                                                   <label><input type="checkbox" value="Philippines"> Philippines</label>
+                                                   <label><input type="checkbox" value="Poland"> Poland</label>
+                                                   <label><input type="checkbox" value="Portugal"> Portugal</label>
+                                                   <label><input type="checkbox" value="Qatar"> Qatar</label>
+                                                   <label><input type="checkbox" value="Romania"> Romania</label>
+                                                   <label><input type="checkbox" value="Russia"> Russia</label>
+                                                   <label><input type="checkbox" value="Rwanda"> Rwanda</label>
+                                                   <label><input type="checkbox" value="Saint Kitts and Nevis"> Saint Kitts and
+                                                      Nevis</label>
+                                                   <label><input type="checkbox" value="Saint Lucia"> Saint Lucia</label>
+                                                   <label><input type="checkbox" value="Saint Vincent and the Grenadines"> Saint
+                                                      Vincent and the
+                                                      Grenadines</label>
+                                                   <label><input type="checkbox" value="Samoa"> Samoa</label>
+                                                   <label><input type="checkbox" value="San Marino"> San Marino</label>
+                                                   <label><input type="checkbox" value="Sao Tome and Principe"> Sao Tome and
+                                                      Principe</label>
+                                                   <label><input type="checkbox" value="Saudi Arabia"> Saudi Arabia</label>
+                                                   <label><input type="checkbox" value="Senegal"> Senegal</label>
+                                                   <label><input type="checkbox" value="Serbia"> Serbia</label>
+                                                   <label><input type="checkbox" value="Seychelles"> Seychelles</label>
+                                                   <label><input type="checkbox" value="Sierra Leone"> Sierra Leone</label>
+                                                   <label><input type="checkbox" value="Singapore"> Singapore</label>
+                                                   <label><input type="checkbox" value="Slovakia"> Slovakia</label>
+                                                   <label><input type="checkbox" value="Slovenia"> Slovenia</label>
+                                                   <label><input type="checkbox" value="Solomon Islands"> Solomon Islands</label>
+                                                   <label><input type="checkbox" value="Somalia"> Somalia</label>
+                                                   <label><input type="checkbox" value="South Africa"> South Africa</label>
+                                                   <label><input type="checkbox" value="South Korea"> South Korea</label>
+                                                   <label><input type="checkbox" value="South Sudan"> South Sudan</label>
+                                                   <label><input type="checkbox" value="Spain"> Spain</label>
+                                                   <label><input type="checkbox" value="Sri Lanka"> Sri Lanka</label>
+                                                   <label><input type="checkbox" value="Sudan"> Sudan</label>
+                                                   <label><input type="checkbox" value="Suriname"> Suriname</label>
+                                                   <label><input type="checkbox" value="Sweden"> Sweden</label>
+                                                   <label><input type="checkbox" value="Switzerland"> Switzerland</label>
+                                                   <label><input type="checkbox" value="Syria"> Syria</label>
+                                                   <label><input type="checkbox" value="Taiwan"> Taiwan</label>
+                                                   <label><input type="checkbox" value="Tajikistan"> Tajikistan</label>
+                                                   <label><input type="checkbox" value="Tanzania"> Tanzania</label>
+                                                   <label><input type="checkbox" value="Thailand"> Thailand</label>
+                                                   <label><input type="checkbox" value="Timor-Leste"> Timor-Leste</label>
+                                                   <label><input type="checkbox" value="Togo"> Togo</label>
+                                                   <label><input type="checkbox" value="Tonga"> Tonga</label>
+                                                   <label><input type="checkbox" value="Trinidad and Tobago"> Trinidad and
+                                                      Tobago</label>
+                                                   <label><input type="checkbox" value="Tunisia"> Tunisia</label>
+                                                   <label><input type="checkbox" value="Turkey"> Turkey</label>
+                                                   <label><input type="checkbox" value="Turkmenistan"> Turkmenistan</label>
+                                                   <label><input type="checkbox" value="Tuvalu"> Tuvalu</label>
+                                                   <label><input type="checkbox" value="Uganda"> Uganda</label>
+                                                   <label><input type="checkbox" value="Ukraine"> Ukraine</label>
+                                                   <label><input type="checkbox" value="United Arab Emirates"> United Arab
+                                                      Emirates</label>
+                                                   <label><input type="checkbox" value="United Kingdom"> United Kingdom</label>
+                                                   <label><input type="checkbox" value="United States"> United States</label>
+                                                   <label><input type="checkbox" value="Uruguay"> Uruguay</label>
+                                                   <label><input type="checkbox" value="Uzbekistan"> Uzbekistan</label>
+                                                   <label><input type="checkbox" value="Vanuatu"> Vanuatu</label>
+                                                   <label><input type="checkbox" value="Vatican City"> Vatican City</label>
+                                                   <label><input type="checkbox" value="Venezuela"> Venezuela</label>
+                                                   <label><input type="checkbox" value="Vietnam"> Vietnam</label>
+                                                   <label><input type="checkbox" value="Yemen"> Yemen</label>
+                                                   <label><input type="checkbox" value="Zambia"> Zambia</label>
+                                                   <label><input type="checkbox" value="Zimbabwe"> Zimbabwe</label>
+                                                </div>
+                                             </div>
+                                             <input type="hidden" name="nationalities" id="nationalities" value="" />
+                                          </div>
+                                       </div>
+               
+                                       <!-- start and end date  -->
+               
+                                       <!-- Start Date Input -->
+                                       <div class="col-lg-3">
+                                          <div class="form-group">
+                                             <label class="fw-bold">START DATE</label>
+                                             <input type="date" class="form-control" name="start_date" required
+                                                onchange="validateDates()">
+                                          </div>
+                                       </div>
+               
+                                       <!-- End Date Input -->
+                                       <div class="col-lg-3">
+                                          <div class="form-group">
+                                             <label class="fw-bold">END DATE</label>
+                                             <input type="date" class="form-control" name="end_date" required
+                                                onchange="validateDates()">
+                                          </div>
+                                       </div>
+               
+                                    </div>
+                                    <div class="text-center  d-flex justify-content-between">
+                                       <button type="button" class="btn btn-danger" onclick="prevStep()">Back</button>
+                                       <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                                    </div>
+                                 </div>
+                                 <!-- Budget for Each Talent -->
+                                 <div class="step d-none" id="step4">
+                                    <div class="row">
+                                       <div class="col-lg-6">
+                                          <div class="form-group">
+                                             <label class="fw-bold">BUDGET FOR EACH TALENT</label>
+                                             <div class="row">
+                                                <div class="col-md-6">
+                                                   <input type="number" class="form-control" id="starting_amount"
+                                                      name="starting_amount" required oninput="validateBudget()"
+                                                      placeholder="Starting Amount" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                   <input type="number" class="form-control" id="maximum_amount" name="maximum_amount"
+                                                      required oninput="validateBudget()" placeholder="Maximum Amount" required>
+                                                </div>
+                                             </div>
+                                             <span id="budget-error" style="color: red; display: none;">Maximum budget cannot be less
+                                                than the minimum amount.</span>
+                                          </div>
+                                       </div>
+                                       <div class="col-12">
+                                          <div class="form-group">
+                                             <label class="fw-bold">DETAIL OF PROJECT</label>
+                                             <textarea required class="form-control" name="project_detail" rows="5"
+                                                placeholder="Write your text here..."></textarea>
+                                          </div>
+                                       </div>
+                                       <div class="col-lg-12">
+                                          <div class="form-group">
+                                             <label class="fw-bold">BRIEF (OPTIONAL)</label>
+                                             <input type="file" class="form-control" name="brief_file">
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="text-center  d-flex justify-content-between">
+                                       <button type="button" class="btn btn-danger" onclick="prevStep()">Back</button>
+                                       <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                 </div>
+                              </form>
                            </div>
                         </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- Add Profile tab pane -->
+               <div class="tab-pane fade" id="selected-models" role="tabpanel" aria-labelledby="selected-models-tab">
+                  <div class="left-dash">
+                     <div class="left-main">
+                        <h4 class="left-head">Selected Models</h4>
+                     </div>
+                     <hr>
+                     @php
+                        $userCategories = DB::table('client_inquiry')
+                           ->where('user_id', Auth::id())
+                           ->select('categories')
+                           ->get()
+                           ->pluck('categories')
+                           ->toArray();
 
-                        <!-- start and end date  -->
-
-                        <!-- Start Date Input -->
-<div class="col-lg-3">
-    <div class="form-group">
-        <label class="fw-bold">START DATE</label>
-        <input type="date" class="form-control" name="start_date" required onchange="validateDates()">
-    </div>
-</div>
-
-<!-- End Date Input -->
-<div class="col-lg-3">
-    <div class="form-group">
-        <label class="fw-bold">END DATE</label>
-        <input type="date" class="form-control" name="end_date" required onchange="validateDates()">
-    </div>
-</div>
-
-</div>
-                            <div class="text-center  d-flex justify-content-between">
-                            <button type="button" class="btn btn-danger" onclick="prevStep()">Back</button>
-                                <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
-                            </div>
+                        // Assuming categories are comma-separated, we will split them into individual category names
+                        $categories = [];
+                        foreach ($userCategories as $categoryList) {
+                           $categories = array_merge($categories, explode(',', $categoryList));
+                        }
+                        $categories = array_unique($categories);  // Remove duplicates
+                        $myModels = DB::table('model_details')
+                           ->where(function ($query) use ($categories) {
+                              foreach ($categories as $category) {
+                                    $query->orWhere('category', 'like', '%"'.$category.'"%');
+                                    $query->orWhere('musician_categories', 'like', '%"'.$category.'"%');
+                              }
+                           })
+                           ->get();
+                        // dump($myModels);
+                     @endphp
+                     <div class="serve-pad">
+                        @if ($myModels->count() > 0)
+                        <div class="row">
+                           @foreach ($myModels as $modelDetail)
+                           @php
+                           // Parse the profile images string into an array
+                           $profileImages = json_decode($modelDetail->profile_images);
+                           $firstImage = $profileImages[0] ?? 'default.png'; // Default image if no profile image is available
+                           // Calculate the age from the date of birth
+                           $birthDate = new DateTime($modelDetail->date_of_birth);
+                           $currentDate = new DateTime();
+                           $age = $currentDate->diff($birthDate)->y;
+                           // Example conversion for height and weight if needed
+                           $height = $modelDetail->height . ' ' . 'cm';
+                           $weight = $modelDetail->weight . ' ' . 'kg';
+                           @endphp
+                           <div class="col my-col">
+                              <a href="{{ route('model-info.get', $modelDetail->id) }}" class="text-dark">
+                                  <div class="castbox mb-3">
+                                      {{-- <span class="bodytheading">{{ $modelDetail->gender }}</span> --}}
+                                      <div class="castimg">
+                                          <img src="{{ url('/uploads/models/profile-pics/' . $modelDetail->profile) }}" class="img-fluid"
+                                              alt="Model Image">
+                                      </div>
+                                      <div class="castbody">
+                                          <div class="castbox-code text-center">
+                                              <!-- Insert code related content here -->
+                                              {{ $modelDetail->talent_id }}
+                                          </div>
+                                          <div class="castbox-info text-center">
+                                              {{ $age . ', ' . $modelDetail->nationality }}
+                                              <!-- Insert age, nationality, etc., here -->
+                                          </div>
+                                      </div>
+                                  </div>
+                              </a>
+                          </div>
+                           @endforeach
                         </div>
-                            <!-- Budget for Each Talent -->
-                            <div class="step d-none" id="step4">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="fw-bold">BUDGET FOR EACH TALENT</label>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <input type="number" class="form-control" id="starting_amount" name="starting_amount"  required oninput="validateBudget()" placeholder="Starting Amount" required>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="number" class="form-control"  id="maximum_amount" name="maximum_amount"  required oninput="validateBudget()" placeholder="Maximum Amount" required>
-                                            </div>
-                                        </div>
-                                        <span id="budget-error" style="color: red; display: none;">Maximum budget cannot be less than the minimum amount.</span>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                <div class="form-group">
-                                    <label  class="fw-bold">DETAIL OF PROJECT</label>
-                                    <textarea required  class="form-control" name="project_detail" rows="5" placeholder="Write your text here..."></textarea>
-                                </div>
-                            </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="fw-bold">BRIEF (OPTIONAL)</label>
-                                        <input type="file" class="form-control" name="brief_file">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center  d-flex justify-content-between">
-                            <button type="button" class="btn btn-danger" onclick="prevStep()">Back</button>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
+                        @else
+                        <div class="alert alert-info">
+                           <h6>There is no models data present at this time!</h6>
                         </div>
-                    </form>
-                </div>
+                        @endif
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-    </div>
-</div>
-
+         </div>
+      </div>
+   </div>
+</section>
 <!-- intl-tel-input JS for phone inputs with flags -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
@@ -1670,962 +1753,7 @@ stateDropdown.addEventListener("change", function () {
 window.addEventListener("DOMContentLoaded", function () {
     populateCountryDropdown();
 });
-
-
-
 </script>
-
-
-
-
-
-
-
-
-               <!-- Add model register tab pane -->
-               <div class="tab-pane fade" id="add-pets" role="tabpanel" aria-labelledby="pets-tab">
-                  <div class="left-dash">
-                     <div class="left-main">
-                        <h4 class="left-head">Register Model</h4>
-                     </div>
-                     <hr>
-                     <div class="serve-pad">
-                        <div class="row">
-                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                              <form method="post" action="{{ route('model-info.post') }}"
-                                 enctype="multipart/form-data">
-                                 @csrf
-                                 <div class="multiple_steps_container">
-                                    <div class="maintab">
-                                       <div class="tab active_tab_" data-step="1">
-                                          <div class="row">
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>First Name</label>
-                                                   <input type="text" class="form-control"
-                                                      name="first_name" placeholder="First name..">
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Last Name</label>
-                                                   <input type="text" class="form-control"
-                                                      name="last_name" placeholder="Last name...">
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Date Of Birth</label>
-                                                   <input type="date" class="form-control"
-                                                      name="date_of_birth">
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Gender</label>
-                                                   <select class="form-select" name="gender"
-                                                      aria-label="Default select example">
-                                                      <option value="female" selected>Female</option>
-                                                      <option value="male">Male</option>
-                                                   </select>
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Nationality</label>
-                                                   <select class="form-select" name="nationality" aria-label="Default select example">
-                                                      <option value="" disabled selected>Select Nationality</option>
-                                                      <option value="Afghanistan">Afghanistan</option>
-                                                      <option value="Albania">Albania</option>
-                                                      <option value="Algeria">Algeria</option>
-                                                      <option value="Andorra">Andorra</option>
-                                                      <option value="Angola">Angola</option>
-                                                      <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                                      <option value="Argentina">Argentina</option>
-                                                      <option value="Armenia">Armenia</option>
-                                                      <option value="Australia">Australia</option>
-                                                      <option value="Austria">Austria</option>
-                                                      <option value="Azerbaijan">Azerbaijan</option>
-                                                      <option value="Bahamas">Bahamas</option>
-                                                      <option value="Bahrain">Bahrain</option>
-                                                      <option value="Bangladesh">Bangladesh</option>
-                                                      <option value="Barbados">Barbados</option>
-                                                      <option value="Belarus">Belarus</option>
-                                                      <option value="Belgium">Belgium</option>
-                                                      <option value="Belize">Belize</option>
-                                                      <option value="Benin">Benin</option>
-                                                      <option value="Bhutan">Bhutan</option>
-                                                      <option value="Bolivia">Bolivia</option>
-                                                      <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                                                      <option value="Botswana">Botswana</option>
-                                                      <option value="Brazil">Brazil</option>
-                                                      <option value="Brunei">Brunei</option>
-                                                      <option value="Bulgaria">Bulgaria</option>
-                                                      <option value="Burkina Faso">Burkina Faso</option>
-                                                      <option value="Burundi">Burundi</option>
-                                                      <option value="Cabo Verde">Cabo Verde</option>
-                                                      <option value="Cambodia">Cambodia</option>
-                                                      <option value="Cameroon">Cameroon</option>
-                                                      <option value="Canada">Canada</option>
-                                                      <option value="Central African Republic">Central African Republic</option>
-                                                      <option value="Chad">Chad</option>
-                                                      <option value="Chile">Chile</option>
-                                                      <option value="China">China</option>
-                                                      <option value="Colombia">Colombia</option>
-                                                      <option value="Comoros">Comoros</option>
-                                                      <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
-                                                      <option value="Costa Rica">Costa Rica</option>
-                                                      <option value="Croatia">Croatia</option>
-                                                      <option value="Cuba">Cuba</option>
-                                                      <option value="Cyprus">Cyprus</option>
-                                                      <option value="Czech Republic">Czech Republic</option>
-                                                      <option value="Denmark">Denmark</option>
-                                                      <option value="Djibouti">Djibouti</option>
-                                                      <option value="Dominica">Dominica</option>
-                                                      <option value="Dominican Republic">Dominican Republic</option>
-                                                      <option value="Ecuador">Ecuador</option>
-                                                      <option value="Egypt">Egypt</option>
-                                                      <option value="El Salvador">El Salvador</option>
-                                                      <option value="Equatorial Guinea">Equatorial Guinea</option>
-                                                      <option value="Eritrea">Eritrea</option>
-                                                      <option value="Estonia">Estonia</option>
-                                                      <option value="Eswatini (fmr. "Swaziland")">Eswatini (fmr. "Swaziland")</option>
-                                                   </select>
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Calling Number</label>
-                                                   <input type="tel" class="form-control phone-input"
-                                                      name="calling_number"
-                                                      placeholder="(000) 000 000">
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Whatsapp Number</label>
-                                                   <input type="tel" class="form-control phone-input"
-                                                      name="whatsapp_number"
-                                                      
-                                                      placeholder="(000) 000 000">
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Marital Status</label>
-                                                   <select class="form-control" name="marital_status">
-                                                      <option value="single" selected>Single</option>
-                                                      <option value="married">Married</option>
-                                                   </select>
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <div class="form-group">
-                                                      <label for="ethnicity">Ethnicity</label>
-                                                      <select name="ethnicity" id="ethnicity"
-                                                         class="form-control">
-                                                         <option value="">Select Ethnicity
-                                                         </option>
-                                                         <option value="african">African</option>
-                                                         <option value="african_american">African
-                                                            American
-                                                         </option>
-                                                         <option value="asian">Asian</option>
-                                                         <option value="caucasian">Caucasian
-                                                         </option>
-                                                         <option value="hispanic">Hispanic</option>
-                                                         <option value="middle_eastern">Middle
-                                                            Eastern
-                                                         </option>
-                                                         <option value="native_american">Native
-                                                            American
-                                                         </option>
-                                                         <option value="pacific_islander">Pacific
-                                                            Islander
-                                                         </option>
-                                                         <option value="south_asian">South Asian
-                                                         </option>
-                                                         <option value="mixed_race">Mixed Race
-                                                         </option>
-                                                         <option value="other">Other</option>
-                                                      </select>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Lives in</label>
-                                                   <select class="form-select" name="lives_in"
-                                                      aria-label="Default select example">
-                                                      <option value="United Arab Emirates" selected>United Arab Emirates</option>
-                                                      <option value="Afghanistan">Afghanistan</option>
-                                                      <option value="Albania">Albania</option>
-                                                      <option value="Algeria">Algeria</option>
-                                                      <option value="Andorra">Andorra</option>
-                                                      <option value="Angola">Angola</option>
-                                                      <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                                      <option value="Argentina">Argentina</option>
-                                                      <option value="Armenia">Armenia</option>
-                                                      <option value="Australia">Australia</option>
-                                                      <option value="Austria">Austria</option>
-                                                      <option value="Azerbaijan">Azerbaijan</option>
-                                                      <option value="Bahamas">Bahamas</option>
-                                                      <option value="Bahrain">Bahrain</option>
-                                                      <option value="Bangladesh">Bangladesh</option>
-                                                      <option value="Barbados">Barbados</option>
-                                                      <option value="Belarus">Belarus</option>
-                                                      <option value="Belgium">Belgium</option>
-                                                      <option value="Belize">Belize</option>
-                                                      <option value="Benin">Benin</option>
-                                                      <option value="Bhutan">Bhutan</option>
-                                                      <option value="Bolivia">Bolivia</option>
-                                                      <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                                                      <option value="Botswana">Botswana</option>
-                                                      <option value="Brazil">Brazil</option>
-                                                      <option value="Brunei">Brunei</option>
-                                                      <option value="Bulgaria">Bulgaria</option>
-                                                      <option value="Burkina Faso">Burkina Faso</option>
-                                                      <option value="Burundi">Burundi</option>
-                                                      <option value="Cabo Verde">Cabo Verde</option>
-                                                      <option value="Cambodia">Cambodia</option>
-                                                      <option value="Cameroon">Cameroon</option>
-                                                      <option value="Canada">Canada</option>
-                                                      <option value="Central African Republic">Central African Republic</option>
-                                                      <option value="Chad">Chad</option>
-                                                      <option value="Chile">Chile</option>
-                                                      <option value="China">China</option>
-                                                      <option value="Colombia">Colombia</option>
-                                                      <option value="Comoros">Comoros</option>
-                                                      <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
-                                                      <option value="Costa Rica">Costa Rica</option>
-                                                      <option value="Croatia">Croatia</option>
-                                                      <option value="Cuba">Cuba</option>
-                                                      <option value="Cyprus">Cyprus</option>
-                                                      <option value="Czech Republic">Czech Republic</option>
-                                                      <option value="Denmark">Denmark</option>
-                                                      <option value="Djibouti">Djibouti</option>
-                                                      <option value="Dominica">Dominica</option>
-                                                      <option value="Dominican Republic">Dominican Republic</option>
-                                                      <option value="Ecuador">Ecuador</option>
-                                                      <option value="Egypt">Egypt</option>
-                                                      <option value="El Salvador">El Salvador</option>
-                                                      <option value="Equatorial Guinea">Equatorial Guinea</option>
-                                                      <option value="Eritrea">Eritrea</option>
-                                                      <option value="Estonia">Estonia</option>
-                                                      <option value="Eswatini (fmr. "Swaziland")">Eswatini (fmr. "Swaziland")</option>
-                                                      <option value="Ethiopia">Ethiopia</option>
-                                                      <option value="Fiji">Fiji</option>
-                                                      <option value="Finland">Finland</option>
-                                                      <option value="France">France</option>
-                                                   </select>
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Languages Spoken</label>
-                                                   <select class="form-select" name="languages_spoken[]" multiple required>
-                                                      <option value="English">English</option>
-                                                      <option value="Hindi">Hindi</option>
-                                                      <option value="Arabic">Arabic</option>
-                                                      <option value="French">French</option>
-                                                      <option value="Spanish">Spanish</option>
-                                                      <option value="Chinese">Chinese</option>
-                                                      <option value="Russian">Russian</option>
-                                                      <option value="Portuguese">Portuguese</option>
-                                                      <option value="German">German</option>
-                                                   </select>
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                                <div class="contactlist">
-                                                   <label>Description</label>
-                                                   <textarea type="text" rows="10" class="form-control"
-                                                      name="biography" placeholder="Enter your description.."></textarea>
-                                                </div>
-                                             </div>
-                                             
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <div class="form-group">
-                                                      <label>Driving License</label>
-                                                      <select name="driving_license"
-                                                         id="driving_license" class="form-control">
-                                                         <option value="">-- Select --
-                                                         </option>
-                                                         <option value="yes">Yes</option>
-                                                         <option value="no">No</option>
-                                                      </select>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Email</label>
-                                                   <input type="email" class="form-control"
-                                                      name="email"
-                                                      placeholder="Dummy321@gmail.com">
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Instagram Username</label>
-                                                   <input type="text" class="form-control"
-                                                      name="instagram_username"
-                                                      placeholder="Instagram handle...">
-                                                </div>
-                                             </div>
-                                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Height (CM)</label>
-                                                   <input type="text" class="form-control" name="height_cm" placeholder="e.g., 170">
-                                                </div>
-                                             </div>
-                                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Bust (CM)</label>
-                                                   <input type="text" class="form-control" name="bust_cm" placeholder="e.g., 90">
-                                                </div>
-                                             </div>
-                                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Waist (CM)</label>
-                                                   <input type="text" class="form-control" name="waist_cm" placeholder="e.g., 60">
-                                                </div>
-                                             </div>
-                                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Hip (CM)</label>
-                                                   <input type="text" class="form-control" name="hip_cm" placeholder="e.g., 90">
-                                                </div>
-                                             </div>
-                                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Weight (KG)</label>
-                                                   <input type="text" class="form-control" name="weight_kg" placeholder="e.g., 70">
-                                                </div>
-                                             </div>
-                                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Eye Color</label>
-                                                   <input type="text" class="form-control" name="eyes_color" placeholder="e.g., Brown">
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Hair Color</label>
-                                                   <select class="form-select" name="hair_color"
-                                                      aria-label="Default select example">
-                                                      <option value="brown" selected>Brown</option>
-                                                      <option value="black">Black</option>
-                                                      <option value="blonde">Blonde</option>
-                                                      <option value="red">Red</option>
-                                                      <option value="gray">Gray</option>
-                                                      <option value="white">White</option>
-                                                      <option value="auburn">Auburn</option>
-                                                      <option value="chestnut">Chestnut</option>
-                                                      <option value="platinum_blonde">Platinum Blonde
-                                                      </option>
-                                                      <option value="strawberry_blonde">Strawberry
-                                                         Blonde
-                                                      </option>
-                                                      <option value="blue">Blue</option>
-                                                      <option value="green">Green</option>
-                                                      <option value="pink">Pink</option>
-                                                      <option value="purple">Purple</option>
-                                                      <option value="silver">Silver</option>
-                                                      <option value="other">Other</option>
-                                                   </select>
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Hair Length</label>
-                                                   <select class="form-select" name="hair_length"
-                                                      aria-label="Default select example">
-                                                      <option value="long" selected>Long</option>
-                                                      <option value="medium">Medium</option>
-                                                      <option value="short">Short</option>
-                                                   </select>
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Shoe Size (EURO)</label>
-                                                   <input type="text" class="form-control"
-                                                      name="shoe_size_euro"
-                                                      placeholder="e.g 10">
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Dress Size (EURO)</label>
-                                                   <input type="text" class="form-control"
-                                                      name="dress_size_euro"
-                                                      placeholder="e.g. 32">
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Your Hourly/ Session Rate</label>
-                                                   <input type="text" class="form-control"
-                                                      name="hourly_rate" placeholder="e.g. 120">
-                                                </div>
-                                             </div>
-                                             <div
-                                                class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                                                <div class="contactlist">
-                                                   <label>Do You Have Tattoos?</label>
-                                                   <select class="form-select" name="have_tattoos"
-                                                      id="have_tattoos"
-                                                      aria-label="Default select example"
-                                                      onchange="toggleTattoosInput()">
-                                                      <option value="yes">Yes</option>
-                                                      <option value="no">No</option>
-                                                      <option value="other">Other</option>
-                                                   </select>
-                                                   <input type="text" class="form-control mt-2"
-                                                      id="tattoos_other_input" name="tattoos_other"
-                                                      placeholder="Please specify"
-                                                      style="display: none;">
-                                                </div>
-                                                <script>
-                                                   function toggleTattoosInput() {
-                                                       var select = document.getElementById('have_tattoos');
-                                                       var input = document.getElementById('tattoos_other_input');
-                                                   
-                                                       if (select.value === 'other') {
-                                                           input.style.display = 'block';
-                                                       } else {
-                                                           input.style.display = 'none';
-                                                       }
-                                                   }
-                                                </script>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="tab" data-step="2">
-                                          <div class="row">
-                                             <div
-                                                class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                                <div class="caterlisttext">
-                                                   <h5>Select A Category</h5>
-                                                </div>
-                                                <div
-                                                   class="row row-cols-5 row-cols-md-5 row-cols-lg-5 row-cols-xl-5 row-cols-xxl-5">
-                                                   <div class="col">
-                                                      <div class="selectbox">
-                                                         <input type="checkbox" name="category[]"
-                                                            value="actors" id="category_actors">
-                                                         <label class="customselect"
-                                                            for="category_actors">
-                                                            <div class="catogerybox">
-                                                               <img src="{{ url('user-assets') }}/images/category_1.png"
-                                                                  class="img-fluid"
-                                                                  alt="img">
-                                                               <h5>Actors</h5>
-                                                            </div>
-                                                         </label>
-                                                      </div>
-                                                   </div>
-                                                   <div class="col">
-                                                      <div class="selectbox">
-                                                         <input type="checkbox" name="category[]"
-                                                            value="models" id="category_models">
-                                                         <label class="customselect"
-                                                            for="category_models">
-                                                            <div class="catogerybox">
-                                                               <img src="{{ url('user-assets') }}/images/category_2.png"
-                                                                  class="img-fluid"
-                                                                  alt="img">
-                                                               <h5>Models</h5>
-                                                            </div>
-                                                         </label>
-                                                      </div>
-                                                   </div>
-                                                   <div class="col">
-                                                      <div class="selectbox">
-                                                         <input type="checkbox" name="category[]"
-                                                            value="dancers_performers"
-                                                            id="category_dancers_performers">
-                                                         <label class="customselect"
-                                                            for="category_dancers_performers">
-                                                            <div class="catogerybox">
-                                                               <img src="{{ url('user-assets') }}/images/category_3.png"
-                                                                  class="img-fluid"
-                                                                  alt="img">
-                                                               <h5>Dancers & Performers</h5>
-                                                            </div>
-                                                         </label>
-                                                      </div>
-                                                   </div>
-                                                   <div class="col">
-                                                      <div class="selectbox">
-                                                         <input type="checkbox" name="category[]"
-                                                            value="film_crew"
-                                                            id="category_film_crew">
-                                                         <label class="customselect"
-                                                            for="category_film_crew">
-                                                            <div class="catogerybox">
-                                                               <img src="{{ url('user-assets') }}/images/category_4.png"
-                                                                  class="img-fluid"
-                                                                  alt="img">
-                                                               <h5>Film Crew</h5>
-                                                            </div>
-                                                         </label>
-                                                      </div>
-                                                   </div>
-                                                   <div class="col">
-                                                      <div class="selectbox">
-                                                         <input type="checkbox" name="category[]"
-                                                            value="musicians"
-                                                            id="category_musicians">
-                                                         <label class="customselect"
-                                                            for="category_musicians">
-                                                            <div class="catogerybox">
-                                                               <img src="{{ url('user-assets') }}/images/category_5.png"
-                                                                  class="img-fluid"
-                                                                  alt="img">
-                                                               <h5>Musicians</h5>
-                                                            </div>
-                                                         </label>
-                                                      </div>
-                                                   </div>
-                                                   <div class="col">
-                                                      <div class="selectbox">
-                                                         <input type="checkbox" name="category[]"
-                                                            value="influencers"
-                                                            id="category_influencers">
-                                                         <label class="customselect"
-                                                            for="category_influencers">
-                                                            <div class="catogerybox">
-                                                               <img src="{{ url('user-assets') }}/images/category_6.png"
-                                                                  class="img-fluid"
-                                                                  alt="img">
-                                                               <h5>Influencers</h5>
-                                                            </div>
-                                                         </label>
-                                                      </div>
-                                                   </div>
-                                                   <div class="col">
-                                                      <div class="selectbox">
-                                                         <input type="checkbox" name="category[]"
-                                                            value="presenters_emcees"
-                                                            id="category_presenters_emcees">
-                                                         <label class="customselect"
-                                                            for="category_presenters_emcees">
-                                                            <div class="catogerybox">
-                                                               <img src="{{ url('user-assets') }}/images/category_7.png"
-                                                                  class="img-fluid"
-                                                                  alt="img">
-                                                               <h5>Presenters & Emcees</h5>
-                                                            </div>
-                                                         </label>
-                                                      </div>
-                                                   </div>
-                                                   <div class="col">
-                                                      <div class="selectbox">
-                                                         <input type="checkbox" name="category[]"
-                                                            value="event_staff_ushers"
-                                                            id="category_event_staff_ushers">
-                                                         <label class="customselect"
-                                                            for="category_event_staff_ushers">
-                                                            <div class="catogerybox">
-                                                               <img src="{{ url('user-assets') }}/images/category_8.png"
-                                                                  class="img-fluid"
-                                                                  alt="img">
-                                                               <h5>Event Staff & Ushers</h5>
-                                                            </div>
-                                                         </label>
-                                                      </div>
-                                                   </div>
-                                                   <div class="col">
-                                                      <div class="selectbox">
-                                                         <input type="checkbox" name="category[]"
-                                                            value="photographers_videographers"
-                                                            id="category_photographers_videographers">
-                                                         <label class="customselect"
-                                                            for="category_photographers_videographers">
-                                                            <div class="catogerybox">
-                                                               <img src="{{ url('user-assets') }}/images/category_9.png"
-                                                                  class="img-fluid"
-                                                                  alt="img">
-                                                               <h5>Photographers / Videographers
-                                                               </h5>
-                                                            </div>
-                                                         </label>
-                                                      </div>
-                                                   </div>
-                                                   <div class="col">
-                                                      <div class="selectbox">
-                                                         <input type="checkbox" name="category[]"
-                                                            value="makeup_hair_painter_fashion_stylists"
-                                                            id="category_makeup_hair_painter_fashion_stylists">
-                                                         <label class="customselect"
-                                                            for="category_makeup_hair_painter_fashion_stylists">
-                                                            <div class="catogerybox">
-                                                               <img src="{{ url('user-assets') }}/images/category_10.png"
-                                                                  class="img-fluid"
-                                                                  alt="img">
-                                                               <h5>Makeup, Hair, Painter & Fashion
-                                                                  Stylists
-                                                               </h5>
-                                                            </div>
-                                                         </label>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="tab" data-step="2">
-                                          <!-- Actors -->
-                                          <div class="row">
-                                             <div class="col-12">
-                                                <div class="caterlisttext">
-                                                   <h5>Category Type - Actors</h5>
-                                                </div>
-                                                <div class="musicainlist">
-                                                   <ul>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="main_lead"
-                                                            id="actor_main_lead">
-                                                         <label for="actor_main_lead">Main
-                                                         Lead</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="featured_actors"
-                                                            id="actor_featured_actors">
-                                                         <label
-                                                            for="actor_featured_actors">Featured
-                                                         Actors</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="body_double"
-                                                            id="actor_body_double">
-                                                         <label for="actor_body_double">Body
-                                                         Double</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="mime_artist"
-                                                            id="actor_mime_artist">
-                                                         <label for="actor_mime_artist">Mime
-                                                         Artist</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="stunt_person"
-                                                            id="actor_stunt_person">
-                                                         <label for="actor_stunt_person">Stunt
-                                                         Person</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="extras" id="actor_extras">
-                                                         <label
-                                                            for="actor_extras">EXTRAS</label>
-                                                         </label>
-                                                      </li>
-                                                   </ul>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <!-- Models -->
-                                          <div class="row">
-                                             <div class="col-12">
-                                                <div class="caterlisttext">
-                                                   <h5>Category Type - Models</h5>
-                                                </div>
-                                                <div class="musicainlist">
-                                                   <ul>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="high_fashion_editorial"
-                                                            id="model_high_fashion_editorial">
-                                                         <label
-                                                            for="model_high_fashion_editorial">High
-                                                         Fashion (Editorial) Models</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="fashion_catalogue"
-                                                            id="model_fashion_catalogue">
-                                                         <label
-                                                            for="model_fashion_catalogue">Fashion
-                                                         (Catalogue) Models</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="commercial_models"
-                                                            id="model_commercial_models">
-                                                         <label
-                                                            for="model_commercial_models">Commercial
-                                                         Models</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="mature_models"
-                                                            id="model_mature_models">
-                                                         <label for="model_mature_models">Mature
-                                                         Models</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="promotional_models"
-                                                            id="model_promotional_models">
-                                                         <label
-                                                            for="model_promotional_models">Promotional
-                                                         Models</label>
-                                                         </label>
-                                                      </li>
-                                                   </ul>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <!-- Dancers & Performers -->
-                                          <div class="row">
-                                             <div class="col-12">
-                                                <div class="caterlisttext">
-                                                   <h5>Category Type - Dancers & Performers</h5>
-                                                </div>
-                                                <div class="musicainlist">
-                                                   <ul>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="ballet_dancers"
-                                                            id="dancer_ballet_dancers">
-                                                         <label
-                                                            for="dancer_ballet_dancers">Ballet
-                                                         Dancers</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="ballroom_dancers"
-                                                            id="dancer_ballroom_dancers">
-                                                         <label
-                                                            for="dancer_ballroom_dancers">Ballroom
-                                                         Dancers</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="baroque_dancers"
-                                                            id="dancer_baroque_dancers">
-                                                         <label
-                                                            for="dancer_baroque_dancers">Baroque
-                                                         Dancers</label>
-                                                         </label>
-                                                      </li>
-                                                   </ul>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <!-- Makeup, Hair, Painter & Fashion Stylists -->
-                                          <div class="row">
-                                             <div class="col-12">
-                                                <div class="caterlisttext">
-                                                   <h5>Category Type - Makeup, Hair, Painter & Fashion
-                                                      Stylists
-                                                   </h5>
-                                                </div>
-                                                <div class="musicainlist">
-                                                   <ul>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="makeup_artists"
-                                                            id="stylist_makeup_artists">
-                                                         <label
-                                                            for="stylist_makeup_artists">Makeup
-                                                         Artists</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="fashion_stylists"
-                                                            id="stylist_fashion_stylists">
-                                                         <label
-                                                            for="stylist_fashion_stylists">Fashion
-                                                         Stylists</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="hair_stylists"
-                                                            id="stylist_hair_stylists">
-                                                         <label for="stylist_hair_stylists">Hair
-                                                         Stylists</label>
-                                                         </label>
-                                                      </li>
-                                                   </ul>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <!-- Photographers / Videographers -->
-                                          <div class="row">
-                                             <div class="col-12">
-                                                <div class="caterlisttext">
-                                                   <h5>Category Type - Photographers / Videographers
-                                                   </h5>
-                                                </div>
-                                                <div class="musicainlist">
-                                                   <ul>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="fashion_photographer"
-                                                            id="photographer_fashion_photographer">
-                                                         <label
-                                                            for="photographer_fashion_photographer">Fashion
-                                                         Photographer</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="portrait_photographer"
-                                                            id="photographer_portrait_photographer">
-                                                         <label
-                                                            for="photographer_portrait_photographer">Portrait
-                                                         Photographer</label>
-                                                         </label>
-                                                      </li>
-                                                      <li>
-                                                         <label>
-                                                         <input type="checkbox"
-                                                            name="category_type[]"
-                                                            value="landscape_photographer"
-                                                            id="photographer_landscape_photographer">
-                                                         <label
-                                                            for="photographer_landscape_photographer">Landscape
-                                                         Photographer</label>
-                                                         </label>
-                                                      </li>
-                                                   </ul>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="tab" data-step="2">
-                                          <div class="row">
-                                             <!-- Upload Box 1 -->
-                                             <div
-                                                class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
-                                                <div class="uploadimg">
-                                                   <h5>Upload Your Photos</h5>
-                                                   <input type="text" id="profileValues"
-                                                      class="form-control" readonly>
-                                                   <div class="uploadbox">
-                                                      <input type="file" name="profiles[]"
-                                                         id="upload-file-1" hidden multiple
-                                                         onchange="updateFileNames()" />
-                                                      <label class="uploadmain" for="upload-file-1">
-                                                         <img src="{{ url('user-assets') }}/images/upload_img_4.png"
-                                                            class="img-fluid" alt="img">
-                                                         <h6>Drag and Drop your images here</h6>
-                                                      </label>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <script>
-                                                function updateFileNames() {
-                                                    const input = document.getElementById('upload-file-1');
-                                                    const fileNames = Array.from(input.files).map(file => file.name).join(', ');
-                                                    document.getElementById('profileValues').value = fileNames ?
-                                                        `${input.files.length} file(s) selected: ${fileNames}` : '';
-                                                }
-                                             </script>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <hr>
-                                    <div class="contactlist text-center btnlist mt-5">
-                                       <button class="orange previousButtonForm" id="prevStepBtn"
-                                          style="display:none;">Back</button>
-                                       <button type="button" class="nextButtonForm"
-                                          id="nextStepBtn">Next</button>
-                                    </div>
-                                 </div>
-                              </form>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</section>
 <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 <script type="text/javascript">
    $(document).ready(function() {

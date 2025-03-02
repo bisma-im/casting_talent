@@ -22,7 +22,25 @@ class ModelController extends Controller
 {
     public function dashboardPage()
     {
-        return view('users.pages.dashboard');
+        // Initialize $models to ensure it's always defined
+        $models = collect();
+        $languages = json_decode(File::get(public_path('user-assets/languages.json')), true);
+
+        $query = ModelDetail::query();
+
+        // Join with memberships table to filter models with active subscriptions
+        $query->whereExists(function ($query) {
+            $query->select(DB::raw(1))
+                ->from('memberships')
+                ->whereColumn('memberships.user_id', 'model_details.user_id');
+        });
+
+        $models = $query->get();
+
+        return view('users.pages.dashboard', [
+            'myModels' => $models, // Use $qModels if $role is provided, otherwise use $models
+            'languages' => $languages
+        ]);
     }
 
     public function modelDashboardPage()

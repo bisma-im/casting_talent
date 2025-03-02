@@ -1024,68 +1024,68 @@ s
                 <div class="row">
 
                     @if (!empty($qModels))
-                    @if ($qModels->count() > 0)
-                    @foreach ($qModels as $modelDetail)
-                    @php
-                    // Parse the profile images string into an array
-                    $profileImages = json_decode($modelDetail->profile_images);
-                    $firstImage = $profileImages[0] ?? 'default.png'; // Default image if no profile image is available
-                    // Calculate the age from the date of birth
-                    $birthDate = new DateTime($modelDetail->date_of_birth);
-                    $currentDate = new DateTime();
-                    $age = $currentDate->diff($birthDate)->y;
-                    // Example conversion for height and weight if needed
-                    $height = $modelDetail->height . ' ' . 'cm';
-                    $weight = $modelDetail->weight . ' ' . 'kg';
-                    @endphp
-                    <div class="col custom-col">
-                        <a href="{{ route('model-info.get', $modelDetail->id) }}" class="text-dark">
-                            <div class="castbox mb-3">
-                                {{-- <span class="bodytheading">{{ $modelDetail->gender }}</span> --}}
-                                <div class="castimg">
-                                    <img src="{{ url('/uploads/models/profile-pics/' . $modelDetail->profile) }}" class="img-fluid"
-                                        alt="Model Image">
+                        @if ($qModels->count() > 0)
+                            @foreach ($qModels as $modelDetail)
+                                @php
+                                    // Parse the profile images string into an array
+                                    $profileImages = json_decode($modelDetail->profile_images);
+                                    $firstImage = $profileImages[0] ?? 'default.png'; // Default image if no profile image is available
+                                    // Calculate the age from the date of birth
+                                    $birthDate = new DateTime($modelDetail->date_of_birth);
+                                    $currentDate = new DateTime();
+                                    $age = $currentDate->diff($birthDate)->y;
+                                    // Example conversion for height and weight if needed
+                                    $height = $modelDetail->height . ' ' . 'cm';
+                                    $weight = $modelDetail->weight . ' ' . 'kg';
+                                @endphp
+                                <div class="col custom-col">
+                                    <a href="{{ route('model-info.get', $modelDetail->id) }}" class="text-dark">
+                                        <div class="castbox mb-3">
+                                            {{-- <span class="bodytheading">{{ $modelDetail->gender }}</span> --}}
+                                            <div class="castimg">
+                                                <img src="{{ url('/uploads/models/profile-pics/' . $modelDetail->profile) }}" class="img-fluid"
+                                                    alt="Model Image">
+                                            </div>
+                                            <div class="castbody">
+                                                <div class="castbox-code text-center">
+                                                    <!-- Insert code related content here -->
+                                                    {{ $modelDetail->talent_id }}
+                                                </div>
+                                                <div class="castbox-info text-center">
+                                                    {{ $age . ', ' . $modelDetail->nationality }}
+                                                    <!-- Insert age, nationality, etc., here -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="castbody">
-                                    <div class="castbox-code text-center">
-                                        <!-- Insert code related content here -->
-                                        {{ $modelDetail->talent_id }}
-                                    </div>
-                                    <div class="castbox-info text-center">
-                                        {{ $age . ', ' . $modelDetail->nationality }}
-                                        <!-- Insert age, nationality, etc., here -->
-                                    </div>
-                                </div>
+                            @endforeach
+                        @else
+                            <div class="alert alert-info">
+                                <h6>There is no data present yet...</h6>
                             </div>
-                        </a>
-                    </div>
-                    @endforeach
+                        @endif
                     @else
-                    <div class="alert alert-info">
-                        <h6>There is no data present yet...</h6>
-                    </div>
-                    @endif
-                    @else
-                    @if ($models->count() > 0)
-                    @foreach ($models as $modelDetail)
-                    @php
-                    // Parse the profile images string into an array
-                    $profileImages = json_decode($modelDetail->profile_images);
-                    $firstImage = $profileImages[0] ?? 'default.png'; // Default image if no profile image is available
-                    // Calculate the age from the date of birth
-                    $birthDate = new DateTime($modelDetail->date_of_birth);
-                    $currentDate = new DateTime();
-                    $age = $currentDate->diff($birthDate)->y;
-                    // Example conversion for height and weight if needed
-                    $height = $modelDetail->height . ' ' . 'cm';
-                    $weight = $modelDetail->weight . ' ' . 'kg';
-                    @endphp
-                    @endforeach
-                    @else
-                    <div class="alert alert-info">
-                        <h6>There is no data present yet...</h6>
-                    </div>
-                    @endif
+                        @if ($models->count() > 0)
+                            @foreach ($models as $modelDetail)
+                                @php
+                                    // Parse the profile images string into an array
+                                    $profileImages = json_decode($modelDetail->profile_images);
+                                    $firstImage = $profileImages[0] ?? 'default.png'; // Default image if no profile image is available
+                                    // Calculate the age from the date of birth
+                                    $birthDate = new DateTime($modelDetail->date_of_birth);
+                                    $currentDate = new DateTime();
+                                    $age = $currentDate->diff($birthDate)->y;
+                                    // Example conversion for height and weight if needed
+                                    $height = $modelDetail->height . ' ' . 'cm';
+                                    $weight = $modelDetail->weight . ' ' . 'kg';
+                                @endphp
+                            @endforeach
+                        @else
+                            <div class="alert alert-info">
+                                <h6>There is no data present yet...</h6>
+                            </div>
+                        @endif
                     @endif
 
                 </div>
